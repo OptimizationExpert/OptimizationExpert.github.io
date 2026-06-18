@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://optimizationexpert.github.io/sitemap.xml
