@@ -1,29 +1,54 @@
 <!doctype html>
-<html lang="en">
+<html lang="fa" dir="rtl">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Optimization Courses | Ali Soroudi | Power Systems, Energy Systems & Mathematical Optimization</title>
-  <meta name="description" content="Optimization courses and teaching resources by Ali Soroudi covering linear programming, convex optimization, stochastic optimization, power system optimization, energy systems modelling, GAMS, Pyomo, Gurobi and JuMP.">
-  <meta name="keywords" content="optimization courses, power system optimization, energy systems optimization, linear programming, convex optimization, stochastic optimization, Pyomo, GAMS, Gurobi, JuMP, operations research, Ali Soroudi">
+  <title>دوره‌های بهینه‌سازی | علی سورودی | سیستم‌های قدرت، انرژی و بهینه‌سازی ریاضی</title>
+  <meta name="description" content="دوره‌ها، جزوه‌ها، مثال‌ها و منابع آموزشی بهینه‌سازی توسط علی سورودی؛ شامل برنامه‌ریزی خطی، بهینه‌سازی محدب، بهینه‌سازی تصادفی، بهینه‌سازی سیستم‌های قدرت، مدل‌سازی سیستم‌های انرژی، GAMS، Pyomo، Gurobi و JuMP.">
+  <meta name="keywords" content="دوره بهینه سازی, آموزش بهینه سازی, بهینه سازی سیستم های قدرت, بهینه سازی انرژی, برنامه ریزی خطی, بهینه سازی محدب, بهینه سازی تصادفی, Pyomo, GAMS, Gurobi, JuMP, تحقیق در عملیات, علی سورودی">
   <meta name="author" content="Ali Soroudi">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://optimizationexpert.github.io/">
 
-  <meta property="og:title" content="Optimization Courses | Ali Soroudi">
-  <meta property="og:description" content="Courses, lecture notes, examples and resources for optimization, power systems and energy systems modelling.">
+  <meta property="og:title" content="دوره‌های بهینه‌سازی | علی سورودی">
+  <meta property="og:description" content="منابع آموزشی، جزوه‌ها و مثال‌های کاربردی برای بهینه‌سازی، سیستم‌های قدرت و مدل‌سازی سیستم‌های انرژی.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://optimizationexpert.github.io/">
   <meta property="og:site_name" content="Optimization Expert">
+  <meta property="og:locale" content="fa_IR">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Optimization Courses | Ali Soroudi">
-  <meta name="twitter:description" content="Optimization courses and resources for power systems, energy systems and operations research.">
+  <meta name="twitter:title" content="دوره‌های بهینه‌سازی | علی سورودی">
+  <meta name="twitter:description" content="دوره‌ها و منابع آموزشی بهینه‌سازی برای سیستم‌های قدرت، انرژی و تحقیق در عملیات.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Ali Soroudi",
+    "alternateName": "علی سورودی",
+    "url": "https://optimizationexpert.github.io/",
+    "sameAs": [
+      "https://github.com/OptimizationExpert"
+    ],
+    "knowsAbout": [
+      "Optimization",
+      "Power System Optimization",
+      "Energy Systems Modelling",
+      "Linear Programming",
+      "Convex Optimization",
+      "Stochastic Optimization",
+      "Pyomo",
+      "GAMS",
+      "Gurobi"
+    ]
+  }
+  </script>
 
   <style>
     :root {
@@ -37,295 +62,80 @@
       --line: rgba(255, 255, 255, 0.12);
       --shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
     }
-
     * { box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
-
     body {
       margin: 0;
-      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: Vazirmatn, Tahoma, Arial, sans-serif;
       background:
-        radial-gradient(circle at top left, rgba(103, 232, 249, 0.14), transparent 30rem),
-        radial-gradient(circle at top right, rgba(167, 243, 208, 0.10), transparent 28rem),
+        radial-gradient(circle at top right, rgba(103, 232, 249, 0.14), transparent 30rem),
+        radial-gradient(circle at top left, rgba(167, 243, 208, 0.10), transparent 28rem),
         var(--bg);
       color: var(--text);
-      line-height: 1.6;
+      line-height: 1.9;
+      text-align: right;
     }
-
     a { color: inherit; text-decoration: none; }
-
-    .container {
-      width: min(1120px, calc(100% - 32px));
-      margin: 0 auto;
-    }
-
+    .container { width: min(1120px, calc(100% - 32px)); margin: 0 auto; }
     header {
-      position: sticky;
-      top: 0;
-      z-index: 10;
+      position: sticky; top: 0; z-index: 10;
       background: rgba(11, 18, 32, 0.82);
       backdrop-filter: blur(18px);
       border-bottom: 1px solid var(--line);
     }
-
-    nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 16px 0;
-      gap: 24px;
-    }
-
-    .brand {
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      font-size: 1.1rem;
-    }
-
+    nav { display: flex; align-items: center; justify-content: space-between; padding: 16px 0; gap: 24px; }
+    .brand { font-weight: 800; letter-spacing: -0.02em; font-size: 1.1rem; }
     .brand span { color: var(--accent); }
-
-    .nav-links {
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
+    .nav-links { display: flex; gap: 18px; flex-wrap: wrap; color: var(--muted); font-size: 0.95rem; }
     .nav-links a:hover { color: var(--text); }
-
-    .hero {
-      padding: 88px 0 56px;
-      display: grid;
-      grid-template-columns: 1.3fr 0.7fr;
-      gap: 40px;
-      align-items: center;
-    }
-
-    .eyebrow {
-      color: var(--accent-2);
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      font-size: 0.78rem;
-      margin-bottom: 14px;
-    }
-
-    h1 {
-      font-size: clamp(2.6rem, 7vw, 5.3rem);
-      line-height: 0.96;
-      margin: 0 0 24px;
-      letter-spacing: -0.07em;
-    }
-
-    .hero p {
-      color: var(--muted);
-      font-size: 1.16rem;
-      max-width: 720px;
-      margin: 0 0 30px;
-    }
-
-    .actions {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 12px 18px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      font-weight: 700;
-      transition: transform 0.18s ease, border 0.18s ease, background 0.18s ease;
-    }
-
+    .hero { padding: 88px 0 56px; display: grid; grid-template-columns: 1.25fr 0.75fr; gap: 40px; align-items: center; }
+    .eyebrow { color: var(--accent-2); font-weight: 800; letter-spacing: 0.05em; font-size: 0.85rem; margin-bottom: 14px; }
+    h1 { font-size: clamp(2.5rem, 7vw, 5.2rem); line-height: 1.12; margin: 0 0 24px; letter-spacing: -0.05em; }
+    .hero p { color: var(--muted); font-size: 1.16rem; max-width: 760px; margin: 0 0 30px; }
+    .actions { display: flex; gap: 14px; flex-wrap: wrap; }
+    .button { display: inline-flex; align-items: center; justify-content: center; padding: 12px 18px; border-radius: 999px; border: 1px solid var(--line); font-weight: 800; transition: transform 0.18s ease, border 0.18s ease, background 0.18s ease; }
     .button:hover { transform: translateY(-2px); }
-
-    .button.primary {
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      color: #07111f;
-      border: none;
-    }
-
-    .hero-card {
-      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
-      border: 1px solid var(--line);
-      border-radius: 28px;
-      padding: 28px;
-      box-shadow: var(--shadow);
-    }
-
-    .metric {
-      padding: 18px 0;
-      border-bottom: 1px solid var(--line);
-    }
-
+    .button.primary { background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #07111f; border: none; }
+    .hero-card { background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03)); border: 1px solid var(--line); border-radius: 28px; padding: 28px; box-shadow: var(--shadow); }
+    .metric { padding: 18px 0; border-bottom: 1px solid var(--line); }
     .metric:last-child { border-bottom: 0; }
-
-    .metric strong {
-      display: block;
-      font-size: 2rem;
-      line-height: 1.1;
-    }
-
+    .metric strong { display: block; font-size: 2rem; line-height: 1.1; }
     .metric span { color: var(--muted); }
-
     section { padding: 56px 0; }
-
-    .section-head {
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      align-items: end;
-      margin-bottom: 24px;
-    }
-
-    h2 {
-      font-size: clamp(1.8rem, 4vw, 3rem);
-      line-height: 1;
-      letter-spacing: -0.05em;
-      margin: 0;
-    }
-
-    .section-head p {
-      margin: 0;
-      color: var(--muted);
-      max-width: 520px;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .card {
-      background: rgba(17, 26, 46, 0.78);
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      padding: 24px;
-      min-height: 100%;
-    }
-
-    .card h3 {
-      margin: 0 0 10px;
-      font-size: 1.15rem;
-      letter-spacing: -0.02em;
-    }
-
+    .section-head { display: flex; justify-content: space-between; gap: 20px; align-items: end; margin-bottom: 24px; }
+    h2 { font-size: clamp(1.8rem, 4vw, 3rem); line-height: 1.2; letter-spacing: -0.04em; margin: 0; }
+    .section-head p { margin: 0; color: var(--muted); max-width: 540px; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .card { background: rgba(17, 26, 46, 0.78); border: 1px solid var(--line); border-radius: 24px; padding: 24px; min-height: 100%; }
+    .card h3 { margin: 0 0 10px; font-size: 1.15rem; letter-spacing: -0.01em; }
     .card p { color: var(--muted); margin: 0 0 16px; }
-
-    .tags {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .tag {
-      border: 1px solid var(--line);
-      color: var(--accent-2);
-      border-radius: 999px;
-      padding: 5px 9px;
-      font-size: 0.78rem;
-      font-weight: 700;
-    }
-
-    .wide {
-      display: grid;
-      grid-template-columns: 0.8fr 1.2fr;
-      gap: 18px;
-    }
-
-    .list {
-      display: grid;
-      gap: 12px;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .list li {
-      padding: 14px 16px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      color: var(--muted);
-    }
-
+    .tag-list { display: flex; gap: 8px; flex-wrap: wrap; }
+    .tag { border: 1px solid var(--line); color: var(--accent-2); border-radius: 999px; padding: 4px 10px; font-size: 0.82rem; }
+    .wide { grid-column: span 2; }
+    .list { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
+    .list li { background: rgba(255,255,255,0.04); border: 1px solid var(--line); border-radius: 16px; padding: 14px 16px; color: var(--muted); }
     .list strong { color: var(--text); }
-
-    footer {
-      border-top: 1px solid var(--line);
-      padding: 34px 0;
-      color: var(--muted);
-    }
-
-    footer .container {
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
+    footer { border-top: 1px solid var(--line); padding: 32px 0; color: var(--muted); }
+    .footer-grid { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    .small { font-size: 0.93rem; color: var(--muted); }
     @media (max-width: 860px) {
-      .hero, .wide { grid-template-columns: 1fr; }
+      nav, .section-head { align-items: flex-start; flex-direction: column; }
+      .hero { grid-template-columns: 1fr; padding-top: 58px; }
       .grid { grid-template-columns: 1fr; }
-      .section-head { display: block; }
-      .section-head p { margin-top: 12px; }
-      nav { align-items: flex-start; flex-direction: column; }
+      .wide { grid-column: span 1; }
     }
   </style>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Ali Soroudi",
-    "url": "https://optimizationexpert.github.io/",
-    "jobTitle": "Optimization and Energy Systems Educator",
-    "knowsAbout": [
-      "Mathematical Optimization",
-      "Power System Optimization",
-      "Energy Systems Modelling",
-      "Linear Programming",
-      "Convex Optimization",
-      "Stochastic Optimization",
-      "Pyomo",
-      "GAMS",
-      "Gurobi",
-      "JuMP"
-    ],
-    "sameAs": [
-      "https://github.com/OptimizationExpert"
-    ]
-  }
-  </script>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Optimization Expert",
-    "url": "https://optimizationexpert.github.io/",
-    "description": "Optimization courses, examples and teaching resources for power systems, energy systems and operations research."
-  }
-  </script>
 </head>
 <body>
   <header>
     <div class="container">
-      <nav aria-label="Main navigation">
+      <nav aria-label="ناوبری اصلی">
         <a class="brand" href="#top">Optimization<span>Expert</span></a>
         <div class="nav-links">
-          <a href="#courses">Courses</a>
-          <a href="#resources">Resources</a>
-          <a href="#tools">Tools</a>
-          <a href="#about">About</a>
-          <a href="#contact">Contact</a>
+          <a href="#courses">دوره‌ها</a>
+          <a href="#resources">منابع</a>
+          <a href="#research">پژوهش</a>
+          <a href="#contact">تماس</a>
         </div>
       </nav>
     </div>
@@ -334,137 +144,133 @@
   <main id="top">
     <section class="hero container">
       <div>
-        <div class="eyebrow">Optimization courses and resources</div>
-        <h1>Learn optimization for power and energy systems.</h1>
+        <div class="eyebrow">آموزش بهینه‌سازی و مدل‌سازی سیستم‌های انرژی</div>
+        <h1>دوره‌های بهینه‌سازی برای مهندسی، انرژی و تحقیق در عملیات</h1>
         <p>
-          A practical teaching hub by Ali Soroudi for mathematical optimization, power system optimization,
-          energy systems modelling, and computational tools including GAMS, Pyomo, Gurobi and JuMP.
+          این وب‌سایت مجموعه‌ای از دوره‌ها، جزوه‌ها، مثال‌های محاسباتی و منابع آموزشی در حوزه بهینه‌سازی ریاضی،
+          سیستم‌های قدرت، سیستم‌های انرژی، برنامه‌ریزی خطی، بهینه‌سازی محدب و بهینه‌سازی تصادفی است.
         </p>
         <div class="actions">
-          <a class="button primary" href="#courses">Explore courses</a>
-          <a class="button" href="https://github.com/OptimizationExpert" rel="noopener">GitHub examples</a>
+          <a class="button primary" href="#courses">مشاهده دوره‌ها</a>
+          <a class="button" href="#resources">منابع و نرم‌افزارها</a>
         </div>
       </div>
-
-      <aside class="hero-card" aria-label="Website highlights">
-        <div class="metric"><strong>Optimization</strong><span>Linear, convex, mixed-integer and stochastic methods</span></div>
-        <div class="metric"><strong>Energy systems</strong><span>Applications in planning, operation and markets</span></div>
-        <div class="metric"><strong>Open resources</strong><span>Examples, models, tutorials and course material</span></div>
+      <aside class="hero-card" aria-label="خلاصه سایت">
+        <div class="metric"><strong>بهینه‌سازی</strong><span>از مبانی تا کاربردهای سیستم‌های قدرت</span></div>
+        <div class="metric"><strong>Pyomo / GAMS</strong><span>مدل‌سازی عملی با مثال‌های قابل اجرا</span></div>
+        <div class="metric"><strong>Energy Systems</strong><span>کاربرد در بهره‌برداری، برنامه‌ریزی و بازار برق</span></div>
       </aside>
     </section>
 
     <section id="courses" class="container">
       <div class="section-head">
-        <h2>Courses</h2>
-        <p>Structured learning paths from optimization foundations to advanced applications in power and energy systems.</p>
+        <h2>دوره‌ها</h2>
+        <p>مسیرهای آموزشی برای یادگیری مفاهیم نظری و پیاده‌سازی عملی مدل‌های بهینه‌سازی.</p>
       </div>
       <div class="grid">
         <article class="card">
-          <h3>Linear Programming</h3>
-          <p>Modelling, simplex intuition, duality, sensitivity analysis and practical LP formulation.</p>
-          <div class="tags"><span class="tag">LP</span><span class="tag">Duality</span><span class="tag">Modelling</span></div>
+          <h3>برنامه‌ریزی خطی</h3>
+          <p>مدل‌سازی، فرم استاندارد، دوگان، تحلیل حساسیت و کاربردهای مهندسی.</p>
+          <div class="tag-list"><span class="tag">LP</span><span class="tag">Simplex</span><span class="tag">Duality</span></div>
         </article>
         <article class="card">
-          <h3>Convex Optimization</h3>
-          <p>Convex sets and functions, optimality conditions, Lagrangian duality and conic optimization.</p>
-          <div class="tags"><span class="tag">Convexity</span><span class="tag">KKT</span><span class="tag">SOCP</span></div>
+          <h3>بهینه‌سازی محدب</h3>
+          <p>مجموعه‌ها و توابع محدب، شرایط KKT، دوگانگی و الگوریتم‌های پایه.</p>
+          <div class="tag-list"><span class="tag">Convexity</span><span class="tag">KKT</span><span class="tag">Duality</span></div>
         </article>
         <article class="card">
-          <h3>Mixed-Integer Optimization</h3>
-          <p>Binary variables, unit commitment logic, branch-and-bound, cuts and strong formulations.</p>
-          <div class="tags"><span class="tag">MILP</span><span class="tag">UC</span><span class="tag">Planning</span></div>
+          <h3>بهینه‌سازی تصادفی</h3>
+          <p>مدل‌های سناریومحور، عدم قطعیت، برنامه‌ریزی دومرحله‌ای و کاربرد در انرژی.</p>
+          <div class="tag-list"><span class="tag">Uncertainty</span><span class="tag">Scenarios</span><span class="tag">Risk</span></div>
         </article>
         <article class="card">
-          <h3>Stochastic Optimization</h3>
-          <p>Scenario modelling, uncertainty, two-stage decisions, risk measures and energy applications.</p>
-          <div class="tags"><span class="tag">Uncertainty</span><span class="tag">Scenarios</span><span class="tag">Risk</span></div>
+          <h3>بهینه‌سازی سیستم‌های قدرت</h3>
+          <p>پخش بار اقتصادی، OPF، برنامه‌ریزی واحدها، توسعه شبکه و بازار برق.</p>
+          <div class="tag-list"><span class="tag">OPF</span><span class="tag">UC</span><span class="tag">Markets</span></div>
         </article>
         <article class="card">
-          <h3>Power System Optimization</h3>
-          <p>Economic dispatch, optimal power flow, unit commitment, reserve scheduling and network constraints.</p>
-          <div class="tags"><span class="tag">OPF</span><span class="tag">Dispatch</span><span class="tag">Markets</span></div>
+          <h3>مدل‌سازی سیستم‌های انرژی</h3>
+          <p>مدل‌های برنامه‌ریزی تولید، ذخیره‌سازها، منابع تجدیدپذیر و انعطاف‌پذیری.</p>
+          <div class="tag-list"><span class="tag">Energy</span><span class="tag">Storage</span><span class="tag">Renewables</span></div>
         </article>
         <article class="card">
-          <h3>Energy Systems Modelling</h3>
-          <p>Generation expansion, storage, renewables, flexibility, sector coupling and long-term planning.</p>
-          <div class="tags"><span class="tag">Planning</span><span class="tag">Storage</span><span class="tag">Renewables</span></div>
+          <h3>ابزارهای محاسباتی</h3>
+          <p>نمونه‌های آموزشی و کدهای کاربردی برای Pyomo، GAMS، Gurobi، MATLAB و JuMP.</p>
+          <div class="tag-list"><span class="tag">Pyomo</span><span class="tag">GAMS</span><span class="tag">Gurobi</span></div>
         </article>
       </div>
     </section>
 
     <section id="resources" class="container">
       <div class="section-head">
-        <h2>Teaching resources</h2>
-        <p>Use this section to publish lecture notes, slides, assignments, examples and datasets.</p>
-      </div>
-      <div class="wide">
-        <article class="card">
-          <h3>Suggested structure</h3>
-          <ul class="list">
-            <li><strong>Lecture notes:</strong> PDF handouts and reading material</li>
-            <li><strong>Slides:</strong> weekly lecture presentations</li>
-            <li><strong>Assignments:</strong> modelling and coding exercises</li>
-            <li><strong>Projects:</strong> applied optimization case studies</li>
-          </ul>
-        </article>
-        <article class="card">
-          <h3>Featured topics</h3>
-          <ul class="list">
-            <li><strong>Economic dispatch:</strong> cost minimization and operational constraints</li>
-            <li><strong>Optimal power flow:</strong> network-aware power system optimization</li>
-            <li><strong>Unit commitment:</strong> binary scheduling and thermal generator constraints</li>
-            <li><strong>Expansion planning:</strong> investment decisions under uncertainty</li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <section id="tools" class="container">
-      <div class="section-head">
-        <h2>Software tools</h2>
-        <p>Examples can be linked to GitHub repositories, notebooks or downloadable model files.</p>
+        <h2>منابع آموزشی</h2>
+        <p>این بخش برای قرار دادن جزوه‌ها، اسلایدها، تمرین‌ها و مثال‌های قابل اجرا طراحی شده است.</p>
       </div>
       <div class="grid">
-        <article class="card"><h3>Pyomo</h3><p>Python-based algebraic modelling for LP, MILP, NLP and stochastic optimization workflows.</p></article>
-        <article class="card"><h3>GAMS</h3><p>Algebraic modelling language widely used for energy, power systems and operations research.</p></article>
-        <article class="card"><h3>Gurobi</h3><p>High-performance solver for linear, quadratic and mixed-integer optimization models.</p></article>
+        <article class="card wide">
+          <h3>جزوه‌ها، اسلایدها و تمرین‌ها</h3>
+          <ul class="list">
+            <li><strong>جزوه درس:</strong> فایل‌های PDF برای هر مبحث و هر جلسه.</li>
+            <li><strong>اسلایدها:</strong> نسخه خلاصه برای تدریس و مرور سریع.</li>
+            <li><strong>تمرین‌ها:</strong> مسائل مدل‌سازی، تحلیل و پیاده‌سازی عددی.</li>
+            <li><strong>پروژه‌ها:</strong> پروژه‌های کاربردی در انرژی، بازار برق و سیستم‌های قدرت.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>نرم‌افزارها</h3>
+          <p>برای هر ابزار می‌توانید صفحه جداگانه، مثال‌های آموزشی و لینک مخزن GitHub اضافه کنید.</p>
+          <div class="tag-list"><span class="tag">GAMS</span><span class="tag">Pyomo</span><span class="tag">JuMP</span><span class="tag">MATLAB</span></div>
+        </article>
       </div>
     </section>
 
-    <section id="about" class="container">
+    <section id="research" class="container">
       <div class="section-head">
-        <h2>About</h2>
-        <p>
-          This website is maintained by Ali Soroudi as a personal teaching and resource hub for optimization courses,
-          with emphasis on power systems, energy systems and practical computational modelling.
-        </p>
+        <h2>پژوهش و کاربردها</h2>
+        <p>تمرکز محتوای این سایت بر اتصال نظریه بهینه‌سازی به مسائل واقعی مهندسی انرژی است.</p>
       </div>
-      <article class="card">
-        <p>
-          The aim is to make optimization easier to learn through clear formulations, reproducible examples,
-          and application-driven case studies. Course material can be expanded here over time with lecture pages,
-          datasets, code repositories and project briefs.
-        </p>
-      </article>
+      <div class="grid">
+        <article class="card">
+          <h3>بهره‌برداری سیستم‌های قدرت</h3>
+          <p>مدل‌سازی قیود شبکه، تولید، ذخیره‌ساز، بار انعطاف‌پذیر و عدم قطعیت.</p>
+        </article>
+        <article class="card">
+          <h3>برنامه‌ریزی توسعه</h3>
+          <p>تصمیم‌گیری بلندمدت برای تولید، شبکه، منابع تجدیدپذیر و زیرساخت انرژی.</p>
+        </article>
+        <article class="card">
+          <h3>بازار برق و انرژی</h3>
+          <p>مدل‌های قیمت‌گذاری، مزایده، ریسک، سناریو و رفتار بازیگران بازار.</p>
+        </article>
+      </div>
     </section>
 
     <section id="contact" class="container">
       <div class="section-head">
-        <h2>Contact</h2>
-        <p>For course material, collaborations or optimization resources, use the links below.</p>
+        <h2>تماس و پیوندها</h2>
+        <p>برای تکمیل سایت، لینک‌های Google Scholar، ORCID، LinkedIn، GitHub و ایمیل دانشگاهی خود را در این بخش قرار دهید.</p>
       </div>
       <div class="grid">
-        <article class="card"><h3>Email</h3><p><a href="mailto:alireza.soroudi@gmail.com">alireza.soroudi@gmail.com</a></p></article>
-        <article class="card"><h3>GitHub</h3><p><a href="https://github.com/OptimizationExpert" rel="noopener">github.com/OptimizationExpert</a></p></article>
-        <article class="card"><h3>Website</h3><p><a href="https://optimizationexpert.github.io/">optimizationexpert.github.io</a></p></article>
+        <article class="card">
+          <h3>GitHub</h3>
+          <p><a href="https://github.com/OptimizationExpert">github.com/OptimizationExpert</a></p>
+        </article>
+        <article class="card">
+          <h3>Google Scholar</h3>
+          <p>لینک پروفایل پژوهشی خود را اینجا اضافه کنید.</p>
+        </article>
+        <article class="card">
+          <h3>ایمیل</h3>
+          <p>ایمیل رسمی خود را اینجا اضافه کنید.</p>
+        </article>
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="container">
-      <span>© <span id="year"></span> Ali Soroudi. Optimization Expert.</span>
-      <span>Built for GitHub Pages.</span>
+    <div class="container footer-grid">
+      <div>© <span id="year"></span> علی سورودی — دوره‌های بهینه‌سازی</div>
+      <div class="small">ساخته‌شده برای GitHub Pages • https://optimizationexpert.github.io</div>
     </div>
   </footer>
 

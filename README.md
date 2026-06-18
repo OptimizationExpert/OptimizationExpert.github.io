@@ -1,15 +1,15 @@
-# Optimization Expert GitHub Pages Site
+# OptimizationExpert GitHub Pages
 
-This repository hosts the personal course website at:
+Persian RTL course website for `https://optimizationexpert.github.io/`.
 
-https://optimizationexpert.github.io/
+## Publish
 
-## Files
+1. Open `https://github.com/OptimizationExpert/OptimizationExpert.github.io`
+2. Replace the root `index.html` with this file.
+3. Also upload `sitemap.xml` and `robots.txt`.
+4. Commit changes to the `main` branch.
+5. Wait a few minutes and hard refresh the live site.
 
-- `index.html` — main SEO-ready course webpage
-- `sitemap.xml` — sitemap for Google Search Console
-- `robots.txt` — crawler instructions
+## Suggested edits
 
-## Publishing
-
-Upload these files to the root of `OptimizationExpert/OptimizationExpert.github.io` on the `main` branch. GitHub Pages will publish the site automatically.
+Replace placeholder contact links with Ali Soroudi's official Google Scholar, ORCID, LinkedIn, university profile and email.
