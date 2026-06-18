@@ -1,0 +1,26 @@
+---
+layout: default
+title: یادداشت‌ها
+permalink: /blog/
+description: یادداشت‌ها و نکات روزانه آموزشی درباره مدل‌سازی و بهینه‌سازی
+---
+<h1 class="page-title">یادداشت‌ها</h1>
+<p class="page-sub">نکات روزانه درباره مدل‌سازی، بهینه‌سازی و پیاده‌سازی در Python.</p>
+
+<ul class="post-list">
+  {% for post in site.posts %}
+  <li>
+    <a href="{{ post.url }}">
+      <article class="post-card">
+        <h3>{{ post.title }}</h3>
+        <p class="post-date">{{ post.display_date | default: post.date | date: "%Y/%m/%d" }}</p>
+        <p class="post-excerpt">{{ post.excerpt | strip_html | truncate: 160 }}</p>
+      </article>
+    </a>
+  </li>
+  {% endfor %}
+</ul>
+
+{% if site.posts.size == 0 %}
+<p class="page-sub">هنوز یادداشتی منتشر نشده است.</p>
+{% endif %}
