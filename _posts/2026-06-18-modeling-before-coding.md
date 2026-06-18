@@ -1,4 +1,4 @@
----
+[2026-06-18-modeling-before-coding.md](2026-06-18-modeling-before-coding.md)---
 layout: post
 title: "چرا قبل از کدنویسی باید مدل‌سازی ریاضی را یاد بگیریم؟"
 date: 2026-06-18
