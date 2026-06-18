@@ -1,15 +1,18 @@
-# OptimizationExpert GitHub Pages
+# Optimization Expert Persian Course Website
 
-Persian RTL course website for `https://optimizationexpert.github.io/`.
+This is the Persian RTL version of the Optimization Expert course website for GitHub Pages.
 
-## Publish
+## How to publish
 
-1. Open `https://github.com/OptimizationExpert/OptimizationExpert.github.io`
-2. Replace the root `index.html` with this file.
-3. Also upload `sitemap.xml` and `robots.txt`.
-4. Commit changes to the `main` branch.
-5. Wait a few minutes and hard refresh the live site.
+1. Open the repository: `OptimizationExpert/OptimizationExpert.github.io`
+2. Replace the existing files with:
+   - `index.html`
+   - `robots.txt`
+   - `sitemap.xml`
+   - `README.md`
+3. Commit changes to the branch currently used by GitHub Pages, usually `main`.
+4. Wait a few minutes and hard refresh the browser.
 
-## Suggested edits
+## Contact link
 
-Replace placeholder contact links with Ali Soroudi's official Google Scholar, ORCID, LinkedIn, university profile and email.
+Course registration points to Telegram: `https://t.me/pypyid`

@@ -1,128 +1,349 @@
 <!doctype html>
 <html lang="fa" dir="rtl">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>دوره‌های بهینه‌سازی | Optimization Expert</title>
+  <meta name="description" content="دوره‌های تخصصی بهینه‌سازی شامل مدل‌سازی مسائل بهینه‌سازی، بهینه‌سازی سیستم‌های قدرت، مدل‌سازی عدم قطعیت و آموزش VRP در Python." />
+  <meta name="keywords" content="بهینه سازی، آموزش بهینه سازی، مدل سازی بهینه سازی، سیستم قدرت، VRP، Python، پایتون، عدم قطعیت، Robust Optimization، IGDT، Pyomo، Gurobi" />
+  <meta name="author" content="Optimization Expert" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://optimizationexpert.github.io/" />
 
-  <title>دوره‌های بهینه‌سازی | علی سورودی | سیستم‌های قدرت، انرژی و بهینه‌سازی ریاضی</title>
-  <meta name="description" content="دوره‌ها، جزوه‌ها، مثال‌ها و منابع آموزشی بهینه‌سازی توسط علی سورودی؛ شامل برنامه‌ریزی خطی، بهینه‌سازی محدب، بهینه‌سازی تصادفی، بهینه‌سازی سیستم‌های قدرت، مدل‌سازی سیستم‌های انرژی، GAMS، Pyomo، Gurobi و JuMP.">
-  <meta name="keywords" content="دوره بهینه سازی, آموزش بهینه سازی, بهینه سازی سیستم های قدرت, بهینه سازی انرژی, برنامه ریزی خطی, بهینه سازی محدب, بهینه سازی تصادفی, Pyomo, GAMS, Gurobi, JuMP, تحقیق در عملیات, علی سورودی">
-  <meta name="author" content="Ali Soroudi">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://optimizationexpert.github.io/">
-
-  <meta property="og:title" content="دوره‌های بهینه‌سازی | علی سورودی">
-  <meta property="og:description" content="منابع آموزشی، جزوه‌ها و مثال‌های کاربردی برای بهینه‌سازی، سیستم‌های قدرت و مدل‌سازی سیستم‌های انرژی.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://optimizationexpert.github.io/">
-  <meta property="og:site_name" content="Optimization Expert">
-  <meta property="og:locale" content="fa_IR">
-
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="دوره‌های بهینه‌سازی | علی سورودی">
-  <meta name="twitter:description" content="دوره‌ها و منابع آموزشی بهینه‌سازی برای سیستم‌های قدرت، انرژی و تحقیق در عملیات.">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta property="og:title" content="دوره‌های تخصصی بهینه‌سازی" />
+  <meta property="og:description" content="آموزش پروژه‌محور مدل‌سازی، سیستم‌های قدرت، عدم قطعیت و VRP در Python." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://optimizationexpert.github.io/" />
+  <meta property="og:locale" content="fa_IR" />
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Ali Soroudi",
-    "alternateName": "علی سورودی",
+    "@type": "EducationalOrganization",
+    "name": "Optimization Expert",
     "url": "https://optimizationexpert.github.io/",
+    "description": "دوره‌های تخصصی و پروژه‌محور در حوزه بهینه‌سازی، سیستم‌های قدرت، عدم قطعیت و مسیریابی وسایل نقلیه در Python.",
     "sameAs": [
-      "https://github.com/OptimizationExpert"
-    ],
-    "knowsAbout": [
-      "Optimization",
-      "Power System Optimization",
-      "Energy Systems Modelling",
-      "Linear Programming",
-      "Convex Optimization",
-      "Stochastic Optimization",
-      "Pyomo",
-      "GAMS",
-      "Gurobi"
+      "https://github.com/OptimizationExpert",
+      "https://t.me/pypyid"
     ]
   }
   </script>
 
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap');
+
     :root {
-      --bg: #0b1220;
-      --panel: #111a2e;
-      --panel-2: #16213a;
-      --text: #edf2ff;
-      --muted: #a9b7d0;
-      --accent: #67e8f9;
-      --accent-2: #a7f3d0;
-      --line: rgba(255, 255, 255, 0.12);
-      --shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
+      --bg: #f7f7fb;
+      --card: #ffffff;
+      --text: #172033;
+      --muted: #5f6b7a;
+      --primary: #174ea6;
+      --primary-2: #0b57d0;
+      --accent: #00a884;
+      --border: #e5e9f2;
+      --shadow: 0 18px 45px rgba(23, 32, 51, 0.08);
+      --radius: 24px;
     }
+
     * { box-sizing: border-box; }
+
     html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
-      font-family: Vazirmatn, Tahoma, Arial, sans-serif;
+      font-family: "Vazirmatn", Tahoma, Arial, sans-serif;
       background:
-        radial-gradient(circle at top right, rgba(103, 232, 249, 0.14), transparent 30rem),
-        radial-gradient(circle at top left, rgba(167, 243, 208, 0.10), transparent 28rem),
-        var(--bg);
+        radial-gradient(circle at top left, rgba(23, 78, 166, 0.12), transparent 32rem),
+        linear-gradient(180deg, #ffffff 0%, var(--bg) 100%);
       color: var(--text);
       line-height: 1.9;
-      text-align: right;
     }
+
     a { color: inherit; text-decoration: none; }
-    .container { width: min(1120px, calc(100% - 32px)); margin: 0 auto; }
-    header {
-      position: sticky; top: 0; z-index: 10;
-      background: rgba(11, 18, 32, 0.82);
-      backdrop-filter: blur(18px);
-      border-bottom: 1px solid var(--line);
+
+    .container {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
     }
-    nav { display: flex; align-items: center; justify-content: space-between; padding: 16px 0; gap: 24px; }
-    .brand { font-weight: 800; letter-spacing: -0.02em; font-size: 1.1rem; }
-    .brand span { color: var(--accent); }
-    .nav-links { display: flex; gap: 18px; flex-wrap: wrap; color: var(--muted); font-size: 0.95rem; }
-    .nav-links a:hover { color: var(--text); }
-    .hero { padding: 88px 0 56px; display: grid; grid-template-columns: 1.25fr 0.75fr; gap: 40px; align-items: center; }
-    .eyebrow { color: var(--accent-2); font-weight: 800; letter-spacing: 0.05em; font-size: 0.85rem; margin-bottom: 14px; }
-    h1 { font-size: clamp(2.5rem, 7vw, 5.2rem); line-height: 1.12; margin: 0 0 24px; letter-spacing: -0.05em; }
-    .hero p { color: var(--muted); font-size: 1.16rem; max-width: 760px; margin: 0 0 30px; }
-    .actions { display: flex; gap: 14px; flex-wrap: wrap; }
-    .button { display: inline-flex; align-items: center; justify-content: center; padding: 12px 18px; border-radius: 999px; border: 1px solid var(--line); font-weight: 800; transition: transform 0.18s ease, border 0.18s ease, background 0.18s ease; }
-    .button:hover { transform: translateY(-2px); }
-    .button.primary { background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #07111f; border: none; }
-    .hero-card { background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03)); border: 1px solid var(--line); border-radius: 28px; padding: 28px; box-shadow: var(--shadow); }
-    .metric { padding: 18px 0; border-bottom: 1px solid var(--line); }
-    .metric:last-child { border-bottom: 0; }
-    .metric strong { display: block; font-size: 2rem; line-height: 1.1; }
-    .metric span { color: var(--muted); }
-    section { padding: 56px 0; }
-    .section-head { display: flex; justify-content: space-between; gap: 20px; align-items: end; margin-bottom: 24px; }
-    h2 { font-size: clamp(1.8rem, 4vw, 3rem); line-height: 1.2; letter-spacing: -0.04em; margin: 0; }
-    .section-head p { margin: 0; color: var(--muted); max-width: 540px; }
-    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-    .card { background: rgba(17, 26, 46, 0.78); border: 1px solid var(--line); border-radius: 24px; padding: 24px; min-height: 100%; }
-    .card h3 { margin: 0 0 10px; font-size: 1.15rem; letter-spacing: -0.01em; }
-    .card p { color: var(--muted); margin: 0 0 16px; }
-    .tag-list { display: flex; gap: 8px; flex-wrap: wrap; }
-    .tag { border: 1px solid var(--line); color: var(--accent-2); border-radius: 999px; padding: 4px 10px; font-size: 0.82rem; }
-    .wide { grid-column: span 2; }
-    .list { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
-    .list li { background: rgba(255,255,255,0.04); border: 1px solid var(--line); border-radius: 16px; padding: 14px 16px; color: var(--muted); }
-    .list strong { color: var(--text); }
-    footer { border-top: 1px solid var(--line); padding: 32px 0; color: var(--muted); }
-    .footer-grid { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
-    .small { font-size: 0.93rem; color: var(--muted); }
-    @media (max-width: 860px) {
-      nav, .section-head { align-items: flex-start; flex-direction: column; }
-      .hero { grid-template-columns: 1fr; padding-top: 58px; }
-      .grid { grid-template-columns: 1fr; }
-      .wide { grid-column: span 1; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(18px);
+      background: rgba(255, 255, 255, 0.78);
+      border-bottom: 1px solid rgba(229, 233, 242, 0.8);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0;
+      gap: 18px;
+    }
+
+    .brand {
+      font-weight: 800;
+      color: var(--primary);
+      letter-spacing: -0.3px;
+      font-size: 1.08rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 0.95rem;
+      color: var(--muted);
+      flex-wrap: wrap;
+    }
+
+    .nav-links a:hover { color: var(--primary); }
+
+    .hero {
+      padding: 82px 0 46px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(23, 78, 166, 0.09);
+      color: var(--primary);
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 6vw, 4.4rem);
+      line-height: 1.2;
+      margin: 0 0 18px;
+      letter-spacing: -1.6px;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 1.12rem;
+      max-width: 760px;
+      margin: 0 0 26px;
+    }
+
+    .actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 20px;
+      border-radius: 14px;
+      font-weight: 700;
+      border: 1px solid transparent;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      color: white;
+      box-shadow: 0 14px 30px rgba(23, 78, 166, 0.22);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: var(--primary);
+      border-color: var(--border);
+    }
+
+    .hero-card {
+      background: rgba(255,255,255,0.86);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 26px;
+    }
+
+    .hero-card h2 {
+      margin: 0 0 14px;
+      font-size: 1.22rem;
+    }
+
+    .stat-list {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .stat-list li {
+      background: #f7f9fd;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 12px 14px;
+      color: var(--muted);
+    }
+
+    section { padding: 42px 0; }
+
+    .section-title {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    .section-title h2 {
+      margin: 0;
+      font-size: clamp(1.7rem, 3vw, 2.5rem);
+      letter-spacing: -0.8px;
+    }
+
+    .section-title p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 520px;
+    }
+
+    .courses {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .course {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: 0 12px 34px rgba(23, 32, 51, 0.06);
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+    }
+
+    .course-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .course h3 {
+      margin: 0;
+      color: var(--primary);
+      font-size: 1.28rem;
+      line-height: 1.55;
+    }
+
+    .tag {
+      background: rgba(0,168,132,0.1);
+      color: #00795f;
+      border: 1px solid rgba(0,168,132,0.2);
+      padding: 5px 10px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .course p { color: var(--muted); margin: 8px 0 14px; }
+
+    .course h4 {
+      margin: 16px 0 8px;
+      font-size: 1rem;
+    }
+
+    ul.clean {
+      padding: 0 20px 0 0;
+      margin: 0;
+      color: var(--muted);
+    }
+
+    ul.clean li { margin-bottom: 6px; }
+
+    .course-footer {
+      margin-top: auto;
+      padding-top: 18px;
+    }
+
+    .telegram {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #229ed9;
+      color: #fff;
+      border-radius: 14px;
+      padding: 10px 16px;
+      font-weight: 800;
+    }
+
+    .note {
+      background: #fff8e6;
+      border: 1px solid #ffdfa3;
+      color: #6d4b00;
+      border-radius: 18px;
+      padding: 16px 18px;
+      margin-top: 22px;
+    }
+
+    .contact-box {
+      background: linear-gradient(135deg, var(--primary), #082a68);
+      color: white;
+      border-radius: var(--radius);
+      padding: 32px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: center;
+      box-shadow: var(--shadow);
+    }
+
+    .contact-box h2 { margin: 0 0 8px; }
+    .contact-box p { margin: 0; opacity: 0.86; }
+    .contact-box .telegram { background: white; color: var(--primary); }
+
+    footer {
+      padding: 36px 0;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 820px) {
+      .hero-grid,
+      .courses,
+      .contact-box {
+        grid-template-columns: 1fr;
+      }
+
+      .section-title {
+        align-items: start;
+        flex-direction: column;
+      }
+
+      nav { align-items: start; flex-direction: column; }
+      .hero { padding-top: 48px; }
     }
   </style>
 </head>
@@ -130,147 +351,188 @@
   <header>
     <div class="container">
       <nav aria-label="ناوبری اصلی">
-        <a class="brand" href="#top">Optimization<span>Expert</span></a>
+        <a class="brand" href="#top">Optimization Expert</a>
         <div class="nav-links">
           <a href="#courses">دوره‌ها</a>
-          <a href="#resources">منابع</a>
-          <a href="#research">پژوهش</a>
-          <a href="#contact">تماس</a>
+          <a href="#path">مسیر یادگیری</a>
+          <a href="#contact">ثبت‌نام و تماس</a>
         </div>
       </nav>
     </div>
   </header>
 
   <main id="top">
-    <section class="hero container">
-      <div>
-        <div class="eyebrow">آموزش بهینه‌سازی و مدل‌سازی سیستم‌های انرژی</div>
-        <h1>دوره‌های بهینه‌سازی برای مهندسی، انرژی و تحقیق در عملیات</h1>
-        <p>
-          این وب‌سایت مجموعه‌ای از دوره‌ها، جزوه‌ها، مثال‌های محاسباتی و منابع آموزشی در حوزه بهینه‌سازی ریاضی،
-          سیستم‌های قدرت، سیستم‌های انرژی، برنامه‌ریزی خطی، بهینه‌سازی محدب و بهینه‌سازی تصادفی است.
-        </p>
-        <div class="actions">
-          <a class="button primary" href="#courses">مشاهده دوره‌ها</a>
-          <a class="button" href="#resources">منابع و نرم‌افزارها</a>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="badge">آموزش تخصصی، کاربردی و پروژه‌محور</div>
+          <h1>دوره‌های تخصصی بهینه‌سازی</h1>
+          <p>
+            مجموعه‌ای از دوره‌های کاربردی برای یادگیری مدل‌سازی، کدنویسی و حل مسائل بهینه‌سازی در حوزه‌های سیستم‌های قدرت، عدم قطعیت، حمل‌ونقل، لجستیک و برنامه‌ریزی عملیاتی.
+          </p>
+          <div class="actions">
+            <a class="btn btn-primary" href="https://t.me/pypyid" target="_blank" rel="noopener">تماس در تلگرام @pypyid</a>
+            <a class="btn btn-secondary" href="#courses">مشاهده دوره‌ها</a>
+          </div>
+        </div>
+        <aside class="hero-card" aria-label="خلاصه دوره‌ها">
+          <h2>تمرکز آموزشی</h2>
+          <ul class="stat-list">
+            <li>مدل‌سازی دقیق قبل از کدنویسی</li>
+            <li>پیاده‌سازی عملی در Python و ابزارهای بهینه‌سازی</li>
+            <li>مثال‌های کاربردی از صنعت برق، انرژی و لجستیک</li>
+            <li>مسیر یادگیری از پایه تا پروژه‌های واقعی</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section id="courses">
+      <div class="container">
+        <div class="section-title">
+          <h2>دوره‌ها</h2>
+          <p>برای دریافت اطلاعات ثبت‌نام، هزینه و زمان برگزاری هر دوره، از طریق تلگرام پیام دهید.</p>
+        </div>
+
+        <div class="courses">
+          <article class="course">
+            <div class="course-header">
+              <h3>دوره مدل‌سازی مسائل بهینه‌سازی</h3>
+              <span class="tag">پایه و ضروری</span>
+            </div>
+            <p>
+              این دوره نقطه شروع ورود به دنیای بهینه‌سازی است و بر مهم‌ترین بخش هر پروژه بهینه‌سازی، یعنی مدل‌سازی صحیح مسئله تمرکز دارد. در این دوره، پیش از هرگونه برنامه‌نویسی یا استفاده از نرم‌افزارهای حل‌کننده، شرکت‌کنندگان با اصول تبدیل مسائل واقعی به مدل‌های ریاضی آشنا خواهند شد.
+            </p>
+            <p>
+              در ابتدا مفاهیم پایه‌ای مدل‌سازی، تعریف متغیرهای تصمیم، تابع هدف و قیود مورد بررسی قرار می‌گیرد. سپس انواع مختلف مسائل بهینه‌سازی در حوزه‌های مهندسی، انرژی و کسب‌وکار تحلیل شده و روش صحیح فرموله‌سازی آن‌ها آموزش داده می‌شود.
+            </p>
+            <h4>هدف دوره</h4>
+            <ul class="clean">
+              <li>تبدیل مسائل واقعی به مدل ریاضی دقیق و قابل حل</li>
+              <li>شناخت متغیرهای تصمیم، تابع هدف و قیود</li>
+              <li>آمادگی برای کدنویسی با ابزارهایی مانند Gurobi، Pyomo و JuMP</li>
+            </ul>
+            <div class="course-footer"><a class="telegram" href="https://t.me/pypyid" target="_blank" rel="noopener">ثبت‌نام از طریق تلگرام</a></div>
+          </article>
+
+          <article class="course">
+            <div class="course-header">
+              <h3>دوره بهینه‌سازی سیستم‌های قدرت</h3>
+              <span class="tag">۸ ساعت</span>
+            </div>
+            <p>
+              این دوره ۸ ساعته با هدف آشنایی عملی با مهم‌ترین مسائل بهینه‌سازی در سیستم‌های قدرت طراحی شده است. شرکت‌کنندگان با نحوه مدل‌سازی و کدنویسی مسائل پایه بهینه‌سازی سیستم قدرت آشنا می‌شوند و یاد می‌گیرند چگونه مسائل متداول صنعت برق را به مدل‌های ریاضی قابل حل تبدیل کنند.
+            </p>
+            <h4>سرفصل‌ها</h4>
+            <ul class="clean">
+              <li>پخش بار اقتصادی (Economic Dispatch)</li>
+              <li>پخش بار اقتصادی دینامیکی (Dynamic Economic Dispatch)</li>
+              <li>پخش بار بهینه DC (DC Optimal Power Flow)</li>
+              <li>مدل‌سازی سیستم‌های ذخیره‌ساز انرژی و باتری</li>
+              <li>آشنایی مختصر با آرایش بهینه نیروگاهی</li>
+            </ul>
+            <div class="course-footer"><a class="telegram" href="https://t.me/pypyid" target="_blank" rel="noopener">ثبت‌نام از طریق تلگرام</a></div>
+          </article>
+
+          <article class="course">
+            <div class="course-header">
+              <h3>دوره فشرده مدل‌سازی عدم قطعیت</h3>
+              <span class="tag">فشرده</span>
+            </div>
+            <p>
+              در بسیاری از مسائل واقعی، اطلاعات مورد نیاز برای تصمیم‌گیری به صورت قطعی در دسترس نیستند. تغییرات بار، قیمت انرژی، تولید منابع تجدیدپذیر و بسیاری از پارامترهای دیگر دارای عدم قطعیت هستند. در این دوره فشرده، مهم‌ترین روش‌های مدل‌سازی عدم قطعیت در مسائل بهینه‌سازی معرفی و مقایسه می‌شوند.
+            </p>
+            <h4>روش‌های مورد بررسی</h4>
+            <ul class="clean">
+              <li>مدل‌سازی احتمالاتی (Stochastic Optimization)</li>
+              <li>مدل‌سازی فازی (Fuzzy Optimization)</li>
+              <li>بهینه‌سازی مقاوم (Robust Optimization)</li>
+              <li>نظریه تصمیم‌گیری در شرایط کمبود اطلاعات (IGDT)</li>
+              <li>مقایسه مزایا، محدودیت‌ها و کاربردهای هر روش</li>
+            </ul>
+            <div class="course-footer"><a class="telegram" href="https://t.me/pypyid" target="_blank" rel="noopener">ثبت‌نام از طریق تلگرام</a></div>
+          </article>
+
+          <article class="course">
+            <div class="course-header">
+              <h3>آموزش جامع بهینه‌سازی و مسیریابی (VRP) در Python</h3>
+              <span class="tag">۲۰ پروژه + ۱۰ ساعت</span>
+            </div>
+            <p>
+              این دوره یک مسیر آموزشی پروژه‌محور برای یادگیری مدل‌سازی و پیاده‌سازی مسائل مسیریابی وسیله نقلیه و مسائل ترکیبی در Python است. دوره شامل ۲۰ پروژه عملی و حدود ۱۰ ساعت ویدیوی آموزشی است و از سطح مقدماتی آغاز شده و به‌تدریج وارد مسائل تخصصی‌تر حمل‌ونقل و لجستیک می‌شود.
+            </p>
+            <h4>پروژه‌های عمومی</h4>
+            <ul class="clean">
+              <li>حداکثر جریان در شبکه‌های آب، گاز و حمل‌ونقل</li>
+              <li>تخصیص کارگر به پروژه و بسته‌بندی هوشمند</li>
+              <li>چیدمان میهمان، زمان‌بندی تولید و برنامه‌ریزی درسی</li>
+              <li>مربع جادویی، تحلیل گراف، جانمایی ربات و مسائل ترکیبی</li>
+            </ul>
+            <h4>پروژه‌های تخصصی VRP</h4>
+            <ul class="clean">
+              <li>VRP، CVRP و VRPTW</li>
+              <li>مسیریابی چند پایانه، پنجره زمانی و زمان انتظار</li>
+              <li>تحویل چندمرحله‌ای، بارگیری و تخلیه، مسیریابی سودآور</li>
+              <li>محدودیت‌های مکانی، اولویت‌بندی و حمل بار بین نقاط مختلف</li>
+            </ul>
+            <h4>دریافتی‌های دوره</h4>
+            <ul class="clean">
+              <li>ویدیوهای آموزشی، کد کامل پروژه‌ها، مستندات و داده‌های تست آماده</li>
+              <li>مناسب برای دانشجویان مهندسی، مدیران عملیاتی و علاقه‌مندان به برنامه‌نویسی و بهینه‌سازی</li>
+            </ul>
+            <div class="course-footer"><a class="telegram" href="https://t.me/pypyid" target="_blank" rel="noopener">ثبت‌نام از طریق تلگرام</a></div>
+          </article>
+        </div>
+
+        <div class="note">
+          این دوره‌ها رایگان نیستند. برای اطلاع از هزینه، زمان برگزاری، شرایط ثبت‌نام و دریافت مشاوره انتخاب دوره، از طریق تلگرام با آیدی <strong>@pypyid</strong> تماس بگیرید.
         </div>
       </div>
-      <aside class="hero-card" aria-label="خلاصه سایت">
-        <div class="metric"><strong>بهینه‌سازی</strong><span>از مبانی تا کاربردهای سیستم‌های قدرت</span></div>
-        <div class="metric"><strong>Pyomo / GAMS</strong><span>مدل‌سازی عملی با مثال‌های قابل اجرا</span></div>
-        <div class="metric"><strong>Energy Systems</strong><span>کاربرد در بهره‌برداری، برنامه‌ریزی و بازار برق</span></div>
-      </aside>
     </section>
 
-    <section id="courses" class="container">
-      <div class="section-head">
-        <h2>دوره‌ها</h2>
-        <p>مسیرهای آموزشی برای یادگیری مفاهیم نظری و پیاده‌سازی عملی مدل‌های بهینه‌سازی.</p>
-      </div>
-      <div class="grid">
-        <article class="card">
-          <h3>برنامه‌ریزی خطی</h3>
-          <p>مدل‌سازی، فرم استاندارد، دوگان، تحلیل حساسیت و کاربردهای مهندسی.</p>
-          <div class="tag-list"><span class="tag">LP</span><span class="tag">Simplex</span><span class="tag">Duality</span></div>
-        </article>
-        <article class="card">
-          <h3>بهینه‌سازی محدب</h3>
-          <p>مجموعه‌ها و توابع محدب، شرایط KKT، دوگانگی و الگوریتم‌های پایه.</p>
-          <div class="tag-list"><span class="tag">Convexity</span><span class="tag">KKT</span><span class="tag">Duality</span></div>
-        </article>
-        <article class="card">
-          <h3>بهینه‌سازی تصادفی</h3>
-          <p>مدل‌های سناریومحور، عدم قطعیت، برنامه‌ریزی دومرحله‌ای و کاربرد در انرژی.</p>
-          <div class="tag-list"><span class="tag">Uncertainty</span><span class="tag">Scenarios</span><span class="tag">Risk</span></div>
-        </article>
-        <article class="card">
-          <h3>بهینه‌سازی سیستم‌های قدرت</h3>
-          <p>پخش بار اقتصادی، OPF، برنامه‌ریزی واحدها، توسعه شبکه و بازار برق.</p>
-          <div class="tag-list"><span class="tag">OPF</span><span class="tag">UC</span><span class="tag">Markets</span></div>
-        </article>
-        <article class="card">
-          <h3>مدل‌سازی سیستم‌های انرژی</h3>
-          <p>مدل‌های برنامه‌ریزی تولید، ذخیره‌سازها، منابع تجدیدپذیر و انعطاف‌پذیری.</p>
-          <div class="tag-list"><span class="tag">Energy</span><span class="tag">Storage</span><span class="tag">Renewables</span></div>
-        </article>
-        <article class="card">
-          <h3>ابزارهای محاسباتی</h3>
-          <p>نمونه‌های آموزشی و کدهای کاربردی برای Pyomo، GAMS، Gurobi، MATLAB و JuMP.</p>
-          <div class="tag-list"><span class="tag">Pyomo</span><span class="tag">GAMS</span><span class="tag">Gurobi</span></div>
-        </article>
+    <section id="path">
+      <div class="container">
+        <div class="section-title">
+          <h2>مسیر پیشنهادی یادگیری</h2>
+          <p>برای ورود اصولی به بهینه‌سازی، ابتدا مدل‌سازی را یاد بگیرید، سپس وارد حوزه تخصصی مورد علاقه خود شوید.</p>
+        </div>
+        <div class="courses">
+          <div class="course">
+            <h3>مسیر انرژی و سیستم قدرت</h3>
+            <ul class="clean">
+              <li>۱. مدل‌سازی مسائل بهینه‌سازی</li>
+              <li>۲. بهینه‌سازی سیستم‌های قدرت</li>
+              <li>۳. مدل‌سازی عدم قطعیت</li>
+            </ul>
+          </div>
+          <div class="course">
+            <h3>مسیر حمل‌ونقل و لجستیک</h3>
+            <ul class="clean">
+              <li>۱. مدل‌سازی مسائل بهینه‌سازی</li>
+              <li>۲. آموزش VRP در Python</li>
+              <li>۳. توسعه پروژه‌های واقعی حمل‌ونقل و زنجیره تأمین</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section id="resources" class="container">
-      <div class="section-head">
-        <h2>منابع آموزشی</h2>
-        <p>این بخش برای قرار دادن جزوه‌ها، اسلایدها، تمرین‌ها و مثال‌های قابل اجرا طراحی شده است.</p>
-      </div>
-      <div class="grid">
-        <article class="card wide">
-          <h3>جزوه‌ها، اسلایدها و تمرین‌ها</h3>
-          <ul class="list">
-            <li><strong>جزوه درس:</strong> فایل‌های PDF برای هر مبحث و هر جلسه.</li>
-            <li><strong>اسلایدها:</strong> نسخه خلاصه برای تدریس و مرور سریع.</li>
-            <li><strong>تمرین‌ها:</strong> مسائل مدل‌سازی، تحلیل و پیاده‌سازی عددی.</li>
-            <li><strong>پروژه‌ها:</strong> پروژه‌های کاربردی در انرژی، بازار برق و سیستم‌های قدرت.</li>
-          </ul>
-        </article>
-        <article class="card">
-          <h3>نرم‌افزارها</h3>
-          <p>برای هر ابزار می‌توانید صفحه جداگانه، مثال‌های آموزشی و لینک مخزن GitHub اضافه کنید.</p>
-          <div class="tag-list"><span class="tag">GAMS</span><span class="tag">Pyomo</span><span class="tag">JuMP</span><span class="tag">MATLAB</span></div>
-        </article>
-      </div>
-    </section>
-
-    <section id="research" class="container">
-      <div class="section-head">
-        <h2>پژوهش و کاربردها</h2>
-        <p>تمرکز محتوای این سایت بر اتصال نظریه بهینه‌سازی به مسائل واقعی مهندسی انرژی است.</p>
-      </div>
-      <div class="grid">
-        <article class="card">
-          <h3>بهره‌برداری سیستم‌های قدرت</h3>
-          <p>مدل‌سازی قیود شبکه، تولید، ذخیره‌ساز، بار انعطاف‌پذیر و عدم قطعیت.</p>
-        </article>
-        <article class="card">
-          <h3>برنامه‌ریزی توسعه</h3>
-          <p>تصمیم‌گیری بلندمدت برای تولید، شبکه، منابع تجدیدپذیر و زیرساخت انرژی.</p>
-        </article>
-        <article class="card">
-          <h3>بازار برق و انرژی</h3>
-          <p>مدل‌های قیمت‌گذاری، مزایده، ریسک، سناریو و رفتار بازیگران بازار.</p>
-        </article>
-      </div>
-    </section>
-
-    <section id="contact" class="container">
-      <div class="section-head">
-        <h2>تماس و پیوندها</h2>
-        <p>برای تکمیل سایت، لینک‌های Google Scholar، ORCID، LinkedIn، GitHub و ایمیل دانشگاهی خود را در این بخش قرار دهید.</p>
-      </div>
-      <div class="grid">
-        <article class="card">
-          <h3>GitHub</h3>
-          <p><a href="https://github.com/OptimizationExpert">github.com/OptimizationExpert</a></p>
-        </article>
-        <article class="card">
-          <h3>Google Scholar</h3>
-          <p>لینک پروفایل پژوهشی خود را اینجا اضافه کنید.</p>
-        </article>
-        <article class="card">
-          <h3>ایمیل</h3>
-          <p>ایمیل رسمی خود را اینجا اضافه کنید.</p>
-        </article>
+    <section id="contact">
+      <div class="container">
+        <div class="contact-box">
+          <div>
+            <h2>ثبت‌نام و دریافت اطلاعات دوره‌ها</h2>
+            <p>برای اطلاع از هزینه، ظرفیت، زمان برگزاری و انتخاب دوره مناسب، در تلگرام پیام دهید.</p>
+          </div>
+          <a class="telegram" href="https://t.me/pypyid" target="_blank" rel="noopener">@pypyid</a>
+        </div>
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="container footer-grid">
-      <div>© <span id="year"></span> علی سورودی — دوره‌های بهینه‌سازی</div>
-      <div class="small">ساخته‌شده برای GitHub Pages • https://optimizationexpert.github.io</div>
+    <div class="container">
+      © <span id="year"></span> Optimization Expert — دوره‌های تخصصی بهینه‌سازی
     </div>
   </footer>
 
