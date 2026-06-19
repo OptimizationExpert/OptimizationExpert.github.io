@@ -7,6 +7,20 @@
   <meta name="description" content="{{ page.description | default: site.description }}" />
   <meta name="author" content="Optimization Expert" />
   <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="{{ page.url | absolute_url }}" />
+
+  <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}" />
+  <meta property="og:title" content="{{ page.title | default: site.title }}" />
+  <meta property="og:description" content="{{ page.description | default: site.description }}" />
+  <meta property="og:url" content="{{ page.url | absolute_url }}" />
+  <meta property="og:locale" content="fa_IR" />
+  {% if page.image %}<meta property="og:image" content="{{ page.image | absolute_url }}" />{% endif %}
+
+  <meta name="twitter:card" content="{% if page.image %}summary_large_image{% else %}summary{% endif %}" />
+  <meta name="twitter:title" content="{{ page.title | default: site.title }}" />
+  <meta name="twitter:description" content="{{ page.description | default: site.description }}" />
+  {% if page.image %}<meta name="twitter:image" content="{{ page.image | absolute_url }}" />{% endif %}
+
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap');
 
@@ -87,7 +101,8 @@
     article.post p { color: var(--text); }
     article.post ul, article.post ol { padding-right: 22px; color: var(--text); }
     article.post li { margin-bottom: 6px; }
-article.post img { display: block; max-width: 100%; height: auto; margin: 20px auto; border-radius: 16px; }    article.post pre {
+    article.post img { display: block; max-width: 100%; height: auto; margin: 20px auto; border-radius: 16px; }
+    article.post pre {
       background: #0f1b2d; color: #e6edf7; padding: 16px 18px;
       border-radius: 14px; overflow-x: auto; direction: ltr; text-align: left;
     }
