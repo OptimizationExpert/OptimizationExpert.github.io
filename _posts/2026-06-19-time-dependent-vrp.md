@@ -1,4 +1,4 @@
-[TDVRP.md](TDVRP.md)---
+[TDVRP.md](2026-06-19-time-dependent-vrp.md)---
 ---
 layout: post
 title: "وقتی فاصله‌ها به زمان وابسته‌اند — مسئله‌ای سخت‌تر از آن‌چه فکر می‌کنی"
