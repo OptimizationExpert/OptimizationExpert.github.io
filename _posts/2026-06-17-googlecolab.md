@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Google Colab: مزایا و معایب (راست و رو)"
-date: 2026-06-20
-display_date: "30 خرداد ۱۴۰۵"
+date: 2026-06-17
+display_date: "26 خرداد ۱۴۰۵"
 description: "تحلیل منصفانه مزایا و معایب Google Colab برای یادگیری و کار با ابزارهای بهینه‌سازی."
 ---
 
