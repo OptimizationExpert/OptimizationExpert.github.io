@@ -112,8 +112,6 @@ https://t.me/c/1349591965/4050
 
 برای سریع و خیلی ساده: **NEOS Server**.
 
-**برای کمک و سؤال:** در تلگرام @pypyid پیام بده یا به کانال بپیوند.
+**برای کمک و سؤال:** در تلگرام @pypyid پیام بده یا به کانال )(https://t.me/pyomochannel) بپیوند.
 
 ---
-
-![جای عکس — solver options comparison](/assets/posts/pyomo-solver-options.png)
