@@ -54,8 +54,8 @@ print(value(m.x))
 **کل کاری که باید کنی:**
 
 1. این لینک رو باز کن:
-   https://colab.research.google.com/github/OptimizationExpert/Pyomo/blob/main/Pyomo_on_Google_Colab.ipynb
-
+[   https://colab.research.google.com/github/OptimizationExpert/Pyomo/blob/main/Pyomo_on_Google_Colab.ipynb
+](link)
 2. حساب Google خودت رو لاگین کن (رایگان).
 
 3. سلول‌های کد (cell) رو یکی بعد از دیگری اجرا کن (دکمه‌ی ▶ یا Shift+Enter).
