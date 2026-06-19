@@ -6,8 +6,9 @@ lang: "fa"
 # نشانی پست‌ها: /posts/سال/ماه/روز/عنوان/
 permalink: /posts/:year/:month/:day/:title/
 
-# تعداد پست در هر صفحه (در صورت نیاز به صفحه‌بندی)
-paginate: 10
+# افزونه‌ها — ساخت خودکار sitemap شامل همه پست‌ها
+plugins:
+  - jekyll-sitemap
 
 # فایل‌هایی که نباید پردازش/کپی شوند
 exclude:
