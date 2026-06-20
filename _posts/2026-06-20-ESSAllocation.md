@@ -19,7 +19,7 @@ image: /assets/projects/storageallocation.jpg
 
 ---
 
-![تصویر شبکه انتقال و جایابی ذخیره‌ساز](/assets/projects/storageallocation.jpg)
+![تصویر شبکه انتقال و جایابی ذخیره‌ساز](/assets/posts/storageallocation.jpg)
 
 ---
 
@@ -209,7 +209,7 @@ m.charge[i,t], m.discharge[i,t]
 
 ۱. **مطالعه ادبیات:** جستجو برای مقالات درباره Energy Storage Placement
 ۲. **انتخاب شبکه‌ی تست:** از IEEE Test Cases استفاده کن (IEEE 30-Bus, IEEE 118-Bus)
-۳. **تشکیل تیم:** اگر گروه‌ای، نقش‌ها را تقسیم کن (مدل، کد، داده، گزارش)
+
 
 ---
 
