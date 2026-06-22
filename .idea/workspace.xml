@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5fb3a5bf-0b5a-4e22-aaa6-3a759bb44e2d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="5fb3a5bf-0b5a-4e22-aaa6-3a759bb44e2d" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -24,23 +22,23 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0" />
-      <entry key="MS500" value="1.0" />
-      <entry key="S2" value="1.0" />
-      <entry key="S5" value="1.0000000400006865" />
-      <entry key="S10" value="1.0002000044645099" />
-      <entry key="S30" value="1.0607040512657009" />
-      <entry key="S60" value="1.30851381524182" />
-      <entry key="M2" value="1.8576848256905711" />
-      <entry key="M5" value="2.928157214189648" />
-      <entry key="M10" value="4.2965712225004795" />
-      <entry key="M15" value="5.551332451418255" />
-      <entry key="M30" value="10.421058660104283" />
-      <entry key="H1" value="21.57129030012615" />
-      <entry key="H2" value="36.202896846996516" />
-      <entry key="H4" value="48.886780727662924" />
-      <entry key="D1" value="64.22207076812798" />
-      <entry key="W1" value="67.44330258782533" />
+      <entry key="MS100" value="1.0000000018244812" />
+      <entry key="MS500" value="1.0206629917291319" />
+      <entry key="S2" value="1.5954492460211314" />
+      <entry key="S5" value="2.227723550675005" />
+      <entry key="S10" value="2.6484412242003694" />
+      <entry key="S30" value="3.5398335221768544" />
+      <entry key="S60" value="4.100518053805136" />
+      <entry key="M2" value="4.496171365479896" />
+      <entry key="M5" value="4.7836025309950365" />
+      <entry key="M10" value="4.88914718895978" />
+      <entry key="M15" value="4.925494511219629" />
+      <entry key="M30" value="4.9627854023206925" />
+      <entry key="H1" value="5.1082422894027575" />
+      <entry key="H2" value="8.04173961869591" />
+      <entry key="H4" value="22.628759826058765" />
+      <entry key="D1" value="115.63476779369948" />
+      <entry key="W1" value="166.21743056838974" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
@@ -62,23 +60,23 @@
       <entry key="W1" value="0.0" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.47631899902196867" />
-      <entry key="MS500" value="0.8621435450175959" />
-      <entry key="S2" value="0.9635957930100821" />
-      <entry key="S5" value="0.9852761489902223" />
-      <entry key="S10" value="0.9927734632230079" />
-      <entry key="S30" value="1.0543055226008575" />
-      <entry key="S60" value="1.298482364893557" />
-      <entry key="M2" value="1.8469802736626544" />
-      <entry key="M5" value="2.9208426315099048" />
-      <entry key="M10" value="4.292094184336609" />
-      <entry key="M15" value="5.548111728468471" />
-      <entry key="M30" value="10.419248271094425" />
-      <entry key="H1" value="21.570228338637882" />
-      <entry key="H2" value="36.20226553727321" />
-      <entry key="H4" value="48.88642025401384" />
-      <entry key="D1" value="64.22200131714156" />
-      <entry key="W1" value="67.44329237817217" />
+      <entry key="MS100" value="0.8888426827438877" />
+      <entry key="MS500" value="0.996722896371973" />
+      <entry key="S2" value="1.5840739019934995" />
+      <entry key="S5" value="2.220640125116008" />
+      <entry key="S10" value="2.6439637294372615" />
+      <entry key="S30" value="3.5375252887504294" />
+      <entry key="S60" value="4.099087971360748" />
+      <entry key="M2" value="4.495357260176772" />
+      <entry key="M5" value="4.783247869871624" />
+      <entry key="M10" value="4.88896451073073" />
+      <entry key="M15" value="4.925371496506634" />
+      <entry key="M30" value="4.962723217548588" />
+      <entry key="H1" value="5.1082043558893" />
+      <entry key="H2" value="8.04166763752173" />
+      <entry key="H4" value="22.628623627312464" />
+      <entry key="D1" value="115.6346600531993" />
+      <entry key="W1" value="166.2174090086977" />
     </decayedShown>
   </component>
   <component name="ProblemsViewState">
@@ -93,22 +91,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Alireza.Soroudi/Desktop/OptimizationExpert.github.io/_posts&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/Alireza.Soroudi/Desktop/OptimizationExpert.github.io/_posts",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Alireza.Soroudi\Desktop\OptimizationExpert.github.io\_posts" />
