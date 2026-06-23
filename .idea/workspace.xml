@@ -22,23 +22,23 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0000000018244812" />
-      <entry key="MS500" value="1.0206629917291319" />
-      <entry key="S2" value="1.5954492460211314" />
-      <entry key="S5" value="2.227723550675005" />
-      <entry key="S10" value="2.6484412242003694" />
-      <entry key="S30" value="3.5398335221768544" />
-      <entry key="S60" value="4.100518053805136" />
-      <entry key="M2" value="4.496171365479896" />
-      <entry key="M5" value="4.7836025309950365" />
-      <entry key="M10" value="4.88914718895978" />
-      <entry key="M15" value="4.925494511219629" />
-      <entry key="M30" value="4.9627854023206925" />
-      <entry key="H1" value="5.1082422894027575" />
-      <entry key="H2" value="8.04173961869591" />
-      <entry key="H4" value="22.628759826058765" />
-      <entry key="D1" value="115.63476779369948" />
-      <entry key="W1" value="166.21743056838974" />
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0000000336235102" />
+      <entry key="S2" value="1.0164263042101145" />
+      <entry key="S5" value="1.4671853050860397" />
+      <entry key="S10" value="2.8391773910068236" />
+      <entry key="S30" value="6.234271609367322" />
+      <entry key="S60" value="8.106893023255228" />
+      <entry key="M2" value="9.385776565639178" />
+      <entry key="M5" value="10.30714044588098" />
+      <entry key="M10" value="10.645032678575392" />
+      <entry key="M15" value="10.761403796039628" />
+      <entry key="M30" value="10.880052675007914" />
+      <entry key="H1" value="11.06612808812362" />
+      <entry key="H2" value="14.014001336163195" />
+      <entry key="H4" value="28.598318341208767" />
+      <entry key="D1" value="121.61208079628904" />
+      <entry key="W1" value="172.21282090558572" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
@@ -60,23 +60,23 @@
       <entry key="W1" value="0.0" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.8888426827438877" />
-      <entry key="MS500" value="0.996722896371973" />
-      <entry key="S2" value="1.5840739019934995" />
-      <entry key="S5" value="2.220640125116008" />
-      <entry key="S10" value="2.6439637294372615" />
-      <entry key="S30" value="3.5375252887504294" />
-      <entry key="S60" value="4.099087971360748" />
-      <entry key="M2" value="4.495357260176772" />
-      <entry key="M5" value="4.783247869871624" />
-      <entry key="M10" value="4.88896451073073" />
-      <entry key="M15" value="4.925371496506634" />
-      <entry key="M30" value="4.962723217548588" />
-      <entry key="H1" value="5.1082043558893" />
-      <entry key="H2" value="8.04166763752173" />
-      <entry key="H4" value="22.628623627312464" />
-      <entry key="D1" value="115.6346600531993" />
-      <entry key="W1" value="166.2174090086977" />
+      <entry key="MS100" value="0.7631296044802796" />
+      <entry key="MS500" value="0.9473701028530805" />
+      <entry key="S2" value="1.0027524808761694" />
+      <entry key="S5" value="1.4559600846741863" />
+      <entry key="S10" value="2.8229191161040528" />
+      <entry key="S30" value="6.22014110258161" />
+      <entry key="S60" value="8.097639096666025" />
+      <entry key="M2" value="9.380446127630469" />
+      <entry key="M5" value="10.304813303540639" />
+      <entry key="M10" value="10.64383409786882" />
+      <entry key="M15" value="10.76059676213748" />
+      <entry key="M30" value="10.879645064708498" />
+      <entry key="H1" value="11.065916610139492" />
+      <entry key="H2" value="14.013842478945824" />
+      <entry key="H4" value="28.598138732039786" />
+      <entry key="D1" value="121.6119658090339" />
+      <entry key="W1" value="172.21279830815723" />
     </decayedShown>
   </component>
   <component name="ProblemsViewState">
@@ -91,23 +91,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/Alireza.Soroudi/Desktop/OptimizationExpert.github.io/_posts",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Alireza.Soroudi/Desktop/OptimizationExpert.github.io/_posts&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Alireza.Soroudi\Desktop\OptimizationExpert.github.io\_posts" />
