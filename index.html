@@ -3,31 +3,44 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>دوره‌های بهینه‌سازی | Optimization Expert</title>
-  <meta name="description" content="دوره‌های تخصصی بهینه‌سازی شامل مدل‌سازی مسائل بهینه‌سازی، بهینه‌سازی سیستم‌های قدرت، مدل‌سازی عدم قطعیت و آموزش VRP در Python." />
+  <title>دوره‌های تخصصی بهینه‌سازی | Optimization Expert</title>
+  <meta name="description" content="دوره‌های پروژه‌محور بهینه‌سازی: مدل‌سازی ریاضی، بهینه‌سازی سیستم‌های قدرت، مدل‌سازی عدم قطعیت و مسیریابی وسایل نقلیه (VRP) در Python با Pyomo و Gurobi." />
   <meta name="keywords" content="بهینه سازی، آموزش بهینه سازی، مدل سازی بهینه سازی، سیستم قدرت، VRP، Python، پایتون، عدم قطعیت، Robust Optimization، IGDT، Pyomo، Gurobi" />
   <meta name="author" content="Optimization Expert" />
   <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#0B1F3A" />
   <link rel="canonical" href="https://optimizationexpert.github.io/" />
 
+  <!-- favicon: یک «رأس بهینه» به‌صورت SVG درون‌خطی (بدون فایل اضافی و بدون لینک شکسته) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230B1F3A'/%3E%3Cpath d='M6 23 L13 14 L19 18 L26 8' fill='none' stroke='%232563EB' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='26' cy='8' r='3' fill='%2310B981'/%3E%3C/svg%3E" />
+
+  <!-- Open Graph / Twitter -->
   <meta property="og:title" content="دوره‌های تخصصی بهینه‌سازی" />
   <meta property="og:description" content="آموزش پروژه‌محور مدل‌سازی، سیستم‌های قدرت، عدم قطعیت و VRP در Python." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://optimizationexpert.github.io/" />
   <meta property="og:locale" content="fa_IR" />
-  <figure style="margin: 0; display: flex; flex-direction: column; gap: 12px;">
-    <img src="/assets/images/pic.png"
-         alt="دوره‌های تخصصی بهینه‌سازی: مدل‌سازی مسائل بهینه‌سازی، Python، VRP و سیستم‌های قدرت"
-         style="width: 100%; height: auto; border-radius: 24px; box-shadow: 0 18px 45px rgba(23, 32, 51, 0.12); object-fit: cover;" />
+  <meta property="og:image" content="https://optimizationexpert.github.io/assets/images/pic.png" />
+  <meta property="og:image:width" content="1000" />
+  <meta property="og:image:height" content="667" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="دوره‌های تخصصی بهینه‌سازی" />
+  <meta name="twitter:description" content="آموزش پروژه‌محور مدل‌سازی، سیستم‌های قدرت، عدم قطعیت و VRP در Python." />
+  <meta name="twitter:image" content="https://optimizationexpert.github.io/assets/images/pic.png" />
 
-    <!-- card کنار عکس -->
-  </figure>
+  <!-- بارگذاری فونت‌ها بدون @import مسدودکننده -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- داده‌ساختاریافته: سازمان آموزشی + فهرست دوره‌ها (برای نتایج غنی گوگل) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "EducationalOrganization",
     "name": "Optimization Expert",
     "url": "https://optimizationexpert.github.io/",
+    "logo": "https://optimizationexpert.github.io/assets/images/pic.png",
     "description": "دوره‌های تخصصی و پروژه‌محور در حوزه بهینه‌سازی، سیستم‌های قدرت، عدم قطعیت و مسیریابی وسایل نقلیه در Python.",
     "sameAs": [
       "https://github.com/OptimizationExpert",
@@ -35,377 +48,370 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "item": { "@type": "Course", "name": "دوره مدل‌سازی مسائل بهینه‌سازی", "description": "تبدیل مسائل واقعی به مدل ریاضی دقیق و قابل حل؛ متغیر تصمیم، تابع هدف و قیود.", "url": "https://optimizationexpert.github.io/#courses", "provider": { "@type": "EducationalOrganization", "name": "Optimization Expert", "url": "https://optimizationexpert.github.io/" } } },
+      { "@type": "ListItem", "position": 2, "item": { "@type": "Course", "name": "دوره مقدماتی بهینه‌سازی سیستم‌های قدرت", "description": "پخش بار اقتصادی، DC-OPF، ذخیره‌ساز انرژی و Unit Commitment در ۸ ساعت.", "url": "https://optimizationexpert.github.io/#courses", "provider": { "@type": "EducationalOrganization", "name": "Optimization Expert", "url": "https://optimizationexpert.github.io/" } } },
+      { "@type": "ListItem", "position": 3, "item": { "@type": "Course", "name": "دوره فشرده مدل‌سازی عدم قطعیت", "description": "روش‌های Stochastic، Fuzzy، Robust و IGDT برای مدل‌سازی عدم قطعیت.", "url": "https://optimizationexpert.github.io/#courses", "provider": { "@type": "EducationalOrganization", "name": "Optimization Expert", "url": "https://optimizationexpert.github.io/" } } },
+      { "@type": "ListItem", "position": 4, "item": { "@type": "Course", "name": "دوره پیشرفته بهینه‌سازی سیستم‌های قدرت", "description": "UC، AC/DC-OPF، N-1، TEP و بهینه‌سازی چندهدفه در Python با Pyomo؛ ۱۰ جلسه.", "url": "https://optimizationexpert.github.io/#courses", "provider": { "@type": "EducationalOrganization", "name": "Optimization Expert", "url": "https://optimizationexpert.github.io/" } } },
+      { "@type": "ListItem", "position": 5, "item": { "@type": "Course", "name": "آموزش جامع بهینه‌سازی و مسیریابی (VRP) در Python", "description": "۲۰ پروژه عملی و ۱۰ ساعت ویدیو؛ از مسائل ترکیبی تا CVRP و VRPTW.", "url": "https://optimizationexpert.github.io/#courses", "provider": { "@type": "EducationalOrganization", "name": "Optimization Expert", "url": "https://optimizationexpert.github.io/" } } }
+    ]
+  }
+  </script>
 
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap');
-
     :root {
-      --bg: #f7f7fb;
-      --card: #ffffff;
-      --text: #172033;
-      --muted: #5f6b7a;
-      --primary: #174ea6;
-      --primary-2: #0b57d0;
-      --accent: #00a884;
-      --border: #e5e9f2;
-      --shadow: 0 18px 45px rgba(23, 32, 51, 0.08);
-      --radius: 24px;
+      --ink: #0B1F3A;
+      --ink-soft: #13233B;
+      --paper: #F6F4EE;
+      --paper-2: #FBFAF6;
+      --card: #FFFFFF;
+      --blue: #2563EB;
+      --blue-deep: #1D4ED8;
+      --optimal: #10B981;
+      --optimal-deep: #0E9F76;
+      --line: #DCDFE6;
+      --muted: #5A6678;
+      --radius: 18px;
+      --shadow: 0 24px 60px rgba(11, 31, 58, 0.10);
+      --shadow-sm: 0 10px 26px rgba(11, 31, 58, 0.07);
+      --grid: rgba(11, 31, 58, 0.045);
     }
 
     * { box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
       font-family: "Vazirmatn", Tahoma, Arial, sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(23, 78, 166, 0.12), transparent 32rem),
-        linear-gradient(180deg, #ffffff 0%, var(--bg) 100%);
-      color: var(--text);
-      line-height: 1.9;
+      color: var(--ink-soft);
+      line-height: 1.95;
+      background-color: var(--paper);
+      background-image:
+        linear-gradient(var(--grid) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+      background-size: 30px 30px;
+      -webkit-font-smoothing: antialiased;
     }
 
     a { color: inherit; text-decoration: none; }
+    .mono { font-family: "JetBrains Mono", ui-monospace, Consolas, monospace; }
+    [dir="ltr"] { unicode-bidi: isolate; }
 
-    .container {
-      width: min(1120px, calc(100% - 32px));
-      margin: 0 auto;
+    .wrap { width: min(1120px, calc(100% - 36px)); margin: 0 auto; }
+
+    /* ---------- Header ---------- */
+    .site-head {
+      position: sticky; top: 0; z-index: 30;
+      backdrop-filter: blur(14px);
+      background: rgba(246, 244, 238, 0.82);
+      border-bottom: 1px solid var(--line);
     }
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      backdrop-filter: blur(18px);
-      background: rgba(255, 255, 255, 0.78);
-      border-bottom: 1px solid rgba(229, 233, 242, 0.8);
+    .site-nav {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 18px; padding: 13px 0;
     }
-
-    nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 14px 0;
-      gap: 18px;
+    .logo { display: inline-flex; align-items: center; gap: 10px; font-weight: 800; color: var(--ink); }
+    .logo svg { display: block; }
+    .logo b { font-size: 1.04rem; letter-spacing: -0.2px; }
+    .logo small { color: var(--muted); font-weight: 500; font-size: 0.78rem; }
+    .nav-links { display: flex; align-items: center; gap: 22px; font-size: 0.94rem; color: var(--muted); flex-wrap: wrap; }
+    .nav-links a { position: relative; transition: color .18s ease; }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-cta {
+      background: var(--ink); color: #fff !important; padding: 9px 16px;
+      border-radius: 11px; font-weight: 700; font-size: 0.9rem;
+      transition: background .2s ease, transform .2s ease;
     }
+    .nav-cta:hover { background: var(--blue-deep); transform: translateY(-1px); }
 
-    .brand {
-      font-weight: 800;
-      color: var(--primary);
-      letter-spacing: -0.3px;
-      font-size: 1.08rem;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      font-size: 0.95rem;
-      color: var(--muted);
-      flex-wrap: wrap;
-    }
-
-    .nav-links a:hover { color: var(--primary); }
-
-    .hero {
-      padding: 82px 0 46px;
-    }
-
+    /* ---------- Hero ---------- */
+    .hero { padding: 60px 0 30px; }
     .hero-grid {
-      display: grid;
-      grid-template-columns: 1.25fr 0.75fr;
-      gap: 32px;
-      align-items: center;
+      display: grid; grid-template-columns: 1.05fr 0.95fr;
+      gap: 44px; align-items: center;
     }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(23, 78, 166, 0.09);
-      color: var(--primary);
-      padding: 8px 14px;
-      border-radius: 999px;
-      font-size: 0.92rem;
-      font-weight: 600;
-      margin-bottom: 18px;
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: "JetBrains Mono", monospace; font-size: 0.78rem;
+      letter-spacing: 1px; text-transform: uppercase;
+      color: var(--blue-deep); background: rgba(37, 99, 235, 0.08);
+      border: 1px solid rgba(37, 99, 235, 0.18);
+      padding: 6px 12px; border-radius: 999px; margin-bottom: 20px;
     }
-
-    h1 {
-      font-size: clamp(2.2rem, 6vw, 4.4rem);
-      line-height: 1.2;
-      margin: 0 0 18px;
-      letter-spacing: -1.6px;
+    .eyebrow .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--optimal); }
+    .hero h1 {
+      font-size: clamp(2.2rem, 5.2vw, 3.7rem); font-weight: 900;
+      line-height: 1.25; margin: 0 0 18px; color: var(--ink);
+      letter-spacing: -1px;
     }
-
-    .hero p {
-      color: var(--muted);
-      font-size: 1.12rem;
-      max-width: 760px;
-      margin: 0 0 26px;
-    }
-
-    .actions {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-
+    .hero h1 .hl { color: var(--blue-deep); }
+    .hero .lead { color: var(--muted); font-size: 1.1rem; max-width: 540px; margin: 0 0 28px; }
+    .actions { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
     .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 12px 20px;
-      border-radius: 14px;
-      font-weight: 700;
-      border: 1px solid transparent;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+      padding: 13px 22px; border-radius: 13px; font-weight: 700;
+      border: 1px solid transparent; transition: transform .2s ease, background .2s ease, box-shadow .2s ease;
     }
-
     .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: var(--blue); color: #fff; box-shadow: 0 14px 30px rgba(37, 99, 235, 0.28); }
+    .btn-primary:hover { background: var(--optimal-deep); box-shadow: 0 16px 34px rgba(16, 185, 129, 0.30); }
+    .btn-ghost { background: #fff; color: var(--ink); border-color: var(--line); }
+    .btn-ghost:hover { border-color: var(--ink); }
 
-    .btn-primary {
-      background: linear-gradient(135deg, var(--primary), var(--primary-2));
-      color: white;
-      box-shadow: 0 14px 30px rgba(23, 78, 166, 0.22);
+    /* signature: feasible-region plot */
+    .plot-card {
+      position: relative; background: var(--card); border: 1px solid var(--line);
+      border-radius: 22px; box-shadow: var(--shadow); padding: 16px;
     }
-
-    .btn-secondary {
-      background: white;
-      color: var(--primary);
-      border-color: var(--border);
+    .plot-card figcaption {
+      font-family: "JetBrains Mono", monospace; font-size: 0.72rem; color: var(--muted);
+      display: flex; justify-content: space-between; padding: 8px 6px 2px;
     }
-
-    .hero-card {
-      background: rgba(255,255,255,0.86);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 26px;
+    .plot-card .hero-photo {
+      width: 100%; height: auto; display: block; border-radius: 14px; margin-top: 12px;
     }
+    .feasible-fill { fill: rgba(37, 99, 235, 0.10); stroke: var(--blue); stroke-width: 1.4; }
+    .constraint { stroke: rgba(11,31,58,0.35); stroke-width: 1.2; stroke-dasharray: 5 4; }
+    .axis { stroke: rgba(11,31,58,0.5); stroke-width: 1.4; }
+    .gridline { stroke: rgba(11,31,58,0.10); stroke-width: 1; }
+    .obj-line { stroke: var(--optimal); stroke-width: 1.6; stroke-dasharray: 4 3; opacity: .85; animation: sweep 4.5s ease-in-out infinite; }
+    .opt-dot { fill: var(--optimal); animation: pulse 2.4s ease-in-out infinite; }
+    .opt-ring { fill: none; stroke: var(--optimal); stroke-width: 1.5; opacity: .5; animation: ring 2.4s ease-in-out infinite; }
+    @keyframes pulse { 0%,100% { r: 5.5; } 50% { r: 7; } }
+    @keyframes ring { 0% { r: 6; opacity: .6; } 100% { r: 16; opacity: 0; } }
+    @keyframes sweep { 0%,100% { transform: translate(0,0); } 50% { transform: translate(-10px,-10px); } }
 
-    .hero-card h2 {
-      margin: 0 0 14px;
-      font-size: 1.22rem;
+    /* ---------- Focus strip ---------- */
+    .focus { padding: 8px 0 18px; }
+    .focus-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .focus-item {
+      background: var(--paper-2); border: 1px solid var(--line); border-radius: 14px;
+      padding: 16px 16px; color: var(--ink-soft); font-size: 0.96rem;
     }
+    .focus-item .k { font-family: "JetBrains Mono", monospace; font-size: 0.74rem; color: var(--blue-deep); display: block; margin-bottom: 6px; }
 
-    .stat-list {
-      display: grid;
-      gap: 12px;
-      margin: 0;
-      padding: 0;
-      list-style: none;
+    /* ---------- Sections ---------- */
+    .section { padding: 46px 0; }
+    .sec-head { margin-bottom: 28px; }
+    .sec-tag { font-family: "JetBrains Mono", monospace; font-size: 0.76rem; letter-spacing: 1px; color: var(--blue-deep); text-transform: uppercase; }
+    .sec-head h2 { margin: 6px 0 8px; font-size: clamp(1.6rem, 3.2vw, 2.4rem); color: var(--ink); letter-spacing: -0.6px; }
+    .sec-head p { margin: 0; color: var(--muted); max-width: 620px; }
+
+    .courses { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+    .course-card {
+      background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+      padding: 26px 26px 24px; box-shadow: var(--shadow-sm);
+      display: flex; flex-direction: column; position: relative; overflow: hidden;
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
     }
-
-    .stat-list li {
-      background: #f7f9fd;
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 12px 14px;
-      color: var(--muted);
+    .course-card::before {
+      content: ""; position: absolute; inset-block: 0; inset-inline-start: 0; width: 4px;
+      background: linear-gradient(180deg, var(--blue), var(--optimal)); opacity: 0; transition: opacity .2s ease;
     }
-
-    section { padding: 42px 0; }
-
-    .section-title {
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 24px;
-      margin-bottom: 24px;
+    .course-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); border-color: rgba(37,99,235,0.35); }
+    .course-card:hover::before { opacity: 1; }
+    .course-top { display: flex; justify-content: space-between; align-items: start; gap: 12px; margin-bottom: 8px; }
+    .course-card h3 { margin: 0; color: var(--ink); font-size: 1.24rem; line-height: 1.6; }
+    .pill {
+      flex: none; font-family: "JetBrains Mono", monospace; font-size: 0.72rem; font-weight: 600;
+      color: var(--blue-deep); background: rgba(37,99,235,0.09); border: 1px solid rgba(37,99,235,0.2);
+      padding: 5px 10px; border-radius: 999px; white-space: nowrap;
     }
+    .course-card > p { color: var(--muted); margin: 8px 0 14px; }
+    .course-card h4 { margin: 16px 0 10px; font-size: 0.98rem; color: var(--ink); display: flex; align-items: center; gap: 8px; }
+    .course-card h4::before { content: ""; width: 14px; height: 2px; background: var(--blue); border-radius: 2px; }
 
-    .section-title h2 {
-      margin: 0;
-      font-size: clamp(1.7rem, 3vw, 2.5rem);
-      letter-spacing: -0.8px;
+    ul.clean { list-style: none; padding: 0; margin: 0; color: var(--muted); }
+    ul.clean > li { position: relative; padding-inline-start: 18px; margin-bottom: 8px; }
+    ul.clean > li::before {
+      content: ""; position: absolute; inset-inline-start: 0; top: 0.78em;
+      width: 6px; height: 6px; border-radius: 50%; background: var(--blue); opacity: .55;
     }
+    /* سرفصل‌های توضیح‌دار (قبلاً بی‌استایل بودند) */
+    ul.syllabus { list-style: none; padding: 0; margin: 4px 0 0; }
+    ul.syllabus > li { padding: 12px 14px; border: 1px solid var(--line); border-radius: 12px; margin-bottom: 10px; background: var(--paper-2); }
+    ul.syllabus .title { font-weight: 700; color: var(--ink); margin-bottom: 4px; display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+    ul.syllabus .en { font-family: "JetBrains Mono", monospace; font-size: 0.78rem; color: var(--blue-deep); direction: ltr; unicode-bidi: isolate; }
+    ul.syllabus .desc { margin: 0; color: var(--muted); font-size: 0.93rem; line-height: 1.85; }
+    ul.syllabus .desc b { color: var(--ink-soft); }
 
-    .section-title p {
-      margin: 0;
-      color: var(--muted);
-      max-width: 520px;
+    .course-foot { margin-top: auto; padding-top: 20px; }
+    .tg {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--ink); color: #fff; border-radius: 12px; padding: 11px 18px;
+      font-weight: 700; transition: background .2s ease, transform .2s ease;
     }
-
-    .courses {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 20px;
-    }
-
-    .course {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 24px;
-      box-shadow: 0 12px 34px rgba(23, 32, 51, 0.06);
-      display: flex;
-      flex-direction: column;
-      min-height: 100%;
-    }
-
-    .course-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: start;
-      gap: 12px;
-      margin-bottom: 10px;
-    }
-
-    .course h3 {
-      margin: 0;
-      color: var(--primary);
-      font-size: 1.28rem;
-      line-height: 1.55;
-    }
-
-    .tag {
-      background: rgba(0,168,132,0.1);
-      color: #00795f;
-      border: 1px solid rgba(0,168,132,0.2);
-      padding: 5px 10px;
-      border-radius: 999px;
-      font-size: 0.82rem;
-      font-weight: 700;
-      white-space: nowrap;
-    }
-
-    .course p { color: var(--muted); margin: 8px 0 14px; }
-
-    .course h4 {
-      margin: 16px 0 8px;
-      font-size: 1rem;
-    }
-
-    ul.clean {
-      padding: 0 20px 0 0;
-      margin: 0;
-      color: var(--muted);
-    }
-
-    ul.clean li { margin-bottom: 6px; }
-
-    .course-footer {
-      margin-top: auto;
-      padding-top: 18px;
-    }
-
-    .telegram {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: #229ed9;
-      color: #fff;
-      border-radius: 14px;
-      padding: 10px 16px;
-      font-weight: 800;
-    }
+    .tg:hover { background: var(--optimal-deep); transform: translateY(-2px); }
+    .tg svg { display: block; }
 
     .note {
-      background: #fff8e6;
-      border: 1px solid #ffdfa3;
-      color: #6d4b00;
-      border-radius: 18px;
-      padding: 16px 18px;
-      margin-top: 22px;
+      margin-top: 24px; background: var(--paper-2); border: 1px solid var(--line);
+      border-inline-start: 4px solid var(--optimal); border-radius: 14px;
+      padding: 16px 18px; color: var(--ink-soft);
     }
 
-    .contact-box {
-      background: linear-gradient(135deg, var(--primary), #082a68);
-      color: white;
-      border-radius: var(--radius);
-      padding: 32px;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 24px;
-      align-items: center;
+    /* ---------- Learning paths (real sequence -> numbered) ---------- */
+    .paths { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+    .path-card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; box-shadow: var(--shadow-sm); }
+    .path-card h3 { margin: 0 0 16px; color: var(--ink); font-size: 1.18rem; }
+    ol.steps { list-style: none; counter-reset: step; padding: 0; margin: 0; }
+    ol.steps > li { counter-increment: step; position: relative; padding-inline-start: 42px; margin-bottom: 14px; color: var(--ink-soft); }
+    ol.steps > li::before {
+      content: counter(step); position: absolute; inset-inline-start: 0; top: 0;
+      width: 28px; height: 28px; border-radius: 9px; display: grid; place-items: center;
+      font-family: "JetBrains Mono", monospace; font-weight: 600; font-size: 0.85rem;
+      color: #fff; background: var(--blue);
+    }
+    ol.steps > li:last-child::before { background: var(--optimal); }
+
+    /* ---------- Enroll band ---------- */
+    .enroll { padding: 30px 0 60px; }
+    .enroll-box {
+      position: relative; overflow: hidden; color: #fff; border-radius: 24px;
+      background: radial-gradient(circle at 85% 15%, rgba(37,99,235,0.55), transparent 60%), var(--ink);
+      padding: 40px 42px; display: grid; grid-template-columns: 1fr auto; gap: 26px; align-items: center;
       box-shadow: var(--shadow);
     }
-
-    .contact-box h2 { margin: 0 0 8px; }
-    .contact-box p { margin: 0; opacity: 0.86; }
-    .contact-box .telegram { background: white; color: var(--primary); }
-
-    footer {
-      padding: 36px 0;
-      color: var(--muted);
-      text-align: center;
-      font-size: 0.92rem;
+    .enroll-box::after {
+      content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .25;
+      background-image: linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px);
+      background-size: 26px 26px;
     }
+    .enroll-box h2 { margin: 0 0 8px; font-size: 1.7rem; }
+    .enroll-box p { margin: 0; opacity: .85; max-width: 520px; }
+    .enroll-box .tg { background: #fff; color: var(--ink); position: relative; z-index: 1; font-size: 1.02rem; padding: 13px 22px; }
+    .enroll-box .tg:hover { background: var(--optimal); color: #fff; }
 
-    @media (max-width: 820px) {
-      .hero-grid,
-      .courses,
-      .contact-box {
-        grid-template-columns: 1fr;
-      }
+    /* ---------- Footer ---------- */
+    .site-foot { border-top: 1px solid var(--line); padding: 26px 0 40px; color: var(--muted); }
+    .foot-row { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; font-size: 0.9rem; }
+    .foot-row a:hover { color: var(--ink); }
 
-      .section-title {
-        align-items: start;
-        flex-direction: column;
-      }
-
-      nav { align-items: start; flex-direction: column; }
-      .hero { padding-top: 48px; }
+    /* ---------- Responsive ---------- */
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 30px; }
+      .focus-grid { grid-template-columns: repeat(2, 1fr); }
+      .courses, .paths, .enroll-box { grid-template-columns: 1fr; }
+      .enroll-box { text-align: center; justify-items: center; }
+      .nav-links { gap: 14px; font-size: 0.88rem; }
+    }
+    @media (max-width: 540px) {
+      .focus-grid { grid-template-columns: 1fr; }
+      .nav-links .hide-sm { display: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; scroll-behavior: auto; }
     }
   </style>
 </head>
-<body>
-  <header>
-    <div class="container">
-      <nav aria-label="ناوبری اصلی">
-        <a class="brand" href="#top">Optimization Expert</a>
-        <div class="nav-links">
-          <a href="#courses">دوره‌ها</a>
-          <a href="#path">مسیر یادگیری</a>
-          <a href="/blog/">یادداشت‌ها</a>
-          <a href="#contact">ثبت‌نام و تماس</a>
-        </div>
+<body id="top">
+  <header class="site-head">
+    <div class="wrap site-nav">
+      <a class="logo" href="#top" aria-label="Optimization Expert">
+        <svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true">
+          <rect width="32" height="32" rx="7" fill="#0B1F3A"/>
+          <path d="M6 23 L13 14 L19 18 L26 8" fill="none" stroke="#2563EB" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="26" cy="8" r="3" fill="#10B981"/>
+        </svg>
+        <span><b>Optimization Expert</b><br><small>مدل‌سازی و بهینه‌سازی کاربردی</small></span>
+      </a>
+      <nav class="nav-links" aria-label="ناوبری اصلی">
+        <a href="#courses">دوره‌ها</a>
+        <a href="#path" class="hide-sm">مسیر یادگیری</a>
+        <a href="/blog/">یادداشت‌ها</a>
+        <a class="nav-cta" href="https://t.me/pypyid" target="_blank" rel="noopener">ثبت‌نام</a>
       </nav>
     </div>
   </header>
 
-  <main id="top">
+  <main>
+    <!-- HERO -->
     <section class="hero">
-      <div class="container hero-grid">
+      <div class="wrap hero-grid">
         <div>
-          <div class="badge">آموزش تخصصی، کاربردی و پروژه‌محور</div>
-          <h1>دوره‌های تخصصی بهینه‌سازی</h1>
-          <p>
-            مجموعه‌ای از دوره‌های کاربردی برای یادگیری مدل‌سازی، کدنویسی و حل مسائل بهینه‌سازی در حوزه‌های سیستم‌های قدرت، عدم قطعیت، حمل‌ونقل، لجستیک و برنامه‌ریزی عملیاتی.
+          <span class="eyebrow"><span class="dot"></span> آموزش پروژه‌محور · Python</span>
+          <h1>مسئله‌ات را درست <span class="hl">مدل‌سازی</span> کن، بعد آن را بهینه حل کن.</h1>
+          <p class="lead">
+            مجموعه‌ای از دوره‌های کاربردی برای یادگیری مدل‌سازی، کدنویسی و حل مسائل بهینه‌سازی در حوزه‌های
+            سیستم‌های قدرت، عدم قطعیت، حمل‌ونقل، لجستیک و برنامه‌ریزی عملیاتی.
           </p>
           <div class="actions">
-            <a class="btn btn-primary" href="https://t.me/pypyid" target="_blank" rel="noopener">تماس در تلگرام @pypyid</a>
-            <a class="btn btn-secondary" href="#courses">مشاهده دوره‌ها</a>
+            <a class="btn btn-primary" href="#courses">مشاهده دوره‌ها</a>
+            <a class="btn btn-ghost" href="https://t.me/pypyid" target="_blank" rel="noopener">
+              مشاوره در تلگرام <span class="mono" dir="ltr">@pypyid</span>
+            </a>
           </div>
         </div>
-        <aside class="hero-card" aria-label="خلاصه دوره‌ها">
-          <h2>تمرکز آموزشی</h2>
-          <ul class="stat-list">
-            <li>مدل‌سازی دقیق قبل از کدنویسی</li>
-            <li>پیاده‌سازی عملی در Python و ابزارهای بهینه‌سازی</li>
-            <li>مثال‌های کاربردی از صنعت برق، انرژی و لجستیک</li>
-            <li>مسیر یادگیری از پایه تا پروژه‌های واقعی</li>
-          </ul>
-        </aside>
+
+        <!-- signature graphic: feasible region + optimal vertex -->
+        <figure class="plot-card" style="margin:0;">
+          <figcaption>
+            <span class="mono" dir="ltr">maximize  cᵀx</span>
+            <span class="mono" dir="ltr">s.t. Ax ≤ b</span>
+          </figcaption>
+          <svg viewBox="0 0 360 240" width="100%" height="auto" role="img"
+               aria-label="نمودار ناحیه شدنی یک مسئله بهینه‌سازی خطی و نقطه بهینه">
+            <!-- grid -->
+            <g>
+              <line class="gridline" x1="40" y1="40" x2="40" y2="200"/>
+              <line class="gridline" x1="100" y1="20" x2="100" y2="200"/>
+              <line class="gridline" x1="160" y1="20" x2="160" y2="200"/>
+              <line class="gridline" x1="220" y1="20" x2="220" y2="200"/>
+              <line class="gridline" x1="280" y1="20" x2="280" y2="200"/>
+              <line class="gridline" x1="40" y1="60" x2="340" y2="60"/>
+              <line class="gridline" x1="40" y1="100" x2="340" y2="100"/>
+              <line class="gridline" x1="40" y1="140" x2="340" y2="140"/>
+              <line class="gridline" x1="40" y1="180" x2="340" y2="180"/>
+            </g>
+            <!-- axes -->
+            <line class="axis" x1="40" y1="200" x2="340" y2="200"/>
+            <line class="axis" x1="40" y1="200" x2="40" y2="20"/>
+            <!-- feasible polygon -->
+            <polygon class="feasible-fill" points="40,200 40,120 110,60 230,70 300,140 300,200"/>
+            <!-- constraint lines -->
+            <line class="constraint" x1="40" y1="140" x2="320" y2="40"/>
+            <line class="constraint" x1="60" y1="20" x2="330" y2="190"/>
+            <!-- objective sweep line -->
+            <line class="obj-line" x1="160" y1="20" x2="20" y2="170"/>
+            <!-- optimal vertex -->
+            <circle class="opt-ring" cx="230" cy="70"/>
+            <circle class="opt-dot" cx="230" cy="70" r="5.5"/>
+          </svg>
+          <img class="hero-photo" src="/assets/images/pic.png" width="1000" height="667"
+               alt="دوره‌های تخصصی بهینه‌سازی: مدل‌سازی مسائل، Python، VRP و سیستم‌های قدرت" loading="eager" />
+        </figure>
       </div>
     </section>
 
-    <section id="courses">
-      <div class="container">
-        <div class="section-title">
+    <!-- FOCUS STRIP -->
+    <section class="focus">
+      <div class="wrap focus-grid">
+        <div class="focus-item"><span class="k mono">01 · MODEL</span> مدل‌سازی دقیق پیش از کدنویسی</div>
+        <div class="focus-item"><span class="k mono">02 · CODE</span> پیاده‌سازی عملی در Python و حل‌کننده‌ها</div>
+        <div class="focus-item"><span class="k mono">03 · APPLY</span> مثال‌های واقعی برق، انرژی و لجستیک</div>
+        <div class="focus-item"><span class="k mono">04 · GROW</span> مسیر یادگیری از پایه تا پروژه واقعی</div>
+      </div>
+    </section>
+
+    <!-- COURSES -->
+    <section class="section" id="courses">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="sec-tag">// Courses</span>
           <h2>دوره‌ها</h2>
           <p>برای دریافت اطلاعات ثبت‌نام، هزینه و زمان برگزاری هر دوره، از طریق تلگرام پیام دهید.</p>
         </div>
 
         <div class="courses">
-          <article class="course">
-            <div class="course-header">
+          <!-- 1 -->
+          <article class="course-card">
+            <div class="course-top">
               <h3>دوره مدل‌سازی مسائل بهینه‌سازی</h3>
-              <span class="tag">پایه و ضروری</span>
+              <span class="pill">پایه و ضروری</span>
             </div>
             <p>
               این دوره نقطه شروع ورود به دنیای بهینه‌سازی است و بر مهم‌ترین بخش هر پروژه بهینه‌سازی، یعنی مدل‌سازی صحیح مسئله تمرکز دارد. در این دوره، پیش از هرگونه برنامه‌نویسی یا استفاده از نرم‌افزارهای حل‌کننده، شرکت‌کنندگان با اصول تبدیل مسائل واقعی به مدل‌های ریاضی آشنا خواهند شد.
@@ -419,47 +425,49 @@
               <li>شناخت متغیرهای تصمیم، تابع هدف و قیود</li>
               <li>آمادگی برای کدنویسی با ابزارهایی مانند Gurobi، Pyomo و JuMP</li>
             </ul>
-            <div class="course-footer"><a class="telegram" href="https://t.me/pypyid" target="_blank" rel="noopener">ثبت‌نام از طریق تلگرام</a></div>
+            <div class="course-foot"><a class="tg" href="https://t.me/pypyid" target="_blank" rel="noopener">ثبت‌نام از طریق تلگرام</a></div>
           </article>
 
-          <article class="course">
-            <div class="course-header">
+          <!-- 2 -->
+          <article class="course-card">
+            <div class="course-top">
               <h3>دوره مقدماتی بهینه‌سازی سیستم‌های قدرت</h3>
-              <span class="tag">۸ ساعت</span>
+              <span class="pill">۸ ساعت</span>
             </div>
             <p>
               این دوره ۸ ساعته با هدف آشنایی عملی با مهم‌ترین مسائل بهینه‌سازی در سیستم‌های قدرت طراحی شده است. شرکت‌کنندگان با نحوه مدل‌سازی و کدنویسی مسائل پایه بهینه‌سازی سیستم قدرت آشنا می‌شوند و یاد می‌گیرند چگونه مسائل متداول صنعت برق را به مدل‌های ریاضی قابل حل تبدیل کنند.
             </p>
             <h4>سرفصل‌ها</h4>
-          <ul class="clean">
-            <li>
-              <div class="title">پخش بار اقتصادی <span class="en">(Economic Dispatch)</span></div>
-              <p class="desc">نقطه‌ی شروعِ همه‌چیز: ساده‌ترین حالت که فقط می‌پرسیم «هر نیروگاه چقدر تولید کند تا ارزان‌ترین شود؟» مخاطب اینجا با <b>تابع هزینه</b> و <b>قید تعادل توان</b> آشنا می‌شود — سنگ‌بنای کل کورس. بقیه‌ی مباحث فقط «اضافه‌کردن واقعیت» به همین مدل‌اند.</p>
-            </li>
-            <li>
-              <div class="title">پخش بار اقتصادی دینامیکی <span class="en">(Dynamic Economic Dispatch)</span></div>
-              <p class="desc">حالا بُعدِ <b>زمان</b> اضافه می‌شود: مصرف در طول شبانه‌روز بالا و پایین می‌رود. قید مهمِ <b>نرخ تغییر توان (ramp rate)</b> وارد می‌شود، چون نیروگاه نمی‌تواند یک‌دفعه تولیدش را تغییر دهد. پلِ طبیعی بین مسئله‌ی تک‌لحظه‌ای و بهره‌برداری روزانه.</p>
-            </li>
-            <li>
-              <div class="title">پخش بار بهینه <span class="en">(DC Optimal Power Flow)</span></div>
-              <p class="desc">این بار بُعدِ <b>شبکه</b> اضافه می‌شود: برق آزادانه هرجا نمی‌رود، بلکه طبق فیزیک خطوط پخش می‌شود و خطوط محدودیت ظرفیت دارند. اینجا می‌فهمید چرا گاهی مجبوریم نیروگاه گران‌تر را روشن کنیم — ارتباط اقتصاد و فیزیک شبکه.</p>
-            </li>
-            <li>
-              <div class="title">مدل‌سازی سیستم‌های ذخیره‌ساز انرژی و باتری</div>
-              <p class="desc">باتری مفهوم تازه‌ای می‌آورد: <b>جابه‌جایی انرژی در زمان</b> — انرژی ارزان را ذخیره کن، موقع گرانی استفاده کن. مدل‌سازی‌اش به مسئله‌ی دینامیکی وصل است و قید <b>سطح شارژ</b> دارد. این مبحث کورس را به دنیای امروز و تجدیدپذیرها می‌رساند.</p>
-            </li>
-            <li>
-              <div class="title">آشنایی مختصر با آرایش بهینه نیروگاهی <span class="en">(Unit Commitment)</span></div>
-              <p class="desc">جمع‌بندیِ همه‌چیز: تا حالا فرض می‌کردیم نیروگاه‌ها روشن‌اند، ولی حالا تصمیم می‌گیریم <b>کدام نیروگاه اصلاً روشن شود</b> (متغیر صفر و یک). مسئله وارد دنیای <b>برنامه‌ریزی عدد صحیح</b> می‌شود — سخت‌تر، ولی واقعی‌تر. نگاهِ پایانی به مسائل پیشرفته.</p>
-            </li>
-          </ul>
-            <div class="course-footer"><a class="telegram" href="https://t.me/pypyid" target="_blank" rel="noopener">ثبت‌نام از طریق تلگرام</a></div>
+            <ul class="syllabus">
+              <li>
+                <div class="title">پخش بار اقتصادی <span class="en">Economic Dispatch</span></div>
+                <p class="desc">نقطه‌ی شروعِ همه‌چیز: ساده‌ترین حالت که فقط می‌پرسیم «هر نیروگاه چقدر تولید کند تا ارزان‌ترین شود؟» مخاطب اینجا با <b>تابع هزینه</b> و <b>قید تعادل توان</b> آشنا می‌شود — سنگ‌بنای کل کورس. بقیه‌ی مباحث فقط «اضافه‌کردن واقعیت» به همین مدل‌اند.</p>
+              </li>
+              <li>
+                <div class="title">پخش بار اقتصادی دینامیکی <span class="en">Dynamic Economic Dispatch</span></div>
+                <p class="desc">حالا بُعدِ <b>زمان</b> اضافه می‌شود: مصرف در طول شبانه‌روز بالا و پایین می‌رود. قید مهمِ <b>نرخ تغییر توان (ramp rate)</b> وارد می‌شود، چون نیروگاه نمی‌تواند یک‌دفعه تولیدش را تغییر دهد. پلِ طبیعی بین مسئله‌ی تک‌لحظه‌ای و بهره‌برداری روزانه.</p>
+              </li>
+              <li>
+                <div class="title">پخش بار بهینه <span class="en">DC Optimal Power Flow</span></div>
+                <p class="desc">این بار بُعدِ <b>شبکه</b> اضافه می‌شود: برق آزادانه هرجا نمی‌رود، بلکه طبق فیزیک خطوط پخش می‌شود و خطوط محدودیت ظرفیت دارند. اینجا می‌فهمید چرا گاهی مجبوریم نیروگاه گران‌تر را روشن کنیم — ارتباط اقتصاد و فیزیک شبکه.</p>
+              </li>
+              <li>
+                <div class="title">مدل‌سازی سیستم‌های ذخیره‌ساز انرژی و باتری</div>
+                <p class="desc">باتری مفهوم تازه‌ای می‌آورد: <b>جابه‌جایی انرژی در زمان</b> — انرژی ارزان را ذخیره کن، موقع گرانی استفاده کن. مدل‌سازی‌اش به مسئله‌ی دینامیکی وصل است و قید <b>سطح شارژ</b> دارد. این مبحث کورس را به دنیای امروز و تجدیدپذیرها می‌رساند.</p>
+              </li>
+              <li>
+                <div class="title">آشنایی مختصر با آرایش بهینه نیروگاهی <span class="en">Unit Commitment</span></div>
+                <p class="desc">جمع‌بندیِ همه‌چیز: تا حالا فرض می‌کردیم نیروگاه‌ها روشن‌اند، ولی حالا تصمیم می‌گیریم <b>کدام نیروگاه اصلاً روشن شود</b> (متغیر صفر و یک). مسئله وارد دنیای <b>برنامه‌ریزی عدد صحیح</b> می‌شود — سخت‌تر، ولی واقعی‌تر. نگاهِ پایانی به مسائل پیشرفته.</p>
+              </li>
+            </ul>
+            <div class="course-foot"><a class="tg" href="https://t.me/pypyid" target="_blank" rel="noopener">ثبت‌نام از طریق تلگرام</a></div>
           </article>
 
-          <article class="course">
-            <div class="course-header">
+          <!-- 3 -->
+          <article class="course-card">
+            <div class="course-top">
               <h3>دوره فشرده مدل‌سازی عدم قطعیت</h3>
-              <span class="tag">فشرده</span>
+              <span class="pill">فشرده</span>
             </div>
             <p>
               در بسیاری از مسائل واقعی، اطلاعات مورد نیاز برای تصمیم‌گیری به صورت قطعی در دسترس نیستند. تغییرات بار، قیمت انرژی، تولید منابع تجدیدپذیر و بسیاری از پارامترهای دیگر دارای عدم قطعیت هستند. در این دوره فشرده، مهم‌ترین روش‌های مدل‌سازی عدم قطعیت در مسائل بهینه‌سازی معرفی و مقایسه می‌شوند.
@@ -472,25 +480,26 @@
               <li>نظریه تصمیم‌گیری در شرایط کمبود اطلاعات (IGDT)</li>
               <li>مقایسه مزایا، محدودیت‌ها و کاربردهای هر روش</li>
             </ul>
-            <div class="course-footer"><a class="telegram" href="https://t.me/pypyid" target="_blank" rel="noopener">ثبت‌نام از طریق تلگرام</a></div>
+            <div class="course-foot"><a class="tg" href="https://t.me/pypyid" target="_blank" rel="noopener">ثبت‌نام از طریق تلگرام</a></div>
           </article>
 
-          <article class="course">
-            <div class="course-header">
+          <!-- 4 -->
+          <article class="course-card">
+            <div class="course-top">
               <h3>دوره پیشرفته بهینه‌سازی سیستم‌های قدرت</h3>
-              <span class="tag">پیشرفته · ۱۰ جلسه</span>
+              <span class="pill">پیشرفته · ۱۰ جلسه</span>
             </div>
             <p>
               ادامه‌ی طبیعی دوره مقدماتی، برای کسانی که می‌خواهند وارد مسائل واقعی و روزِ بهره‌برداری و برنامه‌ریزی سیستم قدرت شوند. دوره از مفاهیم پایه شروع می‌شود، در شبکه انتقال به مسائل پیشرفته بهره‌برداری و برنامه‌ریزی می‌رسد و با یک مسئله بهره‌برداری در شبکه توزیع جمع‌بندی می‌شود. تمرکز اصلی بر مدل‌سازی واقعی، حل عددی و تحلیل و تصویرسازی نتایج در Python (با ابزارهایی مانند Pyomo) است.
             </p>
             <h4>سرفصل‌ها</h4>
-            <ul class="clean">
+            <ul class="syllabus">
               <li>
-                <div class="title">آرایش بهینه واحدها <span class="en">(Unit Commitment)</span></div>
+                <div class="title">آرایش بهینه واحدها <span class="en">Unit Commitment</span></div>
                 <p class="desc">تصمیم درباره روشن/خاموش بودن هر واحد در هر ساعت، با قیود واقعی مانند رمپ، ذخیره چرخان، حداقل زمان روشن/خاموش و هزینه راه‌اندازی. پایه‌ی فرمول‌بندی بقیه‌ی جلسات.</p>
               </li>
               <li>
-                <div class="title">پخش بار DC و قیود امنیت <span class="en">(N-1)</span></div>
+                <div class="title">پخش بار DC و قیود امنیت <span class="en">N-1</span></div>
                 <p class="desc">مدل خطی و سریع شبکه برای مسائل بزرگ، همراه با معیار امنیت N-1 و استفاده از ضرایب حساسیت آماده (PTDF و LODF) برای تحلیل خروج خطوط.</p>
               </li>
               <li>
@@ -498,15 +507,15 @@
                 <p class="desc">مدل کامل و واقعی شبکه با ولتاژ، توان راکتیو و تلفات. آشنایی با غیرخطی و غیرمحدب بودن مسئله و چالش رسیدن به جواب بهینه سراسری.</p>
               </li>
               <li>
-                <div class="title">جایابی باتری در شبکه انتقال <span class="en">(DC-OPF + Storage)</span></div>
+                <div class="title">جایابی باتری در شبکه انتقال <span class="en">DC-OPF + Storage</span></div>
                 <p class="desc">تصمیم هم‌زمان درباره محل و ظرفیت نصب باتری و الگوی شارژ/دشارژ، برای رفع گرفتگی خطوط و کاهش هزینه پیک.</p>
               </li>
               <li>
-                <div class="title">مدیریت مصرف در شبکه انتقال <span class="en">(Demand Response)</span></div>
+                <div class="title">مدیریت مصرف در شبکه انتقال <span class="en">Demand Response</span></div>
                 <p class="desc">ورود انعطاف سمت تقاضا به مدل: کاهش و انتقال بار برای کم‌کردن هزینه سیستم و محدودکردن نیاز به تولید گران در ساعات اوج.</p>
               </li>
               <li>
-                <div class="title">برنامه‌ریزی توسعه شبکه انتقال <span class="en">(TEP)</span></div>
+                <div class="title">برنامه‌ریزی توسعه شبکه انتقال <span class="en">TEP</span></div>
                 <p class="desc">تصمیم بلندمدت و سرمایه‌ای درباره ساخت خطوط جدید، به‌صورت مسئله عدد صحیح-مخلوط؛ مصالحه میان هزینه سرمایه‌گذاری و منفعت بهره‌برداری.</p>
               </li>
               <li>
@@ -518,21 +527,22 @@
                 <p class="desc">بازتعریف مسئله UC به‌صورت تصادفی و سناریومحور؛ تفاوت تصمیم‌های مرحله اول و دوم پس از آشکار شدن سناریوها.</p>
               </li>
               <li>
-                <div class="title">سوئیچینگ بهینه خطوط انتقال <span class="en">(Optimal Transmission Switching)</span></div>
+                <div class="title">سوئیچینگ بهینه خطوط انتقال <span class="en">Optimal Transmission Switching</span></div>
                 <p class="desc">ایده‌ی خلاف‌انتظار: قطع هدفمند یک خط می‌تواند مسیر جریان را بهبود دهد و ازدحام را کم کند. مدل عدد صحیح-مخلوط روی پایه DC-OPF.</p>
               </li>
               <li>
-                <div class="title">کنترل توان راکتیو اینورترهای خورشیدی <span class="en">(Inverter Volt/VAR)</span></div>
+                <div class="title">کنترل توان راکتیو اینورترهای خورشیدی <span class="en">Inverter Volt/VAR</span></div>
                 <p class="desc">جمع‌بندی دوره در شبکه توزیع: تنظیم پیوسته توان راکتیو اینورترهای موجود برای بهبود پروفایل ولتاژ و کاهش تلفات، بدون سرمایه‌گذاری جدید.</p>
               </li>
             </ul>
-            <div class="course-footer"><a class="telegram" href="https://t.me/pypyid" target="_blank" rel="noopener">ثبت‌نام از طریق تلگرام</a></div>
+            <div class="course-foot"><a class="tg" href="https://t.me/pypyid" target="_blank" rel="noopener">ثبت‌نام از طریق تلگرام</a></div>
           </article>
 
-          <article class="course">
-            <div class="course-header">
+          <!-- 5 -->
+          <article class="course-card">
+            <div class="course-top">
               <h3>آموزش جامع بهینه‌سازی و مسیریابی (VRP) در Python</h3>
-              <span class="tag">۲۰ پروژه + ۱۰ ساعت</span>
+              <span class="pill">۲۰ پروژه + ۱۰ ساعت</span>
             </div>
             <p>
               این دوره یک مسیر آموزشی پروژه‌محور برای یادگیری مدل‌سازی و پیاده‌سازی مسائل مسیریابی وسیله نقلیه و مسائل ترکیبی در Python است. دوره شامل ۲۰ پروژه عملی و حدود ۱۰ ساعت ویدیوی آموزشی است و از سطح مقدماتی آغاز شده و به‌تدریج وارد مسائل تخصصی‌تر حمل‌ونقل و لجستیک می‌شود.
@@ -544,7 +554,7 @@
               <li>چیدمان میهمان، زمان‌بندی تولید و برنامه‌ریزی درسی</li>
               <li>مربع جادویی، تحلیل گراف، جانمایی ربات و مسائل ترکیبی</li>
             </ul>
-            <h4> ۱۰ مورد پروژه‌های تخصصی VRP</h4>
+            <h4>۱۰ مورد پروژه‌های تخصصی VRP</h4>
             <ul class="clean">
               <li>VRP، CVRP و VRPTW</li>
               <li>مسیریابی چند پایانه، پنجره زمانی و زمان انتظار</li>
@@ -556,64 +566,73 @@
               <li>ویدیوهای آموزشی، کد کامل پروژه‌ها، مستندات و داده‌های تست آماده</li>
               <li>مناسب برای دانشجویان مهندسی، مدیران عملیاتی و علاقه‌مندان به برنامه‌نویسی و بهینه‌سازی</li>
             </ul>
-            <div class="course-footer"><a class="telegram" href="https://t.me/pypyid" target="_blank" rel="noopener">ثبت‌نام از طریق تلگرام</a></div>
+            <div class="course-foot"><a class="tg" href="https://t.me/pypyid" target="_blank" rel="noopener">ثبت‌نام از طریق تلگرام</a></div>
           </article>
         </div>
 
         <div class="note">
-           برای اطلاع از هزینه، زمان برگزاری، شرایط ثبت‌نام و دریافت مشاوره انتخاب دوره، از طریق تلگرام با آیدی <strong>@pypyid</strong> تماس بگیرید.
+          برای اطلاع از هزینه، زمان برگزاری، شرایط ثبت‌نام و دریافت مشاوره انتخاب دوره، از طریق تلگرام با آیدی <strong class="mono" dir="ltr">@pypyid</strong> تماس بگیرید.
         </div>
       </div>
     </section>
 
-    <section id="path">
-      <div class="container">
-        <div class="section-title">
+    <!-- LEARNING PATHS -->
+    <section class="section" id="path">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="sec-tag">// Learning path</span>
           <h2>مسیر پیشنهادی یادگیری</h2>
           <p>برای ورود اصولی به بهینه‌سازی، ابتدا مدل‌سازی را یاد بگیرید، سپس وارد حوزه تخصصی مورد علاقه خود شوید.</p>
         </div>
-        <div class="courses">
-          <div class="course">
+        <div class="paths">
+          <div class="path-card">
             <h3>مسیر انرژی و سیستم قدرت</h3>
-            <ul class="clean">
-              <li>۱. مدل‌سازی مسائل بهینه‌سازی</li>
-              <li>۲. بهینه‌سازی سیستم‌های قدرت</li>
-              <li>۳. مدل‌سازی عدم قطعیت</li>
-            </ul>
+            <ol class="steps">
+              <li>مدل‌سازی مسائل بهینه‌سازی</li>
+              <li>بهینه‌سازی سیستم‌های قدرت</li>
+              <li>مدل‌سازی عدم قطعیت</li>
+            </ol>
           </div>
-          <div class="course">
+          <div class="path-card">
             <h3>مسیر حمل‌ونقل و لجستیک</h3>
-            <ul class="clean">
-              <li>۱. مدل‌سازی مسائل بهینه‌سازی</li>
-              <li>۲. آموزش VRP در Python</li>
-              <li>۳. توسعه پروژه‌های واقعی حمل‌ونقل و زنجیره تأمین</li>
-            </ul>
+            <ol class="steps">
+              <li>مدل‌سازی مسائل بهینه‌سازی</li>
+              <li>آموزش VRP در Python</li>
+              <li>توسعه پروژه‌های واقعی حمل‌ونقل و زنجیره تأمین</li>
+            </ol>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="contact">
-      <div class="container">
-        <div class="contact-box">
+    <!-- ENROLL -->
+    <section class="enroll" id="contact">
+      <div class="wrap">
+        <div class="enroll-box">
           <div>
             <h2>ثبت‌نام و دریافت اطلاعات دوره‌ها</h2>
-            <p>برای اطلاع از هزینه، ظرفیت، زمان برگزاری و انتخاب دوره مناسب، در تلگرام پیام دهید.</p>
+            <p>برای اطلاع از هزینه، ظرفیت، زمان برگزاری و انتخاب دوره مناسب، در تلگرام پیام دهید. مشاوره انتخاب دوره رایگان است.</p>
           </div>
-          <a class="telegram" href="https://t.me/pypyid" target="_blank" rel="noopener">@pypyid</a>
+          <a class="tg" href="https://t.me/pypyid" target="_blank" rel="noopener">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71l-4.1-3.02-1.97 1.91c-.22.22-.4.4-.82.4z"/></svg>
+            <span class="mono" dir="ltr">@pypyid</span>
+          </a>
         </div>
       </div>
     </section>
   </main>
 
-  <footer>
-    <div class="container">
-      © <span id="year"></span> Optimization Expert — دوره‌های تخصصی بهینه‌سازی
+  <footer class="site-foot">
+    <div class="wrap foot-row">
+      <span>© <span id="year"></span> Optimization Expert — دوره‌های تخصصی بهینه‌سازی</span>
+      <span>
+        <a href="/blog/">یادداشت‌ها</a> ·
+        <a href="https://t.me/pypyid" target="_blank" rel="noopener" class="mono" dir="ltr">@pypyid</a> ·
+        <a href="https://github.com/OptimizationExpert" target="_blank" rel="noopener">GitHub</a>
+      </span>
     </div>
   </footer>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
