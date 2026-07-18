@@ -9,7 +9,7 @@ keywords: "بهینه سازی سیستم قدرت, پایتون, Pyomo, OPF, پ
 image: /assets/posts/ADVpower.png
 ---
 
-**مدرس دوره:** دکتر علیرضا سرودی
+**مدرس دوره:** [دکتر علیرضا سرودی](https://www.linkedin.com/in/soroudi/){:rel="noopener" target="_blank"}
 **محیط کار:** Python  |  **سطح:** پیشرفته  |  **تعداد جلسات:** ۱۰
 
 در این دوره پیشرفته آموزش بهینه‌سازی سیستم‌های قدرت در پایتون، با تدریس دکتر علیرضا سرودی، به صورت کاملاً کاربردی با مدل‌سازی مسائل کلیدی صنعت برق مانند آرایش بهینه واحدها (Unit Commitment)، پخش بار بهینه (OPF) و برنامه‌ریزی توسعه شبکه با استفاده از  Pyomo  آشنا می‌شوید.
@@ -187,7 +187,10 @@ print(f"هزینه کل: {value(m.cost):.2f}")
   },
   "instructor": {
     "@type": "Person",
-    "name": "دکتر علیرضا سرودی"
+    "name": "دکتر علیرضا سرودی",
+    "sameAs": [
+      "https://www.linkedin.com/in/soroudi/"
+    ]
   },
   "hasCourseInstance": {
     "@type": "CourseInstance",
@@ -196,7 +199,10 @@ print(f"هزینه کل: {value(m.cost):.2f}")
     "inLanguage": "fa",
     "instructor": {
       "@type": "Person",
-      "name": "دکتر علیرضا سرودی"
+      "name": "دکتر علیرضا سرودی",
+      "sameAs": [
+        "https://www.linkedin.com/in/soroudi/"
+      ]
     }
   },
   "offers": {
