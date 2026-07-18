@@ -1,9 +1,12 @@
 ---
 layout: post
-title: "بهینه سازی پیشرفته سیستم های قدرت در پایتون "
+title: "بهینه‌سازی پیشرفته سیستم‌های قدرت در پایتون با Pyomo"
+seo_title: "بهینه‌سازی سیستم قدرت در پایتون با Pyomo | دوره پیشرفته"
 date: 2026-06-20
 display_date: "۳۰ خرداد ۱۴۰۵"
-description: " دوره پیشرفته بهینه‌سازی سیستم قدرت با پایتون سیلابس دوره "
+description: "دوره پیشرفته بهینه‌سازی سیستم‌های قدرت در پایتون با Pyomo؛ ۱۰ جلسه پروژه‌محور: Unit Commitment، پخش بار DC/AC (OPF)، N-1، جایابی باتری، توسعه شبکه و عدم قطعیت. مدرس: دکتر علیرضا سرودی."
+keywords: "بهینه سازی سیستم قدرت, پایتون, Pyomo, OPF, پخش بار بهینه, Unit Commitment, آرایش بهینه واحدها, سیستم قدرت, AC-OPF, DC-OPF"
+image: /assets/posts/ADVpower.png
 ---
 
 **مدرس دوره:** دکتر علیرضا سرودی
@@ -78,9 +81,178 @@ description: " دوره پیشرفته بهینه‌سازی سیستم قدرت
 
 ---
 
+## یک نمونه کد Pyomo از پایه دوره
+
+پیش از ورود به مسائل پیشرفته، پایه‌ی همه‌چیز «پخش بار اقتصادی» است: تعیین اینکه هر واحد تولیدی چقدر تولید کند تا هزینه سوخت کمینه شود و تعادل تولید و مصرف برقرار بماند. سه جزء اصلی هر مدل بهینه‌سازی در همین مثال دیده می‌شود: متغیر تصمیم (توان هر واحد)، تابع هدف (کمینه‌کردن هزینه) و قید (تعادل توان).
+
+```python
+# پخش بار اقتصادی سه واحد تولیدی با Pyomo
+# هدف: کمینه‌کردن هزینه سوخت با رعایت تعادل توان
+from pyomo.environ import (ConcreteModel, Set, Var, Objective, Constraint,
+                           NonNegativeReals, minimize, SolverFactory, value)
+
+# داده واحدها: a,b ضرایب هزینه — Pmin/Pmax حدود تولید (مگاوات)
+gens = {
+    'G1': {'a': 0.110, 'b': 5.0, 'Pmin': 10, 'Pmax': 100},
+    'G2': {'a': 0.085, 'b': 1.2, 'Pmin': 10, 'Pmax': 100},
+    'G3': {'a': 0.122, 'b': 1.0, 'Pmin': 10, 'Pmax': 100},
+}
+demand = 210  # تقاضای کل شبکه (مگاوات)
+
+m = ConcreteModel()
+m.G = Set(initialize=list(gens.keys()))
+
+# متغیر تصمیم: توان تولیدی هر واحد
+m.P = Var(m.G, domain=NonNegativeReals,
+          bounds=lambda m, g: (gens[g]['Pmin'], gens[g]['Pmax']))
+
+# تابع هدف: هزینه درجه‌دوم سوخت
+m.cost = Objective(
+    rule=lambda m: sum(gens[g]['a'] * m.P[g]**2 + gens[g]['b'] * m.P[g]
+                       for g in m.G),
+    sense=minimize)
+
+# قید تعادل توان: مجموع تولید = تقاضا
+m.balance = Constraint(rule=lambda m: sum(m.P[g] for g in m.G) == demand)
+
+# حل مدل (برای هدف غیرخطی از ipopt استفاده می‌کنیم)
+SolverFactory('ipopt').solve(m)
+
+for g in m.G:
+    print(f"{g}: {value(m.P[g]):.2f} MW")
+print(f"هزینه کل: {value(m.cost):.2f}")
+```
+
+چون تابع هزینه درجه‌دوم است، از solver غیرخطی `ipopt` استفاده می‌کنیم؛ اگر تابع هزینه را خطی کنید می‌توانید از `glpk` استفاده کنید. نصب: `pip install pyomo` و برای solver `conda install -c conda-forge ipopt glpk`. همین ساختار (متغیر، هدف، قید) در تمام جلسات دوره — از Unit Commitment تا AC-OPF — گسترش می‌یابد.
+
+---
+
+## سوالات متداول درباره دوره
+
+<h3>پیش‌نیاز این دوره چیست؟</h3>
+<p>آشنایی مقدماتی با پایتون و مفاهیم پایه سیستم قدرت کافی است. آشنایی قبلی با مدل‌سازی مسائل بهینه‌سازی توصیه می‌شود اما الزامی نیست.</p>
+
+<h3>از چه ابزار و solverهایی استفاده می‌شود؟</h3>
+<p>مدل‌سازی با Pyomo در پایتون انجام می‌شود. بسته به نوع مسئله از solverهای رایگان مانند GLPK و CBC برای مسائل خطی و عدد صحیح و IPOPT برای مسائل غیرخطی استفاده می‌کنیم.</p>
+
+<h3>چه مسائلی در دوره پوشش داده می‌شود؟</h3>
+<p>آرایش بهینه واحدها، پخش بار DC و AC، قیود امنیت N-1، جایابی باتری، مدیریت مصرف، توسعه شبکه انتقال، بهینه‌سازی چندهدفه، عدم قطعیت و سوئیچینگ بهینه خطوط.</p>
+
+<h3>خروجی نهایی دوره چیست؟</h3>
+<p>مجموعه‌ای از کدهای قابل‌اجرای پایتون برای مسائل واقعی سیستم قدرت که پایه‌ای برای پروژه‌های پژوهشی و صنعتی است.</p>
+
+<h3>چطور ثبت‌نام کنم؟</h3>
+<p>برای اطلاع از هزینه، زمان برگزاری و ثبت‌نام، در تلگرام به آیدی @pypyid پیام دهید.</p>
+
+---
+
 
 ## 💬 سوالات و راهنمایی
 
 سوالی درباره ثبت نام داری؟ با آیدی **@pypyid** در تلگرام تماس بگیرید.
 
 ---
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "بهینه‌سازی پیشرفته سیستم‌های قدرت در پایتون",
+  "description": "دوره پروژه‌محور ۱۰ جلسه‌ای مدل‌سازی و حل مسائل کلیدی سیستم قدرت در پایتون با Pyomo: آرایش بهینه واحدها (Unit Commitment)، پخش بار DC و AC (OPF)، قیود امنیت N-1، جایابی باتری، مدیریت مصرف، توسعه شبکه (TEP)، بهینه‌سازی چندهدفه، عدم قطعیت و سوئیچینگ بهینه خطوط.",
+  "inLanguage": "fa",
+  "url": "{{ page.url | absolute_url }}",
+  "image": "{{ '/assets/posts/ADVpower.png' | absolute_url }}",
+  "courseCode": "ADV-POWER-PY",
+  "educationalLevel": "پیشرفته",
+  "teaches": [
+    "Unit Commitment (آرایش بهینه واحدها)",
+    "DC Optimal Power Flow و قیود امنیت N-1",
+    "AC Optimal Power Flow",
+    "جایابی ذخیره‌ساز انرژی (Battery Storage)",
+    "Demand Response",
+    "Transmission Expansion Planning (TEP)",
+    "بهینه‌سازی چندهدفه و جبهه پارتو",
+    "مدل‌سازی عدم قطعیت (Stochastic)",
+    "Optimal Transmission Switching",
+    "کنترل توان راکتیو اینورترها (Volt/VAR)"
+  ],
+  "provider": {
+    "@type": "EducationalOrganization",
+    "name": "Optimization Expert",
+    "url": "https://optimizationexpert.github.io/",
+    "sameAs": [
+      "https://github.com/OptimizationExpert",
+      "https://t.me/pypyid"
+    ]
+  },
+  "instructor": {
+    "@type": "Person",
+    "name": "دکتر علیرضا سرودی"
+  },
+  "hasCourseInstance": {
+    "@type": "CourseInstance",
+    "courseMode": "online",
+    "courseWorkload": "PT10H",
+    "inLanguage": "fa",
+    "instructor": {
+      "@type": "Person",
+      "name": "دکتر علیرضا سرودی"
+    }
+  },
+  "offers": {
+    "@type": "Offer",
+    "category": "Paid",
+    "availability": "https://schema.org/InStock",
+    "url": "https://t.me/pypyid"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "پیش‌نیاز این دوره چیست؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "آشنایی مقدماتی با پایتون و مفاهیم پایه سیستم قدرت کافی است. آشنایی قبلی با مدل‌سازی مسائل بهینه‌سازی توصیه می‌شود اما الزامی نیست."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "از چه ابزار و solverهایی استفاده می‌شود؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "مدل‌سازی با Pyomo در پایتون انجام می‌شود. بسته به نوع مسئله از solverهای رایگان مانند GLPK و CBC برای مسائل خطی و عدد صحیح و IPOPT برای مسائل غیرخطی استفاده می‌کنیم."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "چه مسائلی در دوره پوشش داده می‌شود؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "آرایش بهینه واحدها، پخش بار DC و AC، قیود امنیت N-1، جایابی باتری، مدیریت مصرف، توسعه شبکه انتقال، بهینه‌سازی چندهدفه، عدم قطعیت و سوئیچینگ بهینه خطوط."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "خروجی نهایی دوره چیست؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "مجموعه‌ای از کدهای قابل‌اجرای پایتون برای مسائل واقعی سیستم قدرت که پایه‌ای برای پروژه‌های پژوهشی و صنعتی است."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "چطور ثبت‌نام کنم؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "برای اطلاع از هزینه، زمان برگزاری و ثبت‌نام، در تلگرام به آیدی @pypyid پیام دهید."
+      }
+    }
+  ]
+}
+</script>
