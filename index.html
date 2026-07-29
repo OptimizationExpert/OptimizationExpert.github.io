@@ -53,11 +53,11 @@
     "@context": "https://schema.org",
     "@type": "ItemList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "item": { "@type": "Course", "name": "دوره مدل‌سازی مسائل بهینه‌سازی", "description": "تبدیل مسائل واقعی به مدل ریاضی دقیق و قابل حل؛ متغیر تصمیم، تابع هدف و قیود.", "url": "https://optimizationexpert.github.io/#courses", "provider": { "@type": "EducationalOrganization", "name": "Optimization Expert", "url": "https://optimizationexpert.github.io/" } } },
-      { "@type": "ListItem", "position": 2, "item": { "@type": "Course", "name": "دوره مقدماتی بهینه‌سازی سیستم‌های قدرت", "description": "پخش بار اقتصادی، DC-OPF، ذخیره‌ساز انرژی و Unit Commitment در ۸ ساعت.", "url": "https://optimizationexpert.github.io/#courses", "provider": { "@type": "EducationalOrganization", "name": "Optimization Expert", "url": "https://optimizationexpert.github.io/" } } },
-      { "@type": "ListItem", "position": 3, "item": { "@type": "Course", "name": "دوره فشرده مدل‌سازی عدم قطعیت", "description": "روش‌های Stochastic، Fuzzy، Robust و IGDT برای مدل‌سازی عدم قطعیت.", "url": "https://optimizationexpert.github.io/#courses", "provider": { "@type": "EducationalOrganization", "name": "Optimization Expert", "url": "https://optimizationexpert.github.io/" } } },
-      { "@type": "ListItem", "position": 4, "item": { "@type": "Course", "name": "دوره پیشرفته بهینه‌سازی سیستم‌های قدرت", "description": "UC، AC/DC-OPF، N-1، TEP و بهینه‌سازی چندهدفه در Python با Pyomo؛ ۱۰ جلسه.", "url": "https://optimizationexpert.github.io/#courses", "provider": { "@type": "EducationalOrganization", "name": "Optimization Expert", "url": "https://optimizationexpert.github.io/" } } },
-      { "@type": "ListItem", "position": 5, "item": { "@type": "Course", "name": "آموزش جامع بهینه‌سازی و مسیریابی (VRP) در Python", "description": "۲۰ پروژه عملی و ۱۰ ساعت ویدیو؛ از مسائل ترکیبی تا CVRP و VRPTW.", "url": "https://optimizationexpert.github.io/#courses", "provider": { "@type": "EducationalOrganization", "name": "Optimization Expert", "url": "https://optimizationexpert.github.io/" } } }
+      { "@type": "ListItem", "position": 1, "item": { "@type": "Course", "name": "دوره مدل‌سازی مسائل بهینه‌سازی", "description": "تبدیل مسائل واقعی به مدل ریاضی دقیق و قابل حل؛ متغیر تصمیم، تابع هدف و قیود.", "url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/", "provider": { "@type": "EducationalOrganization", "name": "Optimization Expert", "url": "https://optimizationexpert.github.io/" } } },
+      { "@type": "ListItem", "position": 2, "item": { "@type": "Course", "name": "دوره مقدماتی بهینه‌سازی سیستم‌های قدرت", "description": "پخش بار اقتصادی، DC-OPF، ذخیره‌ساز انرژی و Unit Commitment در ۸ ساعت.", "url": "https://optimizationexpert.github.io/posts/2026/06/22/intro-power-system-course/", "provider": { "@type": "EducationalOrganization", "name": "Optimization Expert", "url": "https://optimizationexpert.github.io/" } } },
+      { "@type": "ListItem", "position": 3, "item": { "@type": "Course", "name": "دوره فشرده مدل‌سازی عدم قطعیت", "description": "روش‌های Stochastic، Fuzzy، Robust و IGDT برای مدل‌سازی عدم قطعیت.", "url": "https://optimizationexpert.github.io/posts/2026/06/23/uncertainty-modeling-course/", "provider": { "@type": "EducationalOrganization", "name": "Optimization Expert", "url": "https://optimizationexpert.github.io/" } } },
+      { "@type": "ListItem", "position": 4, "item": { "@type": "Course", "name": "دوره پیشرفته بهینه‌سازی سیستم‌های قدرت", "description": "UC، AC/DC-OPF، N-1، TEP و بهینه‌سازی چندهدفه در Python با Pyomo؛ ۱۰ جلسه.", "url": "https://optimizationexpert.github.io/posts/2026/06/20/advanced-power-system-course/", "provider": { "@type": "EducationalOrganization", "name": "Optimization Expert", "url": "https://optimizationexpert.github.io/" } } },
+      { "@type": "ListItem", "position": 5, "item": { "@type": "Course", "name": "آموزش جامع بهینه‌سازی و مسیریابی (VRP) در Python", "description": "۲۰ پروژه عملی و ۱۰ ساعت ویدیو؛ از مسائل ترکیبی تا CVRP و VRPTW.", "url": "https://optimizationexpert.github.io/posts/2026/06/24/vrp-python-course/", "provider": { "@type": "EducationalOrganization", "name": "Optimization Expert", "url": "https://optimizationexpert.github.io/" } } }
     ]
   }
   </script>
@@ -239,7 +239,38 @@
     ul.syllabus .desc { margin: 0; color: var(--muted); font-size: 0.93rem; line-height: 1.85; }
     ul.syllabus .desc b { color: var(--ink-soft); }
 
+    /* ---------- Simplified course list (title + link only) ---------- */
+    .courses-simple { grid-template-columns: 1fr; gap: 14px; }
+    .course-link {
+      background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+      padding: 22px 26px; box-shadow: var(--shadow-sm);
+      display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+      position: relative; overflow: hidden;
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    }
+    .course-link::before {
+      content: ""; position: absolute; inset-block: 0; inset-inline-start: 0; width: 4px;
+      background: linear-gradient(180deg, var(--blue), var(--optimal)); opacity: 0; transition: opacity .2s ease;
+    }
+    .course-link:hover { transform: translateY(-3px); box-shadow: var(--shadow); border-color: rgba(37,99,235,0.35); }
+    .course-link:hover::before { opacity: 1; }
+    .course-link h3 { margin: 0; color: var(--ink); font-size: 1.2rem; line-height: 1.6; }
+    .course-link .go {
+      flex: none; display: inline-flex; align-items: center; gap: 8px;
+      color: var(--blue-deep); font-weight: 700; font-size: 0.95rem;
+      transition: gap .2s ease;
+    }
+    .course-link:hover .go { gap: 12px; }
+
     .course-foot { margin-top: auto; padding-top: 20px; }
+    .course-foot-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+    .btn-detail {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: #fff; color: var(--blue-deep); border: 1px solid rgba(37,99,235,0.35);
+      border-radius: 12px; padding: 11px 18px; font-weight: 700;
+      transition: background .2s ease, transform .2s ease, border-color .2s ease;
+    }
+    .btn-detail:hover { background: rgba(37,99,235,0.08); border-color: var(--blue-deep); transform: translateY(-2px); }
     .tg {
       display: inline-flex; align-items: center; gap: 8px;
       background: var(--ink); color: #fff; border-radius: 12px; padding: 11px 18px;
@@ -406,168 +437,27 @@
           <p>برای دریافت اطلاعات ثبت‌نام، هزینه و زمان برگزاری هر دوره، از طریق تلگرام پیام دهید.</p>
         </div>
 
-        <div class="courses">
-          <!-- 1 -->
-          <article class="course-card">
-            <div class="course-top">
-              <h3>دوره مدل‌سازی مسائل بهینه‌سازی</h3>
-              <span class="pill">پایه و ضروری</span>
-            </div>
-            <p>
-              این دوره نقطه شروع ورود به دنیای بهینه‌سازی است و بر مهم‌ترین بخش هر پروژه بهینه‌سازی، یعنی مدل‌سازی صحیح مسئله تمرکز دارد. در این دوره، پیش از هرگونه برنامه‌نویسی یا استفاده از نرم‌افزارهای حل‌کننده، شرکت‌کنندگان با اصول تبدیل مسائل واقعی به مدل‌های ریاضی آشنا خواهند شد.
-            </p>
-            <p>
-              در ابتدا مفاهیم پایه‌ای مدل‌سازی، تعریف متغیرهای تصمیم، تابع هدف و قیود مورد بررسی قرار می‌گیرد. سپس انواع مختلف مسائل بهینه‌سازی در حوزه‌های مهندسی، انرژی و کسب‌وکار تحلیل شده و روش صحیح فرموله‌سازی آن‌ها آموزش داده می‌شود.
-            </p>
-            <h4>هدف دوره</h4>
-            <ul class="clean">
-              <li>تبدیل مسائل واقعی به مدل ریاضی دقیق و قابل حل</li>
-              <li>شناخت متغیرهای تصمیم، تابع هدف و قیود</li>
-              <li>آمادگی برای کدنویسی با ابزارهایی مانند Gurobi، Pyomo و JuMP</li>
-            </ul>
-            <div class="course-foot"><a class="tg" href="https://t.me/pypyid" target="_blank" rel="noopener">ثبت‌نام از طریق تلگرام</a></div>
-          </article>
-
-          <!-- 2 -->
-          <article class="course-card">
-            <div class="course-top">
-              <h3>دوره مقدماتی بهینه‌سازی سیستم‌های قدرت</h3>
-              <span class="pill">۸ ساعت</span>
-            </div>
-            <p>
-              این دوره ۸ ساعته با هدف آشنایی عملی با مهم‌ترین مسائل بهینه‌سازی در سیستم‌های قدرت طراحی شده است. شرکت‌کنندگان با نحوه مدل‌سازی و کدنویسی مسائل پایه بهینه‌سازی سیستم قدرت آشنا می‌شوند و یاد می‌گیرند چگونه مسائل متداول صنعت برق را به مدل‌های ریاضی قابل حل تبدیل کنند.
-            </p>
-            <h4>سرفصل‌ها</h4>
-            <ul class="syllabus">
-              <li>
-                <div class="title">پخش بار اقتصادی <span class="en">Economic Dispatch</span></div>
-                <p class="desc">نقطه‌ی شروعِ همه‌چیز: ساده‌ترین حالت که فقط می‌پرسیم «هر نیروگاه چقدر تولید کند تا ارزان‌ترین شود؟» مخاطب اینجا با <b>تابع هزینه</b> و <b>قید تعادل توان</b> آشنا می‌شود — سنگ‌بنای کل کورس. بقیه‌ی مباحث فقط «اضافه‌کردن واقعیت» به همین مدل‌اند.</p>
-              </li>
-              <li>
-                <div class="title">پخش بار اقتصادی دینامیکی <span class="en">Dynamic Economic Dispatch</span></div>
-                <p class="desc">حالا بُعدِ <b>زمان</b> اضافه می‌شود: مصرف در طول شبانه‌روز بالا و پایین می‌رود. قید مهمِ <b>نرخ تغییر توان (ramp rate)</b> وارد می‌شود، چون نیروگاه نمی‌تواند یک‌دفعه تولیدش را تغییر دهد. پلِ طبیعی بین مسئله‌ی تک‌لحظه‌ای و بهره‌برداری روزانه.</p>
-              </li>
-              <li>
-                <div class="title">پخش بار بهینه <span class="en">DC Optimal Power Flow</span></div>
-                <p class="desc">این بار بُعدِ <b>شبکه</b> اضافه می‌شود: برق آزادانه هرجا نمی‌رود، بلکه طبق فیزیک خطوط پخش می‌شود و خطوط محدودیت ظرفیت دارند. اینجا می‌فهمید چرا گاهی مجبوریم نیروگاه گران‌تر را روشن کنیم — ارتباط اقتصاد و فیزیک شبکه.</p>
-              </li>
-              <li>
-                <div class="title">مدل‌سازی سیستم‌های ذخیره‌ساز انرژی و باتری</div>
-                <p class="desc">باتری مفهوم تازه‌ای می‌آورد: <b>جابه‌جایی انرژی در زمان</b> — انرژی ارزان را ذخیره کن، موقع گرانی استفاده کن. مدل‌سازی‌اش به مسئله‌ی دینامیکی وصل است و قید <b>سطح شارژ</b> دارد. این مبحث کورس را به دنیای امروز و تجدیدپذیرها می‌رساند.</p>
-              </li>
-              <li>
-                <div class="title">آشنایی مختصر با آرایش بهینه نیروگاهی <span class="en">Unit Commitment</span></div>
-                <p class="desc">جمع‌بندیِ همه‌چیز: تا حالا فرض می‌کردیم نیروگاه‌ها روشن‌اند، ولی حالا تصمیم می‌گیریم <b>کدام نیروگاه اصلاً روشن شود</b> (متغیر صفر و یک). مسئله وارد دنیای <b>برنامه‌ریزی عدد صحیح</b> می‌شود — سخت‌تر، ولی واقعی‌تر. نگاهِ پایانی به مسائل پیشرفته.</p>
-              </li>
-            </ul>
-            <div class="course-foot"><a class="tg" href="https://t.me/pypyid" target="_blank" rel="noopener">ثبت‌نام از طریق تلگرام</a></div>
-          </article>
-
-          <!-- 3 -->
-          <article class="course-card">
-            <div class="course-top">
-              <h3>دوره فشرده مدل‌سازی عدم قطعیت</h3>
-              <span class="pill">فشرده</span>
-            </div>
-            <p>
-              در بسیاری از مسائل واقعی، اطلاعات مورد نیاز برای تصمیم‌گیری به صورت قطعی در دسترس نیستند. تغییرات بار، قیمت انرژی، تولید منابع تجدیدپذیر و بسیاری از پارامترهای دیگر دارای عدم قطعیت هستند. در این دوره فشرده، مهم‌ترین روش‌های مدل‌سازی عدم قطعیت در مسائل بهینه‌سازی معرفی و مقایسه می‌شوند.
-            </p>
-            <h4>روش‌های مورد بررسی</h4>
-            <ul class="clean">
-              <li>مدل‌سازی احتمالاتی (Stochastic Optimization)</li>
-              <li>مدل‌سازی فازی (Fuzzy Optimization)</li>
-              <li>بهینه‌سازی مقاوم (Robust Optimization)</li>
-              <li>نظریه تصمیم‌گیری در شرایط کمبود اطلاعات (IGDT)</li>
-              <li>مقایسه مزایا، محدودیت‌ها و کاربردهای هر روش</li>
-            </ul>
-            <div class="course-foot"><a class="tg" href="https://t.me/pypyid" target="_blank" rel="noopener">ثبت‌نام از طریق تلگرام</a></div>
-          </article>
-
-          <!-- 4 -->
-          <article class="course-card">
-            <div class="course-top">
-              <h3>دوره پیشرفته بهینه‌سازی سیستم‌های قدرت</h3>
-              <span class="pill">پیشرفته · ۱۰ جلسه</span>
-            </div>
-            <p>
-              ادامه‌ی طبیعی دوره مقدماتی، برای کسانی که می‌خواهند وارد مسائل واقعی و روزِ بهره‌برداری و برنامه‌ریزی سیستم قدرت شوند. دوره از مفاهیم پایه شروع می‌شود، در شبکه انتقال به مسائل پیشرفته بهره‌برداری و برنامه‌ریزی می‌رسد و با یک مسئله بهره‌برداری در شبکه توزیع جمع‌بندی می‌شود. تمرکز اصلی بر مدل‌سازی واقعی، حل عددی و تحلیل و تصویرسازی نتایج در Python (با ابزارهایی مانند Pyomo) است.
-            </p>
-            <h4>سرفصل‌ها</h4>
-            <ul class="syllabus">
-              <li>
-                <div class="title">آرایش بهینه واحدها <span class="en">Unit Commitment</span></div>
-                <p class="desc">تصمیم درباره روشن/خاموش بودن هر واحد در هر ساعت، با قیود واقعی مانند رمپ، ذخیره چرخان، حداقل زمان روشن/خاموش و هزینه راه‌اندازی. پایه‌ی فرمول‌بندی بقیه‌ی جلسات.</p>
-              </li>
-              <li>
-                <div class="title">پخش بار DC و قیود امنیت <span class="en">N-1</span></div>
-                <p class="desc">مدل خطی و سریع شبکه برای مسائل بزرگ، همراه با معیار امنیت N-1 و استفاده از ضرایب حساسیت آماده (PTDF و LODF) برای تحلیل خروج خطوط.</p>
-              </li>
-              <li>
-                <div class="title">پخش بار AC و <span class="en">AC-OPF</span></div>
-                <p class="desc">مدل کامل و واقعی شبکه با ولتاژ، توان راکتیو و تلفات. آشنایی با غیرخطی و غیرمحدب بودن مسئله و چالش رسیدن به جواب بهینه سراسری.</p>
-              </li>
-              <li>
-                <div class="title">جایابی باتری در شبکه انتقال <span class="en">DC-OPF + Storage</span></div>
-                <p class="desc">تصمیم هم‌زمان درباره محل و ظرفیت نصب باتری و الگوی شارژ/دشارژ، برای رفع گرفتگی خطوط و کاهش هزینه پیک.</p>
-              </li>
-              <li>
-                <div class="title">مدیریت مصرف در شبکه انتقال <span class="en">Demand Response</span></div>
-                <p class="desc">ورود انعطاف سمت تقاضا به مدل: کاهش و انتقال بار برای کم‌کردن هزینه سیستم و محدودکردن نیاز به تولید گران در ساعات اوج.</p>
-              </li>
-              <li>
-                <div class="title">برنامه‌ریزی توسعه شبکه انتقال <span class="en">TEP</span></div>
-                <p class="desc">تصمیم بلندمدت و سرمایه‌ای درباره ساخت خطوط جدید، به‌صورت مسئله عدد صحیح-مخلوط؛ مصالحه میان هزینه سرمایه‌گذاری و منفعت بهره‌برداری.</p>
-              </li>
-              <li>
-                <div class="title">بهینه‌سازی چندهدفه</div>
-                <p class="desc">دنبال‌کردن هم‌زمان دو هدف متضاد (هزینه و آلودگی) و ساخت جبهه پارتو با روش‌های جمع وزنی و اپسیلون-قید.</p>
-              </li>
-              <li>
-                <div class="title">عدم قطعیت در آرایش بهینه واحدها</div>
-                <p class="desc">بازتعریف مسئله UC به‌صورت تصادفی و سناریومحور؛ تفاوت تصمیم‌های مرحله اول و دوم پس از آشکار شدن سناریوها.</p>
-              </li>
-              <li>
-                <div class="title">سوئیچینگ بهینه خطوط انتقال <span class="en">Optimal Transmission Switching</span></div>
-                <p class="desc">ایده‌ی خلاف‌انتظار: قطع هدفمند یک خط می‌تواند مسیر جریان را بهبود دهد و ازدحام را کم کند. مدل عدد صحیح-مخلوط روی پایه DC-OPF.</p>
-              </li>
-              <li>
-                <div class="title">کنترل توان راکتیو اینورترهای خورشیدی <span class="en">Inverter Volt/VAR</span></div>
-                <p class="desc">جمع‌بندی دوره در شبکه توزیع: تنظیم پیوسته توان راکتیو اینورترهای موجود برای بهبود پروفایل ولتاژ و کاهش تلفات، بدون سرمایه‌گذاری جدید.</p>
-              </li>
-            </ul>
-            <div class="course-foot"><a class="tg" href="https://t.me/pypyid" target="_blank" rel="noopener">ثبت‌نام از طریق تلگرام</a></div>
-          </article>
-
-          <!-- 5 -->
-          <article class="course-card">
-            <div class="course-top">
-              <h3>آموزش جامع بهینه‌سازی و مسیریابی (VRP) در Python</h3>
-              <span class="pill">۲۰ پروژه + ۱۰ ساعت</span>
-            </div>
-            <p>
-              این دوره یک مسیر آموزشی پروژه‌محور برای یادگیری مدل‌سازی و پیاده‌سازی مسائل مسیریابی وسیله نقلیه و مسائل ترکیبی در Python است. دوره شامل ۲۰ پروژه عملی و حدود ۱۰ ساعت ویدیوی آموزشی است و از سطح مقدماتی آغاز شده و به‌تدریج وارد مسائل تخصصی‌تر حمل‌ونقل و لجستیک می‌شود.
-            </p>
-            <h4>۱۰ مورد پروژه‌های عمومی</h4>
-            <ul class="clean">
-              <li>حداکثر جریان در شبکه‌های آب، گاز و حمل‌ونقل</li>
-              <li>تخصیص کارگر به پروژه و بسته‌بندی هوشمند</li>
-              <li>چیدمان میهمان، زمان‌بندی تولید و برنامه‌ریزی درسی</li>
-              <li>مربع جادویی، تحلیل گراف، جانمایی ربات و مسائل ترکیبی</li>
-            </ul>
-            <h4>۱۰ مورد پروژه‌های تخصصی VRP</h4>
-            <ul class="clean">
-              <li>VRP، CVRP و VRPTW</li>
-              <li>مسیریابی چند پایانه، پنجره زمانی و زمان انتظار</li>
-              <li>تحویل چندمرحله‌ای، بارگیری و تخلیه، مسیریابی سودآور</li>
-              <li>محدودیت‌های مکانی، اولویت‌بندی و حمل بار بین نقاط مختلف</li>
-            </ul>
-            <h4>دریافتی‌های دوره</h4>
-            <ul class="clean">
-              <li>ویدیوهای آموزشی، کد کامل پروژه‌ها، مستندات و داده‌های تست آماده</li>
-              <li>مناسب برای دانشجویان مهندسی، مدیران عملیاتی و علاقه‌مندان به برنامه‌نویسی و بهینه‌سازی</li>
-            </ul>
-            <div class="course-foot"><a class="tg" href="https://t.me/pypyid" target="_blank" rel="noopener">ثبت‌نام از طریق تلگرام</a></div>
-          </article>
+        <div class="courses courses-simple">
+          <a class="course-link" href="/posts/2026/06/21/optimization-modeling-course/">
+            <h3>دوره مدل‌سازی مسائل بهینه‌سازی</h3>
+            <span class="go">مشاهده دوره <span aria-hidden="true">←</span></span>
+          </a>
+          <a class="course-link" href="/posts/2026/06/22/intro-power-system-course/">
+            <h3>دوره مقدماتی بهینه‌سازی سیستم‌های قدرت</h3>
+            <span class="go">مشاهده دوره <span aria-hidden="true">←</span></span>
+          </a>
+          <a class="course-link" href="/posts/2026/06/23/uncertainty-modeling-course/">
+            <h3>دوره فشرده مدل‌سازی عدم قطعیت</h3>
+            <span class="go">مشاهده دوره <span aria-hidden="true">←</span></span>
+          </a>
+          <a class="course-link" href="/posts/2026/06/20/advanced-power-system-course/">
+            <h3>دوره پیشرفته بهینه‌سازی سیستم‌های قدرت</h3>
+            <span class="go">مشاهده دوره <span aria-hidden="true">←</span></span>
+          </a>
+          <a class="course-link" href="/posts/2026/06/24/vrp-python-course/">
+            <h3>آموزش جامع بهینه‌سازی و مسیریابی (VRP) در Python</h3>
+            <span class="go">مشاهده دوره <span aria-hidden="true">←</span></span>
+          </a>
         </div>
 
         <div class="note">
