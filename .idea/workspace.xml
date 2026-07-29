@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5fb3a5bf-0b5a-4e22-aaa6-3a759bb44e2d" name="Changes" comment="" />
+    <list default="true" id="5fb3a5bf-0b5a-4e22-aaa6-3a759bb44e2d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/_posts/2026-06-21-optimization-modeling-course.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2026-06-21-optimization-modeling-course.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/2026-06-22-intro-power-system-course.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2026-06-22-intro-power-system-course.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/2026-06-23-uncertainty-modeling-course.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2026-06-23-uncertainty-modeling-course.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/2026-06-24-vrp-python-course.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2026-06-24-vrp-python-course.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -128,7 +134,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-50341a9f1f9c-c2ffad84badb-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-261.26222.68" />
+        <option value="bundled-python-sdk-c6d794e1806d-5bd6d13a2a75-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-262.8665.309" />
       </set>
     </attachedChunks>
   </component>
