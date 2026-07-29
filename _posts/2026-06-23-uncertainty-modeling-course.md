@@ -91,6 +91,15 @@ image: /assets/images/pic.png
 
 ---
 
+
+---
+
+## دوره‌های مرتبط
+
+- [دوره مدل‌سازی مسائل بهینه‌سازی](/posts/2026/06/21/optimization-modeling-course/)
+- [دوره مقدماتی بهینه‌سازی سیستم‌های قدرت](/posts/2026/06/22/intro-power-system-course/)
+- [دوره پیشرفته بهینه‌سازی سیستم‌های قدرت](/posts/2026/06/20/Advanced-Power-System-Course/)
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -169,6 +178,18 @@ image: /assets/images/pic.png
         "text": "برای اطلاع از هزینه، زمان برگزاری و ثبت‌نام، در تلگرام به آیدی @pypyid پیام دهید."
       }
     }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "خانه", "item": "https://optimizationexpert.github.io/" },
+    { "@type": "ListItem", "position": 2, "name": "دوره‌ها", "item": "https://optimizationexpert.github.io/#courses" },
+    { "@type": "ListItem", "position": 3, "name": "دوره فشرده مدل‌سازی عدم قطعیت", "item": "https://optimizationexpert.github.io/posts/2026/06/23/uncertainty-modeling-course/" }
   ]
 }
 </script>

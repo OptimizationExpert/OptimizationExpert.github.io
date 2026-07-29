@@ -95,6 +95,13 @@ image: /assets/posts/TDvrp.jpg
 
 ---
 
+
+---
+
+## دوره‌های مرتبط
+
+- [دوره مدل‌سازی مسائل بهینه‌سازی](/posts/2026/06/21/optimization-modeling-course/)
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -182,6 +189,18 @@ image: /assets/posts/TDvrp.jpg
         "text": "برای اطلاع از هزینه، زمان برگزاری و ثبت‌نام، در تلگرام به آیدی @pypyid پیام دهید."
       }
     }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "خانه", "item": "https://optimizationexpert.github.io/" },
+    { "@type": "ListItem", "position": 2, "name": "دوره‌ها", "item": "https://optimizationexpert.github.io/#courses" },
+    { "@type": "ListItem", "position": 3, "name": "آموزش جامع بهینه‌سازی و مسیریابی (VRP) در Python", "item": "https://optimizationexpert.github.io/posts/2026/06/24/vrp-python-course/" }
   ]
 }
 </script>

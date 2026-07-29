@@ -128,6 +128,16 @@ print(f"هزینه کل: {value(m.cost):.1f}")
 
 ---
 
+
+---
+
+## دوره‌های مرتبط
+
+- [دوره مقدماتی بهینه‌سازی سیستم‌های قدرت](/posts/2026/06/22/intro-power-system-course/)
+- [دوره فشرده مدل‌سازی عدم قطعیت](/posts/2026/06/23/uncertainty-modeling-course/)
+- [آموزش جامع بهینه‌سازی و مسیریابی (VRP) در Python](/posts/2026/06/24/vrp-python-course/)
+- [دوره پیشرفته بهینه‌سازی سیستم‌های قدرت](/posts/2026/06/20/Advanced-Power-System-Course/)
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -187,7 +197,7 @@ print(f"هزینه کل: {value(m.cost):.1f}")
       "name": "آیا این دوره کدنویسی هم دارد؟",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "تمرکز اصلی بر مدل‌سازی است،  Pyomo، Gurobi و JuMP  تا آماده ورود به دوره‌های تخصصی شوید."
+        "text": "تمرکز اصلی بر مدل‌سازی است، اما نگاشت مدل به کد در Pyomo، Gurobi و JuMP نیز آموزش داده می‌شود تا آماده ورود به دوره‌های تخصصی شوید."
       }
     },
     {
@@ -206,6 +216,18 @@ print(f"هزینه کل: {value(m.cost):.1f}")
         "text": "برای اطلاع از هزینه، زمان برگزاری و ثبت‌نام، در تلگرام به آیدی @pypyid پیام دهید."
       }
     }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "خانه", "item": "https://optimizationexpert.github.io/" },
+    { "@type": "ListItem", "position": 2, "name": "دوره‌ها", "item": "https://optimizationexpert.github.io/#courses" },
+    { "@type": "ListItem", "position": 3, "name": "دوره مدل‌سازی مسائل بهینه‌سازی", "item": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/" }
   ]
 }
 </script>

@@ -22,7 +22,7 @@ image: /assets/posts/storageallocation.jpg
 
 ## ۱ — پخش بار اقتصادی (Economic Dispatch)
 
-نقطهٔ شروعِ همه‌چیز: ساده‌ترین حالت که فقط می‌پرسیم «هر نیروگاه چقدر تولید کند تا ارزان‌ترین شود؟» اینجا با **تابع هزینه** و **قید تعادل توان** آشنا می‌شوید — سنگ‌بنای کل دوره. 
+نقطهٔ شروعِ همه‌چیز: ساده‌ترین حالت که فقط می‌پرسیم «هر نیروگاه چقدر تولید کند تا ارزان‌ترین شود؟» اینجا با **تابع هزینه** و **قید تعادل توان** آشنا می‌شوید — سنگ‌بنای کل دوره.
 
 ## ۲ — پخش بار اقتصادی دینامیکی (Dynamic Economic Dispatch)
 
@@ -128,6 +128,15 @@ print(f"هزینه کل: {value(m.cost):.2f}")
 
 ---
 
+
+---
+
+## دوره‌های مرتبط
+
+- [دوره پیشرفته بهینه‌سازی سیستم‌های قدرت](/posts/2026/06/20/Advanced-Power-System-Course/)
+- [دوره مدل‌سازی مسائل بهینه‌سازی](/posts/2026/06/21/optimization-modeling-course/)
+- [دوره فشرده مدل‌سازی عدم قطعیت](/posts/2026/06/23/uncertainty-modeling-course/)
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -215,6 +224,18 @@ print(f"هزینه کل: {value(m.cost):.2f}")
         "text": "برای اطلاع از هزینه، زمان برگزاری و ثبت‌نام، در تلگرام به آیدی @pypyid پیام دهید."
       }
     }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "خانه", "item": "https://optimizationexpert.github.io/" },
+    { "@type": "ListItem", "position": 2, "name": "دوره‌ها", "item": "https://optimizationexpert.github.io/#courses" },
+    { "@type": "ListItem", "position": 3, "name": "دوره مقدماتی بهینه‌سازی سیستم‌های قدرت", "item": "https://optimizationexpert.github.io/posts/2026/06/22/intro-power-system-course/" }
   ]
 }
 </script>
