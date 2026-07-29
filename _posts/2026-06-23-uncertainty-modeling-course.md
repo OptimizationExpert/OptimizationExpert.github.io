@@ -3,6 +3,7 @@ layout: post
 title: "دوره فشرده مدل‌سازی عدم قطعیت"
 seo_title: "دوره مدل‌سازی عدم قطعیت | Stochastic، Robust، Fuzzy و IGDT"
 date: 2026-06-23
+permalink: /posts/2026/06/23/uncertainty-modeling-course/
 display_date: "۲ تیر ۱۴۰۵"
 description: "دوره فشرده مدل‌سازی عدم قطعیت در مسائل بهینه‌سازی؛ معرفی و مقایسه روش‌های بهینه‌سازی احتمالاتی (Stochastic)، فازی (Fuzzy)، مقاوم (Robust) و نظریه تصمیم در شرایط کمبود اطلاعات (IGDT) با کاربرد در انرژی و سیستم قدرت."
 keywords: "مدل سازی عدم قطعیت, بهینه سازی تصادفی, Stochastic Optimization, Robust Optimization, بهینه سازی مقاوم, Fuzzy, IGDT, عدم قطعیت, سناریو"

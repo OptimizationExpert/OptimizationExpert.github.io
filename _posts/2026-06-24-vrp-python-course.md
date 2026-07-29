@@ -3,6 +3,7 @@ layout: post
 title: "آموزش جامع بهینه‌سازی و مسیریابی (VRP) در Python"
 seo_title: "آموزش VRP در Python | ۲۰ پروژه عملی مسیریابی و بهینه‌سازی"
 date: 2026-06-24
+permalink: /posts/2026/06/24/vrp-python-course/
 display_date: "۳ تیر ۱۴۰۵"
 description: "دوره جامع و پروژه‌محور مسیریابی وسایل نقلیه (VRP) و مسائل ترکیبی در Python؛ ۲۰ پروژه عملی و حدود ۱۰ ساعت ویدیو: از حداکثر جریان و تخصیص تا CVRP و VRPTW با کد کامل و داده‌های آماده."
 keywords: "VRP, مسیریابی وسایل نقلیه, Vehicle Routing Problem, CVRP, VRPTW, بهینه سازی ترکیبی, Python, پایتون, لجستیک, حمل و نقل, مسیریابی"

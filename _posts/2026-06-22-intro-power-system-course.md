@@ -3,6 +3,7 @@ layout: post
 title: "دوره مقدماتی بهینه‌سازی سیستم‌های قدرت"
 seo_title: "دوره مقدماتی بهینه‌سازی سیستم‌های قدرت | ۸ ساعت پروژه‌محور"
 date: 2026-06-22
+permalink: /posts/2026/06/22/intro-power-system-course/
 display_date: "۱ تیر ۱۴۰۵"
 description: "دوره مقدماتی و پروژه‌محور بهینه‌سازی سیستم‌های قدرت در ۸ ساعت: پخش بار اقتصادی (Economic Dispatch)، پخش بار اقتصادی دینامیکی، DC-OPF، مدل‌سازی ذخیره‌ساز انرژی و باتری و مقدمه‌ای بر آرایش بهینه نیروگاهی (Unit Commitment) در Python."
 keywords: "دوره مقدماتی سیستم قدرت, بهینه سازی سیستم قدرت, پخش بار اقتصادی, Economic Dispatch, DC-OPF, ذخیره ساز انرژی, باتری, Unit Commitment, Python, Pyomo"
