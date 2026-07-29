@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Google Colab: مزایا و معایب  | Optimization Expert</title>
+  <meta name="description" content="تحلیل منصفانه مزایا و معایب Google Colab برای یادگیری و کار با ابزارهای بهینه‌سازی." />
+  
+  <meta name="author" content="Optimization Expert" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://optimizationexpert.github.io/posts/2026/06/17/googlecolab/" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Google Colab: مزایا و معایب " />
+  <meta property="og:description" content="تحلیل منصفانه مزایا و معایب Google Colab برای یادگیری و کار با ابزارهای بهینه‌سازی." />
+  <meta property="og:url" content="https://optimizationexpert.github.io/posts/2026/06/17/googlecolab/" />
+  <meta property="og:locale" content="fa_IR" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Google Colab: مزایا و معایب " />
+  <meta name="twitter:description" content="تحلیل منصفانه مزایا و معایب Google Colab برای یادگیری و کار با ابزارهای بهینه‌سازی." />
+  
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap');
+
+    :root {
+      --bg: #f7f7fb;
+      --card: #ffffff;
+      --text: #172033;
+      --muted: #5f6b7a;
+      --primary: #174ea6;
+      --primary-2: #0b57d0;
+      --accent: #00a884;
+      --border: #e5e9f2;
+      --shadow: 0 18px 45px rgba(23, 32, 51, 0.08);
+      --radius: 24px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: "Vazirmatn", Tahoma, Arial, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(23, 78, 166, 0.12), transparent 32rem),
+        linear-gradient(180deg, #ffffff 0%, var(--bg) 100%);
+      color: var(--text);
+      line-height: 1.9;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container { width: min(900px, calc(100% - 32px)); margin: 0 auto; }
+
+    header {
+      position: sticky; top: 0; z-index: 10;
+      backdrop-filter: blur(18px);
+      background: rgba(255, 255, 255, 0.78);
+      border-bottom: 1px solid rgba(229, 233, 242, 0.8);
+    }
+
+    nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 0; gap: 18px;
+      width: min(1120px, calc(100% - 32px)); margin: 0 auto;
+    }
+
+    .brand { font-weight: 800; color: var(--primary); letter-spacing: -0.3px; font-size: 1.08rem; }
+    .nav-links { display: flex; align-items: center; gap: 18px; font-size: 0.95rem; color: var(--muted); flex-wrap: wrap; }
+    .nav-links a:hover { color: var(--primary); }
+
+    main { padding: 48px 0; }
+
+    .page-title { font-size: clamp(1.8rem, 4vw, 2.8rem); letter-spacing: -0.8px; margin: 0 0 8px; }
+    .page-sub { color: var(--muted); margin: 0 0 32px; }
+
+    /* فهرست پست‌ها */
+    .post-list { display: grid; gap: 16px; margin: 0; padding: 0; list-style: none; }
+    .post-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 22px 24px;
+      box-shadow: 0 12px 34px rgba(23, 32, 51, 0.06);
+      transition: transform 0.2s ease;
+    }
+    .post-card:hover { transform: translateY(-3px); }
+    .post-card h3 { margin: 0 0 6px; color: var(--primary); font-size: 1.25rem; }
+    .post-date { color: var(--muted); font-size: 0.85rem; margin: 0 0 10px; }
+    .post-excerpt { color: var(--muted); margin: 0; }
+
+    /* صفحه یک پست */
+    article.post {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 34px 36px;
+      box-shadow: var(--shadow);
+    }
+    article.post h1 { color: var(--primary); font-size: clamp(1.6rem, 4vw, 2.4rem); margin: 0 0 8px; }
+    article.post h2 { font-size: 1.4rem; margin: 28px 0 10px; }
+    article.post h3 { font-size: 1.15rem; margin: 22px 0 8px; }
+    article.post p { color: var(--text); }
+    article.post ul, article.post ol { padding-right: 22px; color: var(--text); }
+    article.post li { margin-bottom: 6px; }
+    article.post img { display: block; max-width: 100%; height: auto; margin: 20px auto; border-radius: 16px; }
+    article.post pre {
+      background: #0f1b2d; color: #e6edf7; padding: 16px 18px;
+      border-radius: 14px; overflow-x: auto; direction: ltr; text-align: left;
+    }
+    article.post code { font-family: "Cascadia Code", Consolas, monospace; direction: ltr; }
+    article.post blockquote {
+      border-right: 4px solid var(--accent); margin: 18px 0;
+      padding: 4px 16px; background: #f3fbf8; color: var(--muted); border-radius: 10px;
+    }
+
+    .back-link { display: inline-block; margin-top: 24px; color: var(--primary); font-weight: 700; }
+
+    footer { padding: 36px 0; color: var(--muted); text-align: center; font-size: 0.92rem; }
+
+    @media (max-width: 820px) {
+      nav { align-items: start; flex-direction: column; }
+      article.post { padding: 24px 22px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav aria-label="ناوبری اصلی">
+      <a class="brand" href="/">Optimization Expert</a>
+      <div class="nav-links">
+        <a href="/#courses">دوره‌ها</a>
+        <a href="/#path">مسیر یادگیری</a>
+        <a href="/blog/">یادداشت‌ها</a>
+        <a href="/#contact">ثبت‌نام و تماس</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container">
+      <article class="post">
+  <h1>Google Colab: مزایا و معایب </h1>
+  <p class="post-date"> خرداد ۱۴۰۵</p>
+  <p>Google Colab ابزار خوبی است، اما مثل همه چیز دیگر، مزایا و معایب دارد. بیایید یک بررسی صادقانه در هر دو سوی ماجرا داشته باشیم .</p>
+
+<hr />
+
+<h2 id="-مزایا">✅ مزایا</h2>
+
+<h3 id="۱-رایگان-و-بدون-نصب">۱) رایگان و بدون نصب</h3>
+
+<p>کاملاً رایگان. نه Anaconda، نه Python، نه solver. تقریباً هر کسی با حساب Google می‌تونه استفاده کنه. برای <strong>شروع‌کننده‌ها</strong> و <strong>دانشجویان</strong> این خیلی ارزشمند است.</p>
+
+<h3 id="۲-محیط-توکلکننده-و-تعاملی">۲) محیط توکل‌کننده و تعاملی</h3>
+
+<p>نوت‌بوک محیط فوق‌العاده برای یادگیری است. می‌تونی کد رو سلول‌به‌سلول اجرا کنی و <strong>هر جا نتایج رو فوری ببینی.</strong> دیباگ‌کردن و آزمایش بسیار راحت‌تر از یک Python script خطی است.</p>
+
+<h3 id="۳-آپدیت-خودکار">۳) آپدیت خودکار</h3>
+
+<p>Google مرتب Colab و کتابخانه‌های آن رو به‌روز می‌دارد. معمولاً آخرین نسخه‌های Python و library موجود‌اند.</p>
+
+<h3 id="۴-اشتراکگذاری-آسان">۴) اشتراک‌گذاری آسان</h3>
+
+<p>یک لینک می‌دی و دوستت/استادت/همکارت/مشتریت می‌تونه بدون نصب کدت رو اجرا و تغییر بده. برای <strong>آموزش و همکاری</strong> بی‌نظیره.</p>
+
+<h3 id="۵-ذخیرهسازی-خودکار-در-google-drive">۵) ذخیره‌سازی خودکار در Google Drive</h3>
+
+<p>هر چی می‌نویسی خودکار ذخیره می‌شه. نگران نیستی که داده‌ات گم بشه.</p>
+
+<h3 id="۶-gpu-رایگان-محدود">۶) GPU رایگان (محدود)</h3>
+
+<p>می‌تونی رایگان از GPU استفاده کنی. برای یادگیری ماشین و محاسبات بزرگ مفید است. (البته برای Pyomo خیلی معنی نداره.)</p>
+
+<hr />
+
+<h2 id="-معایب">❌ معایب</h2>
+
+<h3 id="۱-جلسات-موقتی-بزرگترین-مشکل">۱) جلسات موقتی (بزرگ‌ترین مشکل)</h3>
+
+<p>اگر ۳۰ دقیقه غیرفعال بمانی یا ۱۲ ساعت متصل بمانی، <strong>جلسه قطع می‌شه و تمام متغیرهای در حافظه پاک می‌شوند.</strong> اگر محاسبه‌ی بزرگی داشتی (مثلاً روزها solving)، باید دوباره شروع کنی.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># مثال: اگر این محاسبه ۱۵ ساعت وقت بگیرد:
+</span><span class="n">result</span> <span class="o">=</span> <span class="n">opt</span><span class="p">.</span><span class="n">solve</span><span class="p">(</span><span class="n">big_model</span><span class="p">,</span> <span class="n">tee</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>  <span class="c1"># وسطش قطع می‌شه!
+</span></code></pre></div></div>
+
+<p>برای <strong>پروژه‌های طولانی‌مدت نامناسب</strong> است.</p>
+
+<h3 id="۲-محدودیت-منابع-سیاست-نامعلوم">۲) محدودیت منابع (سیاست نامعلوم)</h3>
+
+<p>Google منابع رو محدود می‌کنه. اگر خیلی CPU/RAM استفاده کنی یا مرتب جلسات باز کنی، احتمال <strong>محدود شدن دسترسی</strong> وجود دارد. سیاست‌هایش مشخص و ثابت نیست.</p>
+
+<h3 id="۳-سرعت-نسبتاً-کند-برای-محاسبات-سنگین">۳) سرعت نسبتاً کند برای محاسبات سنگین</h3>
+
+<p>server های Colab <strong>به‌صورت معمولی</strong> سریع نیستند. اگر مدل بزرگی داری، کامپیوتر شخصی (خاصه اگر بهتر باشه) <strong>خیلی سریع‌تر</strong> است.</p>
+
+<h3 id="۴-اتصال-اینترنت-ضروری-است">۴) اتصال اینترنت ضروری است</h3>
+
+<p>بدون اینترنت استفاده نمی‌کنی. اگر بدون دسترسی به وب کار کنی، Colab کار نمی‌کنه.</p>
+
+<h3 id="۵-محدودیت-فایلهای-بزرگ">۵) محدودیت فایل‌های بزرگ</h3>
+
+<p>اگر داده‌های بسیار بزرگی داری (۱ GB+)، بارگذاری و پردازش‌شان کند و مشکل‌ساز است.</p>
+
+<h3 id="۶-عدم-داشتن-اختیار-کامل-روی-محیط">۶) عدم داشتن اختیار کامل روی محیط</h3>
+
+<p>نمی‌تونی سیستم رو ری‌بوت کنی، نمی‌تونی سخت‌افزار رو تغییر بدی، نمی‌تونی هر software دلخواهی نصب کنی. محدود‌ترین محیط است.</p>
+
+<h3 id="۷-سیاست-استفاده-ممکن-هر-وقت-تغییر-کنه">۷) سیاست استفاده ممکن هر وقت تغییر کنه</h3>
+
+<p>Google می‌تونه هر وقت سیاست‌ها رو تغییر بده. امروز رایگانه، فردا ممکن شرایط متفاوت باشه. (هرچند احتمالش کم است.)</p>
+
+<hr />
+
+<h2 id="مقایسه-سریع">مقایسه سریع</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>معیار</th>
+      <th>Google Colab</th>
+      <th>کامپیوتر شخصی</th>
+      <th>NEOS Server</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>نصب</strong></td>
+      <td>❌ ندارد</td>
+      <td>✅ یک‌بار</td>
+      <td>❌ ندارد</td>
+    </tr>
+    <tr>
+      <td><strong>سرعت محاسبه</strong></td>
+      <td>⭐⭐⭐ متوسط</td>
+      <td>⭐⭐⭐⭐⭐ سریع</td>
+      <td>⭐⭐ کند</td>
+    </tr>
+    <tr>
+      <td><strong>پروژه‌های طولانی</strong></td>
+      <td>❌ نامناسب</td>
+      <td>✅ مناسب</td>
+      <td>❌ نامناسب</td>
+    </tr>
+    <tr>
+      <td><strong>رایگان</strong></td>
+      <td>✅ کامل</td>
+      <td>❌ اولیه</td>
+      <td>✅ کامل</td>
+    </tr>
+    <tr>
+      <td><strong>اشتراک‌گذاری</strong></td>
+      <td>✅ خیلی آسان</td>
+      <td>❌ پیچیده</td>
+      <td>❌ ندارد</td>
+    </tr>
+    <tr>
+      <td><strong>یادگیری</strong></td>
+      <td>✅ بهترین</td>
+      <td>⭐⭐⭐ خوب</td>
+      <td>❌ بد</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="برای-کی-کدام-بهتر-است">برای کی کدام بهتر است؟</h2>
+
+<p><strong>Google Colab:</strong></p>
+<ul>
+  <li>تازه شروع‌کنندگان</li>
+  <li>پروژه‌های آموزشی و کوتاه‌مدت</li>
+  <li>آزمایش سریع ایده‌ها</li>
+  <li>اشتراک‌گذاری کد با دیگران</li>
+</ul>
+
+<p><strong>کامپیوتر شخصی:</strong></p>
+<ul>
+  <li>پروژه‌های واقعی و طولانی‌مدت</li>
+  <li>محاسبات بزرگ‌مقیاس</li>
+  <li>کنترل کامل بر محیط</li>
+  <li>بدون وابستگی به اینترنت</li>
+</ul>
+
+<p><strong>NEOS Server:</strong></p>
+<ul>
+  <li>مسائل کوچک یکی‌دفعه</li>
+  <li>بدون نیاز به نصب (اما اینترنت لازم)</li>
+</ul>
+
+<hr />
+
+<h2 id="خلاصه">خلاصه</h2>
+
+<p><strong>Colab برای یادگیری بهترین است</strong> — سریع، آسان، رایگان. اما <strong>برای پروژه‌های جدی و بلند‌مدت، کامپیوتر شخصی لازم است.</strong></p>
+
+<p>نتیجه: <strong>شروع کن با Colab، اما این نکته رو فراموش نکن که یک روز باید به کامپیوتر شخصی متکی باشی.</strong></p>
+
+<p>سوالی دارد؟ <strong>@pypyid</strong> تلگرام.</p>
+
+  <a class="back-link" href="/blog/">→ بازگشت به فهرست یادداشت‌ها</a>
+</article>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      © <span id="year"></span> Optimization Expert — دوره‌های تخصصی بهینه‌سازی
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

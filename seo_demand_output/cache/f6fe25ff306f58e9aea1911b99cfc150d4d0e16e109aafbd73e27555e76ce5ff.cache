@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>پروژه پایتون: توزیع سوخت با تحویل تقسیمی و پنجره زمانی (VRP)</title>
+  <meta name="description" content="پروژه آماده پایتون برای توزیع سوخت و گاز مایع با تحویل تقسیمی (Split Delivery) و پنجره زمانی تحویل؛ مسیریابی ناوگان تانکرها برای کمینه‌کردن هزینه با رعایت ظرفیت و بازه زمانی جایگاه‌ها." />
+  <meta name="keywords" content="توزیع سوخت, گاز مایع, تحویل تقسیمی, پنجره زمانی, مسیریابی خودرو, VRP, بهینه سازی, پایتون, Split Delivery, لجستیک سوخت, بهینه سازی ناوگان" />
+  <meta name="author" content="Optimization Expert" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://optimizationexpert.github.io/posts/2026/07/18/Fuel-VRP/" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="توزیع سوخت و گاز مایع با تحویل تقسیمی و پنجره زمانی در پایتون" />
+  <meta property="og:description" content="پروژه آماده پایتون برای توزیع سوخت و گاز مایع با تحویل تقسیمی (Split Delivery) و پنجره زمانی تحویل؛ مسیریابی ناوگان تانکرها برای کمینه‌کردن هزینه با رعایت ظرفیت و بازه زمانی جایگاه‌ها." />
+  <meta property="og:url" content="https://optimizationexpert.github.io/posts/2026/07/18/Fuel-VRP/" />
+  <meta property="og:locale" content="fa_IR" />
+  <meta property="og:image" content="https://optimizationexpert.github.io/assets/posts/fuel_split_delivery.png" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="توزیع سوخت و گاز مایع با تحویل تقسیمی و پنجره زمانی در پایتون" />
+  <meta name="twitter:description" content="پروژه آماده پایتون برای توزیع سوخت و گاز مایع با تحویل تقسیمی (Split Delivery) و پنجره زمانی تحویل؛ مسیریابی ناوگان تانکرها برای کمینه‌کردن هزینه با رعایت ظرفیت و بازه زمانی جایگاه‌ها." />
+  <meta name="twitter:image" content="https://optimizationexpert.github.io/assets/posts/fuel_split_delivery.png" />
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap');
+
+    :root {
+      --bg: #f7f7fb;
+      --card: #ffffff;
+      --text: #172033;
+      --muted: #5f6b7a;
+      --primary: #174ea6;
+      --primary-2: #0b57d0;
+      --accent: #00a884;
+      --border: #e5e9f2;
+      --shadow: 0 18px 45px rgba(23, 32, 51, 0.08);
+      --radius: 24px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: "Vazirmatn", Tahoma, Arial, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(23, 78, 166, 0.12), transparent 32rem),
+        linear-gradient(180deg, #ffffff 0%, var(--bg) 100%);
+      color: var(--text);
+      line-height: 1.9;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container { width: min(900px, calc(100% - 32px)); margin: 0 auto; }
+
+    header {
+      position: sticky; top: 0; z-index: 10;
+      backdrop-filter: blur(18px);
+      background: rgba(255, 255, 255, 0.78);
+      border-bottom: 1px solid rgba(229, 233, 242, 0.8);
+    }
+
+    nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 0; gap: 18px;
+      width: min(1120px, calc(100% - 32px)); margin: 0 auto;
+    }
+
+    .brand { font-weight: 800; color: var(--primary); letter-spacing: -0.3px; font-size: 1.08rem; }
+    .nav-links { display: flex; align-items: center; gap: 18px; font-size: 0.95rem; color: var(--muted); flex-wrap: wrap; }
+    .nav-links a:hover { color: var(--primary); }
+
+    main { padding: 48px 0; }
+
+    .page-title { font-size: clamp(1.8rem, 4vw, 2.8rem); letter-spacing: -0.8px; margin: 0 0 8px; }
+    .page-sub { color: var(--muted); margin: 0 0 32px; }
+
+    /* فهرست پست‌ها */
+    .post-list { display: grid; gap: 16px; margin: 0; padding: 0; list-style: none; }
+    .post-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 22px 24px;
+      box-shadow: 0 12px 34px rgba(23, 32, 51, 0.06);
+      transition: transform 0.2s ease;
+    }
+    .post-card:hover { transform: translateY(-3px); }
+    .post-card h3 { margin: 0 0 6px; color: var(--primary); font-size: 1.25rem; }
+    .post-date { color: var(--muted); font-size: 0.85rem; margin: 0 0 10px; }
+    .post-excerpt { color: var(--muted); margin: 0; }
+
+    /* صفحه یک پست */
+    article.post {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 34px 36px;
+      box-shadow: var(--shadow);
+    }
+    article.post h1 { color: var(--primary); font-size: clamp(1.6rem, 4vw, 2.4rem); margin: 0 0 8px; }
+    article.post h2 { font-size: 1.4rem; margin: 28px 0 10px; }
+    article.post h3 { font-size: 1.15rem; margin: 22px 0 8px; }
+    article.post p { color: var(--text); }
+    article.post ul, article.post ol { padding-right: 22px; color: var(--text); }
+    article.post li { margin-bottom: 6px; }
+    article.post img { display: block; max-width: 100%; height: auto; margin: 20px auto; border-radius: 16px; }
+    article.post pre {
+      background: #0f1b2d; color: #e6edf7; padding: 16px 18px;
+      border-radius: 14px; overflow-x: auto; direction: ltr; text-align: left;
+    }
+    article.post code { font-family: "Cascadia Code", Consolas, monospace; direction: ltr; }
+    article.post blockquote {
+      border-right: 4px solid var(--accent); margin: 18px 0;
+      padding: 4px 16px; background: #f3fbf8; color: var(--muted); border-radius: 10px;
+    }
+
+    .back-link { display: inline-block; margin-top: 24px; color: var(--primary); font-weight: 700; }
+
+    footer { padding: 36px 0; color: var(--muted); text-align: center; font-size: 0.92rem; }
+
+    @media (max-width: 820px) {
+      nav { align-items: start; flex-direction: column; }
+      article.post { padding: 24px 22px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav aria-label="ناوبری اصلی">
+      <a class="brand" href="/">Optimization Expert</a>
+      <div class="nav-links">
+        <a href="/#courses">دوره‌ها</a>
+        <a href="/#path">مسیر یادگیری</a>
+        <a href="/blog/">یادداشت‌ها</a>
+        <a href="/#contact">ثبت‌نام و تماس</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container">
+      <article class="post">
+  <h1>توزیع سوخت و گاز مایع با تحویل تقسیمی و پنجره زمانی در پایتون</h1>
+  <p class="post-date">۲۷ تیر ۱۴۰۵</p>
+  <table>
+  <tbody>
+    <tr>
+      <td><strong>سطح:</strong> پیشرفته</td>
+      <td><strong>محیط کار:</strong> Python</td>
+      <td><strong>نوع:</strong> پروژه آماده تحویل</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="معرفی-پروژه">معرفی پروژه</h2>
+
+<p>یک شرکت پخش فرآورده‌های نفتی یا گاز مایع باید سوخت را از انبار مرکزی با ناوگانی از تانکرها به جایگاه‌ها و مشتریان برساند. دو ویژگی این مسئله را از مسیریابی معمولی جدا می‌کند: نخست، تقاضای یک جایگاه بزرگ می‌تواند از ظرفیت یک تانکر بیشتر باشد و باید بین چند تانکر تقسیم شود (تحویل تقسیمی)؛ دوم، هر جایگاه فقط در بازه زمانی مشخصی می‌تواند سوخت تحویل بگیرد (پنجره زمانی).</p>
+
+<p>در این پروژه با پایتون یک مدل بهینه‌سازی کامل می‌سازیم که مسیر هر تانکر، مقدار سوخت تحویلی و زمان رسیدن به هر جایگاه را به‌صورت هم‌زمان تعیین می‌کند تا هزینه کل توزیع کمینه شود.</p>
+
+<p><img src="/assets/posts/fuel_split_delivery.png" alt="نمودار توزیع سوخت با تحویل تقسیمی و پنجره زمانی؛ انبار، دو تانکر و جایگاه‌ها" /></p>
+
+<h2 id="نوآوری-پروژه">نوآوری پروژه</h2>
+
+<p>بیشتر مدل‌های توزیع، هر مشتری را فقط به یک خودرو نسبت می‌دهند و پنجره زمانی را نادیده می‌گیرند. در این پروژه هر دو محدودیت واقعی هم‌زمان لحاظ می‌شوند: یک جایگاه بزرگ می‌تواند از چند تانکر سرویس بگیرد و هر تحویل باید در بازه زمانی مجاز آن جایگاه انجام شود. نتیجه، استفاده حداکثری از ظرفیت ناوگان و رعایت واقعی زمان‌بندی تحویل است.</p>
+
+<h2 id="چه-چیزی-مدل-میشود">چه چیزی مدل می‌شود؟</h2>
+
+<ul>
+  <li><strong>مسیر تانکرها:</strong> تعیین اینکه هر تانکر از کدام جایگاه به کدام جایگاه برود و به انبار بازگردد.</li>
+  <li><strong>مقدار تحویل:</strong> هر تانکر به هر جایگاه چه مقدار سوخت بدهد؛ همین متغیر تقسیم بار را ممکن می‌کند.</li>
+  <li><strong>زمان رسیدن:</strong> لحظه رسیدن هر تانکر به هر جایگاه، برای رعایت پنجره زمانی.</li>
+  <li><strong>قیدها:</strong> تأمین کامل تقاضا، عدم عبور از ظرفیت تانکر و ماندن در بازه زمانی هر جایگاه.</li>
+</ul>
+
+<h2 id="دریافتیهای-پروژه">دریافتی‌های پروژه</h2>
+
+<ul>
+  <li>کد کامل و مستند پایتون</li>
+  <li>داده‌های تست آماده برای اجرا</li>
+  <li>نمودار مسیرهای بهینه رنگی هر تانکر</li>
+  <li>مناسب برای شرکت‌های پخش سوخت و پروژه‌های دانشگاهی و پایان‌نامه</li>
+</ul>
+
+<h2 id="سوالات-متداول">سوالات متداول</h2>
+
+<h3>پیش‌نیاز اجرای پروژه چیست؟</h3>
+<p>آشنایی مقدماتی با پایتون و مفاهیم پایه مسیریابی و لجستیک. کد با ابزارهای رایگان قابل اجراست.</p>
+
+<h3>تفاوت این پروژه با مسیریابی معمولی چیست؟</h3>
+<p>در این پروژه تحویل تقسیمی و پنجره زمانی هم‌زمان مدل می‌شوند؛ یعنی یک جایگاه بزرگ می‌تواند از چند تانکر سوخت بگیرد و هر تحویل باید در بازه زمانی مجاز انجام شود.</p>
+
+<h3>خروجی نهایی چیست؟</h3>
+<p>کد کامل و مستند، داده تست آماده و نمودار مسیرهای بهینه که مستقیماً برای استفاده صنعتی یا پایان‌نامه قابل استفاده است.</p>
+
+<hr />
+
+<h2 id="-ثبتنام-و-دریافت">💬 ثبت‌نام و دریافت</h2>
+
+<p>برای دریافت پروژه و راهنمایی، در تلگرام به آیدی <strong>@pypyid</strong> پیام دهید.</p>
+
+<hr />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "توزیع سوخت و گاز مایع با تحویل تقسیمی و پنجره زمانی در پایتون",
+  "description": "پروژه آماده پایتون برای توزیع سوخت و گاز مایع با تحویل تقسیمی (Split Delivery) و پنجره زمانی تحویل؛ مسیریابی ناوگان تانکرها برای کمینه‌کردن هزینه با رعایت ظرفیت و بازه زمانی جایگاه‌ها.",
+  "inLanguage": "fa",
+  "url": "https://optimizationexpert.github.io/posts/2026/07/18/Fuel-VRP/",
+  "datePublished": "2026-07-18",
+  "keywords": "توزیع سوخت, گاز مایع, تحویل تقسیمی, پنجره زمانی, مسیریابی خودرو, VRP, بهینه سازی, پایتون, Split Delivery",
+  "author": {
+    "@type": "Organization",
+    "name": "Optimization Expert",
+    "url": "https://optimizationexpert.github.io/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Optimization Expert",
+    "url": "https://optimizationexpert.github.io/",
+    "sameAs": [
+      "https://github.com/OptimizationExpert",
+      "https://t.me/pypyid"
+    ]
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "پیش‌نیاز اجرای پروژه چیست؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "آشنایی مقدماتی با پایتون و مفاهیم پایه مسیریابی و لجستیک. کد با ابزارهای رایگان قابل اجراست."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "تفاوت این پروژه با مسیریابی معمولی چیست؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "در این پروژه تحویل تقسیمی و پنجره زمانی هم‌زمان مدل می‌شوند؛ یعنی یک جایگاه بزرگ می‌تواند از چند تانکر سوخت بگیرد و هر تحویل باید در بازه زمانی مجاز انجام شود."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "خروجی نهایی چیست؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "کد کامل و مستند، داده تست آماده و نمودار مسیرهای بهینه که مستقیماً برای استفاده صنعتی یا پایان‌نامه قابل استفاده است."
+      }
+    }
+  ]
+}
+</script>
+
+
+  <a class="back-link" href="/blog/">→ بازگشت به فهرست یادداشت‌ها</a>
+</article>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      © <span id="year"></span> Optimization Expert — دوره‌های تخصصی بهینه‌سازی
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

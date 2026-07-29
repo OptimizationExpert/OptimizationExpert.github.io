@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>دوره مدل‌سازی مسائل بهینه‌سازی | از مسئله واقعی تا مدل ریاضی</title>
+  <meta name="description" content="دوره پایه و ضروری مدل‌سازی مسائل بهینه‌سازی؛ آموزش تبدیل مسائل واقعی به مدل ریاضی: تعریف متغیر تصمیم، تابع هدف و قیود، انواع مسائل LP/MILP/NLP و آمادگی برای کدنویسی با Gurobi، Pyomo و JuMP." />
+  <meta name="keywords" content="مدل سازی بهینه سازی, آموزش بهینه سازی, متغیر تصمیم, تابع هدف, قیود, برنامه ریزی خطی, LP, MILP, NLP, Gurobi, Pyomo, JuMP" />
+  <meta name="author" content="Optimization Expert" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="دوره مدل‌سازی مسائل بهینه‌سازی" />
+  <meta property="og:description" content="دوره پایه و ضروری مدل‌سازی مسائل بهینه‌سازی؛ آموزش تبدیل مسائل واقعی به مدل ریاضی: تعریف متغیر تصمیم، تابع هدف و قیود، انواع مسائل LP/MILP/NLP و آمادگی برای کدنویسی با Gurobi، Pyomo و JuMP." />
+  <meta property="og:url" content="https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/" />
+  <meta property="og:locale" content="fa_IR" />
+  <meta property="og:image" content="https://optimizationexpert.github.io/assets/images/pic.png" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="دوره مدل‌سازی مسائل بهینه‌سازی" />
+  <meta name="twitter:description" content="دوره پایه و ضروری مدل‌سازی مسائل بهینه‌سازی؛ آموزش تبدیل مسائل واقعی به مدل ریاضی: تعریف متغیر تصمیم، تابع هدف و قیود، انواع مسائل LP/MILP/NLP و آمادگی برای کدنویسی با Gurobi، Pyomo و JuMP." />
+  <meta name="twitter:image" content="https://optimizationexpert.github.io/assets/images/pic.png" />
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap');
+
+    :root {
+      --bg: #f7f7fb;
+      --card: #ffffff;
+      --text: #172033;
+      --muted: #5f6b7a;
+      --primary: #174ea6;
+      --primary-2: #0b57d0;
+      --accent: #00a884;
+      --border: #e5e9f2;
+      --shadow: 0 18px 45px rgba(23, 32, 51, 0.08);
+      --radius: 24px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: "Vazirmatn", Tahoma, Arial, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(23, 78, 166, 0.12), transparent 32rem),
+        linear-gradient(180deg, #ffffff 0%, var(--bg) 100%);
+      color: var(--text);
+      line-height: 1.9;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container { width: min(900px, calc(100% - 32px)); margin: 0 auto; }
+
+    header {
+      position: sticky; top: 0; z-index: 10;
+      backdrop-filter: blur(18px);
+      background: rgba(255, 255, 255, 0.78);
+      border-bottom: 1px solid rgba(229, 233, 242, 0.8);
+    }
+
+    nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 0; gap: 18px;
+      width: min(1120px, calc(100% - 32px)); margin: 0 auto;
+    }
+
+    .brand { font-weight: 800; color: var(--primary); letter-spacing: -0.3px; font-size: 1.08rem; }
+    .nav-links { display: flex; align-items: center; gap: 18px; font-size: 0.95rem; color: var(--muted); flex-wrap: wrap; }
+    .nav-links a:hover { color: var(--primary); }
+
+    main { padding: 48px 0; }
+
+    .page-title { font-size: clamp(1.8rem, 4vw, 2.8rem); letter-spacing: -0.8px; margin: 0 0 8px; }
+    .page-sub { color: var(--muted); margin: 0 0 32px; }
+
+    /* فهرست پست‌ها */
+    .post-list { display: grid; gap: 16px; margin: 0; padding: 0; list-style: none; }
+    .post-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 22px 24px;
+      box-shadow: 0 12px 34px rgba(23, 32, 51, 0.06);
+      transition: transform 0.2s ease;
+    }
+    .post-card:hover { transform: translateY(-3px); }
+    .post-card h3 { margin: 0 0 6px; color: var(--primary); font-size: 1.25rem; }
+    .post-date { color: var(--muted); font-size: 0.85rem; margin: 0 0 10px; }
+    .post-excerpt { color: var(--muted); margin: 0; }
+
+    /* صفحه یک پست */
+    article.post {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 34px 36px;
+      box-shadow: var(--shadow);
+    }
+    article.post h1 { color: var(--primary); font-size: clamp(1.6rem, 4vw, 2.4rem); margin: 0 0 8px; }
+    article.post h2 { font-size: 1.4rem; margin: 28px 0 10px; }
+    article.post h3 { font-size: 1.15rem; margin: 22px 0 8px; }
+    article.post p { color: var(--text); }
+    article.post ul, article.post ol { padding-right: 22px; color: var(--text); }
+    article.post li { margin-bottom: 6px; }
+    article.post img { display: block; max-width: 100%; height: auto; margin: 20px auto; border-radius: 16px; }
+    article.post pre {
+      background: #0f1b2d; color: #e6edf7; padding: 16px 18px;
+      border-radius: 14px; overflow-x: auto; direction: ltr; text-align: left;
+    }
+    article.post code { font-family: "Cascadia Code", Consolas, monospace; direction: ltr; }
+    article.post blockquote {
+      border-right: 4px solid var(--accent); margin: 18px 0;
+      padding: 4px 16px; background: #f3fbf8; color: var(--muted); border-radius: 10px;
+    }
+
+    .back-link { display: inline-block; margin-top: 24px; color: var(--primary); font-weight: 700; }
+
+    footer { padding: 36px 0; color: var(--muted); text-align: center; font-size: 0.92rem; }
+
+    @media (max-width: 820px) {
+      nav { align-items: start; flex-direction: column; }
+      article.post { padding: 24px 22px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav aria-label="ناوبری اصلی">
+      <a class="brand" href="/">Optimization Expert</a>
+      <div class="nav-links">
+        <a href="/#courses">دوره‌ها</a>
+        <a href="/#path">مسیر یادگیری</a>
+        <a href="/blog/">یادداشت‌ها</a>
+        <a href="/#contact">ثبت‌نام و تماس</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container">
+      <article class="post">
+  <h1>دوره مدل‌سازی مسائل بهینه‌سازی</h1>
+  <p class="post-date">۳۱ خرداد ۱۴۰۵</p>
+  <table>
+  <tbody>
+    <tr>
+      <td><strong>محیط کار:</strong> Python / Gurobi / Pyomo / JuMP</td>
+      <td><strong>سطح:</strong> پایه و ضروری</td>
+      <td><strong>پیش‌نیاز:</strong> ندارد</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>دوره مدل‌سازی مسائل بهینه‌سازی نقطه شروع ورود به دنیای بهینه‌سازی است و بر مهم‌ترین بخش هر پروژه، یعنی <strong>مدل‌سازی صحیح مسئله</strong> تمرکز دارد. در این دوره، پیش از هرگونه برنامه‌نویسی یا استفاده از نرم‌افزارهای حل‌کننده، یاد می‌گیرید چگونه یک مسئله واقعی را به یک مدل ریاضی دقیق و قابل حل تبدیل کنید. تجربه نشان می‌دهد بیشترِ شکست‌ها در پروژه‌های بهینه‌سازی نه در کدنویسی، بلکه در <strong>مدل‌سازی نادرست</strong> ریشه دارند؛ این دوره دقیقاً همین شکاف را پر می‌کند.</p>
+
+<p><img src="/assets/images/pic.png" alt="مدل‌سازی مسائل بهینه‌سازی: تبدیل مسئله واقعی به مدل ریاضی" /></p>
+
+<hr />
+
+<h2 id="چرا-مدلسازی-مهمتر-از-کدنویسی-است">چرا مدل‌سازی مهم‌تر از کدنویسی است؟</h2>
+
+<p>یک solver قدرتمند مانند Gurobi تنها زمانی مفید است که مسئله به‌درستی فرموله شده باشد. اگر متغیر تصمیم، تابع هدف یا قیود اشتباه تعریف شوند، هیچ حل‌کننده‌ای جواب درست نمی‌دهد. در این دوره ابتدا <strong>زبان مدل‌سازی</strong> را می‌آموزید و سپس با ذهنیت درست وارد کدنویسی می‌شوید.</p>
+
+<h2 id="سرفصلها">سرفصل‌ها</h2>
+
+<h2 id="۱--مفاهیم-پایه-مدلسازی">۱ — مفاهیم پایه مدل‌سازی</h2>
+
+<p>تعریف دقیق سه رکن اصلی هر مدل بهینه‌سازی: <strong>متغیر تصمیم</strong> (چه چیزی را کنترل می‌کنیم؟)، <strong>تابع هدف</strong> (چه چیزی را کمینه یا بیشینه می‌کنیم؟) و <strong>قیود</strong> (چه محدودیت‌هایی باید رعایت شوند؟). این سه‌گانه سنگ‌بنای تمام مسائل بعدی است.</p>
+
+<h2 id="۲--انواع-مسائل-بهینهسازی">۲ — انواع مسائل بهینه‌سازی</h2>
+
+<p>آشنایی با دسته‌بندی مسائل و تأثیر آن بر انتخاب solver: برنامه‌ریزی خطی (LP)، برنامه‌ریزی عدد صحیح-مخلوط (MILP)، برنامه‌ریزی غیرخطی (NLP) و مسائل غیرخطیِ عددصحیح-مخلوط (MINLP). می‌فهمید هر خانواده چه سختی محاسباتی دارد و چرا انتخاب نوع مدل روی زمان حل اثر مستقیم می‌گذارد.</p>
+
+<h2 id="۳--فرمولهسازی-مسائل-مهندسی-و-انرژی">۳ — فرموله‌سازی مسائل مهندسی و انرژی</h2>
+
+<p>بررسی مسائل واقعی حوزه مهندسی و انرژی و روش صحیح تبدیل آن‌ها به مدل ریاضی؛ از تخصیص منابع و برنامه‌ریزی تولید تا مسائل ساده سیستم قدرت. تمرین بر «ترجمه» بیان کلامی مسئله به رابطه‌های ریاضی.</p>
+
+<h2 id="۴--فرمولهسازی-مسائل-کسبوکار-و-لجستیک">۴ — فرموله‌سازی مسائل کسب‌وکار و لجستیک</h2>
+
+<p>مدل‌سازی مسائل تصمیم‌گیری در کسب‌وکار: تخصیص بودجه، برنامه‌ریزی نیروی کار، مسائل حمل‌ونقل و تخصیص. تمرکز بر تشخیص متغیرهای باینری و شرطی‌سازی منطقی (big-M و متغیرهای کمکی).</p>
+
+<h2 id="۵--تکنیکهای-خطیسازی-و-مدلسازی-هوشمند">۵ — تکنیک‌های خطی‌سازی و مدل‌سازی هوشمند</h2>
+
+<p>روش‌های تبدیل قیود و توابع غیرخطی به شکل خطی برای حل کارآمدتر: مدل‌سازی قدرمطلق، بیشینه/کمینه، شرط‌های منطقی و متغیرهای صفر-و-یک. این مهارت مرز بین یک مدل «قابل حل» و یک مدل «غیرقابل حل در زمان معقول» است.</p>
+
+<h2 id="۶--آمادگی-برای-کدنویسی">۶ — آمادگی برای کدنویسی</h2>
+
+<p>نگاشتِ مدل ریاضی به کد در ابزارهای استاندارد: Pyomo و Gurobi در Python و JuMP در Julia. یاد می‌گیرید ساختار مدل ریاضی چطور یک‌به‌یک به مجموعه‌ها، پارامترها، متغیرها و قیود در کد نگاشت می‌شود.</p>
+
+<hr />
+
+<h2 id="هدف-دوره">هدف دوره</h2>
+
+<ul>
+  <li>تبدیل مسائل واقعی به مدل ریاضی دقیق و قابل حل</li>
+  <li>شناخت متغیرهای تصمیم، تابع هدف و قیود</li>
+  <li>تشخیص نوع مسئله (LP، MILP، NLP) و انتخاب رویکرد مناسب</li>
+  <li>آمادگی برای کدنویسی با ابزارهایی مانند Gurobi، Pyomo و JuMP</li>
+</ul>
+
+<hr />
+
+<h2 id="یک-نمونه-ساده-از-مسئله-تا-مدل">یک نمونه ساده: از مسئله تا مدل</h2>
+
+<p>فرض کنید می‌خواهیم با کمترین هزینه، تقاضای یک شبکه را از چند منبع تأمین کنیم. سه رکن مدل چنین می‌شوند:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># نمونه مدل‌سازی یک مسئله تخصیص ساده با Pyomo
+</span><span class="kn">from</span> <span class="nn">pyomo.environ</span> <span class="kn">import</span> <span class="p">(</span><span class="n">ConcreteModel</span><span class="p">,</span> <span class="n">Set</span><span class="p">,</span> <span class="n">Var</span><span class="p">,</span> <span class="n">Objective</span><span class="p">,</span> <span class="n">Constraint</span><span class="p">,</span>
+                           <span class="n">NonNegativeReals</span><span class="p">,</span> <span class="n">minimize</span><span class="p">,</span> <span class="n">SolverFactory</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+
+<span class="n">sources</span> <span class="o">=</span> <span class="p">{</span><span class="s">'A'</span><span class="p">:</span> <span class="p">{</span><span class="s">'cost'</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s">'cap'</span><span class="p">:</span> <span class="mi">100</span><span class="p">},</span>
+           <span class="s">'B'</span><span class="p">:</span> <span class="p">{</span><span class="s">'cost'</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="s">'cap'</span><span class="p">:</span> <span class="mi">80</span><span class="p">},</span>
+           <span class="s">'C'</span><span class="p">:</span> <span class="p">{</span><span class="s">'cost'</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s">'cap'</span><span class="p">:</span> <span class="mi">60</span><span class="p">}}</span>
+<span class="n">demand</span> <span class="o">=</span> <span class="mi">180</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="n">ConcreteModel</span><span class="p">()</span>
+<span class="n">m</span><span class="p">.</span><span class="n">S</span> <span class="o">=</span> <span class="n">Set</span><span class="p">(</span><span class="n">initialize</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">sources</span><span class="p">.</span><span class="n">keys</span><span class="p">()))</span>
+
+<span class="c1"># متغیر تصمیم: مقدار تأمین از هر منبع
+</span><span class="n">m</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">Var</span><span class="p">(</span><span class="n">m</span><span class="p">.</span><span class="n">S</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="n">NonNegativeReals</span><span class="p">,</span>
+          <span class="n">bounds</span><span class="o">=</span><span class="k">lambda</span> <span class="n">m</span><span class="p">,</span> <span class="n">s</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">sources</span><span class="p">[</span><span class="n">s</span><span class="p">][</span><span class="s">'cap'</span><span class="p">]))</span>
+
+<span class="c1"># تابع هدف: کمینه‌کردن هزینه کل
+</span><span class="n">m</span><span class="p">.</span><span class="n">cost</span> <span class="o">=</span> <span class="n">Objective</span><span class="p">(</span>
+    <span class="n">rule</span><span class="o">=</span><span class="k">lambda</span> <span class="n">m</span><span class="p">:</span> <span class="nb">sum</span><span class="p">(</span><span class="n">sources</span><span class="p">[</span><span class="n">s</span><span class="p">][</span><span class="s">'cost'</span><span class="p">]</span> <span class="o">*</span> <span class="n">m</span><span class="p">.</span><span class="n">x</span><span class="p">[</span><span class="n">s</span><span class="p">]</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">m</span><span class="p">.</span><span class="n">S</span><span class="p">),</span>
+    <span class="n">sense</span><span class="o">=</span><span class="n">minimize</span><span class="p">)</span>
+
+<span class="c1"># قید: تأمین کامل تقاضا
+</span><span class="n">m</span><span class="p">.</span><span class="n">meet</span> <span class="o">=</span> <span class="n">Constraint</span><span class="p">(</span><span class="n">rule</span><span class="o">=</span><span class="k">lambda</span> <span class="n">m</span><span class="p">:</span> <span class="nb">sum</span><span class="p">(</span><span class="n">m</span><span class="p">.</span><span class="n">x</span><span class="p">[</span><span class="n">s</span><span class="p">]</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">m</span><span class="p">.</span><span class="n">S</span><span class="p">)</span> <span class="o">==</span> <span class="n">demand</span><span class="p">)</span>
+
+<span class="n">SolverFactory</span><span class="p">(</span><span class="s">'glpk'</span><span class="p">).</span><span class="n">solve</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">m</span><span class="p">.</span><span class="n">S</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"</span><span class="si">{</span><span class="n">s</span><span class="si">}</span><span class="s">: </span><span class="si">{</span><span class="n">value</span><span class="p">(</span><span class="n">m</span><span class="p">.</span><span class="n">x</span><span class="p">[</span><span class="n">s</span><span class="p">])</span><span class="si">:</span><span class="p">.</span><span class="mi">1</span><span class="n">f</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"هزینه کل: </span><span class="si">{</span><span class="n">value</span><span class="p">(</span><span class="n">m</span><span class="p">.</span><span class="n">cost</span><span class="p">)</span><span class="si">:</span><span class="p">.</span><span class="mi">1</span><span class="n">f</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>همین ساختار سه‌بخشی (متغیر، هدف، قید) در تمام مسائل پیچیده‌تر — از سیستم قدرت تا مسیریابی — تکرار و گسترش می‌یابد.</p>
+
+<hr />
+
+<h2 id="این-دوره-برای-چه-کسانی-است">این دوره برای چه کسانی است؟</h2>
+
+<ul>
+  <li>دانشجویان و پژوهشگرانی که تازه وارد بهینه‌سازی می‌شوند</li>
+  <li>مهندسان و تحلیل‌گرانی که مسئله واقعی دارند اما نمی‌دانند چطور فرموله‌اش کنند</li>
+  <li>کسانی که می‌خواهند پیش از دوره‌های تخصصی (سیستم قدرت، عدم قطعیت، VRP) پایه محکمی بسازند</li>
+</ul>
+
+<hr />
+
+<h2 id="سوالات-متداول-درباره-دوره">سوالات متداول درباره دوره</h2>
+
+<h3>پیش‌نیاز این دوره چیست؟</h3>
+<p>این دوره پایه است و پیش‌نیاز خاصی ندارد. آشنایی مقدماتی با ریاضیات دبیرستانی و کمی برنامه‌نویسی برای بخش عملی کافی است.</p>
+
+<h3>آیا این دوره کدنویسی هم دارد؟</h3>
+<p>تمرکز اصلی بر مدل‌سازی است، اما نگاشت مدل به کد نیز آموزش داده می‌شود تا آماده ورود به دوره‌های تخصصی شوید.</p>
+
+<h3>بعد از این دوره چه مسیری را ادامه دهم؟</h3>
+<p>بسته به علاقه، می‌توانید وارد دوره مقدماتی و پیشرفته سیستم‌های قدرت، دوره مدل‌سازی عدم قطعیت یا دوره VRP در Python شوید.</p>
+
+<h3>چطور ثبت‌نام کنم؟</h3>
+<p>برای اطلاع از هزینه، زمان برگزاری و ثبت‌نام، در تلگرام به آیدی @pypyid پیام دهید.</p>
+
+<hr />
+
+<h2 id="-سوالات-و-راهنمایی">💬 سوالات و راهنمایی</h2>
+
+<p>سوالی درباره ثبت‌نام داری؟ با آیدی <strong>@pypyid</strong> در تلگرام تماس بگیرید.</p>
+
+<hr />
+
+<hr />
+
+<h2 id="دورههای-مرتبط">دوره‌های مرتبط</h2>
+
+<ul>
+  <li><a href="/posts/2026/06/22/intro-power-system-course/">دوره مقدماتی بهینه‌سازی سیستم‌های قدرت</a></li>
+  <li><a href="/posts/2026/06/23/uncertainty-modeling-course/">دوره فشرده مدل‌سازی عدم قطعیت</a></li>
+  <li><a href="/posts/2026/06/24/vrp-python-course/">آموزش جامع بهینه‌سازی و مسیریابی (VRP) در Python</a></li>
+  <li><a href="/posts/2026/06/20/Advanced-Power-System-Course/">دوره پیشرفته بهینه‌سازی سیستم‌های قدرت</a></li>
+</ul>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "دوره مدل‌سازی مسائل بهینه‌سازی",
+  "description": "دوره پایه مدل‌سازی مسائل بهینه‌سازی: تبدیل مسائل واقعی به مدل ریاضی، تعریف متغیر تصمیم، تابع هدف و قیود، انواع مسائل LP/MILP/NLP و آمادگی برای کدنویسی با Gurobi، Pyomo و JuMP.",
+  "inLanguage": "fa",
+  "url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+  "image": "https://optimizationexpert.github.io/assets/images/pic.png",
+  "courseCode": "OPT-MODELING",
+  "educationalLevel": "پایه",
+  "teaches": [
+    "تعریف متغیر تصمیم، تابع هدف و قیود",
+    "انواع مسائل بهینه‌سازی (LP، MILP، NLP)",
+    "فرموله‌سازی مسائل مهندسی، انرژی و کسب‌وکار",
+    "تکنیک‌های خطی‌سازی و مدل‌سازی منطقی",
+    "نگاشت مدل ریاضی به کد "
+  ],
+  "provider": {
+    "@type": "EducationalOrganization",
+    "name": "Optimization Expert",
+    "url": "https://optimizationexpert.github.io/",
+    "sameAs": [
+      "https://github.com/OptimizationExpert",
+      "https://t.me/pypyid"
+    ]
+  },
+  "hasCourseInstance": {
+    "@type": "CourseInstance",
+    "courseMode": "online",
+    "inLanguage": "fa"
+  },
+  "offers": {
+    "@type": "Offer",
+    "category": "Paid",
+    "availability": "https://schema.org/InStock",
+    "url": "https://t.me/pypyid"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "پیش‌نیاز این دوره چیست؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "این دوره پایه است و پیش‌نیاز خاصی ندارد. آشنایی مقدماتی با ریاضیات دبیرستانی و کمی برنامه‌نویسی برای بخش عملی کافی است."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "آیا این دوره کدنویسی هم دارد؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "تمرکز اصلی بر مدل‌سازی است، اما نگاشت مدل به کد در Pyomo، Gurobi و JuMP نیز آموزش داده می‌شود تا آماده ورود به دوره‌های تخصصی شوید."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "بعد از این دوره چه مسیری را ادامه دهم؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "بسته به علاقه، می‌توانید وارد دوره مقدماتی و پیشرفته سیستم‌های قدرت، دوره مدل‌سازی عدم قطعیت یا دوره VRP در Python شوید."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "چطور ثبت‌نام کنم؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "برای اطلاع از هزینه، زمان برگزاری و ثبت‌نام، در تلگرام به آیدی @pypyid پیام دهید."
+      }
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "خانه", "item": "https://optimizationexpert.github.io/" },
+    { "@type": "ListItem", "position": 2, "name": "دوره‌ها", "item": "https://optimizationexpert.github.io/#courses" },
+    { "@type": "ListItem", "position": 3, "name": "دوره مدل‌سازی مسائل بهینه‌سازی", "item": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/" }
+  ]
+}
+</script>
+
+
+  <a class="back-link" href="/blog/">→ بازگشت به فهرست یادداشت‌ها</a>
+</article>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      © <span id="year"></span> Optimization Expert — دوره‌های تخصصی بهینه‌سازی
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

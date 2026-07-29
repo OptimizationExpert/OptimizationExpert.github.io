@@ -1,0 +1,636 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>آموزش VRP در Python | ۲۰ پروژه عملی مسیریابی و بهینه‌سازی</title>
+  <meta name="description" content="دوره جامع و پروژه‌محور مسیریابی وسایل نقلیه (VRP) و مسائل ترکیبی در Python با OR-Tools و CP-SAT؛ ۲۰ پروژهٔ عملی و حدود ۱۰ ساعت ویدیو: از حداکثر جریان، تخصیص، کوله‌پشتی و زمان‌بندی تا TSP، CVRP، VRPTW، مسیریابی چندانباره، تحویل تقسیم‌شده، مسیریابی خودروی برقی و مسیریابی موجودی-دینامیک، همراه با کد کامل و داده‌های آماده." />
+  <meta name="keywords" content="VRP, مسیریابی وسایل نقلیه, Vehicle Routing Problem, TSP, CVRP, VRPTW, multi-depot, split delivery, EV routing, inventory routing, OR-Tools, CP-SAT, AddCircuit, بهینه سازی ترکیبی, Python, پایتون, لجستیک, حمل و نقل, مسیریابی, زنجیره تامین" />
+  <meta name="author" content="Optimization Expert" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://optimizationexpert.github.io/posts/2026/06/24/vrp-python-course/" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="آموزش جامع بهینه‌سازی و مسیریابی (VRP) در Python" />
+  <meta property="og:description" content="دوره جامع و پروژه‌محور مسیریابی وسایل نقلیه (VRP) و مسائل ترکیبی در Python با OR-Tools و CP-SAT؛ ۲۰ پروژهٔ عملی و حدود ۱۰ ساعت ویدیو: از حداکثر جریان، تخصیص، کوله‌پشتی و زمان‌بندی تا TSP، CVRP، VRPTW، مسیریابی چندانباره، تحویل تقسیم‌شده، مسیریابی خودروی برقی و مسیریابی موجودی-دینامیک، همراه با کد کامل و داده‌های آماده." />
+  <meta property="og:url" content="https://optimizationexpert.github.io/posts/2026/06/24/vrp-python-course/" />
+  <meta property="og:locale" content="fa_IR" />
+  <meta property="og:image" content="https://optimizationexpert.github.io/assets/posts/TDvrp.jpg" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="آموزش جامع بهینه‌سازی و مسیریابی (VRP) در Python" />
+  <meta name="twitter:description" content="دوره جامع و پروژه‌محور مسیریابی وسایل نقلیه (VRP) و مسائل ترکیبی در Python با OR-Tools و CP-SAT؛ ۲۰ پروژهٔ عملی و حدود ۱۰ ساعت ویدیو: از حداکثر جریان، تخصیص، کوله‌پشتی و زمان‌بندی تا TSP، CVRP، VRPTW، مسیریابی چندانباره، تحویل تقسیم‌شده، مسیریابی خودروی برقی و مسیریابی موجودی-دینامیک، همراه با کد کامل و داده‌های آماده." />
+  <meta name="twitter:image" content="https://optimizationexpert.github.io/assets/posts/TDvrp.jpg" />
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap');
+
+    :root {
+      --bg: #f7f7fb;
+      --card: #ffffff;
+      --text: #172033;
+      --muted: #5f6b7a;
+      --primary: #174ea6;
+      --primary-2: #0b57d0;
+      --accent: #00a884;
+      --border: #e5e9f2;
+      --shadow: 0 18px 45px rgba(23, 32, 51, 0.08);
+      --radius: 24px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: "Vazirmatn", Tahoma, Arial, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(23, 78, 166, 0.12), transparent 32rem),
+        linear-gradient(180deg, #ffffff 0%, var(--bg) 100%);
+      color: var(--text);
+      line-height: 1.9;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container { width: min(900px, calc(100% - 32px)); margin: 0 auto; }
+
+    header {
+      position: sticky; top: 0; z-index: 10;
+      backdrop-filter: blur(18px);
+      background: rgba(255, 255, 255, 0.78);
+      border-bottom: 1px solid rgba(229, 233, 242, 0.8);
+    }
+
+    nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 0; gap: 18px;
+      width: min(1120px, calc(100% - 32px)); margin: 0 auto;
+    }
+
+    .brand { font-weight: 800; color: var(--primary); letter-spacing: -0.3px; font-size: 1.08rem; }
+    .nav-links { display: flex; align-items: center; gap: 18px; font-size: 0.95rem; color: var(--muted); flex-wrap: wrap; }
+    .nav-links a:hover { color: var(--primary); }
+
+    main { padding: 48px 0; }
+
+    .page-title { font-size: clamp(1.8rem, 4vw, 2.8rem); letter-spacing: -0.8px; margin: 0 0 8px; }
+    .page-sub { color: var(--muted); margin: 0 0 32px; }
+
+    /* فهرست پست‌ها */
+    .post-list { display: grid; gap: 16px; margin: 0; padding: 0; list-style: none; }
+    .post-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 22px 24px;
+      box-shadow: 0 12px 34px rgba(23, 32, 51, 0.06);
+      transition: transform 0.2s ease;
+    }
+    .post-card:hover { transform: translateY(-3px); }
+    .post-card h3 { margin: 0 0 6px; color: var(--primary); font-size: 1.25rem; }
+    .post-date { color: var(--muted); font-size: 0.85rem; margin: 0 0 10px; }
+    .post-excerpt { color: var(--muted); margin: 0; }
+
+    /* صفحه یک پست */
+    article.post {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 34px 36px;
+      box-shadow: var(--shadow);
+    }
+    article.post h1 { color: var(--primary); font-size: clamp(1.6rem, 4vw, 2.4rem); margin: 0 0 8px; }
+    article.post h2 { font-size: 1.4rem; margin: 28px 0 10px; }
+    article.post h3 { font-size: 1.15rem; margin: 22px 0 8px; }
+    article.post p { color: var(--text); }
+    article.post ul, article.post ol { padding-right: 22px; color: var(--text); }
+    article.post li { margin-bottom: 6px; }
+    article.post img { display: block; max-width: 100%; height: auto; margin: 20px auto; border-radius: 16px; }
+    article.post pre {
+      background: #0f1b2d; color: #e6edf7; padding: 16px 18px;
+      border-radius: 14px; overflow-x: auto; direction: ltr; text-align: left;
+    }
+    article.post code { font-family: "Cascadia Code", Consolas, monospace; direction: ltr; }
+    article.post blockquote {
+      border-right: 4px solid var(--accent); margin: 18px 0;
+      padding: 4px 16px; background: #f3fbf8; color: var(--muted); border-radius: 10px;
+    }
+
+    .back-link { display: inline-block; margin-top: 24px; color: var(--primary); font-weight: 700; }
+
+    footer { padding: 36px 0; color: var(--muted); text-align: center; font-size: 0.92rem; }
+
+    @media (max-width: 820px) {
+      nav { align-items: start; flex-direction: column; }
+      article.post { padding: 24px 22px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav aria-label="ناوبری اصلی">
+      <a class="brand" href="/">Optimization Expert</a>
+      <div class="nav-links">
+        <a href="/#courses">دوره‌ها</a>
+        <a href="/#path">مسیر یادگیری</a>
+        <a href="/blog/">یادداشت‌ها</a>
+        <a href="/#contact">ثبت‌نام و تماس</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container">
+      <article class="post">
+  <h1>آموزش جامع بهینه‌سازی و مسیریابی (VRP) در Python</h1>
+  <p class="post-date">۳ تیر ۱۴۰۵</p>
+  <table>
+  <tbody>
+    <tr>
+      <td><strong>محیط کار:</strong> Python</td>
+      <td><strong>سطح:</strong> مقدماتی تا تخصصی</td>
+      <td><strong>حجم:</strong> ۲۰ پروژه + حدود ۱۰ ساعت ویدیو</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>این دوره یک مسیر آموزشی <strong>پروژه‌محور</strong> برای یادگیری مدل‌سازی و پیاده‌سازی مسائل مسیریابی وسیلهٔ نقلیه (VRP) و مسائل ترکیبی در Python است. دوره شامل <strong>۲۰ پروژهٔ عملی</strong> و حدود <strong>۱۰ ساعت ویدیوی آموزشی</strong> است، از سطح مقدماتی آغاز می‌شود و به‌تدریج وارد مسائل تخصصی‌تر حمل‌ونقل و لجستیک می‌شود. هر پروژه با کد کامل، مستندات و دادهٔ تست آماده ارائه می‌شود.</p>
+
+<p><img src="/assets/posts/TDvrp.jpg" alt="آموزش جامع مسیریابی وسایل نقلیه (VRP) در Python" /></p>
+
+<hr />
+
+<h2 id="بخش-اول--۱۰-پروژهٔ-عمومی-مسائل-ترکیبی-و-مدلسازی">بخش اول — ۱۰ پروژهٔ عمومی (مسائل ترکیبی و مدل‌سازی)</h2>
+
+<p>این بخش پایهٔ مدل‌سازی مسائل ترکیبی را می‌سازد تا برای مسائل تخصصی VRP آماده شوید. همهٔ پروژه‌ها با کتابخانهٔ <strong>OR-Tools</strong> و حل‌کنندهٔ <strong>CP-SAT</strong> در Python پیاده‌سازی شده‌اند. در هر پروژه یاد می‌گیرید مسئله را با سه رکن اصلی — <strong>متغیر تصمیم، تابع هدف و قیود</strong> — فرموله کنید و خروجی را تفسیر و تصویرسازی نمایید.</p>
+
+<h3 id="پروژه-۱--حداکثر-جریان-در-شبکه-maximum-flow">پروژه ۱ — حداکثر جریان در شبکه (Maximum Flow)</h3>
+
+<p>مسئلهٔ کلاسیک جریان بیشینه: در یک شبکهٔ جهت‌دار با ظرفیت روی هر یال (مثل شبکه‌های آب، گاز، برق یا حمل‌ونقل)، می‌خواهیم بیشترین جریان ممکن را از یک <strong>گره مبدأ</strong> به یک <strong>گره مقصد</strong> برسانیم. متغیر تصمیم، مقدار جریان روی هر یال است (کران‌دار به ظرفیت آن)، و کلید مدل، <strong>قید بقای جریان (nodal balance)</strong> است: در هر گره میانی، مجموع جریان ورودی برابر مجموع جریان خروجی است و فقط در مبدأ و مقصد، جریان تزریق/خروج داریم. تابع هدف، بیشینه‌کردن جریان تزریقی است. این پروژه مفهوم بنیادیِ «شبکه، گره، یال و بقای جریان» را جا می‌اندازد که ستون فقرات همهٔ مسائل مسیریابی است.</p>
+
+<blockquote>
+  <p><strong>نکتهٔ کلیدی —</strong> قید <strong>بقای جریان (nodal balance)</strong> ستون فقرات همهٔ مسائل شبکه است؛ دقیقاً همین ایده بعداً در VRP برای حذف زیرتور با رویکرد جریان دوباره ظاهر می‌شود.</p>
+</blockquote>
+
+<blockquote>
+  <p><strong>نکتهٔ کلیدی —</strong> کران‌گذاری متغیر جریان به ظرفیت هر یال، ساده‌ترین شکل <strong>قید ظرفیت</strong> است که در CVRP به هستهٔ کار تبدیل می‌شود.</p>
+</blockquote>
+
+<h3 id="پروژه-۲--تخصیص-کارگر-به-وظیفه-assignment-problem">پروژه ۲ — تخصیص کارگر به وظیفه (Assignment Problem)</h3>
+
+<p>با یک ماتریس هزینه (هزینهٔ انجام هر وظیفه توسط هر کارگر)، می‌خواهیم وظایف را طوری به کارگرها بدهیم که <strong>هزینهٔ کل کمینه</strong> شود. متغیر تصمیم <strong>باینری</strong> است: آیا کارگر w وظیفهٔ t را می‌گیرد یا نه. قیود کلیدی: هر وظیفه دقیقاً به یک کارگر برسد (<code class="language-plaintext highlighter-rouge">AddExactlyOne</code>) و هر کارگر حداکثر یک وظیفه بگیرد (<code class="language-plaintext highlighter-rouge">AtMostOne</code>). در این پروژه دو شیوهٔ ساخت تابع هدف (<code class="language-plaintext highlighter-rouge">LinearExpr.Sum</code> و <code class="language-plaintext highlighter-rouge">WeightedSum</code>) هم مقایسه می‌شود. پایهٔ «تخصیص» که در بسیاری از مسائل تصمیم‌گیری تکرار می‌شود.</p>
+
+<blockquote>
+  <p><strong>نکتهٔ کلیدی —</strong> <code class="language-plaintext highlighter-rouge">AddExactlyOne</code> و <code class="language-plaintext highlighter-rouge">AtMostOne</code> گویاترین راه بیان «هرکدام دقیقاً/حداکثر یک‌بار» هستند و خوانایی مدل را بالا می‌برند.</p>
+</blockquote>
+
+<blockquote>
+  <p><strong>نکتهٔ کلیدی —</strong> <code class="language-plaintext highlighter-rouge">LinearExpr.WeightedSum</code> معمولاً از ساختن دستیِ تک‌تک جمله‌های هدف، هم تمیزتر و هم سریع‌تر است.</p>
+</blockquote>
+
+<h3 id="پروژه-۳--کولهپشتی-و-بستهبندی-knapsack--bin-packing">پروژه ۳ — کوله‌پشتی و بسته‌بندی (Knapsack &amp; Bin Packing)</h3>
+
+<p>ابتدا مسئلهٔ <strong>کوله‌پشتی صفر-و-یک</strong>: از میان مجموعه‌ای از اقلام (هرکدام با ارزش و وزن)، زیرمجموعه‌ای را انتخاب کنیم که با رعایت <strong>ظرفیت وزنی</strong>، بیشترین ارزش را بدهد. سپس مسئله به حالت <strong>چند سطل (bin)</strong> گسترش می‌یابد: هر قلم حداکثر در یک سطل، ظرفیت هر سطل جداگانه. اینجا با نکات مهم عملی آشنا می‌شوید: <strong>شکستن تقارن (symmetry breaking)</strong> برای اقلام یکسان، مدیریت اقلام با وزن صفر، تعیین <strong>محدودیت زمانی حل</strong> و تفاوت جواب <code class="language-plaintext highlighter-rouge">OPTIMAL</code> با <code class="language-plaintext highlighter-rouge">FEASIBLE</code>.</p>
+
+<blockquote>
+  <p><strong>نکتهٔ کلیدی —</strong> <strong>شکستن تقارن</strong> برای اقلام هم‌وزن و هم‌ارزش، جواب‌های تکراری را حذف و حل را بسیار سریع‌تر می‌کند.</p>
+</blockquote>
+
+<blockquote>
+  <p><strong>نکتهٔ کلیدی —</strong> تعیین <code class="language-plaintext highlighter-rouge">max_time_in_seconds</code> و پذیرفتن جواب <code class="language-plaintext highlighter-rouge">FEASIBLE</code>، برخورد عملی با مسائل بزرگی است که رسیدن به جواب بهینهٔ قطعی زمان‌بر است.</p>
+</blockquote>
+
+<h3 id="پروژه-۴--چیدمان-میهمانان-عروسی-wedding-seating">پروژه ۴ — چیدمان میهمانان عروسی (Wedding Seating)</h3>
+
+<p>میهمانان را باید طوری سرِ میزها نشاند که مجموع «صمیمیت» افرادِ هم‌میز بیشینه شود. متغیر اصلی، تخصیص هر میهمان به یک میز است؛ اما نکتهٔ آموزشیِ مهم، متغیر کمکی «آیا دو نفر هم‌میزند؟» است که حاصل‌ضرب دو متغیر باینری‌ست و با سه قید خطی، <strong>خطی‌سازی رابطهٔ AND</strong> می‌شود. قیود: هر میهمان دقیقاً یک میز، سقف ظرفیت هر میز، و حداقل تعداد آشنا برای هر فرد سرِ میز. الگوی «خطی‌سازی ضرب دو باینری» در VRP و بسیاری مسائل دیگر بارها به کار می‌آید.</p>
+
+<blockquote>
+  <p><strong>نکتهٔ کلیدی —</strong> <strong>خطی‌سازی ضرب دو متغیر باینری (AND)</strong> با سه قید ساده، الگویی است که در VRP، مسائل گراف و بسیاری جاهای دیگر بارها تکرار می‌شود.</p>
+</blockquote>
+
+<blockquote>
+  <p><strong>نکتهٔ کلیدی —</strong> کمی‌کردن «کیفیت» (صمیمیت هم‌میزها) به‌جای صرفِ امکان‌پذیری، نشان می‌دهد چطور یک هدف نرم را به تابع هدف تبدیل کنیم.</p>
+</blockquote>
+
+<h3 id="پروژه-۵--زمانبندی-تولید-job-shop-scheduling">پروژه ۵ — زمان‌بندی تولید (Job-Shop Scheduling)</h3>
+
+<p>چند کار (job) داریم که هرکدام دنباله‌ای از عملیات روی ماشین‌های مشخص با زمان‌های معین است؛ هدف، <strong>کمینه‌کردن زمان کل اتمام (makespan)</strong> است. اینجا با ابزار قدرتمند <strong>متغیرهای بازه‌ای (Interval Variables)</strong> و قید <strong>عدم هم‌پوشانی (<code class="language-plaintext highlighter-rouge">AddNoOverlap</code>)</strong> روی هر ماشین آشنا می‌شوید و <strong>قیود ترتیب (precedence)</strong> بین عملیات یک کار را مدل می‌کنید. خروجی به‌صورت <strong>نمودار گانت</strong> رسم می‌شود. این پروژه دروازهٔ ورود به مسائل زمان‌بندی و بُعدِ زمان است.</p>
+
+<blockquote>
+  <p><strong>نکتهٔ کلیدی —</strong> <strong>متغیرهای بازه‌ای + <code class="language-plaintext highlighter-rouge">AddNoOverlap</code></strong> راه استاندارد و بسیار کارآمد بیان «این کارها روی یک منبع هم‌پوشانی نداشته باشند» است.</p>
+</blockquote>
+
+<blockquote>
+  <p><strong>نکتهٔ کلیدی —</strong> کمینه‌کردن makespan نمونهٔ کلاسیک هدف <strong>min-max زمانی</strong> است که در برنامه‌ریزی تولید همه‌جا دیده می‌شود.</p>
+</blockquote>
+
+<h3 id="پروژه-۶--تحویل-بار-فرودگاه-با-ونها-airport-baggage-routing">پروژه ۶ — تحویل بار فرودگاه با ون‌ها (Airport Baggage Routing)</h3>
+
+<p>یک مسئلهٔ واقعیِ <strong>مسیریابی وسیله نقلیه</strong> و پلِ ورود به بخش دوم: شرکتی با چند ون باید بارِ جامانده را از فرودگاه هیثرو در محدودهٔ زمانی/مسافتی مشخص به مشتریان برساند و می‌خواهد <strong>کمترین تعداد ون</strong> را به کار بگیرد. اینجا اولین بار همهٔ اجزای VRP کنار هم می‌آیند: متغیرهای <strong>یال مسیر</strong> <code class="language-plaintext highlighter-rouge">U[i,j,c]</code>، تخصیص مشتری به خودرو، <strong>حذف زیرتور با رویکرد جریان (flow-based subtour elimination)</strong>، محدودیت طول مسیر هر خودرو و کمینه‌کردن تعداد خودروهای استفاده‌شده. اگر این پروژه را بفهمید، وارد بخش تخصصی VRP آماده‌اید.</p>
+
+<blockquote>
+  <p><strong>نکتهٔ کلیدی —</strong> <strong>حذف زیرتور با رویکرد جریان (flow-based)</strong> جایگزینی برای <code class="language-plaintext highlighter-rouge">AddCircuit</code> است و برای مسائل چندخودرویی خیلی خوب مقیاس می‌گیرد.</p>
+</blockquote>
+
+<blockquote>
+  <p><strong>نکتهٔ کلیدی —</strong> کمینه‌کردن <strong>تعداد خودرو</strong> یک هدف کاملاً صنعتی است؛ اینجا می‌بینید تصمیم «چند خودرو» و «کدام مسیر» هم‌زمان گرفته می‌شوند.</p>
+</blockquote>
+
+<h3 id="پروژه-۷--مربع-جادویی-magic-square">پروژه ۷ — مربع جادویی (Magic Square)</h3>
+
+<p>یک مسئلهٔ <strong>ارضای قید (constraint satisfaction)</strong> خالص: در جدول n×n اعداد ۱ تا n² را طوری بچینید که مجموع هر سطر، هر ستون و دو قطر برابر «عدد جادویی» شود. متغیر تصمیم، مقدار عددی هر خانه است و قید کلیدی، <strong><code class="language-plaintext highlighter-rouge">AddAllDifferent</code></strong> (همهٔ خانه‌ها متمایز) در کنار قیود تساوی مجموع‌هاست. این پروژه نشان می‌دهد CP-SAT برای مسائلی که «هدف» ندارند و فقط دنبال یک جواب شدنی‌اند چقدر قوی است.</p>
+
+<blockquote>
+  <p><strong>نکتهٔ کلیدی —</strong> <code class="language-plaintext highlighter-rouge">AddAllDifferent</code> یکی از قوی‌ترین قیدهای CP است و مسائل ارضای قید را بسیار فشرده مدل می‌کند.</p>
+</blockquote>
+
+<blockquote>
+  <p><strong>نکتهٔ کلیدی —</strong> CP-SAT حتی برای مسائل <strong>بدون تابع هدف</strong> (فقط یافتن یک جواب شدنی) هم بسیار قدرتمند است.</p>
+</blockquote>
+
+<h3 id="پروژه-۸--بزرگترین-خوشه-در-گراف-maximum-clique">پروژه ۸ — بزرگ‌ترین خوشه در گراف (Maximum Clique)</h3>
+
+<p>در یک گراف، بزرگ‌ترین زیرمجموعه از گره‌ها را پیدا کنید که همگی دوبه‌دو به هم متصل‌اند. با کتابخانهٔ <strong>networkx</strong> گراف ساخته و تحلیل می‌شود. متغیرها: انتخاب هر گره (<code class="language-plaintext highlighter-rouge">X[n]</code>) و متغیر کمکیِ «هر دو گره در خوشه‌اند؟» که باز هم با <strong>خطی‌سازی AND</strong> ساخته می‌شود؛ قید مهم این است که اگر بین دو گره یالی نباشد، نمی‌توانند هم‌زمان در خوشه باشند. هدف، بیشینه‌کردن تعداد گره‌های انتخابی است. تمرین عالی برای مدل‌سازی گراف.</p>
+
+<blockquote>
+  <p><strong>نکتهٔ کلیدی —</strong> همان الگوی **خطی‌سازی ** دوباره به کار می‌آید؛ تسلط بر این الگو در سراسر دوره حیاتی است.</p>
+</blockquote>
+
+<blockquote>
+  <p><strong>نکتهٔ کلیدی —</strong> استفاده از <strong>networkx</strong> برای ساخت و تحلیل گراف، مدل‌سازی مسائل شبکه‌ای را بسیار سریع می‌کند.</p>
+</blockquote>
+
+<h3 id="پروژه-۹--برنامهریزی-تقویم-درسی-balanced-academic-curriculum">پروژه ۹ — برنامه‌ریزی تقویم درسی (Balanced Academic Curriculum)</h3>
+
+<p>مسئلهٔ واقعیِ <strong>BACP</strong>: چیدن درس‌ها در تعدادی نیم‌سال با رعایت حداقل/حداکثر بار واحدی و حداقل/حداکثر تعداد درس در هر نیم‌سال، و مهم‌تر از همه <strong>قیود پیش‌نیازی</strong>: نیم‌سالِ یک درس باید پیش از نیم‌سالِ درسِ وابسته باشد. سپس نسخهٔ دومِ مدل، بار درسی را <strong>متوازن</strong> می‌کند با کمینه‌کردن اختلاف بیشترین و کمترین بار (<strong>هدف min-max</strong>). این پروژه مدل‌سازی «تخصیص روی بازه‌های زمانی + پیش‌نیاز + توازن بار» را می‌آموزد.</p>
+
+<blockquote>
+  <p><strong>نکتهٔ کلیدی —</strong> قید <strong>پیش‌نیاز</strong> (نیم‌سالِ c1 پیش از نیم‌سالِ c2) نمونهٔ تمیزی از مدل‌کردن ترتیب/تقدم است که در زمان‌بندی همه‌جا لازم می‌شود.</p>
+</blockquote>
+
+<blockquote>
+  <p><strong>نکتهٔ کلیدی —</strong> هدف <strong>min-max</strong> برای توازن بار درسی نشان می‌دهد چطور «بالانس بودن» را به یک هدف قابل‌بهینه‌سازی تبدیل کنیم.</p>
+</blockquote>
+
+<h3 id="پروژه-۱۰--جانمایی-بهینهٔ-رباتها-robot-placement">پروژه ۱۰ — جانمایی بهینهٔ ربات‌ها (Robot Placement)</h3>
+
+<p>N ربات را در یک صفحه طوری بچینید که <strong>کمترین فاصلهٔ بین هر جفت ربات، بیشینه</strong> شود (پخش‌کردن حداکثری). نکتهٔ فنیِ ویژه: چون فاصله شامل <strong>مجذور</strong> است، از <strong><code class="language-plaintext highlighter-rouge">add_multiplication_equality</code></strong> برای مدل‌کردن رابطهٔ غیرخطی استفاده می‌شود؛ و هدف، یک مسئلهٔ <strong>max-min</strong> است. نسخهٔ دومِ کد با <strong>شکستن تقارن</strong> سرعت حل را بهبود می‌دهد. جمع‌بندیِ خوبی از مدل‌سازی غیرخطی و اهداف بیشینهٔ کمینه.</p>
+
+<blockquote>
+  <p><strong>نکتهٔ کلیدی —</strong> <code class="language-plaintext highlighter-rouge">add_multiplication_equality</code> راه مدل‌کردن رابطه‌های <strong>غیرخطی (مجذور)</strong> در CP-SAT است.</p>
+</blockquote>
+
+<blockquote>
+  <p><strong>نکتهٔ کلیدی —</strong> هدف <strong>max-min</strong> (بیشینه‌کردن کمترین فاصله) الگوی مهمی برای مسائل «پخش‌کردن یا دورترین چیدمان» است.</p>
+</blockquote>
+
+<h2 id="بخش-دوم--۱۰-پروژهٔ-تخصصی-vrp">بخش دوم — ۱۰ پروژهٔ تخصصی VRP</h2>
+
+<p>این بخش هستهٔ اصلی دوره است و به‌صورت پلکانی، از مسئلهٔ کلاسیک فروشندهٔ دوره‌گرد (TSP) تا مسائل واقعیِ روزِ صنعت (مسیریابی وسیلهٔ برقی، تحویل تقسیم‌شده و مسیریابی موجودی-دینامیک) پیش می‌رود. در همهٔ پروژه‌ها از قید بسیار قدرتمند <strong><code class="language-plaintext highlighter-rouge">AddCircuit</code></strong> در CP-SAT استفاده می‌شود که به‌طور خودکار یک تور معتبر و <strong>بدون زیرتور</strong> می‌سازد.</p>
+
+<h3 id="پروژه-۱۱--فروشندهٔ-دورهگرد-tsp-با-addcircuit">پروژه ۱۱ — فروشندهٔ دوره‌گرد (TSP با AddCircuit)</h3>
+
+<p>نقطهٔ شروع مسیریابی: پیدا کردن کوتاه‌ترین تورِ بازدید از همهٔ نقاط (اینجا ۱۰۰ نقطه). متغیر تصمیم، انتخاب یال <code class="language-plaintext highlighter-rouge">(i,j)</code> و تابع هدف، کمینه‌کردن مجموع مسافت است. کل مدل تقریباً با یک خط <code class="language-plaintext highlighter-rouge">AddCircuit</code> بسته می‌شود.</p>
+
+<blockquote>
+  <p><strong>نکتهٔ کلیدی —</strong> قید <code class="language-plaintext highlighter-rouge">AddCircuit</code> به‌تنهایی تضمین می‌کند مسیر یک حلقهٔ کامل و بدون زیرتور باشد؛ این کار جای ده‌ها قید دست‌ساز (مثل MTZ) را می‌گیرد و مدل را بسیار تمیزتر می‌کند.</p>
+</blockquote>
+
+<blockquote>
+  <p><strong>نکتهٔ کلیدی —</strong> با <strong>هرس‌کردن یال‌های بلند</strong> (حذف اتصال‌هایی که مسافتشان از یک آستانه بیشتر است) تعداد متغیرها به‌شدت کم و سرعت حل برای نمونه‌های بزرگ چند برابر می‌شود.</p>
+</blockquote>
+
+<h3 id="پروژه-۱۲--tsp-با-ترتیب-و-انتخاب-precedence--selective">پروژه ۱۲ — TSP با ترتیب و انتخاب (Precedence &amp; Selective)</h3>
+
+<p>سه توسعهٔ مهم روی TSP: نخست <strong>قیود ترتیب بازدید</strong> (باید نقطهٔ i قبل از j دیده شود) با کمک متغیر <code class="language-plaintext highlighter-rouge">visit_order</code>؛ سپس <strong>مسیر انتخابی (selective/prize-collecting)</strong> که در آن فقط زیرمجموعه‌ای از نقاط (مثلاً حداقل ۱۵ نقطه) بازدید می‌شوند؛ و در نهایت <strong>یال مجازی</strong> برای بازگشت منعطف به مبدأ.</p>
+
+<blockquote>
+  <p><strong>نکتهٔ کلیدی —</strong> <code class="language-plaintext highlighter-rouge">OnlyEnforceIf</code> اجازه می‌دهد قید فقط وقتی یالی فعال است اعمال شود؛ این «قید شرطی» ابزار اصلی انتشار ترتیب و زمان در طول مسیر است.</p>
+</blockquote>
+
+<blockquote>
+  <p><strong>نکتهٔ کلیدی —</strong> با گذاشتن <strong>self-loop</strong> در <code class="language-plaintext highlighter-rouge">AddCircuit</code> (یعنی <code class="language-plaintext highlighter-rouge">(i, i, انتخاب‌نشدن‌گرهِ i)</code>) به‌زیبایی مدل می‌کنیم که یک گره از تور حذف شود — پایهٔ همهٔ مسائل مسیریابی انتخابی.</p>
+</blockquote>
+
+<h3 id="پروژه-۱۳--مسیریابی-ظرفیتدار-چندخودرویی-cvrp">پروژه ۱۳ — مسیریابی ظرفیت‌دار چندخودرویی (CVRP)</h3>
+
+<p>نسخهٔ واقعیِ چندخودرویی: چند خودرو با ظرفیت محدود از یک انبار حرکت می‌کنند و باید تقاضای همهٔ مشتریان را با کمترین مسافت کل پوشش دهند. برای هر خودرو یک <code class="language-plaintext highlighter-rouge">AddCircuit</code> جداگانه ساخته می‌شود و <strong>قید ظرفیت</strong> روی جمع تقاضای مشتریان هر خودرو اعمال می‌گردد.</p>
+
+<blockquote>
+  <p><strong>نکتهٔ کلیدی —</strong> یک حلقهٔ مستقل به‌ازای هر خودرو (با self-loop برای مشتریانی که آن خودرو سرویسشان نمی‌دهد) اجازه می‌دهد چند مسیر هم‌زمان در یک مدل واحد ساخته شوند.</p>
+</blockquote>
+
+<blockquote>
+  <p><strong>نکتهٔ کلیدی —</strong> <strong>شکستن تقارن</strong> (مثلاً بارِ خودرو c ≤ بارِ خودرو c+1) جواب‌های تکراری و هم‌ارز را حذف می‌کند و زمان حل را به‌شکل چشمگیری کوتاه می‌کند.</p>
+</blockquote>
+
+<h3 id="پروژه-۱۴--مسیریابی-چندانباره-multi-depot-vrp">پروژه ۱۴ — مسیریابی چندانباره (Multi-Depot VRP)</h3>
+
+<p>این بار به‌جای یک انبار، چند انبار داریم و باید هم‌زمان تصمیم بگیریم هر خودرو از <strong>کدام انبار</strong> شروع کند، کدام خودروها اصلاً <strong>به کار گرفته شوند</strong> و هر مشتری به کدام مسیر برسد.</p>
+
+<blockquote>
+  <p><strong>نکتهٔ کلیدی —</strong> پیوند دادن متغیر «خودرو استفاده شد؟» به انتخاب انبار و به ظرفیت (ظرفیت × used_car) روشی تمیز برای <strong>روشن/خاموش کردن خودروها</strong> و انبارهاست.</p>
+</blockquote>
+
+<blockquote>
+  <p><strong>نکتهٔ کلیدی —</strong> مسیریابی چندانباره تعمیم مستقیم حالت تک‌انبار است و به واقعیت شبکه‌های توزیع بزرگ با چند مرکز پخش نزدیک‌تر است.</p>
+</blockquote>
+
+<h3 id="پروژه-۱۵--تحویل-تقسیمشده-split-delivery-vrp">پروژه ۱۵ — تحویل تقسیم‌شده (Split Delivery VRP)</h3>
+
+<p>در SDVRP فرض «هر مشتری فقط یک بار سرویس می‌گیرد» کنار می‌رود: تقاضای یک مشتری می‌تواند <strong>بین چند خودرو تقسیم</strong> شود. به‌جای متغیر باینریِ «سرویس‌ داده شد»، از متغیر صحیح <code class="language-plaintext highlighter-rouge">loadcar[i,c]</code> (مقدار تحویل هر خودرو) استفاده می‌شود.</p>
+
+<blockquote>
+  <p><strong>نکتهٔ کلیدی —</strong> تبدیل «سرویس‌دهی» از باینری به <strong>مقدارِ تحویل</strong> کلید تقسیم بار است؛ وقتی تقاضا بزرگ است یا از ظرفیت یک خودرو بیشتر می‌شود، همین ایده مسئله را شدنی و کارآمد می‌کند.</p>
+</blockquote>
+
+<blockquote>
+  <p><strong>نکتهٔ کلیدی —</strong> استفاده از <code class="language-plaintext highlighter-rouge">AddAtLeastOne</code> به‌جای <code class="language-plaintext highlighter-rouge">AddExactlyOne</code> اجازه می‌دهد بیش از یک خودرو به یک مشتری سر بزنند.</p>
+</blockquote>
+
+<h3 id="پروژه-۱۶--پنجرهٔ-زمانی-vrptw">پروژه ۱۶ — پنجرهٔ زمانی (VRPTW)</h3>
+
+<p>مسیریابی ظرفیت‌دار همراه با <strong>پنجرهٔ زمانی</strong> هر مشتری، <strong>زمان سرویس</strong> و <strong>زمان انتظار</strong>. متغیر <code class="language-plaintext highlighter-rouge">arrival_time</code> زمان رسیدن به هر گره را نگه می‌دارد و در طول مسیر منتشر می‌شود؛ همچنین محدودیت طول شیفت خودرو اعمال می‌گردد.</p>
+
+<blockquote>
+  <p><strong>نکتهٔ کلیدی —</strong> انتشار زمان رسیدن در طول یال‌ها با <code class="language-plaintext highlighter-rouge">OnlyEnforceIf</code> (زمانِ j ≥ زمانِ i + سرویس + مسافت) قلب مدل‌سازی پنجرهٔ زمانی است.</p>
+</blockquote>
+
+<blockquote>
+  <p><strong>نکتهٔ کلیدی —</strong> <strong>هرس یال‌های ناممکن از نظر زمانی</strong> (اگر پنجرهٔ j پیش از باز شدن پنجرهٔ i بسته شود) اندازهٔ مدل را کم و حل را سریع‌تر می‌کند.</p>
+</blockquote>
+
+<h3 id="پروژه-۱۷--مسیریابی-خودروی-برقی-ev-routing">پروژه ۱۷ — مسیریابی خودروی برقی (EV Routing)</h3>
+
+<p>مسیریابی روی یک <strong>شبکهٔ جاده‌ایِ واقعی</strong> (نه گراف کامل) با محدودیت <strong>باتری/برد</strong>: متغیر <code class="language-plaintext highlighter-rouge">EFuel</code> سطح شارژ را نشان می‌دهد که با پیمودن هر یال کم می‌شود و نباید از حد مجاز پایین‌تر برود. سپس نسخهٔ دوم <strong>ایستگاه شارژ</strong> را اضافه می‌کند که در آن شارژ دوباره پر می‌شود.</p>
+
+<blockquote>
+  <p><strong>نکتهٔ کلیدی —</strong> مدل‌کردن <strong>سطح شارژ باتری</strong> به‌صورت متغیری که با مسافت افت می‌کند، مفهوم «برد محدود / اضطراب برد» را مستقیماً وارد بهینه‌سازی می‌کند.</p>
+</blockquote>
+
+<blockquote>
+  <p><strong>نکتهٔ کلیدی —</strong> ایستگاه شارژ یعنی گرهی که متغیر شارژ در آن <strong>بازنشانی (reset)</strong> می‌شود؛ همین ترفند ساده مسیرهای طولانی‌تر را ممکن می‌کند.</p>
+</blockquote>
+
+<h3 id="پروژه-۱۸--مسیر-شبکهای-با-ترتیب-پازل-zip-لینکدین">پروژه ۱۸ — مسیر شبکه‌ای با ترتیب (پازل Zip لینکدین)</h3>
+
+<p>نگاهی سرگرم‌کننده و آموزنده: در یک جدول ۷×۷ فقط حرکت به خانه‌های <strong>مجاور</strong> مجاز است و باید همهٔ خانه‌ها را در یک مسیر پیوسته و با رعایت <strong>ترتیب نقاط شماره‌گذاری‌شده</strong> طی کرد (همان بازی Zip لینکدین).</p>
+
+<blockquote>
+  <p><strong>نکتهٔ کلیدی —</strong> محدودکردن یال‌ها به <strong>همسایگی شبکه‌ای</strong> + قیود ترتیب با <code class="language-plaintext highlighter-rouge">visit_order</code> نشان می‌دهد چطور همان ابزارهای VRP روی پازل‌ها و بازی‌ها هم کار می‌کنند.</p>
+</blockquote>
+
+<blockquote>
+  <p><strong>نکتهٔ کلیدی —</strong> با <code class="language-plaintext highlighter-rouge">AddCircuit</code> و یک یال بستِ اجباری، یک <strong>مسیر همیلتونی</strong> که همهٔ خانه‌ها را پوشش می‌دهد ساخته می‌شود.</p>
+</blockquote>
+
+<h3 id="پروژه-۱۹--ترابریانتقال-بار-transshipment">پروژه ۱۹ — ترابری/انتقال بار (Transshipment)</h3>
+
+<p>ترکیب مسیریابی انتخابی با <strong>انتقال بار</strong>: مشتریانی که روی مسیر اصلی نیستند، تقاضایشان با یک یال انتقال به نزدیک‌ترین مشتریِ روی مسیر منتقل می‌شود. تابع هدف، مجموع مسافت مسیر به‌علاوهٔ هزینهٔ انتقال‌هاست.</p>
+
+<blockquote>
+  <p><strong>نکتهٔ کلیدی —</strong> پیوند متغیر انتقال به گره‌های <strong>انتخاب‌نشده</strong> (<code class="language-plaintext highlighter-rouge">select[i].Not()</code>) روشی تمیز است برای اینکه «اگر مشتری بازدید نشد، حتماً از طریق انتقال پوشش داده شود».</p>
+</blockquote>
+
+<blockquote>
+  <p><strong>نکتهٔ کلیدی —</strong> این مدل نشان می‌دهد گاهی سرویس‌دادن غیرمستقیم (transshipment) از کشاندن مسیر تا همهٔ نقاط ارزان‌تر است.</p>
+</blockquote>
+
+<h3 id="پروژه-۲۰--مسیریابی-دینامیک-و-موجودی-inventory-routing">پروژه ۲۰ — مسیریابی دینامیک و موجودی (Inventory Routing)</h3>
+
+<p>جمع‌بندی دوره با پیشرفته‌ترین حالت: یک مسئلهٔ <strong>مسیریابی-موجودی (IRP)</strong> روی افق <strong>۱۰ روزه</strong>. باید تصمیم بگیرید هر مشتری <strong>چه روزی</strong> بازدید شود، <strong>چه مقدار</strong> تحویل داده شود، مسافت کل کمینه شود و هیچ مشتری دچار <strong>کمبود موجودی (stockout)</strong> نشود.</p>
+
+<blockquote>
+  <p><strong>نکتهٔ کلیدی —</strong> افزودن <strong>بُعد زمان</strong> (چند روز) و پویاییِ موجودی، همان‌جایی است که مسیریابی به مدیریت موجودی و زنجیرهٔ تأمین گره می‌خورد.</p>
+</blockquote>
+
+<blockquote>
+  <p><strong>نکتهٔ کلیدی —</strong> تصمیمِ «چه زمانی سر بزنیم» (نه فقط «با چه مسیری») بر اساس نرخ مصرف و جلوگیری از کمبود، جوهرهٔ مسیریابی موجودی است.</p>
+</blockquote>
+
+<hr />
+
+<h2 id="مسیر-پیشنهادی-یادگیری-vrp">مسیر پیشنهادی یادگیری VRP</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>گام</th>
+      <th>موضوع</th>
+      <th>مفهوم کلیدی</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>۱</td>
+      <td>مسائل ترکیبی پایه</td>
+      <td>متغیر باینری، تخصیص</td>
+    </tr>
+    <tr>
+      <td>۲</td>
+      <td>تحلیل گراف و جریان</td>
+      <td>گره، یال، جریان</td>
+    </tr>
+    <tr>
+      <td>۳</td>
+      <td>VRP پایه</td>
+      <td>مسیر، حذف زیرتور</td>
+    </tr>
+    <tr>
+      <td>۴</td>
+      <td>CVRP</td>
+      <td>قید ظرفیت وسیله</td>
+    </tr>
+    <tr>
+      <td>۵</td>
+      <td>VRPTW</td>
+      <td>پنجرهٔ زمانی و زمان انتظار</td>
+    </tr>
+    <tr>
+      <td>۶</td>
+      <td>توسعه‌ها</td>
+      <td>چندپایانه، pickup/delivery، سودآور</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="دریافتیهای-دوره">دریافتی‌های دوره</h2>
+
+<ul>
+  <li>ویدیوهای آموزشی گام‌به‌گام (حدود ۱۰ ساعت)</li>
+  <li>کد کامل و قابل‌اجرای هر ۲۰ پروژه</li>
+  <li>مستندات و دادهٔ تست آمادهٔ هر مسئله</li>
+  <li>ساختاری تمیز و قابل‌توسعه برای پروژه‌های واقعی خودتان</li>
+</ul>
+
+<h2 id="این-دوره-برای-چه-کسانی-است">این دوره برای چه کسانی است؟</h2>
+
+<ul>
+  <li>دانشجویان مهندسی (صنایع، کامپیوتر، عمران/حمل‌ونقل)</li>
+  <li>مدیران و کارشناسان عملیات و لجستیک</li>
+  <li>علاقه‌مندان به برنامه‌نویسی و بهینه‌سازی که می‌خواهند با پروژه‌های واقعی یاد بگیرند</li>
+</ul>
+
+<h2 id="پیشنیازها">پیش‌نیازها</h2>
+
+<p>آشنایی پایه با Python کافی است. آشنایی قبلی با مدل‌سازی مسائل بهینه‌سازی توصیه می‌شود اما الزامی نیست؛ در صورت نیاز ابتدا <strong>دوره مدل‌سازی مسائل بهینه‌سازی</strong> پیشنهاد می‌شود.</p>
+
+<hr />
+
+<h2 id="سوالات-متداول-درباره-دوره">سوالات متداول درباره دوره</h2>
+
+<h3>پیش‌نیاز این دوره چیست؟</h3>
+<p>آشنایی پایه با Python کافی است. آشنایی قبلی با مدل‌سازی مسائل بهینه‌سازی توصیه می‌شود اما الزامی نیست.</p>
+
+<h3>دوره شامل چه چیزهایی است؟</h3>
+<p>۲۰ پروژه عملی (۱۰ پروژه عمومی و ۱۰ پروژه تخصصی VRP)، حدود ۱۰ ساعت ویدیو، کد کامل، مستندات و داده‌های تست آماده.</p>
+
+<h3>چه نوع مسائل VRP پوشش داده می‌شود؟</h3>
+<p>از VRP پایه تا CVRP و VRPTW، مسیریابی چندپایانه، pickup &amp; delivery، مسیریابی سودآور و محدودیت‌های مکانی و اولویت‌بندی.</p>
+
+<h3>خروجی نهایی دوره چیست؟</h3>
+<p>مجموعه‌ای از پروژه‌های آماده و قابل‌توسعه که پایه‌ای برای پروژه‌های واقعی حمل‌ونقل و زنجیره تأمین است.</p>
+
+<h3>چطور ثبت‌نام کنم؟</h3>
+<p>برای اطلاع از هزینه، زمان برگزاری و ثبت‌نام، در تلگرام به آیدی @pypyid پیام دهید.</p>
+
+<hr />
+
+<h2 id="-سوالات-و-راهنمایی">💬 سوالات و راهنمایی</h2>
+
+<p>سوالی درباره ثبت‌نام داری؟ با آیدی <strong>@pypyid</strong> در تلگرام تماس بگیرید.</p>
+
+<hr />
+
+<hr />
+
+<h2 id="دورههای-مرتبط">دوره‌های مرتبط</h2>
+
+<ul>
+  <li><a href="/posts/2026/06/21/optimization-modeling-course/">دوره مدل‌سازی مسائل بهینه‌سازی</a></li>
+</ul>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "آموزش جامع بهینه‌سازی و مسیریابی (VRP) در Python",
+  "description": "دوره جامع و پروژه‌محور مسیریابی وسایل نقلیه (VRP) و مسائل ترکیبی در Python با OR-Tools و CP-SAT؛ ۲۰ پروژهٔ عملی و حدود ۱۰ ساعت ویدیو: از حداکثر جریان، تخصیص، کوله‌پشتی و زمان‌بندی تا TSP، CVRP، VRPTW، مسیریابی چندانباره، تحویل تقسیم‌شده، مسیریابی خودروی برقی و مسیریابی موجودی-دینامیک، همراه با کد کامل و داده‌های آماده.",
+  "inLanguage": "fa",
+  "url": "https://optimizationexpert.github.io/posts/2026/06/24/vrp-python-course/",
+  "image": "https://optimizationexpert.github.io/assets/posts/TDvrp.jpg",
+  "courseCode": "VRP-PY",
+  "educationalLevel": "مقدماتی تا تخصصی",
+  "teaches": [
+    "مسائل ترکیبی و مدل‌سازی با OR-Tools و CP-SAT",
+    "حداکثر جریان، تخصیص، کوله‌پشتی و بسته‌بندی",
+    "زمان‌بندی تولید، مربع جادویی و بزرگ‌ترین خوشهٔ گراف",
+    "فروشندهٔ دوره‌گرد (TSP) با AddCircuit و هرس یال",
+    "مسیریابی ظرفیت‌دار چندخودرویی (CVRP)",
+    "پنجرهٔ زمانی (VRPTW) با زمان سرویس و انتظار",
+    "مسیریابی چندانباره (Multi-Depot VRP)",
+    "تحویل تقسیم‌شده (Split Delivery VRP)",
+    "مسیریابی خودروی برقی با باتری و ایستگاه شارژ (EV Routing)",
+    "ترابری/انتقال بار (Transshipment)",
+    "مسیریابی موجودی و دینامیک (Inventory Routing)"
+  ],
+  "provider": {
+    "@type": "EducationalOrganization",
+    "name": "Optimization Expert",
+    "url": "https://optimizationexpert.github.io/",
+    "sameAs": [
+      "https://github.com/OptimizationExpert",
+      "https://t.me/pypyid"
+    ]
+  },
+  "hasCourseInstance": {
+    "@type": "CourseInstance",
+    "courseMode": "online",
+    "courseWorkload": "PT10H",
+    "inLanguage": "fa"
+  },
+  "offers": {
+    "@type": "Offer",
+    "category": "Paid",
+    "availability": "https://schema.org/InStock",
+    "url": "https://t.me/pypyid"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "پیش‌نیاز این دوره چیست؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "آشنایی پایه با Python کافی است. آشنایی قبلی با مدل‌سازی مسائل بهینه‌سازی توصیه می‌شود اما الزامی نیست."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "دوره شامل چه چیزهایی است؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "۲۰ پروژه عملی (۱۰ پروژه عمومی و ۱۰ پروژه تخصصی VRP)، حدود ۱۰ ساعت ویدیو، کد کامل، مستندات و داده‌های تست آماده."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "چه نوع مسائل VRP پوشش داده می‌شود؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "از VRP پایه تا CVRP و VRPTW، مسیریابی چندپایانه، pickup & delivery، مسیریابی سودآور و محدودیت‌های مکانی و اولویت‌بندی."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "خروجی نهایی دوره چیست؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "مجموعه‌ای از پروژه‌های آماده و قابل‌توسعه که پایه‌ای برای پروژه‌های واقعی حمل‌ونقل و زنجیره تأمین است."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "چطور ثبت‌نام کنم؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "برای اطلاع از هزینه، زمان برگزاری و ثبت‌نام، در تلگرام به آیدی @pypyid پیام دهید."
+      }
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "خانه", "item": "https://optimizationexpert.github.io/" },
+    { "@type": "ListItem", "position": 2, "name": "دوره‌ها", "item": "https://optimizationexpert.github.io/#courses" },
+    { "@type": "ListItem", "position": 3, "name": "آموزش جامع بهینه‌سازی و مسیریابی (VRP) در Python", "item": "https://optimizationexpert.github.io/posts/2026/06/24/vrp-python-course/" }
+  ]
+}
+</script>
+
+
+  <a class="back-link" href="/blog/">→ بازگشت به فهرست یادداشت‌ها</a>
+</article>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      © <span id="year"></span> Optimization Expert — دوره‌های تخصصی بهینه‌سازی
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
