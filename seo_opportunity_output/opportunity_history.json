@@ -12,8 +12,8 @@
       ],
       "context_ranks": {
         "Google Search Autocomplete|mixed integer programming پایتون": 2,
-        "YouTube Autocomplete|mixed integer programming پایتون": 2,
         "YouTube Autocomplete|linear programming پایتون": 5,
+        "YouTube Autocomplete|mixed integer programming پایتون": 2,
         "Bing Autocomplete|linear programming پایتون": 4,
         "Bing Autocomplete|mixed integer programming پایتون": 2
       },
@@ -23,8 +23,8 @@
         "Google Search Autocomplete",
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 55.4,
-      "last_opportunity_score": 75.3,
+      "last_demand_score": 50.4,
+      "last_opportunity_score": 6.1,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -39,8 +39,8 @@
       ],
       "context_ranks": {
         "Bing Autocomplete|برنامه ریزی خطی در پایتون": 3,
-        "Bing Autocomplete|بهینهسازی در پایتون با pyomo": 1,
         "Bing Autocomplete|برنامه ریزی عدد صحیح در پایتون": 3,
+        "Bing Autocomplete|بهینهسازی در پایتون با pyomo": 1,
         "Bing Autocomplete|بهینهسازی چندهدفه در پایتون": 1,
         "Bing Autocomplete|مسئله مکان یابی تسهیلات در پایتون": 1,
         "Bing Autocomplete|آموزش vrptw در پایتون": 2,
@@ -58,8 +58,8 @@
         "Bing Autocomplete",
         "DuckDuckGo Autocomplete"
       ],
-      "last_demand_score": 39.7,
-      "last_opportunity_score": 67.4,
+      "last_demand_score": 34.7,
+      "last_opportunity_score": 0.0,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -81,8 +81,8 @@
         "Bing Autocomplete",
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 37.5,
-      "last_opportunity_score": 66.9,
+      "last_demand_score": 32.5,
+      "last_opportunity_score": 0.0,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -104,8 +104,8 @@
         "Google Search Autocomplete",
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 37.0,
-      "last_opportunity_score": 66.6,
+      "last_demand_score": 32.0,
+      "last_opportunity_score": 0.0,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -127,8 +127,8 @@
         "Bing Autocomplete",
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 36.2,
-      "last_opportunity_score": 66.4,
+      "last_demand_score": 31.2,
+      "last_opportunity_score": 0.0,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -150,8 +150,8 @@
         "Bing Autocomplete",
         "DuckDuckGo Autocomplete"
       ],
-      "last_demand_score": 31.7,
-      "last_opportunity_score": 63.2,
+      "last_demand_score": 26.7,
+      "last_opportunity_score": 40.5,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -173,8 +173,8 @@
         "Bing Autocomplete",
         "DuckDuckGo Autocomplete"
       ],
-      "last_demand_score": 31.7,
-      "last_opportunity_score": 62.7,
+      "last_demand_score": 26.7,
+      "last_opportunity_score": 40.0,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -196,8 +196,8 @@
         "Bing Autocomplete",
         "DuckDuckGo Autocomplete"
       ],
-      "last_demand_score": 31.7,
-      "last_opportunity_score": 62.2,
+      "last_demand_score": 26.7,
+      "last_opportunity_score": 39.6,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -218,8 +218,8 @@
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 25.4,
-      "last_opportunity_score": 61.2,
+      "last_demand_score": 20.4,
+      "last_opportunity_score": 0.0,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -238,8 +238,8 @@
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 24.7,
-      "last_opportunity_score": 60.8,
+      "last_demand_score": 19.7,
+      "last_opportunity_score": 11.0,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -257,8 +257,8 @@
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 22.7,
-      "last_opportunity_score": 60.0,
+      "last_demand_score": 17.7,
+      "last_opportunity_score": 11.3,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -281,8 +281,8 @@
         "Bing Autocomplete",
         "DuckDuckGo Autocomplete"
       ],
-      "last_demand_score": 33.7,
-      "last_opportunity_score": 59.9,
+      "last_demand_score": 28.7,
+      "last_opportunity_score": 37.3,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -301,8 +301,8 @@
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 22.9,
-      "last_opportunity_score": 59.9,
+      "last_demand_score": 17.9,
+      "last_opportunity_score": 11.4,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -321,8 +321,8 @@
       "last_sources": [
         "Bing Autocomplete"
       ],
-      "last_demand_score": 22.0,
-      "last_opportunity_score": 59.9,
+      "last_demand_score": 17.0,
+      "last_opportunity_score": 8.1,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -344,8 +344,8 @@
         "Bing Autocomplete",
         "DuckDuckGo Autocomplete"
       ],
-      "last_demand_score": 31.7,
-      "last_opportunity_score": 59.8,
+      "last_demand_score": 26.7,
+      "last_opportunity_score": 37.2,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -370,8 +370,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 29.0,
-      "last_opportunity_score": 59.6,
+      "last_demand_score": 24.0,
+      "last_opportunity_score": 38.5,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -393,8 +393,8 @@
         "Bing Autocomplete",
         "DuckDuckGo Autocomplete"
       ],
-      "last_demand_score": 31.7,
-      "last_opportunity_score": 59.4,
+      "last_demand_score": 26.7,
+      "last_opportunity_score": 36.8,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -412,8 +412,8 @@
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 22.1,
-      "last_opportunity_score": 59.4,
+      "last_demand_score": 17.1,
+      "last_opportunity_score": 11.0,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -431,8 +431,8 @@
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 22.1,
-      "last_opportunity_score": 59.3,
+      "last_demand_score": 17.1,
+      "last_opportunity_score": 40.6,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -446,14 +446,15 @@
         "2026-07-30"
       ],
       "context_ranks": {
+        "YouTube Autocomplete|pyomo cbc": 2,
         "YouTube Autocomplete|pyomo performance": 1
       },
       "last_seen": "2026-07-30",
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 21.0,
-      "last_opportunity_score": 59.3,
+      "last_demand_score": 18.0,
+      "last_opportunity_score": 37.6,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -473,8 +474,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 21.0,
-      "last_opportunity_score": 59.3,
+      "last_demand_score": 16.0,
+      "last_opportunity_score": 36.7,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -496,8 +497,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 25.0,
-      "last_opportunity_score": 59.2,
+      "last_demand_score": 20.0,
+      "last_opportunity_score": 36.6,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -518,8 +519,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 23.0,
-      "last_opportunity_score": 59.2,
+      "last_demand_score": 18.0,
+      "last_opportunity_score": 36.6,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -537,8 +538,8 @@
       "last_sources": [
         "Stack Exchange Questions"
       ],
-      "last_demand_score": 20.7,
-      "last_opportunity_score": 59.1,
+      "last_demand_score": 15.7,
+      "last_opportunity_score": 36.4,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -558,8 +559,8 @@
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 20.9,
-      "last_opportunity_score": 59.0,
+      "last_demand_score": 15.8,
+      "last_opportunity_score": 22.2,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -580,8 +581,8 @@
       "last_sources": [
         "Bing Autocomplete"
       ],
-      "last_demand_score": 19.8,
-      "last_opportunity_score": 59.0,
+      "last_demand_score": 14.8,
+      "last_opportunity_score": 0.0,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -603,8 +604,8 @@
       "last_sources": [
         "Bing Autocomplete"
       ],
-      "last_demand_score": 22.6,
-      "last_opportunity_score": 58.8,
+      "last_demand_score": 17.6,
+      "last_opportunity_score": 26.7,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -624,8 +625,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.0,
-      "last_opportunity_score": 58.8,
+      "last_demand_score": 15.0,
+      "last_opportunity_score": 38.4,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -647,8 +648,8 @@
         "Bing Autocomplete",
         "DuckDuckGo Autocomplete"
       ],
-      "last_demand_score": 31.7,
-      "last_opportunity_score": 58.7,
+      "last_demand_score": 26.7,
+      "last_opportunity_score": 36.0,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -669,8 +670,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 22.5,
-      "last_opportunity_score": 58.7,
+      "last_demand_score": 17.5,
+      "last_opportunity_score": 36.0,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -690,8 +691,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 21.0,
-      "last_opportunity_score": 58.6,
+      "last_demand_score": 16.0,
+      "last_opportunity_score": 35.7,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -711,8 +712,8 @@
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 20.2,
-      "last_opportunity_score": 58.5,
+      "last_demand_score": 15.2,
+      "last_opportunity_score": 21.5,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -733,8 +734,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 22.5,
-      "last_opportunity_score": 58.4,
+      "last_demand_score": 17.5,
+      "last_opportunity_score": 35.8,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -754,8 +755,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.0,
-      "last_opportunity_score": 58.4,
+      "last_demand_score": 15.0,
+      "last_opportunity_score": 21.7,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -775,8 +776,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.0,
-      "last_opportunity_score": 58.4,
+      "last_demand_score": 15.0,
+      "last_opportunity_score": 38.0,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -798,8 +799,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 25.0,
-      "last_opportunity_score": 58.3,
+      "last_demand_score": 20.0,
+      "last_opportunity_score": 37.9,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -840,8 +841,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 21.0,
-      "last_opportunity_score": 58.3,
+      "last_demand_score": 16.0,
+      "last_opportunity_score": 35.3,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -861,8 +862,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 19.5,
-      "last_opportunity_score": 58.3,
+      "last_demand_score": 14.5,
+      "last_opportunity_score": 0.0,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -882,8 +883,8 @@
       "last_sources": [
         "Bing Autocomplete"
       ],
-      "last_demand_score": 18.6,
-      "last_opportunity_score": 58.3,
+      "last_demand_score": 13.7,
+      "last_opportunity_score": 0.0,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -903,8 +904,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 21.0,
-      "last_opportunity_score": 58.2,
+      "last_demand_score": 16.0,
+      "last_opportunity_score": 35.5,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -924,8 +925,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 21.0,
-      "last_opportunity_score": 58.2,
+      "last_demand_score": 16.0,
+      "last_opportunity_score": 35.6,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -945,8 +946,8 @@
       "last_sources": [
         "Bing Autocomplete"
       ],
-      "last_demand_score": 19.6,
-      "last_opportunity_score": 58.2,
+      "last_demand_score": 14.6,
+      "last_opportunity_score": 37.8,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -966,8 +967,8 @@
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 19.6,
-      "last_opportunity_score": 58.2,
+      "last_demand_score": 14.6,
+      "last_opportunity_score": 21.3,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -981,14 +982,15 @@
         "2026-07-30"
       ],
       "context_ranks": {
-        "YouTube Autocomplete|pyomo ipopt": 4
+        "YouTube Autocomplete|pyomo ipopt": 4,
+        "YouTube Autocomplete|pyomo cbc": 3
       },
       "last_seen": "2026-07-30",
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 19.5,
-      "last_opportunity_score": 58.2,
+      "last_demand_score": 17.0,
+      "last_opportunity_score": 39.0,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -1008,8 +1010,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.5,
-      "last_opportunity_score": 58.1,
+      "last_demand_score": 15.5,
+      "last_opportunity_score": 35.1,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -1019,7 +1021,9 @@
       "seen_dates": [
         "2026-07-30"
       ],
-      "selected_dates": [],
+      "selected_dates": [
+        "2026-07-30"
+      ],
       "context_ranks": {
         "YouTube Autocomplete|تعریف متغیر تصمیم تابع هدف و قید": 2
       },
@@ -1027,8 +1031,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.5,
-      "last_opportunity_score": 58.1,
+      "last_demand_score": 15.5,
+      "last_opportunity_score": 55.7,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -1038,7 +1042,9 @@
       "seen_dates": [
         "2026-07-30"
       ],
-      "selected_dates": [],
+      "selected_dates": [
+        "2026-07-30"
+      ],
       "context_ranks": {
         "Bing Autocomplete|مقایسه gurobi و cplex و highs": 1
       },
@@ -1046,8 +1052,8 @@
       "last_sources": [
         "Bing Autocomplete"
       ],
-      "last_demand_score": 20.0,
-      "last_opportunity_score": 58.1,
+      "last_demand_score": 15.0,
+      "last_opportunity_score": 55.7,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -1057,7 +1063,9 @@
       "seen_dates": [
         "2026-07-30"
       ],
-      "selected_dates": [],
+      "selected_dates": [
+        "2026-07-30"
+      ],
       "context_ranks": {
         "Bing Autocomplete|آموزش pyomo": 4
       },
@@ -1065,8 +1073,8 @@
       "last_sources": [
         "Bing Autocomplete"
       ],
-      "last_demand_score": 18.6,
-      "last_opportunity_score": 58.1,
+      "last_demand_score": 13.7,
+      "last_opportunity_score": 55.7,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -1076,7 +1084,9 @@
       "seen_dates": [
         "2026-07-30"
       ],
-      "selected_dates": [],
+      "selected_dates": [
+        "2026-07-30"
+      ],
       "context_ranks": {
         "YouTube Autocomplete|مکان یابی تسهیلات در پایتون": 1
       },
@@ -1084,8 +1094,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 21.0,
-      "last_opportunity_score": 58.0,
+      "last_demand_score": 16.0,
+      "last_opportunity_score": 55.6,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -1095,7 +1105,9 @@
       "seen_dates": [
         "2026-07-30"
       ],
-      "selected_dates": [],
+      "selected_dates": [
+        "2026-07-30"
+      ],
       "context_ranks": {
         "YouTube Autocomplete|آموزش vrptw در پایتون": 4,
         "YouTube Autocomplete|آموزش cvrp در پایتون": 2
@@ -1104,8 +1116,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 22.5,
-      "last_opportunity_score": 57.9,
+      "last_demand_score": 17.5,
+      "last_opportunity_score": 55.5,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -1134,7 +1146,9 @@
       "seen_dates": [
         "2026-07-30"
       ],
-      "selected_dates": [],
+      "selected_dates": [
+        "2026-07-30"
+      ],
       "context_ranks": {
         "YouTube Autocomplete|آموزش pyomo": 4
       },
@@ -1142,8 +1156,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 19.5,
-      "last_opportunity_score": 57.9,
+      "last_demand_score": 14.5,
+      "last_opportunity_score": 55.5,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -1161,8 +1175,8 @@
       "last_sources": [
         "Bing Autocomplete"
       ],
-      "last_demand_score": 18.2,
-      "last_opportunity_score": 57.9,
+      "last_demand_score": 13.2,
+      "last_opportunity_score": 6.3,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -1172,7 +1186,9 @@
       "seen_dates": [
         "2026-07-30"
       ],
-      "selected_dates": [],
+      "selected_dates": [
+        "2026-07-30"
+      ],
       "context_ranks": {
         "YouTube Autocomplete|جایابی بهینه خازن در شبکه توزیع": 1
       },
@@ -1180,8 +1196,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 21.0,
-      "last_opportunity_score": 57.8,
+      "last_demand_score": 16.0,
+      "last_opportunity_score": 55.4,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -1191,7 +1207,9 @@
       "seen_dates": [
         "2026-07-30"
       ],
-      "selected_dates": [],
+      "selected_dates": [
+        "2026-07-30"
+      ],
       "context_ranks": {
         "YouTube Autocomplete|تابع هدف و قیود": 1
       },
@@ -1199,8 +1217,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 21.0,
-      "last_opportunity_score": 57.8,
+      "last_demand_score": 16.0,
+      "last_opportunity_score": 55.4,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -1210,7 +1228,9 @@
       "seen_dates": [
         "2026-07-30"
       ],
-      "selected_dates": [],
+      "selected_dates": [
+        "2026-07-30"
+      ],
       "context_ranks": {
         "YouTube Autocomplete|استخراج dual و shadow price در pyomo": 1
       },
@@ -1218,8 +1238,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 21.0,
-      "last_opportunity_score": 57.8,
+      "last_demand_score": 16.0,
+      "last_opportunity_score": 55.4,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -1229,7 +1249,9 @@
       "seen_dates": [
         "2026-07-30"
       ],
-      "selected_dates": [],
+      "selected_dates": [
+        "2026-07-30"
+      ],
       "context_ranks": {
         "YouTube Autocomplete|تعیین ظرفیت بهینه ذخیره ساز انرژی": 2
       },
@@ -1237,8 +1259,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.5,
-      "last_opportunity_score": 57.8,
+      "last_demand_score": 15.5,
+      "last_opportunity_score": 55.4,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -1248,7 +1270,9 @@
       "seen_dates": [
         "2026-07-30"
       ],
-      "selected_dates": [],
+      "selected_dates": [
+        "2026-07-30"
+      ],
       "context_ranks": {
         "YouTube Autocomplete|قیمت گذاری مکانی برق در شبکه": 2
       },
@@ -1256,8 +1280,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.5,
-      "last_opportunity_score": 57.8,
+      "last_demand_score": 15.5,
+      "last_opportunity_score": 55.4,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -1267,7 +1291,9 @@
       "seen_dates": [
         "2026-07-30"
       ],
-      "selected_dates": [],
+      "selected_dates": [
+        "2026-07-30"
+      ],
       "context_ranks": {
         "YouTube Autocomplete|pyomo cbc solver": 3
       },
@@ -1275,8 +1301,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.0,
-      "last_opportunity_score": 57.8,
+      "last_demand_score": 15.0,
+      "last_opportunity_score": 55.2,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -1286,7 +1312,9 @@
       "seen_dates": [
         "2026-07-30"
       ],
-      "selected_dates": [],
+      "selected_dates": [
+        "2026-07-30"
+      ],
       "context_ranks": {
         "YouTube Autocomplete|پخش بار اقتصادی دینامیکی با pyomo": 3
       },
@@ -1294,8 +1322,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.0,
-      "last_opportunity_score": 57.8,
+      "last_demand_score": 15.0,
+      "last_opportunity_score": 55.4,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -1305,7 +1333,9 @@
       "seen_dates": [
         "2026-07-30"
       ],
-      "selected_dates": [],
+      "selected_dates": [
+        "2026-07-30"
+      ],
       "context_ranks": {
         "YouTube Autocomplete|پخش بار اقتصادی با پایتون": 3
       },
@@ -1313,8 +1343,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.0,
-      "last_opportunity_score": 57.8,
+      "last_demand_score": 15.0,
+      "last_opportunity_score": 55.4,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -1324,7 +1354,9 @@
       "seen_dates": [
         "2026-07-30"
       ],
-      "selected_dates": [],
+      "selected_dates": [
+        "2026-07-30"
+      ],
       "context_ranks": {
         "Bing Autocomplete|mixed integer programming پایتون": 6
       },
@@ -1332,8 +1364,8 @@
       "last_sources": [
         "Bing Autocomplete"
       ],
-      "last_demand_score": 17.8,
-      "last_opportunity_score": 57.8,
+      "last_demand_score": 12.8,
+      "last_opportunity_score": 55.4,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -1343,7 +1375,9 @@
       "seen_dates": [
         "2026-07-30"
       ],
-      "selected_dates": [],
+      "selected_dates": [
+        "2026-07-30"
+      ],
       "context_ranks": {
         "YouTube Autocomplete|آموزش vrptw در پایتون": 2,
         "YouTube Autocomplete|آموزش ortools پایتون": 2
@@ -1352,8 +1386,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 22.5,
-      "last_opportunity_score": 57.7,
+      "last_demand_score": 17.5,
+      "last_opportunity_score": 55.3,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -1363,7 +1397,9 @@
       "seen_dates": [
         "2026-07-30"
       ],
-      "selected_dates": [],
+      "selected_dates": [
+        "2026-07-30"
+      ],
       "context_ranks": {
         "YouTube Autocomplete|آموزش pyomo": 1
       },
@@ -1371,8 +1407,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 21.0,
-      "last_opportunity_score": 57.7,
+      "last_demand_score": 16.0,
+      "last_opportunity_score": 55.3,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -1382,7 +1418,9 @@
       "seen_dates": [
         "2026-07-30"
       ],
-      "selected_dates": [],
+      "selected_dates": [
+        "2026-07-30"
+      ],
       "context_ranks": {
         "YouTube Autocomplete|ساخت ماتریس فاصله برای ortools": 1
       },
@@ -1390,8 +1428,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 21.0,
-      "last_opportunity_score": 57.7,
+      "last_demand_score": 16.0,
+      "last_opportunity_score": 55.3,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -1401,7 +1439,9 @@
       "seen_dates": [
         "2026-07-30"
       ],
-      "selected_dates": [],
+      "selected_dates": [
+        "2026-07-30"
+      ],
       "context_ranks": {
         "YouTube Autocomplete|کنترل volt var با اینورتر خورشیدی": 1
       },
@@ -1409,8 +1449,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 21.0,
-      "last_opportunity_score": 57.7,
+      "last_demand_score": 16.0,
+      "last_opportunity_score": 55.3,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -1420,7 +1460,9 @@
       "seen_dates": [
         "2026-07-30"
       ],
-      "selected_dates": [],
+      "selected_dates": [
+        "2026-07-30"
+      ],
       "context_ranks": {
         "YouTube Autocomplete|آموزش pyomo از صفر": 2
       },
@@ -1428,8 +1470,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.5,
-      "last_opportunity_score": 57.7,
+      "last_demand_score": 15.5,
+      "last_opportunity_score": 55.3,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -1447,8 +1489,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 21.0,
-      "last_opportunity_score": 57.6,
+      "last_demand_score": 16.0,
+      "last_opportunity_score": 54.6,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -1458,7 +1500,9 @@
       "seen_dates": [
         "2026-07-30"
       ],
-      "selected_dates": [],
+      "selected_dates": [
+        "2026-07-30"
+      ],
       "context_ranks": {
         "YouTube Autocomplete|قیود حداقل زمان روشن و خاموش واحدها": 2
       },
@@ -1466,8 +1510,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.5,
-      "last_opportunity_score": 57.6,
+      "last_demand_score": 15.5,
+      "last_opportunity_score": 55.2,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -1477,7 +1521,9 @@
       "seen_dates": [
         "2026-07-30"
       ],
-      "selected_dates": [],
+      "selected_dates": [
+        "2026-07-30"
+      ],
       "context_ranks": {
         "YouTube Autocomplete|روش اپسیلون قید در pyomo": 2
       },
@@ -1485,8 +1531,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.5,
-      "last_opportunity_score": 57.6,
+      "last_demand_score": 15.5,
+      "last_opportunity_score": 55.2,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -1496,7 +1542,9 @@
       "seen_dates": [
         "2026-07-30"
       ],
-      "selected_dates": [],
+      "selected_dates": [
+        "2026-07-30"
+      ],
       "context_ranks": {
         "YouTube Autocomplete|استخراج dual و shadow price در pyomo": 3
       },
@@ -1504,8 +1552,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.0,
-      "last_opportunity_score": 57.6,
+      "last_demand_score": 15.0,
+      "last_opportunity_score": 55.2,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -1515,7 +1563,9 @@
       "seen_dates": [
         "2026-07-30"
       ],
-      "selected_dates": [],
+      "selected_dates": [
+        "2026-07-30"
+      ],
       "context_ranks": {
         "YouTube Autocomplete|انتخاب solver مناسب برای pyomo": 3
       },
@@ -1523,8 +1573,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.0,
-      "last_opportunity_score": 57.6,
+      "last_demand_score": 15.0,
+      "last_opportunity_score": 55.2,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -1534,7 +1584,9 @@
       "seen_dates": [
         "2026-07-30"
       ],
-      "selected_dates": [],
+      "selected_dates": [
+        "2026-07-30"
+      ],
       "context_ranks": {
         "YouTube Autocomplete|مسیریابی خودروهای برقی در پایتون": 3
       },
@@ -1542,8 +1594,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.0,
-      "last_opportunity_score": 57.6,
+      "last_demand_score": 15.0,
+      "last_opportunity_score": 55.2,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -1553,7 +1605,9 @@
       "seen_dates": [
         "2026-07-30"
       ],
-      "selected_dates": [],
+      "selected_dates": [
+        "2026-07-30"
+      ],
       "context_ranks": {
         "YouTube Autocomplete|مدلسازی باتری در pyomo": 3
       },
@@ -1561,8 +1615,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.0,
-      "last_opportunity_score": 57.6,
+      "last_demand_score": 15.0,
+      "last_opportunity_score": 55.2,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -1572,7 +1626,9 @@
       "seen_dates": [
         "2026-07-30"
       ],
-      "selected_dates": [],
+      "selected_dates": [
+        "2026-07-30"
+      ],
       "context_ranks": {
         "YouTube Autocomplete|مدلسازی ریاضی در پایتون": 4
       },
@@ -1580,8 +1636,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 19.5,
-      "last_opportunity_score": 57.6,
+      "last_demand_score": 14.5,
+      "last_opportunity_score": 55.2,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -1600,8 +1656,8 @@
       "last_sources": [
         "Bing Autocomplete"
       ],
-      "last_demand_score": 20.6,
-      "last_opportunity_score": 57.5,
+      "last_demand_score": 15.7,
+      "last_opportunity_score": 10.8,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -1611,7 +1667,9 @@
       "seen_dates": [
         "2026-07-30"
       ],
-      "selected_dates": [],
+      "selected_dates": [
+        "2026-07-30"
+      ],
       "context_ranks": {
         "YouTube Autocomplete|تشخیص مدل infeasible در pyomo": 3
       },
@@ -1619,8 +1677,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.0,
-      "last_opportunity_score": 57.5,
+      "last_demand_score": 15.0,
+      "last_opportunity_score": 55.1,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -1630,7 +1688,9 @@
       "seen_dates": [
         "2026-07-30"
       ],
-      "selected_dates": [],
+      "selected_dates": [
+        "2026-07-30"
+      ],
       "context_ranks": {
         "YouTube Autocomplete|زنجیره تامین سبز و کاهش انتشار کربن": 3
       },
@@ -1638,8 +1698,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.0,
-      "last_opportunity_score": 57.5,
+      "last_demand_score": 15.0,
+      "last_opportunity_score": 55.1,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -1649,7 +1709,9 @@
       "seen_dates": [
         "2026-07-30"
       ],
-      "selected_dates": [],
+      "selected_dates": [
+        "2026-07-30"
+      ],
       "context_ranks": {
         "YouTube Autocomplete|pyomo infeasible model": 3
       },
@@ -1657,8 +1719,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.0,
-      "last_opportunity_score": 57.5,
+      "last_demand_score": 15.0,
+      "last_opportunity_score": 55.1,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -1668,7 +1730,9 @@
       "seen_dates": [
         "2026-07-30"
       ],
-      "selected_dates": [],
+      "selected_dates": [
+        "2026-07-30"
+      ],
       "context_ranks": {
         "YouTube Autocomplete|انتخاب تامین کننده با مدلسازی ریاضی": 3
       },
@@ -1676,8 +1740,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.0,
-      "last_opportunity_score": 57.5,
+      "last_demand_score": 15.0,
+      "last_opportunity_score": 55.1,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -1687,16 +1751,19 @@
       "seen_dates": [
         "2026-07-30"
       ],
-      "selected_dates": [],
+      "selected_dates": [
+        "2026-07-30"
+      ],
       "context_ranks": {
-        "YouTube Autocomplete|pyomo glpk": 3
+        "YouTube Autocomplete|pyomo glpk": 3,
+        "YouTube Autocomplete|pyomo cbc": 4
       },
       "last_seen": "2026-07-30",
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.0,
-      "last_opportunity_score": 57.5,
+      "last_demand_score": 17.0,
+      "last_opportunity_score": 56.0,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -1706,7 +1773,9 @@
       "seen_dates": [
         "2026-07-30"
       ],
-      "selected_dates": [],
+      "selected_dates": [
+        "2026-07-30"
+      ],
       "context_ranks": {
         "YouTube Autocomplete|روش اپسیلون قید در pyomo": 4
       },
@@ -1714,8 +1783,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 19.5,
-      "last_opportunity_score": 57.5,
+      "last_demand_score": 14.5,
+      "last_opportunity_score": 55.1,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -1725,7 +1794,9 @@
       "seen_dates": [
         "2026-07-30"
       ],
-      "selected_dates": [],
+      "selected_dates": [
+        "2026-07-30"
+      ],
       "context_ranks": {
         "YouTube Autocomplete|آموزش pyomo": 5
       },
@@ -1733,8 +1804,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 19.0,
-      "last_opportunity_score": 57.5,
+      "last_demand_score": 14.0,
+      "last_opportunity_score": 55.1,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -1744,7 +1815,9 @@
       "seen_dates": [
         "2026-07-30"
       ],
-      "selected_dates": [],
+      "selected_dates": [
+        "2026-07-30"
+      ],
       "context_ranks": {
         "YouTube Autocomplete|انتخاب تامین کننده با مدلسازی ریاضی": 5
       },
@@ -1752,8 +1825,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 19.0,
-      "last_opportunity_score": 57.5,
+      "last_demand_score": 14.0,
+      "last_opportunity_score": 55.1,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -1772,8 +1845,8 @@
       "last_sources": [
         "Bing Autocomplete"
       ],
-      "last_demand_score": 21.1,
-      "last_opportunity_score": 57.4,
+      "last_demand_score": 16.1,
+      "last_opportunity_score": 8.7,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -1791,8 +1864,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 21.0,
-      "last_opportunity_score": 57.4,
+      "last_demand_score": 16.0,
+      "last_opportunity_score": 54.6,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -1802,7 +1875,9 @@
       "seen_dates": [
         "2026-07-30"
       ],
-      "selected_dates": [],
+      "selected_dates": [
+        "2026-07-30"
+      ],
       "context_ranks": {
         "YouTube Autocomplete|روش اپسیلون قید در pyomo": 1
       },
@@ -1810,8 +1885,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 21.0,
-      "last_opportunity_score": 57.4,
+      "last_demand_score": 16.0,
+      "last_opportunity_score": 55.0,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -1829,8 +1904,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.5,
-      "last_opportunity_score": 57.4,
+      "last_demand_score": 15.5,
+      "last_opportunity_score": 54.0,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -1840,7 +1915,9 @@
       "seen_dates": [
         "2026-07-30"
       ],
-      "selected_dates": [],
+      "selected_dates": [
+        "2026-07-30"
+      ],
       "context_ranks": {
         "YouTube Autocomplete|مدیریت موجودی با پایتون": 2
       },
@@ -1848,8 +1925,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.5,
-      "last_opportunity_score": 57.4,
+      "last_demand_score": 15.5,
+      "last_opportunity_score": 55.0,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -1867,8 +1944,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.5,
-      "last_opportunity_score": 57.4,
+      "last_demand_score": 15.5,
+      "last_opportunity_score": 54.3,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -1886,8 +1963,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.5,
-      "last_opportunity_score": 57.4,
+      "last_demand_score": 15.5,
+      "last_opportunity_score": 55.0,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -1897,16 +1974,20 @@
       "seen_dates": [
         "2026-07-30"
       ],
-      "selected_dates": [],
+      "selected_dates": [
+        "2026-07-30"
+      ],
       "context_ranks": {
-        "Bing Autocomplete|نصب pyomo و highs در ویندوز": 1
+        "Bing Autocomplete|نصب pyomo و highs در ویندوز": 1,
+        "DuckDuckGo Autocomplete|نصب pyomo و highs در ویندوز": 2
       },
       "last_seen": "2026-07-30",
       "last_sources": [
-        "Bing Autocomplete"
+        "Bing Autocomplete",
+        "DuckDuckGo Autocomplete"
       ],
-      "last_demand_score": 20.0,
-      "last_opportunity_score": 57.4,
+      "last_demand_score": 26.7,
+      "last_opportunity_score": 60.2,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -1924,8 +2005,8 @@
       "last_sources": [
         "Bing Autocomplete"
       ],
-      "last_demand_score": 19.1,
-      "last_opportunity_score": 57.4,
+      "last_demand_score": 14.1,
+      "last_opportunity_score": 55.0,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -1943,8 +2024,8 @@
       "last_sources": [
         "Bing Autocomplete"
       ],
-      "last_demand_score": 18.2,
-      "last_opportunity_score": 57.4,
+      "last_demand_score": 13.2,
+      "last_opportunity_score": 55.0,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -1962,8 +2043,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 21.0,
-      "last_opportunity_score": 57.3,
+      "last_demand_score": 16.0,
+      "last_opportunity_score": 54.9,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -1981,8 +2062,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.5,
-      "last_opportunity_score": 57.3,
+      "last_demand_score": 15.5,
+      "last_opportunity_score": 54.9,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -2000,8 +2081,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.5,
-      "last_opportunity_score": 57.3,
+      "last_demand_score": 15.5,
+      "last_opportunity_score": 54.9,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -2019,8 +2100,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.0,
-      "last_opportunity_score": 57.3,
+      "last_demand_score": 15.0,
+      "last_opportunity_score": 54.9,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -2038,8 +2119,8 @@
       "last_sources": [
         "Bing Autocomplete"
       ],
-      "last_demand_score": 19.6,
-      "last_opportunity_score": 57.3,
+      "last_demand_score": 14.6,
+      "last_opportunity_score": 54.8,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -2057,8 +2138,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 19.5,
-      "last_opportunity_score": 57.3,
+      "last_demand_score": 14.5,
+      "last_opportunity_score": 54.9,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -2076,8 +2157,8 @@
       "last_sources": [
         "Bing Autocomplete"
       ],
-      "last_demand_score": 16.4,
-      "last_opportunity_score": 57.3,
+      "last_demand_score": 11.4,
+      "last_opportunity_score": 53.5,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -2095,8 +2176,8 @@
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 22.7,
-      "last_opportunity_score": 57.2,
+      "last_demand_score": 17.7,
+      "last_opportunity_score": 30.8,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -2114,8 +2195,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.5,
-      "last_opportunity_score": 57.2,
+      "last_demand_score": 15.5,
+      "last_opportunity_score": 54.4,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -2133,8 +2214,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.5,
-      "last_opportunity_score": 57.2,
+      "last_demand_score": 15.5,
+      "last_opportunity_score": 54.8,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -2152,8 +2233,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 19.5,
-      "last_opportunity_score": 57.2,
+      "last_demand_score": 14.5,
+      "last_opportunity_score": 54.8,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -2171,8 +2252,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 19.5,
-      "last_opportunity_score": 57.2,
+      "last_demand_score": 14.5,
+      "last_opportunity_score": 54.8,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -2191,8 +2272,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 21.0,
-      "last_opportunity_score": 57.1,
+      "last_demand_score": 16.0,
+      "last_opportunity_score": 54.7,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -2210,8 +2291,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 19.5,
-      "last_opportunity_score": 57.1,
+      "last_demand_score": 14.5,
+      "last_opportunity_score": 54.7,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -2229,8 +2310,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 21.0,
-      "last_opportunity_score": 57.0,
+      "last_demand_score": 16.0,
+      "last_opportunity_score": 52.4,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -2248,8 +2329,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.5,
-      "last_opportunity_score": 57.0,
+      "last_demand_score": 15.5,
+      "last_opportunity_score": 54.6,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -2267,8 +2348,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.5,
-      "last_opportunity_score": 57.0,
+      "last_demand_score": 15.5,
+      "last_opportunity_score": 54.6,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -2286,8 +2367,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.0,
-      "last_opportunity_score": 57.0,
+      "last_demand_score": 15.0,
+      "last_opportunity_score": 54.6,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -2305,8 +2386,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.0,
-      "last_opportunity_score": 57.0,
+      "last_demand_score": 15.0,
+      "last_opportunity_score": 54.6,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -2325,8 +2406,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 22.0,
-      "last_opportunity_score": 56.9,
+      "last_demand_score": 17.0,
+      "last_opportunity_score": 54.5,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -2344,8 +2425,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.5,
-      "last_opportunity_score": 56.9,
+      "last_demand_score": 15.5,
+      "last_opportunity_score": 54.5,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -2363,8 +2444,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.0,
-      "last_opportunity_score": 56.9,
+      "last_demand_score": 15.0,
+      "last_opportunity_score": 54.5,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -2382,8 +2463,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 19.0,
-      "last_opportunity_score": 56.9,
+      "last_demand_score": 14.0,
+      "last_opportunity_score": 54.5,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -2401,8 +2482,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 19.0,
-      "last_opportunity_score": 56.9,
+      "last_demand_score": 14.0,
+      "last_opportunity_score": 54.5,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -2418,8 +2499,8 @@
       "last_sources": [
         "Stack Exchange Questions"
       ],
-      "last_demand_score": 22.0,
-      "last_opportunity_score": 56.8,
+      "last_demand_score": 17.0,
+      "last_opportunity_score": 54.4,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -2437,8 +2518,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 21.0,
-      "last_opportunity_score": 56.8,
+      "last_demand_score": 16.0,
+      "last_opportunity_score": 54.4,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -2456,8 +2537,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.0,
-      "last_opportunity_score": 56.8,
+      "last_demand_score": 15.0,
+      "last_opportunity_score": 54.4,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -2475,8 +2556,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 19.5,
-      "last_opportunity_score": 56.8,
+      "last_demand_score": 14.5,
+      "last_opportunity_score": 54.4,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -2494,8 +2575,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 19.5,
-      "last_opportunity_score": 56.8,
+      "last_demand_score": 14.5,
+      "last_opportunity_score": 54.4,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -2513,8 +2594,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 19.5,
-      "last_opportunity_score": 56.8,
+      "last_demand_score": 14.5,
+      "last_opportunity_score": 54.4,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -2532,8 +2613,8 @@
       "last_sources": [
         "Bing Autocomplete"
       ],
-      "last_demand_score": 16.9,
-      "last_opportunity_score": 56.8,
+      "last_demand_score": 11.9,
+      "last_opportunity_score": 44.8,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -2551,8 +2632,8 @@
       "last_sources": [
         "Bing Autocomplete"
       ],
-      "last_demand_score": 16.4,
-      "last_opportunity_score": 56.8,
+      "last_demand_score": 11.4,
+      "last_opportunity_score": 43.3,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -2570,8 +2651,8 @@
       "last_sources": [
         "Bing Autocomplete"
       ],
-      "last_demand_score": 16.0,
-      "last_opportunity_score": 56.8,
+      "last_demand_score": 11.0,
+      "last_opportunity_score": 10.3,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -2590,8 +2671,8 @@
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 26.0,
-      "last_opportunity_score": 56.7,
+      "last_demand_score": 21.0,
+      "last_opportunity_score": 54.3,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -2609,8 +2690,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 19.5,
-      "last_opportunity_score": 56.7,
+      "last_demand_score": 14.5,
+      "last_opportunity_score": 54.3,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -2628,8 +2709,8 @@
       "last_sources": [
         "Bing Autocomplete"
       ],
-      "last_demand_score": 17.8,
-      "last_opportunity_score": 56.7,
+      "last_demand_score": 12.8,
+      "last_opportunity_score": 54.1,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -2647,8 +2728,8 @@
       "last_sources": [
         "Bing Autocomplete"
       ],
-      "last_demand_score": 15.5,
-      "last_opportunity_score": 56.7,
+      "last_demand_score": 10.5,
+      "last_opportunity_score": 42.4,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -2666,8 +2747,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 21.0,
-      "last_opportunity_score": 56.5,
+      "last_demand_score": 16.0,
+      "last_opportunity_score": 54.1,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -2685,8 +2766,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.5,
-      "last_opportunity_score": 56.5,
+      "last_demand_score": 15.5,
+      "last_opportunity_score": 54.1,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -2704,8 +2785,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.0,
-      "last_opportunity_score": 56.4,
+      "last_demand_score": 15.0,
+      "last_opportunity_score": 54.0,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -2726,8 +2807,8 @@
       "last_sources": [
         "Bing Autocomplete"
       ],
-      "last_demand_score": 25.1,
-      "last_opportunity_score": 56.3,
+      "last_demand_score": 20.1,
+      "last_opportunity_score": 47.1,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -2745,8 +2826,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.0,
-      "last_opportunity_score": 56.3,
+      "last_demand_score": 15.0,
+      "last_opportunity_score": 53.9,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -2765,8 +2846,8 @@
       "last_sources": [
         "Bing Autocomplete"
       ],
-      "last_demand_score": 21.6,
-      "last_opportunity_score": 56.2,
+      "last_demand_score": 16.6,
+      "last_opportunity_score": 45.2,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -2782,8 +2863,8 @@
       "last_sources": [
         "Stack Exchange Questions"
       ],
-      "last_demand_score": 20.6,
-      "last_opportunity_score": 56.2,
+      "last_demand_score": 15.6,
+      "last_opportunity_score": 53.8,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -2801,8 +2882,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.5,
-      "last_opportunity_score": 56.2,
+      "last_demand_score": 15.5,
+      "last_opportunity_score": 53.8,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -2820,8 +2901,8 @@
       "last_sources": [
         "Bing Autocomplete"
       ],
-      "last_demand_score": 19.6,
-      "last_opportunity_score": 56.2,
+      "last_demand_score": 14.6,
+      "last_opportunity_score": 29.4,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -2839,8 +2920,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.0,
-      "last_opportunity_score": 56.0,
+      "last_demand_score": 15.0,
+      "last_opportunity_score": 53.6,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -2858,8 +2939,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 19.0,
-      "last_opportunity_score": 56.0,
+      "last_demand_score": 14.0,
+      "last_opportunity_score": 53.6,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -2877,8 +2958,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 21.0,
-      "last_opportunity_score": 55.9,
+      "last_demand_score": 16.0,
+      "last_opportunity_score": 53.5,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -2896,8 +2977,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 21.0,
-      "last_opportunity_score": 55.9,
+      "last_demand_score": 16.0,
+      "last_opportunity_score": 53.5,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -2915,8 +2996,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.5,
-      "last_opportunity_score": 55.9,
+      "last_demand_score": 15.5,
+      "last_opportunity_score": 53.5,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -2934,8 +3015,8 @@
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 19.6,
-      "last_opportunity_score": 55.9,
+      "last_demand_score": 14.6,
+      "last_opportunity_score": 9.8,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -2951,8 +3032,8 @@
       "last_sources": [
         "Stack Exchange Questions"
       ],
-      "last_demand_score": 19.4,
-      "last_opportunity_score": 55.9,
+      "last_demand_score": 14.4,
+      "last_opportunity_score": 53.5,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -2970,8 +3051,8 @@
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 22.1,
-      "last_opportunity_score": 55.8,
+      "last_demand_score": 17.1,
+      "last_opportunity_score": 53.4,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -2990,8 +3071,8 @@
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 23.5,
-      "last_opportunity_score": 55.7,
+      "last_demand_score": 18.5,
+      "last_opportunity_score": 11.7,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -3010,8 +3091,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 23.0,
-      "last_opportunity_score": 55.7,
+      "last_demand_score": 18.0,
+      "last_opportunity_score": 51.3,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -3029,8 +3110,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.5,
-      "last_opportunity_score": 55.7,
+      "last_demand_score": 15.5,
+      "last_opportunity_score": 53.3,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -3048,8 +3129,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.5,
-      "last_opportunity_score": 55.5,
+      "last_demand_score": 15.5,
+      "last_opportunity_score": 53.1,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -3067,8 +3148,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.5,
-      "last_opportunity_score": 55.4,
+      "last_demand_score": 15.5,
+      "last_opportunity_score": 53.0,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -3086,8 +3167,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.0,
-      "last_opportunity_score": 55.4,
+      "last_demand_score": 15.0,
+      "last_opportunity_score": 53.0,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -3108,8 +3189,8 @@
       "last_sources": [
         "Bing Autocomplete"
       ],
-      "last_demand_score": 25.6,
-      "last_opportunity_score": 55.3,
+      "last_demand_score": 20.6,
+      "last_opportunity_score": 48.7,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -3127,8 +3208,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.0,
-      "last_opportunity_score": 55.3,
+      "last_demand_score": 15.0,
+      "last_opportunity_score": 52.9,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -3146,8 +3227,8 @@
       "last_sources": [
         "DuckDuckGo Autocomplete"
       ],
-      "last_demand_score": 16.7,
-      "last_opportunity_score": 55.3,
+      "last_demand_score": 11.7,
+      "last_opportunity_score": 52.9,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -3167,8 +3248,8 @@
         "Bing Autocomplete",
         "DuckDuckGo Autocomplete"
       ],
-      "last_demand_score": 31.7,
-      "last_opportunity_score": 55.2,
+      "last_demand_score": 26.7,
+      "last_opportunity_score": 52.8,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -3186,8 +3267,8 @@
       "last_sources": [
         "Bing Autocomplete"
       ],
-      "last_demand_score": 20.0,
-      "last_opportunity_score": 55.2,
+      "last_demand_score": 15.0,
+      "last_opportunity_score": 52.8,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -3205,8 +3286,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 19.5,
-      "last_opportunity_score": 55.2,
+      "last_demand_score": 14.5,
+      "last_opportunity_score": 52.8,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -3224,8 +3305,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 19.5,
-      "last_opportunity_score": 55.2,
+      "last_demand_score": 14.5,
+      "last_opportunity_score": 52.8,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -3243,8 +3324,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.5,
-      "last_opportunity_score": 55.1,
+      "last_demand_score": 15.5,
+      "last_opportunity_score": 52.7,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -3256,15 +3337,15 @@
       ],
       "selected_dates": [],
       "context_ranks": {
-        "YouTube Autocomplete|بهینهسازی در پایتون با pyomo": 2,
-        "YouTube Autocomplete|برنامه ریزی خطی در پایتون": 3
+        "YouTube Autocomplete|برنامه ریزی خطی در پایتون": 3,
+        "YouTube Autocomplete|بهینهسازی در پایتون با pyomo": 2
       },
       "last_seen": "2026-07-30",
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 22.5,
-      "last_opportunity_score": 54.9,
+      "last_demand_score": 17.5,
+      "last_opportunity_score": 52.5,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -3282,8 +3363,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 19.0,
-      "last_opportunity_score": 54.9,
+      "last_demand_score": 14.0,
+      "last_opportunity_score": 52.5,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -3301,8 +3382,8 @@
       "last_sources": [
         "DuckDuckGo Autocomplete"
       ],
-      "last_demand_score": 16.7,
-      "last_opportunity_score": 54.8,
+      "last_demand_score": 11.7,
+      "last_opportunity_score": 52.4,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -3320,8 +3401,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.0,
-      "last_opportunity_score": 54.7,
+      "last_demand_score": 15.0,
+      "last_opportunity_score": 52.3,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -3340,8 +3421,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 23.0,
-      "last_opportunity_score": 54.6,
+      "last_demand_score": 18.0,
+      "last_opportunity_score": 52.2,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -3359,8 +3440,8 @@
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 22.1,
-      "last_opportunity_score": 54.6,
+      "last_demand_score": 17.1,
+      "last_opportunity_score": 52.2,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -3378,8 +3459,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.5,
-      "last_opportunity_score": 54.6,
+      "last_demand_score": 15.5,
+      "last_opportunity_score": 52.2,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -3397,8 +3478,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.5,
-      "last_opportunity_score": 54.6,
+      "last_demand_score": 15.5,
+      "last_opportunity_score": 52.2,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -3416,8 +3497,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.5,
-      "last_opportunity_score": 54.6,
+      "last_demand_score": 15.5,
+      "last_opportunity_score": 52.2,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -3435,8 +3516,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 19.0,
-      "last_opportunity_score": 54.6,
+      "last_demand_score": 14.0,
+      "last_opportunity_score": 52.2,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -3454,8 +3535,8 @@
       "last_sources": [
         "Bing Autocomplete"
       ],
-      "last_demand_score": 17.3,
-      "last_opportunity_score": 54.6,
+      "last_demand_score": 12.3,
+      "last_opportunity_score": 8.7,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -3473,8 +3554,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 21.0,
-      "last_opportunity_score": 54.5,
+      "last_demand_score": 16.0,
+      "last_opportunity_score": 52.1,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -3492,8 +3573,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.0,
-      "last_opportunity_score": 54.5,
+      "last_demand_score": 15.0,
+      "last_opportunity_score": 51.9,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -3511,8 +3592,8 @@
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 22.1,
-      "last_opportunity_score": 54.4,
+      "last_demand_score": 17.1,
+      "last_opportunity_score": 52.0,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -3530,8 +3611,8 @@
       "last_sources": [
         "Bing Autocomplete"
       ],
-      "last_demand_score": 19.6,
-      "last_opportunity_score": 54.4,
+      "last_demand_score": 14.6,
+      "last_opportunity_score": 52.0,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -3549,8 +3630,8 @@
       "last_sources": [
         "DuckDuckGo Autocomplete"
       ],
-      "last_demand_score": 16.7,
-      "last_opportunity_score": 54.4,
+      "last_demand_score": 11.7,
+      "last_opportunity_score": 52.0,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -3568,8 +3649,8 @@
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 21.5,
-      "last_opportunity_score": 54.3,
+      "last_demand_score": 16.5,
+      "last_opportunity_score": 51.9,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -3587,8 +3668,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 19.5,
-      "last_opportunity_score": 54.3,
+      "last_demand_score": 14.5,
+      "last_opportunity_score": 51.9,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -3606,8 +3687,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 19.5,
-      "last_opportunity_score": 54.3,
+      "last_demand_score": 14.5,
+      "last_opportunity_score": 51.9,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -3625,8 +3706,8 @@
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 23.4,
-      "last_opportunity_score": 54.2,
+      "last_demand_score": 18.4,
+      "last_opportunity_score": 51.8,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -3644,8 +3725,8 @@
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 23.4,
-      "last_opportunity_score": 54.2,
+      "last_demand_score": 18.4,
+      "last_opportunity_score": 51.8,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -3663,8 +3744,8 @@
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 21.5,
-      "last_opportunity_score": 54.2,
+      "last_demand_score": 16.5,
+      "last_opportunity_score": 51.8,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -3682,8 +3763,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 21.0,
-      "last_opportunity_score": 54.2,
+      "last_demand_score": 16.0,
+      "last_opportunity_score": 51.8,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -3720,8 +3801,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 19.5,
-      "last_opportunity_score": 54.2,
+      "last_demand_score": 14.5,
+      "last_opportunity_score": 51.8,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -3740,8 +3821,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 22.5,
-      "last_opportunity_score": 54.1,
+      "last_demand_score": 17.5,
+      "last_opportunity_score": 51.7,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -3760,8 +3841,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 22.5,
-      "last_opportunity_score": 54.1,
+      "last_demand_score": 17.5,
+      "last_opportunity_score": 51.7,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -3779,8 +3860,8 @@
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 21.5,
-      "last_opportunity_score": 54.1,
+      "last_demand_score": 16.5,
+      "last_opportunity_score": 51.7,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -3798,8 +3879,8 @@
       "last_sources": [
         "Bing Autocomplete"
       ],
-      "last_demand_score": 20.0,
-      "last_opportunity_score": 54.1,
+      "last_demand_score": 15.0,
+      "last_opportunity_score": 51.7,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -3817,8 +3898,8 @@
       "last_sources": [
         "Bing Autocomplete"
       ],
-      "last_demand_score": 16.0,
-      "last_opportunity_score": 54.1,
+      "last_demand_score": 11.0,
+      "last_opportunity_score": 5.2,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -3836,8 +3917,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 21.0,
-      "last_opportunity_score": 54.0,
+      "last_demand_score": 16.0,
+      "last_opportunity_score": 51.6,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -3855,8 +3936,8 @@
       "last_sources": [
         "DuckDuckGo Autocomplete"
       ],
-      "last_demand_score": 16.7,
-      "last_opportunity_score": 54.0,
+      "last_demand_score": 11.7,
+      "last_opportunity_score": 51.6,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -3874,8 +3955,8 @@
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 20.9,
-      "last_opportunity_score": 53.9,
+      "last_demand_score": 15.8,
+      "last_opportunity_score": 51.4,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -3895,8 +3976,8 @@
         "Bing Autocomplete",
         "DuckDuckGo Autocomplete"
       ],
-      "last_demand_score": 31.7,
-      "last_opportunity_score": 53.7,
+      "last_demand_score": 26.7,
+      "last_opportunity_score": 51.3,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -3914,8 +3995,8 @@
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 20.9,
-      "last_opportunity_score": 53.7,
+      "last_demand_score": 15.8,
+      "last_opportunity_score": 51.3,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -3933,8 +4014,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.0,
-      "last_opportunity_score": 53.7,
+      "last_demand_score": 15.0,
+      "last_opportunity_score": 51.3,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -3952,8 +4033,8 @@
       "last_sources": [
         "Bing Autocomplete"
       ],
-      "last_demand_score": 18.2,
-      "last_opportunity_score": 53.7,
+      "last_demand_score": 13.2,
+      "last_opportunity_score": 9.1,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -3971,8 +4052,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.5,
-      "last_opportunity_score": 53.6,
+      "last_demand_score": 15.5,
+      "last_opportunity_score": 51.2,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -3990,8 +4071,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 19.5,
-      "last_opportunity_score": 53.6,
+      "last_demand_score": 14.5,
+      "last_opportunity_score": 51.2,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -4009,8 +4090,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 19.5,
-      "last_opportunity_score": 53.6,
+      "last_demand_score": 14.5,
+      "last_opportunity_score": 51.2,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -4028,8 +4109,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 19.0,
-      "last_opportunity_score": 53.6,
+      "last_demand_score": 14.0,
+      "last_opportunity_score": 51.2,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -4047,8 +4128,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.5,
-      "last_opportunity_score": 53.5,
+      "last_demand_score": 15.5,
+      "last_opportunity_score": 51.1,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -4066,8 +4147,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 19.5,
-      "last_opportunity_score": 53.5,
+      "last_demand_score": 14.5,
+      "last_opportunity_score": 51.1,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -4087,8 +4168,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 24.5,
-      "last_opportunity_score": 53.4,
+      "last_demand_score": 19.5,
+      "last_opportunity_score": 51.0,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -4107,8 +4188,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 22.0,
-      "last_opportunity_score": 53.3,
+      "last_demand_score": 17.0,
+      "last_opportunity_score": 50.9,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -4126,8 +4207,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.5,
-      "last_opportunity_score": 53.3,
+      "last_demand_score": 15.5,
+      "last_opportunity_score": 50.9,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -4145,8 +4226,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.5,
-      "last_opportunity_score": 53.3,
+      "last_demand_score": 15.5,
+      "last_opportunity_score": 50.9,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -4164,8 +4245,8 @@
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 20.2,
-      "last_opportunity_score": 53.3,
+      "last_demand_score": 15.2,
+      "last_opportunity_score": 50.9,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -4183,8 +4264,8 @@
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 19.6,
-      "last_opportunity_score": 53.3,
+      "last_demand_score": 14.6,
+      "last_opportunity_score": 50.9,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -4202,8 +4283,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 21.0,
-      "last_opportunity_score": 53.2,
+      "last_demand_score": 16.0,
+      "last_opportunity_score": 50.8,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -4221,8 +4302,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.0,
-      "last_opportunity_score": 53.2,
+      "last_demand_score": 15.0,
+      "last_opportunity_score": 48.5,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -4240,8 +4321,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 21.0,
-      "last_opportunity_score": 53.1,
+      "last_demand_score": 16.0,
+      "last_opportunity_score": 50.7,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -4259,8 +4340,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 19.5,
-      "last_opportunity_score": 53.1,
+      "last_demand_score": 14.5,
+      "last_opportunity_score": 50.7,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -4280,8 +4361,8 @@
         "Bing Autocomplete",
         "DuckDuckGo Autocomplete"
       ],
-      "last_demand_score": 31.7,
-      "last_opportunity_score": 53.0,
+      "last_demand_score": 26.7,
+      "last_opportunity_score": 50.6,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -4302,8 +4383,8 @@
       "last_sources": [
         "Bing Autocomplete"
       ],
-      "last_demand_score": 26.0,
-      "last_opportunity_score": 53.0,
+      "last_demand_score": 21.0,
+      "last_opportunity_score": 48.4,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -4321,8 +4402,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 19.5,
-      "last_opportunity_score": 53.0,
+      "last_demand_score": 14.5,
+      "last_opportunity_score": 49.4,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -4340,8 +4421,8 @@
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 19.0,
-      "last_opportunity_score": 53.0,
+      "last_demand_score": 14.0,
+      "last_opportunity_score": 50.6,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -4355,8 +4436,8 @@
       "context_ranks": {
         "YouTube Autocomplete|برنامه ریزی عدد صحیح در پایتون": 3,
         "YouTube Autocomplete|برنامه ریزی تصادفی دو مرحله ای": 3,
-        "YouTube Autocomplete|برنامه ریزی تولید با pyomo": 3,
         "YouTube Autocomplete|انتخاب تامین کننده با مدلسازی ریاضی": 2,
+        "YouTube Autocomplete|برنامه ریزی تولید با pyomo": 3,
         "YouTube Autocomplete|برنامه ریزی تولید و توزیع یکپارچه": 3,
         "YouTube Autocomplete|برنامه ریزی توسعه شبکه انتقال": 1
       },
@@ -4364,8 +4445,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 29.0,
-      "last_opportunity_score": 52.9,
+      "last_demand_score": 24.0,
+      "last_opportunity_score": 50.5,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -4383,8 +4464,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 21.0,
-      "last_opportunity_score": 52.9,
+      "last_demand_score": 16.0,
+      "last_opportunity_score": 50.5,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -4402,8 +4483,8 @@
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 23.4,
-      "last_opportunity_score": 52.8,
+      "last_demand_score": 18.4,
+      "last_opportunity_score": 50.4,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -4421,8 +4502,8 @@
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 23.4,
-      "last_opportunity_score": 52.8,
+      "last_demand_score": 18.4,
+      "last_opportunity_score": 50.4,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -4440,8 +4521,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 21.0,
-      "last_opportunity_score": 52.8,
+      "last_demand_score": 16.0,
+      "last_opportunity_score": 50.4,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -4459,8 +4540,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.5,
-      "last_opportunity_score": 52.8,
+      "last_demand_score": 15.5,
+      "last_opportunity_score": 50.4,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -4478,8 +4559,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.5,
-      "last_opportunity_score": 52.8,
+      "last_demand_score": 15.5,
+      "last_opportunity_score": 50.4,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -4497,8 +4578,8 @@
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 23.4,
-      "last_opportunity_score": 52.7,
+      "last_demand_score": 18.4,
+      "last_opportunity_score": 50.3,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -4516,8 +4597,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 19.5,
-      "last_opportunity_score": 52.7,
+      "last_demand_score": 14.5,
+      "last_opportunity_score": 50.3,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -4535,8 +4616,8 @@
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 21.5,
-      "last_opportunity_score": 52.6,
+      "last_demand_score": 16.5,
+      "last_opportunity_score": 50.2,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -4554,8 +4635,8 @@
       "last_sources": [
         "Bing Autocomplete"
       ],
-      "last_demand_score": 20.0,
-      "last_opportunity_score": 52.6,
+      "last_demand_score": 15.0,
+      "last_opportunity_score": 46.4,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -4573,8 +4654,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.0,
-      "last_opportunity_score": 52.6,
+      "last_demand_score": 15.0,
+      "last_opportunity_score": 50.2,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -4593,8 +4674,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 23.0,
-      "last_opportunity_score": 52.4,
+      "last_demand_score": 18.0,
+      "last_opportunity_score": 50.0,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -4612,8 +4693,8 @@
       "last_sources": [
         "Bing Autocomplete"
       ],
-      "last_demand_score": 15.5,
-      "last_opportunity_score": 52.4,
+      "last_demand_score": 10.5,
+      "last_opportunity_score": 10.1,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -4631,8 +4712,8 @@
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 24.0,
-      "last_opportunity_score": 52.3,
+      "last_demand_score": 19.0,
+      "last_opportunity_score": 49.9,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -4650,8 +4731,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.0,
-      "last_opportunity_score": 52.3,
+      "last_demand_score": 15.0,
+      "last_opportunity_score": 49.9,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -4669,8 +4750,8 @@
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 22.7,
-      "last_opportunity_score": 52.2,
+      "last_demand_score": 17.7,
+      "last_opportunity_score": 49.8,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -4690,8 +4771,8 @@
         "Bing Autocomplete",
         "DuckDuckGo Autocomplete"
       ],
-      "last_demand_score": 31.7,
-      "last_opportunity_score": 52.0,
+      "last_demand_score": 26.7,
+      "last_opportunity_score": 49.6,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -4709,8 +4790,8 @@
       "last_sources": [
         "Bing Autocomplete"
       ],
-      "last_demand_score": 19.6,
-      "last_opportunity_score": 51.9,
+      "last_demand_score": 14.6,
+      "last_opportunity_score": 49.5,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -4728,8 +4809,8 @@
       "last_sources": [
         "DuckDuckGo Autocomplete"
       ],
-      "last_demand_score": 16.7,
-      "last_opportunity_score": 51.9,
+      "last_demand_score": 11.7,
+      "last_opportunity_score": 47.2,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -4747,8 +4828,8 @@
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 22.7,
-      "last_opportunity_score": 51.8,
+      "last_demand_score": 17.7,
+      "last_opportunity_score": 49.4,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -4766,8 +4847,8 @@
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 22.7,
-      "last_opportunity_score": 51.7,
+      "last_demand_score": 17.7,
+      "last_opportunity_score": 49.3,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -4785,8 +4866,8 @@
         "YouTube Autocomplete|بهینهسازی تصادفی با pyomo": 3,
         "YouTube Autocomplete|budget of uncertainty در بهینهسازی مقاوم": 3,
         "YouTube Autocomplete|بهینهسازی موجودی چند سطحی": 3,
-        "YouTube Autocomplete|بهینهسازی تحویل آخرین مایل": 4,
         "YouTube Autocomplete|بهینهسازی ناوگان حمل و نقل": 4,
+        "YouTube Autocomplete|بهینهسازی تحویل آخرین مایل": 4,
         "YouTube Autocomplete|بهینهسازی لجستیک معکوس": 3,
         "YouTube Autocomplete|بهینهسازی شارژ و دشارژ باتری": 2,
         "YouTube Autocomplete|بهینهسازی پاسخگویی بار": 3,
@@ -4799,8 +4880,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 29.0,
-      "last_opportunity_score": 51.6,
+      "last_demand_score": 24.0,
+      "last_opportunity_score": 49.2,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -4818,8 +4899,8 @@
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 22.1,
-      "last_opportunity_score": 51.6,
+      "last_demand_score": 17.1,
+      "last_opportunity_score": 49.2,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -4837,8 +4918,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.0,
-      "last_opportunity_score": 51.6,
+      "last_demand_score": 15.0,
+      "last_opportunity_score": 49.2,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -4856,8 +4937,8 @@
       "last_sources": [
         "Bing Autocomplete"
       ],
-      "last_demand_score": 17.8,
-      "last_opportunity_score": 51.6,
+      "last_demand_score": 12.8,
+      "last_opportunity_score": 47.4,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -4875,8 +4956,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.0,
-      "last_opportunity_score": 51.5,
+      "last_demand_score": 15.0,
+      "last_opportunity_score": 48.5,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -4894,8 +4975,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 19.5,
-      "last_opportunity_score": 51.5,
+      "last_demand_score": 14.5,
+      "last_opportunity_score": 49.1,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -4913,8 +4994,8 @@
       "last_sources": [
         "Bing Autocomplete"
       ],
-      "last_demand_score": 19.1,
-      "last_opportunity_score": 51.5,
+      "last_demand_score": 14.1,
+      "last_opportunity_score": 49.1,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -4932,8 +5013,8 @@
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 19.0,
-      "last_opportunity_score": 51.5,
+      "last_demand_score": 14.0,
+      "last_opportunity_score": 39.2,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -4954,8 +5035,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 27.0,
-      "last_opportunity_score": 51.4,
+      "last_demand_score": 22.0,
+      "last_opportunity_score": 49.0,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -4973,8 +5054,8 @@
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 22.1,
-      "last_opportunity_score": 51.4,
+      "last_demand_score": 17.1,
+      "last_opportunity_score": 49.0,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -4992,8 +5073,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 21.0,
-      "last_opportunity_score": 51.4,
+      "last_demand_score": 16.0,
+      "last_opportunity_score": 49.0,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -5011,8 +5092,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 21.0,
-      "last_opportunity_score": 51.3,
+      "last_demand_score": 16.0,
+      "last_opportunity_score": 48.9,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -5030,8 +5111,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.5,
-      "last_opportunity_score": 51.3,
+      "last_demand_score": 15.5,
+      "last_opportunity_score": 48.9,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -5049,8 +5130,8 @@
       "last_sources": [
         "DuckDuckGo Autocomplete"
       ],
-      "last_demand_score": 16.7,
-      "last_opportunity_score": 51.3,
+      "last_demand_score": 11.7,
+      "last_opportunity_score": 48.9,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -5068,8 +5149,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 21.0,
-      "last_opportunity_score": 51.2,
+      "last_demand_score": 16.0,
+      "last_opportunity_score": 48.8,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -5087,8 +5168,8 @@
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 22.7,
-      "last_opportunity_score": 51.1,
+      "last_demand_score": 17.7,
+      "last_opportunity_score": 48.7,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -5106,8 +5187,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 21.0,
-      "last_opportunity_score": 51.1,
+      "last_demand_score": 16.0,
+      "last_opportunity_score": 48.7,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -5125,8 +5206,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 21.0,
-      "last_opportunity_score": 51.1,
+      "last_demand_score": 16.0,
+      "last_opportunity_score": 48.7,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -5144,8 +5225,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 21.0,
-      "last_opportunity_score": 51.0,
+      "last_demand_score": 16.0,
+      "last_opportunity_score": 48.6,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -5163,8 +5244,8 @@
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 20.2,
-      "last_opportunity_score": 51.0,
+      "last_demand_score": 15.2,
+      "last_opportunity_score": 48.6,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -5182,8 +5263,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.0,
-      "last_opportunity_score": 50.9,
+      "last_demand_score": 15.0,
+      "last_opportunity_score": 48.5,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -5201,8 +5282,8 @@
       "last_sources": [
         "Bing Autocomplete"
       ],
-      "last_demand_score": 19.6,
-      "last_opportunity_score": 50.9,
+      "last_demand_score": 14.6,
+      "last_opportunity_score": 48.5,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -5220,8 +5301,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 19.5,
-      "last_opportunity_score": 50.9,
+      "last_demand_score": 14.5,
+      "last_opportunity_score": 48.5,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -5239,8 +5320,8 @@
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 18.3,
-      "last_opportunity_score": 50.9,
+      "last_demand_score": 13.3,
+      "last_opportunity_score": 41.1,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -5258,8 +5339,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.5,
-      "last_opportunity_score": 50.8,
+      "last_demand_score": 15.5,
+      "last_opportunity_score": 48.4,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -5277,8 +5358,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.0,
-      "last_opportunity_score": 50.8,
+      "last_demand_score": 15.0,
+      "last_opportunity_score": 48.4,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -5296,8 +5377,8 @@
       "last_sources": [
         "Bing Autocomplete"
       ],
-      "last_demand_score": 19.1,
-      "last_opportunity_score": 50.8,
+      "last_demand_score": 14.1,
+      "last_opportunity_score": 48.4,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -5315,8 +5396,8 @@
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 23.4,
-      "last_opportunity_score": 50.7,
+      "last_demand_score": 18.4,
+      "last_opportunity_score": 48.3,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -5334,8 +5415,8 @@
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 20.2,
-      "last_opportunity_score": 50.7,
+      "last_demand_score": 15.2,
+      "last_opportunity_score": 48.3,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -5353,8 +5434,8 @@
       "last_sources": [
         "Bing Autocomplete"
       ],
-      "last_demand_score": 15.5,
-      "last_opportunity_score": 50.6,
+      "last_demand_score": 10.5,
+      "last_opportunity_score": 7.8,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -5366,14 +5447,15 @@
       ],
       "selected_dates": [],
       "context_ranks": {
-        "YouTube Autocomplete|جایابی بهینه خازن در شبکه توزیع": 3
+        "YouTube Autocomplete|جایابی بهینه خازن در شبکه توزیع": 3,
+        "YouTube Autocomplete|بازآرایی بهینه شبکه توزیع": 1
       },
       "last_seen": "2026-07-30",
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.0,
-      "last_opportunity_score": 50.4,
+      "last_demand_score": 18.0,
+      "last_opportunity_score": 49.4,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -5391,8 +5473,8 @@
       "last_sources": [
         "Bing Autocomplete"
       ],
-      "last_demand_score": 19.6,
-      "last_opportunity_score": 50.4,
+      "last_demand_score": 14.6,
+      "last_opportunity_score": 48.0,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -5410,8 +5492,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 19.5,
-      "last_opportunity_score": 50.4,
+      "last_demand_score": 14.5,
+      "last_opportunity_score": 48.0,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -5429,8 +5511,8 @@
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 18.3,
-      "last_opportunity_score": 50.2,
+      "last_demand_score": 13.3,
+      "last_opportunity_score": 47.8,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -5450,8 +5532,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 25.0,
-      "last_opportunity_score": 50.1,
+      "last_demand_score": 20.0,
+      "last_opportunity_score": 47.7,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -5469,8 +5551,8 @@
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 21.5,
-      "last_opportunity_score": 50.1,
+      "last_demand_score": 16.5,
+      "last_opportunity_score": 47.7,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -5488,8 +5570,8 @@
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 22.7,
-      "last_opportunity_score": 50.0,
+      "last_demand_score": 17.7,
+      "last_opportunity_score": 47.6,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -5507,8 +5589,8 @@
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 22.7,
-      "last_opportunity_score": 50.0,
+      "last_demand_score": 17.7,
+      "last_opportunity_score": 47.6,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -5526,8 +5608,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 21.0,
-      "last_opportunity_score": 49.9,
+      "last_demand_score": 16.0,
+      "last_opportunity_score": 47.5,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -5545,8 +5627,8 @@
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 19.0,
-      "last_opportunity_score": 49.9,
+      "last_demand_score": 14.0,
+      "last_opportunity_score": 47.5,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -5564,8 +5646,8 @@
       "last_sources": [
         "DuckDuckGo Autocomplete"
       ],
-      "last_demand_score": 16.7,
-      "last_opportunity_score": 49.9,
+      "last_demand_score": 11.7,
+      "last_opportunity_score": 47.5,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -5583,8 +5665,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.0,
-      "last_opportunity_score": 49.8,
+      "last_demand_score": 15.0,
+      "last_opportunity_score": 47.4,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -5602,8 +5684,8 @@
       "last_sources": [
         "DuckDuckGo Autocomplete"
       ],
-      "last_demand_score": 16.7,
-      "last_opportunity_score": 49.7,
+      "last_demand_score": 11.7,
+      "last_opportunity_score": 47.3,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -5619,8 +5701,8 @@
         "YouTube Autocomplete|بهینهسازی چندهدفه در پایتون": 2,
         "YouTube Autocomplete|بهینهسازی مقاوم با pyomo": 3,
         "YouTube Autocomplete|بهینهسازی تصادفی با pyomo": 2,
-        "YouTube Autocomplete|بهینهسازی تحویل آخرین مایل": 3,
         "YouTube Autocomplete|بهینهسازی ناوگان حمل و نقل": 2,
+        "YouTube Autocomplete|بهینهسازی تحویل آخرین مایل": 3,
         "YouTube Autocomplete|بهینهسازی چیدمان کالا در انبار": 1,
         "YouTube Autocomplete|بهینهسازی مسیر برداشت کالا در انبار": 1,
         "YouTube Autocomplete|بهینهسازی جمع آوری و توزیع هم زمان": 2,
@@ -5638,8 +5720,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 29.0,
-      "last_opportunity_score": 49.3,
+      "last_demand_score": 24.0,
+      "last_opportunity_score": 46.9,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -5658,8 +5740,8 @@
         "YouTube Autocomplete|budget of uncertainty در بهینهسازی مقاوم": 2,
         "YouTube Autocomplete|بهینهسازی شبکه توزیع با pyomo": 1,
         "YouTube Autocomplete|بهینهسازی موجودی چند سطحی": 2,
-        "YouTube Autocomplete|بهینهسازی تحویل آخرین مایل": 2,
         "YouTube Autocomplete|بهینهسازی ناوگان حمل و نقل": 3,
+        "YouTube Autocomplete|بهینهسازی تحویل آخرین مایل": 2,
         "YouTube Autocomplete|بهینهسازی لجستیک معکوس": 1,
         "YouTube Autocomplete|بهینهسازی چیدمان کالا در انبار": 3,
         "YouTube Autocomplete|بهینهسازی مسیر برداشت کالا در انبار": 3,
@@ -5670,9 +5752,9 @@
         "YouTube Autocomplete|بهینهسازی هم زمان هزینه و انتشار آلاینده ها": 3,
         "YouTube Autocomplete|بهینهسازی در پایتون": 4,
         "YouTube Autocomplete|بهینهسازی مقاوم در پایتون": 2,
+        "YouTube Autocomplete|خطی سازی در بهینهسازی": 1,
         "YouTube Autocomplete|حل مسائل بهینهسازی با پایتون": 2,
         "YouTube Autocomplete|big m در بهینهسازی": 4,
-        "YouTube Autocomplete|خطی سازی در بهینهسازی": 1,
         "YouTube Autocomplete|بهینهسازی مسیر پخش": 2,
         "YouTube Autocomplete|بهینهسازی خطی": 1
       },
@@ -5680,8 +5762,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 29.0,
-      "last_opportunity_score": 49.2,
+      "last_demand_score": 24.0,
+      "last_opportunity_score": 46.8,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -5699,8 +5781,8 @@
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 22.1,
-      "last_opportunity_score": 48.8,
+      "last_demand_score": 17.1,
+      "last_opportunity_score": 46.4,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -5718,8 +5800,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.5,
-      "last_opportunity_score": 48.8,
+      "last_demand_score": 15.5,
+      "last_opportunity_score": 46.4,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -5737,8 +5819,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 19.5,
-      "last_opportunity_score": 48.8,
+      "last_demand_score": 14.5,
+      "last_opportunity_score": 46.4,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -5757,8 +5839,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 23.0,
-      "last_opportunity_score": 48.7,
+      "last_demand_score": 18.0,
+      "last_opportunity_score": 46.3,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -5777,8 +5859,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 23.0,
-      "last_opportunity_score": 48.7,
+      "last_demand_score": 18.0,
+      "last_opportunity_score": 46.3,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -5796,8 +5878,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 19.0,
-      "last_opportunity_score": 48.7,
+      "last_demand_score": 14.0,
+      "last_opportunity_score": 46.3,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -5815,8 +5897,8 @@
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 18.3,
-      "last_opportunity_score": 48.6,
+      "last_demand_score": 13.3,
+      "last_opportunity_score": 46.2,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -5834,8 +5916,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.5,
-      "last_opportunity_score": 48.1,
+      "last_demand_score": 15.5,
+      "last_opportunity_score": 45.7,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -5853,8 +5935,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.0,
-      "last_opportunity_score": 48.1,
+      "last_demand_score": 15.0,
+      "last_opportunity_score": 45.7,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -5866,14 +5948,16 @@
       ],
       "selected_dates": [],
       "context_ranks": {
-        "Bing Autocomplete|unit commitment با pyomo": 1
+        "Bing Autocomplete|unit commitment با pyomo": 1,
+        "DuckDuckGo Autocomplete|unit commitment با pyomo": 2
       },
       "last_seen": "2026-07-30",
       "last_sources": [
-        "Bing Autocomplete"
+        "Bing Autocomplete",
+        "DuckDuckGo Autocomplete"
       ],
-      "last_demand_score": 20.0,
-      "last_opportunity_score": 48.0,
+      "last_demand_score": 26.7,
+      "last_opportunity_score": 51.2,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -5891,8 +5975,8 @@
       "last_sources": [
         "Bing Autocomplete"
       ],
-      "last_demand_score": 19.1,
-      "last_opportunity_score": 48.0,
+      "last_demand_score": 14.1,
+      "last_opportunity_score": 45.6,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -5910,8 +5994,8 @@
       "last_sources": [
         "DuckDuckGo Autocomplete"
       ],
-      "last_demand_score": 16.7,
-      "last_opportunity_score": 48.0,
+      "last_demand_score": 11.7,
+      "last_opportunity_score": 45.6,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -5929,8 +6013,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 19.5,
-      "last_opportunity_score": 47.7,
+      "last_demand_score": 14.5,
+      "last_opportunity_score": 45.3,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -5948,8 +6032,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.5,
-      "last_opportunity_score": 47.6,
+      "last_demand_score": 15.5,
+      "last_opportunity_score": 45.2,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -5967,8 +6051,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 21.0,
-      "last_opportunity_score": 47.5,
+      "last_demand_score": 16.0,
+      "last_opportunity_score": 45.1,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -5986,8 +6070,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 19.5,
-      "last_opportunity_score": 47.4,
+      "last_demand_score": 14.5,
+      "last_opportunity_score": 45.0,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -6005,8 +6089,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.0,
-      "last_opportunity_score": 47.3,
+      "last_demand_score": 15.0,
+      "last_opportunity_score": 44.9,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -6024,8 +6108,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.0,
-      "last_opportunity_score": 47.1,
+      "last_demand_score": 15.0,
+      "last_opportunity_score": 44.7,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -6043,8 +6127,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 19.5,
-      "last_opportunity_score": 47.1,
+      "last_demand_score": 14.5,
+      "last_opportunity_score": 44.7,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -6062,8 +6146,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.5,
-      "last_opportunity_score": 46.9,
+      "last_demand_score": 15.5,
+      "last_opportunity_score": 44.5,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -6083,8 +6167,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 25.0,
-      "last_opportunity_score": 46.6,
+      "last_demand_score": 20.0,
+      "last_opportunity_score": 44.2,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -6102,8 +6186,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.0,
-      "last_opportunity_score": 45.9,
+      "last_demand_score": 15.0,
+      "last_opportunity_score": 43.5,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -6121,8 +6205,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 21.0,
-      "last_opportunity_score": 45.8,
+      "last_demand_score": 16.0,
+      "last_opportunity_score": 43.4,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -6140,8 +6224,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.5,
-      "last_opportunity_score": 45.8,
+      "last_demand_score": 15.5,
+      "last_opportunity_score": 43.4,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -6159,8 +6243,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.5,
-      "last_opportunity_score": 45.5,
+      "last_demand_score": 15.5,
+      "last_opportunity_score": 43.1,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -6178,8 +6262,8 @@
       "last_sources": [
         "Bing Autocomplete"
       ],
-      "last_demand_score": 20.0,
-      "last_opportunity_score": 45.3,
+      "last_demand_score": 15.0,
+      "last_opportunity_score": 40.7,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -6198,8 +6282,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 22.5,
-      "last_opportunity_score": 45.2,
+      "last_demand_score": 17.5,
+      "last_opportunity_score": 42.8,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -6217,8 +6301,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.5,
-      "last_opportunity_score": 45.2,
+      "last_demand_score": 15.5,
+      "last_opportunity_score": 42.8,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -6236,8 +6320,8 @@
       "last_sources": [
         "Bing Autocomplete"
       ],
-      "last_demand_score": 18.2,
-      "last_opportunity_score": 45.2,
+      "last_demand_score": 13.2,
+      "last_opportunity_score": 40.5,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -6255,8 +6339,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.5,
-      "last_opportunity_score": 45.1,
+      "last_demand_score": 15.5,
+      "last_opportunity_score": 42.7,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -6274,8 +6358,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.0,
-      "last_opportunity_score": 45.0,
+      "last_demand_score": 15.0,
+      "last_opportunity_score": 42.6,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -6294,8 +6378,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 23.0,
-      "last_opportunity_score": 44.9,
+      "last_demand_score": 18.0,
+      "last_opportunity_score": 42.5,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -6313,8 +6397,8 @@
       "last_sources": [
         "DuckDuckGo Autocomplete"
       ],
-      "last_demand_score": 16.7,
-      "last_opportunity_score": 44.9,
+      "last_demand_score": 11.7,
+      "last_opportunity_score": 42.5,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -6333,8 +6417,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 22.5,
-      "last_opportunity_score": 44.8,
+      "last_demand_score": 17.5,
+      "last_opportunity_score": 42.4,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -6353,8 +6437,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 21.5,
-      "last_opportunity_score": 44.8,
+      "last_demand_score": 16.5,
+      "last_opportunity_score": 42.4,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -6372,8 +6456,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.5,
-      "last_opportunity_score": 44.8,
+      "last_demand_score": 15.5,
+      "last_opportunity_score": 42.4,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -6391,8 +6475,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 19.5,
-      "last_opportunity_score": 44.7,
+      "last_demand_score": 14.5,
+      "last_opportunity_score": 42.3,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -6410,8 +6494,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.5,
-      "last_opportunity_score": 44.1,
+      "last_demand_score": 15.5,
+      "last_opportunity_score": 41.7,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -6429,8 +6513,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 21.0,
-      "last_opportunity_score": 43.5,
+      "last_demand_score": 16.0,
+      "last_opportunity_score": 41.1,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -6448,8 +6532,8 @@
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 19.6,
-      "last_opportunity_score": 43.4,
+      "last_demand_score": 14.6,
+      "last_opportunity_score": 41.0,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -6467,8 +6551,8 @@
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 20.9,
-      "last_opportunity_score": 43.2,
+      "last_demand_score": 15.8,
+      "last_opportunity_score": 40.8,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -6486,8 +6570,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 21.0,
-      "last_opportunity_score": 41.9,
+      "last_demand_score": 16.0,
+      "last_opportunity_score": 39.5,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -6507,8 +6591,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 25.0,
-      "last_opportunity_score": 40.1,
+      "last_demand_score": 20.0,
+      "last_opportunity_score": 37.7,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -6531,8 +6615,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 29.0,
-      "last_opportunity_score": 39.5,
+      "last_demand_score": 24.0,
+      "last_opportunity_score": 34.9,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -6553,8 +6637,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 26.5,
-      "last_opportunity_score": 38.5,
+      "last_demand_score": 21.5,
+      "last_opportunity_score": 36.1,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -6574,8 +6658,8 @@
         "YouTube Autocomplete|budget of uncertainty در بهینهسازی مقاوم": 1,
         "YouTube Autocomplete|بهینهسازی شبکه توزیع با pyomo": 2,
         "YouTube Autocomplete|بهینهسازی موجودی چند سطحی": 1,
-        "YouTube Autocomplete|بهینهسازی تحویل آخرین مایل": 1,
         "YouTube Autocomplete|بهینهسازی ناوگان حمل و نقل": 1,
+        "YouTube Autocomplete|بهینهسازی تحویل آخرین مایل": 1,
         "YouTube Autocomplete|بهینهسازی لجستیک معکوس": 2,
         "YouTube Autocomplete|بهینهسازی چیدمان کالا در انبار": 2,
         "YouTube Autocomplete|بهینهسازی مسیر برداشت کالا در انبار": 2,
@@ -6596,8 +6680,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 29.0,
-      "last_opportunity_score": 37.6,
+      "last_demand_score": 24.0,
+      "last_opportunity_score": 35.2,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -6615,8 +6699,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.5,
-      "last_opportunity_score": 37.5,
+      "last_demand_score": 15.5,
+      "last_opportunity_score": 35.1,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -6634,8 +6718,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 21.0,
-      "last_opportunity_score": 37.3,
+      "last_demand_score": 16.0,
+      "last_opportunity_score": 32.6,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -6653,8 +6737,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.0,
-      "last_opportunity_score": 37.3,
+      "last_demand_score": 15.0,
+      "last_opportunity_score": 34.9,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -6672,8 +6756,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.0,
-      "last_opportunity_score": 37.1,
+      "last_demand_score": 15.0,
+      "last_opportunity_score": 34.7,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -6691,8 +6775,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 21.0,
-      "last_opportunity_score": 37.0,
+      "last_demand_score": 16.0,
+      "last_opportunity_score": 32.3,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -6710,8 +6794,8 @@
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 24.0,
-      "last_opportunity_score": 36.2,
+      "last_demand_score": 19.0,
+      "last_opportunity_score": 33.8,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -6730,8 +6814,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 23.0,
-      "last_opportunity_score": 35.1,
+      "last_demand_score": 18.0,
+      "last_opportunity_score": 32.7,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -6749,8 +6833,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 21.0,
-      "last_opportunity_score": 35.0,
+      "last_demand_score": 16.0,
+      "last_opportunity_score": 32.6,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -6768,8 +6852,8 @@
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 23.4,
-      "last_opportunity_score": 34.9,
+      "last_demand_score": 18.4,
+      "last_opportunity_score": 32.5,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -6787,8 +6871,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.0,
-      "last_opportunity_score": 34.3,
+      "last_demand_score": 15.0,
+      "last_opportunity_score": 31.9,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -6806,8 +6890,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.0,
-      "last_opportunity_score": 32.4,
+      "last_demand_score": 15.0,
+      "last_opportunity_score": 30.0,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -6825,8 +6909,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 21.0,
-      "last_opportunity_score": 32.2,
+      "last_demand_score": 16.0,
+      "last_opportunity_score": 29.8,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -6846,8 +6930,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 25.0,
-      "last_opportunity_score": 16.3,
+      "last_demand_score": 20.0,
+      "last_opportunity_score": 11.7,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -6873,8 +6957,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 29.0,
-      "last_opportunity_score": 16.2,
+      "last_demand_score": 24.0,
+      "last_opportunity_score": 13.8,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -6892,8 +6976,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.0,
-      "last_opportunity_score": 12.8,
+      "last_demand_score": 15.0,
+      "last_opportunity_score": 10.4,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -6911,8 +6995,8 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.5,
-      "last_opportunity_score": 9.8,
+      "last_demand_score": 15.5,
+      "last_opportunity_score": 7.4,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -6930,11 +7014,110 @@
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 19.5,
-      "last_opportunity_score": 9.3,
+      "last_demand_score": 14.5,
+      "last_opportunity_score": 6.9,
+      "last_gsc_impressions": 0.0,
+      "last_monthly_searches": 0.0
+    },
+    "پتالوژی کلیه": {
+      "keyword": "پتالوژی کلیه",
+      "first_seen": "2026-07-30",
+      "seen_dates": [
+        "2026-07-30"
+      ],
+      "selected_dates": [
+        "2026-07-30"
+      ],
+      "context_ranks": {
+        "YouTube Autocomplete|pyomo cbc": 1
+      },
+      "last_seen": "2026-07-30",
+      "last_sources": [
+        "YouTube Autocomplete"
+      ],
+      "last_demand_score": 21.0,
+      "last_opportunity_score": 57.6,
+      "last_gsc_impressions": 0.0,
+      "last_monthly_searches": 0.0
+    },
+    "ترکمنعالم ماهواره": {
+      "keyword": "ترکمنعالم ماهواره",
+      "first_seen": "2026-07-30",
+      "seen_dates": [
+        "2026-07-30"
+      ],
+      "selected_dates": [
+        "2026-07-30"
+      ],
+      "context_ranks": {
+        "YouTube Autocomplete|بازآرایی بهینه شبکه توزیع": 3
+      },
+      "last_seen": "2026-07-30",
+      "last_sources": [
+        "YouTube Autocomplete"
+      ],
+      "last_demand_score": 20.0,
+      "last_opportunity_score": 57.4,
+      "last_gsc_impressions": 0.0,
+      "last_monthly_searches": 0.0
+    },
+    "فرکانس شبکه من و تو یاهست جدید": {
+      "keyword": "فرکانس شبکه من و تو یاهست جدید",
+      "first_seen": "2026-07-30",
+      "seen_dates": [
+        "2026-07-30"
+      ],
+      "selected_dates": [],
+      "context_ranks": {
+        "YouTube Autocomplete|مکان یابی بهینه انبار با pyomo": 2
+      },
+      "last_seen": "2026-07-30",
+      "last_sources": [
+        "YouTube Autocomplete"
+      ],
+      "last_demand_score": 20.5,
+      "last_opportunity_score": 52.0,
+      "last_gsc_impressions": 0.0,
+      "last_monthly_searches": 0.0
+    },
+    "اموزش دانلود نقشه افلاین گوگل مپ": {
+      "keyword": "اموزش دانلود نقشه افلاین گوگل مپ",
+      "first_seen": "2026-07-30",
+      "seen_dates": [
+        "2026-07-30"
+      ],
+      "selected_dates": [],
+      "context_ranks": {
+        "YouTube Autocomplete|مکان یابی بهینه انبار با pyomo": 1
+      },
+      "last_seen": "2026-07-30",
+      "last_sources": [
+        "YouTube Autocomplete"
+      ],
+      "last_demand_score": 21.0,
+      "last_opportunity_score": 51.5,
+      "last_gsc_impressions": 0.0,
+      "last_monthly_searches": 0.0
+    },
+    "gurobi / cplex gurobi cplex": {
+      "keyword": "['gurobi / cplex', 'gurobi、cplex']",
+      "first_seen": "2026-07-30",
+      "seen_dates": [
+        "2026-07-30"
+      ],
+      "selected_dates": [],
+      "context_ranks": {
+        "DuckDuckGo Autocomplete|مقایسه gurobi و cplex و highs": 2
+      },
+      "last_seen": "2026-07-30",
+      "last_sources": [
+        "DuckDuckGo Autocomplete"
+      ],
+      "last_demand_score": 16.7,
+      "last_opportunity_score": 49.7,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     }
   },
-  "updated_at": "2026-07-30T07:55:28"
+  "updated_at": "2026-07-30T08:04:13"
 }
