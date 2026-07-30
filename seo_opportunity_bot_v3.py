@@ -49,7 +49,6 @@ SEO Opportunity Bot v3 for OptimizationExpert.github.io
 from __future__ import annotations
 
 import argparse
-import base64
 import csv
 import datetime as dt
 import difflib
@@ -58,7 +57,6 @@ import hashlib
 import html
 import json
 import math
-import mimetypes
 import os
 import random
 import re
@@ -85,7 +83,7 @@ from typing import Any, Iterable, Iterator, Sequence
 # تنظیمات و پیکربندی
 # =============================================================================
 
-SCRIPT_VERSION = "5.1.0"
+SCRIPT_VERSION = "3.0.0"
 DEFAULT_CONFIG: dict[str, Any] = {
     "site_url": "https://optimizationexpert.github.io/",
     "site_name": "Optimization Expert",
@@ -117,8 +115,6 @@ DEFAULT_CONFIG: dict[str, Any] = {
     "telegram_bot_token": "",
     "telegram_chat_id": "",
     "telegram_top_n": 8,
-    "email_to": "optimizationteamonline@gmail.com",
-    "email_top_n": 12,
     "gsc_service_account_file": "",
     "gsc_site_url": "",
     "gsc_days": 56,
@@ -3135,108 +3131,6 @@ def send_telegram(items: list[Candidate], config: dict[str, Any]) -> str:
 
 
 # =============================================================================
-# ایمیل گزارش (مناسب GitHub Actions و اجرای محلی)
-# =============================================================================
-
-def send_email_report(
-    items: list[Candidate],
-    paths: dict[str, Path],
-    config: dict[str, Any],
-    run_date: dt.date,
-) -> str:
-    """ارسال خلاصه و فایل‌های گزارش با Resend Email API.
-
-    اطلاعات حساس فقط از متغیرهای محیطی خوانده می‌شوند:
-      RESEND_API_KEY
-    متغیرهای اختیاری:
-      RESEND_FROM, EMAIL_TO
-    """
-    api_key = os.environ.get("RESEND_API_KEY", "").strip()
-    email_to = display_clean(os.environ.get("EMAIL_TO", config.get("email_to", "")))
-    resend_from = display_clean(
-        os.environ.get("RESEND_FROM", config.get("resend_from", "Optimization Expert <onboarding@resend.dev>"))
-    )
-    if not api_key or not email_to:
-        return "تنظیم نشده؛ RESEND_API_KEY / EMAIL_TO را بررسی کنید"
-
-    recipients = [value.strip() for value in re.split(r"[,;]", email_to) if value.strip()]
-    if not recipients:
-        return "گیرنده معتبر نیست"
-
-    top_n = max(1, int(config.get("email_top_n", 12)))
-    lines = [
-        f"گزارش روزانه فرصت‌های SEO — {run_date.isoformat()}",
-        "",
-        f"تعداد فرصت‌های جدید: {len(items)}",
-        "",
-    ]
-    if items:
-        lines.append("فرصت‌های برتر:")
-        for rank, item in enumerate(items[:top_n], start=1):
-            monthly = f" | جست‌وجوی ماهانه≈{item.monthly_searches:,.0f}" if item.monthly_searches > 0 else ""
-            competition = (
-                f" | رقابت={item.serp_competition_score:.0f}"
-                if item.serp_competition_score is not None else ""
-            )
-            lines.append(
-                f"{rank}. {item.keyword} | فرصت={item.opportunity_score:.1f} "
-                f"| تقاضا={item.demand_score:.1f}{competition}{monthly}"
-            )
-    else:
-        lines.append("امروز فرصت جدیدی با حداقل امتیاز تعیین‌شده پیدا نشد.")
-
-    lines.extend([
-        "",
-        "فایل HTML، CSV و بریف Markdown به این ایمیل پیوست شده‌اند.",
-        "این پیام به‌صورت خودکار توسط GitHub Actions و Resend ارسال شده است.",
-    ])
-
-    attachments_payload = []
-    attachments = [
-        paths.get("latest_html"),
-        paths.get("latest_opportunities_csv"),
-        paths.get("latest_markdown"),
-    ]
-    for attachment in attachments:
-        if not attachment or not attachment.exists() or not attachment.is_file():
-            continue
-        attachments_payload.append({
-            "filename": attachment.name,
-            "content": base64.b64encode(attachment.read_bytes()).decode("ascii"),
-        })
-
-    payload: dict[str, Any] = {
-        "from": resend_from,
-        "to": recipients,
-        "subject": f"SEO Opportunity Report | {run_date.isoformat()} | {len(items)} opportunities",
-        "text": "\n".join(lines),
-    }
-    if attachments_payload:
-        payload["attachments"] = attachments_payload
-
-    request = urllib.request.Request(
-        "https://api.resend.com/emails",
-        data=json.dumps(payload, ensure_ascii=False).encode("utf-8"),
-        headers={
-            "Authorization": f"Bearer {api_key}",
-            "Content-Type": "application/json",
-            "User-Agent": "OptimizationExpert-SEO-Bot/5.0",
-        },
-        method="POST",
-    )
-    try:
-        with urllib.request.urlopen(request, timeout=30) as response:
-            body = json.loads(response.read().decode("utf-8", errors="replace"))
-        message_id = body.get("id", "unknown") if isinstance(body, dict) else "unknown"
-        return f"ارسال شد به {', '.join(recipients)}؛ Resend ID={message_id}"
-    except urllib.error.HTTPError as exc:
-        detail = exc.read().decode("utf-8", errors="replace")[:500]
-        return f"خطای Resend HTTP {exc.code}: {detail}"
-    except Exception as exc:
-        return f"خطا: {type(exc).__name__}: {exc}"
-
-
-# =============================================================================
 # اجرای روزانه با Windows Task Scheduler
 # =============================================================================
 
@@ -3413,19 +3307,11 @@ def run_once(
         copy_latest(paths[key], latest_path)
     paths.update({f"latest_{key}": value for key, value in latest_paths.items()})
 
-    email_status = send_email_report(opportunities, paths, config, run_date)
-    status["Email"] = email_status
-    print(f"EMAIL_STATUS: {email_status}", flush=True)
-
-    require_email = os.environ.get("REQUIRE_EMAIL_SUCCESS", "").strip().lower() in {"1", "true", "yes", "on"}
-    if require_email and not email_status.startswith("ارسال شد"):
-        raise RuntimeError(f"Email delivery failed: {email_status}")
-
     update_history(history, all_items, opportunities, run_date, config, history_path)
     append_run_log(output_dir / "runs.log", status, opportunities, run_date)
 
     print("\n" + "=" * 78)
-    print("SEO Opportunity Bot v4 — گزارش ساخته شد")
+    print("SEO Opportunity Bot v3 — گزارش ساخته شد")
     print(f"فرصت‌های جدید: {len(opportunities)}")
     print(f"عبارت‌های دارای صفحه متمرکز: {len(covered)}")
     print(f"HTML: {latest_paths['html']}")
