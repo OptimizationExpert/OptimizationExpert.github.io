@@ -24,7 +24,7 @@
         "YouTube Autocomplete"
       ],
       "last_demand_score": 50.4,
-      "last_opportunity_score": 6.1,
+      "last_opportunity_score": 52.6,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -82,7 +82,7 @@
         "Google Search Autocomplete"
       ],
       "last_demand_score": 32.5,
-      "last_opportunity_score": 0.0,
+      "last_opportunity_score": 44.3,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -96,7 +96,7 @@
         "2026-07-30"
       ],
       "context_ranks": {
-        "Google Search Autocomplete|linear programming پایتون": 5,
+        "Google Search Autocomplete|linear programming پایتون": 6,
         "YouTube Autocomplete|linear programming پایتون": 2
       },
       "last_seen": "2026-07-30",
@@ -104,8 +104,8 @@
         "Google Search Autocomplete",
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 32.0,
-      "last_opportunity_score": 0.0,
+      "last_demand_score": 31.4,
+      "last_opportunity_score": 43.6,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -128,7 +128,7 @@
         "Google Search Autocomplete"
       ],
       "last_demand_score": 31.2,
-      "last_opportunity_score": 0.0,
+      "last_opportunity_score": 43.8,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -219,7 +219,7 @@
         "Google Search Autocomplete"
       ],
       "last_demand_score": 20.4,
-      "last_opportunity_score": 0.0,
+      "last_opportunity_score": 38.5,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -229,7 +229,9 @@
       "seen_dates": [
         "2026-07-30"
       ],
-      "selected_dates": [],
+      "selected_dates": [
+        "2026-07-30"
+      ],
       "context_ranks": {
         "Google Search Autocomplete|mixed integer programming پایتون": 6,
         "Google Search Autocomplete|mixed integer linear programming پایتون": 3
@@ -239,7 +241,7 @@
         "Google Search Autocomplete"
       ],
       "last_demand_score": 19.7,
-      "last_opportunity_score": 11.0,
+      "last_opportunity_score": 56.2,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -249,7 +251,9 @@
       "seen_dates": [
         "2026-07-30"
       ],
-      "selected_dates": [],
+      "selected_dates": [
+        "2026-07-30"
+      ],
       "context_ranks": {
         "Google Search Autocomplete|mixed integer programming پایتون": 3
       },
@@ -258,7 +262,7 @@
         "Google Search Autocomplete"
       ],
       "last_demand_score": 17.7,
-      "last_opportunity_score": 11.3,
+      "last_opportunity_score": 55.3,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -292,7 +296,9 @@
       "seen_dates": [
         "2026-07-30"
       ],
-      "selected_dates": [],
+      "selected_dates": [
+        "2026-07-30"
+      ],
       "context_ranks": {
         "Google Search Autocomplete|mixed integer programming پایتون": 9,
         "Google Search Autocomplete|mixed integer linear programming پایتون": 6
@@ -302,7 +308,7 @@
         "Google Search Autocomplete"
       ],
       "last_demand_score": 17.9,
-      "last_opportunity_score": 11.4,
+      "last_opportunity_score": 55.2,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -322,7 +328,7 @@
         "Bing Autocomplete"
       ],
       "last_demand_score": 17.0,
-      "last_opportunity_score": 8.1,
+      "last_opportunity_score": 55.3,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -413,7 +419,7 @@
         "Google Search Autocomplete"
       ],
       "last_demand_score": 17.1,
-      "last_opportunity_score": 11.0,
+      "last_opportunity_score": 54.8,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -423,7 +429,9 @@
       "seen_dates": [
         "2026-07-30"
       ],
-      "selected_dates": [],
+      "selected_dates": [
+        "2026-07-30"
+      ],
       "context_ranks": {
         "Google Search Autocomplete|linear programming پایتون": 4
       },
@@ -432,7 +440,7 @@
         "Google Search Autocomplete"
       ],
       "last_demand_score": 17.1,
-      "last_opportunity_score": 40.6,
+      "last_opportunity_score": 54.7,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -553,14 +561,14 @@
         "2026-07-30"
       ],
       "context_ranks": {
-        "Google Search Autocomplete|linear programming پایتون": 6
+        "Google Search Autocomplete|linear programming پایتون": 7
       },
       "last_seen": "2026-07-30",
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 15.8,
-      "last_opportunity_score": 22.2,
+      "last_demand_score": 15.2,
+      "last_opportunity_score": 38.2,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -574,7 +582,7 @@
         "2026-07-30"
       ],
       "context_ranks": {
-        "Bing Autocomplete|mixed integer programming پایتون": 11,
+        "Bing Autocomplete|mixed integer programming پایتون": 10,
         "Bing Autocomplete|mixed integer linear programming پایتون": 6
       },
       "last_seen": "2026-07-30",
@@ -582,7 +590,7 @@
         "Bing Autocomplete"
       ],
       "last_demand_score": 14.8,
-      "last_opportunity_score": 0.0,
+      "last_opportunity_score": 36.4,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -706,14 +714,14 @@
         "2026-07-30"
       ],
       "context_ranks": {
-        "Google Search Autocomplete|linear programming پایتون": 7
+        "Google Search Autocomplete|linear programming پایتون": 8
       },
       "last_seen": "2026-07-30",
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 15.2,
-      "last_opportunity_score": 21.5,
+      "last_demand_score": 14.6,
+      "last_opportunity_score": 37.8,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -756,7 +764,7 @@
         "YouTube Autocomplete"
       ],
       "last_demand_score": 15.0,
-      "last_opportunity_score": 21.7,
+      "last_opportunity_score": 35.8,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -863,7 +871,7 @@
         "YouTube Autocomplete"
       ],
       "last_demand_score": 14.5,
-      "last_opportunity_score": 0.0,
+      "last_opportunity_score": 35.6,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -877,14 +885,15 @@
         "2026-07-30"
       ],
       "context_ranks": {
+        "Bing Autocomplete|mixed integer programming پایتون": 12,
         "Bing Autocomplete|mixed integer linear programming پایتون": 4
       },
       "last_seen": "2026-07-30",
       "last_sources": [
         "Bing Autocomplete"
       ],
-      "last_demand_score": 13.7,
-      "last_opportunity_score": 0.0,
+      "last_demand_score": 15.7,
+      "last_opportunity_score": 36.6,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -961,14 +970,14 @@
         "2026-07-30"
       ],
       "context_ranks": {
-        "Google Search Autocomplete|linear programming پایتون": 8
+        "Google Search Autocomplete|linear programming پایتون": 9
       },
       "last_seen": "2026-07-30",
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 14.6,
-      "last_opportunity_score": 21.3,
+      "last_demand_score": 14.0,
+      "last_opportunity_score": 37.6,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -1095,7 +1104,7 @@
         "YouTube Autocomplete"
       ],
       "last_demand_score": 16.0,
-      "last_opportunity_score": 55.6,
+      "last_opportunity_score": 35.4,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -1167,7 +1176,9 @@
       "seen_dates": [
         "2026-07-30"
       ],
-      "selected_dates": [],
+      "selected_dates": [
+        "2026-07-30"
+      ],
       "context_ranks": {
         "Bing Autocomplete|mixed integer linear programming پایتون": 5
       },
@@ -1176,7 +1187,7 @@
         "Bing Autocomplete"
       ],
       "last_demand_score": 13.2,
-      "last_opportunity_score": 6.3,
+      "last_opportunity_score": 53.2,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -1647,7 +1658,9 @@
       "seen_dates": [
         "2026-07-30"
       ],
-      "selected_dates": [],
+      "selected_dates": [
+        "2026-07-30"
+      ],
       "context_ranks": {
         "Bing Autocomplete|mixed integer programming پایتون": 4,
         "Bing Autocomplete|mixed integer linear programming پایتون": 9
@@ -1657,7 +1670,7 @@
         "Bing Autocomplete"
       ],
       "last_demand_score": 15.7,
-      "last_opportunity_score": 10.8,
+      "last_opportunity_score": 52.9,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -1836,9 +1849,11 @@
       "seen_dates": [
         "2026-07-30"
       ],
-      "selected_dates": [],
+      "selected_dates": [
+        "2026-07-30"
+      ],
       "context_ranks": {
-        "Bing Autocomplete|mixed integer programming پایتون": 12,
+        "Bing Autocomplete|mixed integer programming پایتون": 11,
         "Bing Autocomplete|mixed integer linear programming پایتون": 3
       },
       "last_seen": "2026-07-30",
@@ -1846,7 +1861,7 @@
         "Bing Autocomplete"
       ],
       "last_demand_score": 16.1,
-      "last_opportunity_score": 8.7,
+      "last_opportunity_score": 52.7,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -2177,7 +2192,7 @@
         "Google Search Autocomplete"
       ],
       "last_demand_score": 17.7,
-      "last_opportunity_score": 30.8,
+      "last_opportunity_score": 54.8,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -2493,7 +2508,9 @@
       "seen_dates": [
         "2026-07-30"
       ],
-      "selected_dates": [],
+      "selected_dates": [
+        "2026-07-30"
+      ],
       "context_ranks": {},
       "last_seen": "2026-07-30",
       "last_sources": [
@@ -2643,16 +2660,18 @@
       "seen_dates": [
         "2026-07-30"
       ],
-      "selected_dates": [],
+      "selected_dates": [
+        "2026-07-30"
+      ],
       "context_ranks": {
-        "Bing Autocomplete|mixed integer programming پایتون": 10
+        "Bing Autocomplete|mixed integer programming پایتون": 9
       },
       "last_seen": "2026-07-30",
       "last_sources": [
         "Bing Autocomplete"
       ],
-      "last_demand_score": 11.0,
-      "last_opportunity_score": 10.3,
+      "last_demand_score": 11.4,
+      "last_opportunity_score": 52.4,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -2662,7 +2681,9 @@
       "seen_dates": [
         "2026-07-30"
       ],
-      "selected_dates": [],
+      "selected_dates": [
+        "2026-07-30"
+      ],
       "context_ranks": {
         "Google Search Autocomplete|pyomo glpk": 4,
         "Google Search Autocomplete|pyomo glpk solver options": 1
@@ -2837,7 +2858,9 @@
       "seen_dates": [
         "2026-07-30"
       ],
-      "selected_dates": [],
+      "selected_dates": [
+        "2026-07-30"
+      ],
       "context_ranks": {
         "Bing Autocomplete|mixed integer programming پایتون": 8,
         "Bing Autocomplete|mixed integer linear programming پایتون": 2
@@ -2847,7 +2870,7 @@
         "Bing Autocomplete"
       ],
       "last_demand_score": 16.6,
-      "last_opportunity_score": 45.2,
+      "last_opportunity_score": 51.6,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -2902,7 +2925,7 @@
         "Bing Autocomplete"
       ],
       "last_demand_score": 14.6,
-      "last_opportunity_score": 29.4,
+      "last_opportunity_score": 53.8,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -3007,7 +3030,9 @@
       "seen_dates": [
         "2026-07-30"
       ],
-      "selected_dates": [],
+      "selected_dates": [
+        "2026-07-30"
+      ],
       "context_ranks": {
         "Google Search Autocomplete|mixed integer programming پایتون": 8
       },
@@ -3016,7 +3041,7 @@
         "Google Search Autocomplete"
       ],
       "last_demand_score": 14.6,
-      "last_opportunity_score": 9.8,
+      "last_opportunity_score": 51.2,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -3026,7 +3051,9 @@
       "seen_dates": [
         "2026-07-30"
       ],
-      "selected_dates": [],
+      "selected_dates": [
+        "2026-07-30"
+      ],
       "context_ranks": {},
       "last_seen": "2026-07-30",
       "last_sources": [
@@ -3043,7 +3070,9 @@
       "seen_dates": [
         "2026-07-30"
       ],
-      "selected_dates": [],
+      "selected_dates": [
+        "2026-07-30"
+      ],
       "context_ranks": {
         "Google Search Autocomplete|pyomo cbc": 4
       },
@@ -3072,7 +3101,7 @@
         "Google Search Autocomplete"
       ],
       "last_demand_score": 18.5,
-      "last_opportunity_score": 11.7,
+      "last_opportunity_score": 53.3,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -3374,7 +3403,9 @@
       "seen_dates": [
         "2026-07-30"
       ],
-      "selected_dates": [],
+      "selected_dates": [
+        "2026-07-30"
+      ],
       "context_ranks": {
         "DuckDuckGo Autocomplete|pyomo cbc": 2
       },
@@ -3536,7 +3567,7 @@
         "Bing Autocomplete"
       ],
       "last_demand_score": 12.3,
-      "last_opportunity_score": 8.7,
+      "last_opportunity_score": 50.0,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -3584,7 +3615,9 @@
       "seen_dates": [
         "2026-07-30"
       ],
-      "selected_dates": [],
+      "selected_dates": [
+        "2026-07-30"
+      ],
       "context_ranks": {
         "Google Search Autocomplete|pyomo highs": 4
       },
@@ -3641,7 +3674,9 @@
       "seen_dates": [
         "2026-07-30"
       ],
-      "selected_dates": [],
+      "selected_dates": [
+        "2026-07-30"
+      ],
       "context_ranks": {
         "Google Search Autocomplete|pyomo highs": 5
       },
@@ -3717,7 +3752,9 @@
       "seen_dates": [
         "2026-07-30"
       ],
-      "selected_dates": [],
+      "selected_dates": [
+        "2026-07-30"
+      ],
       "context_ranks": {
         "Google Search Autocomplete|pyomo highs": 2
       },
@@ -3736,7 +3773,9 @@
       "seen_dates": [
         "2026-07-30"
       ],
-      "selected_dates": [],
+      "selected_dates": [
+        "2026-07-30"
+      ],
       "context_ranks": {
         "Google Search Autocomplete|pyomo ipopt": 5
       },
@@ -3890,7 +3929,9 @@
       "seen_dates": [
         "2026-07-30"
       ],
-      "selected_dates": [],
+      "selected_dates": [
+        "2026-07-30"
+      ],
       "context_ranks": {
         "Bing Autocomplete|mixed integer linear programming پایتون": 10
       },
@@ -3899,7 +3940,7 @@
         "Bing Autocomplete"
       ],
       "last_demand_score": 11.0,
-      "last_opportunity_score": 5.2,
+      "last_opportunity_score": 51.7,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -3947,7 +3988,9 @@
       "seen_dates": [
         "2026-07-30"
       ],
-      "selected_dates": [],
+      "selected_dates": [
+        "2026-07-30"
+      ],
       "context_ranks": {
         "Google Search Autocomplete|pyomo highs": 6
       },
@@ -4025,7 +4068,9 @@
       "seen_dates": [
         "2026-07-30"
       ],
-      "selected_dates": [],
+      "selected_dates": [
+        "2026-07-30"
+      ],
       "context_ranks": {
         "Bing Autocomplete|mixed integer linear programming پایتون": 5
       },
@@ -4034,7 +4079,7 @@
         "Bing Autocomplete"
       ],
       "last_demand_score": 13.2,
-      "last_opportunity_score": 9.1,
+      "last_opportunity_score": 51.3,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -4237,7 +4282,9 @@
       "seen_dates": [
         "2026-07-30"
       ],
-      "selected_dates": [],
+      "selected_dates": [
+        "2026-07-30"
+      ],
       "context_ranks": {
         "Google Search Autocomplete|pyomo highs": 7
       },
@@ -4432,21 +4479,21 @@
       "seen_dates": [
         "2026-07-30"
       ],
-      "selected_dates": [],
+      "selected_dates": [
+        "2026-07-30"
+      ],
       "context_ranks": {
         "YouTube Autocomplete|برنامه ریزی عدد صحیح در پایتون": 3,
-        "YouTube Autocomplete|برنامه ریزی تصادفی دو مرحله ای": 3,
         "YouTube Autocomplete|انتخاب تامین کننده با مدلسازی ریاضی": 2,
         "YouTube Autocomplete|برنامه ریزی تولید با pyomo": 3,
-        "YouTube Autocomplete|برنامه ریزی تولید و توزیع یکپارچه": 3,
-        "YouTube Autocomplete|برنامه ریزی توسعه شبکه انتقال": 1
+        "YouTube Autocomplete|برنامه ریزی تولید و توزیع یکپارچه": 3
       },
       "last_seen": "2026-07-30",
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 24.0,
-      "last_opportunity_score": 50.5,
+      "last_demand_score": 21.5,
+      "last_opportunity_score": 49.3,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -4475,7 +4522,9 @@
       "seen_dates": [
         "2026-07-30"
       ],
-      "selected_dates": [],
+      "selected_dates": [
+        "2026-07-30"
+      ],
       "context_ranks": {
         "Google Search Autocomplete|pyomo glpk": 2
       },
@@ -4494,7 +4543,9 @@
       "seen_dates": [
         "2026-07-30"
       ],
-      "selected_dates": [],
+      "selected_dates": [
+        "2026-07-30"
+      ],
       "context_ranks": {
         "Google Search Autocomplete|pyomo ipopt": 2
       },
@@ -4570,7 +4621,9 @@
       "seen_dates": [
         "2026-07-30"
       ],
-      "selected_dates": [],
+      "selected_dates": [
+        "2026-07-30"
+      ],
       "context_ranks": {
         "Google Search Autocomplete|pyomo cbc": 2
       },
@@ -4608,7 +4661,9 @@
       "seen_dates": [
         "2026-07-30"
       ],
-      "selected_dates": [],
+      "selected_dates": [
+        "2026-07-30"
+      ],
       "context_ranks": {
         "Google Search Autocomplete|pyomo glpk": 5
       },
@@ -4704,7 +4759,9 @@
       "seen_dates": [
         "2026-07-30"
       ],
-      "selected_dates": [],
+      "selected_dates": [
+        "2026-07-30"
+      ],
       "context_ranks": {
         "Google Search Autocomplete|pyomo cbc": 1
       },
@@ -4742,7 +4799,9 @@
       "seen_dates": [
         "2026-07-30"
       ],
-      "selected_dates": [],
+      "selected_dates": [
+        "2026-07-30"
+      ],
       "context_ranks": {
         "Google Search Autocomplete|pyomo highs": 3
       },
@@ -4761,7 +4820,9 @@
       "seen_dates": [
         "2026-07-30"
       ],
-      "selected_dates": [],
+      "selected_dates": [
+        "2026-07-30"
+      ],
       "context_ranks": {
         "Bing Autocomplete|dc optimal power flow با pyomo": 1,
         "DuckDuckGo Autocomplete|dc optimal power flow با pyomo": 2
@@ -4839,7 +4900,9 @@
       "seen_dates": [
         "2026-07-30"
       ],
-      "selected_dates": [],
+      "selected_dates": [
+        "2026-07-30"
+      ],
       "context_ranks": {
         "Google Search Autocomplete|pyomo glpk": 3
       },
@@ -5007,14 +5070,14 @@
       ],
       "selected_dates": [],
       "context_ranks": {
-        "Google Search Autocomplete|linear programming پایتون": 9
+        "Google Search Autocomplete|linear programming پایتون": 10
       },
       "last_seen": "2026-07-30",
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 14.0,
-      "last_opportunity_score": 39.2,
+      "last_demand_score": 13.3,
+      "last_opportunity_score": 46.5,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -5026,17 +5089,14 @@
       ],
       "selected_dates": [],
       "context_ranks": {
-        "YouTube Autocomplete|برنامه ریزی تصادفی دو مرحله ای": 1,
-        "YouTube Autocomplete|برنامه ریزی تولید با pyomo": 2,
-        "YouTube Autocomplete|برنامه ریزی توسعه شبکه انتقال": 2,
-        "YouTube Autocomplete|برنامه ریزی شارژ خودروهای برقی": 2
+        "YouTube Autocomplete|برنامه ریزی تولید با pyomo": 2
       },
       "last_seen": "2026-07-30",
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 22.0,
-      "last_opportunity_score": 49.0,
+      "last_demand_score": 15.5,
+      "last_opportunity_score": 45.8,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -5046,7 +5106,9 @@
       "seen_dates": [
         "2026-07-30"
       ],
-      "selected_dates": [],
+      "selected_dates": [
+        "2026-07-30"
+      ],
       "context_ranks": {
         "Google Search Autocomplete|pyomo ipopt": 4
       },
@@ -5122,7 +5184,9 @@
       "seen_dates": [
         "2026-07-30"
       ],
-      "selected_dates": [],
+      "selected_dates": [
+        "2026-07-30"
+      ],
       "context_ranks": {
         "DuckDuckGo Autocomplete|pyomo highs": 2
       },
@@ -5428,14 +5492,14 @@
       ],
       "selected_dates": [],
       "context_ranks": {
-        "Bing Autocomplete|mixed integer linear programming پایتون": 11
+        "Bing Autocomplete|mixed integer linear programming پایتون": 12
       },
       "last_seen": "2026-07-30",
       "last_sources": [
         "Bing Autocomplete"
       ],
       "last_demand_score": 10.5,
-      "last_opportunity_score": 7.8,
+      "last_opportunity_score": 45.9,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -5445,10 +5509,12 @@
       "seen_dates": [
         "2026-07-30"
       ],
-      "selected_dates": [],
+      "selected_dates": [
+        "2026-07-30"
+      ],
       "context_ranks": {
-        "YouTube Autocomplete|جایابی بهینه خازن در شبکه توزیع": 3,
-        "YouTube Autocomplete|بازآرایی بهینه شبکه توزیع": 1
+        "YouTube Autocomplete|بازآرایی بهینه شبکه توزیع": 1,
+        "YouTube Autocomplete|جایابی بهینه خازن در شبکه توزیع": 3
       },
       "last_seen": "2026-07-30",
       "last_sources": [
@@ -5525,15 +5591,14 @@
       "selected_dates": [],
       "context_ranks": {
         "YouTube Autocomplete|انتخاب تامین کننده با مدلسازی ریاضی": 1,
-        "YouTube Autocomplete|برنامه ریزی تولید و توزیع یکپارچه": 1,
-        "YouTube Autocomplete|برنامه ریزی شارژ خودروهای برقی": 3
+        "YouTube Autocomplete|برنامه ریزی تولید و توزیع یکپارچه": 1
       },
       "last_seen": "2026-07-30",
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.0,
-      "last_opportunity_score": 47.7,
+      "last_demand_score": 18.0,
+      "last_opportunity_score": 46.8,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -5946,7 +6011,9 @@
       "seen_dates": [
         "2026-07-30"
       ],
-      "selected_dates": [],
+      "selected_dates": [
+        "2026-07-30"
+      ],
       "context_ranks": {
         "Bing Autocomplete|unit commitment با pyomo": 1,
         "DuckDuckGo Autocomplete|unit commitment با pyomo": 2
@@ -6606,17 +6673,16 @@
       "context_ranks": {
         "YouTube Autocomplete|انتخاب solver مناسب برای pyomo": 5,
         "YouTube Autocomplete|تشخیص مدل infeasible در pyomo": 1,
-        "YouTube Autocomplete|تحلیل حساسیت در pyomo": 1,
         "YouTube Autocomplete|استخراج dual و shadow price در pyomo": 2,
-        "YouTube Autocomplete|مسئله حمل و نقل با pyomo": 1,
-        "YouTube Autocomplete|تحلیل امنیت n-1 در سیستم قدرت": 1
+        "YouTube Autocomplete|تحلیل حساسیت در pyomo": 1,
+        "YouTube Autocomplete|تحلیل حساسیت در تحقیق در عملیات": 1
       },
       "last_seen": "2026-07-30",
       "last_sources": [
         "YouTube Autocomplete"
       ],
       "last_demand_score": 24.0,
-      "last_opportunity_score": 34.9,
+      "last_opportunity_score": 37.1,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -7117,7 +7183,93 @@
       "last_opportunity_score": 49.7,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
+    },
+    "linear programming پایتون example": {
+      "keyword": "linear programming python example",
+      "first_seen": "2026-07-30",
+      "seen_dates": [
+        "2026-07-30"
+      ],
+      "selected_dates": [
+        "2026-07-30"
+      ],
+      "context_ranks": {
+        "Google Search Autocomplete|linear programming پایتون": 5
+      },
+      "last_seen": "2026-07-30",
+      "last_sources": [
+        "Google Search Autocomplete"
+      ],
+      "last_demand_score": 21.5,
+      "last_opportunity_score": 57.0,
+      "last_gsc_impressions": 0.0,
+      "last_monthly_searches": 0.0
+    },
+    "mixed-integer programming": {
+      "keyword": "mixed-integer programming",
+      "first_seen": "2026-07-30",
+      "seen_dates": [
+        "2026-07-30"
+      ],
+      "selected_dates": [
+        "2026-07-30"
+      ],
+      "context_ranks": {
+        "Bing Autocomplete|mixed integer linear programming پایتون": 10
+      },
+      "last_seen": "2026-07-30",
+      "last_sources": [
+        "Bing Autocomplete"
+      ],
+      "last_demand_score": 16.0,
+      "last_opportunity_score": 55.0,
+      "last_gsc_impressions": 0.0,
+      "last_monthly_searches": 0.0
+    },
+    "unified stochastic and robust unit commitment": {
+      "keyword": "unified stochastic and robust unit commitment",
+      "first_seen": "2026-07-30",
+      "seen_dates": [
+        "2026-07-30"
+      ],
+      "selected_dates": [
+        "2026-07-30"
+      ],
+      "context_ranks": {
+        "Bing Autocomplete|stochastic unit commitment با pyomo": 1,
+        "DuckDuckGo Autocomplete|stochastic unit commitment با pyomo": 2
+      },
+      "last_seen": "2026-07-30",
+      "last_sources": [
+        "Bing Autocomplete",
+        "DuckDuckGo Autocomplete"
+      ],
+      "last_demand_score": 31.7,
+      "last_opportunity_score": 53.3,
+      "last_gsc_impressions": 0.0,
+      "last_monthly_searches": 0.0
+    },
+    "glpk solver for pyomo install glpk solver پایتون solver glpk mi": {
+      "keyword": "['glpk solver for pyomo', 'install glpk solver python', 'solver glpk_mi']",
+      "first_seen": "2026-07-30",
+      "seen_dates": [
+        "2026-07-30"
+      ],
+      "selected_dates": [
+        "2026-07-30"
+      ],
+      "context_ranks": {
+        "DuckDuckGo Autocomplete|pyomo glpk solver": 2
+      },
+      "last_seen": "2026-07-30",
+      "last_sources": [
+        "DuckDuckGo Autocomplete"
+      ],
+      "last_demand_score": 16.7,
+      "last_opportunity_score": 50.6,
+      "last_gsc_impressions": 0.0,
+      "last_monthly_searches": 0.0
     }
   },
-  "updated_at": "2026-07-30T08:04:13"
+  "updated_at": "2026-07-30T08:17:31"
 }
