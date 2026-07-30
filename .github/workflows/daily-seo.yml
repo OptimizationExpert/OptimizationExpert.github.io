@@ -27,13 +27,13 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Run SEO opportunity bot and email report
+      - name: Run SEO bot and send report with Resend
         env:
-          SMTP_USER: ${{ secrets.SMTP_USER }}
-          SMTP_APP_PASSWORD: ${{ secrets.SMTP_APP_PASSWORD }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          RESEND_FROM: ${{ vars.RESEND_FROM }}
           EMAIL_TO: optimizationteamonline@gmail.com
         run: |
-          python seo_opportunity_bot_v4.py --output-base "$GITHUB_WORKSPACE" --no-open
+          python seo_opportunity_bot_v5.py --output-base "$GITHUB_WORKSPACE" --no-open
 
       - name: Upload generated reports
         if: always()

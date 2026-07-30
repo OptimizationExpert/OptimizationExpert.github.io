@@ -49,6 +49,7 @@ SEO Opportunity Bot v3 for OptimizationExpert.github.io
 from __future__ import annotations
 
 import argparse
+import base64
 import csv
 import datetime as dt
 import difflib
@@ -62,7 +63,6 @@ import os
 import random
 import re
 import shutil
-import smtplib
 import socket
 import subprocess
 import sys
@@ -76,7 +76,6 @@ import xml.etree.ElementTree as ET
 from collections import Counter, defaultdict
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass, field
-from email.message import EmailMessage
 from html.parser import HTMLParser
 from pathlib import Path
 from typing import Any, Iterable, Iterator, Sequence
@@ -3145,17 +3144,20 @@ def send_email_report(
     config: dict[str, Any],
     run_date: dt.date,
 ) -> str:
-    """ارسال خلاصه و فایل‌های گزارش با SMTP.
+    """ارسال خلاصه و فایل‌های گزارش با Resend Email API.
 
     اطلاعات حساس فقط از متغیرهای محیطی خوانده می‌شوند:
-      SMTP_USER, SMTP_APP_PASSWORD
-    گیرنده را می‌توان با EMAIL_TO تغییر داد.
+      RESEND_API_KEY
+    متغیرهای اختیاری:
+      RESEND_FROM, EMAIL_TO
     """
-    smtp_user = display_clean(os.environ.get("SMTP_USER", ""))
-    smtp_password = os.environ.get("SMTP_APP_PASSWORD", "").strip()
+    api_key = os.environ.get("RESEND_API_KEY", "").strip()
     email_to = display_clean(os.environ.get("EMAIL_TO", config.get("email_to", "")))
-    if not smtp_user or not smtp_password or not email_to:
-        return "تنظیم نشده؛ SMTP_USER / SMTP_APP_PASSWORD / EMAIL_TO را بررسی کنید"
+    resend_from = display_clean(
+        os.environ.get("RESEND_FROM", config.get("resend_from", "Optimization Expert <onboarding@resend.dev>"))
+    )
+    if not api_key or not email_to:
+        return "تنظیم نشده؛ RESEND_API_KEY / EMAIL_TO را بررسی کنید"
 
     recipients = [value.strip() for value in re.split(r"[,;]", email_to) if value.strip()]
     if not recipients:
@@ -3186,15 +3188,10 @@ def send_email_report(
     lines.extend([
         "",
         "فایل HTML، CSV و بریف Markdown به این ایمیل پیوست شده‌اند.",
-        "این پیام به‌صورت خودکار توسط GitHub Actions ارسال شده است.",
+        "این پیام به‌صورت خودکار توسط GitHub Actions و Resend ارسال شده است.",
     ])
 
-    message = EmailMessage()
-    message["Subject"] = f"SEO Opportunity Report | {run_date.isoformat()} | {len(items)} opportunities"
-    message["From"] = smtp_user
-    message["To"] = ", ".join(recipients)
-    message.set_content("\n".join(lines))
-
+    attachments_payload = []
     attachments = [
         paths.get("latest_html"),
         paths.get("latest_opportunities_csv"),
@@ -3203,23 +3200,38 @@ def send_email_report(
     for attachment in attachments:
         if not attachment or not attachment.exists() or not attachment.is_file():
             continue
-        content_type, _encoding = mimetypes.guess_type(attachment.name)
-        if content_type:
-            maintype, subtype = content_type.split("/", 1)
-        else:
-            maintype, subtype = "application", "octet-stream"
-        message.add_attachment(
-            attachment.read_bytes(),
-            maintype=maintype,
-            subtype=subtype,
-            filename=attachment.name,
-        )
+        attachments_payload.append({
+            "filename": attachment.name,
+            "content": base64.b64encode(attachment.read_bytes()).decode("ascii"),
+        })
 
+    payload: dict[str, Any] = {
+        "from": resend_from,
+        "to": recipients,
+        "subject": f"SEO Opportunity Report | {run_date.isoformat()} | {len(items)} opportunities",
+        "text": "\n".join(lines),
+    }
+    if attachments_payload:
+        payload["attachments"] = attachments_payload
+
+    request = urllib.request.Request(
+        "https://api.resend.com/emails",
+        data=json.dumps(payload, ensure_ascii=False).encode("utf-8"),
+        headers={
+            "Authorization": f"Bearer {api_key}",
+            "Content-Type": "application/json",
+            "User-Agent": "OptimizationExpert-SEO-Bot/5.0",
+        },
+        method="POST",
+    )
     try:
-        with smtplib.SMTP_SSL("smtp.gmail.com", 465, timeout=30) as server:
-            server.login(smtp_user, smtp_password)
-            server.send_message(message)
-        return f"ارسال شد به {', '.join(recipients)}"
+        with urllib.request.urlopen(request, timeout=30) as response:
+            body = json.loads(response.read().decode("utf-8", errors="replace"))
+        message_id = body.get("id", "unknown") if isinstance(body, dict) else "unknown"
+        return f"ارسال شد به {', '.join(recipients)}؛ Resend ID={message_id}"
+    except urllib.error.HTTPError as exc:
+        detail = exc.read().decode("utf-8", errors="replace")[:500]
+        return f"خطای Resend HTTP {exc.code}: {detail}"
     except Exception as exc:
         return f"خطا: {type(exc).__name__}: {exc}"
 
