@@ -5,13 +5,12 @@ env:
 
 on:
   schedule:
-    # 08:10 UTC = 09:10 Ireland during summer time.
-    # GitHub cron uses UTC.
     - cron: "10 8 * * *"
   workflow_dispatch:
 
 permissions:
   contents: write
+  issues: write
 
 jobs:
   run-bot:
@@ -63,3 +62,41 @@ jobs:
           git add seo_opportunity_output/
           git commit -m "Daily SEO opportunity update" || echo "No changes to commit"
           git push
+
+      - name: Create daily report issue
+        if: success()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          DATE="$(date -u '+%Y-%m-%d')"
+          TITLE="Daily SEO Report - $DATE"
+          REPORT="seo_opportunity_output/opportunity_report_latest.md"
+          BODY_FILE="$(mktemp)"
+
+          {
+            echo "# Daily SEO Opportunity Report"
+            echo
+            echo "**Generated:** $(date -u '+%Y-%m-%d %H:%M UTC')"
+            echo
+            echo "**Download full files:**"
+            echo "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+            echo
+            if [ -f "$REPORT" ]; then
+              cat "$REPORT"
+            else
+              echo "The report file was not generated."
+            fi
+          } > "$BODY_FILE"
+
+          EXISTING_NUMBER="$(gh issue list \
+            --state all \
+            --search "\"$TITLE\" in:title" \
+            --json number,title \
+            --jq '.[] | select(.title == "'"$TITLE"'") | .number' \
+            | head -n 1)"
+
+          if [ -n "$EXISTING_NUMBER" ]; then
+            gh issue edit "$EXISTING_NUMBER" --body-file "$BODY_FILE"
+          else
+            gh issue create --title "$TITLE" --body-file "$BODY_FILE"
+          fi
