@@ -39,7 +39,7 @@ jobs:
           echo "Generated at: $(date -u '+%Y-%m-%d %H:%M UTC')" >> "$GITHUB_STEP_SUMMARY"
           echo "" >> "$GITHUB_STEP_SUMMARY"
 
-          REPORT="seo_opportunity_output/opportunity_report_latest.md"
+          REPORT="seo_opportunity_output/content_briefs_latest.md"
           if [ -f "$REPORT" ]; then
             cat "$REPORT" >> "$GITHUB_STEP_SUMMARY"
           else
@@ -70,7 +70,7 @@ jobs:
         run: |
           DATE="$(date -u '+%Y-%m-%d')"
           TITLE="Daily SEO Report - $DATE"
-          REPORT="seo_opportunity_output/opportunity_report_latest.md"
+          REPORT="seo_opportunity_output/content_briefs_latest.md"
           BODY_FILE="$(mktemp)"
 
           {
