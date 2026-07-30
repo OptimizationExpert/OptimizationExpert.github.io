@@ -85,7 +85,7 @@ from typing import Any, Iterable, Iterator, Sequence
 # تنظیمات و پیکربندی
 # =============================================================================
 
-SCRIPT_VERSION = "4.0.0"
+SCRIPT_VERSION = "5.1.0"
 DEFAULT_CONFIG: dict[str, Any] = {
     "site_url": "https://optimizationexpert.github.io/",
     "site_name": "Optimization Expert",
@@ -3413,7 +3413,14 @@ def run_once(
         copy_latest(paths[key], latest_path)
     paths.update({f"latest_{key}": value for key, value in latest_paths.items()})
 
-    status["Email"] = send_email_report(opportunities, paths, config, run_date)
+    email_status = send_email_report(opportunities, paths, config, run_date)
+    status["Email"] = email_status
+    print(f"EMAIL_STATUS: {email_status}", flush=True)
+
+    require_email = os.environ.get("REQUIRE_EMAIL_SUCCESS", "").strip().lower() in {"1", "true", "yes", "on"}
+    if require_email and not email_status.startswith("ارسال شد"):
+        raise RuntimeError(f"Email delivery failed: {email_status}")
+
     update_history(history, all_items, opportunities, run_date, config, history_path)
     append_run_log(output_dir / "runs.log", status, opportunities, run_date)
 
