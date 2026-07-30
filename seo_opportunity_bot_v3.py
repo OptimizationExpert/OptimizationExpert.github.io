@@ -461,6 +461,27 @@ STRONG_SERP_DOMAINS = {
 }
 
 STRONG_CLUSTER_ANCHORS: dict[str, tuple[str, ...]] = {
+    "modeling": (
+        "linear programming", "integer programming",
+        "mixed integer programming", "mathematical programming",
+        "operations research", "برنامه ریزی خطی",
+        "برنامه ریزی عدد صحیح", "مدل سازی ریاضی",
+        "مدلسازی بهینه سازی", "تابع هدف", "متغیر تصمیم",
+        "قیود بهینه سازی", "خطی سازی", "big m", "dual",
+        "shadow price", "تحلیل حساسیت",
+        "بهینه سازی چندهدفه", "جبهه پارتو",
+    ),
+    "supply_chain": (
+        "supply chain optimization", "زنجیره تامین", "زنجیره تأمین",
+        "facility location", "مکان یابی تسهیلات",
+        "warehouse location", "مکان یابی انبار",
+        "supplier selection", "انتخاب تامین کننده",
+        "production planning", "برنامه ریزی تولید",
+        "inventory optimization", "مدیریت موجودی",
+        "lot sizing", "last mile delivery", "تحویل آخرین مایل",
+        "reverse logistics", "لجستیک معکوس", "bin packing",
+        "شبکه توزیع",
+    ),
     "vrp": (
         "vehicle routing", "vrp", "cvrp", "vrptw", "tsp", "pickup delivery",
         "multi depot", "split delivery", "inventory routing", "مسیریابی وسایل نقلیه",
@@ -485,6 +506,24 @@ STRONG_CLUSTER_ANCHORS: dict[str, tuple[str, ...]] = {
         "pyomo infeasible", "pyomo error", "خطای pyomo",
     ),
 }
+
+def has_strong_anchor(keyword: str, cluster_id: str) -> bool:
+    """Return True when a keyword contains a specialist anchor for its cluster."""
+    value = normalise(keyword)
+    tokens = token_set(keyword, remove_generic=True)
+
+    for anchor in STRONG_CLUSTER_ANCHORS.get(cluster_id, ()): 
+        anchor_norm = normalise(anchor)
+        anchor_tokens = token_set(anchor, remove_generic=True)
+
+        if anchor_norm and anchor_norm in value:
+            return True
+
+        if len(anchor_tokens) >= 2 and len(tokens & anchor_tokens) >= 2:
+            return True
+
+    return False
+
 
 KEYWORD_PLANNER_CSV_NAMES = (
     "keyword_planner.csv", "keyword-planner.csv", "Keyword Planner.csv",
@@ -1529,7 +1568,9 @@ def build_second_hop_probes(store: dict[str, Candidate], budget: int, run_date: 
         if len(normalise(candidate.keyword).split()) < 2:
             continue
         cluster, relevance = map_cluster(candidate.keyword, candidate.cluster_votes)
-        if relevance < 3.0:
+        if relevance < 8.0:
+            continue
+        if not has_strong_anchor(candidate.keyword, cluster["id"]):
             continue
         source_bonus = len(candidate.autocomplete_sources) * 8
         rank_bonus = max(0, 11 - (candidate.best_rank or 10))
@@ -1713,7 +1754,9 @@ def collect_autocomplete_source(
                 if normalise(suggestion) == query_norm:
                     continue
                 relevance = candidate_relevance(suggestion, probe.cluster_id, probe.query)
-                if relevance < 3.0:
+                if relevance < 7.0:
+                    continue
+                if not has_strong_anchor(suggestion, probe.cluster_id):
                     continue
                 observation = Observation(
                     source=source,
@@ -1798,7 +1841,9 @@ def collect_stackexchange(
             if not title or is_negative_keyword(title):
                 continue
             cluster, relevance = map_cluster(title, context_cluster=context_cluster)
-            if relevance < 3.0:
+            if relevance < 7.0:
+                continue
+            if not has_strong_anchor(title, cluster["id"]):
                 continue
             views = safe_float(item.get("view_count", 0))
             score = safe_float(item.get("score", 0))
@@ -2202,7 +2247,9 @@ def enrich_with_serper(
             if not question or normalise(question) == normalise(candidate.keyword):
                 continue
             relevance = candidate_relevance(question, cluster["id"], candidate.keyword)
-            if relevance < 3.0:
+            if relevance < 7.0:
+                continue
+            if not has_strong_anchor(question, cluster["id"]):
                 continue
             observation = Observation(
                 source="Google SERP PAA",
@@ -2220,7 +2267,9 @@ def enrich_with_serper(
             if not query or normalise(query) == normalise(candidate.keyword):
                 continue
             relevance = candidate_relevance(query, cluster["id"], candidate.keyword)
-            if relevance < 3.0:
+            if relevance < 7.0:
+                continue
+            if not has_strong_anchor(query, cluster["id"]):
                 continue
             observation = Observation(
                 source="Google SERP Related",
