@@ -5,7 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5fb3a5bf-0b5a-4e22-aaa6-3a759bb44e2d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/_posts/2026-06-21-optimization-modeling-course.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2026-06-21-optimization-modeling-course.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seo_demand_output/already_covered_latest.csv" beforeDir="false" afterPath="$PROJECT_DIR$/seo_demand_output/already_covered_latest.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seo_demand_output/cache/707a72535e03b0d013521f63b6c63ab12d77bccc9fa15495205ccb2cc5bce19f.cache" beforeDir="false" afterPath="$PROJECT_DIR$/seo_demand_output/cache/707a72535e03b0d013521f63b6c63ab12d77bccc9fa15495205ccb2cc5bce19f.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seo_demand_output/cache/754e6ac8f6fbb5145630fd023cc5f57ca47d87290c83687ea947bab417fba2af.cache" beforeDir="false" afterPath="$PROJECT_DIR$/seo_demand_output/cache/754e6ac8f6fbb5145630fd023cc5f57ca47d87290c83687ea947bab417fba2af.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seo_demand_output/cache/77466a8b3879415e52f6d9ef5aa2ac910ae85bbc6aec971cd266e457cabf55c1.cache" beforeDir="false" afterPath="$PROJECT_DIR$/seo_demand_output/cache/77466a8b3879415e52f6d9ef5aa2ac910ae85bbc6aec971cd266e457cabf55c1.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seo_demand_output/cache/8c27aafdea1327daadb5153503aa55ef08c32b9be66ccbb6a10348352fb41940.cache" beforeDir="false" afterPath="$PROJECT_DIR$/seo_demand_output/cache/8c27aafdea1327daadb5153503aa55ef08c32b9be66ccbb6a10348352fb41940.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seo_demand_output/cache/e8e0aaceea4aa48c92f6381ae0712a31038719cfdcc2c52bc11c3cd4fc406a1b.cache" beforeDir="false" afterPath="$PROJECT_DIR$/seo_demand_output/cache/e8e0aaceea4aa48c92f6381ae0712a31038719cfdcc2c52bc11c3cd4fc406a1b.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seo_demand_output/cache/fafda45637f7bf96f58c95482c46b54a7ab1bd48558e75af0ba912c9e09a2f28.cache" beforeDir="false" afterPath="$PROJECT_DIR$/seo_demand_output/cache/fafda45637f7bf96f58c95482c46b54a7ab1bd48558e75af0ba912c9e09a2f28.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seo_demand_output/cache/fcbf91c8d98bbccdcdff9a6d9b7b4ef4c2544dea29157ced154124ca00af0a4e.cache" beforeDir="false" afterPath="$PROJECT_DIR$/seo_demand_output/cache/fcbf91c8d98bbccdcdff9a6d9b7b4ef4c2544dea29157ced154124ca00af0a4e.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seo_demand_output/demand_history.json" beforeDir="false" afterPath="$PROJECT_DIR$/seo_demand_output/demand_history.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seo_demand_output/demand_report_latest.html" beforeDir="false" afterPath="$PROJECT_DIR$/seo_demand_output/demand_report_latest.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seo_demand_output/demand_report_latest.md" beforeDir="false" afterPath="$PROJECT_DIR$/seo_demand_output/demand_report_latest.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seo_demand_output/new_content_gaps_latest.csv" beforeDir="false" afterPath="$PROJECT_DIR$/seo_demand_output/new_content_gaps_latest.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seo_demand_output/raw_demand_latest.json" beforeDir="false" afterPath="$PROJECT_DIR$/seo_demand_output/raw_demand_latest.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

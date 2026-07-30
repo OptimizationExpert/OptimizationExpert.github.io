@@ -4,22 +4,22 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>دوره مدل‌سازی مسائل بهینه‌سازی | از مسئله واقعی تا مدل ریاضی</title>
-  <meta name="description" content="دوره پایه و ضروری مدل‌سازی مسائل بهینه‌سازی؛ آموزش تبدیل مسائل واقعی به مدل ریاضی: تعریف متغیر تصمیم، تابع هدف و قیود، انواع مسائل LP/MILP/NLP و آمادگی برای کدنویسی با Gurobi، Pyomo و JuMP." />
-  <meta name="keywords" content="مدل سازی بهینه سازی, آموزش بهینه سازی, متغیر تصمیم, تابع هدف, قیود, برنامه ریزی خطی, LP, MILP, NLP, Gurobi, Pyomo, JuMP" />
+  <meta name="description" content="دوره پایه و ضروری مدل‌سازی مسائل بهینه‌سازی؛ آموزش تبدیل مسائل واقعی به مدل ریاضی: تعریف متغیر تصمیم، تابع هدف و قیود، انواع مسائل LP/MILP/NLP و آمادگی برای کدنویسی  ." />
+  <meta name="keywords" content="مدل سازی بهینه سازی, آموزش بهینه سازی, متغیر تصمیم, تابع هدف, قیود, برنامه ریزی خطی, LP, MILP, NLP" />
   <meta name="author" content="Optimization Expert" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/" />
 
   <meta property="og:type" content="article" />
   <meta property="og:title" content="دوره مدل‌سازی مسائل بهینه‌سازی" />
-  <meta property="og:description" content="دوره پایه و ضروری مدل‌سازی مسائل بهینه‌سازی؛ آموزش تبدیل مسائل واقعی به مدل ریاضی: تعریف متغیر تصمیم، تابع هدف و قیود، انواع مسائل LP/MILP/NLP و آمادگی برای کدنویسی با Gurobi، Pyomo و JuMP." />
+  <meta property="og:description" content="دوره پایه و ضروری مدل‌سازی مسائل بهینه‌سازی؛ آموزش تبدیل مسائل واقعی به مدل ریاضی: تعریف متغیر تصمیم، تابع هدف و قیود، انواع مسائل LP/MILP/NLP و آمادگی برای کدنویسی  ." />
   <meta property="og:url" content="https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/" />
   <meta property="og:locale" content="fa_IR" />
   <meta property="og:image" content="https://optimizationexpert.github.io/assets/images/pic.png" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="دوره مدل‌سازی مسائل بهینه‌سازی" />
-  <meta name="twitter:description" content="دوره پایه و ضروری مدل‌سازی مسائل بهینه‌سازی؛ آموزش تبدیل مسائل واقعی به مدل ریاضی: تعریف متغیر تصمیم، تابع هدف و قیود، انواع مسائل LP/MILP/NLP و آمادگی برای کدنویسی با Gurobi، Pyomo و JuMP." />
+  <meta name="twitter:description" content="دوره پایه و ضروری مدل‌سازی مسائل بهینه‌سازی؛ آموزش تبدیل مسائل واقعی به مدل ریاضی: تعریف متغیر تصمیم، تابع هدف و قیود، انواع مسائل LP/MILP/NLP و آمادگی برای کدنویسی  ." />
   <meta name="twitter:image" content="https://optimizationexpert.github.io/assets/images/pic.png" />
 
   <style>
@@ -144,7 +144,7 @@
   <table>
   <tbody>
     <tr>
-      <td><strong>محیط کار:</strong> Python / Gurobi / Pyomo / JuMP</td>
+      <td><strong>محیط کار:</strong> هر ابزار بهینه سازی</td>
       <td><strong>سطح:</strong> پایه و ضروری</td>
       <td><strong>پیش‌نیاز:</strong> ندارد</td>
     </tr>
@@ -185,7 +185,7 @@
 
 <h2 id="۶--آمادگی-برای-کدنویسی">۶ — آمادگی برای کدنویسی</h2>
 
-<p>نگاشتِ مدل ریاضی به کد در ابزارهای استاندارد: Pyomo و Gurobi در Python و JuMP در Julia. یاد می‌گیرید ساختار مدل ریاضی چطور یک‌به‌یک به مجموعه‌ها، پارامترها، متغیرها و قیود در کد نگاشت می‌شود.</p>
+<p>نگاشتِ مدل ریاضی به کد در ابزارهای استاندارد. یاد می‌گیرید ساختار مدل ریاضی چطور یک‌به‌یک به مجموعه‌ها، پارامترها، متغیرها و قیود در کد نگاشت می‌شود.</p>
 
 <hr />
 
@@ -195,7 +195,7 @@
   <li>تبدیل مسائل واقعی به مدل ریاضی دقیق و قابل حل</li>
   <li>شناخت متغیرهای تصمیم، تابع هدف و قیود</li>
   <li>تشخیص نوع مسئله (LP، MILP، NLP) و انتخاب رویکرد مناسب</li>
-  <li>آمادگی برای کدنویسی با ابزارهایی مانند Gurobi، Pyomo و JuMP</li>
+  <li>آمادگی برای کدنویسی با ابزارهای بهینه سازی</li>
 </ul>
 
 <hr />
@@ -254,13 +254,10 @@
 <p>این دوره پایه است و پیش‌نیاز خاصی ندارد. آشنایی مقدماتی با ریاضیات دبیرستانی و کمی برنامه‌نویسی برای بخش عملی کافی است.</p>
 
 <h3>آیا این دوره کدنویسی هم دارد؟</h3>
-<p>تمرکز اصلی بر مدل‌سازی است، اما نگاشت مدل به کد نیز آموزش داده می‌شود تا آماده ورود به دوره‌های تخصصی شوید.</p>
+<p>تمرکز اصلی بر مدل‌سازی است تا آماده ورود به دوره‌های تخصصی کدنویسی شوید.</p>
 
 <h3>بعد از این دوره چه مسیری را ادامه دهم؟</h3>
 <p>بسته به علاقه، می‌توانید وارد دوره مقدماتی و پیشرفته سیستم‌های قدرت، دوره مدل‌سازی عدم قطعیت یا دوره VRP در Python شوید.</p>
-
-<h3>چطور ثبت‌نام کنم؟</h3>
-<p>برای اطلاع از هزینه، زمان برگزاری و ثبت‌نام، در تلگرام به آیدی @pypyid پیام دهید.</p>
 
 <hr />
 
@@ -286,7 +283,7 @@
   "@context": "https://schema.org",
   "@type": "Course",
   "name": "دوره مدل‌سازی مسائل بهینه‌سازی",
-  "description": "دوره پایه مدل‌سازی مسائل بهینه‌سازی: تبدیل مسائل واقعی به مدل ریاضی، تعریف متغیر تصمیم، تابع هدف و قیود، انواع مسائل LP/MILP/NLP و آمادگی برای کدنویسی با Gurobi، Pyomo و JuMP.",
+  "description": "دوره پایه مدل‌سازی مسائل بهینه‌سازی: تبدیل مسائل واقعی به مدل ریاضی، تعریف متغیر تصمیم، تابع هدف و قیود، انواع مسائل LP/MILP/NLP و آمادگی برای کدنویسی با.",
   "inLanguage": "fa",
   "url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
   "image": "https://optimizationexpert.github.io/assets/images/pic.png",
@@ -340,7 +337,7 @@
       "name": "آیا این دوره کدنویسی هم دارد؟",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "تمرکز اصلی بر مدل‌سازی است، اما نگاشت مدل به کد در Pyomo، Gurobi و JuMP نیز آموزش داده می‌شود تا آماده ورود به دوره‌های تخصصی شوید."
+        "text": "تمرکز اصلی بر مدل‌سازی است، اما نگاشت مدل به کد نیز آموزش داده می‌شود تا آماده ورود به دوره‌های تخصصی شوید."
       }
     },
     {
