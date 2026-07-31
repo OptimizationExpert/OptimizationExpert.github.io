@@ -6,9 +6,9 @@
     "فایل تنظیمات": "/home/runner/work/OptimizationExpert.github.io/OptimizationExpert.github.io/seo_bot_config.json",
     "حالت اجرا": "کامل",
     "فایل‌های محلی سایت": "25 صفحه از /home/runner/work/OptimizationExpert.github.io/OptimizationExpert.github.io",
-    "Sitemap": "27 نشانی",
-    "صفحات زنده سایت": "27 صفحه خوانده شد",
-    "کل صفحات برای مقایسه": "25",
+    "Sitemap": "29 نشانی",
+    "صفحات زنده سایت": "29 صفحه خوانده شد",
+    "کل صفحات برای مقایسه": "27",
     "Keyword Planner": "فایل پیدا نشد؛ حجم ماهانه نمایش داده نمی‌شود",
     "Search Console CSV": "فایل پیدا نشد",
     "Search Console API": "تنظیم نشده",
@@ -17,8 +17,8 @@
     "کل Queryهای مرحله اول": "135",
     "Google Search Autocomplete": "135 query موفق، 0 ناموفق، 35 مشاهده",
     "YouTube Autocomplete": "135 query موفق، 0 ناموفق، 25 مشاهده",
-    "Bing Autocomplete": "135 query موفق، 0 ناموفق، 20 مشاهده",
-    "DuckDuckGo Autocomplete": "135 query موفق، 0 ناموفق، 7 مشاهده",
+    "Bing Autocomplete": "135 query موفق، 0 ناموفق، 18 مشاهده",
+    "DuckDuckGo Autocomplete": "135 query موفق، 0 ناموفق، 6 مشاهده",
     "Queryهای مرحله دوم": "16",
     "Google Search Autocomplete — مرحله دوم": "16 query موفق، 0 ناموفق، 3 مشاهده",
     "YouTube Autocomplete — مرحله دوم": "16 query موفق، 0 ناموفق، 3 مشاهده",
@@ -26,755 +26,12 @@
     "DuckDuckGo Autocomplete — مرحله دوم": "16 query موفق، 0 ناموفق، 3 مشاهده",
     "Stack Exchange": "2 سؤال مرتبط از 4 نتیجه؛ 0 query ناموفق",
     "Serper / Google SERP": "تنظیم نشده؛ رقابت SERP و PAA اندازه‌گیری نشد",
-    "کاندیدای خام": "77",
-    "فرصت نهایی": "8",
-    "حذف‌شده به دلیل صفحه موجود": "12",
+    "کاندیدای خام": "76",
+    "فرصت نهایی": "0",
+    "حذف‌شده به دلیل صفحه موجود": "27",
     "Telegram": "تنظیم نشده"
   },
   "candidates": [
-    {
-      "keyword": "mixed integer linear programming python",
-      "cluster": "مدل‌سازی و تحقیق در عملیات",
-      "intent": "کدنویسی",
-      "funnel": "بررسی راه‌حل",
-      "suggested_title": "آموزش mixed integer linear programming python با Python/Pyomo؛ از مدل تا کد",
-      "suggested_slug": "mixed-integer-linear-programming-python",
-      "coverage_action": "محتوای جدید",
-      "scores": {
-        "opportunity": 59.7,
-        "demand": 65.2,
-        "content_gap": 82.6,
-        "business_fit": 100.0,
-        "serp_competition": null
-      },
-      "confidence": "بالا",
-      "trend": "تکرار مشاهده",
-      "metrics": {
-        "monthly_searches": 0.0,
-        "gsc_impressions": 0.0,
-        "gsc_clicks": 0.0,
-        "gsc_ctr": 0.0,
-        "gsc_position": 0.0,
-        "stack_views": 0.0,
-        "stack_questions": 0
-      },
-      "existing_page": {
-        "similarity": 0.104,
-        "title": "Solver خوب بدون رنگ برای Pyomo؟ سه راهکار عملی",
-        "url": "local://_posts/2026-06-19-pyomosolvers.md",
-        "mentioned_in_body": true
-      },
-      "serp": {
-        "checked": false,
-        "exact_titles": 0,
-        "strong_domains": 0,
-        "user_domain_rank": 0,
-        "top_titles": []
-      },
-      "sources": [
-        "Bing Autocomplete",
-        "DuckDuckGo Autocomplete",
-        "Google Search Autocomplete",
-        "YouTube Autocomplete"
-      ],
-      "reason": "سیگنال در Google Search، YouTube، Bing، DuckDuckGo؛ تکرار مشاهده؛ رقابت SERP اندازه‌گیری نشده؛ فقط در متن سایت اشاره شده و صفحه متمرکز ندارد",
-      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
-      "observations": [
-        {
-          "source": "Google Search Autocomplete",
-          "query": "mixed integer programming python",
-          "family": "mixed integer programming پایتون",
-          "rank": 2,
-          "url": "",
-          "date": "2026-07-31",
-          "value": 0.0,
-          "note": "hop=1"
-        },
-        {
-          "source": "YouTube Autocomplete",
-          "query": "linear programming python",
-          "family": "linear programming پایتون",
-          "rank": 5,
-          "url": "",
-          "date": "2026-07-31",
-          "value": 0.0,
-          "note": "hop=1"
-        },
-        {
-          "source": "YouTube Autocomplete",
-          "query": "mixed integer programming python",
-          "family": "mixed integer programming پایتون",
-          "rank": 2,
-          "url": "",
-          "date": "2026-07-31",
-          "value": 0.0,
-          "note": "hop=1"
-        },
-        {
-          "source": "Bing Autocomplete",
-          "query": "mixed integer programming python",
-          "family": "mixed integer programming پایتون",
-          "rank": 2,
-          "url": "",
-          "date": "2026-07-31",
-          "value": 0.0,
-          "note": "hop=1"
-        },
-        {
-          "source": "Bing Autocomplete",
-          "query": "linear programming python",
-          "family": "linear programming پایتون",
-          "rank": 4,
-          "url": "",
-          "date": "2026-07-31",
-          "value": 0.0,
-          "note": "hop=1"
-        },
-        {
-          "source": "Google Search Autocomplete",
-          "query": "how to mixed integer linear programming python",
-          "family": "mixed integer linear programming پایتون",
-          "rank": 1,
-          "url": "",
-          "date": "2026-07-31",
-          "value": 0.0,
-          "note": "hop=2"
-        },
-        {
-          "source": "YouTube Autocomplete",
-          "query": "how to mixed integer linear programming python",
-          "family": "mixed integer linear programming پایتون",
-          "rank": 1,
-          "url": "",
-          "date": "2026-07-31",
-          "value": 0.0,
-          "note": "hop=2"
-        },
-        {
-          "source": "DuckDuckGo Autocomplete",
-          "query": "how to mixed integer linear programming python",
-          "family": "mixed integer linear programming پایتون",
-          "rank": 2,
-          "url": "",
-          "date": "2026-07-31",
-          "value": 0.0,
-          "note": "hop=2"
-        }
-      ]
-    },
-    {
-      "keyword": "mixed integer linear programming",
-      "cluster": "مدل‌سازی و تحقیق در عملیات",
-      "intent": "کدنویسی",
-      "funnel": "بررسی راه‌حل",
-      "suggested_title": "آموزش mixed integer linear programming با Python/Pyomo؛ از مدل تا کد",
-      "suggested_slug": "mixed-integer-linear-programming",
-      "coverage_action": "محتوای جدید",
-      "scores": {
-        "opportunity": 55.3,
-        "demand": 17.0,
-        "content_gap": 84.8,
-        "business_fit": 100.0,
-        "serp_competition": null
-      },
-      "confidence": "کم",
-      "trend": "تکرار مشاهده",
-      "metrics": {
-        "monthly_searches": 0.0,
-        "gsc_impressions": 0.0,
-        "gsc_clicks": 0.0,
-        "gsc_ctr": 0.0,
-        "gsc_position": 0.0,
-        "stack_views": 0.0,
-        "stack_questions": 0
-      },
-      "existing_page": {
-        "similarity": 0.0818181818181818,
-        "title": "Optimization Expert Persian Course Website",
-        "url": "local://README.md",
-        "mentioned_in_body": true
-      },
-      "serp": {
-        "checked": false,
-        "exact_titles": 0,
-        "strong_domains": 0,
-        "user_domain_rank": 0,
-        "top_titles": []
-      },
-      "sources": [
-        "Bing Autocomplete"
-      ],
-      "reason": "سیگنال در Bing؛ تکرار مشاهده؛ رقابت SERP اندازه‌گیری نشده؛ فقط در متن سایت اشاره شده و صفحه متمرکز ندارد",
-      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
-      "observations": [
-        {
-          "source": "Bing Autocomplete",
-          "query": "mixed integer programming python",
-          "family": "mixed integer programming پایتون",
-          "rank": 5,
-          "url": "",
-          "date": "2026-07-31",
-          "value": 0.0,
-          "note": "hop=1"
-        },
-        {
-          "source": "Bing Autocomplete",
-          "query": "mixed integer linear programming python error",
-          "family": "mixed integer linear programming پایتون",
-          "rank": 1,
-          "url": "",
-          "date": "2026-07-31",
-          "value": 0.0,
-          "note": "hop=2"
-        }
-      ]
-    },
-    {
-      "keyword": "linear programming python code",
-      "cluster": "مدل‌سازی و تحقیق در عملیات",
-      "intent": "کدنویسی",
-      "funnel": "بررسی راه‌حل",
-      "suggested_title": "آموزش linear programming python code با Python/Pyomo؛ از مدل تا کد",
-      "suggested_slug": "linear-programming-python-code",
-      "coverage_action": "محتوای جدید",
-      "scores": {
-        "opportunity": 54.8,
-        "demand": 17.7,
-        "content_gap": 82.2,
-        "business_fit": 100.0,
-        "serp_competition": null
-      },
-      "confidence": "کم",
-      "trend": "تکرار مشاهده",
-      "metrics": {
-        "monthly_searches": 0.0,
-        "gsc_impressions": 0.0,
-        "gsc_clicks": 0.0,
-        "gsc_ctr": 0.0,
-        "gsc_position": 0.0,
-        "stack_views": 0.0,
-        "stack_questions": 0
-      },
-      "existing_page": {
-        "similarity": 0.10833333333333332,
-        "title": "Optimization Expert Persian Course Website",
-        "url": "local://README.md",
-        "mentioned_in_body": true
-      },
-      "serp": {
-        "checked": false,
-        "exact_titles": 0,
-        "strong_domains": 0,
-        "user_domain_rank": 0,
-        "top_titles": []
-      },
-      "sources": [
-        "Google Search Autocomplete"
-      ],
-      "reason": "سیگنال در Google Search؛ تکرار مشاهده؛ رقابت SERP اندازه‌گیری نشده؛ فقط در متن سایت اشاره شده و صفحه متمرکز ندارد",
-      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
-      "observations": [
-        {
-          "source": "Google Search Autocomplete",
-          "query": "linear programming python",
-          "family": "linear programming پایتون",
-          "rank": 3,
-          "url": "",
-          "date": "2026-07-31",
-          "value": 0.0,
-          "note": "hop=1"
-        }
-      ]
-    },
-    {
-      "keyword": "linear programming python tutorial",
-      "cluster": "مدل‌سازی و تحقیق در عملیات",
-      "intent": "کدنویسی",
-      "funnel": "بررسی راه‌حل",
-      "suggested_title": "آموزش linear programming python tutorial با Python/Pyomo؛ از مدل تا کد",
-      "suggested_slug": "linear-programming-python-tutorial",
-      "coverage_action": "محتوای جدید",
-      "scores": {
-        "opportunity": 53.5,
-        "demand": 14.6,
-        "content_gap": 82.8,
-        "business_fit": 100.0,
-        "serp_competition": null
-      },
-      "confidence": "کم",
-      "trend": "تکرار مشاهده",
-      "metrics": {
-        "monthly_searches": 0.0,
-        "gsc_impressions": 0.0,
-        "gsc_clicks": 0.0,
-        "gsc_ctr": 0.0,
-        "gsc_position": 0.0,
-        "stack_views": 0.0,
-        "stack_questions": 0
-      },
-      "existing_page": {
-        "similarity": 0.10227272727272727,
-        "title": "گزارش فرصت‌های SEO — 2026-07-30",
-        "url": "https://optimizationexpert.github.io/seo_opportunity_output/seo_opportunity_report_2026-07-30.html",
-        "mentioned_in_body": true
-      },
-      "serp": {
-        "checked": false,
-        "exact_titles": 0,
-        "strong_domains": 0,
-        "user_domain_rank": 0,
-        "top_titles": []
-      },
-      "sources": [
-        "Bing Autocomplete"
-      ],
-      "reason": "سیگنال در Bing؛ تکرار مشاهده؛ رقابت SERP اندازه‌گیری نشده؛ فقط در متن سایت اشاره شده و صفحه متمرکز ندارد",
-      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
-      "observations": [
-        {
-          "source": "Bing Autocomplete",
-          "query": "linear programming python",
-          "family": "linear programming پایتون",
-          "rank": 2,
-          "url": "",
-          "date": "2026-07-31",
-          "value": 0.0,
-          "note": "hop=1"
-        }
-      ]
-    },
-    {
-      "keyword": "mixed integer linear programming solver python",
-      "cluster": "مدل‌سازی و تحقیق در عملیات",
-      "intent": "کدنویسی",
-      "funnel": "بررسی راه‌حل",
-      "suggested_title": "آموزش mixed integer linear programming solver python با Python/Pyomo؛ از مدل تا کد",
-      "suggested_slug": "mixed-integer-linear-programming-solver-python",
-      "coverage_action": "محتوای جدید",
-      "scores": {
-        "opportunity": 50.3,
-        "demand": 15.2,
-        "content_gap": 71.9,
-        "business_fit": 100.0,
-        "serp_competition": null
-      },
-      "confidence": "کم",
-      "trend": "تکرار مشاهده",
-      "metrics": {
-        "monthly_searches": 0.0,
-        "gsc_impressions": 0.0,
-        "gsc_clicks": 0.0,
-        "gsc_ctr": 0.0,
-        "gsc_position": 0.0,
-        "stack_views": 0.0,
-        "stack_questions": 0
-      },
-      "existing_page": {
-        "similarity": 0.2111111111111111,
-        "title": "گزارش فرصت‌های SEO — 2026-07-30",
-        "url": "https://optimizationexpert.github.io/seo_opportunity_output/seo_opportunity_report_2026-07-30.html",
-        "mentioned_in_body": true
-      },
-      "serp": {
-        "checked": false,
-        "exact_titles": 0,
-        "strong_domains": 0,
-        "user_domain_rank": 0,
-        "top_titles": []
-      },
-      "sources": [
-        "Google Search Autocomplete"
-      ],
-      "reason": "سیگنال در Google Search؛ تکرار مشاهده؛ رقابت SERP اندازه‌گیری نشده؛ فقط در متن سایت اشاره شده و صفحه متمرکز ندارد",
-      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
-      "observations": [
-        {
-          "source": "Google Search Autocomplete",
-          "query": "mixed integer programming python",
-          "family": "mixed integer programming پایتون",
-          "rank": 7,
-          "url": "",
-          "date": "2026-07-31",
-          "value": 0.0,
-          "note": "hop=1"
-        }
-      ]
-    },
-    {
-      "keyword": "mixed integer programming solver",
-      "cluster": "مدل‌سازی و تحقیق در عملیات",
-      "intent": "کدنویسی",
-      "funnel": "بررسی راه‌حل",
-      "suggested_title": "آموزش mixed integer programming solver با Python/Pyomo؛ از مدل تا کد",
-      "suggested_slug": "mixed-integer-programming-solver",
-      "coverage_action": "محتوای جدید",
-      "scores": {
-        "opportunity": 48.9,
-        "demand": 12.3,
-        "content_gap": 71.8,
-        "business_fit": 100.0,
-        "serp_competition": null
-      },
-      "confidence": "کم",
-      "trend": "تکرار مشاهده",
-      "metrics": {
-        "monthly_searches": 0.0,
-        "gsc_impressions": 0.0,
-        "gsc_clicks": 0.0,
-        "gsc_ctr": 0.0,
-        "gsc_position": 0.0,
-        "stack_views": 0.0,
-        "stack_questions": 0
-      },
-      "existing_page": {
-        "similarity": 0.21153562653562655,
-        "title": "گزارش فرصت‌های SEO — 2026-07-30",
-        "url": "https://optimizationexpert.github.io/seo_opportunity_output/seo_opportunity_report_2026-07-30.html",
-        "mentioned_in_body": true
-      },
-      "serp": {
-        "checked": false,
-        "exact_titles": 0,
-        "strong_domains": 0,
-        "user_domain_rank": 0,
-        "top_titles": []
-      },
-      "sources": [
-        "Bing Autocomplete"
-      ],
-      "reason": "سیگنال در Bing؛ تکرار مشاهده؛ رقابت SERP اندازه‌گیری نشده؛ فقط در متن سایت اشاره شده و صفحه متمرکز ندارد",
-      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
-      "observations": [
-        {
-          "source": "Bing Autocomplete",
-          "query": "mixed integer programming python",
-          "family": "mixed integer programming پایتون",
-          "rank": 7,
-          "url": "",
-          "date": "2026-07-31",
-          "value": 0.0,
-          "note": "hop=1"
-        }
-      ]
-    },
-    {
-      "keyword": "linear programming python github",
-      "cluster": "مدل‌سازی و تحقیق در عملیات",
-      "intent": "کدنویسی",
-      "funnel": "بررسی راه‌حل",
-      "suggested_title": "آموزش linear programming python github با Python/Pyomo؛ از مدل تا کد",
-      "suggested_slug": "linear-programming-python-github",
-      "coverage_action": "محتوای جدید",
-      "scores": {
-        "opportunity": 48.8,
-        "demand": 13.3,
-        "content_gap": 70.0,
-        "business_fit": 100.0,
-        "serp_competition": null
-      },
-      "confidence": "کم",
-      "trend": "تکرار مشاهده",
-      "metrics": {
-        "monthly_searches": 0.0,
-        "gsc_impressions": 0.0,
-        "gsc_clicks": 0.0,
-        "gsc_ctr": 0.0,
-        "gsc_position": 0.0,
-        "stack_views": 0.0,
-        "stack_questions": 0
-      },
-      "existing_page": {
-        "similarity": 0.30000000000000004,
-        "title": "اجرای روزانه بات SEO با GitHub Actions",
-        "url": "local://README_FA.md",
-        "mentioned_in_body": false
-      },
-      "serp": {
-        "checked": false,
-        "exact_titles": 0,
-        "strong_domains": 0,
-        "user_domain_rank": 0,
-        "top_titles": []
-      },
-      "sources": [
-        "Google Search Autocomplete"
-      ],
-      "reason": "سیگنال در Google Search؛ تکرار مشاهده؛ رقابت SERP اندازه‌گیری نشده؛ صفحه متمرکز مشابه پیدا نشد",
-      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
-      "observations": [
-        {
-          "source": "Google Search Autocomplete",
-          "query": "linear programming python",
-          "family": "linear programming پایتون",
-          "rank": 10,
-          "url": "",
-          "date": "2026-07-31",
-          "value": 0.0,
-          "note": "hop=1"
-        }
-      ]
-    },
-    {
-      "keyword": "mixed integer linear optimization",
-      "cluster": "مدل‌سازی و تحقیق در عملیات",
-      "intent": "کدنویسی",
-      "funnel": "بررسی راه‌حل",
-      "suggested_title": "آموزش mixed integer linear optimization با Python/Pyomo؛ از مدل تا کد",
-      "suggested_slug": "mixed-integer-linear-optimization",
-      "coverage_action": "محتوای جدید",
-      "scores": {
-        "opportunity": 45.9,
-        "demand": 10.5,
-        "content_gap": 65.3,
-        "business_fit": 100.0,
-        "serp_competition": null
-      },
-      "confidence": "کم",
-      "trend": "تکرار مشاهده",
-      "metrics": {
-        "monthly_searches": 0.0,
-        "gsc_impressions": 0.0,
-        "gsc_clicks": 0.0,
-        "gsc_ctr": 0.0,
-        "gsc_position": 0.0,
-        "stack_views": 0.0,
-        "stack_questions": 0
-      },
-      "existing_page": {
-        "similarity": 0.2773529411764706,
-        "title": "دوره مدل‌سازی عدم قطعیت | Stochastic، Robust، Fuzzy و IGDT",
-        "url": "https://optimizationexpert.github.io/posts/2026/06/23/uncertainty-modeling-course/",
-        "mentioned_in_body": true
-      },
-      "serp": {
-        "checked": false,
-        "exact_titles": 0,
-        "strong_domains": 0,
-        "user_domain_rank": 0,
-        "top_titles": []
-      },
-      "sources": [
-        "Bing Autocomplete"
-      ],
-      "reason": "سیگنال در Bing؛ تکرار مشاهده؛ رقابت SERP اندازه‌گیری نشده؛ فقط در متن سایت اشاره شده و صفحه متمرکز ندارد",
-      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
-      "observations": [
-        {
-          "source": "Bing Autocomplete",
-          "query": "mixed integer linear programming python error",
-          "family": "mixed integer linear programming پایتون",
-          "rank": 12,
-          "url": "",
-          "date": "2026-07-31",
-          "value": 0.0,
-          "note": "hop=2"
-        }
-      ]
-    },
-    {
-      "keyword": "linear programming python pulp",
-      "cluster": "مدل‌سازی و تحقیق در عملیات",
-      "intent": "کدنویسی",
-      "funnel": "بررسی راه‌حل",
-      "suggested_title": "آموزش linear programming python pulp با Python/Pyomo؛ از مدل تا کد",
-      "suggested_slug": "linear-programming-python-pulp",
-      "coverage_action": "محتوای جدید",
-      "scores": {
-        "opportunity": 45.6,
-        "demand": 31.4,
-        "content_gap": 89.3,
-        "business_fit": 100.0,
-        "serp_competition": null
-      },
-      "confidence": "متوسط",
-      "trend": "تکرار مشاهده",
-      "metrics": {
-        "monthly_searches": 0.0,
-        "gsc_impressions": 0.0,
-        "gsc_clicks": 0.0,
-        "gsc_ctr": 0.0,
-        "gsc_position": 0.0,
-        "stack_views": 0.0,
-        "stack_questions": 0
-      },
-      "existing_page": {
-        "similarity": 0.10714285714285714,
-        "title": "گزارش فرصت‌های SEO — 2026-07-30",
-        "url": "https://optimizationexpert.github.io/seo_opportunity_output/seo_opportunity_report_2026-07-30.html",
-        "mentioned_in_body": false
-      },
-      "serp": {
-        "checked": false,
-        "exact_titles": 0,
-        "strong_domains": 0,
-        "user_domain_rank": 0,
-        "top_titles": []
-      },
-      "sources": [
-        "Google Search Autocomplete",
-        "YouTube Autocomplete"
-      ],
-      "reason": "سیگنال در Google Search، YouTube؛ تکرار مشاهده؛ رقابت SERP اندازه‌گیری نشده؛ صفحه متمرکز مشابه پیدا نشد",
-      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
-      "observations": [
-        {
-          "source": "Google Search Autocomplete",
-          "query": "linear programming python",
-          "family": "linear programming پایتون",
-          "rank": 6,
-          "url": "",
-          "date": "2026-07-31",
-          "value": 0.0,
-          "note": "hop=1"
-        },
-        {
-          "source": "YouTube Autocomplete",
-          "query": "linear programming python",
-          "family": "linear programming پایتون",
-          "rank": 2,
-          "url": "",
-          "date": "2026-07-31",
-          "value": 0.0,
-          "note": "hop=1"
-        }
-      ]
-    },
-    {
-      "keyword": "linear programming python library",
-      "cluster": "مدل‌سازی و تحقیق در عملیات",
-      "intent": "کدنویسی",
-      "funnel": "بررسی راه‌حل",
-      "suggested_title": "آموزش linear programming python library با Python/Pyomo؛ از مدل تا کد",
-      "suggested_slug": "linear-programming-python-library",
-      "coverage_action": "محتوای جدید",
-      "scores": {
-        "opportunity": 44.1,
-        "demand": 32.5,
-        "content_gap": 82.7,
-        "business_fit": 100.0,
-        "serp_competition": null
-      },
-      "confidence": "متوسط",
-      "trend": "تکرار مشاهده",
-      "metrics": {
-        "monthly_searches": 0.0,
-        "gsc_impressions": 0.0,
-        "gsc_clicks": 0.0,
-        "gsc_ctr": 0.0,
-        "gsc_position": 0.0,
-        "stack_views": 0.0,
-        "stack_questions": 0
-      },
-      "existing_page": {
-        "similarity": 0.10344827586206896,
-        "title": "گزارش فرصت‌های SEO — 2026-07-30",
-        "url": "https://optimizationexpert.github.io/seo_opportunity_output/seo_opportunity_report_2026-07-30.html",
-        "mentioned_in_body": true
-      },
-      "serp": {
-        "checked": false,
-        "exact_titles": 0,
-        "strong_domains": 0,
-        "user_domain_rank": 0,
-        "top_titles": []
-      },
-      "sources": [
-        "Bing Autocomplete",
-        "Google Search Autocomplete"
-      ],
-      "reason": "سیگنال در Google Search، Bing؛ تکرار مشاهده؛ رقابت SERP اندازه‌گیری نشده؛ فقط در متن سایت اشاره شده و صفحه متمرکز ندارد",
-      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
-      "observations": [
-        {
-          "source": "Google Search Autocomplete",
-          "query": "linear programming python",
-          "family": "linear programming پایتون",
-          "rank": 2,
-          "url": "",
-          "date": "2026-07-31",
-          "value": 0.0,
-          "note": "hop=1"
-        },
-        {
-          "source": "Bing Autocomplete",
-          "query": "linear programming python",
-          "family": "linear programming پایتون",
-          "rank": 3,
-          "url": "",
-          "date": "2026-07-31",
-          "value": 0.0,
-          "note": "hop=1"
-        }
-      ]
-    },
-    {
-      "keyword": "mixed integer quadratic programming python",
-      "cluster": "مدل‌سازی و تحقیق در عملیات",
-      "intent": "کدنویسی",
-      "funnel": "بررسی راه‌حل",
-      "suggested_title": "آموزش mixed integer quadratic programming python با Python/Pyomo؛ از مدل تا کد",
-      "suggested_slug": "mixed-integer-quadratic-programming-python",
-      "coverage_action": "محتوای جدید",
-      "scores": {
-        "opportunity": 43.8,
-        "demand": 31.2,
-        "content_gap": 83.8,
-        "business_fit": 100.0,
-        "serp_competition": null
-      },
-      "confidence": "متوسط",
-      "trend": "تکرار مشاهده",
-      "metrics": {
-        "monthly_searches": 0.0,
-        "gsc_impressions": 0.0,
-        "gsc_clicks": 0.0,
-        "gsc_ctr": 0.0,
-        "gsc_position": 0.0,
-        "stack_views": 0.0,
-        "stack_questions": 0
-      },
-      "existing_page": {
-        "similarity": 0.09230769230769231,
-        "title": "Solver خوب بدون رنگ برای Pyomo؟ سه راهکار عملی",
-        "url": "local://_posts/2026-06-19-pyomosolvers.md",
-        "mentioned_in_body": true
-      },
-      "serp": {
-        "checked": false,
-        "exact_titles": 0,
-        "strong_domains": 0,
-        "user_domain_rank": 0,
-        "top_titles": []
-      },
-      "sources": [
-        "Bing Autocomplete",
-        "Google Search Autocomplete"
-      ],
-      "reason": "سیگنال در Google Search، Bing؛ تکرار مشاهده؛ رقابت SERP اندازه‌گیری نشده؛ فقط در متن سایت اشاره شده و صفحه متمرکز ندارد",
-      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
-      "observations": [
-        {
-          "source": "Google Search Autocomplete",
-          "query": "mixed integer programming python",
-          "family": "mixed integer programming پایتون",
-          "rank": 4,
-          "url": "",
-          "date": "2026-07-31",
-          "value": 0.0,
-          "note": "hop=1"
-        },
-        {
-          "source": "Bing Autocomplete",
-          "query": "mixed integer programming python",
-          "family": "mixed integer programming پایتون",
-          "rank": 3,
-          "url": "",
-          "date": "2026-07-31",
-          "value": 0.0,
-          "note": "hop=1"
-        }
-      ]
-    },
     {
       "keyword": "برنامه ریزی خطی",
       "cluster": "مدل‌سازی و تحقیق در عملیات",
@@ -833,435 +90,6 @@
       ]
     },
     {
-      "keyword": "mixed integer nonlinear programming python",
-      "cluster": "مدل‌سازی و تحقیق در عملیات",
-      "intent": "کدنویسی",
-      "funnel": "بررسی راه‌حل",
-      "suggested_title": "آموزش mixed integer nonlinear programming python با Python/Pyomo؛ از مدل تا کد",
-      "suggested_slug": "mixed-integer-nonlinear-programming-python",
-      "coverage_action": "محتوای جدید",
-      "scores": {
-        "opportunity": 39.5,
-        "demand": 17.7,
-        "content_gap": 90.6,
-        "business_fit": 100.0,
-        "serp_competition": null
-      },
-      "confidence": "کم",
-      "trend": "تکرار مشاهده",
-      "metrics": {
-        "monthly_searches": 0.0,
-        "gsc_impressions": 0.0,
-        "gsc_clicks": 0.0,
-        "gsc_ctr": 0.0,
-        "gsc_position": 0.0,
-        "stack_views": 0.0,
-        "stack_questions": 0
-      },
-      "existing_page": {
-        "similarity": 0.09421487603305785,
-        "title": "گزارش فرصت‌های SEO — 2026-07-30",
-        "url": "https://optimizationexpert.github.io/seo_opportunity_output/seo_opportunity_report_2026-07-30.html",
-        "mentioned_in_body": false
-      },
-      "serp": {
-        "checked": false,
-        "exact_titles": 0,
-        "strong_domains": 0,
-        "user_domain_rank": 0,
-        "top_titles": []
-      },
-      "sources": [
-        "Google Search Autocomplete"
-      ],
-      "reason": "سیگنال در Google Search؛ تکرار مشاهده؛ رقابت SERP اندازه‌گیری نشده؛ صفحه متمرکز مشابه پیدا نشد",
-      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
-      "observations": [
-        {
-          "source": "Google Search Autocomplete",
-          "query": "mixed integer programming python",
-          "family": "mixed integer programming پایتون",
-          "rank": 3,
-          "url": "",
-          "date": "2026-07-31",
-          "value": 0.0,
-          "note": "hop=1"
-        }
-      ]
-    },
-    {
-      "keyword": "linear programming python pdf",
-      "cluster": "مدل‌سازی و تحقیق در عملیات",
-      "intent": "کدنویسی",
-      "funnel": "بررسی راه‌حل",
-      "suggested_title": "آموزش linear programming python pdf با Python/Pyomo؛ از مدل تا کد",
-      "suggested_slug": "linear-programming-python-pdf",
-      "coverage_action": "محتوای جدید",
-      "scores": {
-        "opportunity": 38.8,
-        "demand": 17.1,
-        "content_gap": 89.2,
-        "business_fit": 100.0,
-        "serp_competition": null
-      },
-      "confidence": "کم",
-      "trend": "تکرار مشاهده",
-      "metrics": {
-        "monthly_searches": 0.0,
-        "gsc_impressions": 0.0,
-        "gsc_clicks": 0.0,
-        "gsc_ctr": 0.0,
-        "gsc_position": 0.0,
-        "stack_views": 0.0,
-        "stack_questions": 0
-      },
-      "existing_page": {
-        "similarity": 0.10843373493975904,
-        "title": "گزارش فرصت‌های SEO — 2026-07-30",
-        "url": "https://optimizationexpert.github.io/seo_opportunity_output/seo_opportunity_report_2026-07-30.html",
-        "mentioned_in_body": false
-      },
-      "serp": {
-        "checked": false,
-        "exact_titles": 0,
-        "strong_domains": 0,
-        "user_domain_rank": 0,
-        "top_titles": []
-      },
-      "sources": [
-        "Google Search Autocomplete"
-      ],
-      "reason": "سیگنال در Google Search؛ تکرار مشاهده؛ رقابت SERP اندازه‌گیری نشده؛ صفحه متمرکز مشابه پیدا نشد",
-      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
-      "observations": [
-        {
-          "source": "Google Search Autocomplete",
-          "query": "linear programming python",
-          "family": "linear programming پایتون",
-          "rank": 4,
-          "url": "",
-          "date": "2026-07-31",
-          "value": 0.0,
-          "note": "hop=1"
-        }
-      ]
-    },
-    {
-      "keyword": "mixed integer nonlinear programming",
-      "cluster": "مدل‌سازی و تحقیق در عملیات",
-      "intent": "کدنویسی",
-      "funnel": "بررسی راه‌حل",
-      "suggested_title": "آموزش mixed integer nonlinear programming با Python/Pyomo؛ از مدل تا کد",
-      "suggested_slug": "mixed-integer-nonlinear-programming",
-      "coverage_action": "محتوای جدید",
-      "scores": {
-        "opportunity": 38.6,
-        "demand": 14.8,
-        "content_gap": 92.1,
-        "business_fit": 100.0,
-        "serp_competition": null
-      },
-      "confidence": "کم",
-      "trend": "تکرار مشاهده",
-      "metrics": {
-        "monthly_searches": 0.0,
-        "gsc_impressions": 0.0,
-        "gsc_clicks": 0.0,
-        "gsc_ctr": 0.0,
-        "gsc_position": 0.0,
-        "stack_views": 0.0,
-        "stack_questions": 0
-      },
-      "existing_page": {
-        "similarity": 0.07894736842105263,
-        "title": "گزارش فرصت‌های SEO — 2026-07-30",
-        "url": "https://optimizationexpert.github.io/seo_opportunity_output/seo_opportunity_report_2026-07-30.html",
-        "mentioned_in_body": false
-      },
-      "serp": {
-        "checked": false,
-        "exact_titles": 0,
-        "strong_domains": 0,
-        "user_domain_rank": 0,
-        "top_titles": []
-      },
-      "sources": [
-        "Bing Autocomplete"
-      ],
-      "reason": "سیگنال در Bing؛ تکرار مشاهده؛ رقابت SERP اندازه‌گیری نشده؛ صفحه متمرکز مشابه پیدا نشد",
-      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
-      "observations": [
-        {
-          "source": "Bing Autocomplete",
-          "query": "mixed integer programming python",
-          "family": "mixed integer programming پایتون",
-          "rank": 10,
-          "url": "",
-          "date": "2026-07-31",
-          "value": 0.0,
-          "note": "hop=1"
-        },
-        {
-          "source": "Bing Autocomplete",
-          "query": "mixed integer linear programming python error",
-          "family": "mixed integer linear programming پایتون",
-          "rank": 6,
-          "url": "",
-          "date": "2026-07-31",
-          "value": 0.0,
-          "note": "hop=2"
-        }
-      ]
-    },
-    {
-      "keyword": "mixed integer linear programming python library",
-      "cluster": "مدل‌سازی و تحقیق در عملیات",
-      "intent": "کدنویسی",
-      "funnel": "بررسی راه‌حل",
-      "suggested_title": "آموزش mixed integer linear programming python library با Python/Pyomo؛ از مدل تا کد",
-      "suggested_slug": "mixed-integer-linear-programming-python-library",
-      "coverage_action": "محتوای جدید",
-      "scores": {
-        "opportunity": 38.5,
-        "demand": 20.4,
-        "content_gap": 83.6,
-        "business_fit": 100.0,
-        "serp_competition": null
-      },
-      "confidence": "کم",
-      "trend": "تکرار مشاهده",
-      "metrics": {
-        "monthly_searches": 0.0,
-        "gsc_impressions": 0.0,
-        "gsc_clicks": 0.0,
-        "gsc_ctr": 0.0,
-        "gsc_position": 0.0,
-        "stack_views": 0.0,
-        "stack_questions": 0
-      },
-      "existing_page": {
-        "similarity": 0.09397590361445783,
-        "title": "Solver خوب بدون رنگ برای Pyomo؟ سه راهکار عملی",
-        "url": "local://_posts/2026-06-19-pyomosolvers.md",
-        "mentioned_in_body": true
-      },
-      "serp": {
-        "checked": false,
-        "exact_titles": 0,
-        "strong_domains": 0,
-        "user_domain_rank": 0,
-        "top_titles": []
-      },
-      "sources": [
-        "Google Search Autocomplete"
-      ],
-      "reason": "سیگنال در Google Search؛ تکرار مشاهده؛ رقابت SERP اندازه‌گیری نشده؛ فقط در متن سایت اشاره شده و صفحه متمرکز ندارد",
-      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
-      "observations": [
-        {
-          "source": "Google Search Autocomplete",
-          "query": "mixed integer programming python",
-          "family": "mixed integer programming پایتون",
-          "rank": 5,
-          "url": "",
-          "date": "2026-07-31",
-          "value": 0.0,
-          "note": "hop=1"
-        },
-        {
-          "source": "Google Search Autocomplete",
-          "query": "how to mixed integer linear programming python",
-          "family": "mixed integer linear programming پایتون",
-          "rank": 2,
-          "url": "",
-          "date": "2026-07-31",
-          "value": 0.0,
-          "note": "hop=2"
-        }
-      ]
-    },
-    {
-      "keyword": "mixed integer linear programming python example",
-      "cluster": "مدل‌سازی و تحقیق در عملیات",
-      "intent": "کدنویسی",
-      "funnel": "بررسی راه‌حل",
-      "suggested_title": "آموزش mixed integer linear programming python example با Python/Pyomo؛ از مدل تا کد",
-      "suggested_slug": "mixed-integer-linear-programming-python-example",
-      "coverage_action": "محتوای جدید",
-      "scores": {
-        "opportunity": 38.2,
-        "demand": 19.7,
-        "content_gap": 83.6,
-        "business_fit": 100.0,
-        "serp_competition": null
-      },
-      "confidence": "کم",
-      "trend": "تکرار مشاهده",
-      "metrics": {
-        "monthly_searches": 0.0,
-        "gsc_impressions": 0.0,
-        "gsc_clicks": 0.0,
-        "gsc_ctr": 0.0,
-        "gsc_position": 0.0,
-        "stack_views": 0.0,
-        "stack_questions": 0
-      },
-      "existing_page": {
-        "similarity": 0.09397590361445783,
-        "title": "Solver خوب بدون رنگ برای Pyomo؟ سه راهکار عملی",
-        "url": "local://_posts/2026-06-19-pyomosolvers.md",
-        "mentioned_in_body": true
-      },
-      "serp": {
-        "checked": false,
-        "exact_titles": 0,
-        "strong_domains": 0,
-        "user_domain_rank": 0,
-        "top_titles": []
-      },
-      "sources": [
-        "Google Search Autocomplete"
-      ],
-      "reason": "سیگنال در Google Search؛ تکرار مشاهده؛ رقابت SERP اندازه‌گیری نشده؛ فقط در متن سایت اشاره شده و صفحه متمرکز ندارد",
-      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
-      "observations": [
-        {
-          "source": "Google Search Autocomplete",
-          "query": "mixed integer programming python",
-          "family": "mixed integer programming پایتون",
-          "rank": 6,
-          "url": "",
-          "date": "2026-07-31",
-          "value": 0.0,
-          "note": "hop=1"
-        },
-        {
-          "source": "Google Search Autocomplete",
-          "query": "how to mixed integer linear programming python",
-          "family": "mixed integer linear programming پایتون",
-          "rank": 3,
-          "url": "",
-          "date": "2026-07-31",
-          "value": 0.0,
-          "note": "hop=2"
-        }
-      ]
-    },
-    {
-      "keyword": "linear programming python package",
-      "cluster": "مدل‌سازی و تحقیق در عملیات",
-      "intent": "کدنویسی",
-      "funnel": "بررسی راه‌حل",
-      "suggested_title": "آموزش linear programming python package با Python/Pyomo؛ از مدل تا کد",
-      "suggested_slug": "linear-programming-python-package",
-      "coverage_action": "محتوای جدید",
-      "scores": {
-        "opportunity": 38.0,
-        "demand": 15.2,
-        "content_gap": 89.7,
-        "business_fit": 100.0,
-        "serp_competition": null
-      },
-      "confidence": "کم",
-      "trend": "تکرار مشاهده",
-      "metrics": {
-        "monthly_searches": 0.0,
-        "gsc_impressions": 0.0,
-        "gsc_clicks": 0.0,
-        "gsc_ctr": 0.0,
-        "gsc_position": 0.0,
-        "stack_views": 0.0,
-        "stack_questions": 0
-      },
-      "existing_page": {
-        "similarity": 0.10344827586206896,
-        "title": "گزارش فرصت‌های SEO — 2026-07-30",
-        "url": "https://optimizationexpert.github.io/seo_opportunity_output/seo_opportunity_report_2026-07-30.html",
-        "mentioned_in_body": false
-      },
-      "serp": {
-        "checked": false,
-        "exact_titles": 0,
-        "strong_domains": 0,
-        "user_domain_rank": 0,
-        "top_titles": []
-      },
-      "sources": [
-        "Google Search Autocomplete"
-      ],
-      "reason": "سیگنال در Google Search؛ تکرار مشاهده؛ رقابت SERP اندازه‌گیری نشده؛ صفحه متمرکز مشابه پیدا نشد",
-      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
-      "observations": [
-        {
-          "source": "Google Search Autocomplete",
-          "query": "linear programming python",
-          "family": "linear programming پایتون",
-          "rank": 7,
-          "url": "",
-          "date": "2026-07-31",
-          "value": 0.0,
-          "note": "hop=1"
-        }
-      ]
-    },
-    {
-      "keyword": "linear programming using python",
-      "cluster": "مدل‌سازی و تحقیق در عملیات",
-      "intent": "کدنویسی",
-      "funnel": "بررسی راه‌حل",
-      "suggested_title": "آموزش linear programming using python با Python/Pyomo؛ از مدل تا کد",
-      "suggested_slug": "linear-programming-using-python",
-      "coverage_action": "محتوای جدید",
-      "scores": {
-        "opportunity": 37.8,
-        "demand": 15.0,
-        "content_gap": 89.4,
-        "business_fit": 100.0,
-        "serp_competition": null
-      },
-      "confidence": "کم",
-      "trend": "تکرار مشاهده",
-      "metrics": {
-        "monthly_searches": 0.0,
-        "gsc_impressions": 0.0,
-        "gsc_clicks": 0.0,
-        "gsc_ctr": 0.0,
-        "gsc_position": 0.0,
-        "stack_views": 0.0,
-        "stack_questions": 0
-      },
-      "existing_page": {
-        "similarity": 0.10588235294117647,
-        "title": "گزارش فرصت‌های SEO — 2026-07-30",
-        "url": "https://optimizationexpert.github.io/seo_opportunity_output/seo_opportunity_report_2026-07-30.html",
-        "mentioned_in_body": false
-      },
-      "serp": {
-        "checked": false,
-        "exact_titles": 0,
-        "strong_domains": 0,
-        "user_domain_rank": 0,
-        "top_titles": []
-      },
-      "sources": [
-        "YouTube Autocomplete"
-      ],
-      "reason": "سیگنال در YouTube؛ تکرار مشاهده؛ رقابت SERP اندازه‌گیری نشده؛ صفحه متمرکز مشابه پیدا نشد",
-      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
-      "observations": [
-        {
-          "source": "YouTube Autocomplete",
-          "query": "linear programming python",
-          "family": "linear programming پایتون",
-          "rank": 3,
-          "url": "",
-          "date": "2026-07-31",
-          "value": 0.0,
-          "note": "hop=1"
-        }
-      ]
-    },
-    {
       "keyword": "مکان یابی شماره تلفن همراه",
       "cluster": "زنجیره تأمین و لجستیک",
       "intent": "کدنویسی",
@@ -1311,120 +139,6 @@
           "query": "مکان یابی تسهیلات در پایتون",
           "family": "مکان یابی تسهیلات در پایتون",
           "rank": 1,
-          "url": "",
-          "date": "2026-07-31",
-          "value": 0.0,
-          "note": "hop=1"
-        }
-      ]
-    },
-    {
-      "keyword": "linear programming python book",
-      "cluster": "مدل‌سازی و تحقیق در عملیات",
-      "intent": "کدنویسی",
-      "funnel": "بررسی راه‌حل",
-      "suggested_title": "آموزش linear programming python book با Python/Pyomo؛ از مدل تا کد",
-      "suggested_slug": "linear-programming-python-book",
-      "coverage_action": "محتوای جدید",
-      "scores": {
-        "opportunity": 37.6,
-        "demand": 14.6,
-        "content_gap": 89.3,
-        "business_fit": 100.0,
-        "serp_competition": null
-      },
-      "confidence": "کم",
-      "trend": "تکرار مشاهده",
-      "metrics": {
-        "monthly_searches": 0.0,
-        "gsc_impressions": 0.0,
-        "gsc_clicks": 0.0,
-        "gsc_ctr": 0.0,
-        "gsc_position": 0.0,
-        "stack_views": 0.0,
-        "stack_questions": 0
-      },
-      "existing_page": {
-        "similarity": 0.10714285714285714,
-        "title": "گزارش فرصت‌های SEO — 2026-07-30",
-        "url": "https://optimizationexpert.github.io/seo_opportunity_output/seo_opportunity_report_2026-07-30.html",
-        "mentioned_in_body": false
-      },
-      "serp": {
-        "checked": false,
-        "exact_titles": 0,
-        "strong_domains": 0,
-        "user_domain_rank": 0,
-        "top_titles": []
-      },
-      "sources": [
-        "Google Search Autocomplete"
-      ],
-      "reason": "سیگنال در Google Search؛ تکرار مشاهده؛ رقابت SERP اندازه‌گیری نشده؛ صفحه متمرکز مشابه پیدا نشد",
-      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
-      "observations": [
-        {
-          "source": "Google Search Autocomplete",
-          "query": "linear programming python",
-          "family": "linear programming پایتون",
-          "rank": 8,
-          "url": "",
-          "date": "2026-07-31",
-          "value": 0.0,
-          "note": "hop=1"
-        }
-      ]
-    },
-    {
-      "keyword": "linear programming in python using pulp",
-      "cluster": "مدل‌سازی و تحقیق در عملیات",
-      "intent": "کدنویسی",
-      "funnel": "بررسی راه‌حل",
-      "suggested_title": "آموزش linear programming in python using pulp با Python/Pyomo؛ از مدل تا کد",
-      "suggested_slug": "linear-programming-in-python-using-pulp",
-      "coverage_action": "محتوای جدید",
-      "scores": {
-        "opportunity": 37.4,
-        "demand": 14.5,
-        "content_gap": 89.0,
-        "business_fit": 100.0,
-        "serp_competition": null
-      },
-      "confidence": "کم",
-      "trend": "تکرار مشاهده",
-      "metrics": {
-        "monthly_searches": 0.0,
-        "gsc_impressions": 0.0,
-        "gsc_clicks": 0.0,
-        "gsc_ctr": 0.0,
-        "gsc_position": 0.0,
-        "stack_views": 0.0,
-        "stack_questions": 0
-      },
-      "existing_page": {
-        "similarity": 0.10967741935483871,
-        "title": "گزارش فرصت‌های SEO — 2026-07-30",
-        "url": "https://optimizationexpert.github.io/seo_opportunity_output/seo_opportunity_report_2026-07-30.html",
-        "mentioned_in_body": false
-      },
-      "serp": {
-        "checked": false,
-        "exact_titles": 0,
-        "strong_domains": 0,
-        "user_domain_rank": 0,
-        "top_titles": []
-      },
-      "sources": [
-        "YouTube Autocomplete"
-      ],
-      "reason": "سیگنال در YouTube؛ تکرار مشاهده؛ رقابت SERP اندازه‌گیری نشده؛ صفحه متمرکز مشابه پیدا نشد",
-      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
-      "observations": [
-        {
-          "source": "YouTube Autocomplete",
-          "query": "linear programming python",
-          "family": "linear programming پایتون",
-          "rank": 4,
           "url": "",
           "date": "2026-07-31",
           "value": 0.0,
@@ -1540,311 +254,6 @@
       ]
     },
     {
-      "keyword": "linear programming python scipy",
-      "cluster": "مدل‌سازی و تحقیق در عملیات",
-      "intent": "کدنویسی",
-      "funnel": "بررسی راه‌حل",
-      "suggested_title": "آموزش linear programming python scipy با Python/Pyomo؛ از مدل تا کد",
-      "suggested_slug": "linear-programming-python-scipy",
-      "coverage_action": "محتوای جدید",
-      "scores": {
-        "opportunity": 37.1,
-        "demand": 14.0,
-        "content_gap": 88.7,
-        "business_fit": 100.0,
-        "serp_competition": null
-      },
-      "confidence": "کم",
-      "trend": "تکرار مشاهده",
-      "metrics": {
-        "monthly_searches": 0.0,
-        "gsc_impressions": 0.0,
-        "gsc_clicks": 0.0,
-        "gsc_ctr": 0.0,
-        "gsc_position": 0.0,
-        "stack_views": 0.0,
-        "stack_questions": 0
-      },
-      "existing_page": {
-        "similarity": 0.11294117647058823,
-        "title": "گزارش فرصت‌های SEO — 2026-07-30",
-        "url": "https://optimizationexpert.github.io/seo_opportunity_output/seo_opportunity_report_2026-07-30.html",
-        "mentioned_in_body": false
-      },
-      "serp": {
-        "checked": false,
-        "exact_titles": 0,
-        "strong_domains": 0,
-        "user_domain_rank": 0,
-        "top_titles": []
-      },
-      "sources": [
-        "Google Search Autocomplete"
-      ],
-      "reason": "سیگنال در Google Search؛ تکرار مشاهده؛ رقابت SERP اندازه‌گیری نشده؛ صفحه متمرکز مشابه پیدا نشد",
-      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
-      "observations": [
-        {
-          "source": "Google Search Autocomplete",
-          "query": "linear programming python",
-          "family": "linear programming پایتون",
-          "rank": 9,
-          "url": "",
-          "date": "2026-07-31",
-          "value": 0.0,
-          "note": "hop=1"
-        }
-      ]
-    },
-    {
-      "keyword": "mixed integer linear programming pdf",
-      "cluster": "مدل‌سازی و تحقیق در عملیات",
-      "intent": "کدنویسی",
-      "funnel": "بررسی راه‌حل",
-      "suggested_title": "آموزش mixed integer linear programming pdf با Python/Pyomo؛ از مدل تا کد",
-      "suggested_slug": "mixed-integer-linear-programming-pdf",
-      "coverage_action": "محتوای جدید",
-      "scores": {
-        "opportunity": 36.6,
-        "demand": 15.7,
-        "content_gap": 84.7,
-        "business_fit": 100.0,
-        "serp_competition": null
-      },
-      "confidence": "کم",
-      "trend": "تکرار مشاهده",
-      "metrics": {
-        "monthly_searches": 0.0,
-        "gsc_impressions": 0.0,
-        "gsc_clicks": 0.0,
-        "gsc_ctr": 0.0,
-        "gsc_position": 0.0,
-        "stack_views": 0.0,
-        "stack_questions": 0
-      },
-      "existing_page": {
-        "similarity": 0.08333333333333333,
-        "title": "Solver خوب بدون رنگ برای Pyomo؟ سه راهکار عملی",
-        "url": "local://_posts/2026-06-19-pyomosolvers.md",
-        "mentioned_in_body": true
-      },
-      "serp": {
-        "checked": false,
-        "exact_titles": 0,
-        "strong_domains": 0,
-        "user_domain_rank": 0,
-        "top_titles": []
-      },
-      "sources": [
-        "Bing Autocomplete"
-      ],
-      "reason": "سیگنال در Bing؛ تکرار مشاهده؛ رقابت SERP اندازه‌گیری نشده؛ فقط در متن سایت اشاره شده و صفحه متمرکز ندارد",
-      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
-      "observations": [
-        {
-          "source": "Bing Autocomplete",
-          "query": "mixed integer programming python",
-          "family": "mixed integer programming پایتون",
-          "rank": 12,
-          "url": "",
-          "date": "2026-07-31",
-          "value": 0.0,
-          "note": "hop=1"
-        },
-        {
-          "source": "Bing Autocomplete",
-          "query": "mixed integer linear programming python error",
-          "family": "mixed integer linear programming پایتون",
-          "rank": 4,
-          "url": "",
-          "date": "2026-07-31",
-          "value": 0.0,
-          "note": "hop=2"
-        }
-      ]
-    },
-    {
-      "keyword": "linear programming python example",
-      "cluster": "مدل‌سازی و تحقیق در عملیات",
-      "intent": "کدنویسی",
-      "funnel": "بررسی راه‌حل",
-      "suggested_title": "آموزش linear programming python example با Python/Pyomo؛ از مدل تا کد",
-      "suggested_slug": "linear-programming-python-example",
-      "coverage_action": "محتوای جدید",
-      "scores": {
-        "opportunity": 36.4,
-        "demand": 16.5,
-        "content_gap": 82.7,
-        "business_fit": 100.0,
-        "serp_competition": null
-      },
-      "confidence": "کم",
-      "trend": "تکرار مشاهده",
-      "metrics": {
-        "monthly_searches": 0.0,
-        "gsc_impressions": 0.0,
-        "gsc_clicks": 0.0,
-        "gsc_ctr": 0.0,
-        "gsc_position": 0.0,
-        "stack_views": 0.0,
-        "stack_questions": 0
-      },
-      "existing_page": {
-        "similarity": 0.10344827586206896,
-        "title": "گزارش فرصت‌های SEO — 2026-07-30",
-        "url": "https://optimizationexpert.github.io/seo_opportunity_output/seo_opportunity_report_2026-07-30.html",
-        "mentioned_in_body": true
-      },
-      "serp": {
-        "checked": false,
-        "exact_titles": 0,
-        "strong_domains": 0,
-        "user_domain_rank": 0,
-        "top_titles": []
-      },
-      "sources": [
-        "Google Search Autocomplete"
-      ],
-      "reason": "سیگنال در Google Search؛ تکرار مشاهده؛ رقابت SERP اندازه‌گیری نشده؛ فقط در متن سایت اشاره شده و صفحه متمرکز ندارد",
-      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
-      "observations": [
-        {
-          "source": "Google Search Autocomplete",
-          "query": "linear programming python",
-          "family": "linear programming پایتون",
-          "rank": 5,
-          "url": "",
-          "date": "2026-07-31",
-          "value": 0.0,
-          "note": "hop=1"
-        }
-      ]
-    },
-    {
-      "keyword": "mixed integer linear programming milp python",
-      "cluster": "مدل‌سازی و تحقیق در عملیات",
-      "intent": "کدنویسی",
-      "funnel": "بررسی راه‌حل",
-      "suggested_title": "آموزش mixed integer linear programming milp python با Python/Pyomo؛ از مدل تا کد",
-      "suggested_slug": "mixed-integer-linear-programming-milp-python",
-      "coverage_action": "محتوای جدید",
-      "scores": {
-        "opportunity": 35.3,
-        "demand": 14.0,
-        "content_gap": 83.2,
-        "business_fit": 100.0,
-        "serp_competition": null
-      },
-      "confidence": "کم",
-      "trend": "تکرار مشاهده",
-      "metrics": {
-        "monthly_searches": 0.0,
-        "gsc_impressions": 0.0,
-        "gsc_clicks": 0.0,
-        "gsc_ctr": 0.0,
-        "gsc_position": 0.0,
-        "stack_views": 0.0,
-        "stack_questions": 0
-      },
-      "existing_page": {
-        "similarity": 0.0975,
-        "title": "Solver خوب بدون رنگ برای Pyomo؟ سه راهکار عملی",
-        "url": "local://_posts/2026-06-19-pyomosolvers.md",
-        "mentioned_in_body": true
-      },
-      "serp": {
-        "checked": false,
-        "exact_titles": 0,
-        "strong_domains": 0,
-        "user_domain_rank": 0,
-        "top_titles": []
-      },
-      "sources": [
-        "Google Search Autocomplete"
-      ],
-      "reason": "سیگنال در Google Search؛ تکرار مشاهده؛ رقابت SERP اندازه‌گیری نشده؛ فقط در متن سایت اشاره شده و صفحه متمرکز ندارد",
-      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
-      "observations": [
-        {
-          "source": "Google Search Autocomplete",
-          "query": "mixed integer programming python",
-          "family": "mixed integer programming پایتون",
-          "rank": 9,
-          "url": "",
-          "date": "2026-07-31",
-          "value": 0.0,
-          "note": "hop=1"
-        }
-      ]
-    },
-    {
-      "keyword": "mixed integer nonlinear problem solver python",
-      "cluster": "Pyomo و Solverها",
-      "intent": "کدنویسی",
-      "funnel": "بررسی راه‌حل",
-      "suggested_title": "آموزش mixed integer nonlinear problem solver python با Python/Pyomo؛ از مدل تا کد",
-      "suggested_slug": "mixed-integer-nonlinear-problem-solver-python",
-      "coverage_action": "محتوای جدید",
-      "scores": {
-        "opportunity": 35.2,
-        "demand": 16.6,
-        "content_gap": 78.8,
-        "business_fit": 100.0,
-        "serp_competition": null
-      },
-      "confidence": "کم",
-      "trend": "تکرار مشاهده",
-      "metrics": {
-        "monthly_searches": 0.0,
-        "gsc_impressions": 0.0,
-        "gsc_clicks": 0.0,
-        "gsc_ctr": 0.0,
-        "gsc_position": 0.0,
-        "stack_views": 0.0,
-        "stack_questions": 0
-      },
-      "existing_page": {
-        "similarity": 0.21208080808080806,
-        "title": "گزارش فرصت‌های SEO — 2026-07-30",
-        "url": "https://optimizationexpert.github.io/seo_opportunity_output/seo_opportunity_report_2026-07-30.html",
-        "mentioned_in_body": false
-      },
-      "serp": {
-        "checked": false,
-        "exact_titles": 0,
-        "strong_domains": 0,
-        "user_domain_rank": 0,
-        "top_titles": []
-      },
-      "sources": [
-        "Bing Autocomplete"
-      ],
-      "reason": "سیگنال در Bing؛ تکرار مشاهده؛ رقابت SERP اندازه‌گیری نشده؛ صفحه متمرکز مشابه پیدا نشد",
-      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
-      "observations": [
-        {
-          "source": "Bing Autocomplete",
-          "query": "mixed integer programming python",
-          "family": "mixed integer programming پایتون",
-          "rank": 8,
-          "url": "",
-          "date": "2026-07-31",
-          "value": 0.0,
-          "note": "hop=1"
-        },
-        {
-          "source": "Bing Autocomplete",
-          "query": "mixed integer linear programming python error",
-          "family": "mixed integer linear programming پایتون",
-          "rank": 2,
-          "url": "",
-          "date": "2026-07-31",
-          "value": 0.0,
-          "note": "hop=2"
-        }
-      ]
-    },
-    {
       "keyword": "pyomo cbc time limit",
       "cluster": "Pyomo و Solverها",
       "intent": "کدنویسی",
@@ -1893,301 +302,6 @@
           "source": "Google Search Autocomplete",
           "query": "Pyomo CBC",
           "family": "pyomo cbc",
-          "rank": 4,
-          "url": "",
-          "date": "2026-07-31",
-          "value": 0.0,
-          "note": "hop=1"
-        }
-      ]
-    },
-    {
-      "keyword": "mixed integer linear program",
-      "cluster": "مدل‌سازی و تحقیق در عملیات",
-      "intent": "کدنویسی",
-      "funnel": "بررسی راه‌حل",
-      "suggested_title": "آموزش mixed integer linear program با Python/Pyomo؛ از مدل تا کد",
-      "suggested_slug": "mixed-integer-linear-program",
-      "coverage_action": "محتوای جدید",
-      "scores": {
-        "opportunity": 34.8,
-        "demand": 12.3,
-        "content_gap": 84.0,
-        "business_fit": 100.0,
-        "serp_competition": null
-      },
-      "confidence": "کم",
-      "trend": "تکرار مشاهده",
-      "metrics": {
-        "monthly_searches": 0.0,
-        "gsc_impressions": 0.0,
-        "gsc_clicks": 0.0,
-        "gsc_ctr": 0.0,
-        "gsc_position": 0.0,
-        "stack_views": 0.0,
-        "stack_questions": 0
-      },
-      "existing_page": {
-        "similarity": 0.09,
-        "title": "Optimization Expert Persian Course Website",
-        "url": "local://README.md",
-        "mentioned_in_body": true
-      },
-      "serp": {
-        "checked": false,
-        "exact_titles": 0,
-        "strong_domains": 0,
-        "user_domain_rank": 0,
-        "top_titles": []
-      },
-      "sources": [
-        "Bing Autocomplete"
-      ],
-      "reason": "سیگنال در Bing؛ تکرار مشاهده؛ رقابت SERP اندازه‌گیری نشده؛ فقط در متن سایت اشاره شده و صفحه متمرکز ندارد",
-      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
-      "observations": [
-        {
-          "source": "Bing Autocomplete",
-          "query": "mixed integer linear programming python error",
-          "family": "mixed integer linear programming پایتون",
-          "rank": 7,
-          "url": "",
-          "date": "2026-07-31",
-          "value": 0.0,
-          "note": "hop=2"
-        }
-      ]
-    },
-    {
-      "keyword": "what is linear and mixed integer programming",
-      "cluster": "مدل‌سازی و تحقیق در عملیات",
-      "intent": "تعریف و مفهوم",
-      "funnel": "آگاهی",
-      "suggested_title": "what is linear and mixed integer programming؛ تعریف ساده، مدل ریاضی و مثال کاربردی",
-      "suggested_slug": "what-is-linear-and-mixed-integer-programming",
-      "coverage_action": "محتوای جدید",
-      "scores": {
-        "opportunity": 34.7,
-        "demand": 16.1,
-        "content_gap": 83.8,
-        "business_fit": 91.0,
-        "serp_competition": null
-      },
-      "confidence": "کم",
-      "trend": "تکرار مشاهده",
-      "metrics": {
-        "monthly_searches": 0.0,
-        "gsc_impressions": 0.0,
-        "gsc_clicks": 0.0,
-        "gsc_ctr": 0.0,
-        "gsc_position": 0.0,
-        "stack_views": 0.0,
-        "stack_questions": 0
-      },
-      "existing_page": {
-        "similarity": 0.09230769230769231,
-        "title": "آموزش VRP در Python | ۲۰ پروژه عملی مسیریابی و بهینه‌سازی",
-        "url": "https://optimizationexpert.github.io/posts/2026/06/24/vrp-python-course/",
-        "mentioned_in_body": true
-      },
-      "serp": {
-        "checked": false,
-        "exact_titles": 0,
-        "strong_domains": 0,
-        "user_domain_rank": 0,
-        "top_titles": []
-      },
-      "sources": [
-        "Bing Autocomplete"
-      ],
-      "reason": "سیگنال در Bing؛ تکرار مشاهده؛ رقابت SERP اندازه‌گیری نشده؛ فقط در متن سایت اشاره شده و صفحه متمرکز ندارد",
-      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
-      "observations": [
-        {
-          "source": "Bing Autocomplete",
-          "query": "mixed integer programming python",
-          "family": "mixed integer programming پایتون",
-          "rank": 11,
-          "url": "",
-          "date": "2026-07-31",
-          "value": 0.0,
-          "note": "hop=1"
-        },
-        {
-          "source": "Bing Autocomplete",
-          "query": "mixed integer linear programming python error",
-          "family": "mixed integer linear programming پایتون",
-          "rank": 3,
-          "url": "",
-          "date": "2026-07-31",
-          "value": 0.0,
-          "note": "hop=2"
-        }
-      ]
-    },
-    {
-      "keyword": "mixed-integer programming",
-      "cluster": "مدل‌سازی و تحقیق در عملیات",
-      "intent": "کدنویسی",
-      "funnel": "بررسی راه‌حل",
-      "suggested_title": "آموزش mixed-integer programming با Python/Pyomo؛ از مدل تا کد",
-      "suggested_slug": "mixed-integer-programming",
-      "coverage_action": "محتوای جدید",
-      "scores": {
-        "opportunity": 34.6,
-        "demand": 11.0,
-        "content_gap": 85.5,
-        "business_fit": 100.0,
-        "serp_competition": null
-      },
-      "confidence": "کم",
-      "trend": "تکرار مشاهده",
-      "metrics": {
-        "monthly_searches": 0.0,
-        "gsc_impressions": 0.0,
-        "gsc_clicks": 0.0,
-        "gsc_ctr": 0.0,
-        "gsc_position": 0.0,
-        "stack_views": 0.0,
-        "stack_questions": 0
-      },
-      "existing_page": {
-        "similarity": 0.075,
-        "title": "آموزش VRP در Python | ۲۰ پروژه عملی مسیریابی و بهینه‌سازی",
-        "url": "https://optimizationexpert.github.io/posts/2026/06/24/vrp-python-course/",
-        "mentioned_in_body": true
-      },
-      "serp": {
-        "checked": false,
-        "exact_titles": 0,
-        "strong_domains": 0,
-        "user_domain_rank": 0,
-        "top_titles": []
-      },
-      "sources": [
-        "Bing Autocomplete"
-      ],
-      "reason": "سیگنال در Bing؛ تکرار مشاهده؛ رقابت SERP اندازه‌گیری نشده؛ فقط در متن سایت اشاره شده و صفحه متمرکز ندارد",
-      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
-      "observations": [
-        {
-          "source": "Bing Autocomplete",
-          "query": "mixed integer linear programming python error",
-          "family": "mixed integer linear programming پایتون",
-          "rank": 10,
-          "url": "",
-          "date": "2026-07-31",
-          "value": 0.0,
-          "note": "hop=2"
-        }
-      ]
-    },
-    {
-      "keyword": "mixed integer convex programming",
-      "cluster": "مدل‌سازی و تحقیق در عملیات",
-      "intent": "کدنویسی",
-      "funnel": "بررسی راه‌حل",
-      "suggested_title": "آموزش mixed integer convex programming با Python/Pyomo؛ از مدل تا کد",
-      "suggested_slug": "mixed-integer-convex-programming",
-      "coverage_action": "محتوای جدید",
-      "scores": {
-        "opportunity": 34.4,
-        "demand": 11.4,
-        "content_gap": 84.1,
-        "business_fit": 100.0,
-        "serp_competition": null
-      },
-      "confidence": "کم",
-      "trend": "تکرار مشاهده",
-      "metrics": {
-        "monthly_searches": 0.0,
-        "gsc_impressions": 0.0,
-        "gsc_clicks": 0.0,
-        "gsc_ctr": 0.0,
-        "gsc_position": 0.0,
-        "stack_views": 0.0,
-        "stack_questions": 0
-      },
-      "existing_page": {
-        "similarity": 0.0891891891891892,
-        "title": "Optimization Expert Persian Course Website",
-        "url": "local://README.md",
-        "mentioned_in_body": true
-      },
-      "serp": {
-        "checked": false,
-        "exact_titles": 0,
-        "strong_domains": 0,
-        "user_domain_rank": 0,
-        "top_titles": []
-      },
-      "sources": [
-        "Bing Autocomplete"
-      ],
-      "reason": "سیگنال در Bing؛ تکرار مشاهده؛ رقابت SERP اندازه‌گیری نشده؛ فقط در متن سایت اشاره شده و صفحه متمرکز ندارد",
-      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
-      "observations": [
-        {
-          "source": "Bing Autocomplete",
-          "query": "mixed integer programming python",
-          "family": "mixed integer programming پایتون",
-          "rank": 9,
-          "url": "",
-          "date": "2026-07-31",
-          "value": 0.0,
-          "note": "hop=1"
-        }
-      ]
-    },
-    {
-      "keyword": "what is mixed integer programming",
-      "cluster": "مدل‌سازی و تحقیق در عملیات",
-      "intent": "تعریف و مفهوم",
-      "funnel": "آگاهی",
-      "suggested_title": "what is mixed integer programming؛ تعریف ساده، مدل ریاضی و مثال کاربردی",
-      "suggested_slug": "what-is-mixed-integer-programming",
-      "coverage_action": "محتوای جدید",
-      "scores": {
-        "opportunity": 33.9,
-        "demand": 13.7,
-        "content_gap": 84.8,
-        "business_fit": 91.0,
-        "serp_competition": null
-      },
-      "confidence": "کم",
-      "trend": "تکرار مشاهده",
-      "metrics": {
-        "monthly_searches": 0.0,
-        "gsc_impressions": 0.0,
-        "gsc_clicks": 0.0,
-        "gsc_ctr": 0.0,
-        "gsc_position": 0.0,
-        "stack_views": 0.0,
-        "stack_questions": 0
-      },
-      "existing_page": {
-        "similarity": 0.0825,
-        "title": "آموزش VRP در Python | ۲۰ پروژه عملی مسیریابی و بهینه‌سازی",
-        "url": "https://optimizationexpert.github.io/posts/2026/06/24/vrp-python-course/",
-        "mentioned_in_body": true
-      },
-      "serp": {
-        "checked": false,
-        "exact_titles": 0,
-        "strong_domains": 0,
-        "user_domain_rank": 0,
-        "top_titles": []
-      },
-      "sources": [
-        "Bing Autocomplete"
-      ],
-      "reason": "سیگنال در Bing؛ تکرار مشاهده؛ رقابت SERP اندازه‌گیری نشده؛ فقط در متن سایت اشاره شده و صفحه متمرکز ندارد",
-      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
-      "observations": [
-        {
-          "source": "Bing Autocomplete",
-          "query": "mixed integer programming python",
-          "family": "mixed integer programming پایتون",
           "rank": 4,
           "url": "",
           "date": "2026-07-31",
@@ -2311,63 +425,6 @@
       ]
     },
     {
-      "keyword": "integer linear programming python",
-      "cluster": "مدل‌سازی و تحقیق در عملیات",
-      "intent": "کدنویسی",
-      "funnel": "بررسی راه‌حل",
-      "suggested_title": "آموزش integer linear programming python با Python/Pyomo؛ از مدل تا کد",
-      "suggested_slug": "integer-linear-programming-python",
-      "coverage_action": "محتوای جدید",
-      "scores": {
-        "opportunity": 33.5,
-        "demand": 10.5,
-        "content_gap": 82.6,
-        "business_fit": 100.0,
-        "serp_competition": null
-      },
-      "confidence": "کم",
-      "trend": "تکرار مشاهده",
-      "metrics": {
-        "monthly_searches": 0.0,
-        "gsc_impressions": 0.0,
-        "gsc_clicks": 0.0,
-        "gsc_ctr": 0.0,
-        "gsc_position": 0.0,
-        "stack_views": 0.0,
-        "stack_questions": 0
-      },
-      "existing_page": {
-        "similarity": 0.10434782608695652,
-        "title": "Solver خوب بدون رنگ برای Pyomo؟ سه راهکار عملی",
-        "url": "local://_posts/2026-06-19-pyomosolvers.md",
-        "mentioned_in_body": true
-      },
-      "serp": {
-        "checked": false,
-        "exact_titles": 0,
-        "strong_domains": 0,
-        "user_domain_rank": 0,
-        "top_titles": []
-      },
-      "sources": [
-        "Bing Autocomplete"
-      ],
-      "reason": "سیگنال در Bing؛ تکرار مشاهده؛ رقابت SERP اندازه‌گیری نشده؛ فقط در متن سایت اشاره شده و صفحه متمرکز ندارد",
-      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
-      "observations": [
-        {
-          "source": "Bing Autocomplete",
-          "query": "mixed integer linear programming python error",
-          "family": "mixed integer linear programming پایتون",
-          "rank": 11,
-          "url": "",
-          "date": "2026-07-31",
-          "value": 0.0,
-          "note": "hop=2"
-        }
-      ]
-    },
-    {
       "keyword": "unit commitment que es",
       "cluster": "بهینه‌سازی سیستم قدرت",
       "intent": "کدنویسی",
@@ -2427,74 +484,6 @@
           "source": "DuckDuckGo Autocomplete",
           "query": "Unit Commitment با Pyomo",
           "family": "unit commitment با pyomo",
-          "rank": 2,
-          "url": "",
-          "date": "2026-07-31",
-          "value": 0.0,
-          "note": "hop=0"
-        }
-      ]
-    },
-    {
-      "keyword": "unified stochastic and robust unit commitment",
-      "cluster": "بهینه‌سازی سیستم قدرت",
-      "intent": "کدنویسی",
-      "funnel": "بررسی راه‌حل",
-      "suggested_title": "آموزش unified stochastic and robust unit commitment با Python/Pyomo؛ از مدل تا کد",
-      "suggested_slug": "unified-stochastic-and-robust-unit-commitment",
-      "coverage_action": "محتوای جدید",
-      "scores": {
-        "opportunity": 32.9,
-        "demand": 26.7,
-        "content_gap": 56.6,
-        "business_fit": 100.0,
-        "serp_competition": null
-      },
-      "confidence": "متوسط",
-      "trend": "تکرار مشاهده",
-      "metrics": {
-        "monthly_searches": 0.0,
-        "gsc_impressions": 0.0,
-        "gsc_clicks": 0.0,
-        "gsc_ctr": 0.0,
-        "gsc_position": 0.0,
-        "stack_views": 0.0,
-        "stack_questions": 0
-      },
-      "existing_page": {
-        "similarity": 0.3643398692810458,
-        "title": "بهینه‌سازی سیستم قدرت در پایتون با Pyomo | دوره پیشرفته",
-        "url": "local://_posts/2026-06-20-Advanced-Power-System-Course.md",
-        "mentioned_in_body": true
-      },
-      "serp": {
-        "checked": false,
-        "exact_titles": 0,
-        "strong_domains": 0,
-        "user_domain_rank": 0,
-        "top_titles": []
-      },
-      "sources": [
-        "Bing Autocomplete",
-        "DuckDuckGo Autocomplete"
-      ],
-      "reason": "سیگنال در Bing، DuckDuckGo؛ تکرار مشاهده؛ رقابت SERP اندازه‌گیری نشده؛ فقط در متن سایت اشاره شده و صفحه متمرکز ندارد",
-      "course_url": "https://optimizationexpert.github.io/posts/2026/06/20/Advanced-Power-System-Course/",
-      "observations": [
-        {
-          "source": "Bing Autocomplete",
-          "query": "Stochastic Unit Commitment با Pyomo",
-          "family": "stochastic unit commitment با pyomo",
-          "rank": 1,
-          "url": "",
-          "date": "2026-07-31",
-          "value": 0.0,
-          "note": "hop=0"
-        },
-        {
-          "source": "DuckDuckGo Autocomplete",
-          "query": "Stochastic Unit Commitment با Pyomo",
-          "family": "stochastic unit commitment با pyomo",
           "rank": 2,
           "url": "",
           "date": "2026-07-31",
@@ -2567,120 +556,6 @@
           "date": "2026-07-31",
           "value": 0.0,
           "note": "hop=1"
-        }
-      ]
-    },
-    {
-      "keyword": "python mixed integer programming solver",
-      "cluster": "مدل‌سازی و تحقیق در عملیات",
-      "intent": "کدنویسی",
-      "funnel": "بررسی راه‌حل",
-      "suggested_title": "آموزش python mixed integer programming solver با Python/Pyomo؛ از مدل تا کد",
-      "suggested_slug": "python-mixed-integer-programming-solver",
-      "coverage_action": "محتوای جدید",
-      "scores": {
-        "opportunity": 32.0,
-        "demand": 14.6,
-        "content_gap": 71.8,
-        "business_fit": 100.0,
-        "serp_competition": null
-      },
-      "confidence": "کم",
-      "trend": "تکرار مشاهده",
-      "metrics": {
-        "monthly_searches": 0.0,
-        "gsc_impressions": 0.0,
-        "gsc_clicks": 0.0,
-        "gsc_ctr": 0.0,
-        "gsc_position": 0.0,
-        "stack_views": 0.0,
-        "stack_questions": 0
-      },
-      "existing_page": {
-        "similarity": 0.2118104776579353,
-        "title": "گزارش فرصت‌های SEO — 2026-07-30",
-        "url": "https://optimizationexpert.github.io/seo_opportunity_output/seo_opportunity_report_2026-07-30.html",
-        "mentioned_in_body": true
-      },
-      "serp": {
-        "checked": false,
-        "exact_titles": 0,
-        "strong_domains": 0,
-        "user_domain_rank": 0,
-        "top_titles": []
-      },
-      "sources": [
-        "Google Search Autocomplete"
-      ],
-      "reason": "سیگنال در Google Search؛ تکرار مشاهده؛ رقابت SERP اندازه‌گیری نشده؛ فقط در متن سایت اشاره شده و صفحه متمرکز ندارد",
-      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
-      "observations": [
-        {
-          "source": "Google Search Autocomplete",
-          "query": "mixed integer programming python",
-          "family": "mixed integer programming پایتون",
-          "rank": 8,
-          "url": "",
-          "date": "2026-07-31",
-          "value": 0.0,
-          "note": "hop=1"
-        }
-      ]
-    },
-    {
-      "keyword": "mixed integer linear programming solver",
-      "cluster": "مدل‌سازی و تحقیق در عملیات",
-      "intent": "کدنویسی",
-      "funnel": "بررسی راه‌حل",
-      "suggested_title": "آموزش mixed integer linear programming solver با Python/Pyomo؛ از مدل تا کد",
-      "suggested_slug": "mixed-integer-linear-programming-solver",
-      "coverage_action": "محتوای جدید",
-      "scores": {
-        "opportunity": 32.0,
-        "demand": 13.2,
-        "content_gap": 74.1,
-        "business_fit": 100.0,
-        "serp_competition": null
-      },
-      "confidence": "کم",
-      "trend": "تکرار مشاهده",
-      "metrics": {
-        "monthly_searches": 0.0,
-        "gsc_impressions": 0.0,
-        "gsc_clicks": 0.0,
-        "gsc_ctr": 0.0,
-        "gsc_position": 0.0,
-        "stack_views": 0.0,
-        "stack_questions": 0
-      },
-      "existing_page": {
-        "similarity": 0.18868926553672316,
-        "title": "گزارش فرصت‌های SEO — 2026-07-30",
-        "url": "https://optimizationexpert.github.io/seo_opportunity_output/seo_opportunity_report_2026-07-30.html",
-        "mentioned_in_body": true
-      },
-      "serp": {
-        "checked": false,
-        "exact_titles": 0,
-        "strong_domains": 0,
-        "user_domain_rank": 0,
-        "top_titles": []
-      },
-      "sources": [
-        "Bing Autocomplete"
-      ],
-      "reason": "سیگنال در Bing؛ تکرار مشاهده؛ رقابت SERP اندازه‌گیری نشده؛ فقط در متن سایت اشاره شده و صفحه متمرکز ندارد",
-      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
-      "observations": [
-        {
-          "source": "Bing Autocomplete",
-          "query": "mixed integer linear programming python error",
-          "family": "mixed integer linear programming پایتون",
-          "rank": 5,
-          "url": "",
-          "date": "2026-07-31",
-          "value": 0.0,
-          "note": "hop=2"
         }
       ]
     },
@@ -3021,6 +896,142 @@
       ]
     },
     {
+      "keyword": "linear programming python library",
+      "cluster": "مدل‌سازی و تحقیق در عملیات",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش linear programming python library با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "linear-programming-python-library",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 29.6,
+        "demand": 32.5,
+        "content_gap": 37.4,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "متوسط",
+      "trend": "تکرار مشاهده",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.5556363636363637,
+        "title": "گزارش فرصت‌های SEO — 2026-07-31",
+        "url": "https://optimizationexpert.github.io/seo_opportunity_output/seo_opportunity_report_2026-07-31.html",
+        "mentioned_in_body": true
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Bing Autocomplete",
+        "Google Search Autocomplete"
+      ],
+      "reason": "سیگنال در Google Search، Bing؛ تکرار مشاهده؛ رقابت SERP اندازه‌گیری نشده؛ فقط در متن سایت اشاره شده و صفحه متمرکز ندارد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Google Search Autocomplete",
+          "query": "linear programming python",
+          "family": "linear programming پایتون",
+          "rank": 2,
+          "url": "",
+          "date": "2026-07-31",
+          "value": 0.0,
+          "note": "hop=1"
+        },
+        {
+          "source": "Bing Autocomplete",
+          "query": "linear programming python",
+          "family": "linear programming پایتون",
+          "rank": 3,
+          "url": "",
+          "date": "2026-07-31",
+          "value": 0.0,
+          "note": "hop=1"
+        }
+      ]
+    },
+    {
+      "keyword": "linear programming python pulp",
+      "cluster": "مدل‌سازی و تحقیق در عملیات",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش linear programming python pulp با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "linear-programming-python-pulp",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 28.9,
+        "demand": 31.4,
+        "content_gap": 36.9,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "متوسط",
+      "trend": "تکرار مشاهده",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.5607500000000001,
+        "title": "گزارش فرصت‌های SEO — 2026-07-31",
+        "url": "https://optimizationexpert.github.io/seo_opportunity_output/seo_opportunity_report_2026-07-31.html",
+        "mentioned_in_body": true
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Google Search Autocomplete",
+        "YouTube Autocomplete"
+      ],
+      "reason": "سیگنال در Google Search، YouTube؛ تکرار مشاهده؛ رقابت SERP اندازه‌گیری نشده؛ فقط در متن سایت اشاره شده و صفحه متمرکز ندارد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Google Search Autocomplete",
+          "query": "linear programming python",
+          "family": "linear programming پایتون",
+          "rank": 6,
+          "url": "",
+          "date": "2026-07-31",
+          "value": 0.0,
+          "note": "hop=1"
+        },
+        {
+          "source": "YouTube Autocomplete",
+          "query": "linear programming python",
+          "family": "linear programming پایتون",
+          "rank": 2,
+          "url": "",
+          "date": "2026-07-31",
+          "value": 0.0,
+          "note": "hop=1"
+        }
+      ]
+    },
+    {
       "keyword": "برنامه ریزی تولید مهندسی صنایع",
       "cluster": "زنجیره تأمین و لجستیک",
       "intent": "کدنویسی",
@@ -3084,6 +1095,63 @@
           "date": "2026-07-31",
           "value": 0.0,
           "note": "hop=0"
+        }
+      ]
+    },
+    {
+      "keyword": "linear programming python tutorial",
+      "cluster": "مدل‌سازی و تحقیق در عملیات",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش linear programming python tutorial با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "linear-programming-python-tutorial",
+      "coverage_action": "صفحه مکمل لازم است",
+      "scores": {
+        "opportunity": 28.7,
+        "demand": 14.6,
+        "content_gap": 20.8,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "تکرار مشاهده",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.7220000000000001,
+        "title": "گزارش فرصت‌های SEO — 2026-07-31",
+        "url": "https://optimizationexpert.github.io/seo_opportunity_output/seo_opportunity_report_2026-07-31.html",
+        "mentioned_in_body": true
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Bing Autocomplete"
+      ],
+      "reason": "سیگنال در Bing؛ تکرار مشاهده؛ رقابت SERP اندازه‌گیری نشده؛ صفحه نزدیک وجود دارد، اما نیت دقیق پوشش کامل ندارد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Bing Autocomplete",
+          "query": "linear programming python",
+          "family": "linear programming پایتون",
+          "rank": 2,
+          "url": "",
+          "date": "2026-07-31",
+          "value": 0.0,
+          "note": "hop=1"
         }
       ]
     },
@@ -3194,63 +1262,6 @@
           "query": "Pyomo HiGHS",
           "family": "pyomo highs",
           "rank": 2,
-          "url": "",
-          "date": "2026-07-31",
-          "value": 0.0,
-          "note": "hop=1"
-        }
-      ]
-    },
-    {
-      "keyword": "pyomo highs options",
-      "cluster": "Pyomo و Solverها",
-      "intent": "کدنویسی",
-      "funnel": "بررسی راه‌حل",
-      "suggested_title": "آموزش pyomo highs options با Python/Pyomo؛ از مدل تا کد",
-      "suggested_slug": "pyomo-highs-options",
-      "coverage_action": "محتوای جدید",
-      "scores": {
-        "opportunity": 27.6,
-        "demand": 17.1,
-        "content_gap": 54.4,
-        "business_fit": 100.0,
-        "serp_competition": null
-      },
-      "confidence": "کم",
-      "trend": "تکرار مشاهده",
-      "metrics": {
-        "monthly_searches": 0.0,
-        "gsc_impressions": 0.0,
-        "gsc_clicks": 0.0,
-        "gsc_ctr": 0.0,
-        "gsc_position": 0.0,
-        "stack_views": 0.0,
-        "stack_questions": 0
-      },
-      "existing_page": {
-        "similarity": 0.45552511415525115,
-        "title": "گزارش فرصت‌های SEO — 2026-07-30",
-        "url": "https://optimizationexpert.github.io/seo_opportunity_output/seo_opportunity_report_2026-07-30.html",
-        "mentioned_in_body": false
-      },
-      "serp": {
-        "checked": false,
-        "exact_titles": 0,
-        "strong_domains": 0,
-        "user_domain_rank": 0,
-        "top_titles": []
-      },
-      "sources": [
-        "Google Search Autocomplete"
-      ],
-      "reason": "سیگنال در Google Search؛ تکرار مشاهده؛ رقابت SERP اندازه‌گیری نشده؛ صفحه متمرکز مشابه پیدا نشد",
-      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
-      "observations": [
-        {
-          "source": "Google Search Autocomplete",
-          "query": "Pyomo HiGHS",
-          "family": "pyomo highs",
-          "rank": 4,
           "url": "",
           "date": "2026-07-31",
           "value": 0.0,
@@ -3430,17 +1441,17 @@
       ]
     },
     {
-      "keyword": "pyomo ipopt options",
-      "cluster": "Pyomo و Solverها",
+      "keyword": "linear programming in python using pulp",
+      "cluster": "مدل‌سازی و تحقیق در عملیات",
       "intent": "کدنویسی",
       "funnel": "بررسی راه‌حل",
-      "suggested_title": "آموزش pyomo ipopt options با Python/Pyomo؛ از مدل تا کد",
-      "suggested_slug": "pyomo-ipopt-options",
+      "suggested_title": "آموزش linear programming in python using pulp با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "linear-programming-in-python-using-pulp",
       "coverage_action": "محتوای جدید",
       "scores": {
-        "opportunity": 25.7,
-        "demand": 16.5,
-        "content_gap": 49.4,
+        "opportunity": 26.1,
+        "demand": 14.5,
+        "content_gap": 53.7,
         "business_fit": 100.0,
         "serp_competition": null
       },
@@ -3456,9 +1467,9 @@
         "stack_questions": 0
       },
       "existing_page": {
-        "similarity": 0.5055135135135136,
-        "title": "گزارش فرصت‌های SEO — 2026-07-30",
-        "url": "https://optimizationexpert.github.io/seo_opportunity_output/seo_opportunity_report_2026-07-30.html",
+        "similarity": 0.4633333333333334,
+        "title": "گزارش فرصت‌های SEO — 2026-07-31",
+        "url": "https://optimizationexpert.github.io/seo_opportunity_output/seo_opportunity_report_2026-07-31.html",
         "mentioned_in_body": false
       },
       "serp": {
@@ -3469,16 +1480,16 @@
         "top_titles": []
       },
       "sources": [
-        "Google Search Autocomplete"
+        "YouTube Autocomplete"
       ],
-      "reason": "سیگنال در Google Search؛ تکرار مشاهده؛ رقابت SERP اندازه‌گیری نشده؛ صفحه متمرکز مشابه پیدا نشد",
+      "reason": "سیگنال در YouTube؛ تکرار مشاهده؛ رقابت SERP اندازه‌گیری نشده؛ صفحه متمرکز مشابه پیدا نشد",
       "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
       "observations": [
         {
-          "source": "Google Search Autocomplete",
-          "query": "Pyomo IPOPT",
-          "family": "pyomo ipopt",
-          "rank": 5,
+          "source": "YouTube Autocomplete",
+          "query": "linear programming python",
+          "family": "linear programming پایتون",
+          "rank": 4,
           "url": "",
           "date": "2026-07-31",
           "value": 0.0,
@@ -3601,6 +1612,130 @@
       ]
     },
     {
+      "keyword": "pyomo highs options",
+      "cluster": "Pyomo و Solverها",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش pyomo highs options با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "pyomo-highs-options",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 25.4,
+        "demand": 17.1,
+        "content_gap": 47.4,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "تکرار مشاهده",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.45552511415525115,
+        "title": "گزارش فرصت‌های SEO — 2026-07-30",
+        "url": "https://optimizationexpert.github.io/seo_opportunity_output/seo_opportunity_report_2026-07-30.html",
+        "mentioned_in_body": true
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Google Search Autocomplete"
+      ],
+      "reason": "سیگنال در Google Search؛ تکرار مشاهده؛ رقابت SERP اندازه‌گیری نشده؛ فقط در متن سایت اشاره شده و صفحه متمرکز ندارد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Google Search Autocomplete",
+          "query": "Pyomo HiGHS",
+          "family": "pyomo highs",
+          "rank": 4,
+          "url": "",
+          "date": "2026-07-31",
+          "value": 0.0,
+          "note": "hop=1"
+        }
+      ]
+    },
+    {
+      "keyword": "mixed integer nonlinear problem solver python",
+      "cluster": "Pyomo و Solverها",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش mixed integer nonlinear problem solver python با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "mixed-integer-nonlinear-problem-solver-python",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 25.1,
+        "demand": 16.6,
+        "content_gap": 47.3,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "تکرار مشاهده",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.5269115044247787,
+        "title": "گزارش فرصت‌های SEO — 2026-07-31",
+        "url": "https://optimizationexpert.github.io/seo_opportunity_output/seo_opportunity_report_2026-07-31.html",
+        "mentioned_in_body": false
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Bing Autocomplete"
+      ],
+      "reason": "سیگنال در Bing؛ تکرار مشاهده؛ رقابت SERP اندازه‌گیری نشده؛ صفحه متمرکز مشابه پیدا نشد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Bing Autocomplete",
+          "query": "mixed integer programming python",
+          "family": "mixed integer programming پایتون",
+          "rank": 8,
+          "url": "",
+          "date": "2026-07-31",
+          "value": 0.0,
+          "note": "hop=1"
+        },
+        {
+          "source": "Bing Autocomplete",
+          "query": "mixed integer linear programming python error",
+          "family": "mixed integer linear programming پایتون",
+          "rank": 2,
+          "url": "",
+          "date": "2026-07-31",
+          "value": 0.0,
+          "note": "hop=2"
+        }
+      ]
+    },
+    {
       "keyword": "pyomo highs install",
       "cluster": "Pyomo و Solverها",
       "intent": "خطا و نصب",
@@ -3650,6 +1785,63 @@
           "query": "Pyomo HiGHS",
           "family": "pyomo highs",
           "rank": 6,
+          "url": "",
+          "date": "2026-07-31",
+          "value": 0.0,
+          "note": "hop=1"
+        }
+      ]
+    },
+    {
+      "keyword": "linear programming python pdf",
+      "cluster": "مدل‌سازی و تحقیق در عملیات",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش linear programming python pdf با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "linear-programming-python-pdf",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 24.2,
+        "demand": 17.1,
+        "content_gap": 43.7,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "تکرار مشاهده",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.5625263157894738,
+        "title": "گزارش فرصت‌های SEO — 2026-07-31",
+        "url": "https://optimizationexpert.github.io/seo_opportunity_output/seo_opportunity_report_2026-07-31.html",
+        "mentioned_in_body": false
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Google Search Autocomplete"
+      ],
+      "reason": "سیگنال در Google Search؛ تکرار مشاهده؛ رقابت SERP اندازه‌گیری نشده؛ صفحه متمرکز مشابه پیدا نشد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Google Search Autocomplete",
+          "query": "linear programming python",
+          "family": "linear programming پایتون",
+          "rank": 4,
           "url": "",
           "date": "2026-07-31",
           "value": 0.0,
@@ -3768,6 +1960,291 @@
           "date": "2026-07-31",
           "value": 0.0,
           "note": "hop=0"
+        }
+      ]
+    },
+    {
+      "keyword": "pyomo ipopt options",
+      "cluster": "Pyomo و Solverها",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش pyomo ipopt options با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "pyomo-ipopt-options",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 23.5,
+        "demand": 16.5,
+        "content_gap": 42.4,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "تکرار مشاهده",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.5055135135135136,
+        "title": "گزارش فرصت‌های SEO — 2026-07-30",
+        "url": "https://optimizationexpert.github.io/seo_opportunity_output/seo_opportunity_report_2026-07-30.html",
+        "mentioned_in_body": true
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Google Search Autocomplete"
+      ],
+      "reason": "سیگنال در Google Search؛ تکرار مشاهده؛ رقابت SERP اندازه‌گیری نشده؛ فقط در متن سایت اشاره شده و صفحه متمرکز ندارد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Google Search Autocomplete",
+          "query": "Pyomo IPOPT",
+          "family": "pyomo ipopt",
+          "rank": 5,
+          "url": "",
+          "date": "2026-07-31",
+          "value": 0.0,
+          "note": "hop=1"
+        }
+      ]
+    },
+    {
+      "keyword": "linear programming python package",
+      "cluster": "مدل‌سازی و تحقیق در عملیات",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش linear programming python package با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "linear-programming-python-package",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 23.5,
+        "demand": 15.2,
+        "content_gap": 44.4,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "تکرار مشاهده",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.5556363636363637,
+        "title": "گزارش فرصت‌های SEO — 2026-07-31",
+        "url": "https://optimizationexpert.github.io/seo_opportunity_output/seo_opportunity_report_2026-07-31.html",
+        "mentioned_in_body": false
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Google Search Autocomplete"
+      ],
+      "reason": "سیگنال در Google Search؛ تکرار مشاهده؛ رقابت SERP اندازه‌گیری نشده؛ صفحه متمرکز مشابه پیدا نشد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Google Search Autocomplete",
+          "query": "linear programming python",
+          "family": "linear programming پایتون",
+          "rank": 7,
+          "url": "",
+          "date": "2026-07-31",
+          "value": 0.0,
+          "note": "hop=1"
+        }
+      ]
+    },
+    {
+      "keyword": "linear programming using python",
+      "cluster": "مدل‌سازی و تحقیق در عملیات",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش linear programming using python با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "linear-programming-using-python",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 23.5,
+        "demand": 15.0,
+        "content_gap": 44.7,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "تکرار مشاهده",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.5528247422680412,
+        "title": "گزارش فرصت‌های SEO — 2026-07-31",
+        "url": "https://optimizationexpert.github.io/seo_opportunity_output/seo_opportunity_report_2026-07-31.html",
+        "mentioned_in_body": false
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "YouTube Autocomplete"
+      ],
+      "reason": "سیگنال در YouTube؛ تکرار مشاهده؛ رقابت SERP اندازه‌گیری نشده؛ صفحه متمرکز مشابه پیدا نشد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "YouTube Autocomplete",
+          "query": "linear programming python",
+          "family": "linear programming پایتون",
+          "rank": 3,
+          "url": "",
+          "date": "2026-07-31",
+          "value": 0.0,
+          "note": "hop=1"
+        }
+      ]
+    },
+    {
+      "keyword": "linear programming python book",
+      "cluster": "مدل‌سازی و تحقیق در عملیات",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش linear programming python book با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "linear-programming-python-book",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 22.9,
+        "demand": 14.6,
+        "content_gap": 43.3,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "تکرار مشاهده",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.5670000000000001,
+        "title": "گزارش فرصت‌های SEO — 2026-07-31",
+        "url": "https://optimizationexpert.github.io/seo_opportunity_output/seo_opportunity_report_2026-07-31.html",
+        "mentioned_in_body": false
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Google Search Autocomplete"
+      ],
+      "reason": "سیگنال در Google Search؛ تکرار مشاهده؛ رقابت SERP اندازه‌گیری نشده؛ صفحه متمرکز مشابه پیدا نشد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Google Search Autocomplete",
+          "query": "linear programming python",
+          "family": "linear programming پایتون",
+          "rank": 8,
+          "url": "",
+          "date": "2026-07-31",
+          "value": 0.0,
+          "note": "hop=1"
+        }
+      ]
+    },
+    {
+      "keyword": "linear programming python scipy",
+      "cluster": "مدل‌سازی و تحقیق در عملیات",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش linear programming python scipy با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "linear-programming-python-scipy",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 22.4,
+        "demand": 14.0,
+        "content_gap": 42.9,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "تکرار مشاهده",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.5713814432989691,
+        "title": "گزارش فرصت‌های SEO — 2026-07-31",
+        "url": "https://optimizationexpert.github.io/seo_opportunity_output/seo_opportunity_report_2026-07-31.html",
+        "mentioned_in_body": false
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Google Search Autocomplete"
+      ],
+      "reason": "سیگنال در Google Search؛ تکرار مشاهده؛ رقابت SERP اندازه‌گیری نشده؛ صفحه متمرکز مشابه پیدا نشد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Google Search Autocomplete",
+          "query": "linear programming python",
+          "family": "linear programming پایتون",
+          "rank": 9,
+          "url": "",
+          "date": "2026-07-31",
+          "value": 0.0,
+          "note": "hop=1"
         }
       ]
     },
@@ -3943,6 +2420,307 @@
       ]
     },
     {
+      "keyword": "mixed integer linear programming python",
+      "cluster": "مدل‌سازی و تحقیق در عملیات",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش mixed integer linear programming python با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "mixed-integer-linear-programming-python",
+      "coverage_action": "قبلاً صفحه متمرکز دارد",
+      "scores": {
+        "opportunity": 13.2,
+        "demand": 65.2,
+        "content_gap": 6.0,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "بالا",
+      "trend": "تکرار مشاهده",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.94,
+        "title": "گزارش فرصت‌های محتوایی SEO — 2026-07-31",
+        "url": "https://optimizationexpert.github.io/seo_opportunity_output/content_briefs_2026-07-31/",
+        "mentioned_in_body": true
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Bing Autocomplete",
+        "DuckDuckGo Autocomplete",
+        "Google Search Autocomplete",
+        "YouTube Autocomplete"
+      ],
+      "reason": "سیگنال در Google Search، YouTube، Bing، DuckDuckGo؛ تکرار مشاهده؛ رقابت SERP اندازه‌گیری نشده؛ نزدیک به صفحه «گزارش فرصت‌های محتوایی SEO — 2026-07-31»",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Google Search Autocomplete",
+          "query": "mixed integer programming python",
+          "family": "mixed integer programming پایتون",
+          "rank": 2,
+          "url": "",
+          "date": "2026-07-31",
+          "value": 0.0,
+          "note": "hop=1"
+        },
+        {
+          "source": "YouTube Autocomplete",
+          "query": "linear programming python",
+          "family": "linear programming پایتون",
+          "rank": 5,
+          "url": "",
+          "date": "2026-07-31",
+          "value": 0.0,
+          "note": "hop=1"
+        },
+        {
+          "source": "YouTube Autocomplete",
+          "query": "mixed integer programming python",
+          "family": "mixed integer programming پایتون",
+          "rank": 2,
+          "url": "",
+          "date": "2026-07-31",
+          "value": 0.0,
+          "note": "hop=1"
+        },
+        {
+          "source": "Bing Autocomplete",
+          "query": "linear programming python",
+          "family": "linear programming پایتون",
+          "rank": 4,
+          "url": "",
+          "date": "2026-07-31",
+          "value": 0.0,
+          "note": "hop=1"
+        },
+        {
+          "source": "Bing Autocomplete",
+          "query": "mixed integer programming python",
+          "family": "mixed integer programming پایتون",
+          "rank": 2,
+          "url": "",
+          "date": "2026-07-31",
+          "value": 0.0,
+          "note": "hop=1"
+        },
+        {
+          "source": "Google Search Autocomplete",
+          "query": "how to mixed integer linear programming python",
+          "family": "mixed integer linear programming پایتون",
+          "rank": 1,
+          "url": "",
+          "date": "2026-07-31",
+          "value": 0.0,
+          "note": "hop=2"
+        },
+        {
+          "source": "YouTube Autocomplete",
+          "query": "how to mixed integer linear programming python",
+          "family": "mixed integer linear programming پایتون",
+          "rank": 1,
+          "url": "",
+          "date": "2026-07-31",
+          "value": 0.0,
+          "note": "hop=2"
+        },
+        {
+          "source": "DuckDuckGo Autocomplete",
+          "query": "how to mixed integer linear programming python",
+          "family": "mixed integer linear programming پایتون",
+          "rank": 2,
+          "url": "",
+          "date": "2026-07-31",
+          "value": 0.0,
+          "note": "hop=2"
+        }
+      ]
+    },
+    {
+      "keyword": "linear programming python example",
+      "cluster": "مدل‌سازی و تحقیق در عملیات",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش linear programming python example با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "linear-programming-python-example",
+      "coverage_action": "صفحه مکمل لازم است",
+      "scores": {
+        "opportunity": 11.3,
+        "demand": 16.5,
+        "content_gap": 20.0,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "تکرار مشاهده",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.7296969696969697,
+        "title": "گزارش فرصت‌های SEO — 2026-07-31",
+        "url": "https://optimizationexpert.github.io/seo_opportunity_output/seo_opportunity_report_2026-07-31.html",
+        "mentioned_in_body": true
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Google Search Autocomplete"
+      ],
+      "reason": "سیگنال در Google Search؛ تکرار مشاهده؛ رقابت SERP اندازه‌گیری نشده؛ صفحه نزدیک وجود دارد، اما نیت دقیق پوشش کامل ندارد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Google Search Autocomplete",
+          "query": "linear programming python",
+          "family": "linear programming پایتون",
+          "rank": 5,
+          "url": "",
+          "date": "2026-07-31",
+          "value": 0.0,
+          "note": "hop=1"
+        }
+      ]
+    },
+    {
+      "keyword": "mixed integer linear programming solver python",
+      "cluster": "مدل‌سازی و تحقیق در عملیات",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش mixed integer linear programming solver python با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "mixed-integer-linear-programming-solver-python",
+      "coverage_action": "قبلاً صفحه متمرکز دارد",
+      "scores": {
+        "opportunity": 10.1,
+        "demand": 15.2,
+        "content_gap": 15.0,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "تکرار مشاهده",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.78,
+        "title": "گزارش فرصت‌های محتوایی SEO — 2026-07-31",
+        "url": "https://optimizationexpert.github.io/seo_opportunity_output/content_briefs_2026-07-31/",
+        "mentioned_in_body": true
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Google Search Autocomplete"
+      ],
+      "reason": "سیگنال در Google Search؛ تکرار مشاهده؛ رقابت SERP اندازه‌گیری نشده؛ نزدیک به صفحه «گزارش فرصت‌های محتوایی SEO — 2026-07-31»",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Google Search Autocomplete",
+          "query": "mixed integer programming python",
+          "family": "mixed integer programming پایتون",
+          "rank": 7,
+          "url": "",
+          "date": "2026-07-31",
+          "value": 0.0,
+          "note": "hop=1"
+        }
+      ]
+    },
+    {
+      "keyword": "integer linear programming problem",
+      "cluster": "مدل‌سازی و تحقیق در عملیات",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش integer linear programming problem با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "integer-linear-programming-problem",
+      "coverage_action": "قبلاً صفحه متمرکز دارد",
+      "scores": {
+        "opportunity": 10.1,
+        "demand": 10.5,
+        "content_gap": 22.0,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "تکرار مشاهده",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.78,
+        "title": "گزارش فرصت‌های محتوایی SEO — 2026-07-31",
+        "url": "https://optimizationexpert.github.io/seo_opportunity_output/content_briefs_2026-07-31/",
+        "mentioned_in_body": false
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Bing Autocomplete"
+      ],
+      "reason": "سیگنال در Bing؛ تکرار مشاهده؛ رقابت SERP اندازه‌گیری نشده؛ نزدیک به صفحه «گزارش فرصت‌های محتوایی SEO — 2026-07-31»",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Bing Autocomplete",
+          "query": "mixed integer linear programming python error",
+          "family": "mixed integer linear programming پایتون",
+          "rank": 12,
+          "url": "",
+          "date": "2026-07-31",
+          "value": 0.0,
+          "note": "hop=2"
+        }
+      ]
+    },
+    {
       "keyword": "برنامه ریزی حرفه ای",
       "cluster": "مدل‌سازی و تحقیق در عملیات",
       "intent": "کدنویسی",
@@ -3951,14 +2729,14 @@
       "suggested_slug": "برنامه-ریزی-حرفه-ای",
       "coverage_action": "قبلاً صفحه متمرکز دارد",
       "scores": {
-        "opportunity": 12.2,
-        "demand": 19.5,
+        "opportunity": 9.8,
+        "demand": 14.5,
         "content_gap": 15.0,
         "business_fit": 100.0,
         "serp_competition": null
       },
       "confidence": "کم",
-      "trend": "جدید امروز",
+      "trend": "تکرار مشاهده",
       "metrics": {
         "monthly_searches": 0.0,
         "gsc_impressions": 0.0,
@@ -3984,7 +2762,7 @@
       "sources": [
         "YouTube Autocomplete"
       ],
-      "reason": "سیگنال در YouTube؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ نزدیک به صفحه «گزارش فرصت‌های محتوایی SEO — 2026-07-30»",
+      "reason": "سیگنال در YouTube؛ تکرار مشاهده؛ رقابت SERP اندازه‌گیری نشده؛ نزدیک به صفحه «گزارش فرصت‌های محتوایی SEO — 2026-07-30»",
       "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
       "observations": [
         {
@@ -3996,6 +2774,332 @@
           "date": "2026-07-31",
           "value": 0.0,
           "note": "hop=1"
+        }
+      ]
+    },
+    {
+      "keyword": "['glpk solver for pyomo', 'solver glpk_mi']",
+      "cluster": "Pyomo و Solverها",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش ['glpk solver for pyomo', 'solver glpk_mi'] با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "glpk-solver-for-pyomo-solver-glpk-mi",
+      "coverage_action": "قبلاً صفحه متمرکز دارد",
+      "scores": {
+        "opportunity": 8.4,
+        "demand": 11.7,
+        "content_gap": 15.0,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "تکرار مشاهده",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.78,
+        "title": "گزارش فرصت‌های SEO — 2026-07-30",
+        "url": "https://optimizationexpert.github.io/seo_opportunity_output/seo_opportunity_report_2026-07-30.html",
+        "mentioned_in_body": true
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "DuckDuckGo Autocomplete"
+      ],
+      "reason": "سیگنال در DuckDuckGo؛ تکرار مشاهده؛ رقابت SERP اندازه‌گیری نشده؛ نزدیک به صفحه «گزارش فرصت‌های SEO — 2026-07-30»",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "DuckDuckGo Autocomplete",
+          "query": "how to pyomo glpk solver",
+          "family": "pyomo glpk solver",
+          "rank": 2,
+          "url": "",
+          "date": "2026-07-31",
+          "value": 0.0,
+          "note": "hop=2"
+        }
+      ]
+    },
+    {
+      "keyword": "mixed integer linear programming",
+      "cluster": "مدل‌سازی و تحقیق در عملیات",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش mixed integer linear programming با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "mixed-integer-linear-programming",
+      "coverage_action": "قبلاً صفحه متمرکز دارد",
+      "scores": {
+        "opportunity": 8.1,
+        "demand": 17.0,
+        "content_gap": 6.0,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "تکرار مشاهده",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.94,
+        "title": "گزارش فرصت‌های محتوایی SEO — 2026-07-31",
+        "url": "https://optimizationexpert.github.io/seo_opportunity_output/content_briefs_2026-07-31/",
+        "mentioned_in_body": true
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Bing Autocomplete"
+      ],
+      "reason": "سیگنال در Bing؛ تکرار مشاهده؛ رقابت SERP اندازه‌گیری نشده؛ نزدیک به صفحه «گزارش فرصت‌های محتوایی SEO — 2026-07-31»",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Bing Autocomplete",
+          "query": "mixed integer programming python",
+          "family": "mixed integer programming پایتون",
+          "rank": 5,
+          "url": "",
+          "date": "2026-07-31",
+          "value": 0.0,
+          "note": "hop=1"
+        },
+        {
+          "source": "Bing Autocomplete",
+          "query": "mixed integer linear programming python error",
+          "family": "mixed integer linear programming پایتون",
+          "rank": 1,
+          "url": "",
+          "date": "2026-07-31",
+          "value": 0.0,
+          "note": "hop=2"
+        }
+      ]
+    },
+    {
+      "keyword": "mixed integer quadratic programming python",
+      "cluster": "مدل‌سازی و تحقیق در عملیات",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش mixed integer quadratic programming python با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "mixed-integer-quadratic-programming-python",
+      "coverage_action": "قبلاً صفحه متمرکز دارد",
+      "scores": {
+        "opportunity": 0.0,
+        "demand": 31.2,
+        "content_gap": 15.0,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "متوسط",
+      "trend": "تکرار مشاهده",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.78,
+        "title": "گزارش فرصت‌های محتوایی SEO — 2026-07-31",
+        "url": "https://optimizationexpert.github.io/seo_opportunity_output/content_briefs_2026-07-31/",
+        "mentioned_in_body": true
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Bing Autocomplete",
+        "Google Search Autocomplete"
+      ],
+      "reason": "سیگنال در Google Search، Bing؛ تکرار مشاهده؛ رقابت SERP اندازه‌گیری نشده؛ نزدیک به صفحه «گزارش فرصت‌های محتوایی SEO — 2026-07-31»",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Google Search Autocomplete",
+          "query": "mixed integer programming python",
+          "family": "mixed integer programming پایتون",
+          "rank": 4,
+          "url": "",
+          "date": "2026-07-31",
+          "value": 0.0,
+          "note": "hop=1"
+        },
+        {
+          "source": "Bing Autocomplete",
+          "query": "mixed integer programming python",
+          "family": "mixed integer programming پایتون",
+          "rank": 3,
+          "url": "",
+          "date": "2026-07-31",
+          "value": 0.0,
+          "note": "hop=1"
+        }
+      ]
+    },
+    {
+      "keyword": "mixed integer linear programming python library",
+      "cluster": "مدل‌سازی و تحقیق در عملیات",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش mixed integer linear programming python library با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "mixed-integer-linear-programming-python-library",
+      "coverage_action": "قبلاً صفحه متمرکز دارد",
+      "scores": {
+        "opportunity": 0.0,
+        "demand": 20.4,
+        "content_gap": 15.0,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "تکرار مشاهده",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.78,
+        "title": "گزارش فرصت‌های محتوایی SEO — 2026-07-31",
+        "url": "https://optimizationexpert.github.io/seo_opportunity_output/content_briefs_2026-07-31/",
+        "mentioned_in_body": true
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Google Search Autocomplete"
+      ],
+      "reason": "سیگنال در Google Search؛ تکرار مشاهده؛ رقابت SERP اندازه‌گیری نشده؛ نزدیک به صفحه «گزارش فرصت‌های محتوایی SEO — 2026-07-31»",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Google Search Autocomplete",
+          "query": "mixed integer programming python",
+          "family": "mixed integer programming پایتون",
+          "rank": 5,
+          "url": "",
+          "date": "2026-07-31",
+          "value": 0.0,
+          "note": "hop=1"
+        },
+        {
+          "source": "Google Search Autocomplete",
+          "query": "how to mixed integer linear programming python",
+          "family": "mixed integer linear programming پایتون",
+          "rank": 2,
+          "url": "",
+          "date": "2026-07-31",
+          "value": 0.0,
+          "note": "hop=2"
+        }
+      ]
+    },
+    {
+      "keyword": "mixed integer linear programming python example",
+      "cluster": "مدل‌سازی و تحقیق در عملیات",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش mixed integer linear programming python example با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "mixed-integer-linear-programming-python-example",
+      "coverage_action": "قبلاً صفحه متمرکز دارد",
+      "scores": {
+        "opportunity": 0.0,
+        "demand": 19.7,
+        "content_gap": 11.0,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "تکرار مشاهده",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.89,
+        "title": "گزارش فرصت‌های محتوایی SEO — 2026-07-31",
+        "url": "https://optimizationexpert.github.io/seo_opportunity_output/content_briefs_2026-07-31/",
+        "mentioned_in_body": true
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Google Search Autocomplete"
+      ],
+      "reason": "سیگنال در Google Search؛ تکرار مشاهده؛ رقابت SERP اندازه‌گیری نشده؛ نزدیک به صفحه «گزارش فرصت‌های محتوایی SEO — 2026-07-31»",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Google Search Autocomplete",
+          "query": "mixed integer programming python",
+          "family": "mixed integer programming پایتون",
+          "rank": 6,
+          "url": "",
+          "date": "2026-07-31",
+          "value": 0.0,
+          "note": "hop=1"
+        },
+        {
+          "source": "Google Search Autocomplete",
+          "query": "how to mixed integer linear programming python",
+          "family": "mixed integer linear programming پایتون",
+          "rank": 3,
+          "url": "",
+          "date": "2026-07-31",
+          "value": 0.0,
+          "note": "hop=2"
         }
       ]
     },
@@ -4171,6 +3275,120 @@
       ]
     },
     {
+      "keyword": "linear programming python code",
+      "cluster": "مدل‌سازی و تحقیق در عملیات",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش linear programming python code با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "linear-programming-python-code",
+      "coverage_action": "قبلاً صفحه متمرکز دارد",
+      "scores": {
+        "opportunity": 0.0,
+        "demand": 17.7,
+        "content_gap": 6.0,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "تکرار مشاهده",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.94,
+        "title": "گزارش فرصت‌های محتوایی SEO — 2026-07-31",
+        "url": "https://optimizationexpert.github.io/seo_opportunity_output/content_briefs_2026-07-31/",
+        "mentioned_in_body": true
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Google Search Autocomplete"
+      ],
+      "reason": "سیگنال در Google Search؛ تکرار مشاهده؛ رقابت SERP اندازه‌گیری نشده؛ نزدیک به صفحه «گزارش فرصت‌های محتوایی SEO — 2026-07-31»",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Google Search Autocomplete",
+          "query": "linear programming python",
+          "family": "linear programming پایتون",
+          "rank": 3,
+          "url": "",
+          "date": "2026-07-31",
+          "value": 0.0,
+          "note": "hop=1"
+        }
+      ]
+    },
+    {
+      "keyword": "mixed integer nonlinear programming python",
+      "cluster": "مدل‌سازی و تحقیق در عملیات",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش mixed integer nonlinear programming python با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "mixed-integer-nonlinear-programming-python",
+      "coverage_action": "قبلاً صفحه متمرکز دارد",
+      "scores": {
+        "opportunity": 0.0,
+        "demand": 17.7,
+        "content_gap": 22.0,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "تکرار مشاهده",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.78,
+        "title": "گزارش فرصت‌های محتوایی SEO — 2026-07-31",
+        "url": "https://optimizationexpert.github.io/seo_opportunity_output/content_briefs_2026-07-31/",
+        "mentioned_in_body": false
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Google Search Autocomplete"
+      ],
+      "reason": "سیگنال در Google Search؛ تکرار مشاهده؛ رقابت SERP اندازه‌گیری نشده؛ نزدیک به صفحه «گزارش فرصت‌های محتوایی SEO — 2026-07-31»",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Google Search Autocomplete",
+          "query": "mixed integer programming python",
+          "family": "mixed integer programming پایتون",
+          "rank": 3,
+          "url": "",
+          "date": "2026-07-31",
+          "value": 0.0,
+          "note": "hop=1"
+        }
+      ]
+    },
+    {
       "keyword": "pyomo glpk solver",
       "cluster": "Pyomo و Solverها",
       "intent": "کدنویسی",
@@ -4295,7 +3513,7 @@
       "scores": {
         "opportunity": 0.0,
         "demand": 17.1,
-        "content_gap": 22.0,
+        "content_gap": 15.0,
         "business_fit": 100.0,
         "serp_competition": null
       },
@@ -4314,7 +3532,7 @@
         "similarity": 0.78,
         "title": "گزارش فرصت‌های SEO — 2026-07-30",
         "url": "https://optimizationexpert.github.io/seo_opportunity_output/seo_opportunity_report_2026-07-30.html",
-        "mentioned_in_body": false
+        "mentioned_in_body": true
       },
       "serp": {
         "checked": false,
@@ -4466,6 +3684,73 @@
       ]
     },
     {
+      "keyword": "what is linear and mixed integer programming",
+      "cluster": "مدل‌سازی و تحقیق در عملیات",
+      "intent": "تعریف و مفهوم",
+      "funnel": "آگاهی",
+      "suggested_title": "what is linear and mixed integer programming؛ تعریف ساده، مدل ریاضی و مثال کاربردی",
+      "suggested_slug": "what-is-linear-and-mixed-integer-programming",
+      "coverage_action": "قبلاً صفحه متمرکز دارد",
+      "scores": {
+        "opportunity": 0.0,
+        "demand": 16.1,
+        "content_gap": 15.0,
+        "business_fit": 91.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "تکرار مشاهده",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.78,
+        "title": "گزارش فرصت‌های محتوایی SEO — 2026-07-31",
+        "url": "https://optimizationexpert.github.io/seo_opportunity_output/content_briefs_2026-07-31/",
+        "mentioned_in_body": true
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Bing Autocomplete"
+      ],
+      "reason": "سیگنال در Bing؛ تکرار مشاهده؛ رقابت SERP اندازه‌گیری نشده؛ نزدیک به صفحه «گزارش فرصت‌های محتوایی SEO — 2026-07-31»",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Bing Autocomplete",
+          "query": "mixed integer programming python",
+          "family": "mixed integer programming پایتون",
+          "rank": 12,
+          "url": "",
+          "date": "2026-07-31",
+          "value": 0.0,
+          "note": "hop=1"
+        },
+        {
+          "source": "Bing Autocomplete",
+          "query": "mixed integer linear programming python error",
+          "family": "mixed integer linear programming پایتون",
+          "rank": 3,
+          "url": "",
+          "date": "2026-07-31",
+          "value": 0.0,
+          "note": "hop=2"
+        }
+      ]
+    },
+    {
       "keyword": "برنامه برنامه ریزی روزانه",
       "cluster": "زنجیره تأمین و لجستیک",
       "intent": "کدنویسی",
@@ -4519,6 +3804,130 @@
           "date": "2026-07-31",
           "value": 0.0,
           "note": "hop=0"
+        }
+      ]
+    },
+    {
+      "keyword": "mixed integer nonlinear programming",
+      "cluster": "مدل‌سازی و تحقیق در عملیات",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش mixed integer nonlinear programming با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "mixed-integer-nonlinear-programming",
+      "coverage_action": "قبلاً صفحه متمرکز دارد",
+      "scores": {
+        "opportunity": 0.0,
+        "demand": 14.8,
+        "content_gap": 22.0,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "تکرار مشاهده",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.78,
+        "title": "گزارش فرصت‌های محتوایی SEO — 2026-07-31",
+        "url": "https://optimizationexpert.github.io/seo_opportunity_output/content_briefs_2026-07-31/",
+        "mentioned_in_body": false
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Bing Autocomplete"
+      ],
+      "reason": "سیگنال در Bing؛ تکرار مشاهده؛ رقابت SERP اندازه‌گیری نشده؛ نزدیک به صفحه «گزارش فرصت‌های محتوایی SEO — 2026-07-31»",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Bing Autocomplete",
+          "query": "mixed integer programming python",
+          "family": "mixed integer programming پایتون",
+          "rank": 11,
+          "url": "",
+          "date": "2026-07-31",
+          "value": 0.0,
+          "note": "hop=1"
+        },
+        {
+          "source": "Bing Autocomplete",
+          "query": "mixed integer linear programming python error",
+          "family": "mixed integer linear programming پایتون",
+          "rank": 6,
+          "url": "",
+          "date": "2026-07-31",
+          "value": 0.0,
+          "note": "hop=2"
+        }
+      ]
+    },
+    {
+      "keyword": "python mixed integer programming solver",
+      "cluster": "مدل‌سازی و تحقیق در عملیات",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش python mixed integer programming solver با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "python-mixed-integer-programming-solver",
+      "coverage_action": "قبلاً صفحه متمرکز دارد",
+      "scores": {
+        "opportunity": 0.0,
+        "demand": 14.6,
+        "content_gap": 11.0,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "تکرار مشاهده",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.89,
+        "title": "گزارش فرصت‌های محتوایی SEO — 2026-07-31",
+        "url": "https://optimizationexpert.github.io/seo_opportunity_output/content_briefs_2026-07-31/",
+        "mentioned_in_body": true
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Google Search Autocomplete"
+      ],
+      "reason": "سیگنال در Google Search؛ تکرار مشاهده؛ رقابت SERP اندازه‌گیری نشده؛ نزدیک به صفحه «گزارش فرصت‌های محتوایی SEO — 2026-07-31»",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Google Search Autocomplete",
+          "query": "mixed integer programming python",
+          "family": "mixed integer programming پایتون",
+          "rank": 8,
+          "url": "",
+          "date": "2026-07-31",
+          "value": 0.0,
+          "note": "hop=1"
         }
       ]
     },
@@ -4580,16 +3989,16 @@
       ]
     },
     {
-      "keyword": "['glpk solver for pyomo', 'install glpk solver python', 'solver glpk_mi']",
-      "cluster": "Pyomo و Solverها",
+      "keyword": "mixed integer linear programming milp python",
+      "cluster": "مدل‌سازی و تحقیق در عملیات",
       "intent": "کدنویسی",
       "funnel": "بررسی راه‌حل",
-      "suggested_title": "آموزش ['glpk solver for pyomo', 'install glpk solver python', 'solver glpk_mi'] با Python/Pyomo؛ از مدل تا کد",
-      "suggested_slug": "glpk-solver-for-pyomo-install-glpk-solver-python-solver-glpk-mi",
+      "suggested_title": "آموزش mixed integer linear programming milp python با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "mixed-integer-linear-programming-milp-python",
       "coverage_action": "قبلاً صفحه متمرکز دارد",
       "scores": {
         "opportunity": 0.0,
-        "demand": 11.7,
+        "demand": 14.0,
         "content_gap": 15.0,
         "business_fit": 100.0,
         "serp_competition": null
@@ -4607,8 +4016,8 @@
       },
       "existing_page": {
         "similarity": 0.78,
-        "title": "گزارش فرصت‌های SEO — 2026-07-30",
-        "url": "https://optimizationexpert.github.io/seo_opportunity_output/seo_opportunity_report_2026-07-30.html",
+        "title": "گزارش فرصت‌های محتوایی SEO — 2026-07-31",
+        "url": "https://optimizationexpert.github.io/seo_opportunity_output/content_briefs_2026-07-31/",
         "mentioned_in_body": true
       },
       "serp": {
@@ -4619,20 +4028,362 @@
         "top_titles": []
       },
       "sources": [
-        "DuckDuckGo Autocomplete"
+        "Google Search Autocomplete"
       ],
-      "reason": "سیگنال در DuckDuckGo؛ تکرار مشاهده؛ رقابت SERP اندازه‌گیری نشده؛ نزدیک به صفحه «گزارش فرصت‌های SEO — 2026-07-30»",
+      "reason": "سیگنال در Google Search؛ تکرار مشاهده؛ رقابت SERP اندازه‌گیری نشده؛ نزدیک به صفحه «گزارش فرصت‌های محتوایی SEO — 2026-07-31»",
       "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
       "observations": [
         {
-          "source": "DuckDuckGo Autocomplete",
-          "query": "how to pyomo glpk solver",
-          "family": "pyomo glpk solver",
-          "rank": 2,
+          "source": "Google Search Autocomplete",
+          "query": "mixed integer programming python",
+          "family": "mixed integer programming پایتون",
+          "rank": 9,
+          "url": "",
+          "date": "2026-07-31",
+          "value": 0.0,
+          "note": "hop=1"
+        }
+      ]
+    },
+    {
+      "keyword": "mixed integer linear programming pdf",
+      "cluster": "مدل‌سازی و تحقیق در عملیات",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش mixed integer linear programming pdf با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "mixed-integer-linear-programming-pdf",
+      "coverage_action": "قبلاً صفحه متمرکز دارد",
+      "scores": {
+        "opportunity": 0.0,
+        "demand": 13.7,
+        "content_gap": 15.0,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "تکرار مشاهده",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.78,
+        "title": "گزارش فرصت‌های محتوایی SEO — 2026-07-31",
+        "url": "https://optimizationexpert.github.io/seo_opportunity_output/content_briefs_2026-07-31/",
+        "mentioned_in_body": true
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Bing Autocomplete"
+      ],
+      "reason": "سیگنال در Bing؛ تکرار مشاهده؛ رقابت SERP اندازه‌گیری نشده؛ نزدیک به صفحه «گزارش فرصت‌های محتوایی SEO — 2026-07-31»",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Bing Autocomplete",
+          "query": "mixed integer linear programming python error",
+          "family": "mixed integer linear programming پایتون",
+          "rank": 4,
           "url": "",
           "date": "2026-07-31",
           "value": 0.0,
           "note": "hop=2"
+        }
+      ]
+    },
+    {
+      "keyword": "what is mixed integer programming",
+      "cluster": "مدل‌سازی و تحقیق در عملیات",
+      "intent": "تعریف و مفهوم",
+      "funnel": "آگاهی",
+      "suggested_title": "what is mixed integer programming؛ تعریف ساده، مدل ریاضی و مثال کاربردی",
+      "suggested_slug": "what-is-mixed-integer-programming",
+      "coverage_action": "قبلاً صفحه متمرکز دارد",
+      "scores": {
+        "opportunity": 0.0,
+        "demand": 13.7,
+        "content_gap": 15.0,
+        "business_fit": 91.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "تکرار مشاهده",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.78,
+        "title": "گزارش فرصت‌های محتوایی SEO — 2026-07-31",
+        "url": "https://optimizationexpert.github.io/seo_opportunity_output/content_briefs_2026-07-31/",
+        "mentioned_in_body": true
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Bing Autocomplete"
+      ],
+      "reason": "سیگنال در Bing؛ تکرار مشاهده؛ رقابت SERP اندازه‌گیری نشده؛ نزدیک به صفحه «گزارش فرصت‌های محتوایی SEO — 2026-07-31»",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Bing Autocomplete",
+          "query": "mixed integer programming python",
+          "family": "mixed integer programming پایتون",
+          "rank": 4,
+          "url": "",
+          "date": "2026-07-31",
+          "value": 0.0,
+          "note": "hop=1"
+        }
+      ]
+    },
+    {
+      "keyword": "linear programming python github",
+      "cluster": "مدل‌سازی و تحقیق در عملیات",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش linear programming python github با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "linear-programming-python-github",
+      "coverage_action": "قبلاً صفحه متمرکز دارد",
+      "scores": {
+        "opportunity": 0.0,
+        "demand": 13.3,
+        "content_gap": 6.0,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "تکرار مشاهده",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.94,
+        "title": "گزارش فرصت‌های SEO — 2026-07-31",
+        "url": "https://optimizationexpert.github.io/seo_opportunity_output/seo_opportunity_report_2026-07-31.html",
+        "mentioned_in_body": true
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Google Search Autocomplete"
+      ],
+      "reason": "سیگنال در Google Search؛ تکرار مشاهده؛ رقابت SERP اندازه‌گیری نشده؛ نزدیک به صفحه «گزارش فرصت‌های SEO — 2026-07-31»",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Google Search Autocomplete",
+          "query": "linear programming python",
+          "family": "linear programming پایتون",
+          "rank": 10,
+          "url": "",
+          "date": "2026-07-31",
+          "value": 0.0,
+          "note": "hop=1"
+        }
+      ]
+    },
+    {
+      "keyword": "mixed integer linear programming solver",
+      "cluster": "مدل‌سازی و تحقیق در عملیات",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش mixed integer linear programming solver با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "mixed-integer-linear-programming-solver",
+      "coverage_action": "قبلاً صفحه متمرکز دارد",
+      "scores": {
+        "opportunity": 0.0,
+        "demand": 13.2,
+        "content_gap": 15.0,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "تکرار مشاهده",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.78,
+        "title": "گزارش فرصت‌های محتوایی SEO — 2026-07-31",
+        "url": "https://optimizationexpert.github.io/seo_opportunity_output/content_briefs_2026-07-31/",
+        "mentioned_in_body": true
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Bing Autocomplete"
+      ],
+      "reason": "سیگنال در Bing؛ تکرار مشاهده؛ رقابت SERP اندازه‌گیری نشده؛ نزدیک به صفحه «گزارش فرصت‌های محتوایی SEO — 2026-07-31»",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Bing Autocomplete",
+          "query": "mixed integer linear programming python error",
+          "family": "mixed integer linear programming پایتون",
+          "rank": 5,
+          "url": "",
+          "date": "2026-07-31",
+          "value": 0.0,
+          "note": "hop=2"
+        }
+      ]
+    },
+    {
+      "keyword": "mixed integer linear program",
+      "cluster": "مدل‌سازی و تحقیق در عملیات",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش mixed integer linear program با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "mixed-integer-linear-program",
+      "coverage_action": "قبلاً صفحه متمرکز دارد",
+      "scores": {
+        "opportunity": 0.0,
+        "demand": 12.3,
+        "content_gap": 6.0,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "تکرار مشاهده",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.94,
+        "title": "گزارش فرصت‌های محتوایی SEO — 2026-07-31",
+        "url": "https://optimizationexpert.github.io/seo_opportunity_output/content_briefs_2026-07-31/",
+        "mentioned_in_body": true
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Bing Autocomplete"
+      ],
+      "reason": "سیگنال در Bing؛ تکرار مشاهده؛ رقابت SERP اندازه‌گیری نشده؛ نزدیک به صفحه «گزارش فرصت‌های محتوایی SEO — 2026-07-31»",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Bing Autocomplete",
+          "query": "mixed integer linear programming python error",
+          "family": "mixed integer linear programming پایتون",
+          "rank": 7,
+          "url": "",
+          "date": "2026-07-31",
+          "value": 0.0,
+          "note": "hop=2"
+        }
+      ]
+    },
+    {
+      "keyword": "mixed integer programming solver",
+      "cluster": "مدل‌سازی و تحقیق در عملیات",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش mixed integer programming solver با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "mixed-integer-programming-solver",
+      "coverage_action": "قبلاً صفحه متمرکز دارد",
+      "scores": {
+        "opportunity": 0.0,
+        "demand": 12.3,
+        "content_gap": 6.0,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "تکرار مشاهده",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.94,
+        "title": "گزارش فرصت‌های محتوایی SEO — 2026-07-31",
+        "url": "https://optimizationexpert.github.io/seo_opportunity_output/content_briefs_2026-07-31/",
+        "mentioned_in_body": true
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Bing Autocomplete"
+      ],
+      "reason": "سیگنال در Bing؛ تکرار مشاهده؛ رقابت SERP اندازه‌گیری نشده؛ نزدیک به صفحه «گزارش فرصت‌های محتوایی SEO — 2026-07-31»",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Bing Autocomplete",
+          "query": "mixed integer programming python",
+          "family": "mixed integer programming پایتون",
+          "rank": 7,
+          "url": "",
+          "date": "2026-07-31",
+          "value": 0.0,
+          "note": "hop=1"
         }
       ]
     },
@@ -4747,6 +4498,177 @@
           "date": "2026-07-31",
           "value": 0.0,
           "note": "hop=0"
+        }
+      ]
+    },
+    {
+      "keyword": "integer linear programming python",
+      "cluster": "مدل‌سازی و تحقیق در عملیات",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش integer linear programming python با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "integer-linear-programming-python",
+      "coverage_action": "قبلاً صفحه متمرکز دارد",
+      "scores": {
+        "opportunity": 0.0,
+        "demand": 11.0,
+        "content_gap": 6.0,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "تکرار مشاهده",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.94,
+        "title": "گزارش فرصت‌های محتوایی SEO — 2026-07-31",
+        "url": "https://optimizationexpert.github.io/seo_opportunity_output/content_briefs_2026-07-31/",
+        "mentioned_in_body": true
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Bing Autocomplete"
+      ],
+      "reason": "سیگنال در Bing؛ تکرار مشاهده؛ رقابت SERP اندازه‌گیری نشده؛ نزدیک به صفحه «گزارش فرصت‌های محتوایی SEO — 2026-07-31»",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Bing Autocomplete",
+          "query": "mixed integer linear programming python error",
+          "family": "mixed integer linear programming پایتون",
+          "rank": 10,
+          "url": "",
+          "date": "2026-07-31",
+          "value": 0.0,
+          "note": "hop=2"
+        }
+      ]
+    },
+    {
+      "keyword": "mixed integer convex programming",
+      "cluster": "مدل‌سازی و تحقیق در عملیات",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش mixed integer convex programming با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "mixed-integer-convex-programming",
+      "coverage_action": "قبلاً صفحه متمرکز دارد",
+      "scores": {
+        "opportunity": 0.0,
+        "demand": 11.0,
+        "content_gap": 15.0,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "تکرار مشاهده",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.78,
+        "title": "گزارش فرصت‌های محتوایی SEO — 2026-07-31",
+        "url": "https://optimizationexpert.github.io/seo_opportunity_output/content_briefs_2026-07-31/",
+        "mentioned_in_body": true
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Bing Autocomplete"
+      ],
+      "reason": "سیگنال در Bing؛ تکرار مشاهده؛ رقابت SERP اندازه‌گیری نشده؛ نزدیک به صفحه «گزارش فرصت‌های محتوایی SEO — 2026-07-31»",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Bing Autocomplete",
+          "query": "mixed integer programming python",
+          "family": "mixed integer programming پایتون",
+          "rank": 10,
+          "url": "",
+          "date": "2026-07-31",
+          "value": 0.0,
+          "note": "hop=1"
+        }
+      ]
+    },
+    {
+      "keyword": "mixed integer linear optimization",
+      "cluster": "مدل‌سازی و تحقیق در عملیات",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش mixed integer linear optimization با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "mixed-integer-linear-optimization",
+      "coverage_action": "قبلاً صفحه متمرکز دارد",
+      "scores": {
+        "opportunity": 0.0,
+        "demand": 10.5,
+        "content_gap": 6.0,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "تکرار مشاهده",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.94,
+        "title": "گزارش فرصت‌های SEO — 2026-07-31",
+        "url": "https://optimizationexpert.github.io/seo_opportunity_output/seo_opportunity_report_2026-07-31.html",
+        "mentioned_in_body": true
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Bing Autocomplete"
+      ],
+      "reason": "سیگنال در Bing؛ تکرار مشاهده؛ رقابت SERP اندازه‌گیری نشده؛ نزدیک به صفحه «گزارش فرصت‌های SEO — 2026-07-31»",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Bing Autocomplete",
+          "query": "mixed integer linear programming python error",
+          "family": "mixed integer linear programming پایتون",
+          "rank": 11,
+          "url": "",
+          "date": "2026-07-31",
+          "value": 0.0,
+          "note": "hop=2"
         }
       ]
     }
