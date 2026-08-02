@@ -7,7 +7,8 @@
       "seen_dates": [
         "2026-07-30",
         "2026-07-31",
-        "2026-08-01"
+        "2026-08-01",
+        "2026-08-02"
       ],
       "selected_dates": [
         "2026-07-30",
@@ -20,14 +21,14 @@
         "Bing Autocomplete|linear programming پایتون": 4,
         "Bing Autocomplete|mixed integer programming پایتون": 2
       },
-      "last_seen": "2026-08-01",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "Bing Autocomplete",
         "Google Search Autocomplete",
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 50.4,
-      "last_opportunity_score": 52.6,
+      "last_demand_score": 55.4,
+      "last_opportunity_score": 11.4,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -72,7 +73,8 @@
       "seen_dates": [
         "2026-07-30",
         "2026-07-31",
-        "2026-08-01"
+        "2026-08-01",
+        "2026-08-02"
       ],
       "selected_dates": [
         "2026-07-30",
@@ -83,13 +85,13 @@
         "Google Search Autocomplete|linear programming پایتون": 2,
         "Bing Autocomplete|linear programming پایتون": 3
       },
-      "last_seen": "2026-08-01",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "Bing Autocomplete",
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 32.5,
-      "last_opportunity_score": 44.1,
+      "last_demand_score": 37.5,
+      "last_opportunity_score": 39.6,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -99,7 +101,8 @@
       "seen_dates": [
         "2026-07-30",
         "2026-07-31",
-        "2026-08-01"
+        "2026-08-01",
+        "2026-08-02"
       ],
       "selected_dates": [
         "2026-07-30",
@@ -110,13 +113,13 @@
         "Google Search Autocomplete|linear programming پایتون": 6,
         "YouTube Autocomplete|linear programming پایتون": 2
       },
-      "last_seen": "2026-08-01",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "Google Search Autocomplete",
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 31.4,
-      "last_opportunity_score": 45.6,
+      "last_demand_score": 36.4,
+      "last_opportunity_score": 38.9,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -126,7 +129,8 @@
       "seen_dates": [
         "2026-07-30",
         "2026-07-31",
-        "2026-08-01"
+        "2026-08-01",
+        "2026-08-02"
       ],
       "selected_dates": [
         "2026-07-30",
@@ -137,13 +141,13 @@
         "Google Search Autocomplete|mixed integer programming پایتون": 4,
         "Bing Autocomplete|mixed integer programming پایتون": 3
       },
-      "last_seen": "2026-08-01",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "Bing Autocomplete",
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 31.2,
-      "last_opportunity_score": 43.8,
+      "last_demand_score": 36.2,
+      "last_opportunity_score": 2.2,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -222,7 +226,8 @@
       "seen_dates": [
         "2026-07-30",
         "2026-07-31",
-        "2026-08-01"
+        "2026-08-01",
+        "2026-08-02"
       ],
       "selected_dates": [
         "2026-07-30"
@@ -231,12 +236,12 @@
         "Google Search Autocomplete|mixed integer programming پایتون": 5,
         "Google Search Autocomplete|mixed integer linear programming پایتون": 2
       },
-      "last_seen": "2026-08-01",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 20.4,
-      "last_opportunity_score": 38.5,
+      "last_demand_score": 25.4,
+      "last_opportunity_score": 27.0,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -246,7 +251,8 @@
       "seen_dates": [
         "2026-07-30",
         "2026-07-31",
-        "2026-08-01"
+        "2026-08-01",
+        "2026-08-02"
       ],
       "selected_dates": [
         "2026-07-30"
@@ -255,12 +261,12 @@
         "Google Search Autocomplete|mixed integer programming پایتون": 6,
         "Google Search Autocomplete|mixed integer linear programming پایتون": 3
       },
-      "last_seen": "2026-08-01",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 19.7,
-      "last_opportunity_score": 38.2,
+      "last_demand_score": 24.7,
+      "last_opportunity_score": 0.0,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -270,7 +276,8 @@
       "seen_dates": [
         "2026-07-30",
         "2026-07-31",
-        "2026-08-01"
+        "2026-08-01",
+        "2026-08-02"
       ],
       "selected_dates": [
         "2026-07-30"
@@ -278,12 +285,12 @@
       "context_ranks": {
         "Google Search Autocomplete|mixed integer programming پایتون": 3
       },
-      "last_seen": "2026-08-01",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 17.7,
-      "last_opportunity_score": 37.2,
+      "last_demand_score": 22.7,
+      "last_opportunity_score": 0.0,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -317,7 +324,8 @@
       "seen_dates": [
         "2026-07-30",
         "2026-07-31",
-        "2026-08-01"
+        "2026-08-01",
+        "2026-08-02"
       ],
       "selected_dates": [
         "2026-07-30"
@@ -326,12 +334,12 @@
         "Google Search Autocomplete|mixed integer programming پایتون": 9,
         "Google Search Autocomplete|mixed integer linear programming پایتون": 6
       },
-      "last_seen": "2026-08-01",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 17.9,
-      "last_opportunity_score": 37.2,
+      "last_demand_score": 22.9,
+      "last_opportunity_score": 25.4,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -341,21 +349,23 @@
       "seen_dates": [
         "2026-07-30",
         "2026-07-31",
-        "2026-08-01"
+        "2026-08-01",
+        "2026-08-02"
       ],
       "selected_dates": [
         "2026-08-01"
       ],
       "context_ranks": {
         "Bing Autocomplete|mixed integer programming پایتون": 5,
-        "Bing Autocomplete|mixed integer linear programming پایتون": 1
+        "Bing Autocomplete|mixed integer linear programming پایتون": 2,
+        "Bing Autocomplete|what is mixed integer programming": 2
       },
-      "last_seen": "2026-08-01",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "Bing Autocomplete"
       ],
-      "last_demand_score": 17.0,
-      "last_opportunity_score": 55.3,
+      "last_demand_score": 23.6,
+      "last_opportunity_score": 0.0,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -436,7 +446,8 @@
       "first_seen": "2026-07-30",
       "seen_dates": [
         "2026-07-30",
-        "2026-08-01"
+        "2026-08-01",
+        "2026-08-02"
       ],
       "selected_dates": [
         "2026-08-01"
@@ -444,12 +455,12 @@
       "context_ranks": {
         "Google Search Autocomplete|mixed integer linear programming پایتون": 4
       },
-      "last_seen": "2026-08-01",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "Google Search Autocomplete"
       ],
       "last_demand_score": 17.1,
-      "last_opportunity_score": 54.8,
+      "last_opportunity_score": 22.9,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -459,7 +470,8 @@
       "seen_dates": [
         "2026-07-30",
         "2026-07-31",
-        "2026-08-01"
+        "2026-08-01",
+        "2026-08-02"
       ],
       "selected_dates": [
         "2026-07-30"
@@ -467,12 +479,12 @@
       "context_ranks": {
         "Google Search Autocomplete|linear programming پایتون": 4
       },
-      "last_seen": "2026-08-01",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 17.1,
-      "last_opportunity_score": 36.5,
+      "last_demand_score": 22.1,
+      "last_opportunity_score": 32.0,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -589,7 +601,8 @@
       "seen_dates": [
         "2026-07-30",
         "2026-07-31",
-        "2026-08-01"
+        "2026-08-01",
+        "2026-08-02"
       ],
       "selected_dates": [
         "2026-07-30"
@@ -597,12 +610,12 @@
       "context_ranks": {
         "Google Search Autocomplete|linear programming پایتون": 7
       },
-      "last_seen": "2026-08-01",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 15.2,
-      "last_opportunity_score": 38.0,
+      "last_demand_score": 20.2,
+      "last_opportunity_score": 33.5,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -612,21 +625,23 @@
       "seen_dates": [
         "2026-07-30",
         "2026-07-31",
-        "2026-08-01"
+        "2026-08-01",
+        "2026-08-02"
       ],
       "selected_dates": [
         "2026-07-30"
       ],
       "context_ranks": {
-        "Bing Autocomplete|mixed integer programming پایتون": 11,
-        "Bing Autocomplete|mixed integer linear programming پایتون": 6
+        "Bing Autocomplete|mixed integer programming پایتون": 10,
+        "Bing Autocomplete|mixed integer linear programming پایتون": 7,
+        "Bing Autocomplete|what is mixed integer programming": 10
       },
-      "last_seen": "2026-08-01",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "Bing Autocomplete"
       ],
-      "last_demand_score": 14.8,
-      "last_opportunity_score": 36.3,
+      "last_demand_score": 21.3,
+      "last_opportunity_score": 0.0,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -746,7 +761,8 @@
       "seen_dates": [
         "2026-07-30",
         "2026-07-31",
-        "2026-08-01"
+        "2026-08-01",
+        "2026-08-02"
       ],
       "selected_dates": [
         "2026-07-30"
@@ -754,12 +770,12 @@
       "context_ranks": {
         "Google Search Autocomplete|linear programming پایتون": 8
       },
-      "last_seen": "2026-08-01",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 14.6,
-      "last_opportunity_score": 37.6,
+      "last_demand_score": 19.6,
+      "last_opportunity_score": 33.1,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -791,7 +807,8 @@
       "seen_dates": [
         "2026-07-30",
         "2026-07-31",
-        "2026-08-01"
+        "2026-08-01",
+        "2026-08-02"
       ],
       "selected_dates": [
         "2026-07-30"
@@ -799,12 +816,12 @@
       "context_ranks": {
         "YouTube Autocomplete|linear programming پایتون": 3
       },
-      "last_seen": "2026-08-01",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 15.0,
-      "last_opportunity_score": 37.8,
+      "last_demand_score": 20.0,
+      "last_opportunity_score": 33.1,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -900,7 +917,8 @@
       "seen_dates": [
         "2026-07-30",
         "2026-07-31",
-        "2026-08-01"
+        "2026-08-01",
+        "2026-08-02"
       ],
       "selected_dates": [
         "2026-07-30"
@@ -908,12 +926,12 @@
       "context_ranks": {
         "YouTube Autocomplete|linear programming پایتون": 4
       },
-      "last_seen": "2026-08-01",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 14.5,
-      "last_opportunity_score": 37.4,
+      "last_demand_score": 19.5,
+      "last_opportunity_score": 34.1,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -923,20 +941,23 @@
       "seen_dates": [
         "2026-07-30",
         "2026-07-31",
-        "2026-08-01"
+        "2026-08-01",
+        "2026-08-02"
       ],
       "selected_dates": [
         "2026-07-30"
       ],
       "context_ranks": {
-        "Bing Autocomplete|mixed integer linear programming پایتون": 4
+        "Bing Autocomplete|mixed integer programming پایتون": 12,
+        "Bing Autocomplete|mixed integer linear programming پایتون": 4,
+        "Bing Autocomplete|what is mixed integer programming": 7
       },
-      "last_seen": "2026-08-01",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "Bing Autocomplete"
       ],
-      "last_demand_score": 13.7,
-      "last_opportunity_score": 35.7,
+      "last_demand_score": 22.6,
+      "last_opportunity_score": 26.2,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -1009,7 +1030,8 @@
       "seen_dates": [
         "2026-07-30",
         "2026-07-31",
-        "2026-08-01"
+        "2026-08-01",
+        "2026-08-02"
       ],
       "selected_dates": [
         "2026-07-30"
@@ -1017,12 +1039,12 @@
       "context_ranks": {
         "Google Search Autocomplete|linear programming پایتون": 9
       },
-      "last_seen": "2026-08-01",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 14.0,
-      "last_opportunity_score": 37.1,
+      "last_demand_score": 19.0,
+      "last_opportunity_score": 32.6,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -1138,7 +1160,8 @@
       "seen_dates": [
         "2026-07-30",
         "2026-07-31",
-        "2026-08-01"
+        "2026-08-01",
+        "2026-08-02"
       ],
       "selected_dates": [
         "2026-07-30"
@@ -1146,12 +1169,12 @@
       "context_ranks": {
         "YouTube Autocomplete|مکان یابی تسهیلات در پایتون": 1
       },
-      "last_seen": "2026-08-01",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 16.0,
-      "last_opportunity_score": 37.6,
+      "last_demand_score": 21.0,
+      "last_opportunity_score": 40.0,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -1223,20 +1246,22 @@
       "seen_dates": [
         "2026-07-30",
         "2026-07-31",
-        "2026-08-01"
+        "2026-08-01",
+        "2026-08-02"
       ],
       "selected_dates": [
         "2026-07-30"
       ],
       "context_ranks": {
-        "Bing Autocomplete|mixed integer linear programming پایتون": 5
+        "Bing Autocomplete|mixed integer linear programming پایتون": 5,
+        "Bing Autocomplete|what is mixed integer programming": 12
       },
-      "last_seen": "2026-08-01",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "Bing Autocomplete"
       ],
-      "last_demand_score": 13.2,
-      "last_opportunity_score": 35.2,
+      "last_demand_score": 20.2,
+      "last_opportunity_score": 0.0,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -1707,7 +1732,8 @@
       "seen_dates": [
         "2026-07-30",
         "2026-07-31",
-        "2026-08-01"
+        "2026-08-01",
+        "2026-08-02"
       ],
       "selected_dates": [
         "2026-07-30"
@@ -1718,14 +1744,14 @@
         "YouTube Autocomplete|what is mixed integer programming": 1,
         "Bing Autocomplete|mixed integer linear programming پایتون": 9
       },
-      "last_seen": "2026-08-01",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "Bing Autocomplete",
         "Google Search Autocomplete",
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 52.6,
-      "last_opportunity_score": 52.6,
+      "last_demand_score": 57.6,
+      "last_opportunity_score": 10.6,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -1904,21 +1930,23 @@
       "seen_dates": [
         "2026-07-30",
         "2026-07-31",
-        "2026-08-01"
+        "2026-08-01",
+        "2026-08-02"
       ],
       "selected_dates": [
         "2026-07-30"
       ],
       "context_ranks": {
-        "Bing Autocomplete|mixed integer programming پایتون": 12,
-        "Bing Autocomplete|mixed integer linear programming پایتون": 3
+        "Bing Autocomplete|mixed integer programming پایتون": 11,
+        "Bing Autocomplete|mixed integer linear programming پایتون": 3,
+        "Bing Autocomplete|what is mixed integer programming": 1
       },
-      "last_seen": "2026-08-01",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "Bing Autocomplete"
       ],
-      "last_demand_score": 16.1,
-      "last_opportunity_score": 34.7,
+      "last_demand_score": 24.0,
+      "last_opportunity_score": 0.0,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -2240,7 +2268,8 @@
       "seen_dates": [
         "2026-07-30",
         "2026-07-31",
-        "2026-08-01"
+        "2026-08-01",
+        "2026-08-02"
       ],
       "selected_dates": [
         "2026-07-31"
@@ -2248,12 +2277,12 @@
       "context_ranks": {
         "Google Search Autocomplete|linear programming پایتون": 3
       },
-      "last_seen": "2026-08-01",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 17.7,
-      "last_opportunity_score": 36.8,
+      "last_demand_score": 22.7,
+      "last_opportunity_score": 29.9,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -2569,18 +2598,19 @@
       "seen_dates": [
         "2026-07-30",
         "2026-07-31",
-        "2026-08-01"
+        "2026-08-01",
+        "2026-08-02"
       ],
       "selected_dates": [
         "2026-07-30"
       ],
       "context_ranks": {},
-      "last_seen": "2026-08-01",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "Stack Exchange Questions"
       ],
-      "last_demand_score": 17.0,
-      "last_opportunity_score": 30.2,
+      "last_demand_score": 22.0,
+      "last_opportunity_score": 32.6,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -2723,20 +2753,22 @@
       "seen_dates": [
         "2026-07-30",
         "2026-07-31",
-        "2026-08-01"
+        "2026-08-01",
+        "2026-08-02"
       ],
       "selected_dates": [
         "2026-07-30"
       ],
       "context_ranks": {
-        "Bing Autocomplete|mixed integer programming پایتون": 10
+        "Bing Autocomplete|mixed integer programming پایتون": 9,
+        "Bing Autocomplete|what is mixed integer programming": 4
       },
-      "last_seen": "2026-08-01",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "Bing Autocomplete"
       ],
-      "last_demand_score": 11.0,
-      "last_opportunity_score": 34.2,
+      "last_demand_score": 20.6,
+      "last_opportunity_score": 0.0,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -2746,20 +2778,20 @@
       "seen_dates": [
         "2026-07-30",
         "2026-07-31",
-        "2026-08-01"
+        "2026-08-01",
+        "2026-08-02"
       ],
       "selected_dates": [
         "2026-07-30"
       ],
       "context_ranks": {
-        "Google Search Autocomplete|pyomo glpk": 4,
-        "Google Search Autocomplete|pyomo glpk solver options": 1
+        "Google Search Autocomplete|pyomo glpk": 4
       },
-      "last_seen": "2026-08-01",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 21.0,
+      "last_demand_score": 22.1,
       "last_opportunity_score": 0.0,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
@@ -2925,21 +2957,22 @@
       "seen_dates": [
         "2026-07-30",
         "2026-07-31",
-        "2026-08-01"
+        "2026-08-01",
+        "2026-08-02"
       ],
       "selected_dates": [
         "2026-07-30"
       ],
       "context_ranks": {
         "Bing Autocomplete|mixed integer programming پایتون": 8,
-        "Bing Autocomplete|mixed integer linear programming پایتون": 2
+        "Bing Autocomplete|mixed integer linear programming پایتون": 6
       },
-      "last_seen": "2026-08-01",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "Bing Autocomplete"
       ],
-      "last_demand_score": 16.6,
-      "last_opportunity_score": 32.9,
+      "last_demand_score": 19.8,
+      "last_opportunity_score": 29.4,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -2985,7 +3018,8 @@
       "seen_dates": [
         "2026-07-30",
         "2026-07-31",
-        "2026-08-01"
+        "2026-08-01",
+        "2026-08-02"
       ],
       "selected_dates": [
         "2026-08-01"
@@ -2993,12 +3027,12 @@
       "context_ranks": {
         "Bing Autocomplete|linear programming پایتون": 2
       },
-      "last_seen": "2026-08-01",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "Bing Autocomplete"
       ],
-      "last_demand_score": 14.6,
-      "last_opportunity_score": 53.5,
+      "last_demand_score": 19.6,
+      "last_opportunity_score": 28.6,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -3103,7 +3137,8 @@
       "seen_dates": [
         "2026-07-30",
         "2026-07-31",
-        "2026-08-01"
+        "2026-08-01",
+        "2026-08-02"
       ],
       "selected_dates": [
         "2026-07-30"
@@ -3111,12 +3146,12 @@
       "context_ranks": {
         "Google Search Autocomplete|mixed integer programming پایتون": 8
       },
-      "last_seen": "2026-08-01",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 14.6,
-      "last_opportunity_score": 32.0,
+      "last_demand_score": 19.6,
+      "last_opportunity_score": 0.0,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -3126,18 +3161,19 @@
       "seen_dates": [
         "2026-07-30",
         "2026-07-31",
-        "2026-08-01"
+        "2026-08-01",
+        "2026-08-02"
       ],
       "selected_dates": [
         "2026-07-30"
       ],
       "context_ranks": {},
-      "last_seen": "2026-08-01",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "Stack Exchange Questions"
       ],
-      "last_demand_score": 14.4,
-      "last_opportunity_score": 31.7,
+      "last_demand_score": 19.4,
+      "last_opportunity_score": 34.1,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -3147,7 +3183,8 @@
       "seen_dates": [
         "2026-07-30",
         "2026-07-31",
-        "2026-08-01"
+        "2026-08-01",
+        "2026-08-02"
       ],
       "selected_dates": [
         "2026-07-30"
@@ -3155,12 +3192,12 @@
       "context_ranks": {
         "Google Search Autocomplete|pyomo cbc": 4
       },
-      "last_seen": "2026-08-01",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 17.1,
-      "last_opportunity_score": 34.8,
+      "last_demand_score": 22.1,
+      "last_opportunity_score": 37.2,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -3170,7 +3207,8 @@
       "seen_dates": [
         "2026-07-30",
         "2026-07-31",
-        "2026-08-01"
+        "2026-08-01",
+        "2026-08-02"
       ],
       "selected_dates": [
         "2026-08-01"
@@ -3179,12 +3217,12 @@
         "Google Search Autocomplete|mixed integer programming پایتون": 7,
         "Google Search Autocomplete|mixed integer linear programming پایتون": 5
       },
-      "last_seen": "2026-08-01",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 18.5,
-      "last_opportunity_score": 51.9,
+      "last_demand_score": 23.5,
+      "last_opportunity_score": 26.0,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -3486,7 +3524,8 @@
       "seen_dates": [
         "2026-07-30",
         "2026-07-31",
-        "2026-08-01"
+        "2026-08-01",
+        "2026-08-02"
       ],
       "selected_dates": [
         "2026-07-30"
@@ -3494,12 +3533,12 @@
       "context_ranks": {
         "DuckDuckGo Autocomplete|pyomo cbc": 2
       },
-      "last_seen": "2026-08-01",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "DuckDuckGo Autocomplete"
       ],
-      "last_demand_score": 11.7,
-      "last_opportunity_score": 33.9,
+      "last_demand_score": 16.7,
+      "last_opportunity_score": 36.3,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -3643,20 +3682,22 @@
       "seen_dates": [
         "2026-07-30",
         "2026-07-31",
-        "2026-08-01"
+        "2026-08-01",
+        "2026-08-02"
       ],
       "selected_dates": [
         "2026-07-31"
       ],
       "context_ranks": {
-        "Bing Autocomplete|mixed integer programming پایتون": 7
+        "Bing Autocomplete|mixed integer programming پایتون": 7,
+        "Bing Autocomplete|what is mixed integer programming": 3
       },
-      "last_seen": "2026-08-01",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "Bing Autocomplete"
       ],
-      "last_demand_score": 12.3,
-      "last_opportunity_score": 30.9,
+      "last_demand_score": 21.1,
+      "last_opportunity_score": 0.0,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -3704,7 +3745,8 @@
       "seen_dates": [
         "2026-07-30",
         "2026-07-31",
-        "2026-08-01"
+        "2026-08-01",
+        "2026-08-02"
       ],
       "selected_dates": [
         "2026-07-30"
@@ -3712,12 +3754,12 @@
       "context_ranks": {
         "Google Search Autocomplete|pyomo highs": 4
       },
-      "last_seen": "2026-08-01",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 17.1,
-      "last_opportunity_score": 25.4,
+      "last_demand_score": 22.1,
+      "last_opportunity_score": 27.8,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -3765,7 +3807,8 @@
       "seen_dates": [
         "2026-07-30",
         "2026-07-31",
-        "2026-08-01"
+        "2026-08-01",
+        "2026-08-02"
       ],
       "selected_dates": [
         "2026-07-30"
@@ -3773,12 +3816,12 @@
       "context_ranks": {
         "Google Search Autocomplete|pyomo highs": 5
       },
-      "last_seen": "2026-08-01",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 16.5,
-      "last_opportunity_score": 27.7,
+      "last_demand_score": 21.5,
+      "last_opportunity_score": 30.1,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -3845,7 +3888,8 @@
       "seen_dates": [
         "2026-07-30",
         "2026-07-31",
-        "2026-08-01"
+        "2026-08-01",
+        "2026-08-02"
       ],
       "selected_dates": [
         "2026-07-30"
@@ -3853,11 +3897,11 @@
       "context_ranks": {
         "Google Search Autocomplete|pyomo highs": 2
       },
-      "last_seen": "2026-08-01",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 18.4,
+      "last_demand_score": 23.4,
       "last_opportunity_score": 0.0,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
@@ -3868,7 +3912,8 @@
       "seen_dates": [
         "2026-07-30",
         "2026-07-31",
-        "2026-08-01"
+        "2026-08-01",
+        "2026-08-02"
       ],
       "selected_dates": [
         "2026-07-30"
@@ -3876,12 +3921,12 @@
       "context_ranks": {
         "Google Search Autocomplete|pyomo ipopt": 5
       },
-      "last_seen": "2026-08-01",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 16.5,
-      "last_opportunity_score": 23.5,
+      "last_demand_score": 21.5,
+      "last_opportunity_score": 25.9,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -4026,7 +4071,8 @@
       "seen_dates": [
         "2026-07-30",
         "2026-07-31",
-        "2026-08-01"
+        "2026-08-01",
+        "2026-08-02"
       ],
       "selected_dates": [
         "2026-07-30"
@@ -4034,12 +4080,12 @@
       "context_ranks": {
         "Bing Autocomplete|mixed integer linear programming پایتون": 10
       },
-      "last_seen": "2026-08-01",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "Bing Autocomplete"
       ],
-      "last_demand_score": 11.0,
-      "last_opportunity_score": 33.7,
+      "last_demand_score": 16.0,
+      "last_opportunity_score": 22.9,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -4087,7 +4133,8 @@
       "seen_dates": [
         "2026-07-30",
         "2026-07-31",
-        "2026-08-01"
+        "2026-08-01",
+        "2026-08-02"
       ],
       "selected_dates": [
         "2026-07-30"
@@ -4095,12 +4142,12 @@
       "context_ranks": {
         "Google Search Autocomplete|pyomo highs": 6
       },
-      "last_seen": "2026-08-01",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 15.8,
-      "last_opportunity_score": 24.4,
+      "last_demand_score": 20.9,
+      "last_opportunity_score": 26.8,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -4169,20 +4216,21 @@
       "seen_dates": [
         "2026-07-30",
         "2026-07-31",
-        "2026-08-01"
+        "2026-08-01",
+        "2026-08-02"
       ],
       "selected_dates": [
         "2026-07-30"
       ],
       "context_ranks": {
-        "Bing Autocomplete|mixed integer linear programming پایتون": 5
+        "Bing Autocomplete|mixed integer linear programming پایتون": 8
       },
-      "last_seen": "2026-08-01",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "Bing Autocomplete"
       ],
-      "last_demand_score": 13.2,
-      "last_opportunity_score": 32.0,
+      "last_demand_score": 16.9,
+      "last_opportunity_score": 23.6,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -4385,7 +4433,8 @@
       "seen_dates": [
         "2026-07-30",
         "2026-07-31",
-        "2026-08-01"
+        "2026-08-01",
+        "2026-08-02"
       ],
       "selected_dates": [
         "2026-07-30"
@@ -4393,12 +4442,12 @@
       "context_ranks": {
         "Google Search Autocomplete|pyomo highs": 7
       },
-      "last_seen": "2026-08-01",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 15.2,
-      "last_opportunity_score": 27.4,
+      "last_demand_score": 20.2,
+      "last_opportunity_score": 29.8,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -4584,7 +4633,8 @@
       "seen_dates": [
         "2026-07-30",
         "2026-07-31",
-        "2026-08-01"
+        "2026-08-01",
+        "2026-08-02"
       ],
       "selected_dates": [
         "2026-07-30"
@@ -4595,12 +4645,12 @@
         "YouTube Autocomplete|برنامه ریزی تولید با pyomo": 2,
         "YouTube Autocomplete|برنامه ریزی تولید و توزیع یکپارچه": 3
       },
-      "last_seen": "2026-08-01",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 21.5,
-      "last_opportunity_score": 31.3,
+      "last_demand_score": 26.5,
+      "last_opportunity_score": 33.7,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -4629,7 +4679,8 @@
       "seen_dates": [
         "2026-07-30",
         "2026-07-31",
-        "2026-08-01"
+        "2026-08-01",
+        "2026-08-02"
       ],
       "selected_dates": [
         "2026-07-30"
@@ -4637,11 +4688,11 @@
       "context_ranks": {
         "Google Search Autocomplete|pyomo glpk": 2
       },
-      "last_seen": "2026-08-01",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 18.4,
+      "last_demand_score": 23.4,
       "last_opportunity_score": 0.0,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
@@ -4652,7 +4703,8 @@
       "seen_dates": [
         "2026-07-30",
         "2026-07-31",
-        "2026-08-01"
+        "2026-08-01",
+        "2026-08-02"
       ],
       "selected_dates": [
         "2026-07-30"
@@ -4660,11 +4712,11 @@
       "context_ranks": {
         "Google Search Autocomplete|pyomo ipopt": 2
       },
-      "last_seen": "2026-08-01",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 18.4,
+      "last_demand_score": 23.4,
       "last_opportunity_score": 0.0,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
@@ -4732,7 +4784,8 @@
       "seen_dates": [
         "2026-07-30",
         "2026-07-31",
-        "2026-08-01"
+        "2026-08-01",
+        "2026-08-02"
       ],
       "selected_dates": [
         "2026-07-30"
@@ -4740,12 +4793,12 @@
       "context_ranks": {
         "Google Search Autocomplete|pyomo cbc": 2
       },
-      "last_seen": "2026-08-01",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 18.4,
-      "last_opportunity_score": 25.5,
+      "last_demand_score": 23.4,
+      "last_opportunity_score": 27.9,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -4774,7 +4827,8 @@
       "seen_dates": [
         "2026-07-30",
         "2026-07-31",
-        "2026-08-01"
+        "2026-08-01",
+        "2026-08-02"
       ],
       "selected_dates": [
         "2026-07-30"
@@ -4782,11 +4836,11 @@
       "context_ranks": {
         "Google Search Autocomplete|pyomo glpk": 5
       },
-      "last_seen": "2026-08-01",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 16.5,
+      "last_demand_score": 21.5,
       "last_opportunity_score": 0.0,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
@@ -4878,7 +4932,8 @@
       "seen_dates": [
         "2026-07-30",
         "2026-07-31",
-        "2026-08-01"
+        "2026-08-01",
+        "2026-08-02"
       ],
       "selected_dates": [
         "2026-07-30"
@@ -4886,12 +4941,12 @@
       "context_ranks": {
         "Google Search Autocomplete|pyomo cbc": 1
       },
-      "last_seen": "2026-08-01",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 19.0,
-      "last_opportunity_score": 26.7,
+      "last_demand_score": 24.0,
+      "last_opportunity_score": 29.1,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -4920,7 +4975,8 @@
       "seen_dates": [
         "2026-07-30",
         "2026-07-31",
-        "2026-08-01"
+        "2026-08-01",
+        "2026-08-02"
       ],
       "selected_dates": [
         "2026-07-30"
@@ -4928,12 +4984,12 @@
       "context_ranks": {
         "Google Search Autocomplete|pyomo highs": 3
       },
-      "last_seen": "2026-08-01",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 17.7,
-      "last_opportunity_score": 15.6,
+      "last_demand_score": 22.7,
+      "last_opportunity_score": 18.0,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -4943,7 +4999,8 @@
       "seen_dates": [
         "2026-07-30",
         "2026-07-31",
-        "2026-08-01"
+        "2026-08-01",
+        "2026-08-02"
       ],
       "selected_dates": [
         "2026-07-30"
@@ -4952,13 +5009,13 @@
         "Bing Autocomplete|dc optimal power flow با pyomo": 1,
         "DuckDuckGo Autocomplete|dc optimal power flow با pyomo": 2
       },
-      "last_seen": "2026-08-01",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "Bing Autocomplete",
         "DuckDuckGo Autocomplete"
       ],
-      "last_demand_score": 26.7,
-      "last_opportunity_score": 31.6,
+      "last_demand_score": 31.7,
+      "last_opportunity_score": 34.0,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -5027,7 +5084,8 @@
       "seen_dates": [
         "2026-07-30",
         "2026-07-31",
-        "2026-08-01"
+        "2026-08-01",
+        "2026-08-02"
       ],
       "selected_dates": [
         "2026-07-30"
@@ -5035,11 +5093,11 @@
       "context_ranks": {
         "Google Search Autocomplete|pyomo glpk": 3
       },
-      "last_seen": "2026-08-01",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 17.7,
+      "last_demand_score": 22.7,
       "last_opportunity_score": 0.0,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
@@ -5178,19 +5236,21 @@
       "seen_dates": [
         "2026-07-30",
         "2026-07-31",
-        "2026-08-01"
+        "2026-08-01",
+        "2026-08-02"
       ],
       "selected_dates": [
         "2026-07-30"
       ],
       "context_ranks": {
-        "Bing Autocomplete|pyomo highs": 3
+        "Bing Autocomplete|pyomo highs": 3,
+        "Bing Autocomplete|pyomo highs solver": 1
       },
-      "last_seen": "2026-08-01",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "Bing Autocomplete"
       ],
-      "last_demand_score": 14.1,
+      "last_demand_score": 22.0,
       "last_opportunity_score": 0.0,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
@@ -5201,7 +5261,8 @@
       "seen_dates": [
         "2026-07-30",
         "2026-07-31",
-        "2026-08-01"
+        "2026-08-01",
+        "2026-08-02"
       ],
       "selected_dates": [
         "2026-07-31"
@@ -5209,12 +5270,12 @@
       "context_ranks": {
         "Google Search Autocomplete|linear programming پایتون": 10
       },
-      "last_seen": "2026-08-01",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 13.3,
-      "last_opportunity_score": 28.5,
+      "last_demand_score": 18.3,
+      "last_opportunity_score": 30.3,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -5224,7 +5285,8 @@
       "seen_dates": [
         "2026-07-30",
         "2026-07-31",
-        "2026-08-01"
+        "2026-08-01",
+        "2026-08-02"
       ],
       "selected_dates": [
         "2026-07-30"
@@ -5232,12 +5294,12 @@
       "context_ranks": {
         "YouTube Autocomplete|برنامه ریزی تولید با pyomo": 3
       },
-      "last_seen": "2026-08-01",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 15.0,
-      "last_opportunity_score": 25.4,
+      "last_demand_score": 20.0,
+      "last_opportunity_score": 27.8,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -5247,7 +5309,8 @@
       "seen_dates": [
         "2026-07-30",
         "2026-07-31",
-        "2026-08-01"
+        "2026-08-01",
+        "2026-08-02"
       ],
       "selected_dates": [
         "2026-07-30"
@@ -5255,12 +5318,12 @@
       "context_ranks": {
         "Google Search Autocomplete|pyomo ipopt": 4
       },
-      "last_seen": "2026-08-01",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 17.1,
-      "last_opportunity_score": 24.0,
+      "last_demand_score": 22.1,
+      "last_opportunity_score": 26.4,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -5327,7 +5390,8 @@
       "seen_dates": [
         "2026-07-30",
         "2026-07-31",
-        "2026-08-01"
+        "2026-08-01",
+        "2026-08-02"
       ],
       "selected_dates": [
         "2026-07-30"
@@ -5335,12 +5399,12 @@
       "context_ranks": {
         "DuckDuckGo Autocomplete|pyomo highs": 2
       },
-      "last_seen": "2026-08-01",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "DuckDuckGo Autocomplete"
       ],
-      "last_demand_score": 11.7,
-      "last_opportunity_score": 21.8,
+      "last_demand_score": 16.7,
+      "last_opportunity_score": 24.2,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -5578,7 +5642,8 @@
       "seen_dates": [
         "2026-07-30",
         "2026-07-31",
-        "2026-08-01"
+        "2026-08-01",
+        "2026-08-02"
       ],
       "selected_dates": [
         "2026-07-30"
@@ -5586,11 +5651,11 @@
       "context_ranks": {
         "Bing Autocomplete|pyomo ipopt": 3
       },
-      "last_seen": "2026-08-01",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "Bing Autocomplete"
       ],
-      "last_demand_score": 14.1,
+      "last_demand_score": 19.1,
       "last_opportunity_score": 0.0,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
@@ -5662,7 +5727,8 @@
       "seen_dates": [
         "2026-07-30",
         "2026-07-31",
-        "2026-08-01"
+        "2026-08-01",
+        "2026-08-02"
       ],
       "selected_dates": [
         "2026-07-30"
@@ -5671,12 +5737,12 @@
         "YouTube Autocomplete|جایابی بهینه خازن در شبکه توزیع": 3,
         "YouTube Autocomplete|بازآرایی بهینه شبکه توزیع": 1
       },
-      "last_seen": "2026-08-01",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 18.0,
-      "last_opportunity_score": 31.4,
+      "last_demand_score": 23.0,
+      "last_opportunity_score": 33.8,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -5686,7 +5752,8 @@
       "seen_dates": [
         "2026-07-30",
         "2026-07-31",
-        "2026-08-01"
+        "2026-08-01",
+        "2026-08-02"
       ],
       "selected_dates": [
         "2026-07-30"
@@ -5694,12 +5761,12 @@
       "context_ranks": {
         "Bing Autocomplete|pyomo highs": 2
       },
-      "last_seen": "2026-08-01",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "Bing Autocomplete"
       ],
-      "last_demand_score": 14.6,
-      "last_opportunity_score": 27.7,
+      "last_demand_score": 19.6,
+      "last_opportunity_score": 30.1,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -5747,7 +5814,8 @@
       "seen_dates": [
         "2026-07-30",
         "2026-07-31",
-        "2026-08-01"
+        "2026-08-01",
+        "2026-08-02"
       ],
       "selected_dates": [
         "2026-07-30"
@@ -5756,12 +5824,12 @@
         "YouTube Autocomplete|انتخاب تامین کننده با مدلسازی ریاضی": 1,
         "YouTube Autocomplete|برنامه ریزی تولید و توزیع یکپارچه": 1
       },
-      "last_seen": "2026-08-01",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 18.0,
-      "last_opportunity_score": 28.8,
+      "last_demand_score": 23.0,
+      "last_opportunity_score": 31.2,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -5809,7 +5877,8 @@
       "seen_dates": [
         "2026-07-30",
         "2026-07-31",
-        "2026-08-01"
+        "2026-08-01",
+        "2026-08-02"
       ],
       "selected_dates": [
         "2026-07-30"
@@ -5817,11 +5886,11 @@
       "context_ranks": {
         "Google Search Autocomplete|pyomo ipopt": 3
       },
-      "last_seen": "2026-08-01",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 17.7,
+      "last_demand_score": 22.7,
       "last_opportunity_score": 0.0,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
@@ -5870,7 +5939,8 @@
       "seen_dates": [
         "2026-07-30",
         "2026-07-31",
-        "2026-08-01"
+        "2026-08-01",
+        "2026-08-02"
       ],
       "selected_dates": [
         "2026-07-30"
@@ -5878,11 +5948,11 @@
       "context_ranks": {
         "DuckDuckGo Autocomplete|برنامه ریزی تولید و توزیع یکپارچه": 2
       },
-      "last_seen": "2026-08-01",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "DuckDuckGo Autocomplete"
       ],
-      "last_demand_score": 11.7,
+      "last_demand_score": 16.7,
       "last_opportunity_score": 0.0,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
@@ -5912,7 +5982,8 @@
       "seen_dates": [
         "2026-07-30",
         "2026-07-31",
-        "2026-08-01"
+        "2026-08-01",
+        "2026-08-02"
       ],
       "selected_dates": [
         "2026-07-30"
@@ -5920,11 +5991,11 @@
       "context_ranks": {
         "DuckDuckGo Autocomplete|pyomo glpk": 2
       },
-      "last_seen": "2026-08-01",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "DuckDuckGo Autocomplete"
       ],
-      "last_demand_score": 11.7,
+      "last_demand_score": 16.7,
       "last_opportunity_score": 0.0,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
@@ -6186,7 +6257,8 @@
       "seen_dates": [
         "2026-07-30",
         "2026-07-31",
-        "2026-08-01"
+        "2026-08-01",
+        "2026-08-02"
       ],
       "selected_dates": [
         "2026-07-30"
@@ -6195,13 +6267,13 @@
         "Bing Autocomplete|unit commitment با pyomo": 1,
         "DuckDuckGo Autocomplete|unit commitment با pyomo": 2
       },
-      "last_seen": "2026-08-01",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "Bing Autocomplete",
         "DuckDuckGo Autocomplete"
       ],
-      "last_demand_score": 26.7,
-      "last_opportunity_score": 33.2,
+      "last_demand_score": 31.7,
+      "last_opportunity_score": 35.6,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -6229,7 +6301,8 @@
       "first_seen": "2026-07-30",
       "seen_dates": [
         "2026-07-30",
-        "2026-07-31"
+        "2026-07-31",
+        "2026-08-02"
       ],
       "selected_dates": [
         "2026-07-30"
@@ -6237,7 +6310,7 @@
       "context_ranks": {
         "DuckDuckGo Autocomplete|pyomo cbc solver": 2
       },
-      "last_seen": "2026-07-31",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "DuckDuckGo Autocomplete"
       ],
@@ -6504,7 +6577,8 @@
       "seen_dates": [
         "2026-07-30",
         "2026-07-31",
-        "2026-08-01"
+        "2026-08-01",
+        "2026-08-02"
       ],
       "selected_dates": [
         "2026-07-30"
@@ -6512,11 +6586,11 @@
       "context_ranks": {
         "Bing Autocomplete|برنامه ریزی تولید و توزیع یکپارچه": 1
       },
-      "last_seen": "2026-08-01",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "Bing Autocomplete"
       ],
-      "last_demand_score": 15.0,
+      "last_demand_score": 20.0,
       "last_opportunity_score": 0.0,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
@@ -6527,7 +6601,8 @@
       "seen_dates": [
         "2026-07-30",
         "2026-07-31",
-        "2026-08-01"
+        "2026-08-01",
+        "2026-08-02"
       ],
       "selected_dates": [
         "2026-07-30"
@@ -6536,12 +6611,12 @@
         "YouTube Autocomplete|برنامه ریزی عدد صحیح در پایتون": 2,
         "YouTube Autocomplete|برنامه ریزی عدد صحیح با پایتون": 4
       },
-      "last_seen": "2026-08-01",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 17.5,
-      "last_opportunity_score": 24.8,
+      "last_demand_score": 22.5,
+      "last_opportunity_score": 27.2,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -6744,18 +6819,21 @@
       "seen_dates": [
         "2026-07-30",
         "2026-07-31",
-        "2026-08-01"
+        "2026-08-01",
+        "2026-08-02"
       ],
-      "selected_dates": [],
+      "selected_dates": [
+        "2026-08-02"
+      ],
       "context_ranks": {
         "YouTube Autocomplete|برنامه ریزی خطی در پایتون": 3
       },
-      "last_seen": "2026-08-01",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 15.0,
-      "last_opportunity_score": 41.5,
+      "last_demand_score": 20.0,
+      "last_opportunity_score": 43.9,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -6862,7 +6940,8 @@
       "seen_dates": [
         "2026-07-30",
         "2026-07-31",
-        "2026-08-01"
+        "2026-08-01",
+        "2026-08-02"
       ],
       "selected_dates": [],
       "context_ranks": {
@@ -6870,12 +6949,12 @@
         "YouTube Autocomplete|تحلیل حساسیت در pyomo": 1,
         "YouTube Autocomplete|استخراج dual و shadow price در pyomo": 3
       },
-      "last_seen": "2026-08-01",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 20.0,
-      "last_opportunity_score": 35.2,
+      "last_demand_score": 25.0,
+      "last_opportunity_score": 37.6,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -7045,18 +7124,19 @@
       "seen_dates": [
         "2026-07-30",
         "2026-07-31",
-        "2026-08-01"
+        "2026-08-01",
+        "2026-08-02"
       ],
       "selected_dates": [],
       "context_ranks": {
         "Google Search Autocomplete|خطی سازی در بهینهسازی": 1
       },
-      "last_seen": "2026-08-01",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 19.0,
-      "last_opportunity_score": 33.8,
+      "last_demand_score": 24.0,
+      "last_opportunity_score": 36.2,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -7066,19 +7146,20 @@
       "seen_dates": [
         "2026-07-30",
         "2026-07-31",
-        "2026-08-01"
+        "2026-08-01",
+        "2026-08-02"
       ],
       "selected_dates": [],
       "context_ranks": {
         "YouTube Autocomplete|برنامه ریزی خطی در پایتون": 1,
-        "YouTube Autocomplete|برنامه ریزی خطی با پایتون": 1
+        "YouTube Autocomplete|برنامه ریزی خطی با پایتون": 2
       },
-      "last_seen": "2026-08-01",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "YouTube Autocomplete"
       ],
-      "last_demand_score": 18.0,
-      "last_opportunity_score": 32.7,
+      "last_demand_score": 23.0,
+      "last_opportunity_score": 35.1,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -7387,7 +7468,8 @@
       "seen_dates": [
         "2026-07-30",
         "2026-07-31",
-        "2026-08-01"
+        "2026-08-01",
+        "2026-08-02"
       ],
       "selected_dates": [
         "2026-07-30"
@@ -7395,12 +7477,12 @@
       "context_ranks": {
         "Google Search Autocomplete|linear programming پایتون": 5
       },
-      "last_seen": "2026-08-01",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 16.5,
-      "last_opportunity_score": 36.4,
+      "last_demand_score": 21.5,
+      "last_opportunity_score": 29.5,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -7431,7 +7513,8 @@
       "first_seen": "2026-07-30",
       "seen_dates": [
         "2026-07-30",
-        "2026-07-31"
+        "2026-07-31",
+        "2026-08-02"
       ],
       "selected_dates": [
         "2026-07-30"
@@ -7440,7 +7523,7 @@
         "Bing Autocomplete|stochastic unit commitment با pyomo": 1,
         "DuckDuckGo Autocomplete|stochastic unit commitment با pyomo": 2
       },
-      "last_seen": "2026-07-31",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "Bing Autocomplete",
         "DuckDuckGo Autocomplete"
@@ -7455,7 +7538,8 @@
       "first_seen": "2026-07-30",
       "seen_dates": [
         "2026-07-30",
-        "2026-07-31"
+        "2026-07-31",
+        "2026-08-02"
       ],
       "selected_dates": [
         "2026-07-30"
@@ -7463,7 +7547,7 @@
       "context_ranks": {
         "DuckDuckGo Autocomplete|pyomo glpk solver": 2
       },
-      "last_seen": "2026-07-31",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "DuckDuckGo Autocomplete"
       ],
@@ -7518,7 +7602,8 @@
       "keyword": "how does mixed integer programming work",
       "first_seen": "2026-08-01",
       "seen_dates": [
-        "2026-08-01"
+        "2026-08-01",
+        "2026-08-02"
       ],
       "selected_dates": [
         "2026-08-01"
@@ -7526,12 +7611,12 @@
       "context_ranks": {
         "Google Search Autocomplete|what is mixed integer programming": 4
       },
-      "last_seen": "2026-08-01",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 22.1,
-      "last_opportunity_score": 59.7,
+      "last_demand_score": 17.1,
+      "last_opportunity_score": 0.0,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -7644,7 +7729,8 @@
       "keyword": "how to solve mixed integer linear programming",
       "first_seen": "2026-08-01",
       "seen_dates": [
-        "2026-08-01"
+        "2026-08-01",
+        "2026-08-02"
       ],
       "selected_dates": [
         "2026-08-01"
@@ -7652,12 +7738,12 @@
       "context_ranks": {
         "Google Search Autocomplete|what is mixed integer programming": 5
       },
-      "last_seen": "2026-08-01",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 21.5,
-      "last_opportunity_score": 57.0,
+      "last_demand_score": 16.5,
+      "last_opportunity_score": 23.5,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -7703,7 +7789,8 @@
       "keyword": "what is mixed integer programming model",
       "first_seen": "2026-08-01",
       "seen_dates": [
-        "2026-08-01"
+        "2026-08-01",
+        "2026-08-02"
       ],
       "selected_dates": [
         "2026-08-01"
@@ -7711,12 +7798,12 @@
       "context_ranks": {
         "Google Search Autocomplete|what is mixed integer programming": 3
       },
-      "last_seen": "2026-08-01",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 22.7,
-      "last_opportunity_score": 56.3,
+      "last_demand_score": 17.7,
+      "last_opportunity_score": 21.2,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -7846,7 +7933,8 @@
       "keyword": "what is mixed integer programming problem",
       "first_seen": "2026-08-01",
       "seen_dates": [
-        "2026-08-01"
+        "2026-08-01",
+        "2026-08-02"
       ],
       "selected_dates": [
         "2026-08-01"
@@ -7854,12 +7942,12 @@
       "context_ranks": {
         "Google Search Autocomplete|what is mixed integer programming": 2
       },
-      "last_seen": "2026-08-01",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "Google Search Autocomplete"
       ],
-      "last_demand_score": 23.4,
-      "last_opportunity_score": 52.4,
+      "last_demand_score": 18.4,
+      "last_opportunity_score": 21.5,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     },
@@ -7867,23 +7955,121 @@
       "keyword": "what is mixed integer optimization",
       "first_seen": "2026-08-01",
       "seen_dates": [
-        "2026-08-01"
+        "2026-08-01",
+        "2026-08-02"
       ],
       "selected_dates": [
         "2026-08-01"
       ],
       "context_ranks": {
-        "Bing Autocomplete|what is mixed integer programming": 1
+        "Bing Autocomplete|what is mixed integer programming": 11
       },
-      "last_seen": "2026-08-01",
+      "last_seen": "2026-08-02",
       "last_sources": [
         "Bing Autocomplete"
       ],
-      "last_demand_score": 20.0,
-      "last_opportunity_score": 48.5,
+      "last_demand_score": 10.5,
+      "last_opportunity_score": 0.0,
+      "last_gsc_impressions": 0.0,
+      "last_monthly_searches": 0.0
+    },
+    "mixed integer practice worksheet": {
+      "keyword": "mixed integer practice worksheet",
+      "first_seen": "2026-08-02",
+      "seen_dates": [
+        "2026-08-02"
+      ],
+      "selected_dates": [
+        "2026-08-02"
+      ],
+      "context_ranks": {
+        "Bing Autocomplete|what is mixed integer programming": 9
+      },
+      "last_seen": "2026-08-02",
+      "last_sources": [
+        "Bing Autocomplete"
+      ],
+      "last_demand_score": 16.4,
+      "last_opportunity_score": 47.0,
+      "last_gsc_impressions": 0.0,
+      "last_monthly_searches": 0.0
+    },
+    "mixed integer programming mip": {
+      "keyword": "mixed integer programming mip",
+      "first_seen": "2026-08-02",
+      "seen_dates": [
+        "2026-08-02"
+      ],
+      "selected_dates": [],
+      "context_ranks": {
+        "Bing Autocomplete|what is mixed integer programming": 8
+      },
+      "last_seen": "2026-08-02",
+      "last_sources": [
+        "Bing Autocomplete"
+      ],
+      "last_demand_score": 16.9,
+      "last_opportunity_score": 13.2,
+      "last_gsc_impressions": 0.0,
+      "last_monthly_searches": 0.0
+    },
+    "mixed integer programming example": {
+      "keyword": "mixed integer programming example",
+      "first_seen": "2026-08-02",
+      "seen_dates": [
+        "2026-08-02"
+      ],
+      "selected_dates": [],
+      "context_ranks": {
+        "Google Search Autocomplete|what is mixed integer programming": 1
+      },
+      "last_seen": "2026-08-02",
+      "last_sources": [
+        "Google Search Autocomplete"
+      ],
+      "last_demand_score": 24.0,
+      "last_opportunity_score": 13.0,
+      "last_gsc_impressions": 0.0,
+      "last_monthly_searches": 0.0
+    },
+    "mixed integer quadratic programming": {
+      "keyword": "mixed integer quadratic programming",
+      "first_seen": "2026-08-02",
+      "seen_dates": [
+        "2026-08-02"
+      ],
+      "selected_dates": [],
+      "context_ranks": {
+        "Bing Autocomplete|what is mixed integer programming": 6
+      },
+      "last_seen": "2026-08-02",
+      "last_sources": [
+        "Bing Autocomplete"
+      ],
+      "last_demand_score": 17.8,
+      "last_opportunity_score": 11.3,
+      "last_gsc_impressions": 0.0,
+      "last_monthly_searches": 0.0
+    },
+    "is a mixed number a integer": {
+      "keyword": "is a mixed number a integer",
+      "first_seen": "2026-08-02",
+      "seen_dates": [
+        "2026-08-02"
+      ],
+      "selected_dates": [],
+      "context_ranks": {
+        "Bing Autocomplete|what is mixed integer programming": 6
+      },
+      "last_seen": "2026-08-02",
+      "last_sources": [
+        "Bing Autocomplete"
+      ],
+      "last_demand_score": 17.8,
+      "last_opportunity_score": 10.1,
       "last_gsc_impressions": 0.0,
       "last_monthly_searches": 0.0
     }
   },
-  "updated_at": "2026-08-01T10:09:28"
+  "updated_at": "2026-08-02T10:07:20"
 }
