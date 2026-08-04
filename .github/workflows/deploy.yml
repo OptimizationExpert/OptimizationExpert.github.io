@@ -23,7 +23,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Build Astro website
+      - name: Build Astro site
         uses: withastro/action@v5
 
   deploy:
