@@ -2,7 +2,7 @@
 # === متغیرهای اصلی و سئو ===
 title: "آموزش جامع بهینه‌سازی و مسیریابی (VRP) در Python"
 seoTitle: "آموزش مسیریابی VRP با پایتون (OR-Tools) | دوره پروژه‌محور"
-description: "دوره فشرده مدل‌سازی عدم قطعیت در مسائل بهینه‌سازی؛ معرفی و مقایسه روش‌های بهینه‌سازی احتمالاتی (Stochastic)، فازی (Fuzzy) و مقاوم (Robust) با کاربرد در سیستم‌های قدرت."
+description: "دوره جامع بهینه سازی با تاکید بر مسایل حمل و نقل."
 pubDate: 2026-06-24
 image: "/images/courses/TDvrp.jpg"
 imageAlt: "کاور دوره آموزشی حمل و نقل VRP با پایتون و ابزارهای بهینه‌سازی"
@@ -10,7 +10,7 @@ imageAlt: "کاور دوره آموزشی حمل و نقل VRP با پایتون
 # === متغیرهای اختصاصی دوره (برای نمایش در کارت‌ها و Schema) ===
 duration: "۱۰ ساعت"
 level: "مقدماتی تا پیشرفته"
-environment: "Python (Pyomo)"
+environment: "Python (ORTools)"
 prerequisite: "آشنایی پایه با زبان برنامه‌نویسی پایتون"
 sessions: "۲۰ پروژه عملی"
 instructor: "dr-soroudi"
