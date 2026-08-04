@@ -8,7 +8,7 @@ image: "/images/courses/ADVpower.png"
 imageAlt: "کاور دوره آموزشی بهینه‌سازی پیشرفته سیستم‌های قدرت در پایتون با Pyomo"
 
 # === متغیرهای اختصاصی دوره (برای نمایش در کارت‌ها و Schema) ===
-duration: "۲۰ ساعت"
+duration: "22 ساعت"
 level: "پیشرفته"
 environment: "Python (Pyomo)"
 prerequisite: "آشنایی پایه با زبان برنامه‌نویسی پایتون"
