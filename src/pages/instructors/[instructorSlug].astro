@@ -1,0 +1,139 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+export async function getStaticPaths() {
+  const instructors = await getCollection('instructors');
+  return instructors.map((instructor) => ({
+    params: { instructorSlug: instructor.id.replace(/\.md$/, '').split('/').pop() },
+    props: { instructor },
+  }));
+}
+
+const { instructor } = Astro.props;
+const instructorSlug = instructor.id.replace(/\.md$/, '').split('/').pop();
+const { Content } = await render(instructor);
+
+// فیلتر کردن دوره‌ها، مقالات و پروژه‌های مرتبط با این مدرس
+const allCourses = await getCollection('courses');
+const instructorCourses = allCourses.filter(c => c.data.instructor === instructorSlug);
+
+const allNotes = await getCollection('notes');
+const instructorNotes = allNotes.filter(n => n.data.author === instructor.data.name || n.data.author === instructorSlug);
+
+const allProjects = await getCollection('projects');
+const instructorProjects = allProjects.filter(p => p.data.instructor === instructorSlug);
+---
+
+<Layout 
+  title={`پروفایل ${instructor.data.name}`} 
+  description={instructor.data.title || `مقاله‌ها، دوره‌ها و پروژه‌های ${instructor.data.name}`} 
+  image={instructor.data.image}
+>
+
+  <Header />
+
+  <main class="max-w-4xl mx-auto px-6 py-12 flex-grow w-full">
+     
+    <!-- دکمه بازگشت -->
+    <div class="mb-8">
+      <a href="/courses" class="text-xs text-[var(--site-primary)] hover:opacity-80 inline-flex items-center gap-1.5 transition">
+        <i class="fa-solid fa-arrow-right text-[10px]"></i>
+        <span>بازگشت</span>
+      </a>
+    </div>
+
+    <!-- کارت معرفی مدرس -->
+    <div class="bg-[var(--site-card)] border border-[var(--site-border)] rounded-3xl p-6 md:p-10 mb-12 shadow-xs">
+      <div class="flex flex-col md:flex-row items-center md:items-start gap-8">
+        {instructor.data.image && (
+          <div class="w-32 h-32 md:w-40 md:h-40 rounded-2xl overflow-hidden border-2 border-[var(--site-primary)]/30 bg-[var(--site-bg)] flex-shrink-0 shadow-md">
+            <img src={instructor.data.image} alt={instructor.data.name} class="w-full h-full object-cover" />
+          </div>
+        )}
+        <div class="flex-grow text-center md:text-right">
+          <h1 class="text-2xl md:text-3xl font-extrabold text-[var(--site-heading)] mb-2">
+            {instructor.data.name}
+          </h1>
+          {instructor.data.title && (
+            <p class="text-sm text-[var(--site-primary)] font-medium mb-4">
+              {instructor.data.title}
+            </p>
+          )}
+          <div class="text-[var(--site-text)] text-sm leading-relaxed prose max-w-none">
+            <Content />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- دوره‌های مدرس -->
+    {instructorCourses.length > 0 && (
+      <section class="mb-12">
+        <h2 class="text-xl font-bold text-[var(--site-heading)] mb-6 flex items-center gap-2 border-b border-[var(--site-border)] pb-3">
+          <i class="fa-solid fa-graduation-cap text-[var(--site-primary)]"></i>
+          <span>دوره‌های آموزشی مدرس</span>
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {instructorCourses.map((course) => {
+            const slug = course.id.replace(/\.md$/, '').split('/').pop();
+            return (
+              <a href={`/courses/${slug}`} class="bg-[var(--site-card)] border border-[var(--site-border)] hover:border-[var(--site-primary)]/50 rounded-2xl p-5 transition group shadow-xs">
+                <h3 class="text-base font-bold text-[var(--site-heading)] group-hover:text-[var(--site-primary)] transition mb-2">{course.data.title}</h3>
+                <p class="text-[var(--site-muted)] text-xs line-clamp-2">{course.data.description}</p>
+              </a>
+            );
+          })}
+        </div>
+      </section>
+    )}
+
+    <!-- مقالات و یادداشت‌های مدرس -->
+    {instructorNotes.length > 0 && (
+      <section class="mb-12">
+        <h2 class="text-xl font-bold text-[var(--site-heading)] mb-6 flex items-center gap-2 border-b border-[var(--site-border)] pb-3">
+          <i class="fa-solid fa-pen-nib text-[var(--site-primary)]"></i>
+          <span>مقاله‌ها و یادداشت‌ها</span>
+        </h2>
+        <div class="space-y-4">
+          {instructorNotes.map((note) => {
+            const slug = note.id.replace(/\.md$/, '').split('/').pop();
+            return (
+              <a href={`/notes/${slug}`} class="block bg-[var(--site-card)] border border-[var(--site-border)] hover:border-[var(--site-primary)]/50 rounded-2xl p-5 transition group shadow-xs">
+                <h3 class="text-base font-bold text-[var(--site-heading)] group-hover:text-[var(--site-primary)] transition mb-1">{note.data.title}</h3>
+                <p class="text-[var(--site-muted)] text-xs">{note.data.description}</p>
+              </a>
+            );
+          })}
+        </div>
+      </section>
+    )}
+
+    <!-- پروژه‌های مدرس -->
+    {instructorProjects.length > 0 && (
+      <section class="mb-12">
+        <h2 class="text-xl font-bold text-[var(--site-heading)] mb-6 flex items-center gap-2 border-b border-[var(--site-border)] pb-3">
+          <i class="fa-solid fa-code text-[var(--site-primary)]"></i>
+          <span>پروژه‌های تخصصی</span>
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {instructorProjects.map((project) => {
+            const slug = project.id.replace(/\.md$/, '').split('/').pop();
+            return (
+              <a href={`/projects/${slug}`} class="bg-[var(--site-card)] border border-[var(--site-border)] hover:border-[var(--site-primary)]/50 rounded-2xl p-5 transition group shadow-xs">
+                <h3 class="text-base font-bold text-[var(--site-heading)] group-hover:text-[var(--site-primary)] transition mb-2">{project.data.title}</h3>
+                <p class="text-[var(--site-muted)] text-xs line-clamp-2">{project.data.description}</p>
+              </a>
+            );
+          })}
+        </div>
+      </section>
+    )}
+
+  </main>
+
+  <Footer />
+
+</Layout>

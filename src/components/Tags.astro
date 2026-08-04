@@ -1,0 +1,21 @@
+---
+interface Props {
+  tags?: string[];
+}
+
+const { tags } = Astro.props;
+---
+
+{tags && tags.length > 0 && (
+  <div class="flex flex-wrap items-center gap-2 mb-8">
+    <span class="text-xs text-[var(--site-muted)] flex items-center gap-1">
+      <i class="fa-solid fa-tags text-[var(--site-primary)]"></i>
+      <span>برچسب‌ها:</span>
+    </span>
+    {tags.map((tag) => (
+      <span class="text-xs bg-[var(--site-card)] text-[var(--site-text)] px-3 py-1 rounded-full border border-[var(--site-border)] shadow-2xs">
+        #{tag}
+      </span>
+    ))}
+  </div>
+)}
