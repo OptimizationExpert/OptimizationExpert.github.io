@@ -3,7 +3,7 @@ title: "Solver خوب بدون رنگ برای Pyomo؟ سه راهکار عمل�
 description: "سه راه برای نصب و استفاده از Solver های رایگان برای Pyomo: نصب محلی، Google Colab، و سرور NEOS."
 pubDate: 2026-06-19
 author: "علیرضا سرودی"
-image: "/images/python-opt.jpg"
+image: "/images/notes/solvers.png"
 tags: ["پایتون", "بهینه‌سازی", "Pyomo"]
 ---
 
