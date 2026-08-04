@@ -3,7 +3,7 @@ title: "Google Colab: مزایا و معایب"
 description: "تحلیل منصفانه مزایا و معایب Google Colab برای یادگیری و کار با ابزارهای بهینه‌سازی."
 pubDate: 2026-06-17
 author: "علیرضا سرودی"
-image: "/images/co.png"
+image: "/images/CO.png"
 tags: ["پایتون", "بهینه‌سازی", "Pyomo"]
 ---
 
