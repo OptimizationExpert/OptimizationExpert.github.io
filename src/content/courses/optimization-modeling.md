@@ -8,7 +8,7 @@ image: "/images/courses/modeling.png"
 imageAlt: "کاور دوره آموزشی مدل‌سازی در مسائل بهینه‌سازی"
 
 # === متغیرهای اختصاصی دوره (برای نمایش در کارت‌ها و Schema) ===
-duration: "۲۰ ساعت"
+duration: "۸ ساعت"
 level: "مقدماتی تا پیشرفته"
 environment: "هر ابزار بهینه‌سازی"
 prerequisite: "ندارد"
