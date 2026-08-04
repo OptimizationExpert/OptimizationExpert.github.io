@@ -8,10 +8,10 @@ image: "/images/courses/uncertainty.png"
 imageAlt: "کاور دوره آموزشی مدل‌سازی عدم قطعیت در مسائل بهینه‌سازی"
 
 # === متغیرهای اختصاصی دوره (برای نمایش در کارت‌ها و Schema) ===
-duration: "۲۰ ساعت"
+duration: "۴ ساعت"
 level: "مقدماتی تا پیشرفته"
-environment: "Python (Pyomo)"
-prerequisite: "آشنایی پایه با زبان برنامه‌نویسی پایتون"
+environment: "No Coding"
+prerequisite: "ندارد"
 instructor: "dr-soroudi"
 
 # === ارتباطات و ساختار سایت ===
