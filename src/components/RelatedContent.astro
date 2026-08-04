@@ -1,0 +1,211 @@
+---
+import { getCollection } from 'astro:content';
+
+interface Props {
+  currentSlug?: string;
+  tags?: string[];
+  relatedCourses?: string[];
+  relatedNotes?: string[];
+  relatedProjects?: string[];
+}
+
+const { 
+  currentSlug = '', 
+  tags = [], 
+  relatedCourses: manualCourses = [], 
+  relatedNotes: manualNotes = [], 
+  relatedProjects: manualProjects = [] 
+} = Astro.props;
+
+const allCourses = await getCollection('courses');
+const allNotes = await getCollection('notes');
+const allProjects = await getCollection('projects');
+
+const defaultImage = "/images/hero.png";
+
+// تابع کمکی برای فیلتر و انتخاب هوشمند مطالب
+function getFilteredItems(allCollection: any[], manualSlugs: string[] = []) {
+  const others = allCollection.filter(item => {
+    const slug = item.id.replace(/\.md$/, '').split('/').pop();
+    return slug !== currentSlug;
+  });
+
+  let selected: any[] = [];
+
+  if (manualSlugs && manualSlugs.length > 0) {
+    selected = manualSlugs
+      .map(slug => others.find(item => item.id.replace(/\.md$/, '').split('/').pop() === slug))
+      .filter(Boolean);
+  }
+
+  if (selected.length === 0 && tags && tags.length > 0) {
+    selected = others.filter(item => {
+      const itemTags = item.data.tags || [];
+      return itemTags.some((t: string) => tags.includes(t));
+    });
+  }
+
+  if (selected.length === 0) {
+    selected = [...others].sort(() => Math.random() - 0.5);
+  } else {
+    const remaining = others.filter(o => !selected.includes(o)).sort(() => Math.random() - 0.5);
+    selected = [...selected, ...remaining];
+  }
+
+  return selected.slice(0, 3);
+}
+
+const suggestedCourses = getFilteredItems(allCourses, manualCourses);
+const suggestedNotes = getFilteredItems(allNotes, manualNotes);
+const suggestedProjects = getFilteredItems(allProjects, manualProjects);
+---
+
+<div class="mt-16 pt-10 border-t border-[var(--site-border)] space-y-12">
+  
+  {/* بخش برچسب‌ها (هشتگ‌ها) */}
+  {tags && tags.length > 0 && (
+    <div class="flex flex-wrap items-center gap-2">
+      <span class="text-xs text-[var(--site-muted)] ml-2 font-medium">برچسب‌ها:</span>
+      {tags.map((tag: string) => (
+        <a 
+          href={`/search?q=${encodeURIComponent(tag)}`} 
+          class="text-xs bg-[var(--site-card)] text-[var(--site-primary)] px-3.5 py-1.5 rounded-full border border-[var(--site-border)] hover:border-[var(--site-primary)]/50 transition shadow-2xs font-medium"
+        >
+          #{tag}
+        </a>
+      ))}
+    </div>
+  )}
+
+  {/* بخش مطالب پیشنهادی مرتبط */}
+  <section class="space-y-10">
+    <h3 class="text-xl font-black text-[var(--site-heading)] mb-6">مطالب و دوره‌های پیشنهادی</h3>
+
+    {/* ۳ دوره پیشنهادی */}
+    {suggestedCourses.length > 0 && (
+      <div class="space-y-4">
+        <h4 class="text-xs font-bold uppercase tracking-wider text-[var(--site-primary)] flex items-center gap-2">
+          <i class="fa-solid fa-graduation-cap"></i> دوره‌های آموزشی مرتبط
+        </h4>
+        <div class="flex sm:grid flex-nowrap sm:grid-cols-3 gap-6 overflow-x-auto sm:overflow-x-visible pb-4 sm:pb-0 snap-x snap-mandatory sm:snap-none [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          {suggestedCourses.map(course => {
+            const slug = course.id.replace(/\.md$/, '').split('/').pop();
+            const courseImg = course.data.image || defaultImage;
+            return (
+              <article class="w-[280px] sm:w-auto flex-shrink-0 snap-start bg-[var(--site-card)] border border-[var(--site-border)] rounded-3xl p-5 flex flex-col justify-between hover:border-[var(--site-primary)]/50 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 shadow-sm group">
+                <div>
+                  <div class="w-full aspect-video rounded-2xl bg-[var(--site-bg)] mb-4 overflow-hidden border border-[var(--site-border)] relative">
+                    <img src={courseImg} alt={course.data.title} loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" />
+                  </div>
+                  {course.data.level && (
+                    <div class="flex flex-wrap items-center gap-2 mb-3">
+                      <span class="text-[10px] font-bold text-[var(--site-primary)] bg-[var(--site-primary)]/10 px-3 py-1 rounded-lg border border-[var(--site-primary)]/20">
+                        {course.data.level}
+                      </span>
+                    </div>
+                  )}
+                  <h5 class="text-base font-bold text-[var(--site-heading)] mb-2 group-hover:text-[var(--site-primary)] transition-colors line-clamp-1">
+                    <a href={`/courses/${slug}`}>{course.data.title}</a>
+                  </h5>
+                  <p class="text-[var(--site-muted)] text-xs leading-relaxed line-clamp-2 mb-4">
+                    {course.data.description}
+                  </p>
+                </div>
+                <div class="pt-4 border-t border-[var(--site-border)]/60 flex items-center justify-between">
+                  <span class="text-xs text-[var(--site-muted)] flex items-center gap-1.5 font-medium">
+                    <i class="fa-regular fa-clock text-[var(--site-primary)]"></i>
+                    <span>{course.data.duration || "دوره کاربردی"}</span>
+                  </span>
+                  <a href={`/courses/${slug}`} class="text-xs text-[var(--site-primary)] hover:opacity-80 font-bold inline-flex items-center gap-1.5 group/btn">
+                    <span>مشاهده دوره</span>
+                    <i class="fa-solid fa-arrow-left text-[10px] group-hover/btn:-translate-x-1 transition-transform"></i>
+                  </a>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+      </div>
+    )}
+
+    {/* ۳ مقاله پیشنهادی */}
+    {suggestedNotes.length > 0 && (
+      <div class="space-y-4">
+        <h4 class="text-xs font-bold uppercase tracking-wider text-[var(--site-primary)] flex items-center gap-2">
+          <i class="fa-solid fa-note-sticky"></i> مقالات و یادداشت‌ها
+        </h4>
+        <div class="flex sm:grid flex-nowrap sm:grid-cols-3 gap-6 overflow-x-auto sm:overflow-x-visible pb-4 sm:pb-0 snap-x snap-mandatory sm:snap-none [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          {suggestedNotes.map(note => {
+            const slug = note.id.replace(/\.md$/, '').split('/').pop();
+            const noteImg = note.data.image || defaultImage;
+            return (
+              <article class="w-[280px] sm:w-auto flex-shrink-0 snap-start bg-[var(--site-card)] border border-[var(--site-border)] rounded-3xl p-5 flex flex-col justify-between hover:border-[var(--site-primary)]/50 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 shadow-sm group">
+                <div>
+                  <div class="w-full aspect-video rounded-2xl bg-[var(--site-bg)] mb-4 overflow-hidden border border-[var(--site-border)] relative">
+                    <img src={noteImg} alt={note.data.title} loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" />
+                  </div>
+                  <h5 class="text-base font-bold text-[var(--site-heading)] mb-2 group-hover:text-[var(--site-primary)] transition-colors line-clamp-1">
+                    <a href={`/notes/${slug}`}>{note.data.title}</a>
+                  </h5>
+                  <p class="text-[var(--site-muted)] text-xs leading-relaxed line-clamp-2 mb-4">
+                    {note.data.description}
+                  </p>
+                </div>
+                <div class="pt-4 border-t border-[var(--site-border)]/60 flex items-center justify-between">
+                  <span class="text-xs text-[var(--site-muted)] flex items-center gap-1.5 font-medium">
+                    <i class="fa-regular fa-calendar text-[var(--site-primary)]"></i>
+                    <span>{note.data.pubDate ? new Date(note.data.pubDate).toLocaleDateString('fa-IR') : "مقاله تخصصی"}</span>
+                  </span>
+                  <a href={`/notes/${slug}`} class="text-xs text-[var(--site-primary)] hover:opacity-80 font-bold inline-flex items-center gap-1.5 group/btn">
+                    <span>مطالعه مقاله</span>
+                    <i class="fa-solid fa-arrow-left text-[10px] group-hover/btn:-translate-x-1 transition-transform"></i>
+                  </a>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+      </div>
+    )}
+
+    {/* ۳ پروژه پیشنهادی */}
+    {suggestedProjects.length > 0 && (
+      <div class="space-y-4">
+        <h4 class="text-xs font-bold uppercase tracking-wider text-[var(--site-primary)] flex items-center gap-2">
+          <i class="fa-solid fa-diagram-project"></i> پروژه‌های مهندسی
+        </h4>
+        <div class="flex sm:grid flex-nowrap sm:grid-cols-3 gap-6 overflow-x-auto sm:overflow-x-visible pb-4 sm:pb-0 snap-x snap-mandatory sm:snap-none [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          {suggestedProjects.map(project => {
+            const slug = project.id.replace(/\.md$/, '').split('/').pop();
+            const projectImg = project.data.image || defaultImage;
+            return (
+              <article class="w-[280px] sm:w-auto flex-shrink-0 snap-start bg-[var(--site-card)] border border-[var(--site-border)] rounded-3xl p-5 flex flex-col justify-between hover:border-[var(--site-primary)]/50 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 shadow-sm group">
+                <div>
+                  <div class="w-full aspect-video rounded-2xl bg-[var(--site-bg)] mb-4 overflow-hidden border border-[var(--site-border)] relative">
+                    <img src={projectImg} alt={project.data.title} loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" />
+                  </div>
+                  <h5 class="text-base font-bold text-[var(--site-heading)] mb-2 group-hover:text-[var(--site-primary)] transition-colors line-clamp-1">
+                    <a href={`/projects/${slug}`}>{project.data.title}</a>
+                  </h5>
+                  <p class="text-[var(--site-muted)] text-xs leading-relaxed line-clamp-2 mb-4">
+                    {project.data.description}
+                  </p>
+                </div>
+                <div class="pt-4 border-t border-[var(--site-border)]/60 flex items-center justify-between">
+                  <span class="text-xs text-[var(--site-muted)] flex items-center gap-1.5 font-medium">
+                    <i class="fa-solid fa-layer-group text-[var(--site-primary)]"></i>
+                    <span>{project.data.category || "پروژه تخصصی"}</span>
+                  </span>
+                  <a href={`/projects/${slug}`} class="text-xs text-[var(--site-primary)] hover:opacity-80 font-bold inline-flex items-center gap-1.5 group/btn">
+                    <span>بررسی پروژه</span>
+                    <i class="fa-solid fa-arrow-left text-[10px] group-hover/btn:-translate-x-1 transition-transform"></i>
+                  </a>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+      </div>
+    )}
+  </section>
+</div>

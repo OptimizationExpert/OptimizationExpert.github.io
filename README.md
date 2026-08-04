@@ -1,18 +1,46 @@
-# Optimization Expert Persian Course Website
+# Astro Starter Kit: Basics
 
-This is the Persian RTL version of the Optimization Expert course website for GitHub Pages.
+```sh
+npm create astro@latest -- --template basics
+```
 
-## How to publish
+> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
-1. Open the repository: `OptimizationExpert/OptimizationExpert.github.io`
-2. Replace the existing files with:
-   - `index.html`
-   - `robots.txt`
-   - `sitemap.xml`
-   - `README.md`
-3. Commit changes to the branch currently used by GitHub Pages, usually `main`.
-4. Wait a few minutes and hard refresh the browser.
+## 🚀 Project Structure
 
-## Contact link
+Inside of your Astro project, you'll see the following folders and files:
 
-Course registration points to Telegram: `https://t.me/pypyid`
+```text
+/
+├── public/
+│   └── favicon.svg
+├── src
+│   ├── assets
+│   │   └── astro.svg
+│   ├── components
+│   │   └── Welcome.astro
+│   ├── layouts
+│   │   └── Layout.astro
+│   └── pages
+│       └── index.astro
+└── package.json
+```
+
+To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+
+## 🧞 Commands
+
+All commands are run from the root of the project, from a terminal:
+
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `npm install`             | Installs dependencies                            |
+| `npm run dev`             | Starts local dev server at `localhost:4321`      |
+| `npm run build`           | Build your production site to `./dist/`          |
+| `npm run preview`         | Preview your build locally, before deploying     |
+| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `npm run astro -- --help` | Get help using the Astro CLI                     |
+
+## 👀 Want to learn more?
+
+Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
