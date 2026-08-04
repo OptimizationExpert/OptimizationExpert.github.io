@@ -8,18 +8,18 @@ image: "/images/courses/ADVpower.png"
 imageAlt: "کاور دوره آموزشی بهینه‌سازی پیشرفته سیستم‌های قدرت در پایتون با Pyomo"
 
 # === متغیرهای اختصاصی دوره (برای نمایش در کارت‌ها و Schema) ===
-duration: "22 ساعت"
+duration: "۲۲ ساعت"
 level: "پیشرفته"
 environment: "Python (Pyomo)"
 prerequisite: "آشنایی پایه با زبان برنامه‌نویسی پایتون"
-sessions: "۱۰ جلسه"
+sessions: "جلسه ۱۸"
 instructor: "dr-soroudi"
 
 # === ارتباطات و ساختار سایت ===
 relatedCourses: ["optimization-modeling", "uncertainty-modeling"]
 relatedNotes: ["mathematical-modeling-art", "modeling-before-coding", "google-colab", "pyomo-solvers"]
-# انتخاب ۵ تا ۷ تگ جامع به جای ۲۰ تگ پراکنده
-tags: ["بهینه سازی سیستم قدرت", "پایتون", "Pyomo", "OPF", "پخش بار بهینه", "Unit Commitment", "آرایش بهینه واحدها", "سیستم قدرت", "AC-OPF", "DC-OPF"]
+
+tags: ["بهینه سازی سیستم قدرت", "پایتون", "Pyomo", "OPF", "بازار برق", "Unit Commitment", "آرایش بهینه واحدها", "سیستم قدرت", "AC-OPF", "DC-OPF"]
 ---
 
 در این دوره پیشرفته آموزش بهینه‌سازی سیستم‌های قدرت در پایتون، با تدریس دکتر علیرضا سرودی، به صورت کاملاً کاربردی با مدل‌سازی مسائل کلیدی صنعت برق مانند آرایش بهینه واحدها (Unit Commitment)، پخش بار بهینه (OPF) و برنامه‌ریزی توسعه شبکه با استفاده از  Pyomo  آشنا می‌شوید.
