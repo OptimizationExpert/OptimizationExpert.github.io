@@ -14,6 +14,6 @@ export default defineConfig({
     remarkPlugins: [remarkMath],
     rehypePlugins: [rehypeKatex],
   },
-  site: 'https://optexpert.org',
+  site: 'https://optimizationexpert.github.io/',
   integrations: [sitemap()]
 });
