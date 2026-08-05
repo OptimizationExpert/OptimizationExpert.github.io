@@ -9,6 +9,45 @@ const projects = await getCollection('projects');
 const notes = await getCollection('notes');
 
 const defaultImage = "/images/hero.png";
+
+// داده‌ساختاریافته: سازمان آموزشی + فهرست دوره‌ها (برای نتایج غنی گوگل)
+const siteUrl = "https://optexpert.org";
+
+const orgSchema = {
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  "name": "Optimization Expert",
+  "url": `${siteUrl}/`,
+  "logo": `${siteUrl}${defaultImage}`,
+  "description": "دوره‌های تخصصی و پروژه‌محور در حوزه بهینه‌سازی، سیستم‌های قدرت، عدم قطعیت و مسیریابی وسایل نقلیه در Python.",
+  "sameAs": [
+    "https://github.com/OptimizationExpert",
+    "https://t.me/pypyid"
+  ]
+};
+
+const courseListSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "itemListElement": courses.map((course, index) => {
+    const slug = course.id.replace(/\.md$/, '').split('/').pop();
+    return {
+      "@type": "ListItem",
+      "position": index + 1,
+      "item": {
+        "@type": "Course",
+        "name": course.data.title,
+        "description": course.data.description,
+        "url": `${siteUrl}/courses/${slug}/`,
+        "provider": {
+          "@type": "EducationalOrganization",
+          "name": "Optimization Expert",
+          "url": `${siteUrl}/`
+        }
+      }
+    };
+  })
+};
 ---
 
 <Layout title="صفحه اصلی | مدل‌سازی و بهینه‌سازی کاربردی" description="مرجع تخصصی مدل‌سازی ریاضی، برنامه‌نویسی پایتون، سالورهای بهینه‌سازی و تحلیل سیستم‌های قدرت به صورت پروژه‌محور.">
