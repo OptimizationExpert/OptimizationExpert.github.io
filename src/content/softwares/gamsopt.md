@@ -3,7 +3,7 @@ title: "بهینه‌سازی سیستم قدرت در GAMS"
 description: "معرفی کتاب و کتابخانه‌ی مدل‌های بهینه‌سازی سیستم قدرت در GAMS، اثر دکتر علیرضا سرودی"
 pubDate: 2026-07-25
 author: "علیرضا سرودی"
-image: "public/images/notes/GAMS.png"
+image: "/images/notes/CO.png"
 tags: ["سیستم قدرت", "بهینه‌سازی", "GAMS"]
 ---
 
