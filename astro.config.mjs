@@ -1,5 +1,6 @@
 import { defineConfig } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
+import sitemap from "@astrojs/sitemap";
 
 export default defineConfig({
   site: "https://optexpert.org",
@@ -14,6 +15,7 @@ export default defineConfig({
       "https://optexpert.org/courses/vrp-python/",
   },
 
+  integrations: [sitemap()],   // ← این خط اضافه شد
   vite: {
     plugins: [tailwindcss()],
   },

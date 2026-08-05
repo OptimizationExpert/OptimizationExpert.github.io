@@ -1,4 +1,3 @@
-Sitemap: https://yourdomain.com/sitemap-index.xml
-
+Sitemap: https://optexpert.org/sitemap-index.xml
 User-agent: *
 Allow: /
