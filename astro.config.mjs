@@ -8,10 +8,10 @@ export default defineConfig({
 
   redirects: {
     "/posts/2026/06/20/Advanced-Power-System-Course":
-      "/advanced-power-system-course/",
+      "https://optexpert.org/courses/advanced-power-system/",
 
     "/posts/2026/06/24/vrp-python-course":
-      "/vehicle-routing-python-course/",
+      "https://optexpert.org/courses/vrp-python/",
   },
 
   vite: {
