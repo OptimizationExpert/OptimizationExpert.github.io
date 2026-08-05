@@ -19,7 +19,7 @@ instructor: "dr-soroudi"
 relatedCourses: ["optimization-modeling", "uncertainty-modeling"]
 relatedNotes: ["mathematical-modeling-art", "modeling-before-coding", "google-colab", "pyomo-solvers"]
 # انتخاب ۵ تا ۷ تگ جامع به جای ۲۰ تگ پراکنده
-tags: ["VRP", "Vehicle Routing Problem", "Python", "OR-Tools", "بهینه‌سازی ترکیبی", "زنجیره تامین"]
+tags: ["Vehicle Routing Problem", "Python", "OR-Tools", "بهینه‌سازی ترکیبی", "زنجیره تامین"]
 ---
 
 این دوره یک مسیر آموزشی **پروژه‌محور** برای یادگیری مدل‌سازی و پیاده‌سازی مسائل مسیریابی وسیلهٔ نقلیه (VRP) و مسائل ترکیبی در Python است. دوره شامل **۲۰ پروژهٔ عملی** و حدود **۱۰ ساعت ویدیوی آموزشی** است، از سطح مقدماتی آغاز می‌شود و به‌تدریج وارد مسائل تخصصی‌تر حمل‌ونقل و لجستیک می‌شود. هر پروژه با کد کامل، مستندات و دادهٔ تست آماده ارائه می‌شود.
