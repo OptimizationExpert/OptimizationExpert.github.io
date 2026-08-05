@@ -1,13 +1,19 @@
 ---
 // src/layouts/Layout.astro
 import '../styles/global.css';
+import SEO from '../components/SEO.astro';
 
 interface Props {
   title?: string;
   description?: string;
+  image?: string;
 }
 
-const { title = 'مدل‌سازی و بهینه‌سازی کاربردی', description } = Astro.props;
+const {
+  title = 'مدل‌سازی و بهینه‌سازی کاربردی',
+  description = 'مرجع تخصصی مدل‌سازی ریاضی، برنامه‌نویسی پایتون، سالورهای بهینه‌سازی و تحلیل سیستم‌های قدرت به صورت پروژه‌محور.',
+  image,
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -18,8 +24,7 @@ const { title = 'مدل‌سازی و بهینه‌سازی کاربردی', des
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
-    {description && <meta name="description" content={description} />}
+    <SEO title={title} description={description} image={image} />
     
     <!-- استایل محلی و آفلاین Font Awesome -->
     <link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css" />
