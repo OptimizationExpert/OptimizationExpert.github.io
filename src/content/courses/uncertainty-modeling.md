@@ -18,7 +18,7 @@ instructor: "dr-soroudi"
 relatedCourses: ["optimization-modeling", "Advanced-Power-System", vrp-python]
 relatedNotes: ["mathematical-modeling-art", "modeling-before-coding", "google-colab", "pyomo-solvers"]
 # انتخاب ۵ تا ۷ تگ جامع به جای ۲۰ تگ پراکنده
-tags: ["مدل سازی عدم قطعیت", "بهینه سازی تصادفی", "Stochastic Optimization", "Robust Optimization", "بهینه سازی مقاوم", "Fuzzy", "IGDT", "عدم قطعیت", "سناریو"]
+tags: ["Robust Optimization", "Fuzzy", "IGDT", "عدم قطعیت", "نایقینی"]
 ---
 
 در بسیاری از مسائل واقعی، اطلاعات موردنیاز برای تصمیم‌گیری به‌صورت قطعی در دسترس نیستند: تغییرات بار، قیمت انرژی، تولید منابع تجدیدپذیر و بسیاری پارامتر دیگر همگی **عدم قطعیت** دارند. تصمیمی که با فرض «داده‌های دقیق» گرفته شود، در دنیای واقعی می‌تواند شکست بخورد. در این دورهٔ فشرده، مهم‌ترین روش‌های مدل‌سازی عدم قطعیت در مسائل بهینه‌سازی معرفی، پیاده‌سازی و با هم مقایسه می‌شوند.
