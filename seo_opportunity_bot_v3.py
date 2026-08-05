@@ -12,6 +12,38 @@ SEO Opportunity Bot v3 for OptimizationExpert.github.io
 - جلوگیری از بالا رفتن مصنوعی امتیاز بر اثر تکرار seedهای مشابه؛
 - ساخت صف محتوای روزانه، گزارش HTML/CSV/Markdown و خلاصه تلگرام؛
 - اجرای یک‌باره و زمان‌بندی با Windows Task Scheduler.
+
+منابع رایگان پیش‌فرض:
+1) Google Search autocomplete
+2) YouTube autocomplete
+3) Bing autocomplete
+4) DuckDuckGo autocomplete
+5) Stack Overflow / Operations Research Stack Exchange
+
+منابع اختیاری و قوی‌تر:
+6) Google Search Console API یا CSV
+7) Google Ads Keyword Planner CSV
+8) Serper API برای People Also Ask، Related Searches و برآورد رقابت SERP
+
+نکته مهم:
+این برنامه «حجم ماهانه» را حدس نمی‌زند. فقط وقتی Keyword Planner یا داده معتبر
+مشابه وجود داشته باشد، عدد ماهانه نشان می‌دهد. در غیر این صورت از عبارت
+«شاهد تقاضا» استفاده می‌کند.
+
+اجرای معمولی:
+    python seo_opportunity_bot_v2.py
+
+اجرای سریع برای تست:
+    python seo_opportunity_bot_v2.py --quick
+
+اجرای آفلاین با CSVها و فایل‌های سایت:
+    python seo_opportunity_bot_v2.py --offline
+
+نصب اجرای روزانه در Windows Task Scheduler:
+    python seo_opportunity_bot_v2.py --install-task 09:00
+
+حذف Task روزانه:
+    python seo_opportunity_bot_v2.py --remove-task
 """
 
 from __future__ import annotations
@@ -45,6 +77,7 @@ from dataclasses import dataclass, field
 from html.parser import HTMLParser
 from pathlib import Path
 from typing import Any, Iterable, Iterator, Sequence
+
 
 # =============================================================================
 # تنظیمات و پیکربندی
@@ -93,6 +126,11 @@ DEFAULT_CONFIG: dict[str, Any] = {
 CONFIG_FILENAME = "seo_bot_config.json"
 WINDOWS_TASK_NAME = "OptimizationExpert_SEO_Opportunity_Bot"
 
+
+# =============================================================================
+# نقشه بازار؛ عمداً فراتر از نام دقیق دوره‌ها
+# =============================================================================
+
 CLUSTERS: list[dict[str, Any]] = [
     {
         "id": "modeling",
@@ -100,10 +138,17 @@ CLUSTERS: list[dict[str, Any]] = [
         "course_url": "/courses/optimization-modeling/",
         "business_fit": 91,
         "gateway_seeds": [
-            "بهینه سازی در پایتون", "تحقیق در عملیات با پایتون", "مدل سازی ریاضی در پایتون",
-            "برنامه ریزی خطی با پایتون", "برنامه ریزی عدد صحیح با پایتون",
-            "حل مسائل بهینه سازی با پایتون", "خطی سازی در بهینه سازی", "Big M در بهینه سازی",
-            "تابع هدف و قیود", "linear programming python", "mixed integer programming python",
+            "بهینه سازی در پایتون",
+            "تحقیق در عملیات با پایتون",
+            "مدل سازی ریاضی در پایتون",
+            "برنامه ریزی خطی با پایتون",
+            "برنامه ریزی عدد صحیح با پایتون",
+            "حل مسائل بهینه سازی با پایتون",
+            "خطی سازی در بهینه سازی",
+            "Big M در بهینه سازی",
+            "تابع هدف و قیود",
+            "linear programming python",
+            "mixed integer programming python",
         ],
         "signals": [
             "بهینه سازی", "بهینه‌سازی", "مدل سازی", "مدلسازی", "تحقیق در عملیات",
@@ -121,9 +166,18 @@ CLUSTERS: list[dict[str, Any]] = [
         "course_url": "/courses/optimization-modeling/",
         "business_fit": 96,
         "gateway_seeds": [
-            "آموزش Pyomo", "نصب Pyomo ویندوز", "نصب solver برای Pyomo", "خطای Pyomo solver",
-            "Pyomo HiGHS", "Pyomo GLPK", "Pyomo IPOPT", "Pyomo CBC", "Pyomo Gurobi",
-            "Pyomo infeasible model", "Pyomo dual sensitivity", "Pyomo performance",
+            "آموزش Pyomo",
+            "نصب Pyomo ویندوز",
+            "نصب solver برای Pyomo",
+            "خطای Pyomo solver",
+            "Pyomo HiGHS",
+            "Pyomo GLPK",
+            "Pyomo IPOPT",
+            "Pyomo CBC",
+            "Pyomo Gurobi",
+            "Pyomo infeasible model",
+            "Pyomo dual sensitivity",
+            "Pyomo performance",
         ],
         "signals": [
             "pyomo", "پایومو", "solverfactory", "solver", "حل کننده", "حل‌کننده",
@@ -140,10 +194,18 @@ CLUSTERS: list[dict[str, Any]] = [
         "course_url": "/courses/vrp-python/",
         "business_fit": 97,
         "gateway_seeds": [
-            "آموزش OR-Tools پایتون", "نصب OR-Tools پایتون", "بهینه سازی مسیر پخش",
-            "مسیریابی ناوگان پایتون", "مسئله مسیریابی وسایل نقلیه", "VRP python",
-            "CVRP OR-Tools python", "VRPTW OR-Tools python", "pickup delivery OR-Tools",
-            "multi depot VRP python", "distance matrix VRP python", "delivery route optimization python",
+            "آموزش OR-Tools پایتون",
+            "نصب OR-Tools پایتون",
+            "بهینه سازی مسیر پخش",
+            "مسیریابی ناوگان پایتون",
+            "مسئله مسیریابی وسایل نقلیه",
+            "VRP python",
+            "CVRP OR-Tools python",
+            "VRPTW OR-Tools python",
+            "pickup delivery OR-Tools",
+            "multi depot VRP python",
+            "distance matrix VRP python",
+            "delivery route optimization python",
             "مسیر بهینه توزیع کالا",
         ],
         "signals": [
@@ -164,11 +226,17 @@ CLUSTERS: list[dict[str, Any]] = [
         "course_url": "/courses/vrp-python/",
         "business_fit": 95,
         "gateway_seeds": [
-            "بهینه سازی زنجیره تامین با پایتون", "طراحی شبکه زنجیره تامین با پایتون",
-            "بهینه سازی شبکه توزیع با Pyomo", "مکان یابی تسهیلات در پایتون",
-            "انتخاب تامین کننده با مدل سازی ریاضی", "برنامه ریزی تولید با Pyomo",
-            "مدیریت موجودی با پایتون", "lot sizing Pyomo", "inventory routing python",
-            "last mile delivery optimization python", "green supply chain optimization",
+            "بهینه سازی زنجیره تامین با پایتون",
+            "طراحی شبکه زنجیره تامین با پایتون",
+            "بهینه سازی شبکه توزیع با Pyomo",
+            "مکان یابی تسهیلات در پایتون",
+            "انتخاب تامین کننده با مدل سازی ریاضی",
+            "برنامه ریزی تولید با Pyomo",
+            "مدیریت موجودی با پایتون",
+            "lot sizing Pyomo",
+            "inventory routing python",
+            "last mile delivery optimization python",
+            "green supply chain optimization",
         ],
         "signals": [
             "زنجیره تامین", "زنجیره تأمین", "supply chain", "شبکه توزیع",
@@ -188,10 +256,20 @@ CLUSTERS: list[dict[str, Any]] = [
         "course_url": "/courses/advanced-power-system/",
         "business_fit": 96,
         "gateway_seeds": [
-            "پخش بار اقتصادی با پایتون", "economic dispatch Pyomo", "dynamic economic dispatch python",
-            "unit commitment Pyomo", "آرایش بهینه واحدها پایتون", "DC OPF Pyomo", "AC OPF Pyomo",
-            "optimal power flow python", "PTDF LODF python", "N-1 security Pyomo", "battery storage Pyomo",
-            "demand response Pyomo", "transmission expansion planning Pyomo", "optimal transmission switching Pyomo",
+            "پخش بار اقتصادی با پایتون",
+            "economic dispatch Pyomo",
+            "dynamic economic dispatch python",
+            "unit commitment Pyomo",
+            "آرایش بهینه واحدها پایتون",
+            "DC OPF Pyomo",
+            "AC OPF Pyomo",
+            "optimal power flow python",
+            "PTDF LODF python",
+            "N-1 security Pyomo",
+            "battery storage Pyomo",
+            "demand response Pyomo",
+            "transmission expansion planning Pyomo",
+            "optimal transmission switching Pyomo",
             "volt var optimization python",
         ],
         "signals": [
@@ -213,11 +291,18 @@ CLUSTERS: list[dict[str, Any]] = [
         "course_url": "/courses/uncertainty-modeling/",
         "business_fit": 94,
         "gateway_seeds": [
-            "بهینه سازی مقاوم در پایتون", "robust optimization Pyomo", "بهینه سازی تصادفی در پایتون",
-            "stochastic programming Pyomo", "two stage stochastic programming Pyomo",
-            "scenario generation python optimization", "scenario reduction python",
-            "chance constrained optimization Pyomo", "CVaR optimization Pyomo",
-            "IGDT optimization python", "بهینه سازی فازی پایتون", "تفاوت robust stochastic fuzzy IGDT",
+            "بهینه سازی مقاوم در پایتون",
+            "robust optimization Pyomo",
+            "بهینه سازی تصادفی در پایتون",
+            "stochastic programming Pyomo",
+            "two stage stochastic programming Pyomo",
+            "scenario generation python optimization",
+            "scenario reduction python",
+            "chance constrained optimization Pyomo",
+            "CVaR optimization Pyomo",
+            "IGDT optimization python",
+            "بهینه سازی فازی پایتون",
+            "تفاوت robust stochastic fuzzy IGDT",
         ],
         "signals": [
             "عدم قطعیت", "عدم‌قطعیت", "uncertainty", "robust", "مقاوم", "استوار",
@@ -233,66 +318,105 @@ CLUSTERS: list[dict[str, Any]] = [
     },
 ]
 
+# این فهرست ثابت در هر اجرای روزانه مستقیماً پایش می‌شود.
+# بودجه first_hop_queries فقط برای queryهای اکتشافی اضافه است و این موارد را حذف نمی‌کند.
 APPROVED_KEYWORDS: dict[str, tuple[str, ...]] = {
     "modeling": (
-        "آموزش Pyomo از صفر", "بهینه سازی در پایتون با Pyomo", "برنامه ریزی خطی در پایتون",
-        "برنامه ریزی عدد صحیح در پایتون", "مدل سازی MILP با Pyomo", "فرموله سازی مسائل بهینه سازی",
-        "تعریف متغیر تصمیم تابع هدف و قید", "آموزش خطی سازی در بهینه سازی", "روش Big-M در بهینه سازی",
-        "خطی سازی قدرمطلق در Pyomo", "مدل سازی قیود منطقی در Pyomo", "انتخاب Solver مناسب برای Pyomo",
-        "نصب Pyomo و HiGHS در ویندوز", "نصب IPOPT برای Pyomo در ویندوز", "رفع خطای No executable found for solver",
-        "تشخیص مدل Infeasible در Pyomo", "تحلیل حساسیت در Pyomo", "استخراج Dual و Shadow Price در Pyomo",
-        "مقایسه Pyomo و PuLP و OR-Tools", "مقایسه Gurobi و CPLEX و HiGHS", "بهینه سازی چندهدفه در پایتون",
-        "رسم جبهه پارتو در پایتون", "روش اپسیلون قید در Pyomo",
+        "آموزش Pyomo از صفر", "بهینه سازی در پایتون با Pyomo",
+        "برنامه ریزی خطی در پایتون", "برنامه ریزی عدد صحیح در پایتون",
+        "مدل سازی MILP با Pyomo", "فرموله سازی مسائل بهینه سازی",
+        "تعریف متغیر تصمیم تابع هدف و قید", "آموزش خطی سازی در بهینه سازی",
+        "روش Big-M در بهینه سازی", "خطی سازی قدرمطلق در Pyomo",
+        "مدل سازی قیود منطقی در Pyomo", "انتخاب Solver مناسب برای Pyomo",
+        "نصب Pyomo و HiGHS در ویندوز", "نصب IPOPT برای Pyomo در ویندوز",
+        "رفع خطای No executable found for solver", "تشخیص مدل Infeasible در Pyomo",
+        "تحلیل حساسیت در Pyomo", "استخراج Dual و Shadow Price در Pyomo",
+        "مقایسه Pyomo و PuLP و OR-Tools", "مقایسه Gurobi و CPLEX و HiGHS",
+        "بهینه سازی چندهدفه در پایتون", "رسم جبهه پارتو در پایتون",
+        "روش اپسیلون قید در Pyomo",
     ),
     "uncertainty": (
-        "بهینه سازی مقاوم با Pyomo", "بهینه سازی تصادفی با Pyomo", "برنامه ریزی تصادفی دو مرحله ای",
-        "تولید سناریو در پایتون", "کاهش سناریو در پایتون", "Budget of Uncertainty در بهینه سازی مقاوم",
+        "بهینه سازی مقاوم با Pyomo", "بهینه سازی تصادفی با Pyomo",
+        "برنامه ریزی تصادفی دو مرحله ای", "تولید سناریو در پایتون",
+        "کاهش سناریو در پایتون", "Budget of Uncertainty در بهینه سازی مقاوم",
         "تفاوت Robust و Stochastic و IGDT",
     ),
     "supply_chain": (
-        "بهینه سازی زنجیره تامین با پایتون", "طراحی شبکه زنجیره تامین با پایتون", "بهینه سازی شبکه توزیع با Pyomo",
-        "مسئله مکان یابی تسهیلات در پایتون", "مکان یابی بهینه انبار با Pyomo", "انتخاب تامین کننده با مدل سازی ریاضی",
-        "برنامه ریزی تولید با Pyomo", "برنامه ریزی تولید و توزیع یکپارچه", "مسئله حمل و نقل با Pyomo",
-        "مدیریت موجودی با پایتون", "مدل EOQ در پایتون", "محاسبه موجودی اطمینان با پایتون",
-        "بهینه سازی موجودی چند سطحی", "مسئله Lot Sizing با Pyomo", "بهینه سازی تحویل آخرین مایل",
-        "بهینه سازی ناوگان حمل و نقل", "بهینه سازی لجستیک معکوس", "مسئله بارگیری خودرو و Bin Packing",
+        "بهینه سازی زنجیره تامین با پایتون", "طراحی شبکه زنجیره تامین با پایتون",
+        "بهینه سازی شبکه توزیع با Pyomo", "مسئله مکان یابی تسهیلات در پایتون",
+        "مکان یابی بهینه انبار با Pyomo", "انتخاب تامین کننده با مدل سازی ریاضی",
+        "برنامه ریزی تولید با Pyomo", "برنامه ریزی تولید و توزیع یکپارچه",
+        "مسئله حمل و نقل با Pyomo", "مدیریت موجودی با پایتون",
+        "مدل EOQ در پایتون", "محاسبه موجودی اطمینان با پایتون",
+        "بهینه سازی موجودی چند سطحی", "مسئله Lot Sizing با Pyomo",
+        "بهینه سازی تحویل آخرین مایل", "بهینه سازی ناوگان حمل و نقل",
+        "بهینه سازی لجستیک معکوس", "مسئله بارگیری خودرو و Bin Packing",
         "بهینه سازی چیدمان کالا در انبار", "بهینه سازی مسیر برداشت کالا در انبار",
         "زنجیره تامین سبز و کاهش انتشار کربن",
     ),
     "vrp": (
-        "مسیریابی وسایل نقلیه با OR-Tools", "آموزش CVRP در پایتون", "آموزش VRPTW در پایتون",
-        "مسیریابی چند انباره در پایتون", "مسئله Pickup and Delivery با OR-Tools", "مسئله Split Delivery VRP",
-        "مسیریابی موجودی Inventory Routing", "مسیریابی خودروهای برقی در پایتون", "کمینه کردن تعداد خودرو در VRP",
-        "ساخت ماتریس فاصله برای OR-Tools", "حذف Subtour در مسائل مسیریابی", "تفاوت AddCircuit و Routing Solver",
-        "مسیریابی با پنجره زمانی و زمان سرویس", "بهینه سازی جمع آوری و توزیع هم زمان",
+        "مسیریابی وسایل نقلیه با OR-Tools", "آموزش CVRP در پایتون",
+        "آموزش VRPTW در پایتون", "مسیریابی چند انباره در پایتون",
+        "مسئله Pickup and Delivery با OR-Tools", "مسئله Split Delivery VRP",
+        "مسیریابی موجودی Inventory Routing", "مسیریابی خودروهای برقی در پایتون",
+        "کمینه کردن تعداد خودرو در VRP", "ساخت ماتریس فاصله برای OR-Tools",
+        "حذف Subtour در مسائل مسیریابی", "تفاوت AddCircuit و Routing Solver",
+        "مسیریابی با پنجره زمانی و زمان سرویس",
+        "بهینه سازی جمع آوری و توزیع هم زمان",
     ),
     "power": (
-        "پخش بار اقتصادی با Pyomo", "پخش بار اقتصادی دینامیکی با Pyomo", "Unit Commitment با Pyomo",
-        "مدل سازی هزینه راه اندازی نیروگاه", "قیود حداقل زمان روشن و خاموش واحدها", "مدل سازی Ramp Rate در Pyomo",
-        "مدل سازی ذخیره چرخان در Unit Commitment", "DC Optimal Power Flow با Pyomo", "AC Optimal Power Flow با Pyomo",
-        "مقایسه DC-OPF و AC-OPF", "پخش بار بهینه چند بازه ای", "Security-Constrained OPF با Pyomo",
-        "تحلیل امنیت N-1 در سیستم قدرت", "محاسبه PTDF در پایتون", "محاسبه LODF در پایتون",
-        "محاسبه LMP با Pyomo", "قیمت گذاری مکانی برق در شبکه", "مدیریت ازدحام شبکه انتقال",
-        "مدل سازی باتری در Pyomo", "بهینه سازی شارژ و دشارژ باتری", "جایابی بهینه باتری در شبکه برق",
-        "تعیین ظرفیت بهینه ذخیره ساز انرژی", "مدیریت مصرف با Pyomo", "بهینه سازی پاسخگویی بار",
-        "برنامه ریزی توسعه شبکه انتقال", "سوئیچینگ بهینه خطوط انتقال", "بهینه سازی توان راکتیو در شبکه توزیع",
-        "کنترل Volt VAR با اینورتر خورشیدی", "جایابی بهینه خازن در شبکه توزیع", "بازآرایی بهینه شبکه توزیع",
-        "مدیریت انرژی ریزشبکه با Pyomo", "بهینه سازی هاب انرژی", "برنامه ریزی شارژ خودروهای برقی",
-        "Stochastic Unit Commitment با Pyomo", "مدل سازی عدم قطعیت باد و خورشید", "کاهش Curtailment انرژی تجدیدپذیر",
-        "بهینه سازی نیروگاه مجازی", "تسویه بازار برق با Pyomo", "پخش بار اقتصادی چندهدفه",
-        "بهینه سازی هم زمان هزینه و انتشار آلاینده ها",
+        "پخش بار اقتصادی با Pyomo", "پخش بار اقتصادی دینامیکی با Pyomo",
+        "Unit Commitment با Pyomo", "مدل سازی هزینه راه اندازی نیروگاه",
+        "قیود حداقل زمان روشن و خاموش واحدها", "مدل سازی Ramp Rate در Pyomo",
+        "مدل سازی ذخیره چرخان در Unit Commitment", "DC Optimal Power Flow با Pyomo",
+        "AC Optimal Power Flow با Pyomo", "مقایسه DC-OPF و AC-OPF",
+        "پخش بار بهینه چند بازه ای", "Security-Constrained OPF با Pyomo",
+        "تحلیل امنیت N-1 در سیستم قدرت", "محاسبه PTDF در پایتون",
+        "محاسبه LODF در پایتون", "محاسبه LMP با Pyomo",
+        "قیمت گذاری مکانی برق در شبکه", "مدیریت ازدحام شبکه انتقال",
+        "مدل سازی باتری در Pyomo", "بهینه سازی شارژ و دشارژ باتری",
+        "جایابی بهینه باتری در شبکه برق", "تعیین ظرفیت بهینه ذخیره ساز انرژی",
+        "مدیریت مصرف با Pyomo", "بهینه سازی پاسخگویی بار",
+        "برنامه ریزی توسعه شبکه انتقال", "سوئیچینگ بهینه خطوط انتقال",
+        "بهینه سازی توان راکتیو در شبکه توزیع", "کنترل Volt VAR با اینورتر خورشیدی",
+        "جایابی بهینه خازن در شبکه توزیع", "بازآرایی بهینه شبکه توزیع",
+        "مدیریت انرژی ریزشبکه با Pyomo", "بهینه سازی هاب انرژی",
+        "برنامه ریزی شارژ خودروهای برقی", "Stochastic Unit Commitment با Pyomo",
+        "مدل سازی عدم قطعیت باد و خورشید", "کاهش Curtailment انرژی تجدیدپذیر",
+        "بهینه سازی نیروگاه مجازی", "تسویه بازار برق با Pyomo",
+        "پخش بار اقتصادی چندهدفه", "بهینه سازی هم زمان هزینه و انتشار آلاینده ها",
     ),
 }
 
 CLUSTER_BY_ID = {cluster["id"]: cluster for cluster in CLUSTERS}
+
 PERSIAN_TEMPLATES = (
-    "{root}", "آموزش {root}", "{root} چیست", "{root} با پایتون", "{root} مثال",
-    "{root} کد", "{root} پروژه", "{root} خطا", "نصب {root}", "تفاوت {root}", "بهترین روش {root}",
+    "{root}",
+    "آموزش {root}",
+    "{root} چیست",
+    "{root} با پایتون",
+    "{root} مثال",
+    "{root} کد",
+    "{root} پروژه",
+    "{root} خطا",
+    "نصب {root}",
+    "تفاوت {root}",
+    "بهترین روش {root}",
 )
+
 ENGLISH_TEMPLATES = (
-    "{root}", "{root} python", "{root} tutorial", "{root} example", "{root} code",
-    "{root} error", "{root} installation windows", "{root} vs", "how to {root}", "best way to {root}",
+    "{root}",
+    "{root} python",
+    "{root} tutorial",
+    "{root} example",
+    "{root} code",
+    "{root} error",
+    "{root} installation windows",
+    "{root} vs",
+    "how to {root}",
+    "best way to {root}",
 )
+
 PERSIAN_ALPHABET = tuple("ابتپثجچحخدذرزژسشصضطظعغفقکگلمنوهی")
 ENGLISH_ALPHABET = tuple("abcdefghijklmnopqrstuvwxyz")
 
@@ -303,17 +427,20 @@ NEGATIVE_PATTERNS = (
     "رژیم غذایی", "بهینه سازی سایت", "سئو سایت", "بهینه سازی عکس", "بهینه سازی گوشی",
     "optimizer android", "route directions", "google maps directions",
 )
+
 GENERIC_WORDS = {
     "آموزش", "راهنما", "مثال", "کد", "پایتون", "python", "پروژه", "کامل",
     "جامع", "رایگان", "چیست", "چگونه", "چطور", "روش", "بهترین", "حل", "مسئله",
     "مسائل", "با", "در", "برای", "از", "و", "یا", "the", "a", "an", "of",
     "with", "in", "to", "for", "how", "tutorial", "example", "code", "guide",
 }
+
 FA_STOPWORDS = {
     "از", "به", "در", "با", "برای", "و", "یا", "که", "را", "یک", "این", "آن",
     "روی", "بر", "تا", "های", "است", "می", "شود", "شد", "چه", "چگونه", "چطور",
     "the", "a", "an", "of", "for", "with", "in", "to", "and", "is", "are",
 }
+
 INTENT_RULES: dict[str, tuple[str, ...]] = {
     "خطا و نصب": (
         "خطا", "ارور", "رفع", "نصب", "مشکل", "پیدا نمی", "اجرا نمی", "error",
@@ -321,31 +448,39 @@ INTENT_RULES: dict[str, tuple[str, ...]] = {
         "not found", "unavailable", "infeasible", "unbounded",
     ),
     "مقایسه": ("تفاوت", "مقایسه", "بهتر", "کدام", " vs ", "versus", "compare"),
-    "کدنویسی": ("آموزش", "مثال", "کد", "پیاده سازی", "پیاده‌سازی", "python", "pyomo", "ortools", "tutorial", "example",
-                "code"),
+    "کدنویسی": ("آموزش", "مثال", "کد", "پیاده سازی", "پیاده‌سازی", "python", "pyomo", "ortools", "tutorial", "example", "code"),
     "پروژه": ("پروژه", "پایان نامه", "پایان‌نامه", "case study", "thesis", "dataset", "داده"),
     "تعریف و مفهوم": ("چیست", "چرا", "what is", "definition", "مفهوم"),
 }
+
 STRONG_SERP_DOMAINS = {
     "faradars.org", "maktabkhooneh.org", "wikipedia.org", "developers.google.com",
     "pyomo.readthedocs.io", "pyomo.org", "github.com", "stackoverflow.com",
     "or.stackexchange.com", "aparat.com", "civilica.com", "sciencedirect.com",
     "ieeexplore.ieee.org", "medium.com", "donyad.com", "udemy.com",
 }
+
 STRONG_CLUSTER_ANCHORS: dict[str, tuple[str, ...]] = {
     "modeling": (
-        "linear programming", "integer programming", "mixed integer programming",
-        "mathematical programming", "operations research", "برنامه ریزی خطی",
-        "برنامه ریزی عدد صحیح", "مدل سازی ریاضی", "مدلسازی بهینه سازی", "تابع هدف",
-        "متغیر تصمیم", "قیود بهینه سازی", "خطی سازی", "big m", "dual",
-        "shadow price", "تحلیل حساسیت", "بهینه سازی چندهدفه", "جبهه پارتو",
+        "linear programming", "integer programming",
+        "mixed integer programming", "mathematical programming",
+        "operations research", "برنامه ریزی خطی",
+        "برنامه ریزی عدد صحیح", "مدل سازی ریاضی",
+        "مدلسازی بهینه سازی", "تابع هدف", "متغیر تصمیم",
+        "قیود بهینه سازی", "خطی سازی", "big m", "dual",
+        "shadow price", "تحلیل حساسیت",
+        "بهینه سازی چندهدفه", "جبهه پارتو",
     ),
     "supply_chain": (
-        "supply chain optimization", "زنجیره تامین", "زنجیره تأمین", "facility location",
-        "مکان یابی تسهیلات", "warehouse location", "مکان یابی انبار", "supplier selection",
-        "انتخاب تامین کننده", "production planning", "برنامه ریزی تولید",
-        "inventory optimization", "مدیریت موجودی", "lot sizing", "last mile delivery",
-        "تحویل آخرین مایل", "reverse logistics", "لجستیک معکوس", "bin packing", "شبکه توزیع",
+        "supply chain optimization", "زنجیره تامین", "زنجیره تأمین",
+        "facility location", "مکان یابی تسهیلات",
+        "warehouse location", "مکان یابی انبار",
+        "supplier selection", "انتخاب تامین کننده",
+        "production planning", "برنامه ریزی تولید",
+        "inventory optimization", "مدیریت موجودی",
+        "lot sizing", "last mile delivery", "تحویل آخرین مایل",
+        "reverse logistics", "لجستیک معکوس", "bin packing",
+        "شبکه توزیع",
     ),
     "vrp": (
         "vehicle routing", "vrp", "cvrp", "vrptw", "tsp", "pickup delivery",
@@ -372,17 +507,21 @@ STRONG_CLUSTER_ANCHORS: dict[str, tuple[str, ...]] = {
     ),
 }
 
-
 def has_strong_anchor(keyword: str, cluster_id: str) -> bool:
+    """Return True when a keyword contains a specialist anchor for its cluster."""
     value = normalise(keyword)
     tokens = token_set(keyword, remove_generic=True)
+
     for anchor in STRONG_CLUSTER_ANCHORS.get(cluster_id, ()):
         anchor_norm = normalise(anchor)
         anchor_tokens = token_set(anchor, remove_generic=True)
+
         if anchor_norm and anchor_norm in value:
             return True
+
         if len(anchor_tokens) >= 2 and len(tokens & anchor_tokens) >= 2:
             return True
+
     return False
 
 
@@ -390,7 +529,10 @@ KEYWORD_PLANNER_CSV_NAMES = (
     "keyword_planner.csv", "keyword-planner.csv", "Keyword Planner.csv",
     "keyword_ideas.csv", "Keyword ideas.csv",
 )
-GSC_CSV_NAMES = ("gsc_export.csv", "search_console.csv", "Queries.csv", "queries.csv")
+
+GSC_CSV_NAMES = (
+    "gsc_export.csv", "search_console.csv", "Queries.csv", "queries.csv",
+)
 
 
 # =============================================================================
@@ -557,16 +699,23 @@ def normalise(text: Any) -> str:
     value = re.sub(r"[\u064b-\u065f\u0670]", "", value)
     value = re.sub(r"[^0-9a-z\u0600-\u06ff+.#/-]+", " ", value)
     value = re.sub(r"\s+", " ", value).strip()
+
     aliases = (
-        ("or tools", "ortools"), ("or-tools", "ortools"),
-        ("cp sat", "cpsat"), ("cp-sat", "cpsat"),
+        ("or tools", "ortools"),
+        ("or-tools", "ortools"),
+        ("cp sat", "cpsat"),
+        ("cp-sat", "cpsat"),
         ("vehicle routing problem", "vrp"),
         ("capacitated vehicle routing problem", "cvrp"),
         ("vehicle routing problem with time windows", "vrptw"),
-        ("python", "پایتون"), ("پایومو", "pyomo"),
-        ("مدل سازی", "مدلسازی"), ("بهینه سازی", "بهینهسازی"),
-        ("عدم قطعیت", "عدمقطعیت"), ("حل کننده", "solver"),
-        ("حل‌کننده", "solver"), ("سيستم", "سیستم"),
+        ("python", "پایتون"),
+        ("پایومو", "pyomo"),
+        ("مدل سازی", "مدلسازی"),
+        ("بهینه سازی", "بهینهسازی"),
+        ("عدم قطعیت", "عدمقطعیت"),
+        ("حل کننده", "solver"),
+        ("حل‌کننده", "solver"),
+        ("سيستم", "سیستم"),
     )
     for old, new in aliases:
         value = value.replace(old, new)
@@ -766,15 +915,15 @@ def cache_path_for(cache_dir: Path, key: str) -> Path:
 
 
 def http_request(
-        url: str,
-        *,
-        cache_dir: Path | None = None,
-        cache_hours: int = 10,
-        timeout: int = 9,
-        attempts: int = 2,
-        headers: dict[str, str] | None = None,
-        data: bytes | None = None,
-        method: str | None = None,
+    url: str,
+    *,
+    cache_dir: Path | None = None,
+    cache_hours: int = 10,
+    timeout: int = 9,
+    attempts: int = 2,
+    headers: dict[str, str] | None = None,
+    data: bytes | None = None,
+    method: str | None = None,
 ) -> bytes:
     cache_key = url if data is None else f"{url}|{hashlib.sha256(data).hexdigest()}"
     cache_path: Path | None = None
@@ -1004,11 +1153,11 @@ def collect_local_pages(root: Path, site_url: str, status: dict[str, str]) -> li
 
 
 def fetch_sitemap_urls(
-        sitemap_url: str,
-        site_url: str,
-        cache_dir: Path,
-        config: dict[str, Any],
-        seen: set[str] | None = None,
+    sitemap_url: str,
+    site_url: str,
+    cache_dir: Path,
+    config: dict[str, Any],
+    seen: set[str] | None = None,
 ) -> list[str]:
     seen = seen or set()
     if sitemap_url in seen:
@@ -1023,8 +1172,7 @@ def fetch_sitemap_urls(
         headers={"Accept": "application/xml,text/xml,*/*;q=0.5"},
     )
     root = ET.fromstring(raw)
-    locations = [display_clean(element.text) for element in root.iter() if
-                 element.tag.lower().endswith("loc") and element.text]
+    locations = [display_clean(element.text) for element in root.iter() if element.tag.lower().endswith("loc") and element.text]
     urls: list[str] = []
     if root.tag.lower().endswith("sitemapindex"):
         for child in locations[:20]:
@@ -1060,11 +1208,11 @@ def fetch_live_page(url: str, cache_dir: Path, config: dict[str, Any]) -> Existi
 
 
 def collect_existing_pages(
-        base_dir: Path,
-        cache_dir: Path,
-        config: dict[str, Any],
-        offline: bool,
-        status: dict[str, str],
+    base_dir: Path,
+    cache_dir: Path,
+    config: dict[str, Any],
+    offline: bool,
+    status: dict[str, str],
 ) -> list[ExistingPage]:
     site_url = str(config["site_url"])
     pages: list[ExistingPage] = []
@@ -1105,7 +1253,6 @@ def collect_existing_pages(
     result = list(deduped.values())
     status["کل صفحات برای مقایسه"] = str(len(result))
     return result
-
 
 # =============================================================================
 # سنجش پوشش موجود سایت
@@ -1179,8 +1326,7 @@ def closest_existing_page(keyword: str, pages: list[ExistingPage]) -> tuple[Exis
 # خوشه‌بندی، نیت و عنوان پیشنهادی
 # =============================================================================
 
-def map_cluster(keyword: str, votes: Counter[str] | None = None, context_cluster: str = "") -> tuple[
-    dict[str, Any], float]:
+def map_cluster(keyword: str, votes: Counter[str] | None = None, context_cluster: str = "") -> tuple[dict[str, Any], float]:
     keyword_norm = normalise(keyword)
     keyword_tokens = token_set(keyword)
     best_cluster = CLUSTERS[0]
@@ -1193,6 +1339,8 @@ def map_cluster(keyword: str, votes: Counter[str] | None = None, context_cluster
         if context_cluster == cluster["id"]:
             score += 4.0
 
+        # عبارت‌های تخصصی باید بر نام ابزار غلبه کنند؛ مثلاً
+        # «unit commitment pyomo» متعلق به خوشه سیستم قدرت است، نه صرفاً Pyomo.
         for anchor in STRONG_CLUSTER_ANCHORS.get(cluster["id"], ()):
             anchor_norm = normalise(anchor)
             if anchor_norm and anchor_norm in keyword_norm:
@@ -1363,6 +1511,7 @@ def make_probe_pool(run_date: dt.date) -> list[Probe]:
 
 
 def approved_keyword_probes() -> list[Probe]:
+    """تمام کلمات تأییدشده را بدون چرخش یا محدودیت بودجه برمی‌گرداند."""
     probes: list[Probe] = []
     seen: set[str] = set()
     for cluster_id, keywords in APPROVED_KEYWORDS.items():
@@ -1376,6 +1525,11 @@ def approved_keyword_probes() -> list[Probe]:
 
 
 def choose_first_hop_probes(run_date: dt.date, budget: int, monitor_approved: bool = True) -> list[Probe]:
+    """فهرست ثابت + تعداد محدودی query اکتشافی روزانه.
+
+    budget فقط تعداد queryهای اکتشافی را تعیین می‌کند. کلمات APPROVED_KEYWORDS
+    هر روز همگی و به صورت مستقیم پایش می‌شوند.
+    """
     selected = approved_keyword_probes() if monitor_approved else []
     selected_keys = {f"{p.cluster_id}|{normalise(p.query)}" for p in selected}
     if budget <= 0:
@@ -1383,6 +1537,7 @@ def choose_first_hop_probes(run_date: dt.date, budget: int, monitor_approved: bo
 
     pool = make_probe_pool(run_date)
     exploratory_added = 0
+    # ابتدا از هر خوشه حداقل یک query تازه انتخاب شود.
     for cluster in CLUSTERS:
         for probe in pool:
             key = f"{probe.cluster_id}|{normalise(probe.query)}"
@@ -1527,10 +1682,10 @@ SOURCE_FETCHERS = {
 
 
 def add_candidate(
-        store: dict[str, Candidate],
-        keyword: str,
-        observation: Observation,
-        cluster_id: str = "",
+    store: dict[str, Candidate],
+    keyword: str,
+    observation: Observation,
+    cluster_id: str = "",
 ) -> Candidate | None:
     keyword = display_clean(keyword)
     key = keyword_key(keyword)
@@ -1557,13 +1712,13 @@ def candidate_relevance(keyword: str, context_cluster_id: str, query: str) -> fl
 
 
 def collect_autocomplete_source(
-        store: dict[str, Candidate],
-        probes: list[Probe],
-        source: str,
-        cache_dir: Path,
-        config: dict[str, Any],
-        status: dict[str, str],
-        run_date: dt.date,
+    store: dict[str, Candidate],
+    probes: list[Probe],
+    source: str,
+    cache_dir: Path,
+    config: dict[str, Any],
+    status: dict[str, str],
+    run_date: dt.date,
 ) -> None:
     fetcher = SOURCE_FETCHERS[source]
     if not probes:
@@ -1620,12 +1775,12 @@ def collect_autocomplete_source(
 
 
 def collect_all_autocomplete(
-        store: dict[str, Candidate],
-        probes: list[Probe],
-        cache_dir: Path,
-        config: dict[str, Any],
-        status: dict[str, str],
-        run_date: dt.date,
+    store: dict[str, Candidate],
+    probes: list[Probe],
+    cache_dir: Path,
+    config: dict[str, Any],
+    status: dict[str, str],
+    run_date: dt.date,
 ) -> None:
     for source in SOURCE_FETCHERS:
         collect_autocomplete_source(store, probes, source, cache_dir, config, status, run_date)
@@ -1646,14 +1801,13 @@ STACK_QUERIES: list[tuple[str, str, str]] = [
 
 
 def collect_stackexchange(
-        store: dict[str, Candidate],
-        cache_dir: Path,
-        config: dict[str, Any],
-        status: dict[str, str],
-        run_date: dt.date,
+    store: dict[str, Candidate],
+    cache_dir: Path,
+    config: dict[str, Any],
+    status: dict[str, str],
+    run_date: dt.date,
 ) -> None:
-    from_date = int(
-        (dt.datetime.now(dt.timezone.utc) - dt.timedelta(days=int(config["stackexchange_lookback_days"]))).timestamp())
+    from_date = int((dt.datetime.now(dt.timezone.utc) - dt.timedelta(days=int(config["stackexchange_lookback_days"]))).timestamp())
     accepted = 0
     failed = 0
     total = 0
@@ -1743,8 +1897,7 @@ def load_gsc_csv(path: Path, store: dict[str, Candidate], status: dict[str, str]
     start, delimiter = detect_table_start(text, ("Top queries", "Query", "Queries", "عبارت جستجو", "کوئری"))
     reader = csv.DictReader(text.splitlines()[start:], delimiter=delimiter)
     fields = reader.fieldnames or []
-    query_col = choose_column(fields,
-                              ("Top queries", "Query", "Queries", "Keyword", "کلمه کلیدی", "عبارت جستجو", "کوئری"))
+    query_col = choose_column(fields, ("Top queries", "Query", "Queries", "Keyword", "کلمه کلیدی", "عبارت جستجو", "کوئری"))
     clicks_col = choose_column(fields, ("Clicks", "Click", "کلیک", "کلیک‌ها"))
     impressions_col = choose_column(fields, ("Impressions", "نمایش", "نمایش‌ها"))
     position_col = choose_column(fields, ("Position", "Average position", "میانگین موقعیت", "رتبه"))
@@ -1813,10 +1966,10 @@ def _gsc_query_rows(service: Any, site_url: str, start_date: dt.date, end_date: 
 
 
 def collect_gsc_api(
-        store: dict[str, Candidate],
-        config: dict[str, Any],
-        status: dict[str, str],
-        run_date: dt.date,
+    store: dict[str, Candidate],
+    config: dict[str, Any],
+    status: dict[str, str],
+    run_date: dt.date,
 ) -> None:
     credentials_file = display_clean(config.get("gsc_service_account_file", ""))
     site_url = display_clean(config.get("gsc_site_url", ""))
@@ -1897,8 +2050,7 @@ def collect_gsc_api(
 # Google Ads Keyword Planner CSV
 # =============================================================================
 
-def load_keyword_planner_csv(path: Path, store: dict[str, Candidate], status: dict[str, str],
-                             run_date: dt.date) -> None:
+def load_keyword_planner_csv(path: Path, store: dict[str, Candidate], status: dict[str, str], run_date: dt.date) -> None:
     try:
         text, encoding = read_text_file_flexible(path)
     except OSError as exc:
@@ -1953,7 +2105,6 @@ def load_keyword_planner_csv(path: Path, store: dict[str, Candidate], status: di
         accepted += 1
     status["Keyword Planner"] = f"{accepted} عبارت از {rows} ردیف؛ {path.name}; {encoding}"
 
-
 # =============================================================================
 # Serper API اختیاری: PAA، Related Searches و رقابت SERP
 # =============================================================================
@@ -1966,8 +2117,7 @@ def serp_title_match(keyword: str, title: str) -> bool:
     return score >= 0.72 or (len(target_tokens) >= 2 and coverage >= 0.82)
 
 
-def serp_competition_from_results(keyword: str, organic: list[dict[str, Any]], site_domain: str) -> tuple[
-    int, int, int, list[str], float]:
+def serp_competition_from_results(keyword: str, organic: list[dict[str, Any]], site_domain: str) -> tuple[int, int, int, list[str], float]:
     exact_titles = 0
     strong_domains = 0
     user_rank = 0
@@ -2006,398 +2156,1279 @@ def serper_search(keyword: str, cache_dir: Path, config: dict[str, Any]) -> dict
         "q": keyword,
         "gl": str(config["target_country"]).lower(),
         "hl": str(config["target_language"]),
-    }).encode("utf-8")
-
-    url = "https://google.serper.dev/search"
-    headers = {
-        "X-API-KEY": api_key,
-        "Content-Type": "application/json",
-    }
-    raw = http_request(
-        url,
-        data=payload,
-        headers=headers,
+        "num": 10,
+    }, ensure_ascii=False).encode("utf-8")
+    return json_request(
+        "https://google.serper.dev/search",
         cache_dir=cache_dir,
-        cache_hours=int(config["cache_hours"]),
+        cache_hours=12,
         timeout=int(config["request_timeout_seconds"]),
-        attempts=1,
+        attempts=2,
+        headers={
+            "X-API-KEY": api_key,
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+        },
+        data=payload,
         method="POST",
     )
-    return json.loads(raw.decode("utf-8", errors="replace"))
 
 
-def collect_serp_opportunities(
-        store: dict[str, Candidate],
-        cache_dir: Path,
-        config: dict[str, Any],
-        status: dict[str, str],
-        run_date: dt.date,
+def preliminary_priority(candidate: Candidate) -> float:
+    source_score = len(candidate.autocomplete_sources) * 12
+    rank_score = max(0, 11 - (candidate.best_rank or 10)) * 2
+    family_score = min(len(candidate.unique_families), 5) * 4
+    gsc_score = min(math.log1p(candidate.gsc_impressions) * 5, 30)
+    volume_score = min(math.log10(candidate.monthly_searches + 1) * 12, 36) if candidate.monthly_searches > 0 else 0
+    stack_score = min(math.log1p(candidate.stack_views) * 3, 20)
+    gap = 100 * (1.0 - candidate.existing_similarity)
+    return source_score + rank_score + family_score + gsc_score + volume_score + stack_score + gap * 0.25
+
+
+def enrich_with_serper(
+    store: dict[str, Candidate],
+    pages: list[ExistingPage],
+    cache_dir: Path,
+    config: dict[str, Any],
+    status: dict[str, str],
+    run_date: dt.date,
 ) -> None:
-    api_key = display_clean(config.get("serper_api_key", ""))
-    if not api_key:
-        status["Serper API"] = "کلید API تنظیم نشده است"
+    if not display_clean(config.get("serper_api_key", "")):
+        status["Serper / Google SERP"] = "تنظیم نشده؛ رقابت SERP و PAA اندازه‌گیری نشد"
         return
 
-    candidates = sorted(
-        store.values(),
-        key=lambda c: len(c.sources),
-        reverse=True,
-    )[: int(config["serp_checks_per_run"])]
+    # ابتدا یک بررسی موقت پوشش برای انتخاب کاندیداهای ارزشمند انجام می‌دهیم.
+    for candidate in store.values():
+        page, similarity, mentioned = closest_existing_page(candidate.keyword, pages)
+        candidate.existing_similarity = similarity
+        candidate.mentioned_in_body = mentioned
+        if page:
+            candidate.existing_title = page.title
+            candidate.existing_url = page.url
 
-    if not candidates:
-        status["Serper API"] = "عبارتی برای پایش SERP یافت نشد"
-        return
-
+    candidates = [candidate for candidate in store.values() if candidate.existing_similarity < float(config["existing_page_threshold"])]
+    candidates.sort(key=lambda item: (-preliminary_priority(item), normalise(item.keyword)))
+    selected = candidates[: int(config["serp_checks_per_run"])]
     site_domain = domain_from_url(str(config["site_url"]))
-    checked = 0
-    paa_count = 0
-    related_count = 0
 
-    for candidate in candidates:
+    checked = 0
+    failed = 0
+    added = 0
+    for candidate in selected:
         try:
             data = serper_search(candidate.keyword, cache_dir, config)
         except Exception:
+            failed += 1
             continue
-
-        organic = data.get("organic", [])
-        exact, strong, user_rank, top_titles, comp_score = serp_competition_from_results(
-            candidate.keyword, organic, site_domain
+        checked += 1
+        organic = data.get("organic", []) if isinstance(data, dict) else []
+        exact, strong, user_rank, titles, difficulty = serp_competition_from_results(
+            candidate.keyword,
+            organic if isinstance(organic, list) else [],
+            site_domain,
         )
         candidate.serp_checked = True
         candidate.serp_exact_titles = exact
         candidate.serp_strong_domains = strong
         candidate.serp_user_domain_rank = user_rank
-        candidate.serp_competition_score = comp_score
-        candidate.serp_top_titles = top_titles
+        candidate.serp_top_titles = titles
+        candidate.serp_competition_score = difficulty
+        candidate.add_observation(Observation(
+            source="Google SERP Check",
+            family="serp",
+            date=run_date.isoformat(),
+            value=difficulty,
+            note=f"exact={exact}; strong={strong}; rank={user_rank}",
+        ))
 
-        # PAA (People Also Ask)
-        for paa in data.get("peopleAlsoAsk", []):
-            question = display_clean(paa.get("question", ""))
-            if question:
-                obs = Observation(
-                    source="Google SERP PAA",
-                    query=candidate.keyword,
-                    date=run_date.isoformat(),
-                )
-                if add_candidate(store, question, obs, candidate.cluster_id):
-                    paa_count += 1
+        cluster, _ = map_cluster(candidate.keyword, candidate.cluster_votes)
+        for item in data.get("peopleAlsoAsk", []) if isinstance(data, dict) else []:
+            question = display_clean(item.get("question", "")) if isinstance(item, dict) else ""
+            if not question or normalise(question) == normalise(candidate.keyword):
+                continue
+            relevance = candidate_relevance(question, cluster["id"], candidate.keyword)
+            if relevance < 7.0:
+                continue
+            if not has_strong_anchor(question, cluster["id"]):
+                continue
+            observation = Observation(
+                source="Google SERP PAA",
+                query=candidate.keyword,
+                family=normalise(candidate.keyword),
+                date=run_date.isoformat(),
+                url=display_clean(item.get("link", "")) if isinstance(item, dict) else "",
+                note="People Also Ask",
+            )
+            if add_candidate(store, question, observation, cluster["id"]):
+                added += 1
 
-        # Related Searches
-        for rel in data.get("relatedSearches", []):
-            query = display_clean(rel.get("query", ""))
-            if query:
-                obs = Observation(
-                    source="Google SERP Related",
-                    query=candidate.keyword,
-                    date=run_date.isoformat(),
-                )
-                if add_candidate(store, query, obs, candidate.cluster_id):
-                    related_count += 1
-
-        checked += 1
-
-    status["Serper API"] = f"{checked} عبارت بررسی شد؛ {paa_count} PAA و {related_count} Related استخراج گردید"
+        for item in data.get("relatedSearches", []) if isinstance(data, dict) else []:
+            query = display_clean(item.get("query", "")) if isinstance(item, dict) else display_clean(item)
+            if not query or normalise(query) == normalise(candidate.keyword):
+                continue
+            relevance = candidate_relevance(query, cluster["id"], candidate.keyword)
+            if relevance < 7.0:
+                continue
+            if not has_strong_anchor(query, cluster["id"]):
+                continue
+            observation = Observation(
+                source="Google SERP Related",
+                query=candidate.keyword,
+                family=normalise(candidate.keyword),
+                date=run_date.isoformat(),
+                note="Related Search",
+            )
+            if add_candidate(store, query, observation, cluster["id"]):
+                added += 1
+    status["Serper / Google SERP"] = f"{checked} عبارت بررسی شد؛ {failed} خطا؛ {added} PAA/Related اضافه شد"
 
 
 # =============================================================================
-# محاسبه امتیازات و آماده‌سازی خروجی
+# تاریخچه معتبرتر: مقایسه فقط در context یکسان
 # =============================================================================
 
-def calculate_scores(
-        candidate: Candidate,
-        pages: list[ExistingPage],
-        config: dict[str, Any],
+def load_history(path: Path) -> dict[str, Any]:
+    if not path.exists():
+        return {"version": 3, "keywords": {}}
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return {"version": 3, "keywords": {}}
+    if not isinstance(data, dict) or not isinstance(data.get("keywords"), dict):
+        return {"version": 3, "keywords": {}}
+    return data
+
+
+def current_context_ranks(candidate: Candidate) -> dict[str, int]:
+    values: dict[str, int] = {}
+    for observation in candidate.observations:
+        if observation.rank <= 0 or not observation.family:
+            continue
+        context = f"{observation.source}|{normalise(observation.family)}"
+        current = values.get(context)
+        if current is None or observation.rank < current:
+            values[context] = observation.rank
+    return values
+
+
+def apply_history(candidate: Candidate, history: dict[str, Any], run_date: dt.date, config: dict[str, Any]) -> None:
+    key = keyword_key(candidate.keyword)
+    previous = history.get("keywords", {}).get(key)
+    if not isinstance(previous, dict):
+        candidate.first_seen = run_date.isoformat()
+        candidate.seen_days = 1
+        candidate.trend_label = "جدید امروز"
+        candidate.trend_score = 8.0
+        return
+
+    candidate.first_seen = str(previous.get("first_seen", run_date.isoformat()))
+    seen_dates = [str(value) for value in previous.get("seen_dates", []) if isinstance(value, str)]
+    candidate.seen_days = len(set(seen_dates + [run_date.isoformat()]))
+
+    previous_ranks = previous.get("context_ranks", {}) if isinstance(previous.get("context_ranks"), dict) else {}
+    current_ranks = current_context_ranks(candidate)
+    improvements: list[int] = []
+    for context, current_rank in current_ranks.items():
+        previous_rank = int(previous_ranks.get(context, 0) or 0)
+        if previous_rank > 0:
+            improvements.append(previous_rank - current_rank)
+
+    gsc_previous = candidate.gsc_previous_impressions
+    gsc_current = candidate.gsc_impressions
+    gsc_growth = 0.0
+    if gsc_previous > 0:
+        gsc_growth = (gsc_current - gsc_previous) / gsc_previous
+
+    if (improvements and sum(1 for value in improvements if value >= 2) >= 2) or gsc_growth >= 0.25:
+        candidate.trend_label = "رو‌به‌رشد"
+        candidate.trend_score = 12.0
+    elif improvements and sum(1 for value in improvements if value <= -3) >= 2:
+        candidate.trend_label = "نزولی"
+        candidate.trend_score = -5.0
+    elif candidate.seen_days >= 4:
+        candidate.trend_label = "تقاضای پایدار"
+        candidate.trend_score = 8.0
+    else:
+        candidate.trend_label = "تکرار مشاهده"
+        candidate.trend_score = 3.0
+
+    selected_dates: list[dt.date] = []
+    for value in previous.get("selected_dates", []):
+        try:
+            selected_dates.append(dt.date.fromisoformat(str(value)))
+        except ValueError:
+            continue
+    if selected_dates:
+        days_since = (run_date - max(selected_dates)).days
+        cooldown = int(config["recommendation_cooldown_days"])
+        if 0 <= days_since <= cooldown:
+            candidate.cooldown_penalty = 7.0 if candidate.trend_label == "رو‌به‌رشد" else 18.0
+
+
+def update_history(
+    history: dict[str, Any],
+    all_candidates: list[Candidate],
+    selected: list[Candidate],
+    run_date: dt.date,
+    config: dict[str, Any],
+    path: Path,
 ) -> None:
-    # 1. خوشه و نیت
-    cluster, fit = map_cluster(candidate.keyword, candidate.cluster_votes)
-    candidate.cluster_id = cluster["id"]
-    candidate.cluster_name = cluster["name"]
-    candidate.course_url = cluster["course_url"]
-    candidate.business_fit_score = float(cluster["business_fit"])
+    keywords = history.setdefault("keywords", {})
+    selected_keys = {keyword_key(candidate.keyword) for candidate in selected}
+    cutoff = run_date - dt.timedelta(days=int(config["history_days"]))
 
-    candidate.intent = infer_intent(candidate.keyword)
-    candidate.funnel = infer_funnel(candidate.intent, candidate.keyword)
-    candidate.suggested_title = suggest_title(candidate)
-    candidate.suggested_slug = slugify(candidate.keyword)
+    for candidate in all_candidates:
+        key = keyword_key(candidate.keyword)
+        entry = keywords.setdefault(key, {
+            "keyword": candidate.keyword,
+            "first_seen": run_date.isoformat(),
+            "seen_dates": [],
+            "selected_dates": [],
+            "context_ranks": {},
+        })
+        entry["keyword"] = candidate.keyword
+        entry.setdefault("first_seen", run_date.isoformat())
 
-    # 2. امتیاز تقاضا (Demand Score)
-    source_weight = len(candidate.sources) * 12.0
-    rank_weight = max(0, 11 - candidate.best_rank) * 2.5 if candidate.best_rank > 0 else 0.0
-    gsc_weight = math.log10(candidate.gsc_impressions + 1) * 15.0
-    stack_weight = math.log10(candidate.stack_views + 1) * 8.0
-    planner_weight = math.log10(candidate.monthly_searches + 1) * 10.0
+        valid_seen: list[str] = []
+        for value in entry.get("seen_dates", []):
+            try:
+                date_value = dt.date.fromisoformat(str(value))
+            except ValueError:
+                continue
+            if date_value >= cutoff:
+                valid_seen.append(date_value.isoformat())
+        valid_seen.append(run_date.isoformat())
+        entry["seen_dates"] = sorted(set(valid_seen))
 
-    candidate.demand_score = min(100.0, source_weight + rank_weight + gsc_weight + stack_weight + planner_weight)
+        valid_selected: list[str] = []
+        for value in entry.get("selected_dates", []):
+            try:
+                date_value = dt.date.fromisoformat(str(value))
+            except ValueError:
+                continue
+            if date_value >= cutoff:
+                valid_selected.append(date_value.isoformat())
+        if key in selected_keys:
+            valid_selected.append(run_date.isoformat())
+        entry["selected_dates"] = sorted(set(valid_selected))
 
-    # 3. شکاف محتوایی (Gap Score)
-    best_page, similarity, mentioned = closest_existing_page(candidate.keyword, pages)
-    candidate.existing_similarity = similarity
-    candidate.mentioned_in_body = mentioned
-    if best_page:
-        candidate.existing_title = best_page.title
-        candidate.existing_url = best_page.url
+        entry["context_ranks"] = current_context_ranks(candidate)
+        entry["last_seen"] = run_date.isoformat()
+        entry["last_sources"] = sorted(candidate.sources)
+        entry["last_demand_score"] = candidate.demand_score
+        entry["last_opportunity_score"] = candidate.opportunity_score
+        entry["last_gsc_impressions"] = candidate.gsc_impressions
+        entry["last_monthly_searches"] = candidate.monthly_searches
 
-    existing_thresh = float(config["existing_page_threshold"])
-    related_thresh = float(config["related_page_threshold"])
+    for key in list(keywords):
+        entry = keywords[key]
+        try:
+            last_seen = dt.date.fromisoformat(str(entry.get("last_seen", "")))
+        except ValueError:
+            last_seen = cutoff
+        if last_seen < cutoff:
+            del keywords[key]
 
-    if similarity >= existing_thresh:
-        candidate.coverage_action = "پوشش داده شده"
-        candidate.gap_score = 10.0
-    elif similarity >= related_thresh:
-        candidate.coverage_action = "به‌روزرسانی/تکمیل"
-        candidate.gap_score = 55.0
-    elif mentioned:
-        candidate.coverage_action = "ارتقا به صفحه مجزا"
-        candidate.gap_score = 80.0
-    else:
-        candidate.coverage_action = "محتوای جدید"
-        candidate.gap_score = 100.0
-
-    # 4. امتیاز نهایی فراداده
-    intent_bonus = cluster["intent_bonus"].get(candidate.intent, 5.0)
-    serp_penalty = (candidate.serp_competition_score * 0.25) if candidate.serp_competition_score is not None else 10.0
-
-    score = (
-            0.45 * candidate.demand_score +
-            0.30 * candidate.gap_score +
-            0.15 * candidate.business_fit_score +
-            intent_bonus - serp_penalty
-    )
-    candidate.opportunity_score = max(0.0, min(100.0, score))
-
-    if candidate.opportunity_score >= 75.0:
-        candidate.confidence = "بالا"
-    elif candidate.opportunity_score >= 55.0:
-        candidate.confidence = "متوسط"
-    else:
-        candidate.confidence = "کم"
+    history["version"] = 3
+    history["updated_at"] = dt.datetime.now().isoformat(timespec="seconds")
+    path.write_text(json.dumps(history, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
 # =============================================================================
-# گزارش‌دهی (HTML / Markdown / Telegram)
+# امتیازدهی شفاف
 # =============================================================================
 
-def generate_markdown_report(opportunities: list[Candidate], output_path: Path) -> None:
-    lines = [
-        "# گزارش فرصت‌های محتوایی و سئو",
-        f"*تاریخ گزارش:* {dt.date.today().isoformat()}",
-        f"*تعداد کل فرصت‌ها:* {len(opportunities)}",
-        "",
-        "| کلمه کلیدی | خوشه | نیت | امتیاز | وضعیت پوشش | صفحه مشابه |",
-        "|---|---|---|---|---|---|",
+def rank_signal(best_rank: int) -> float:
+    if best_rank <= 0:
+        return 0.0
+    return max(0.0, 11.0 - best_rank) / 10.0
+
+
+def compute_demand_score(candidate: Candidate) -> float:
+    score = 0.0
+
+    if candidate.monthly_searches > 0:
+        score += 18.0 + min(math.log10(candidate.monthly_searches + 1) * 10.0, 32.0)
+
+    if candidate.gsc_impressions > 0:
+        score += 16.0 + min(math.log1p(candidate.gsc_impressions) * 3.8, 28.0)
+        if 4.0 <= candidate.gsc_position <= 20.0:
+            score += 6.0
+
+    source_caps = {
+        "Google Search Autocomplete": 14.0,
+        "YouTube Autocomplete": 11.0,
+        "Bing Autocomplete": 10.0,
+        "DuckDuckGo Autocomplete": 7.0,
+        "Google SERP Related": 9.0,
+        "Google SERP PAA": 9.0,
+    }
+    for source, cap in source_caps.items():
+        observations = [obs for obs in candidate.observations if obs.source == source]
+        if not observations:
+            continue
+        best = min((obs.rank for obs in observations if obs.rank > 0), default=0)
+        score += cap * (0.55 + 0.45 * rank_signal(best))
+
+    source_diversity = len(candidate.autocomplete_sources)
+    if source_diversity > 1:
+        score += min((source_diversity - 1) * 5.0, 15.0)
+
+    # تعداد خانواده query مستقل، نه تعداد modifierهای تکراری.
+    score += min(len(candidate.unique_families) * 2.0, 10.0)
+
+    if candidate.stack_views > 0:
+        score += min(math.log1p(candidate.stack_views) * 2.4, 17.0)
+        score += min(max(candidate.stack_score, 0) * 0.7, 5.0)
+
+    score += candidate.trend_score
+    return max(0.0, min(100.0, score))
+
+
+def compute_confidence(candidate: Candidate) -> str:
+    hard_sources = int(candidate.monthly_searches > 0) + int(candidate.gsc_impressions > 0)
+    independent = len(candidate.autocomplete_sources) + hard_sources + int(candidate.stack_views > 0)
+    if hard_sources >= 1 and independent >= 3:
+        return "خیلی بالا"
+    if hard_sources >= 1 or independent >= 4 or (candidate.seen_days >= 4 and independent >= 2):
+        return "بالا"
+    if independent >= 2 or candidate.seen_days >= 3:
+        return "متوسط"
+    return "کم"
+
+
+def compute_business_fit(candidate: Candidate, cluster: dict[str, Any]) -> float:
+    score = float(cluster.get("business_fit", 80))
+    score += float(cluster.get("intent_bonus", {}).get(candidate.intent, 0))
+    if candidate.funnel == "تصمیم/خرید":
+        score += 7.0
+    elif candidate.funnel == "بررسی راه‌حل":
+        score += 4.0
+    if candidate.cluster_id in {"pyomo", "vrp", "power", "uncertainty"} and candidate.intent in {"کدنویسی", "خطا و نصب", "پروژه"}:
+        score += 4.0
+    return max(0.0, min(100.0, score))
+
+
+def build_reason(candidate: Candidate) -> str:
+    reasons: list[str] = []
+    source_labels = {
+        "Google Search Autocomplete": "Google Search",
+        "YouTube Autocomplete": "YouTube",
+        "Bing Autocomplete": "Bing",
+        "DuckDuckGo Autocomplete": "DuckDuckGo",
+        "Google SERP Related": "Related Searches",
+        "Google SERP PAA": "People Also Ask",
+    }
+    autocomplete = [source_labels[source] for source in source_labels if source in candidate.sources]
+    if autocomplete:
+        reasons.append("سیگنال در " + "، ".join(autocomplete))
+    if candidate.monthly_searches > 0:
+        reasons.append(f"حجم ماهانه گزارش‌شده ≈ {candidate.monthly_searches:,.0f}")
+    if candidate.gsc_impressions > 0:
+        reasons.append(f"Search Console: {candidate.gsc_impressions:,.0f} نمایش و رتبه {candidate.gsc_position:.1f}")
+    if candidate.stack_views > 0:
+        reasons.append(f"سؤال‌های فنی مرتبط با مجموع {candidate.stack_views:,.0f} بازدید")
+    if candidate.trend_label:
+        reasons.append(candidate.trend_label)
+    if candidate.serp_competition_score is not None:
+        reasons.append(f"رقابت تقریبی SERP {candidate.serp_competition_score:.0f}/100")
+    else:
+        reasons.append("رقابت SERP اندازه‌گیری نشده")
+    if candidate.coverage_action == "قبلاً صفحه متمرکز دارد":
+        reasons.append(f"نزدیک به صفحه «{candidate.existing_title}»")
+    elif candidate.coverage_action == "صفحه مکمل لازم است":
+        reasons.append(f"صفحه نزدیک وجود دارد، اما نیت دقیق پوشش کامل ندارد")
+    elif candidate.mentioned_in_body:
+        reasons.append("فقط در متن سایت اشاره شده و صفحه متمرکز ندارد")
+    else:
+        reasons.append("صفحه متمرکز مشابه پیدا نشد")
+    return "؛ ".join(reasons)
+
+
+def finalise_candidates(
+    store: dict[str, Candidate],
+    pages: list[ExistingPage],
+    history: dict[str, Any],
+    run_date: dt.date,
+    config: dict[str, Any],
+) -> tuple[list[Candidate], list[Candidate], list[Candidate]]:
+    processed: list[Candidate] = []
+    existing_threshold = float(config["existing_page_threshold"])
+    related_threshold = float(config["related_page_threshold"])
+
+    for candidate in store.values():
+        if not candidate.sources:
+            continue
+        cluster, relevance = map_cluster(candidate.keyword, candidate.cluster_votes)
+        if relevance < 2.5:
+            continue
+
+        candidate.cluster_id = cluster["id"]
+        candidate.cluster_name = cluster["name"]
+        candidate.course_url = absolute_url(str(config["site_url"]), cluster["course_url"])
+        candidate.intent = infer_intent(candidate.keyword)
+        candidate.funnel = infer_funnel(candidate.intent, candidate.keyword)
+        candidate.suggested_title = suggest_title(candidate)
+        candidate.suggested_slug = slugify(candidate.keyword)
+
+        page, similarity, mentioned = closest_existing_page(candidate.keyword, pages)
+        candidate.existing_similarity = similarity
+        candidate.mentioned_in_body = mentioned
+        if page:
+            candidate.existing_title = page.title
+            candidate.existing_url = page.url
+
+        if similarity >= existing_threshold:
+            candidate.coverage_action = "قبلاً صفحه متمرکز دارد"
+        elif similarity >= related_threshold:
+            candidate.coverage_action = "صفحه مکمل لازم است"
+        else:
+            candidate.coverage_action = "محتوای جدید"
+
+        apply_history(candidate, history, run_date, config)
+        candidate.demand_score = round(compute_demand_score(candidate), 1)
+        candidate.gap_score = round(max(0.0, min(100.0, (1.0 - similarity) * 100.0)), 1)
+        if candidate.mentioned_in_body and candidate.gap_score > 15:
+            candidate.gap_score = max(0.0, candidate.gap_score - 7.0)
+        candidate.business_fit_score = round(compute_business_fit(candidate, cluster), 1)
+        candidate.freshness_score = 100.0 if candidate.first_seen == run_date.isoformat() else min(100.0, 40.0 + candidate.seen_days * 8.0)
+
+        competition_relief = 50.0
+        if candidate.serp_competition_score is not None:
+            competition_relief = 100.0 - candidate.serp_competition_score
+
+        if candidate.serp_competition_score is None:
+            opportunity = (
+                0.48 * candidate.demand_score
+                + 0.32 * candidate.gap_score
+                + 0.20 * candidate.business_fit_score
+            )
+        else:
+            opportunity = (
+                0.42 * candidate.demand_score
+                + 0.28 * candidate.gap_score
+                + 0.18 * candidate.business_fit_score
+                + 0.12 * competition_relief
+            )
+        if candidate.coverage_action == "قبلاً صفحه متمرکز دارد":
+            opportunity -= 22.0
+        elif candidate.coverage_action == "صفحه مکمل لازم است":
+            opportunity -= 5.0
+        opportunity -= candidate.cooldown_penalty
+        candidate.opportunity_score = round(max(0.0, min(100.0, opportunity)), 1)
+        candidate.confidence = compute_confidence(candidate)
+        candidate.reason = build_reason(candidate)
+        processed.append(candidate)
+
+    processed.sort(key=lambda item: (
+        -item.opportunity_score,
+        -item.demand_score,
+        -item.monthly_searches,
+        -item.gsc_impressions,
+        item.best_rank if item.best_rank else 99,
+        normalise(item.keyword),
+    ))
+
+    opportunities = [
+        candidate for candidate in processed
+        if candidate.coverage_action != "قبلاً صفحه متمرکز دارد"
+        and candidate.opportunity_score >= float(config["minimum_opportunity_score"])
     ]
-    for opp in opportunities:
+    covered = [candidate for candidate in processed if candidate.coverage_action == "قبلاً صفحه متمرکز دارد"]
+    opportunities = deduplicate_candidates(opportunities, int(config["top_opportunities"]))
+    covered = deduplicate_candidates(covered, 30)
+    return opportunities, covered, processed
+
+
+def candidate_signature(text: str) -> str:
+    tokens = [token for token in normalise(text).split() if token not in {normalise(word) for word in GENERIC_WORDS}]
+    return " ".join(tokens)
+
+
+def deduplicate_candidates(candidates: list[Candidate], limit: int) -> list[Candidate]:
+    selected: list[Candidate] = []
+    signatures: set[str] = set()
+    for candidate in candidates:
+        signature = candidate_signature(candidate.keyword)
+        if signature and signature in signatures:
+            continue
+        duplicate = False
+        for previous in selected:
+            left = normalise(candidate.keyword)
+            right = normalise(previous.keyword)
+            seq = difflib.SequenceMatcher(None, left, right).ratio()
+            left_tokens = token_set(candidate.keyword, remove_generic=True)
+            right_tokens = token_set(previous.keyword, remove_generic=True)
+            union = left_tokens | right_tokens
+            jaccard = len(left_tokens & right_tokens) / len(union) if union else 0.0
+            if seq >= 0.91 or jaccard >= 0.85:
+                duplicate = True
+                break
+        if duplicate:
+            continue
+        selected.append(candidate)
+        if signature:
+            signatures.add(signature)
+        if len(selected) >= limit:
+            break
+    return selected
+
+
+# =============================================================================
+# گزارش‌ها و خروجی‌ها
+# =============================================================================
+
+SOURCE_LABELS: dict[str, str] = {
+    "Google Search Autocomplete": "Google Search",
+    "YouTube Autocomplete": "YouTube",
+    "Bing Autocomplete": "Bing",
+    "DuckDuckGo Autocomplete": "DuckDuckGo",
+    "Google Search Console": "Search Console",
+    "Google Ads Keyword Planner": "Keyword Planner",
+    "Stack Exchange Questions": "Stack Exchange",
+    "Google SERP Check": "SERP Check",
+    "Google SERP Related": "Related Searches",
+    "Google SERP PAA": "People Also Ask",
+}
+
+
+def source_label(candidate: Candidate) -> str:
+    order = [
+        "Google Search Console",
+        "Google Ads Keyword Planner",
+        "Google Search Autocomplete",
+        "YouTube Autocomplete",
+        "Bing Autocomplete",
+        "DuckDuckGo Autocomplete",
+        "Google SERP PAA",
+        "Google SERP Related",
+        "Stack Exchange Questions",
+        "Google SERP Check",
+    ]
+    labels = [SOURCE_LABELS[source] for source in order if source in candidate.sources]
+    extras = sorted(source for source in candidate.sources if source not in SOURCE_LABELS)
+    labels.extend(extras)
+    return "، ".join(labels)
+
+
+def observation_queries(candidate: Candidate, limit: int = 10) -> str:
+    values: list[str] = []
+    seen: set[str] = set()
+    for observation in sorted(candidate.observations, key=lambda item: (item.source, item.rank or 999, normalise(item.query))):
+        if not observation.query:
+            continue
+        text = f"{SOURCE_LABELS.get(observation.source, observation.source)}: {display_clean(observation.query)}"
+        key = normalise(text)
+        if key in seen:
+            continue
+        seen.add(key)
+        values.append(text)
+        if len(values) >= limit:
+            break
+    return " | ".join(values)
+
+
+def monthly_search_display(candidate: Candidate) -> str:
+    if candidate.monthly_searches > 0:
+        return f"{candidate.monthly_searches:,.0f}"
+    return "—"
+
+
+def serp_difficulty_display(candidate: Candidate) -> str:
+    if candidate.serp_competition_score is None:
+        return "اندازه‌گیری نشده"
+    return f"{candidate.serp_competition_score:.0f}/100"
+
+
+def write_opportunities_csv(items: list[Candidate], path: Path) -> None:
+    fields = [
+        "rank", "keyword", "suggested_title", "suggested_slug", "cluster", "intent",
+        "funnel", "coverage_action", "opportunity_score", "demand_score", "gap_score",
+        "business_fit_score", "confidence", "trend", "sources", "monthly_searches",
+        "monthly_searches_raw", "keyword_planner_competition", "planner_change",
+        "gsc_impressions", "gsc_clicks", "gsc_ctr", "gsc_position", "gsc_page",
+        "stack_views", "stack_questions", "serp_competition_score", "serp_exact_titles",
+        "serp_strong_domains", "serp_user_domain_rank", "existing_similarity",
+        "existing_title", "existing_url", "mentioned_in_body", "course_url", "reason",
+        "discovery_queries",
+    ]
+    with path.open("w", encoding="utf-8-sig", newline="") as handle:
+        writer = csv.DictWriter(handle, fieldnames=fields)
+        writer.writeheader()
+        for rank, item in enumerate(items, start=1):
+            writer.writerow({
+                "rank": rank,
+                "keyword": item.keyword,
+                "suggested_title": item.suggested_title,
+                "suggested_slug": item.suggested_slug,
+                "cluster": item.cluster_name,
+                "intent": item.intent,
+                "funnel": item.funnel,
+                "coverage_action": item.coverage_action,
+                "opportunity_score": item.opportunity_score,
+                "demand_score": item.demand_score,
+                "gap_score": item.gap_score,
+                "business_fit_score": item.business_fit_score,
+                "confidence": item.confidence,
+                "trend": item.trend_label,
+                "sources": source_label(item),
+                "monthly_searches": round(item.monthly_searches, 2),
+                "monthly_searches_raw": item.monthly_searches_raw,
+                "keyword_planner_competition": item.competition_raw,
+                "planner_change": item.planner_change,
+                "gsc_impressions": round(item.gsc_impressions, 2),
+                "gsc_clicks": round(item.gsc_clicks, 2),
+                "gsc_ctr": round(item.gsc_ctr, 6),
+                "gsc_position": round(item.gsc_position, 2),
+                "gsc_page": item.gsc_page,
+                "stack_views": round(item.stack_views, 2),
+                "stack_questions": item.stack_questions,
+                "serp_competition_score": "" if item.serp_competition_score is None else round(item.serp_competition_score, 2),
+                "serp_exact_titles": item.serp_exact_titles,
+                "serp_strong_domains": item.serp_strong_domains,
+                "serp_user_domain_rank": item.serp_user_domain_rank,
+                "existing_similarity": round(item.existing_similarity, 4),
+                "existing_title": item.existing_title,
+                "existing_url": item.existing_url,
+                "mentioned_in_body": item.mentioned_in_body,
+                "course_url": item.course_url,
+                "reason": item.reason,
+                "discovery_queries": observation_queries(item),
+            })
+
+
+def write_covered_csv(items: list[Candidate], path: Path) -> None:
+    fields = [
+        "rank", "keyword", "opportunity_score", "demand_score", "sources",
+        "monthly_searches", "gsc_impressions", "existing_similarity", "existing_title",
+        "existing_url", "coverage_action", "reason",
+    ]
+    with path.open("w", encoding="utf-8-sig", newline="") as handle:
+        writer = csv.DictWriter(handle, fieldnames=fields)
+        writer.writeheader()
+        for rank, item in enumerate(items, start=1):
+            writer.writerow({
+                "rank": rank,
+                "keyword": item.keyword,
+                "opportunity_score": item.opportunity_score,
+                "demand_score": item.demand_score,
+                "sources": source_label(item),
+                "monthly_searches": round(item.monthly_searches, 2),
+                "gsc_impressions": round(item.gsc_impressions, 2),
+                "existing_similarity": round(item.existing_similarity, 4),
+                "existing_title": item.existing_title,
+                "existing_url": item.existing_url,
+                "coverage_action": item.coverage_action,
+                "reason": item.reason,
+            })
+
+
+def candidate_to_dict(item: Candidate) -> dict[str, Any]:
+    return {
+        "keyword": item.keyword,
+        "cluster": item.cluster_name,
+        "intent": item.intent,
+        "funnel": item.funnel,
+        "suggested_title": item.suggested_title,
+        "suggested_slug": item.suggested_slug,
+        "coverage_action": item.coverage_action,
+        "scores": {
+            "opportunity": item.opportunity_score,
+            "demand": item.demand_score,
+            "content_gap": item.gap_score,
+            "business_fit": item.business_fit_score,
+            "serp_competition": item.serp_competition_score,
+        },
+        "confidence": item.confidence,
+        "trend": item.trend_label,
+        "metrics": {
+            "monthly_searches": item.monthly_searches,
+            "gsc_impressions": item.gsc_impressions,
+            "gsc_clicks": item.gsc_clicks,
+            "gsc_ctr": item.gsc_ctr,
+            "gsc_position": item.gsc_position,
+            "stack_views": item.stack_views,
+            "stack_questions": item.stack_questions,
+        },
+        "existing_page": {
+            "similarity": item.existing_similarity,
+            "title": item.existing_title,
+            "url": item.existing_url,
+            "mentioned_in_body": item.mentioned_in_body,
+        },
+        "serp": {
+            "checked": item.serp_checked,
+            "exact_titles": item.serp_exact_titles,
+            "strong_domains": item.serp_strong_domains,
+            "user_domain_rank": item.serp_user_domain_rank,
+            "top_titles": item.serp_top_titles,
+        },
+        "sources": sorted(item.sources),
+        "reason": item.reason,
+        "course_url": item.course_url,
+        "observations": [
+            {
+                "source": observation.source,
+                "query": observation.query,
+                "family": observation.family,
+                "rank": observation.rank,
+                "url": observation.url,
+                "date": observation.date,
+                "value": observation.value,
+                "note": observation.note,
+            }
+            for observation in item.observations
+        ],
+    }
+
+
+def write_raw_json(items: list[Candidate], status: dict[str, str], run_date: dt.date, path: Path) -> None:
+    payload = {
+        "version": SCRIPT_VERSION,
+        "run_date": run_date.isoformat(),
+        "status": status,
+        "candidates": [candidate_to_dict(item) for item in items],
+    }
+    path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+
+
+def write_markdown(
+    opportunities: list[Candidate],
+    covered: list[Candidate],
+    status: dict[str, str],
+    run_date: dt.date,
+    config: dict[str, Any],
+    path: Path,
+) -> None:
+    lines: list[str] = [
+        f"# گزارش فرصت‌های محتوایی SEO — {run_date.isoformat()}",
+        "",
+        f"سایت: **{config['site_name']}**",
+        "",
+        "> عدد «حجم جست‌وجوی ماهانه» فقط از Keyword Planner خوانده می‌شود. نبود عدد به معنی نبود تقاضا نیست؛ یعنی دادهٔ معتبر ماهانه به برنامه داده نشده است.",
+        "",
+        "## وضعیت منابع",
+        "",
+    ]
+    for key, value in status.items():
+        lines.append(f"- **{key}:** {value}")
+
+    lines.extend([
+        "",
+        "## اولویت‌های محتوایی",
+        "",
+        "| رتبه | عبارت | خوشه | نیت | فرصت | تقاضا | شکاف | رقابت SERP | اطمینان |",
+        "|---:|---|---|---|---:|---:|---:|---|---|",
+    ])
+    for rank, item in enumerate(opportunities, start=1):
         lines.append(
-            f"| {md_escape(opp.keyword)} | {md_escape(opp.cluster_name)} | {opp.intent} | "
-            f"{opp.opportunity_score:.1f} | {opp.coverage_action} | [{md_escape(opp.existing_title)}]({opp.existing_url}) |"
+            f"| {rank} | {md_escape(item.keyword)} | {md_escape(item.cluster_name)} | "
+            f"{md_escape(item.intent)} | {item.opportunity_score:.1f} | {item.demand_score:.1f} | "
+            f"{item.gap_score:.1f} | {md_escape(serp_difficulty_display(item))} | {md_escape(item.confidence)} |"
         )
-    output_path.write_text("\n".join(lines), encoding="utf-8")
+
+    lines.extend(["", "## بریف محتوایی پیشنهادهای نخست", ""])
+    for rank, item in enumerate(opportunities[: int(config["top_content_briefs"])], start=1):
+        lines.extend([
+            f"### {rank}. {item.suggested_title}",
+            "",
+            f"- **کلمه هدف:** {item.keyword}",
+            f"- **Slug:** `{item.suggested_slug}`",
+            f"- **خوشه:** {item.cluster_name}",
+            f"- **نیت / مرحله قیف:** {item.intent} / {item.funnel}",
+            f"- **امتیاز فرصت:** {item.opportunity_score:.1f}/100",
+            f"- **امتیاز تقاضا:** {item.demand_score:.1f}/100",
+            f"- **شکاف محتوا:** {item.gap_score:.1f}/100",
+            f"- **رقابت SERP:** {serp_difficulty_display(item)}",
+            f"- **اطمینان:** {item.confidence}",
+            f"- **شواهد:** {item.reason}",
+            f"- **لینک دوره:** {item.course_url}",
+            "- **ساختار پیشنهادی:**",
+        ])
+        for heading in outline_for(item):
+            lines.append(f"  - {heading}")
+        lines.append("")
+
+    lines.extend([
+        "## عبارت‌هایی که صفحه متمرکز دارند",
+        "",
+        "| عبارت | صفحه موجود | شباهت | شواهد |",
+        "|---|---|---:|---|",
+    ])
+    for item in covered:
+        if item.existing_url.startswith("http"):
+            page = f"[{md_escape(item.existing_title)}]({item.existing_url})"
+        else:
+            page = md_escape(item.existing_title or item.existing_url)
+        lines.append(
+            f"| {md_escape(item.keyword)} | {page} | {item.existing_similarity:.0%} | {md_escape(source_label(item))} |"
+        )
+    path.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
-def generate_html_report(opportunities: list[Candidate], status: dict[str, str], output_path: Path) -> None:
-    rows = []
-    for opp in opportunities:
+def render_badges(item: Candidate) -> str:
+    badges = []
+    for source in sorted(item.sources, key=lambda value: SOURCE_LABELS.get(value, value)):
+        badges.append(f'<span class="badge">{html_escape(SOURCE_LABELS.get(source, source))}</span>')
+    return " ".join(badges)
+
+
+def score_class(value: float, inverse: bool = False) -> str:
+    adjusted = 100.0 - value if inverse else value
+    if adjusted >= 72:
+        return "good"
+    if adjusted >= 48:
+        return "medium"
+    return "low"
+
+
+def write_html(
+    opportunities: list[Candidate],
+    covered: list[Candidate],
+    status: dict[str, str],
+    run_date: dt.date,
+    config: dict[str, Any],
+    path: Path,
+) -> None:
+    status_html = "".join(
+        f"<li><strong>{html_escape(key)}:</strong> {html_escape(value)}</li>"
+        for key, value in status.items()
+    )
+
+    cards: list[str] = []
+    for rank, item in enumerate(opportunities[:10], start=1):
+        competition = item.serp_competition_score
+        competition_html = (
+            '<span class="muted">اندازه‌گیری نشده</span>'
+            if competition is None
+            else f'<span class="metric {score_class(competition, inverse=True)}">{competition:.0f}</span>'
+        )
+        cards.append(f"""
+        <article class="card">
+          <div class="rank">{rank}</div>
+          <div class="topline">
+            <span class="opportunity">فرصت {item.opportunity_score:.1f}</span>
+            <span class="confidence">اطمینان: {html_escape(item.confidence)}</span>
+          </div>
+          <h3>{html_escape(item.suggested_title)}</h3>
+          <p class="keyword"><code>{html_escape(item.keyword)}</code></p>
+          <div class="badges">{render_badges(item)}</div>
+          <div class="score-grid">
+            <div><span>تقاضا</span><b class="metric {score_class(item.demand_score)}">{item.demand_score:.0f}</b></div>
+            <div><span>شکاف محتوا</span><b class="metric {score_class(item.gap_score)}">{item.gap_score:.0f}</b></div>
+            <div><span>تناسب دوره</span><b class="metric {score_class(item.business_fit_score)}">{item.business_fit_score:.0f}</b></div>
+            <div><span>رقابت SERP</span>{competition_html}</div>
+          </div>
+          <div class="details-grid">
+            <div><span>خوشه:</span> {html_escape(item.cluster_name)}</div>
+            <div><span>نیت:</span> {html_escape(item.intent)}</div>
+            <div><span>روند:</span> {html_escape(item.trend_label)}</div>
+            <div><span>ماهانه:</span> {monthly_search_display(item)}</div>
+          </div>
+          <p class="reason">{html_escape(item.reason)}</p>
+          <details><summary>بریف مقاله</summary><ol>{''.join(f'<li>{html_escape(value)}</li>' for value in outline_for(item))}</ol></details>
+        </article>
+        """)
+
+    rows: list[str] = []
+    for rank, item in enumerate(opportunities, start=1):
+        competition = "—" if item.serp_competition_score is None else f"{item.serp_competition_score:.0f}"
         rows.append(f"""
         <tr>
-            <td><b>{html_escape(opp.keyword)}</b></td>
-            <td>{html_escape(opp.cluster_name)}</td>
-            <td><span class="tag">{html_escape(opp.intent)}</span></td>
-            <td><b>{opp.opportunity_score:.1f}</b></td>
-            <td>{html_escape(opp.coverage_action)}</td>
-            <td>{html_escape(opp.suggested_title)}</td>
+          <td>{rank}</td>
+          <td><strong>{html_escape(item.keyword)}</strong><br><small>{html_escape(item.suggested_title)}</small></td>
+          <td>{html_escape(item.cluster_name)}</td>
+          <td>{html_escape(item.intent)}</td>
+          <td><strong>{item.opportunity_score:.1f}</strong></td>
+          <td>{item.demand_score:.1f}</td>
+          <td>{item.gap_score:.1f}</td>
+          <td>{competition}</td>
+          <td>{html_escape(item.confidence)}</td>
+          <td>{html_escape(item.trend_label)}</td>
+          <td>{monthly_search_display(item)}</td>
+          <td>{render_badges(item)}</td>
         </tr>
         """)
 
-    status_items = "".join([f"<li><b>{html_escape(k)}:</b> {html_escape(v)}</li>" for k, v in status.items()])
+    covered_rows: list[str] = []
+    for item in covered:
+        if item.existing_url.startswith("http"):
+            page_link = f'<a href="{html_escape(item.existing_url)}" target="_blank" rel="noopener">{html_escape(item.existing_title)}</a>'
+        else:
+            page_link = html_escape(item.existing_title or item.existing_url)
+        covered_rows.append(f"""
+        <tr>
+          <td>{html_escape(item.keyword)}</td>
+          <td>{item.demand_score:.1f}</td>
+          <td>{item.existing_similarity:.0%}</td>
+          <td>{page_link}</td>
+          <td>{render_badges(item)}</td>
+        </tr>
+        """)
 
-    content = f"""<!DOCTYPE html>
+    html_text = f"""<!doctype html>
 <html lang="fa" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <title>گزارش فرصت‌های سئو</title>
-    <style>
-        body {{ font-family: Tahoma, sans-serif; margin: 20px; background-color: #f4f6f9; color: #333; }}
-        h1 {{ color: #1a365d; }}
-        table {{ width: 100%; border-collapse: collapse; margin-top: 20px; background: #fff; }}
-        th, td {{ padding: 10px 12px; border: 1px solid #e2e8f0; text-align: right; }}
-        th {{ background-color: #2b6cb0; color: #fff; }}
-        tr:nth-child(even) {{ background-color: #f7fafc; }}
-        .tag {{ background: #edf2f7; padding: 3px 8px; border-radius: 4px; font-size: 0.85em; }}
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>گزارش فرصت‌های SEO — {run_date.isoformat()}</title>
+<style>
+  * {{ box-sizing: border-box; }}
+  body {{ margin:0; background:#f4f6fa; color:#182235; font-family:Tahoma,Arial,sans-serif; line-height:1.75; }}
+  .wrap {{ max-width:1420px; margin:auto; padding:26px 18px 60px; }}
+  .hero {{ background:#fff; border:1px solid #e5e9f1; border-radius:20px; padding:26px; box-shadow:0 12px 34px rgba(24,34,53,.07); }}
+  h1,h2,h3 {{ line-height:1.45; }} h1 {{ margin:0 0 8px; }} h2 {{ margin-top:34px; }}
+  .notice {{ margin:18px 0; border-right:5px solid #e0a100; background:#fff7d8; border-radius:10px; padding:13px 16px; }}
+  .method {{ margin:18px 0; border-right:5px solid #2875d0; background:#edf5ff; border-radius:10px; padding:13px 16px; }}
+  .grid {{ display:grid; grid-template-columns:repeat(auto-fit,minmax(350px,1fr)); gap:16px; margin:20px 0 34px; }}
+  .card {{ position:relative; background:#fff; border:1px solid #e5e9f1; border-radius:17px; padding:21px; box-shadow:0 8px 25px rgba(24,34,53,.06); }}
+  .rank {{ position:absolute; left:17px; top:16px; width:38px; height:38px; border-radius:50%; display:grid; place-items:center; color:#fff; background:#182235; font-weight:bold; }}
+  .topline {{ display:flex; flex-wrap:wrap; gap:8px; padding-left:46px; }}
+  .opportunity {{ background:#e8f8ee; color:#12653a; border-radius:999px; padding:3px 10px; font-weight:bold; }}
+  .confidence {{ background:#eef1f7; border-radius:999px; padding:3px 10px; }}
+  .keyword code {{ direction:ltr; unicode-bidi:plaintext; display:inline-block; background:#f1f3f7; padding:4px 8px; border-radius:7px; }}
+  .badge {{ display:inline-block; background:#eef1f7; border-radius:999px; padding:2px 9px; margin:2px; font-size:12px; }}
+  .score-grid {{ display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin:15px 0; }}
+  .score-grid > div {{ text-align:center; background:#f7f8fb; border-radius:10px; padding:8px 5px; }}
+  .score-grid span {{ display:block; color:#667188; font-size:12px; }}
+  .metric {{ font-size:20px; }} .metric.good {{ color:#14804a; }} .metric.medium {{ color:#ad7200; }} .metric.low {{ color:#b33a3a; }}
+  .details-grid {{ display:grid; grid-template-columns:1fr 1fr; gap:5px 12px; font-size:14px; }}
+  .details-grid span {{ color:#667188; }} .reason {{ font-size:14px; }} .muted {{ color:#7b8497; font-size:13px; }}
+  details summary {{ cursor:pointer; font-weight:bold; }}
+  .table-wrap {{ overflow:auto; background:#fff; border:1px solid #e5e9f1; border-radius:17px; box-shadow:0 8px 25px rgba(24,34,53,.05); }}
+  table {{ width:100%; border-collapse:collapse; min-width:1180px; }}
+  th,td {{ text-align:right; vertical-align:top; padding:11px 9px; border-bottom:1px solid #edf0f5; }}
+  th {{ position:sticky; top:0; color:#fff; background:#182235; }} tr:hover td {{ background:#fafbfe; }}
+  small {{ color:#69758a; }} a {{ color:#175fbd; }} .empty {{ background:#fff; padding:24px; border-radius:16px; }}
+  @media(max-width:700px) {{ .score-grid {{ grid-template-columns:1fr 1fr; }} .details-grid {{ grid-template-columns:1fr; }} .hero {{ padding:18px; }} }}
+</style>
 </head>
-<body>
-    <h1>گزارش فرصت‌های محتوایی روزانه</h1>
-    <h3>وضعیت پایش منابع:</h3>
-    <ul>{status_items}</ul>
-    <h3>فهرست فرصت‌های برتر:</h3>
-    <table>
-        <thead>
-            <tr>
-                <th>عبارت کلیدی</th>
-                <th>خوشه</th>
-                <th>نیت کاربر</th>
-                <th>امتیاز فرصت</th>
-                <th>اقدام پیشنهادی</th>
-                <th>عنوان پیشنهادی محتوا</th>
-            </tr>
-        </thead>
-        <tbody>
-            {"".join(rows)}
-        </tbody>
-    </table>
-</body>
-</html>
-"""
-    output_path.write_text(content, encoding="utf-8")
+<body><div class="wrap">
+<section class="hero">
+  <h1>گزارش فرصت‌های محتوایی SEO</h1>
+  <p><strong>تاریخ:</strong> {run_date.isoformat()} &nbsp; | &nbsp; <strong>سایت:</strong> {html_escape(config['site_name'])}</p>
+  <div class="method"><strong>روش امتیازدهی:</strong> تقاضا، شکاف محتوایی سایت، تناسب با دوره و رقابت صفحه نتایج جداگانه سنجیده می‌شوند. تکرار یک seed در modifierهای مختلف، به‌تنهایی امتیاز بالا ایجاد نمی‌کند.</div>
+  <div class="notice"><strong>حجم ماهانه:</strong> فقط از Google Ads Keyword Planner خوانده می‌شود. خط تیره یعنی دادهٔ معتبر ماهانه وارد نشده، نه اینکه جست‌وجو صفر است.</div>
+  <details open><summary>وضعیت منابع</summary><ul>{status_html}</ul></details>
+</section>
+<h2>بهترین فرصت‌های امروز</h2>
+<div class="grid">{''.join(cards) if cards else '<div class="empty">فرصتی با آستانه فعلی پیدا نشد. اتصال منابع و مقدار minimum_opportunity_score را بررسی کنید.</div>'}</div>
+<h2>صف کامل اولویت‌ها</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>#</th><th>عبارت و عنوان</th><th>خوشه</th><th>نیت</th><th>فرصت</th><th>تقاضا</th><th>شکاف</th><th>رقابت</th><th>اطمینان</th><th>روند</th><th>ماهانه</th><th>منابع</th></tr></thead>
+<tbody>{''.join(rows) if rows else '<tr><td colspan="12">موردی یافت نشد.</td></tr>'}</tbody>
+</table></div>
+<h2>عبارت‌های حذف‌شده به دلیل صفحه موجود</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>عبارت</th><th>تقاضا</th><th>شباهت</th><th>صفحه موجود</th><th>منابع</th></tr></thead>
+<tbody>{''.join(covered_rows) if covered_rows else '<tr><td colspan="5">موردی ثبت نشد.</td></tr>'}</tbody>
+</table></div>
+</div></body></html>"""
+    path.write_text(html_text, encoding="utf-8")
 
 
-def send_telegram_summary(opportunities: list[Candidate], config: dict[str, Any]) -> None:
+def copy_latest(source: Path, destination: Path) -> None:
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copyfile(source, destination)
+
+
+def append_run_log(path: Path, status: dict[str, str], opportunities: list[Candidate], run_date: dt.date) -> None:
+    lines = [
+        f"[{dt.datetime.now().isoformat(timespec='seconds')}] run_date={run_date.isoformat()} opportunities={len(opportunities)}",
+    ]
+    for key, value in status.items():
+        lines.append(f"  {key}: {value}")
+    for index, item in enumerate(opportunities[:5], start=1):
+        lines.append(f"  TOP{index}: {item.keyword} | opportunity={item.opportunity_score:.1f}")
+    lines.append("")
+    with path.open("a", encoding="utf-8") as handle:
+        handle.write("\n".join(lines))
+
+
+# =============================================================================
+# تلگرام اختیاری
+# =============================================================================
+
+def send_telegram(items: list[Candidate], config: dict[str, Any]) -> str:
     token = display_clean(config.get("telegram_bot_token", ""))
     chat_id = display_clean(config.get("telegram_chat_id", ""))
     if not token or not chat_id:
-        return
+        return "تنظیم نشده"
+    if not items:
+        return "گزارش خالی بود"
 
-    top_n = int(config.get("telegram_top_n", 8))
-    top = opportunities[:top_n]
-    lines = ["🚀 *فرصت‌های محتوایی برتر امروز*:\n"]
-    for i, opp in enumerate(top, start=1):
-        lines.append(f"{i}. *{md_escape(opp.keyword)}*")
-        lines.append(f"   📊 امتیاز: {opp.opportunity_score:.1f} | 🎯 نیت: {opp.intent}")
-        lines.append(f"   💡 عنوان پیشنهادی: {md_escape(opp.suggested_title)}\n")
-
-    message = "\n".join(lines)
-    url = f"https://api.telegram.org/bot{token}/sendMessage"
-    payload = json.dumps({
-        "chat_id": chat_id,
-        "text": message,
-        "parse_mode": "Markdown",
-    }).encode("utf-8")
-
+    lines = ["📈 فرصت‌های محتوایی امروز", ""]
+    for rank, item in enumerate(items[: int(config["telegram_top_n"])], start=1):
+        volume = f" | ماهانه≈{item.monthly_searches:,.0f}" if item.monthly_searches > 0 else ""
+        competition = "" if item.serp_competition_score is None else f" | رقابت {item.serp_competition_score:.0f}"
+        lines.append(f"{rank}) {item.keyword}")
+        lines.append(f"فرصت {item.opportunity_score:.1f} | تقاضا {item.demand_score:.1f}{competition}{volume}")
+        lines.append("")
+    text = "\n".join(lines)[:3900]
+    data = urllib.parse.urlencode({"chat_id": chat_id, "text": text}).encode("utf-8")
+    request = urllib.request.Request(
+        f"https://api.telegram.org/bot{token}/sendMessage",
+        data=data,
+        headers={"Content-Type": "application/x-www-form-urlencoded"},
+    )
     try:
-        http_request(url, data=payload, headers={"Content-Type": "application/json"}, timeout=10, method="POST")
+        with urllib.request.urlopen(request, timeout=int(config["request_timeout_seconds"])) as response:
+            response.read()
+        return "ارسال شد"
     except Exception as exc:
-        print(f"خطا در ارسال پیام تلگرام: {exc}")
+        return f"خطا: {type(exc).__name__}"
 
 
 # =============================================================================
-# مدیریت Windows Task Scheduler
+# اجرای روزانه با Windows Task Scheduler
 # =============================================================================
 
-def install_windows_task(time_str: str) -> None:
-    python_exe = sys.executable
+def parse_clock(value: str) -> tuple[int, int]:
+    match = re.fullmatch(r"\s*(\d{1,2}):(\d{2})\s*", value)
+    if not match:
+        raise ValueError("زمان باید مانند 09:00 باشد")
+    hour, minute = int(match.group(1)), int(match.group(2))
+    if not (0 <= hour <= 23 and 0 <= minute <= 59):
+        raise ValueError("زمان نامعتبر است")
+    return hour, minute
+
+
+def install_windows_task(base_dir: Path, time_text: str) -> tuple[bool, str]:
+    if os.name != "nt":
+        return False, "نصب خودکار Task Scheduler فقط روی Windows انجام می‌شود."
+    hour, minute = parse_clock(time_text)
+    normalized_time = f"{hour:02d}:{minute:02d}"
     script_path = Path(__file__).resolve()
-    cmd = f'schtasks /Create /TN "{WINDOWS_TASK_NAME}" /TR "\"{python_exe}\" \"{script_path}\"" /SC DAILY /ST {time_str} /F'
-    result = subprocess.run(cmd, shell=True, capture_output=True, text=True)
-    if result.returncode == 0:
-        print(f"Task با موفقیت در ساعت {time_str} ثبت شد.")
-    else:
-        print(f"خطا در ثبت Task: {result.stderr}")
-
-
-def remove_windows_task() -> None:
-    cmd = f'schtasks /Delete /TN "{WINDOWS_TASK_NAME}" /F'
-    result = subprocess.run(cmd, shell=True, capture_output=True, text=True)
-    if result.returncode == 0:
-        print("Task با موفقیت حذف شد.")
-    else:
-        print(f"خطا در حذف Task: {result.stderr}")
-
-
-# =============================================================================
-# اجرای اصلی (Main Execution Loop)
-# =============================================================================
-
-def main() -> None:
-    parser = argparse.ArgumentParser(description="SEO Opportunity Bot v3")
-    parser.add_argument("--quick", action="store_true", help="اجرای سریع برای تست")
-    parser.add_argument("--offline", action="store_true", help="اجرای آفلاین فقط با CSVها و فایل‌های سایت")
-    parser.add_argument("--install-task", type=str, metavar="HH:MM", help="نصب Task روزانه در Windows Scheduler")
-    parser.add_argument("--remove-task", action="store_true", help="حذف Task روزانه")
-    args = parser.parse_args()
-
-    if args.install_task:
-        install_windows_task(args.install_task)
-        return
-    if args.remove_task:
-        remove_windows_task()
-        return
-
-    base_dir = script_directory()
+    python_path = Path(sys.executable).resolve()
+    batch_path = base_dir / "run_seo_bot_daily.bat"
     config, _config_path = load_config(base_dir)
-    config["_base_dir"] = base_dir
-
-    if args.quick:
-        config["first_hop_queries"] = 5
-        config["second_hop_queries"] = 2
-        config["serp_checks_per_run"] = 2
-
     output_dir = base_dir / str(config["output_folder"])
     output_dir.mkdir(parents=True, exist_ok=True)
-    cache_dir = output_dir / ".cache"
+    batch_text = (
+        "@echo off\r\n"
+        f'cd /d "{base_dir}"\r\n'
+        f'"{python_path}" "{script_path}" --output-base "{base_dir}" --no-open '
+        f'>> "{output_dir / "scheduled_run.log"}" 2>&1\r\n'
+    )
+    batch_path.write_text(batch_text, encoding="utf-8")
+    command = [
+        "schtasks", "/Create", "/TN", WINDOWS_TASK_NAME,
+        "/TR", f'cmd.exe /c "{batch_path}"',
+        "/SC", "DAILY", "/ST", normalized_time, "/F",
+    ]
+    try:
+        result = subprocess.run(command, capture_output=True, text=True, check=False)
+    except OSError as exc:
+        return False, f"اجرای schtasks ممکن نشد: {exc}"
+    output = display_clean((result.stdout or "") + " " + (result.stderr or ""))
+    if result.returncode != 0:
+        return False, output or f"schtasks return code={result.returncode}"
+    return True, f"Task «{WINDOWS_TASK_NAME}» برای ساعت {normalized_time} ساخته شد. {output}"
+
+
+def remove_windows_task() -> tuple[bool, str]:
+    if os.name != "nt":
+        return False, "حذف خودکار Task Scheduler فقط روی Windows انجام می‌شود."
+    command = ["schtasks", "/Delete", "/TN", WINDOWS_TASK_NAME, "/F"]
+    try:
+        result = subprocess.run(command, capture_output=True, text=True, check=False)
+    except OSError as exc:
+        return False, f"اجرای schtasks ممکن نشد: {exc}"
+    output = display_clean((result.stdout or "") + " " + (result.stderr or ""))
+    if result.returncode != 0:
+        return False, output or f"schtasks return code={result.returncode}"
+    return True, output or f"Task «{WINDOWS_TASK_NAME}» حذف شد."
+
+
+# =============================================================================
+# اجرای کامل
+# =============================================================================
+
+def run_once(
+    base_dir: Path,
+    offline: bool = False,
+    open_report: bool = True,
+    first_hop_budget: int | None = None,
+    second_hop_budget: int | None = None,
+    quick: bool = False,
+) -> dict[str, Path]:
+    base_dir = base_dir.expanduser().resolve()
+    base_dir.mkdir(parents=True, exist_ok=True)
+    config, config_path = load_config(base_dir)
+    config["_base_dir"] = str(base_dir)
+    if first_hop_budget is not None:
+        config["first_hop_queries"] = max(1, first_hop_budget)
+    if second_hop_budget is not None:
+        config["second_hop_queries"] = max(0, second_hop_budget)
+    if quick:
+        config["first_hop_queries"] = min(int(config["first_hop_queries"]), 12)
+        config["second_hop_queries"] = min(int(config["second_hop_queries"]), 4)
+        config["serp_checks_per_run"] = min(int(config["serp_checks_per_run"]), 4)
+        config["stackexchange_pagesize"] = min(int(config["stackexchange_pagesize"]), 12)
 
     run_date = dt.date.today()
-    status: dict[str, str] = {}
+    output_dir = base_dir / str(config["output_folder"])
+    cache_dir = output_dir / "cache"
+    output_dir.mkdir(parents=True, exist_ok=True)
+    cache_dir.mkdir(parents=True, exist_ok=True)
 
-    print("1. جمع‌آوری صفحات سایت...")
-    pages = collect_existing_pages(base_dir, cache_dir, config, args.offline, status)
-
+    status: dict[str, str] = {
+        "نسخه برنامه": SCRIPT_VERSION,
+        "فایل تنظیمات": str(config_path),
+        "حالت اجرا": "آفلاین" if offline else ("سریع" if quick else "کامل"),
+    }
     store: dict[str, Candidate] = {}
 
-    if not args.offline:
-        print("2. پایش عبارت‌های Autocomplete...")
+    pages = collect_existing_pages(base_dir, cache_dir, config, offline, status)
+
+    planner_path = find_file(base_dir, str(config.get("keyword_planner_file", "")), KEYWORD_PLANNER_CSV_NAMES)
+    if planner_path:
+        load_keyword_planner_csv(planner_path, store, status, run_date)
+    else:
+        status["Keyword Planner"] = "فایل پیدا نشد؛ حجم ماهانه نمایش داده نمی‌شود"
+
+    gsc_csv_path = find_file(base_dir, str(config.get("gsc_csv_file", "")), GSC_CSV_NAMES)
+    if gsc_csv_path:
+        load_gsc_csv(gsc_csv_path, store, status, run_date)
+    else:
+        status["Search Console CSV"] = "فایل پیدا نشد"
+    collect_gsc_api(store, config, status, run_date)
+
+    if offline:
+        for source in SOURCE_FETCHERS:
+            status[source] = "حالت آفلاین"
+        status["Stack Exchange"] = "حالت آفلاین"
+        status["Serper / Google SERP"] = "حالت آفلاین"
+    else:
         first_probes = choose_first_hop_probes(
             run_date,
             int(config["first_hop_queries"]),
-            bool(config["monitor_approved_keywords"]),
+            bool(config.get("monitor_approved_keywords", True)),
         )
+        fixed_count = len(approved_keyword_probes()) if config.get("monitor_approved_keywords", True) else 0
+        status["کلمات ثابت پایش‌شده"] = str(fixed_count)
+        status["Queryهای اکتشافی مرحله اول"] = str(max(0, len(first_probes) - fixed_count))
+        status["کل Queryهای مرحله اول"] = str(len(first_probes))
         collect_all_autocomplete(store, first_probes, cache_dir, config, status, run_date)
 
         second_probes = build_second_hop_probes(store, int(config["second_hop_queries"]), run_date)
-        if second_probes:
-            collect_all_autocomplete(store, second_probes, cache_dir, config, status, run_date)
+        status["Queryهای مرحله دوم"] = str(len(second_probes))
+        second_status: dict[str, str] = {}
+        collect_all_autocomplete(store, second_probes, cache_dir, config, second_status, run_date)
+        for key, value in second_status.items():
+            status[f"{key} — مرحله دوم"] = value
 
-        print("3. پایش Stack Exchange...")
         collect_stackexchange(store, cache_dir, config, status, run_date)
+        enrich_with_serper(store, pages, cache_dir, config, status, run_date)
 
-    print("4. بارگذاری داده‌های مکمل (CSV / GSC API)...")
-    kp_file = find_file(base_dir, str(config["keyword_planner_file"]), KEYWORD_PLANNER_CSV_NAMES)
-    if kp_file:
-        load_keyword_planner_csv(kp_file, store, status, run_date)
+    status["کاندیدای خام"] = str(len(store))
+    history_path = output_dir / "opportunity_history.json"
+    history = load_history(history_path)
+    opportunities, covered, all_items = finalise_candidates(store, pages, history, run_date, config)
+    status["فرصت نهایی"] = str(len(opportunities))
+    status["حذف‌شده به دلیل صفحه موجود"] = str(len(covered))
+    status["Telegram"] = send_telegram(opportunities, config)
 
-    gsc_file = find_file(base_dir, str(config["gsc_csv_file"]), GSC_CSV_NAMES)
-    if gsc_file:
-        load_gsc_csv(gsc_file, store, status, run_date)
+    date_text = run_date.isoformat()
+    paths = {
+        "html": output_dir / f"seo_opportunity_report_{date_text}.html",
+        "opportunities_csv": output_dir / f"seo_opportunities_{date_text}.csv",
+        "covered_csv": output_dir / f"already_covered_{date_text}.csv",
+        "markdown": output_dir / f"content_briefs_{date_text}.md",
+        "raw_json": output_dir / f"raw_evidence_{date_text}.json",
+        "history": history_path,
+        "config": config_path,
+    }
+    write_opportunities_csv(opportunities, paths["opportunities_csv"])
+    write_covered_csv(covered, paths["covered_csv"])
+    write_markdown(opportunities, covered, status, run_date, config, paths["markdown"])
+    write_html(opportunities, covered, status, run_date, config, paths["html"])
+    write_raw_json(all_items, status, run_date, paths["raw_json"])
 
-    if not args.offline:
-        collect_gsc_api(store, config, status, run_date)
-        print("5. پایش وضعیت رقابت SERP...")
-        collect_serp_opportunities(store, cache_dir, config, status, run_date)
+    latest_paths = {
+        "html": output_dir / "seo_opportunity_report_latest.html",
+        "opportunities_csv": output_dir / "seo_opportunities_latest.csv",
+        "covered_csv": output_dir / "already_covered_latest.csv",
+        "markdown": output_dir / "content_briefs_latest.md",
+        "raw_json": output_dir / "raw_evidence_latest.json",
+    }
+    for key, latest_path in latest_paths.items():
+        copy_latest(paths[key], latest_path)
+    paths.update({f"latest_{key}": value for key, value in latest_paths.items()})
 
-    print("6. محاسبه امتیازات و رتبه‌بندی فرصت‌ها...")
-    processed: list[Candidate] = []
-    min_score = float(config["minimum_opportunity_score"])
+    update_history(history, all_items, opportunities, run_date, config, history_path)
+    append_run_log(output_dir / "runs.log", status, opportunities, run_date)
 
-    for candidate in store.values():
-        calculate_scores(candidate, pages, config)
-        if candidate.opportunity_score >= min_score:
-            processed.append(candidate)
+    print("\n" + "=" * 78)
+    print("SEO Opportunity Bot v3 — گزارش ساخته شد")
+    print(f"فرصت‌های جدید: {len(opportunities)}")
+    print(f"عبارت‌های دارای صفحه متمرکز: {len(covered)}")
+    print(f"HTML: {latest_paths['html']}")
+    print(f"CSV: {latest_paths['opportunities_csv']}")
+    print(f"Briefs: {latest_paths['markdown']}")
+    print("=" * 78 + "\n")
 
-    processed.sort(key=lambda c: c.opportunity_score, reverse=True)
-    top_opportunities = processed[: int(config["top_opportunities"])]
+    should_open = bool(config.get("open_html_report", True)) and open_report
+    if should_open and latest_paths["html"].exists():
+        try:
+            webbrowser.open(latest_paths["html"].as_uri())
+        except Exception:
+            pass
+    return paths
 
-    print("7. تولید گزارش‌ها...")
-    md_file = output_dir / f"seo_report_{run_date.isoformat()}.md"
-    html_file = output_dir / f"seo_report_{run_date.isoformat()}.html"
 
-    generate_markdown_report(top_opportunities, md_file)
-    generate_html_report(top_opportunities, status, html_file)
-    print(f"گزارش‌ها با موفقیت در پوشه {output_dir} ذخیره شدند.")
+# =============================================================================
+# CLI
+# =============================================================================
 
-    send_telegram_summary(top_opportunities, config)
+def build_arg_parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(
+        description="کشف روزانه تقاضای جست‌وجو، شکاف محتوا و فرصت‌های SEO برای دوره‌های Optimization Expert"
+    )
+    parser.add_argument("--offline", action="store_true", help="فقط فایل‌های محلی، GSC CSV و Keyword Planner CSV")
+    parser.add_argument("--quick", action="store_true", help="اجرای سبک برای آزمون اولیه")
+    parser.add_argument("--no-open", action="store_true", help="گزارش HTML خودکار باز نشود")
+    parser.add_argument("--first-hop", type=int, default=None, help="تعداد queryهای مرحله اول")
+    parser.add_argument("--second-hop", type=int, default=None, help="تعداد queryهای مرحله دوم")
+    parser.add_argument("--output-base", default="", help="پوشه پایه تنظیمات و خروجی؛ پیش‌فرض کنار اسکریپت")
+    parser.add_argument("--install-task", metavar="HH:MM", default="", help="ساخت Task روزانه در Windows")
+    parser.add_argument("--remove-task", action="store_true", help="حذف Task روزانه Windows")
+    return parser
 
-    if config["open_html_report"] and html_file.exists():
-        webbrowser.open(html_file.to_uri().as_uri())
+
+def main() -> int:
+    parser = build_arg_parser()
+    args, _unknown = parser.parse_known_args()
+    base_dir = Path(args.output_base).expanduser().resolve() if args.output_base else script_directory()
+
+    try:
+        if args.install_task:
+            base_dir.mkdir(parents=True, exist_ok=True)
+            load_config(base_dir)
+            success, message = install_windows_task(base_dir, args.install_task)
+            print(message)
+            return 0 if success else 1
+        if args.remove_task:
+            success, message = remove_windows_task()
+            print(message)
+            return 0 if success else 1
+
+        run_once(
+            base_dir=base_dir,
+            offline=bool(args.offline),
+            open_report=not bool(args.no_open),
+            first_hop_budget=args.first_hop,
+            second_hop_budget=args.second_hop,
+            quick=bool(args.quick),
+        )
+        return 0
+    except KeyboardInterrupt:
+        print("اجرای برنامه توسط کاربر متوقف شد.")
+        return 130
+    except Exception as exc:
+        print(f"خطای پیش‌بینی‌نشده: {type(exc).__name__}: {exc}", file=sys.stderr)
+        return 1
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())
