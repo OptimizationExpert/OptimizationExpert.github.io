@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
   issues: write
 
 jobs:
@@ -24,6 +24,14 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+
+      - name: Restore SEO bot history cache
+        uses: actions/cache@v4
+        with:
+          path: seo_opportunity_output/opportunity_history.json
+          key: seo-bot-history-${{ github.run_id }}
+          restore-keys: |
+            seo-bot-history-
 
       - name: Run SEO bot
         run: |
@@ -54,49 +62,3 @@ jobs:
           path: seo_opportunity_output/
           if-no-files-found: warn
           retention-days: 30
-
-      - name: Commit updated reports
-        run: |
-          git config user.name "optimization-seo-bot"
-          git config user.email "bot@users.noreply.github.com"
-          git add seo_opportunity_output/
-          git commit -m "Daily SEO opportunity update" || echo "No changes to commit"
-          git push
-
-      - name: Create daily report issue
-        if: success()
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          DATE="$(date -u '+%Y-%m-%d')"
-          TITLE="Daily SEO Report - $DATE"
-          REPORT="seo_opportunity_output/content_briefs_latest.md"
-          BODY_FILE="$(mktemp)"
-
-          {
-            echo "# Daily SEO Opportunity Report"
-            echo
-            echo "**Generated:** $(date -u '+%Y-%m-%d %H:%M UTC')"
-            echo
-            echo "**Download full files:**"
-            echo "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-            echo
-            if [ -f "$REPORT" ]; then
-              cat "$REPORT"
-            else
-              echo "The report file was not generated."
-            fi
-          } > "$BODY_FILE"
-
-          EXISTING_NUMBER="$(gh issue list \
-            --state all \
-            --search "\"$TITLE\" in:title" \
-            --json number,title \
-            --jq '.[] | select(.title == "'"$TITLE"'") | .number' \
-            | head -n 1)"
-
-          if [ -n "$EXISTING_NUMBER" ]; then
-            gh issue edit "$EXISTING_NUMBER" --body-file "$BODY_FILE"
-          else
-            gh issue create --title "$TITLE" --body-file "$BODY_FILE"
-          fi
