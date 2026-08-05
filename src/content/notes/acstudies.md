@@ -22,7 +22,7 @@ relatedCourses: ["advanced-power-system"]
   "description": "معرفی ۱۰ مطالعه‌ی مهم در سیستم قدرت که فقط با پخش بار AC قابل انجام هستند.",
   "thumbnailUrl": "https://optexpert.org/images/notes/ACstudies.png",
   "uploadDate": "2026-08-05",
-  "contentUrl": "https://www.aparat.com/v/VIDEO_HASH_HERE",
+  "contentUrl": "https://www.aparat.com/v/aug8432",
   "embedUrl": "https://www.aparat.com/video/video/embed/videohash/aug8432/vt/frame"
 }
 </script>
