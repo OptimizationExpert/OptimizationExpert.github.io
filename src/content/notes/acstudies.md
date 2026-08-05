@@ -10,6 +10,23 @@ relatedCourses: ["advanced-power-system"]
 
 پخش بار DC روشی ساده و سریع است، اما پاسخ‌گوی بسیاری از پرسش‌های مهم مهندسی سیستم قدرت نیست؛ زیرا در این مدل فرض می‌شود دامنه‌ی ولتاژ در تمامی باس‌ها همواره برابر با یک پریونیت است، تلفات شبکه صفر در نظر گرفته می‌شود، و توان راکتیو اساساً در معادلات وارد نمی‌شود. بر همین اساس، هر مطالعه‌ای که محور آن یکی از این سه موضوع—ولتاژ، توان راکتیو یا تلفات—باشد، باید با استفاده از پخش بار AC انجام شود.
 
+## ویدیوی آموزشی
+
+<iframe width="600" height="338" src="https://www.aparat.com/video/video/embed/videohash/VIDEO_HASH_HERE/vt/frame" allowFullScreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" frameborder="0" style="max-width: 100%; border-radius: 12px;"></iframe>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "چه مطالعاتی به پخش بار AC نیاز دارند؟",
+  "description": "معرفی ۱۰ مطالعه‌ی مهم در سیستم قدرت که فقط با پخش بار AC قابل انجام هستند.",
+  "thumbnailUrl": "https://optexpert.org/images/notes/ACstudies.png",
+  "uploadDate": "2026-08-05",
+  "contentUrl": "https://www.aparat.com/v/VIDEO_HASH_HERE",
+  "embedUrl": "https://www.aparat.com/video/video/embed/videohash/<style>.h_iframe-aparat_embed_frame{position:relative;}.h_iframe-aparat_embed_frame .ratio{display:block;width:100%;height:auto;}.h_iframe-aparat_embed_frame iframe{position:absolute;top:0;left:0;width:100%;height:100%;}</style><div class="h_iframe-aparat_embed_frame"><span style="display: block;padding-top: 57%"></span><iframe src="https://www.aparat.com/video/video/embed/videohash/aug8432/vt/frame"  allowFullScreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe></div>/vt/frame"
+}
+</script>
+
 ## ۱۰ مطالعه‌ای که به AC نیاز دارند
 
 ### ۱. مطالعات پایداری ولتاژ (Voltage Stability)
@@ -54,4 +71,4 @@ relatedCourses: ["advanced-power-system"]
 
 > انتخاب درست بین DC و AC، خودش یک تصمیم مهندسی است: DC برای سرعت و مقیاس‌پذیری در مطالعات برنامه‌ریزی بزرگ، و AC برای دقت در مطالعاتی که ولتاژ و توان راکتیو نقش اصلی را دارند.
 
-اگر می‌خواهید مدل‌سازی و حل کامل AC-OPF را در Python با Pyomo قدم‌به‌قدم یاد بگیرید، این موضوع در **[دوره پیشرفته بهینه‌سازی سیستم‌های قدرت](/courses/advanced-power-system/)** به‌صورت پروژه‌محور پوشش داده شده است.
+اگر می‌خواهید مدل‌سازی و حل کامل AC-OPF را در Python با Pyomo قدم‌به‌قدم یاد بگیرید، این موضوع در <a href="/courses/advanced-power-system/" style="color:#2563EB; font-weight:bold;">دوره پیشرفته بهینه‌سازی سیستم‌های قدرت</a> به‌صورت پروژه‌محور پوشش داده شده است.
