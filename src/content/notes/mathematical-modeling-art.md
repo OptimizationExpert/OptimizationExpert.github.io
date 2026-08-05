@@ -3,7 +3,7 @@ title: "مدل‌سازی ریاضی: هنری ضروری برای هر برنا
 description: "چرا پیش از هر کدنویسی باید مدل‌سازی ریاضی را یاد بگیریم؟ مدل‌سازی مثل نقشه ساختمان است."
 pubDate: 2026-06-19
 author: "علیرضا سرودی"
-image: "images/courses/modeling.png"
+image: "/images/courses/modeling.png"
 tags: ["پایتون", "بهینه‌سازی", "Pyomo"]
 ---
 
