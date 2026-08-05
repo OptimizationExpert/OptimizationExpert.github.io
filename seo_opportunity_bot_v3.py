@@ -85,7 +85,7 @@ from typing import Any, Iterable, Iterator, Sequence
 
 SCRIPT_VERSION = "3.0.0"
 DEFAULT_CONFIG: dict[str, Any] = {
-    "site_url": "https://optimizationexpert.github.io/",
+    "site_url": "https://optexpert.org/",
     "site_name": "Optimization Expert",
     "target_country": "IR",
     "target_language": "fa",
@@ -135,7 +135,7 @@ CLUSTERS: list[dict[str, Any]] = [
     {
         "id": "modeling",
         "name": "مدل‌سازی و تحقیق در عملیات",
-        "course_url": "/posts/2026/06/21/optimization-modeling-course/",
+        "course_url": "/courses/optimization-modeling/",
         "business_fit": 91,
         "gateway_seeds": [
             "بهینه سازی در پایتون",
@@ -163,7 +163,7 @@ CLUSTERS: list[dict[str, Any]] = [
     {
         "id": "pyomo",
         "name": "Pyomo و Solverها",
-        "course_url": "/posts/2026/06/21/optimization-modeling-course/",
+        "course_url": "/courses/optimization-modeling/",
         "business_fit": 96,
         "gateway_seeds": [
             "آموزش Pyomo",
@@ -191,7 +191,7 @@ CLUSTERS: list[dict[str, Any]] = [
     {
         "id": "vrp",
         "name": "VRP، OR-Tools و لجستیک",
-        "course_url": "/posts/2026/06/24/vrp-python-course/",
+        "course_url": "/courses/vrp-python/",
         "business_fit": 97,
         "gateway_seeds": [
             "آموزش OR-Tools پایتون",
@@ -223,7 +223,7 @@ CLUSTERS: list[dict[str, Any]] = [
     {
         "id": "supply_chain",
         "name": "زنجیره تأمین و لجستیک",
-        "course_url": "/posts/2026/06/24/vrp-python-course/",
+        "course_url": "/courses/vrp-python/",
         "business_fit": 95,
         "gateway_seeds": [
             "بهینه سازی زنجیره تامین با پایتون",
@@ -253,7 +253,7 @@ CLUSTERS: list[dict[str, Any]] = [
     {
         "id": "power",
         "name": "بهینه‌سازی سیستم قدرت",
-        "course_url": "/posts/2026/06/20/Advanced-Power-System-Course/",
+        "course_url": "/courses/advanced-power-system/",
         "business_fit": 96,
         "gateway_seeds": [
             "پخش بار اقتصادی با پایتون",
@@ -288,7 +288,7 @@ CLUSTERS: list[dict[str, Any]] = [
     {
         "id": "uncertainty",
         "name": "عدم قطعیت و مدیریت ریسک",
-        "course_url": "/posts/2026/06/23/uncertainty-modeling-course/",
+        "course_url": "/courses/uncertainty-modeling/",
         "business_fit": 94,
         "gateway_seeds": [
             "بهینه سازی مقاوم در پایتون",
@@ -512,7 +512,7 @@ def has_strong_anchor(keyword: str, cluster_id: str) -> bool:
     value = normalise(keyword)
     tokens = token_set(keyword, remove_generic=True)
 
-    for anchor in STRONG_CLUSTER_ANCHORS.get(cluster_id, ()): 
+    for anchor in STRONG_CLUSTER_ANCHORS.get(cluster_id, ()):
         anchor_norm = normalise(anchor)
         anchor_tokens = token_set(anchor, remove_generic=True)
 
@@ -1225,7 +1225,7 @@ def collect_existing_pages(
     if offline:
         status["صفحات زنده سایت"] = "حالت آفلاین"
     else:
-        sitemap_url = absolute_url(site_url, "/sitemap.xml")
+        sitemap_url = absolute_url(site_url, "/sitemap-index.xml")
         try:
             urls = fetch_sitemap_urls(sitemap_url, site_url, cache_dir, config)
             urls = urls[: int(config["max_site_pages"])]

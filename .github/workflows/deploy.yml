@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - 'seo_opportunity_output/**'
+      - 'seo_demand_output/**'
   workflow_dispatch:
 
 permissions:
