@@ -1,0 +1,4989 @@
+{
+  "version": "3.0.0",
+  "run_date": "2026-08-05",
+  "status": {
+    "نسخه برنامه": "3.0.0",
+    "فایل تنظیمات": "/home/runner/work/OptimizationExpert.github.io/OptimizationExpert.github.io/seo_bot_config.json",
+    "حالت اجرا": "کامل",
+    "فایل‌های محلی سایت": "19 صفحه از /home/runner/work/OptimizationExpert.github.io/OptimizationExpert.github.io",
+    "صفحات زنده سایت": "خطا: HTTPError",
+    "کل صفحات برای مقایسه": "18",
+    "Keyword Planner": "فایل پیدا نشد؛ حجم ماهانه نمایش داده نمی‌شود",
+    "Search Console CSV": "فایل پیدا نشد",
+    "Search Console API": "تنظیم نشده",
+    "کلمات ثابت پایش‌شده": "105",
+    "Queryهای اکتشافی مرحله اول": "30",
+    "کل Queryهای مرحله اول": "135",
+    "Google Search Autocomplete": "135 query موفق، 0 ناموفق، 35 مشاهده",
+    "YouTube Autocomplete": "135 query موفق، 0 ناموفق، 23 مشاهده",
+    "Bing Autocomplete": "135 query موفق، 0 ناموفق، 20 مشاهده",
+    "DuckDuckGo Autocomplete": "135 query موفق، 0 ناموفق، 7 مشاهده",
+    "Queryهای مرحله دوم": "16",
+    "Google Search Autocomplete — مرحله دوم": "16 query موفق، 0 ناموفق، 9 مشاهده",
+    "YouTube Autocomplete — مرحله دوم": "16 query موفق، 0 ناموفق، 2 مشاهده",
+    "Bing Autocomplete — مرحله دوم": "16 query موفق، 0 ناموفق، 23 مشاهده",
+    "DuckDuckGo Autocomplete — مرحله دوم": "16 query موفق، 0 ناموفق، 2 مشاهده",
+    "Stack Exchange": "2 سؤال مرتبط از 4 نتیجه؛ 0 query ناموفق",
+    "Serper / Google SERP": "تنظیم نشده؛ رقابت SERP و PAA اندازه‌گیری نشد",
+    "کاندیدای خام": "79",
+    "فرصت نهایی": "40",
+    "حذف‌شده به دلیل صفحه موجود": "0",
+    "Telegram": "تنظیم نشده"
+  },
+  "candidates": [
+    {
+      "keyword": "mixed integer linear programming python",
+      "cluster": "مدل‌سازی و تحقیق در عملیات",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش mixed integer linear programming python با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "mixed-integer-linear-programming-python",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 82.4,
+        "demand": 70.2,
+        "content_gap": 89.6,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "بالا",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.104,
+        "title": "سه راهکار عملی برای استفاده از سالور ها در پایومو",
+        "url": "local://src/content/notes/pyomo-solvers.md",
+        "mentioned_in_body": false
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Bing Autocomplete",
+        "DuckDuckGo Autocomplete",
+        "Google Search Autocomplete",
+        "YouTube Autocomplete"
+      ],
+      "reason": "سیگنال در Google Search، YouTube، Bing، DuckDuckGo؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ صفحه متمرکز مشابه پیدا نشد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Google Search Autocomplete",
+          "query": "mixed integer programming python",
+          "family": "mixed integer programming پایتون",
+          "rank": 2,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=1"
+        },
+        {
+          "source": "YouTube Autocomplete",
+          "query": "linear programming python",
+          "family": "linear programming پایتون",
+          "rank": 5,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=1"
+        },
+        {
+          "source": "YouTube Autocomplete",
+          "query": "mixed integer programming python",
+          "family": "mixed integer programming پایتون",
+          "rank": 2,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=1"
+        },
+        {
+          "source": "Bing Autocomplete",
+          "query": "linear programming python",
+          "family": "linear programming پایتون",
+          "rank": 4,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=1"
+        },
+        {
+          "source": "Bing Autocomplete",
+          "query": "mixed integer programming python",
+          "family": "mixed integer programming پایتون",
+          "rank": 2,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=1"
+        },
+        {
+          "source": "Google Search Autocomplete",
+          "query": "how to mixed integer linear programming python",
+          "family": "mixed integer linear programming پایتون",
+          "rank": 1,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=2"
+        },
+        {
+          "source": "YouTube Autocomplete",
+          "query": "how to mixed integer linear programming python",
+          "family": "mixed integer linear programming پایتون",
+          "rank": 1,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=2"
+        },
+        {
+          "source": "DuckDuckGo Autocomplete",
+          "query": "how to mixed integer linear programming python",
+          "family": "mixed integer linear programming پایتون",
+          "rank": 2,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=2"
+        }
+      ]
+    },
+    {
+      "keyword": "what is mixed integer programming",
+      "cluster": "مدل‌سازی و تحقیق در عملیات",
+      "intent": "تعریف و مفهوم",
+      "funnel": "آگاهی",
+      "suggested_title": "what is mixed integer programming؛ تعریف ساده، مدل ریاضی و مثال کاربردی",
+      "suggested_slug": "what-is-mixed-integer-programming",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 74.2,
+        "demand": 57.0,
+        "content_gap": 89.5,
+        "business_fit": 91.0,
+        "serp_competition": null
+      },
+      "confidence": "متوسط",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.10526315789473684,
+        "title": "Astro Starter Kit: Basics",
+        "url": "local://README.md",
+        "mentioned_in_body": false
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Bing Autocomplete",
+        "Google Search Autocomplete",
+        "YouTube Autocomplete"
+      ],
+      "reason": "سیگنال در Google Search، YouTube، Bing؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ صفحه متمرکز مشابه پیدا نشد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Bing Autocomplete",
+          "query": "mixed integer programming python",
+          "family": "mixed integer programming پایتون",
+          "rank": 4,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=1"
+        },
+        {
+          "source": "Google Search Autocomplete",
+          "query": "how to what is mixed integer programming",
+          "family": "what is mixed integer programming",
+          "rank": 1,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=2"
+        },
+        {
+          "source": "YouTube Autocomplete",
+          "query": "how to what is mixed integer programming",
+          "family": "what is mixed integer programming",
+          "rank": 1,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=2"
+        },
+        {
+          "source": "Bing Autocomplete",
+          "query": "what is mixed integer programming error",
+          "family": "what is mixed integer programming",
+          "rank": 1,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=2"
+        }
+      ]
+    },
+    {
+      "keyword": "linear programming python library",
+      "cluster": "مدل‌سازی و تحقیق در عملیات",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش linear programming python library با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "linear-programming-python-library",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 66.9,
+        "demand": 37.5,
+        "content_gap": 90.4,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "متوسط",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.09565217391304347,
+        "title": "سه راهکار عملی برای استفاده از سالور ها در پایومو",
+        "url": "local://src/content/notes/pyomo-solvers.md",
+        "mentioned_in_body": false
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Bing Autocomplete",
+        "Google Search Autocomplete"
+      ],
+      "reason": "سیگنال در Google Search، Bing؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ صفحه متمرکز مشابه پیدا نشد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Google Search Autocomplete",
+          "query": "linear programming python",
+          "family": "linear programming پایتون",
+          "rank": 2,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=1"
+        },
+        {
+          "source": "Bing Autocomplete",
+          "query": "linear programming python",
+          "family": "linear programming پایتون",
+          "rank": 3,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=1"
+        }
+      ]
+    },
+    {
+      "keyword": "linear programming python pulp",
+      "cluster": "مدل‌سازی و تحقیق در عملیات",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش linear programming python pulp با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "linear-programming-python-pulp",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 66.3,
+        "demand": 36.4,
+        "content_gap": 90.0,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "متوسط",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.09999999999999999,
+        "title": "سه راهکار عملی برای استفاده از سالور ها در پایومو",
+        "url": "local://src/content/notes/pyomo-solvers.md",
+        "mentioned_in_body": false
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Google Search Autocomplete",
+        "YouTube Autocomplete"
+      ],
+      "reason": "سیگنال در Google Search، YouTube؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ صفحه متمرکز مشابه پیدا نشد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Google Search Autocomplete",
+          "query": "linear programming python",
+          "family": "linear programming پایتون",
+          "rank": 6,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=1"
+        },
+        {
+          "source": "YouTube Autocomplete",
+          "query": "linear programming python",
+          "family": "linear programming پایتون",
+          "rank": 2,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=1"
+        }
+      ]
+    },
+    {
+      "keyword": "mixed integer quadratic programming python",
+      "cluster": "مدل‌سازی و تحقیق در عملیات",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش mixed integer quadratic programming python با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "mixed-integer-quadratic-programming-python",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 66.2,
+        "demand": 36.2,
+        "content_gap": 90.2,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "متوسط",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.09818181818181818,
+        "title": "Development",
+        "url": "local://AGENTS.md",
+        "mentioned_in_body": false
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Bing Autocomplete",
+        "Google Search Autocomplete"
+      ],
+      "reason": "سیگنال در Google Search، Bing؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ صفحه متمرکز مشابه پیدا نشد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Google Search Autocomplete",
+          "query": "mixed integer programming python",
+          "family": "mixed integer programming پایتون",
+          "rank": 4,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=1"
+        },
+        {
+          "source": "Bing Autocomplete",
+          "query": "mixed integer programming python",
+          "family": "mixed integer programming پایتون",
+          "rank": 3,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=1"
+        }
+      ]
+    },
+    {
+      "keyword": "mixed integer linear programming python library",
+      "cluster": "مدل‌سازی و تحقیق در عملیات",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش mixed integer linear programming python library با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "mixed-integer-linear-programming-python-library",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 61.2,
+        "demand": 25.4,
+        "content_gap": 90.6,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.09397590361445783,
+        "title": "سه راهکار عملی برای استفاده از سالور ها در پایومو",
+        "url": "local://src/content/notes/pyomo-solvers.md",
+        "mentioned_in_body": false
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Google Search Autocomplete"
+      ],
+      "reason": "سیگنال در Google Search؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ صفحه متمرکز مشابه پیدا نشد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Google Search Autocomplete",
+          "query": "mixed integer programming python",
+          "family": "mixed integer programming پایتون",
+          "rank": 5,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=1"
+        },
+        {
+          "source": "Google Search Autocomplete",
+          "query": "how to mixed integer linear programming python",
+          "family": "mixed integer linear programming پایتون",
+          "rank": 2,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=2"
+        }
+      ]
+    },
+    {
+      "keyword": "mixed integer linear programming python example",
+      "cluster": "مدل‌سازی و تحقیق در عملیات",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش mixed integer linear programming python example با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "mixed-integer-linear-programming-python-example",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 60.8,
+        "demand": 24.7,
+        "content_gap": 90.6,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.09397590361445783,
+        "title": "سه راهکار عملی برای استفاده از سالور ها در پایومو",
+        "url": "local://src/content/notes/pyomo-solvers.md",
+        "mentioned_in_body": false
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Google Search Autocomplete"
+      ],
+      "reason": "سیگنال در Google Search؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ صفحه متمرکز مشابه پیدا نشد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Google Search Autocomplete",
+          "query": "mixed integer programming python",
+          "family": "mixed integer programming پایتون",
+          "rank": 6,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=1"
+        },
+        {
+          "source": "Google Search Autocomplete",
+          "query": "how to mixed integer linear programming python",
+          "family": "mixed integer linear programming پایتون",
+          "rank": 3,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=2"
+        }
+      ]
+    },
+    {
+      "keyword": "how does mixed integer programming work",
+      "cluster": "مدل‌سازی و تحقیق در عملیات",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش how does mixed integer programming work با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "how-does-mixed-integer-programming-work",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 59.9,
+        "demand": 22.1,
+        "content_gap": 91.4,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.0857142857142857,
+        "title": "Astro Starter Kit: Basics",
+        "url": "local://README.md",
+        "mentioned_in_body": false
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Google Search Autocomplete"
+      ],
+      "reason": "سیگنال در Google Search؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ صفحه متمرکز مشابه پیدا نشد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Google Search Autocomplete",
+          "query": "how to what is mixed integer programming",
+          "family": "what is mixed integer programming",
+          "rank": 4,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=2"
+        }
+      ]
+    },
+    {
+      "keyword": "mixed integer nonlinear programming python",
+      "cluster": "مدل‌سازی و تحقیق در عملیات",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش mixed integer nonlinear programming python با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "mixed-integer-nonlinear-programming-python",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 59.7,
+        "demand": 22.7,
+        "content_gap": 90.0,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.09999999999999999,
+        "title": "Astro Starter Kit: Basics",
+        "url": "local://README.md",
+        "mentioned_in_body": false
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Google Search Autocomplete"
+      ],
+      "reason": "سیگنال در Google Search؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ صفحه متمرکز مشابه پیدا نشد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Google Search Autocomplete",
+          "query": "mixed integer programming python",
+          "family": "mixed integer programming پایتون",
+          "rank": 3,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=1"
+        }
+      ]
+    },
+    {
+      "keyword": "linear programming python pdf",
+      "cluster": "مدل‌سازی و تحقیق در عملیات",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش linear programming python pdf با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "linear-programming-python-pdf",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 59.3,
+        "demand": 22.1,
+        "content_gap": 89.8,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.10153846153846154,
+        "title": "سه راهکار عملی برای استفاده از سالور ها در پایومو",
+        "url": "local://src/content/notes/pyomo-solvers.md",
+        "mentioned_in_body": false
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Google Search Autocomplete"
+      ],
+      "reason": "سیگنال در Google Search؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ صفحه متمرکز مشابه پیدا نشد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Google Search Autocomplete",
+          "query": "linear programming python",
+          "family": "linear programming پایتون",
+          "rank": 4,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=1"
+        }
+      ]
+    },
+    {
+      "keyword": "mixed integer convex programming",
+      "cluster": "مدل‌سازی و تحقیق در عملیات",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش mixed integer convex programming با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "mixed-integer-convex-programming",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 59.3,
+        "demand": 20.6,
+        "content_gap": 92.0,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.08,
+        "title": "Development",
+        "url": "local://AGENTS.md",
+        "mentioned_in_body": false
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Bing Autocomplete"
+      ],
+      "reason": "سیگنال در Bing؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ صفحه متمرکز مشابه پیدا نشد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Bing Autocomplete",
+          "query": "mixed integer programming python",
+          "family": "mixed integer programming پایتون",
+          "rank": 9,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=1"
+        },
+        {
+          "source": "Bing Autocomplete",
+          "query": "how to what is mixed integer programming",
+          "family": "what is mixed integer programming",
+          "rank": 4,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=2"
+        },
+        {
+          "source": "Bing Autocomplete",
+          "query": "what is mixed integer programming error",
+          "family": "what is mixed integer programming",
+          "rank": 12,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=2"
+        }
+      ]
+    },
+    {
+      "keyword": "how to solve mixed integer linear programming",
+      "cluster": "مدل‌سازی و تحقیق در عملیات",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش how to solve mixed integer linear programming با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "how-to-solve-mixed-integer-linear-programming",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 59.0,
+        "demand": 21.5,
+        "content_gap": 89.5,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.10476190476190475,
+        "title": "Astro Starter Kit: Basics",
+        "url": "local://README.md",
+        "mentioned_in_body": false
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Google Search Autocomplete"
+      ],
+      "reason": "سیگنال در Google Search؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ صفحه متمرکز مشابه پیدا نشد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Google Search Autocomplete",
+          "query": "how to what is mixed integer programming",
+          "family": "what is mixed integer programming",
+          "rank": 5,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=2"
+        }
+      ]
+    },
+    {
+      "keyword": "mixed integer linear programming",
+      "cluster": "مدل‌سازی و تحقیق در عملیات",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش mixed integer linear programming با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "mixed-integer-linear-programming",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 58.9,
+        "demand": 21.6,
+        "content_gap": 89.2,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.108,
+        "title": "Astro Starter Kit: Basics",
+        "url": "local://README.md",
+        "mentioned_in_body": false
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Bing Autocomplete"
+      ],
+      "reason": "سیگنال در Bing؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ صفحه متمرکز مشابه پیدا نشد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Bing Autocomplete",
+          "query": "mixed integer programming python",
+          "family": "mixed integer programming پایتون",
+          "rank": 5,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=1"
+        },
+        {
+          "source": "Bing Autocomplete",
+          "query": "how to what is mixed integer programming",
+          "family": "what is mixed integer programming",
+          "rank": 2,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=2"
+        },
+        {
+          "source": "Bing Autocomplete",
+          "query": "what is mixed integer programming error",
+          "family": "what is mixed integer programming",
+          "rank": 4,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=2"
+        }
+      ]
+    },
+    {
+      "keyword": "linear programming python package",
+      "cluster": "مدل‌سازی و تحقیق در عملیات",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش linear programming python package با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "linear-programming-python-package",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 58.6,
+        "demand": 20.2,
+        "content_gap": 90.4,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.09565217391304347,
+        "title": "سه راهکار عملی برای استفاده از سالور ها در پایومو",
+        "url": "local://src/content/notes/pyomo-solvers.md",
+        "mentioned_in_body": false
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Google Search Autocomplete"
+      ],
+      "reason": "سیگنال در Google Search؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ صفحه متمرکز مشابه پیدا نشد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Google Search Autocomplete",
+          "query": "linear programming python",
+          "family": "linear programming پایتون",
+          "rank": 7,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=1"
+        }
+      ]
+    },
+    {
+      "keyword": "linear programming using python",
+      "cluster": "مدل‌سازی و تحقیق در عملیات",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش linear programming using python با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "linear-programming-using-python",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 58.4,
+        "demand": 20.0,
+        "content_gap": 89.9,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.10140845070422534,
+        "title": "راهنمای جامع بهینه‌سازی با Pyomo و پایتون",
+        "url": "local://src/content/books/pyomo-optimization-guide.md",
+        "mentioned_in_body": false
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "YouTube Autocomplete"
+      ],
+      "reason": "سیگنال در YouTube؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ صفحه متمرکز مشابه پیدا نشد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "YouTube Autocomplete",
+          "query": "linear programming python",
+          "family": "linear programming پایتون",
+          "rank": 3,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=1"
+        }
+      ]
+    },
+    {
+      "keyword": "linear programming in python using pulp",
+      "cluster": "مدل‌سازی و تحقیق در عملیات",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش linear programming in python using pulp با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "linear-programming-in-python-using-pulp",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 58.4,
+        "demand": 19.5,
+        "content_gap": 90.9,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.09113924050632911,
+        "title": "راهنمای جامع بهینه‌سازی با Pyomo و پایتون",
+        "url": "local://src/content/books/pyomo-optimization-guide.md",
+        "mentioned_in_body": false
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "YouTube Autocomplete"
+      ],
+      "reason": "سیگنال در YouTube؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ صفحه متمرکز مشابه پیدا نشد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "YouTube Autocomplete",
+          "query": "linear programming python",
+          "family": "linear programming پایتون",
+          "rank": 4,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=1"
+        }
+      ]
+    },
+    {
+      "keyword": "mixed integer programming solver",
+      "cluster": "مدل‌سازی و تحقیق در عملیات",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش mixed integer programming solver با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "mixed-integer-programming-solver",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 58.3,
+        "demand": 21.6,
+        "content_gap": 87.2,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.12757142857142856,
+        "title": "سه راهکار عملی برای استفاده از سالور ها در پایومو",
+        "url": "local://src/content/notes/pyomo-solvers.md",
+        "mentioned_in_body": false
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Bing Autocomplete"
+      ],
+      "reason": "سیگنال در Bing؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ صفحه متمرکز مشابه پیدا نشد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Bing Autocomplete",
+          "query": "mixed integer programming python",
+          "family": "mixed integer programming پایتون",
+          "rank": 7,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=1"
+        },
+        {
+          "source": "Bing Autocomplete",
+          "query": "how to what is mixed integer programming",
+          "family": "what is mixed integer programming",
+          "rank": 3,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=2"
+        },
+        {
+          "source": "Bing Autocomplete",
+          "query": "what is mixed integer programming error",
+          "family": "what is mixed integer programming",
+          "rank": 2,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=2"
+        }
+      ]
+    },
+    {
+      "keyword": "linear programming python book",
+      "cluster": "مدل‌سازی و تحقیق در عملیات",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش linear programming python book با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "linear-programming-python-book",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 58.2,
+        "demand": 19.6,
+        "content_gap": 90.0,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.09999999999999999,
+        "title": "سه راهکار عملی برای استفاده از سالور ها در پایومو",
+        "url": "local://src/content/notes/pyomo-solvers.md",
+        "mentioned_in_body": false
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Google Search Autocomplete"
+      ],
+      "reason": "سیگنال در Google Search؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ صفحه متمرکز مشابه پیدا نشد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Google Search Autocomplete",
+          "query": "linear programming python",
+          "family": "linear programming پایتون",
+          "rank": 8,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=1"
+        }
+      ]
+    },
+    {
+      "keyword": "mixed integer linear programming pdf",
+      "cluster": "مدل‌سازی و تحقیق در عملیات",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش mixed integer linear programming pdf با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "mixed-integer-linear-programming-pdf",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 58.1,
+        "demand": 19.3,
+        "content_gap": 90.0,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.09999999999999999,
+        "title": "Astro Starter Kit: Basics",
+        "url": "local://README.md",
+        "mentioned_in_body": false
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Bing Autocomplete"
+      ],
+      "reason": "سیگنال در Bing؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ صفحه متمرکز مشابه پیدا نشد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Bing Autocomplete",
+          "query": "mixed integer programming python",
+          "family": "mixed integer programming پایتون",
+          "rank": 12,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=1"
+        },
+        {
+          "source": "Bing Autocomplete",
+          "query": "how to what is mixed integer programming",
+          "family": "what is mixed integer programming",
+          "rank": 7,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=2"
+        },
+        {
+          "source": "Bing Autocomplete",
+          "query": "what is mixed integer programming error",
+          "family": "what is mixed integer programming",
+          "rank": 7,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=2"
+        }
+      ]
+    },
+    {
+      "keyword": "linear programming python scipy",
+      "cluster": "مدل‌سازی و تحقیق در عملیات",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش linear programming python scipy با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "linear-programming-python-scipy",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 58.0,
+        "demand": 19.0,
+        "content_gap": 90.1,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.09850746268656717,
+        "title": "سه راهکار عملی برای استفاده از سالور ها در پایومو",
+        "url": "local://src/content/notes/pyomo-solvers.md",
+        "mentioned_in_body": false
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Google Search Autocomplete"
+      ],
+      "reason": "سیگنال در Google Search؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ صفحه متمرکز مشابه پیدا نشد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Google Search Autocomplete",
+          "query": "linear programming python",
+          "family": "linear programming پایتون",
+          "rank": 9,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=1"
+        }
+      ]
+    },
+    {
+      "keyword": "mixed integer linear programming milp python",
+      "cluster": "مدل‌سازی و تحقیق در عملیات",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش mixed integer linear programming milp python با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "mixed-integer-linear-programming-milp-python",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 57.9,
+        "demand": 19.0,
+        "content_gap": 90.0,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.09999999999999999,
+        "title": "راهنمای جامع بهینه‌سازی با Pyomo و پایتون",
+        "url": "local://src/content/books/pyomo-optimization-guide.md",
+        "mentioned_in_body": false
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Google Search Autocomplete"
+      ],
+      "reason": "سیگنال در Google Search؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ صفحه متمرکز مشابه پیدا نشد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Google Search Autocomplete",
+          "query": "mixed integer programming python",
+          "family": "mixed integer programming پایتون",
+          "rank": 9,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=1"
+        }
+      ]
+    },
+    {
+      "keyword": "linear programming python github",
+      "cluster": "مدل‌سازی و تحقیق در عملیات",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش linear programming python github با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "linear-programming-python-github",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 57.7,
+        "demand": 18.3,
+        "content_gap": 90.3,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.09705882352941177,
+        "title": "سه راهکار عملی برای استفاده از سالور ها در پایومو",
+        "url": "local://src/content/notes/pyomo-solvers.md",
+        "mentioned_in_body": false
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Google Search Autocomplete"
+      ],
+      "reason": "سیگنال در Google Search؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ صفحه متمرکز مشابه پیدا نشد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Google Search Autocomplete",
+          "query": "linear programming python",
+          "family": "linear programming پایتون",
+          "rank": 10,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=1"
+        }
+      ]
+    },
+    {
+      "keyword": "linear programming python code",
+      "cluster": "مدل‌سازی و تحقیق در عملیات",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش linear programming python code با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "linear-programming-python-code",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 57.5,
+        "demand": 22.7,
+        "content_gap": 83.0,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.09999999999999999,
+        "title": "سه راهکار عملی برای استفاده از سالور ها در پایومو",
+        "url": "local://src/content/notes/pyomo-solvers.md",
+        "mentioned_in_body": true
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Google Search Autocomplete"
+      ],
+      "reason": "سیگنال در Google Search؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ فقط در متن سایت اشاره شده و صفحه متمرکز ندارد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Google Search Autocomplete",
+          "query": "linear programming python",
+          "family": "linear programming پایتون",
+          "rank": 3,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=1"
+        }
+      ]
+    },
+    {
+      "keyword": "is a mixed number a integer",
+      "cluster": "مدل‌سازی و تحقیق در عملیات",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش is a mixed number a integer با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "is-a-mixed-number-a-integer",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 57.5,
+        "demand": 17.8,
+        "content_gap": 90.6,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.09411764705882353,
+        "title": "Astro Starter Kit: Basics",
+        "url": "local://README.md",
+        "mentioned_in_body": false
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Bing Autocomplete"
+      ],
+      "reason": "سیگنال در Bing؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ صفحه متمرکز مشابه پیدا نشد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Bing Autocomplete",
+          "query": "how to what is mixed integer programming",
+          "family": "what is mixed integer programming",
+          "rank": 9,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=2"
+        },
+        {
+          "source": "Bing Autocomplete",
+          "query": "what is mixed integer programming error",
+          "family": "what is mixed integer programming",
+          "rank": 6,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=2"
+        }
+      ]
+    },
+    {
+      "keyword": "what is mixed integer programming model",
+      "cluster": "مدل‌سازی و تحقیق در عملیات",
+      "intent": "تعریف و مفهوم",
+      "funnel": "آگاهی",
+      "suggested_title": "what is mixed integer programming model؛ تعریف ساده، مدل ریاضی و مثال کاربردی",
+      "suggested_slug": "what-is-mixed-integer-programming-model",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 57.4,
+        "demand": 22.7,
+        "content_gap": 88.4,
+        "business_fit": 91.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.11578947368421051,
+        "title": "Astro Starter Kit: Basics",
+        "url": "local://README.md",
+        "mentioned_in_body": false
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Google Search Autocomplete"
+      ],
+      "reason": "سیگنال در Google Search؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ صفحه متمرکز مشابه پیدا نشد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Google Search Autocomplete",
+          "query": "how to what is mixed integer programming",
+          "family": "what is mixed integer programming",
+          "rank": 3,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=2"
+        }
+      ]
+    },
+    {
+      "keyword": "mixed integer programming mip",
+      "cluster": "مدل‌سازی و تحقیق در عملیات",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش mixed integer programming mip با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "mixed-integer-programming-mip",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 57.3,
+        "demand": 16.9,
+        "content_gap": 91.1,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.08936170212765956,
+        "title": "Astro Starter Kit: Basics",
+        "url": "local://README.md",
+        "mentioned_in_body": false
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Bing Autocomplete"
+      ],
+      "reason": "سیگنال در Bing؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ صفحه متمرکز مشابه پیدا نشد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Bing Autocomplete",
+          "query": "how to what is mixed integer programming",
+          "family": "what is mixed integer programming",
+          "rank": 8,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=2"
+        }
+      ]
+    },
+    {
+      "keyword": "python mixed integer programming solver",
+      "cluster": "مدل‌سازی و تحقیق در عملیات",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش python mixed integer programming solver با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "python-mixed-integer-programming-solver",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 57.2,
+        "demand": 19.6,
+        "content_gap": 86.7,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.1327142857142857,
+        "title": "سه راهکار عملی برای استفاده از سالور ها در پایومو",
+        "url": "local://src/content/notes/pyomo-solvers.md",
+        "mentioned_in_body": false
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Google Search Autocomplete"
+      ],
+      "reason": "سیگنال در Google Search؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ صفحه متمرکز مشابه پیدا نشد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Google Search Autocomplete",
+          "query": "mixed integer programming python",
+          "family": "mixed integer programming پایتون",
+          "rank": 8,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=1"
+        }
+      ]
+    },
+    {
+      "keyword": "mixed integer nonlinear programming",
+      "cluster": "مدل‌سازی و تحقیق در عملیات",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش mixed integer nonlinear programming با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "mixed-integer-nonlinear-programming",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 57.2,
+        "demand": 18.4,
+        "content_gap": 88.7,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.11320754716981132,
+        "title": "Astro Starter Kit: Basics",
+        "url": "local://README.md",
+        "mentioned_in_body": false
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Bing Autocomplete"
+      ],
+      "reason": "سیگنال در Bing؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ صفحه متمرکز مشابه پیدا نشد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Bing Autocomplete",
+          "query": "mixed integer programming python",
+          "family": "mixed integer programming پایتون",
+          "rank": 10,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=1"
+        },
+        {
+          "source": "Bing Autocomplete",
+          "query": "how to what is mixed integer programming",
+          "family": "what is mixed integer programming",
+          "rank": 10,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=2"
+        },
+        {
+          "source": "Bing Autocomplete",
+          "query": "what is mixed integer programming error",
+          "family": "what is mixed integer programming",
+          "rank": 9,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=2"
+        }
+      ]
+    },
+    {
+      "keyword": "linear programming python example",
+      "cluster": "مدل‌سازی و تحقیق در عملیات",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش linear programming python example با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "linear-programming-python-example",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 57.0,
+        "demand": 21.5,
+        "content_gap": 83.4,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.09565217391304347,
+        "title": "سه راهکار عملی برای استفاده از سالور ها در پایومو",
+        "url": "local://src/content/notes/pyomo-solvers.md",
+        "mentioned_in_body": true
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Google Search Autocomplete"
+      ],
+      "reason": "سیگنال در Google Search؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ فقط در متن سایت اشاره شده و صفحه متمرکز ندارد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Google Search Autocomplete",
+          "query": "linear programming python",
+          "family": "linear programming پایتون",
+          "rank": 5,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=1"
+        }
+      ]
+    },
+    {
+      "keyword": "mixed integer quadratic programming",
+      "cluster": "مدل‌سازی و تحقیق در عملیات",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش mixed integer quadratic programming با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "mixed-integer-quadratic-programming",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 57.0,
+        "demand": 17.8,
+        "content_gap": 88.8,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.11249999999999999,
+        "title": "Development",
+        "url": "local://AGENTS.md",
+        "mentioned_in_body": false
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Bing Autocomplete"
+      ],
+      "reason": "سیگنال در Bing؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ صفحه متمرکز مشابه پیدا نشد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Bing Autocomplete",
+          "query": "how to what is mixed integer programming",
+          "family": "what is mixed integer programming",
+          "rank": 6,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=2"
+        },
+        {
+          "source": "Bing Autocomplete",
+          "query": "what is mixed integer programming error",
+          "family": "what is mixed integer programming",
+          "rank": 11,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=2"
+        }
+      ]
+    },
+    {
+      "keyword": "what is linear and mixed integer programming",
+      "cluster": "مدل‌سازی و تحقیق در عملیات",
+      "intent": "تعریف و مفهوم",
+      "funnel": "آگاهی",
+      "suggested_title": "what is linear and mixed integer programming؛ تعریف ساده، مدل ریاضی و مثال کاربردی",
+      "suggested_slug": "what-is-linear-and-mixed-integer-programming",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 56.7,
+        "demand": 22.0,
+        "content_gap": 87.4,
+        "business_fit": 91.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.12580645161290321,
+        "title": "Astro Starter Kit: Basics",
+        "url": "local://README.md",
+        "mentioned_in_body": false
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Bing Autocomplete"
+      ],
+      "reason": "سیگنال در Bing؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ صفحه متمرکز مشابه پیدا نشد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Bing Autocomplete",
+          "query": "mixed integer programming python",
+          "family": "mixed integer programming پایتون",
+          "rank": 11,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=1"
+        },
+        {
+          "source": "Bing Autocomplete",
+          "query": "how to what is mixed integer programming",
+          "family": "what is mixed integer programming",
+          "rank": 1,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=2"
+        },
+        {
+          "source": "Bing Autocomplete",
+          "query": "what is mixed integer programming error",
+          "family": "what is mixed integer programming",
+          "rank": 3,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=2"
+        }
+      ]
+    },
+    {
+      "keyword": "pyomo glpk solver options",
+      "cluster": "Pyomo و Solverها",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش pyomo glpk solver options با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "pyomo-glpk-solver-options",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 56.4,
+        "demand": 25.4,
+        "content_gap": 75.8,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.2421535875888817,
+        "title": "سه راهکار عملی برای استفاده از سالور ها در پایومو",
+        "url": "local://src/content/notes/pyomo-solvers.md",
+        "mentioned_in_body": false
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Google Search Autocomplete"
+      ],
+      "reason": "سیگنال در Google Search؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ صفحه متمرکز مشابه پیدا نشد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Google Search Autocomplete",
+          "query": "Pyomo GLPK",
+          "family": "pyomo glpk",
+          "rank": 4,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=1"
+        },
+        {
+          "source": "Google Search Autocomplete",
+          "query": "pyomo glpk solver",
+          "family": "pyomo glpk solver",
+          "rank": 2,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=2"
+        }
+      ]
+    },
+    {
+      "keyword": "linear programming python tutorial",
+      "cluster": "مدل‌سازی و تحقیق در عملیات",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش linear programming python tutorial با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "linear-programming-python-tutorial",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 56.2,
+        "demand": 19.6,
+        "content_gap": 83.6,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.09428571428571428,
+        "title": "سه راهکار عملی برای استفاده از سالور ها در پایومو",
+        "url": "local://src/content/notes/pyomo-solvers.md",
+        "mentioned_in_body": true
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Bing Autocomplete"
+      ],
+      "reason": "سیگنال در Bing؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ فقط در متن سایت اشاره شده و صفحه متمرکز ندارد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Bing Autocomplete",
+          "query": "linear programming python",
+          "family": "linear programming پایتون",
+          "rank": 2,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=1"
+        }
+      ]
+    },
+    {
+      "keyword": "mixed integer practice worksheet",
+      "cluster": "مدل‌سازی و تحقیق در عملیات",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش mixed integer practice worksheet با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "mixed-integer-practice-worksheet",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 56.0,
+        "demand": 15.5,
+        "content_gap": 89.3,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.10666666666666667,
+        "title": "Development",
+        "url": "local://AGENTS.md",
+        "mentioned_in_body": false
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Bing Autocomplete"
+      ],
+      "reason": "سیگنال در Bing؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ صفحه متمرکز مشابه پیدا نشد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Bing Autocomplete",
+          "query": "how to what is mixed integer programming",
+          "family": "what is mixed integer programming",
+          "rank": 12,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=2"
+        }
+      ]
+    },
+    {
+      "keyword": "Time limit and MIP gap with Pyomo and APPSI HiGHS solver",
+      "cluster": "Pyomo و Solverها",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش Time limit and MIP gap with Pyomo and APPSI HiGHS solver با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "time-limit-and-mip-gap-with-pyomo-and-appsi-highs-solver",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 55.9,
+        "demand": 22.0,
+        "content_gap": 79.2,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 150.0,
+        "stack_questions": 1
+      },
+      "existing_page": {
+        "similarity": 0.20758333333333334,
+        "title": "راهنمای جامع بهینه‌سازی با Pyomo و پایتون",
+        "url": "local://src/content/books/pyomo-optimization-guide.md",
+        "mentioned_in_body": false
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Stack Exchange Questions"
+      ],
+      "reason": "سؤال‌های فنی مرتبط با مجموع 150 بازدید؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ صفحه متمرکز مشابه پیدا نشد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Stack Exchange Questions",
+          "query": "pyomo solver",
+          "family": "pyomo solver",
+          "rank": 0,
+          "url": "https://stackoverflow.com/questions/79824672/time-limit-and-mip-gap-with-pyomo-and-appsi-highs-solver",
+          "date": "2025-11-19",
+          "value": 150.0,
+          "note": "site=stackoverflow; score=0"
+        }
+      ]
+    },
+    {
+      "keyword": "unified stochastic and robust unit commitment",
+      "cluster": "بهینه‌سازی سیستم قدرت",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش unified stochastic and robust unit commitment با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "unified-stochastic-and-robust-unit-commitment",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 55.6,
+        "demand": 31.7,
+        "content_gap": 63.6,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "متوسط",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.3643398692810458,
+        "title": "بهینه‌سازی پیشرفته سیستم‌های قدرت در پایتون با Pyomo",
+        "url": "local://src/content/courses/Advanced-Power-System.md",
+        "mentioned_in_body": false
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Bing Autocomplete",
+        "DuckDuckGo Autocomplete"
+      ],
+      "reason": "سیگنال در Bing، DuckDuckGo؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ صفحه متمرکز مشابه پیدا نشد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/20/Advanced-Power-System-Course/",
+      "observations": [
+        {
+          "source": "Bing Autocomplete",
+          "query": "Stochastic Unit Commitment با Pyomo",
+          "family": "stochastic unit commitment با pyomo",
+          "rank": 1,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=0"
+        },
+        {
+          "source": "DuckDuckGo Autocomplete",
+          "query": "Stochastic Unit Commitment با Pyomo",
+          "family": "stochastic unit commitment با pyomo",
+          "rank": 2,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=0"
+        }
+      ]
+    },
+    {
+      "keyword": "mixed integer linear programming solver python",
+      "cluster": "مدل‌سازی و تحقیق در عملیات",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش mixed integer linear programming solver python با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "mixed-integer-linear-programming-solver-python",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 55.5,
+        "demand": 20.2,
+        "content_gap": 80.6,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.12362666666666666,
+        "title": "سه راهکار عملی برای استفاده از سالور ها در پایومو",
+        "url": "local://src/content/notes/pyomo-solvers.md",
+        "mentioned_in_body": true
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Google Search Autocomplete"
+      ],
+      "reason": "سیگنال در Google Search؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ فقط در متن سایت اشاره شده و صفحه متمرکز ندارد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Google Search Autocomplete",
+          "query": "mixed integer programming python",
+          "family": "mixed integer programming پایتون",
+          "rank": 7,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=1"
+        }
+      ]
+    },
+    {
+      "keyword": "pyomo cbc time limit",
+      "cluster": "Pyomo و Solverها",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش pyomo cbc time limit با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "pyomo-cbc-time-limit",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 54.8,
+        "demand": 22.1,
+        "content_gap": 75.5,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.24500000000000002,
+        "title": "راهنمای جامع بهینه‌سازی با Pyomo و پایتون",
+        "url": "local://src/content/books/pyomo-optimization-guide.md",
+        "mentioned_in_body": false
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Google Search Autocomplete"
+      ],
+      "reason": "سیگنال در Google Search؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ صفحه متمرکز مشابه پیدا نشد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Google Search Autocomplete",
+          "query": "Pyomo CBC",
+          "family": "pyomo cbc",
+          "rank": 4,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=1"
+        }
+      ]
+    },
+    {
+      "keyword": "what is mixed integer programming problem",
+      "cluster": "مدل‌سازی و تحقیق در عملیات",
+      "intent": "تعریف و مفهوم",
+      "funnel": "آگاهی",
+      "suggested_title": "what is mixed integer programming problem؛ تعریف ساده، مدل ریاضی و مثال کاربردی",
+      "suggested_slug": "what-is-mixed-integer-programming-problem",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 54.7,
+        "demand": 23.4,
+        "content_gap": 78.9,
+        "business_fit": 91.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.21056565656565654,
+        "title": "آموزش جامع بهینه‌سازی و مسیریابی (VRP) در Python",
+        "url": "local://src/content/courses/vrp-python.md",
+        "mentioned_in_body": false
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Google Search Autocomplete"
+      ],
+      "reason": "سیگنال در Google Search؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ صفحه متمرکز مشابه پیدا نشد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Google Search Autocomplete",
+          "query": "how to what is mixed integer programming",
+          "family": "what is mixed integer programming",
+          "rank": 2,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=2"
+        }
+      ]
+    },
+    {
+      "keyword": "['pyomo cbc', 'pyomo constraint', 'pyomo couenne', 'pyomo copt', 'pyomo colab', 'pyomo concrete model', 'pyomo cookbook', 'pyomo code']",
+      "cluster": "Pyomo و Solverها",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش ['pyomo cbc', 'pyomo constraint', 'pyomo couenne', 'pyomo copt', 'pyomo colab', 'pyomo concrete model', 'pyomo cookbook', 'pyomo code'] با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "pyomo-cbc-pyomo-constraint-pyomo-couenne-pyomo-copt-pyomo-colab-pyomo-concrete-model-pyomo",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 54.6,
+        "demand": 16.7,
+        "content_gap": 83.0,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.17034343434343435,
+        "title": "راهنمای جامع بهینه‌سازی با Pyomo و پایتون",
+        "url": "local://src/content/books/pyomo-optimization-guide.md",
+        "mentioned_in_body": false
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "DuckDuckGo Autocomplete"
+      ],
+      "reason": "سیگنال در DuckDuckGo؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ صفحه متمرکز مشابه پیدا نشد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "DuckDuckGo Autocomplete",
+          "query": "Pyomo CBC",
+          "family": "pyomo cbc",
+          "rank": 2,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=1"
+        }
+      ]
+    },
+    {
+      "keyword": "pyomo highs solver",
+      "cluster": "Pyomo و Solverها",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش pyomo highs solver با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "pyomo-highs-solver",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 54.2,
+        "demand": 23.4,
+        "content_gap": 71.9,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.2808380952380952,
+        "title": "سه راهکار عملی برای استفاده از سالور ها در پایومو",
+        "url": "local://src/content/notes/pyomo-solvers.md",
+        "mentioned_in_body": false
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Google Search Autocomplete"
+      ],
+      "reason": "سیگنال در Google Search؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ صفحه متمرکز مشابه پیدا نشد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Google Search Autocomplete",
+          "query": "Pyomo HiGHS",
+          "family": "pyomo highs",
+          "rank": 2,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=1"
+        }
+      ]
+    },
+    {
+      "keyword": "pyomo highs options",
+      "cluster": "Pyomo و Solverها",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش pyomo highs options با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "pyomo-highs-options",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 54.1,
+        "demand": 22.1,
+        "content_gap": 73.3,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.26718644067796615,
+        "title": "راهنمای جامع بهینه‌سازی با Pyomo و پایتون",
+        "url": "local://src/content/books/pyomo-optimization-guide.md",
+        "mentioned_in_body": false
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Google Search Autocomplete"
+      ],
+      "reason": "سیگنال در Google Search؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ صفحه متمرکز مشابه پیدا نشد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Google Search Autocomplete",
+          "query": "Pyomo HiGHS",
+          "family": "pyomo highs",
+          "rank": 4,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=1"
+        }
+      ]
+    },
+    {
+      "keyword": "mixed integer nonlinear problem solver python",
+      "cluster": "Pyomo و Solverها",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش mixed integer nonlinear problem solver python با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "mixed-integer-nonlinear-problem-solver-python",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 53.9,
+        "demand": 16.9,
+        "content_gap": 80.7,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.19337198067632852,
+        "title": "آموزش جامع بهینه‌سازی و مسیریابی (VRP) در Python",
+        "url": "local://src/content/courses/vrp-python.md",
+        "mentioned_in_body": false
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Bing Autocomplete"
+      ],
+      "reason": "سیگنال در Bing؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ صفحه متمرکز مشابه پیدا نشد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Bing Autocomplete",
+          "query": "mixed integer programming python",
+          "family": "mixed integer programming پایتون",
+          "rank": 8,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=1"
+        }
+      ]
+    },
+    {
+      "keyword": "mixed integer linear programming solver",
+      "cluster": "مدل‌سازی و تحقیق در عملیات",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش mixed integer linear programming solver با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "mixed-integer-linear-programming-solver",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 53.9,
+        "demand": 16.0,
+        "content_gap": 81.8,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.11231238095238097,
+        "title": "سه راهکار عملی برای استفاده از سالور ها در پایومو",
+        "url": "local://src/content/notes/pyomo-solvers.md",
+        "mentioned_in_body": true
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Bing Autocomplete"
+      ],
+      "reason": "سیگنال در Bing؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ فقط در متن سایت اشاره شده و صفحه متمرکز ندارد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Bing Autocomplete",
+          "query": "what is mixed integer programming error",
+          "family": "what is mixed integer programming",
+          "rank": 10,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=2"
+        }
+      ]
+    },
+    {
+      "keyword": "pyomo highs warmstart",
+      "cluster": "Pyomo و Solverها",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش pyomo highs warmstart با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "pyomo-highs-warmstart",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 53.8,
+        "demand": 21.5,
+        "content_gap": 73.5,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.2648524590163935,
+        "title": "راهنمای جامع بهینه‌سازی با Pyomo و پایتون",
+        "url": "local://src/content/books/pyomo-optimization-guide.md",
+        "mentioned_in_body": false
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Google Search Autocomplete"
+      ],
+      "reason": "سیگنال در Google Search؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ صفحه متمرکز مشابه پیدا نشد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Google Search Autocomplete",
+          "query": "Pyomo HiGHS",
+          "family": "pyomo highs",
+          "rank": 5,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=1"
+        }
+      ]
+    },
+    {
+      "keyword": "pyomo ipopt options",
+      "cluster": "Pyomo و Solverها",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش pyomo ipopt options با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "pyomo-ipopt-options",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 53.8,
+        "demand": 21.5,
+        "content_gap": 73.3,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.26718644067796615,
+        "title": "راهنمای جامع بهینه‌سازی با Pyomo و پایتون",
+        "url": "local://src/content/books/pyomo-optimization-guide.md",
+        "mentioned_in_body": false
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Google Search Autocomplete"
+      ],
+      "reason": "سیگنال در Google Search؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ صفحه متمرکز مشابه پیدا نشد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Google Search Autocomplete",
+          "query": "Pyomo IPOPT",
+          "family": "pyomo ipopt",
+          "rank": 5,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=1"
+        }
+      ]
+    },
+    {
+      "keyword": "تحلیل حساسیت در تحقیق در عملیات",
+      "cluster": "مدل‌سازی و تحقیق در عملیات",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش تحلیل حساسیت در تحقیق در عملیات با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "تحلیل-حساسیت-در-تحقیق-در-عملیات",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 53.7,
+        "demand": 25.0,
+        "content_gap": 67.7,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.32320710059171603,
+        "title": "متخصص ارشد علوم داده | راهبر پروژه‌های بهینه‌سازی و تحقیق در عملیات در شرکت EirGrid | عضو ارشد موسسه مهندسان برق و الکترونیک (Senior Member IEEE)",
+        "url": "local://src/content/instructors/dr-soroudi.md",
+        "mentioned_in_body": false
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "YouTube Autocomplete"
+      ],
+      "reason": "سیگنال در YouTube؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ صفحه متمرکز مشابه پیدا نشد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "YouTube Autocomplete",
+          "query": "انتخاب Solver مناسب برای Pyomo",
+          "family": "انتخاب solver مناسب برای pyomo",
+          "rank": 5,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=0"
+        },
+        {
+          "source": "YouTube Autocomplete",
+          "query": "تشخیص مدل Infeasible در Pyomo",
+          "family": "تشخیص مدل infeasible در pyomo",
+          "rank": 1,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=0"
+        },
+        {
+          "source": "YouTube Autocomplete",
+          "query": "تحلیل حساسیت در Pyomo",
+          "family": "تحلیل حساسیت در pyomo",
+          "rank": 1,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=0"
+        }
+      ]
+    },
+    {
+      "keyword": "unit commitment que es",
+      "cluster": "بهینه‌سازی سیستم قدرت",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش unit commitment que es با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "unit-commitment-que-es",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 53.6,
+        "demand": 31.7,
+        "content_gap": 57.5,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "متوسط",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.4251612903225807,
+        "title": "بهینه‌سازی پیشرفته سیستم‌های قدرت در پایتون با Pyomo",
+        "url": "local://src/content/courses/Advanced-Power-System.md",
+        "mentioned_in_body": false
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Bing Autocomplete",
+        "DuckDuckGo Autocomplete"
+      ],
+      "reason": "سیگنال در Bing، DuckDuckGo؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ صفحه متمرکز مشابه پیدا نشد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/20/Advanced-Power-System-Course/",
+      "observations": [
+        {
+          "source": "Bing Autocomplete",
+          "query": "Unit Commitment با Pyomo",
+          "family": "unit commitment با pyomo",
+          "rank": 1,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=0"
+        },
+        {
+          "source": "DuckDuckGo Autocomplete",
+          "query": "Unit Commitment با Pyomo",
+          "family": "unit commitment با pyomo",
+          "rank": 2,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=0"
+        }
+      ]
+    },
+    {
+      "keyword": "Tracking Per-Iteration Values of a Constraint in Pyomo Using GAMS:IPOPT",
+      "cluster": "Pyomo و Solverها",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش Tracking Per-Iteration Values of a Constraint in Pyomo Using GAMS:IPOPT با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "tracking-per-iteration-values-of-a-constraint-in-pyomo-using-gams-ipopt",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 53.6,
+        "demand": 19.4,
+        "content_gap": 75.8,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 49.0,
+        "stack_questions": 1
+      },
+      "existing_page": {
+        "similarity": 0.24194444444444446,
+        "title": "بهینه‌سازی سیستم قدرت در GAMS",
+        "url": "local://src/content/softwares/gamsopt.md",
+        "mentioned_in_body": false
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Stack Exchange Questions"
+      ],
+      "reason": "سؤال‌های فنی مرتبط با مجموع 49 بازدید؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ صفحه متمرکز مشابه پیدا نشد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Stack Exchange Questions",
+          "query": "pyomo solver",
+          "family": "pyomo solver",
+          "rank": 0,
+          "url": "https://stackoverflow.com/questions/79833865/tracking-per-iteration-values-of-a-constraint-in-pyomo-using-gamsipopt",
+          "date": "2025-11-30",
+          "value": 49.0,
+          "note": "site=stackoverflow; score=0"
+        }
+      ]
+    },
+    {
+      "keyword": "pyomo highs install",
+      "cluster": "Pyomo و Solverها",
+      "intent": "خطا و نصب",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "pyomo highs install: راهنمای کامل نصب و تست اجرا",
+      "suggested_slug": "pyomo-highs-install",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 53.5,
+        "demand": 20.9,
+        "content_gap": 73.3,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.26718644067796615,
+        "title": "راهنمای جامع بهینه‌سازی با Pyomo و پایتون",
+        "url": "local://src/content/books/pyomo-optimization-guide.md",
+        "mentioned_in_body": false
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Google Search Autocomplete"
+      ],
+      "reason": "سیگنال در Google Search؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ صفحه متمرکز مشابه پیدا نشد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Google Search Autocomplete",
+          "query": "Pyomo HiGHS",
+          "family": "pyomo highs",
+          "rank": 6,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=1"
+        }
+      ]
+    },
+    {
+      "keyword": "pyomo use highs",
+      "cluster": "Pyomo و Solverها",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش pyomo use highs با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "pyomo-use-highs",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 53.0,
+        "demand": 20.2,
+        "content_gap": 72.8,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.27236363636363636,
+        "title": "راهنمای جامع بهینه‌سازی با Pyomo و پایتون",
+        "url": "local://src/content/books/pyomo-optimization-guide.md",
+        "mentioned_in_body": false
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Google Search Autocomplete"
+      ],
+      "reason": "سیگنال در Google Search؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ صفحه متمرکز مشابه پیدا نشد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Google Search Autocomplete",
+          "query": "Pyomo HiGHS",
+          "family": "pyomo highs",
+          "rank": 7,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=1"
+        }
+      ]
+    },
+    {
+      "keyword": "highs solver pyomo",
+      "cluster": "Pyomo و Solverها",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش highs solver pyomo با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "highs-solver-pyomo",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 52.9,
+        "demand": 22.0,
+        "content_gap": 69.9,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.3011952380952381,
+        "title": "سه راهکار عملی برای استفاده از سالور ها در پایومو",
+        "url": "local://src/content/notes/pyomo-solvers.md",
+        "mentioned_in_body": false
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Bing Autocomplete"
+      ],
+      "reason": "سیگنال در Bing؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ صفحه متمرکز مشابه پیدا نشد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Bing Autocomplete",
+          "query": "Pyomo HiGHS",
+          "family": "pyomo highs",
+          "rank": 3,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=1"
+        },
+        {
+          "source": "Bing Autocomplete",
+          "query": "pyomo highs solver",
+          "family": "pyomo highs solver",
+          "rank": 1,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=2"
+        }
+      ]
+    },
+    {
+      "keyword": "pyomo cbc install",
+      "cluster": "Pyomo و Solverها",
+      "intent": "خطا و نصب",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "pyomo cbc install: راهنمای کامل نصب و تست اجرا",
+      "suggested_slug": "pyomo-cbc-install",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 52.4,
+        "demand": 23.4,
+        "content_gap": 66.0,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.2696842105263158,
+        "title": "راهنمای جامع بهینه‌سازی با Pyomo و پایتون",
+        "url": "local://src/content/books/pyomo-optimization-guide.md",
+        "mentioned_in_body": true
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Google Search Autocomplete"
+      ],
+      "reason": "سیگنال در Google Search؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ فقط در متن سایت اشاره شده و صفحه متمرکز ندارد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Google Search Autocomplete",
+          "query": "Pyomo CBC",
+          "family": "pyomo cbc",
+          "rank": 2,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=1"
+        }
+      ]
+    },
+    {
+      "keyword": "pyomo glpk install",
+      "cluster": "Pyomo و Solverها",
+      "intent": "خطا و نصب",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "pyomo glpk install: راهنمای کامل نصب و تست اجرا",
+      "suggested_slug": "pyomo-glpk-install",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 52.4,
+        "demand": 23.4,
+        "content_gap": 66.2,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.2684137931034483,
+        "title": "راهنمای جامع بهینه‌سازی با Pyomo و پایتون",
+        "url": "local://src/content/books/pyomo-optimization-guide.md",
+        "mentioned_in_body": true
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Google Search Autocomplete"
+      ],
+      "reason": "سیگنال در Google Search؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ فقط در متن سایت اشاره شده و صفحه متمرکز ندارد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Google Search Autocomplete",
+          "query": "Pyomo GLPK",
+          "family": "pyomo glpk",
+          "rank": 2,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=1"
+        }
+      ]
+    },
+    {
+      "keyword": "pyomo ipopt install",
+      "cluster": "Pyomo و Solverها",
+      "intent": "خطا و نصب",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "pyomo ipopt install: راهنمای کامل نصب و تست اجرا",
+      "suggested_slug": "pyomo-ipopt-install",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 52.4,
+        "demand": 23.4,
+        "content_gap": 66.3,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.26718644067796615,
+        "title": "راهنمای جامع بهینه‌سازی با Pyomo و پایتون",
+        "url": "local://src/content/books/pyomo-optimization-guide.md",
+        "mentioned_in_body": true
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Google Search Autocomplete"
+      ],
+      "reason": "سیگنال در Google Search؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ فقط در متن سایت اشاره شده و صفحه متمرکز ندارد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Google Search Autocomplete",
+          "query": "Pyomo IPOPT",
+          "family": "pyomo ipopt",
+          "rank": 2,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=1"
+        }
+      ]
+    },
+    {
+      "keyword": "pyomo cbc solver",
+      "cluster": "Pyomo و Solverها",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش pyomo cbc solver با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "pyomo-cbc-solver",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 52.3,
+        "demand": 24.0,
+        "content_gap": 64.9,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.28143030303030303,
+        "title": "سه راهکار عملی برای استفاده از سالور ها در پایومو",
+        "url": "local://src/content/notes/pyomo-solvers.md",
+        "mentioned_in_body": true
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Google Search Autocomplete"
+      ],
+      "reason": "سیگنال در Google Search؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ فقط در متن سایت اشاره شده و صفحه متمرکز ندارد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Google Search Autocomplete",
+          "query": "Pyomo CBC",
+          "family": "pyomo cbc",
+          "rank": 1,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=1"
+        }
+      ]
+    },
+    {
+      "keyword": "optimizing parameters of the dc power flow",
+      "cluster": "بهینه‌سازی سیستم قدرت",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش optimizing parameters of the dc power flow با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "optimizing-parameters-of-the-dc-power-flow",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 52.0,
+        "demand": 31.7,
+        "content_gap": 52.6,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "متوسط",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.47444725738396626,
+        "title": "دوره مقدماتی بهینه‌سازی سیستم‌های قدرت",
+        "url": "local://src/content/courses/intro-power-system.md",
+        "mentioned_in_body": false
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Bing Autocomplete",
+        "DuckDuckGo Autocomplete"
+      ],
+      "reason": "سیگنال در Bing، DuckDuckGo؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ صفحه متمرکز مشابه پیدا نشد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/20/Advanced-Power-System-Course/",
+      "observations": [
+        {
+          "source": "Bing Autocomplete",
+          "query": "DC Optimal Power Flow با Pyomo",
+          "family": "dc optimal power flow با pyomo",
+          "rank": 1,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=0"
+        },
+        {
+          "source": "DuckDuckGo Autocomplete",
+          "query": "DC Optimal Power Flow با Pyomo",
+          "family": "dc optimal power flow با pyomo",
+          "rank": 2,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=0"
+        }
+      ]
+    },
+    {
+      "keyword": "pip install pyomo glpk",
+      "cluster": "Pyomo و Solverها",
+      "intent": "خطا و نصب",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "pip install pyomo glpk: راهنمای کامل نصب و تست اجرا",
+      "suggested_slug": "pip-install-pyomo-glpk",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 52.0,
+        "demand": 21.5,
+        "content_gap": 67.8,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.2524193548387097,
+        "title": "راهنمای جامع بهینه‌سازی با Pyomo و پایتون",
+        "url": "local://src/content/books/pyomo-optimization-guide.md",
+        "mentioned_in_body": true
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Google Search Autocomplete"
+      ],
+      "reason": "سیگنال در Google Search؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ فقط در متن سایت اشاره شده و صفحه متمرکز ندارد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Google Search Autocomplete",
+          "query": "Pyomo GLPK",
+          "family": "pyomo glpk",
+          "rank": 5,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=1"
+        }
+      ]
+    },
+    {
+      "keyword": "برنامه ریزی غیر خطی",
+      "cluster": "زنجیره تأمین و لجستیک",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش برنامه ریزی غیر خطی با مثال عملی",
+      "suggested_slug": "برنامه-ریزی-غیر-خطی",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 51.7,
+        "demand": 26.5,
+        "content_gap": 59.3,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.4067049808429119,
+        "title": "بهینه‌سازی پیشرفته سیستم‌های قدرت در پایتون با Pyomo",
+        "url": "local://src/content/courses/Advanced-Power-System.md",
+        "mentioned_in_body": false
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "YouTube Autocomplete"
+      ],
+      "reason": "سیگنال در YouTube؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ صفحه متمرکز مشابه پیدا نشد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/24/vrp-python-course/",
+      "observations": [
+        {
+          "source": "YouTube Autocomplete",
+          "query": "برنامه ریزی عدد صحیح در پایتون",
+          "family": "برنامه ریزی عدد صحیح در پایتون",
+          "rank": 3,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=0"
+        },
+        {
+          "source": "YouTube Autocomplete",
+          "query": "انتخاب تامین کننده با مدل سازی ریاضی",
+          "family": "انتخاب تامین کننده با مدلسازی ریاضی",
+          "rank": 2,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=0"
+        },
+        {
+          "source": "YouTube Autocomplete",
+          "query": "برنامه ریزی تولید با Pyomo",
+          "family": "برنامه ریزی تولید با pyomo",
+          "rank": 2,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=0"
+        },
+        {
+          "source": "YouTube Autocomplete",
+          "query": "برنامه ریزی تولید و توزیع یکپارچه",
+          "family": "برنامه ریزی تولید و توزیع یکپارچه",
+          "rank": 3,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=0"
+        }
+      ]
+    },
+    {
+      "keyword": "pyomo glpk solver",
+      "cluster": "Pyomo و Solverها",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش pyomo glpk solver با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "pyomo-glpk-solver",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 51.7,
+        "demand": 22.7,
+        "content_gap": 64.9,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.28113153153153153,
+        "title": "سه راهکار عملی برای استفاده از سالور ها در پایومو",
+        "url": "local://src/content/notes/pyomo-solvers.md",
+        "mentioned_in_body": true
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Google Search Autocomplete"
+      ],
+      "reason": "سیگنال در Google Search؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ فقط در متن سایت اشاره شده و صفحه متمرکز ندارد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Google Search Autocomplete",
+          "query": "Pyomo GLPK",
+          "family": "pyomo glpk",
+          "rank": 3,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=1"
+        }
+      ]
+    },
+    {
+      "keyword": "pyomo ipopt solver",
+      "cluster": "Pyomo و Solverها",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش pyomo ipopt solver با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "pyomo-ipopt-solver",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 51.4,
+        "demand": 22.1,
+        "content_gap": 64.9,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.2808380952380952,
+        "title": "سه راهکار عملی برای استفاده از سالور ها در پایومو",
+        "url": "local://src/content/notes/pyomo-solvers.md",
+        "mentioned_in_body": true
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Google Search Autocomplete"
+      ],
+      "reason": "سیگنال در Google Search؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ فقط در متن سایت اشاره شده و صفحه متمرکز ندارد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Google Search Autocomplete",
+          "query": "Pyomo IPOPT",
+          "family": "pyomo ipopt",
+          "rank": 4,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=1"
+        }
+      ]
+    },
+    {
+      "keyword": "مکان یابی شماره تلفن همراه",
+      "cluster": "زنجیره تأمین و لجستیک",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش مکان یابی شماره تلفن همراه با مثال عملی",
+      "suggested_slug": "مکان-یابی-شماره-تلفن-همراه",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 51.3,
+        "demand": 21.0,
+        "content_gap": 66.2,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.3379543378995434,
+        "title": "چه مطالعاتی به پخش بار AC نیاز دارند؟",
+        "url": "local://src/content/notes/acstudies.md",
+        "mentioned_in_body": false
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "YouTube Autocomplete"
+      ],
+      "reason": "سیگنال در YouTube؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ صفحه متمرکز مشابه پیدا نشد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/24/vrp-python-course/",
+      "observations": [
+        {
+          "source": "YouTube Autocomplete",
+          "query": "مکان یابی تسهیلات در پایتون",
+          "family": "مکان یابی تسهیلات در پایتون",
+          "rank": 1,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=1"
+        }
+      ]
+    },
+    {
+      "keyword": "['pyomo highs', 'pyomo highspy']",
+      "cluster": "Pyomo و Solverها",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش ['pyomo highs', 'pyomo highspy'] با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "pyomo-highs-pyomo-highspy",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 51.3,
+        "demand": 16.7,
+        "content_gap": 72.9,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.2706666666666667,
+        "title": "هماهنگی خودرو الکتریکی، پنل خورشیدی و پاسخگویی بار در شبکه توزیع با پایتون",
+        "url": "local://src/content/projects/EV-solar.md",
+        "mentioned_in_body": false
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "DuckDuckGo Autocomplete"
+      ],
+      "reason": "سیگنال در DuckDuckGo؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ صفحه متمرکز مشابه پیدا نشد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "DuckDuckGo Autocomplete",
+          "query": "Pyomo HiGHS",
+          "family": "pyomo highs",
+          "rank": 2,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=1"
+        }
+      ]
+    },
+    {
+      "keyword": "pyomo install ipopt",
+      "cluster": "Pyomo و Solverها",
+      "intent": "خطا و نصب",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "pyomo install ipopt: راهنمای کامل نصب و تست اجرا",
+      "suggested_slug": "pyomo-install-ipopt",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 50.4,
+        "demand": 19.1,
+        "content_gap": 66.3,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.26718644067796615,
+        "title": "راهنمای جامع بهینه‌سازی با Pyomo و پایتون",
+        "url": "local://src/content/books/pyomo-optimization-guide.md",
+        "mentioned_in_body": true
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Bing Autocomplete"
+      ],
+      "reason": "سیگنال در Bing؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ فقط در متن سایت اشاره شده و صفحه متمرکز ندارد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Bing Autocomplete",
+          "query": "Pyomo IPOPT",
+          "family": "pyomo ipopt",
+          "rank": 3,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=1"
+        }
+      ]
+    },
+    {
+      "keyword": "pyomo highspy",
+      "cluster": "Pyomo و Solverها",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش pyomo highspy با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "pyomo-highspy",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 50.3,
+        "demand": 19.6,
+        "content_gap": 65.2,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.3479245283018868,
+        "title": "راهنمای جامع بهینه‌سازی با Pyomo و پایتون",
+        "url": "local://src/content/books/pyomo-optimization-guide.md",
+        "mentioned_in_body": false
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Bing Autocomplete"
+      ],
+      "reason": "سیگنال در Bing؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ صفحه متمرکز مشابه پیدا نشد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Bing Autocomplete",
+          "query": "Pyomo HiGHS",
+          "family": "pyomo highs",
+          "rank": 2,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=1"
+        }
+      ]
+    },
+    {
+      "keyword": "['برنامه برنامه ریزی روزانه', 'شرکت سیستم های رایانه ای']",
+      "cluster": "زنجیره تأمین و لجستیک",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش ['برنامه برنامه ریزی روزانه', 'شرکت سیستم های رایانه ای'] با مثال عملی",
+      "suggested_slug": "برنامه-برنامه-ریزی-روزانه-شرکت-سیستم-های-رایانه-ای",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 49.9,
+        "demand": 16.7,
+        "content_gap": 68.5,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.31498127340823967,
+        "title": "بهینه‌سازی پیشرفته سیستم‌های قدرت در پایتون با Pyomo",
+        "url": "local://src/content/courses/Advanced-Power-System.md",
+        "mentioned_in_body": false
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "DuckDuckGo Autocomplete"
+      ],
+      "reason": "سیگنال در DuckDuckGo؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ صفحه متمرکز مشابه پیدا نشد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/24/vrp-python-course/",
+      "observations": [
+        {
+          "source": "DuckDuckGo Autocomplete",
+          "query": "برنامه ریزی تولید و توزیع یکپارچه",
+          "family": "برنامه ریزی تولید و توزیع یکپارچه",
+          "rank": 2,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=0"
+        }
+      ]
+    },
+    {
+      "keyword": "['pyomo glpk', 'pyomo install glpk', 'glpk solver for pyomo']",
+      "cluster": "Pyomo و Solverها",
+      "intent": "خطا و نصب",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "['pyomo glpk', 'pyomo install glpk', 'glpk solver for pyomo']: راهنمای کامل نصب و تست اجرا",
+      "suggested_slug": "pyomo-glpk-pyomo-install-glpk-glpk-solver-for-pyomo",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 49.7,
+        "demand": 16.7,
+        "content_gap": 67.8,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.2520901856763926,
+        "title": "سه راهکار عملی برای استفاده از سالور ها در پایومو",
+        "url": "local://src/content/notes/pyomo-solvers.md",
+        "mentioned_in_body": true
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "DuckDuckGo Autocomplete"
+      ],
+      "reason": "سیگنال در DuckDuckGo؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ فقط در متن سایت اشاره شده و صفحه متمرکز ندارد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "DuckDuckGo Autocomplete",
+          "query": "Pyomo GLPK",
+          "family": "pyomo glpk",
+          "rank": 2,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=1"
+        }
+      ]
+    },
+    {
+      "keyword": "pyomo highs example",
+      "cluster": "Pyomo و Solverها",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش pyomo highs example با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "pyomo-highs-example",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 49.4,
+        "demand": 22.7,
+        "content_gap": 57.900000000000006,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.3511864406779661,
+        "title": "راهنمای جامع بهینه‌سازی با Pyomo و پایتون",
+        "url": "local://src/content/books/pyomo-optimization-guide.md",
+        "mentioned_in_body": true
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Google Search Autocomplete"
+      ],
+      "reason": "سیگنال در Google Search؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ فقط در متن سایت اشاره شده و صفحه متمرکز ندارد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Google Search Autocomplete",
+          "query": "Pyomo HiGHS",
+          "family": "pyomo highs",
+          "rank": 3,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=1"
+        }
+      ]
+    },
+    {
+      "keyword": "pyomo ipopt example",
+      "cluster": "Pyomo و Solverها",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش pyomo ipopt example با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "pyomo-ipopt-example",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 49.4,
+        "demand": 22.7,
+        "content_gap": 57.900000000000006,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.3511864406779661,
+        "title": "راهنمای جامع بهینه‌سازی با Pyomo و پایتون",
+        "url": "local://src/content/books/pyomo-optimization-guide.md",
+        "mentioned_in_body": true
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Google Search Autocomplete"
+      ],
+      "reason": "سیگنال در Google Search؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ فقط در متن سایت اشاره شده و صفحه متمرکز ندارد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Google Search Autocomplete",
+          "query": "Pyomo IPOPT",
+          "family": "pyomo ipopt",
+          "rank": 3,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=1"
+        }
+      ]
+    },
+    {
+      "keyword": "برنامه ریزی تولید مهندسی صنایع",
+      "cluster": "زنجیره تأمین و لجستیک",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش برنامه ریزی تولید مهندسی صنایع با مثال عملی",
+      "suggested_slug": "برنامه-ریزی-تولید-مهندسی-صنایع",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 49.2,
+        "demand": 23.0,
+        "content_gap": 56.7,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.3631304347826087,
+        "title": "بهینه‌سازی پیشرفته سیستم‌های قدرت در پایتون با Pyomo",
+        "url": "local://src/content/courses/Advanced-Power-System.md",
+        "mentioned_in_body": true
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "YouTube Autocomplete"
+      ],
+      "reason": "سیگنال در YouTube؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ فقط در متن سایت اشاره شده و صفحه متمرکز ندارد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/24/vrp-python-course/",
+      "observations": [
+        {
+          "source": "YouTube Autocomplete",
+          "query": "انتخاب تامین کننده با مدل سازی ریاضی",
+          "family": "انتخاب تامین کننده با مدلسازی ریاضی",
+          "rank": 1,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=0"
+        },
+        {
+          "source": "YouTube Autocomplete",
+          "query": "برنامه ریزی تولید و توزیع یکپارچه",
+          "family": "برنامه ریزی تولید و توزیع یکپارچه",
+          "rank": 1,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=0"
+        }
+      ]
+    },
+    {
+      "keyword": "برنامه ریزی خطی تحقیق در عملیات",
+      "cluster": "مدل‌سازی و تحقیق در عملیات",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش برنامه ریزی خطی تحقیق در عملیات با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "برنامه-ریزی-خطی-تحقیق-در-عملیات",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 49.2,
+        "demand": 23.0,
+        "content_gap": 56.9,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.36114285714285715,
+        "title": "بهینه‌سازی پیشرفته سیستم‌های قدرت در پایتون با Pyomo",
+        "url": "local://src/content/courses/Advanced-Power-System.md",
+        "mentioned_in_body": true
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "YouTube Autocomplete"
+      ],
+      "reason": "سیگنال در YouTube؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ فقط در متن سایت اشاره شده و صفحه متمرکز ندارد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "YouTube Autocomplete",
+          "query": "برنامه ریزی خطی در پایتون",
+          "family": "برنامه ریزی خطی در پایتون",
+          "rank": 1,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=0"
+        },
+        {
+          "source": "YouTube Autocomplete",
+          "query": "برنامه ریزی خطی با پایتون",
+          "family": "برنامه ریزی خطی با پایتون",
+          "rank": 2,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=1"
+        }
+      ]
+    },
+    {
+      "keyword": "what is mixed integer optimization",
+      "cluster": "مدل‌سازی و تحقیق در عملیات",
+      "intent": "تعریف و مفهوم",
+      "funnel": "آگاهی",
+      "suggested_title": "what is mixed integer optimization؛ تعریف ساده، مدل ریاضی و مثال کاربردی",
+      "suggested_slug": "what-is-mixed-integer-optimization",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 49.2,
+        "demand": 16.9,
+        "content_gap": 71.6,
+        "business_fit": 91.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.2841304347826087,
+        "title": "دوره فشرده مدل‌سازی عدم قطعیت",
+        "url": "local://src/content/courses/uncertainty-modeling.md",
+        "mentioned_in_body": false
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Bing Autocomplete"
+      ],
+      "reason": "سیگنال در Bing؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ صفحه متمرکز مشابه پیدا نشد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Bing Autocomplete",
+          "query": "how to what is mixed integer programming",
+          "family": "what is mixed integer programming",
+          "rank": 11,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=2"
+        },
+        {
+          "source": "Bing Autocomplete",
+          "query": "what is mixed integer programming error",
+          "family": "what is mixed integer programming",
+          "rank": 8,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=2"
+        }
+      ]
+    },
+    {
+      "keyword": "برنامه ریزی بلند مدت",
+      "cluster": "زنجیره تأمین و لجستیک",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش برنامه ریزی بلند مدت با مثال عملی",
+      "suggested_slug": "برنامه-ریزی-بلند-مدت",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 48.0,
+        "demand": 20.0,
+        "content_gap": 57.5,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.42476459510357817,
+        "title": "بهینه‌سازی پیشرفته سیستم‌های قدرت در پایتون با Pyomo",
+        "url": "local://src/content/courses/Advanced-Power-System.md",
+        "mentioned_in_body": false
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "YouTube Autocomplete"
+      ],
+      "reason": "سیگنال در YouTube؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ صفحه متمرکز مشابه پیدا نشد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/24/vrp-python-course/",
+      "observations": [
+        {
+          "source": "YouTube Autocomplete",
+          "query": "برنامه ریزی تولید با Pyomo",
+          "family": "برنامه ریزی تولید با pyomo",
+          "rank": 3,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=0"
+        }
+      ]
+    },
+    {
+      "keyword": "['glpk solver for pyomo']",
+      "cluster": "Pyomo و Solverها",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش ['glpk solver for pyomo'] با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "glpk-solver-for-pyomo",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 48.0,
+        "demand": 16.7,
+        "content_gap": 62.599999999999994,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.30377971014492755,
+        "title": "سه راهکار عملی برای استفاده از سالور ها در پایومو",
+        "url": "local://src/content/notes/pyomo-solvers.md",
+        "mentioned_in_body": true
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "DuckDuckGo Autocomplete"
+      ],
+      "reason": "سیگنال در DuckDuckGo؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ فقط در متن سایت اشاره شده و صفحه متمرکز ندارد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "DuckDuckGo Autocomplete",
+          "query": "pyomo glpk solver",
+          "family": "pyomo glpk solver",
+          "rank": 2,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=2"
+        }
+      ]
+    },
+    {
+      "keyword": "شبکه توزیع برق",
+      "cluster": "زنجیره تأمین و لجستیک",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش شبکه توزیع برق با مثال عملی",
+      "suggested_slug": "شبکه-توزیع-برق",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 46.3,
+        "demand": 23.0,
+        "content_gap": 47.8,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.4515384615384615,
+        "title": "چه مطالعاتی به پخش بار AC نیاز دارند؟",
+        "url": "local://src/content/notes/acstudies.md",
+        "mentioned_in_body": true
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "YouTube Autocomplete"
+      ],
+      "reason": "سیگنال در YouTube؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ فقط در متن سایت اشاره شده و صفحه متمرکز ندارد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/24/vrp-python-course/",
+      "observations": [
+        {
+          "source": "YouTube Autocomplete",
+          "query": "جایابی بهینه خازن در شبکه توزیع",
+          "family": "جایابی بهینه خازن در شبکه توزیع",
+          "rank": 3,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=0"
+        },
+        {
+          "source": "YouTube Autocomplete",
+          "query": "بازآرایی بهینه شبکه توزیع",
+          "family": "بازآرایی بهینه شبکه توزیع",
+          "rank": 1,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=0"
+        }
+      ]
+    },
+    {
+      "keyword": "برنامه برنامه ریزی روزانه",
+      "cluster": "زنجیره تأمین و لجستیک",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش برنامه برنامه ریزی روزانه با مثال عملی",
+      "suggested_slug": "برنامه-برنامه-ریزی-روزانه",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 45.3,
+        "demand": 20.0,
+        "content_gap": 49.1,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.509375,
+        "title": "بهینه‌سازی پیشرفته سیستم‌های قدرت در پایتون با Pyomo",
+        "url": "local://src/content/courses/Advanced-Power-System.md",
+        "mentioned_in_body": false
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Bing Autocomplete"
+      ],
+      "reason": "سیگنال در Bing؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ صفحه متمرکز مشابه پیدا نشد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/24/vrp-python-course/",
+      "observations": [
+        {
+          "source": "Bing Autocomplete",
+          "query": "برنامه ریزی تولید و توزیع یکپارچه",
+          "family": "برنامه ریزی تولید و توزیع یکپارچه",
+          "rank": 1,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=0"
+        }
+      ]
+    },
+    {
+      "keyword": "برنامه ریزی صحیح",
+      "cluster": "مدل‌سازی و تحقیق در عملیات",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش برنامه ریزی صحیح با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "برنامه-ریزی-صحیح",
+      "coverage_action": "محتوای جدید",
+      "scores": {
+        "opportunity": 45.2,
+        "demand": 22.5,
+        "content_gap": 44.9,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.4809090909090909,
+        "title": "بهینه‌سازی پیشرفته سیستم‌های قدرت در پایتون با Pyomo",
+        "url": "local://src/content/courses/Advanced-Power-System.md",
+        "mentioned_in_body": true
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "YouTube Autocomplete"
+      ],
+      "reason": "سیگنال در YouTube؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ فقط در متن سایت اشاره شده و صفحه متمرکز ندارد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "YouTube Autocomplete",
+          "query": "برنامه ریزی عدد صحیح در پایتون",
+          "family": "برنامه ریزی عدد صحیح در پایتون",
+          "rank": 2,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=0"
+        },
+        {
+          "source": "YouTube Autocomplete",
+          "query": "برنامه ریزی عدد صحیح با پایتون",
+          "family": "برنامه ریزی عدد صحیح با پایتون",
+          "rank": 4,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=1"
+        }
+      ]
+    },
+    {
+      "keyword": "مدل سازی در بهینه سازی خطی",
+      "cluster": "مدل‌سازی و تحقیق در عملیات",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش مدل سازی در بهینه سازی خطی با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "مدلسازی-در-optimization-خطی",
+      "coverage_action": "صفحه مکمل لازم است",
+      "scores": {
+        "opportunity": 36.2,
+        "demand": 24.0,
+        "content_gap": 30.200000000000003,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.6276923076923078,
+        "title": "دوره مدل‌سازی مسائل بهینه‌سازی",
+        "url": "local://src/content/courses/optimization-modeling.md",
+        "mentioned_in_body": true
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "Google Search Autocomplete"
+      ],
+      "reason": "سیگنال در Google Search؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ صفحه نزدیک وجود دارد، اما نیت دقیق پوشش کامل ندارد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "Google Search Autocomplete",
+          "query": "خطی سازی در بهینه سازی",
+          "family": "خطی سازی در بهینهسازی",
+          "rank": 1,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=1"
+        }
+      ]
+    },
+    {
+      "keyword": "برنامه ریزی خطی",
+      "cluster": "مدل‌سازی و تحقیق در عملیات",
+      "intent": "کدنویسی",
+      "funnel": "بررسی راه‌حل",
+      "suggested_title": "آموزش برنامه ریزی خطی با Python/Pyomo؛ از مدل تا کد",
+      "suggested_slug": "برنامه-ریزی-خطی",
+      "coverage_action": "صفحه مکمل لازم است",
+      "scores": {
+        "opportunity": 31.5,
+        "demand": 20.0,
+        "content_gap": 21.6,
+        "business_fit": 100.0,
+        "serp_competition": null
+      },
+      "confidence": "کم",
+      "trend": "جدید امروز",
+      "metrics": {
+        "monthly_searches": 0.0,
+        "gsc_impressions": 0.0,
+        "gsc_clicks": 0.0,
+        "gsc_ctr": 0.0,
+        "gsc_position": 0.0,
+        "stack_views": 0.0,
+        "stack_questions": 0
+      },
+      "existing_page": {
+        "similarity": 0.7143999999999999,
+        "title": "راهنمای جامع بهینه‌سازی با Pyomo و پایتون",
+        "url": "local://src/content/books/pyomo-optimization-guide.md",
+        "mentioned_in_body": true
+      },
+      "serp": {
+        "checked": false,
+        "exact_titles": 0,
+        "strong_domains": 0,
+        "user_domain_rank": 0,
+        "top_titles": []
+      },
+      "sources": [
+        "YouTube Autocomplete"
+      ],
+      "reason": "سیگنال در YouTube؛ جدید امروز؛ رقابت SERP اندازه‌گیری نشده؛ صفحه نزدیک وجود دارد، اما نیت دقیق پوشش کامل ندارد",
+      "course_url": "https://optimizationexpert.github.io/posts/2026/06/21/optimization-modeling-course/",
+      "observations": [
+        {
+          "source": "YouTube Autocomplete",
+          "query": "برنامه ریزی خطی در پایتون",
+          "family": "برنامه ریزی خطی در پایتون",
+          "rank": 3,
+          "url": "",
+          "date": "2026-08-05",
+          "value": 0.0,
+          "note": "hop=0"
+        }
+      ]
+    }
+  ]
+}
