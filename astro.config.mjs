@@ -2,7 +2,7 @@ import { defineConfig } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
-  site: "https://optimizationexpert.github.io",
+  site: "https://optexpert.org",
   output: "static",
   trailingSlash: "always",
 
