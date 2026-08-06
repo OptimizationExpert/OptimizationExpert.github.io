@@ -96,6 +96,7 @@ const softwaresCollection = defineCollection({
     version: z.string().optional(),
     size: z.string().optional(),
     price: z.string().optional(),
+    resourceUrl: z.string().optional(),
     image: z.string().optional(),
     imageAlt: z.string().optional(),
     tags: z.array(z.string()).optional(),
