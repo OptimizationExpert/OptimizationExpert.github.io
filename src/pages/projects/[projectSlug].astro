@@ -4,6 +4,7 @@ import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import RelatedContent from '../../components/RelatedContent.astro';
+import { cacheBust } from '../../utils/cacheBust';
 
 export async function getStaticPaths() {
   const projects = await getCollection('projects');
@@ -80,7 +81,7 @@ const projectSlug = project.id.replace(/\.md$/, '').split('/').pop();
       <!-- تصویر پروژه -->
       {project.data.image && (
         <div class="w-full rounded-2xl overflow-hidden border border-[var(--site-border)] mb-8 bg-[var(--site-card)] flex items-center justify-center shadow-md">
-          <img src={project.data.image} alt={project.data.title} class="w-full h-auto object-contain" />
+          <img src={cacheBust(project.data.image)} alt={project.data.title} class="w-full h-auto object-contain" />
         </div>
       )}
 
