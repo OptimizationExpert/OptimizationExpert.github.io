@@ -20,6 +20,20 @@ const { note } = Astro.props;
 const { Content } = await render(note);
 const noteSlug = note.id.replace(/\.md$/, '').split('/').pop();
 ---
+const siteUrl = "https://optexpert.org";
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": note.data.title,
+  "description": note.data.description,
+  "url": `${siteUrl}/notes/${noteSlug}/`,
+  "datePublished": note.data.pubDate.toISOString(),
+  "inLanguage": "fa",
+  "author": { "@type": "Person", "name": note.data.author },
+  "publisher": { "@type": "Organization", "name": "Optimization Expert", "url": `${siteUrl}/` },
+  ...(note.data.image && { "image": `${siteUrl}${note.data.image}` }),
+};
 
 <Layout title={note.data.title} description={note.data.description} image={note.data.image}>
 
@@ -115,3 +129,5 @@ const noteSlug = note.id.replace(/\.md$/, '').split('/').pop();
   <Footer />
 
 </Layout>
+
+<script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
