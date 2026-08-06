@@ -1,6 +1,6 @@
 ---
 title: "حل پازل Domino Fit با OR-Tools"
-description: "حل مساله پازل به همراه فرمولاسیون ریاضی و کد نویسی پایتون در ORTools"
+description: "حل پازل دومینو به همراه فرمولاسیون ریاضی و کد نویسی پایتون در ORTools"
 pubDate: 2026-08-06
 author: "علیرضا سرودی"
 image: "/images/notes/dominofit.webp"
