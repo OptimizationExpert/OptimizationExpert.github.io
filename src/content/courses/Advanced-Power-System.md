@@ -19,7 +19,7 @@ instructor: "dr-soroudi"
 relatedCourses: ["optimization-modeling", "uncertainty-modeling"]
 relatedNotes: ["mathematical-modeling-art", "modeling-before-coding", "google-colab", "pyomo-solvers"]
 
-tags: ["بهینه سازی سیستم قدرت", "پایتون", "Pyomo", "OPF", "بازار برق", "Unit Commitment", "آرایش بهینه واحدها", "سیستم قدرت", "AC-OPF", "DC-OPF"]
+tags: ["بهینه سازی سیستم قدرت", "پایتون", "Pyomo", "OPF", "بازار برق", "Unit Commitment", "آرایش بهینه واحدها", "سیستم قدرت", "DC-OPF"]
 ---
 
 در این دوره پیشرفته آموزش بهینه‌سازی سیستم‌های قدرت در پایتون، با تدریس دکتر علیرضا سرودی، به صورت کاملاً کاربردی با مدل‌سازی مسائل کلیدی صنعت برق مانند آرایش بهینه واحدها (Unit Commitment)، پخش بار بهینه (OPF) و برنامه‌ریزی توسعه شبکه با استفاده از  Pyomo  آشنا می‌شوید.
