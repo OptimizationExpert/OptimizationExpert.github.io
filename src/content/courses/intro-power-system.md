@@ -4,7 +4,7 @@ title: "دوره مقدماتی بهینه‌سازی سیستم‌های قدر
 seoTitle: "دوره مقدماتی بهینه‌سازی سیستم‌های قدرت"
 description: "دوره مقدماتی بهینه‌سازی سیستم‌های قدرت در ۸ ساعت: پخش بار اقتصادی، DC-OPF،  باتری، و مقدمه‌ای بر Unit Commitment در Python."
 pubDate: 2026-06-22
-image: "/images/courses/intro_power.png"
+image: "/images/courses/intropower_logo.webp"
 imageAlt: "کاور دوره مقدماتی بهینه‌سازی سیستم‌های قدرت"
 
 # === متغیرهای اختصاصی دوره (برای نمایش در کارت‌ها و Schema) ===
