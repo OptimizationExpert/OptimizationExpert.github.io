@@ -17,7 +17,7 @@ export async function getStaticPaths() {
 const { course } = Astro.props;
 const { Content } = await render(course);
 const courseSlug = course.id.replace(/\.md$/, '').split('/').pop();
----
+
 // یافتن نام واقعی مدرس برای استفاده در Schema (همان الگوی InstructorBio)
 const instructors = await getCollection('instructors');
 const instructorEntry = instructors.find(
@@ -48,7 +48,11 @@ const courseSchema = {
     }),
   },
 };
+---
+
 <Layout title={course.data.title} description={course.data.description} image={course.data.image}>
+
+  <script type="application/ld+json" set:html={JSON.stringify(courseSchema)} />
 
   <Header />
 
