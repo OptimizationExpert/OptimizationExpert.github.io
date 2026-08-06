@@ -3,7 +3,7 @@ title: "چه مطالعاتی به پخش بار AC نیاز دارند؟"
 description: "معرفی ۱۰ مطالعه‌ی مهم در سیستم قدرت که به دلیل نیاز به ولتاژ، توان راکتیو یا تلفات دقیق، فقط با پخش بار AC قابل انجام هستند."
 pubDate: 2026-08-05
 author: "علیرضا سرودی"
-image: "/images/notes/ACstudies.png"
+image: "/images/notes/ACstudies.webp"
 tags: ["سیستم قدرت", "پخش بار", "AC Power Flow"]
 relatedCourses: ["advanced-power-system"]
 ---
@@ -20,7 +20,7 @@ relatedCourses: ["advanced-power-system"]
   "@type": "VideoObject",
   "name": "چه مطالعاتی به پخش بار AC نیاز دارند؟",
   "description": "معرفی ۱۰ مطالعه‌ی مهم در سیستم قدرت که فقط با پخش بار AC قابل انجام هستند.",
-  "thumbnailUrl": "https://optexpert.org/images/notes/ACstudies.png",
+  "thumbnailUrl": "https://optexpert.org/images/notes/ACstudies.webp",
   "uploadDate": "2026-08-05",
   "contentUrl": "https://www.aparat.com/v/aug8432",
   "embedUrl": "https://www.aparat.com/video/video/embed/videohash/aug8432/vt/frame"
