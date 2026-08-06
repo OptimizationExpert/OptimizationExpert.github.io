@@ -25,6 +25,21 @@ const instructorNotes = allNotes.filter(n => n.data.author === instructor.data.n
 
 const allProjects = await getCollection('projects');
 const instructorProjects = allProjects.filter(p => p.data.instructor === instructorSlug);
+
+const siteUrl = "https://optexpert.org";
+const sameAs = [instructor.data.githubUrl, instructor.data.linkedinUrl].filter(Boolean);
+
+// داده‌ساختاریافته‌ی نوع Person برای تقویت سیگنال‌های E-E-A-T نزد گوگل
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": instructor.data.name,
+  "url": `${siteUrl}/instructors/${instructorSlug}/`,
+  ...(instructor.data.title && { "jobTitle": instructor.data.title }),
+  ...(instructor.data.image && { "image": `${siteUrl}${instructor.data.image}` }),
+  ...(instructor.data.email && { "email": instructor.data.email }),
+  ...(sameAs.length > 0 && { "sameAs": sameAs }),
+};
 ---
 
 <Layout 
@@ -33,13 +48,15 @@ const instructorProjects = allProjects.filter(p => p.data.instructor === instruc
   image={instructor.data.image}
 >
 
+  <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+
   <Header />
 
   <main class="max-w-4xl mx-auto px-6 py-12 flex-grow w-full">
      
     <!-- دکمه بازگشت -->
     <div class="mb-8">
-      <a href="/courses" class="text-xs text-[var(--site-primary)] hover:opacity-80 inline-flex items-center gap-1.5 transition">
+      <a href="/courses/" class="text-xs text-[var(--site-primary)] hover:opacity-80 inline-flex items-center gap-1.5 transition">
         <i class="fa-solid fa-arrow-right text-[10px]"></i>
         <span>بازگشت</span>
       </a>
@@ -80,7 +97,7 @@ const instructorProjects = allProjects.filter(p => p.data.instructor === instruc
           {instructorCourses.map((course) => {
             const slug = course.id.replace(/\.md$/, '').split('/').pop();
             return (
-              <a href={`/courses/${slug}`} class="bg-[var(--site-card)] border border-[var(--site-border)] hover:border-[var(--site-primary)]/50 rounded-2xl p-5 transition group shadow-xs">
+              <a href={`/courses/${slug}/`} class="bg-[var(--site-card)] border border-[var(--site-border)] hover:border-[var(--site-primary)]/50 rounded-2xl p-5 transition group shadow-xs">
                 <h3 class="text-base font-bold text-[var(--site-heading)] group-hover:text-[var(--site-primary)] transition mb-2">{course.data.title}</h3>
                 <p class="text-[var(--site-muted)] text-xs line-clamp-2">{course.data.description}</p>
               </a>
@@ -101,7 +118,7 @@ const instructorProjects = allProjects.filter(p => p.data.instructor === instruc
           {instructorNotes.map((note) => {
             const slug = note.id.replace(/\.md$/, '').split('/').pop();
             return (
-              <a href={`/notes/${slug}`} class="block bg-[var(--site-card)] border border-[var(--site-border)] hover:border-[var(--site-primary)]/50 rounded-2xl p-5 transition group shadow-xs">
+              <a href={`/notes/${slug}/`} class="block bg-[var(--site-card)] border border-[var(--site-border)] hover:border-[var(--site-primary)]/50 rounded-2xl p-5 transition group shadow-xs">
                 <h3 class="text-base font-bold text-[var(--site-heading)] group-hover:text-[var(--site-primary)] transition mb-1">{note.data.title}</h3>
                 <p class="text-[var(--site-muted)] text-xs">{note.data.description}</p>
               </a>
@@ -122,7 +139,7 @@ const instructorProjects = allProjects.filter(p => p.data.instructor === instruc
           {instructorProjects.map((project) => {
             const slug = project.id.replace(/\.md$/, '').split('/').pop();
             return (
-              <a href={`/projects/${slug}`} class="bg-[var(--site-card)] border border-[var(--site-border)] hover:border-[var(--site-primary)]/50 rounded-2xl p-5 transition group shadow-xs">
+              <a href={`/projects/${slug}/`} class="bg-[var(--site-card)] border border-[var(--site-border)] hover:border-[var(--site-primary)]/50 rounded-2xl p-5 transition group shadow-xs">
                 <h3 class="text-base font-bold text-[var(--site-heading)] group-hover:text-[var(--site-primary)] transition mb-2">{project.data.title}</h3>
                 <p class="text-[var(--site-muted)] text-xs line-clamp-2">{project.data.description}</p>
               </a>
