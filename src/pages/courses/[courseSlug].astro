@@ -18,7 +18,36 @@ const { course } = Astro.props;
 const { Content } = await render(course);
 const courseSlug = course.id.replace(/\.md$/, '').split('/').pop();
 ---
+// یافتن نام واقعی مدرس برای استفاده در Schema (همان الگوی InstructorBio)
+const instructors = await getCollection('instructors');
+const instructorEntry = instructors.find(
+  (i) => i.id.replace(/\.md$/, '').split('/').pop() === course.data.instructor
+);
 
+const siteUrl = "https://optexpert.org";
+
+const courseSchema = {
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": course.data.title,
+  "description": course.data.description,
+  "url": `${siteUrl}/courses/${courseSlug}/`,
+  "inLanguage": "fa",
+  "provider": {
+    "@type": "Organization",
+    "name": "Optimization Expert",
+    "url": `${siteUrl}/`,
+  },
+  ...(course.data.prerequisite && { "coursePrerequisites": course.data.prerequisite }),
+  ...(course.data.level && { "educationalLevel": course.data.level }),
+  "hasCourseInstance": {
+    "@type": "CourseInstance",
+    "courseMode": "online",
+    ...(instructorEntry && {
+      "instructor": { "@type": "Person", "name": instructorEntry.data.name },
+    }),
+  },
+};
 <Layout title={course.data.title} description={course.data.description} image={course.data.image}>
 
   <Header />
