@@ -1,113 +1,128 @@
----
-import { getCollection, render } from 'astro:content';
-import Layout from '../../layouts/Layout.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
-import RelatedContent from '../../components/RelatedContent.astro';
+import { defineCollection, z } from 'astro:content';
+import { glob } from 'astro/loaders';
 
-export async function getStaticPaths() {
-  const softwares = await getCollection('softwares');
-  return softwares.map((software) => {
-    const softwareSlug = software.id.replace(/\.md$/, '').split('/').pop();
-    return {
-      params: { softwareSlug },
-      props: { software },
-    };
-  });
-}
+// اسکیما و تنظیمات مربوط به مقالات و یادداشت‌ها
+const notesCollection = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/notes" }),
+  schema: z.object({
+    title: z.string(),
+    seoTitle: z.string().optional(),
+    description: z.string(),
+    pubDate: z.coerce.date(),
+    author: z.string(),
+    image: z.string().optional(),
+    imageAlt: z.string().optional(),
+    tags: z.array(z.string()).optional(),
+    relatedCourses: z.array(z.string()).optional(),
+    relatedNotes: z.array(z.string()).optional(),
+    relatedProjects: z.array(z.string()).optional(),
+  }),
+});
 
-const { software } = Astro.props;
-const { Content } = await render(software);
-const softwareSlug = software.id.replace(/\.md$/, '').split('/').pop();
+// اسکیما و تنظیمات مربوط به پروژه‌ها
+const projectsCollection = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/projects" }),
+  schema: z.object({
+    title: z.string(),
+    seoTitle: z.string().optional(),
+    description: z.string(),
+    pubDate: z.coerce.date().optional(),
+    category: z.string().optional(),
+    image: z.string().optional(),
+    imageAlt: z.string().optional(),
+    demoUrl: z.string().optional(),
+    githubUrl: z.string().optional(),
+    instructor: z.string().optional(),
+    environment: z.string().optional(),
+    status: z.string().optional(),
+    level: z.string().optional(),
+    tags: z.array(z.string()).optional(),
+    relatedCourses: z.array(z.string()).optional(),
+    relatedNotes: z.array(z.string()).optional(),
+    relatedProjects: z.array(z.string()).optional(),
+  }),
+});
 
-const defaultImage = "/images/courses/python-optimization.png";
-const softwareImg = software.data.image || defaultImage;
----
+// اسکیما و تنظیمات مربوط به دوره‌ها
+const coursesCollection = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/courses" }),
+  schema: z.object({
+    title: z.string(),
+    seoTitle: z.string().optional(),
+    description: z.string(),
+    pubDate: z.coerce.date(),
+    duration: z.string().optional(),
+    level: z.string().optional(),
+    image: z.string().optional(),
+    imageAlt: z.string().optional(),
+    environment: z.string().optional(),
+    prerequisite: z.string().optional(),
+    sessions: z.string().optional(),
+    instructor: z.string().optional(),
+    tags: z.array(z.string()).optional(),
+    relatedCourses: z.array(z.string()).optional(),
+    relatedNotes: z.array(z.string()).optional(),
+    relatedProjects: z.array(z.string()).optional(),
+  }),
+});
 
-<Layout title={software.data.title} description={software.data.description} image={software.data.image}>
+// اسکیما و تنظیمات مربوط به کتاب‌ها و جزوات
+const booksCollection = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/books" }),
+  schema: z.object({
+    title: z.string(),
+    seoTitle: z.string().optional(),
+    description: z.string(),
+    category: z.string().optional(),
+    format: z.string().optional(),
+    pages: z.coerce.number().optional(),
+    price: z.string().optional(),
+    image: z.string().optional(),
+    imageAlt: z.string().optional(),
+    pubDate: z.coerce.date().optional(),
+    tags: z.array(z.string()).optional(),
+  }),
+});
 
-  <Header />
+// اسکیما و تنظیمات مربوط به نرم‌افزارها
+const softwaresCollection = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/softwares" }),
+  schema: z.object({
+    title: z.string(),
+    seoTitle: z.string().optional(),
+    description: z.string(),
+    pubDate: z.coerce.date().optional(),
+    category: z.string().optional(),
+    version: z.string().optional(),
+    size: z.string().optional(),
+    price: z.string().optional(),
+    resourceUrl: z.string().optional(),
+    image: z.string().optional(),
+    imageAlt: z.string().optional(),
+    tags: z.array(z.string()).optional(),
+  }),
+});
 
-  <main class="max-w-3xl mx-auto px-6 py-12 flex-grow w-full">
-     
-    <!-- دکمه بازگشت -->
-    <div class="mb-6">
-      <a href="/softwares" class="text-xs text-[var(--site-primary)] hover:opacity-80 inline-flex items-center gap-1.5 transition">
-        <i class="fa-solid fa-arrow-right text-[10px]"></i>
-        <span>بازگشت به نرم‌افزارها</span>
-      </a>
-    </div>
+// اسکیما و تنظیمات مربوط به مدرسان
+const instructorsCollection = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/instructors" }),
+  schema: z.object({
+    name: z.string(),
+    seoTitle: z.string().optional(),
+    title: z.string().optional(),
+    image: z.string().optional(),
+    imageAlt: z.string().optional(),
+    email: z.string().optional(),
+    githubUrl: z.string().optional(),
+    linkedinUrl: z.string().optional(),
+  }),
+});
 
-    <article>
-      <!-- جزئیات نرم‌افزار (نسخه، حجم، دسته‌بندی و...) -->
-      <div class="flex flex-wrap items-center gap-3 mb-4">
-        {software.data.category && (
-          <span class="text-xs font-semibold text-[var(--site-primary)] bg-[var(--site-primary)]/10 px-3.5 py-1 rounded-full border border-[var(--site-primary)]/20">
-            {software.data.category}
-          </span>
-        )}
-        {software.data.version && (
-          <span class="text-xs text-[var(--site-heading)] bg-[var(--site-card)] px-3.5 py-1 rounded-full border border-[var(--site-border)] shadow-2xs">
-            نسخه: {software.data.version}
-          </span>
-        )}
-        {software.data.size && (
-          <span class="text-xs text-[var(--site-muted)] flex items-center gap-1.5">
-            <i class="fa-solid fa-hard-drive text-[var(--site-primary)]"></i>
-            <span>{software.data.size}</span>
-          </span>
-        )}
-        {software.data.pubDate && (
-          <span class="text-xs text-[var(--site-muted)] flex items-center gap-1.5">
-            <i class="fa-regular fa-calendar"></i>
-            <span>{software.data.pubDate.toLocaleDateString('fa-IR')}</span>
-          </span>
-        )}
-      </div>
-
-      <h1 class="text-3xl md:text-4xl font-extrabold text-[var(--site-heading)] mb-6 leading-tight">
-        {software.data.title}
-      </h1>
-
-      <p class="text-[var(--site-text)] text-base md:text-lg leading-relaxed mb-8 bg-[var(--site-card)] p-5 rounded-2xl border border-[var(--site-border)] shadow-xs">
-        {software.data.description}
-      </p>
-
-      <!-- تصویر یا بنر نرم‌افزار -->
-      {software.data.image && (
-        <div class="flex justify-center mb-8">
-          <div class="bg-[var(--site-card)] rounded-2xl border border-[var(--site-border)] shadow-md p-4 inline-flex items-center justify-center">
-            <img src={softwareImg} alt={software.data.title} class="max-h-[380px] w-auto object-contain rounded-xl shadow-xs" />
-          </div>
-        </div>
-      )}
-
-      <!-- باکس وضعیت هزینه / لایسنس و دکمه دانلود -->
-      <div class="bg-[var(--site-card)] border border-[var(--site-border)] rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4 mb-10 shadow-xs">
-        <div>
-          <span class="text-xs text-[var(--site-muted)] block mb-1">نوع لایسنس / هزینه</span>
-          <span class="text-lg font-bold text-emerald-500">{software.data.price || "رایگان"}</span>
-        </div>
-        <a href="#download-section" class="w-full sm:w-auto bg-[var(--site-primary)] hover:opacity-90 text-white font-medium px-6 py-3 rounded-xl transition text-xs text-center shadow-sm shadow-sky-500/25 inline-flex items-center justify-center gap-2">
-          <i class="fa-solid fa-download"></i>
-          <span>دانلود نرم‌افزار و منابع</span>
-        </a>
-      </div>
-
-      <hr class="border-[var(--site-border)] mb-10" />
-
-      <!-- محتوای کامل راهنمای نصب و ویژگی‌ها -->
-      <div class="prose max-w-none leading-loose text-[var(--site-text)] space-y-6">
-        <Content />
-      </div>
-
-      <!-- برچسب‌ها و مطالب مرتبط -->
-      <RelatedContent currentSlug={softwareSlug} tags={software.data.tags} />
-
-    </article>
-
-  </main>
-
-  <Footer />
-
-</Layout>
+export const collections = {
+  'notes': notesCollection,
+  'projects': projectsCollection,
+  'courses': coursesCollection,
+  'books': booksCollection,
+  'softwares': softwaresCollection,
+  'instructors': instructorsCollection,
+};
