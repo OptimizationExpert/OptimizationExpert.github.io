@@ -4,7 +4,7 @@ title: "بهینه‌سازی پیشرفته سیستم‌های قدرت در �
 seoTitle: "آموزش مسیریابی VRP با پایتون (OR-Tools) | دوره پروژه‌محور"
 description: "دوره پیشرفته بهینه‌سازی سیستم‌های قدرت در پایتون با Pyomo؛ ۱۰ سرفصل پروژه‌محور: Unit Commitment، پخش بار DC/AC (OPF)، N-1، جایابی باتری، توسعه شبکه و عدم قطعیت.."
 pubDate: 2026-06-20
-image: "/images/courses/ADVpower.webp"
+image: "/images/courses/adv_logo.webp"
 imageAlt: "کاور دوره آموزشی بهینه‌سازی پیشرفته سیستم‌های قدرت در پایتون با Pyomo"
 
 # === متغیرهای اختصاصی دوره (برای نمایش در کارت‌ها و Schema) ===
