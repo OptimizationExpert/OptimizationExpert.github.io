@@ -1,6 +1,6 @@
 ---
 title: "حل پازل Domino Fit با OR-Tools"
-description: "حل پازل دومینو به همراه فرمولاسیون ریاضی و کد نویسی پایتون در ORTools"
+description: "حل پازل دومینو به همراه فرمولاسیون ریاضی و کد نویسی پایتون در OR-Tools"
 pubDate: 2026-08-06
 author: "علیرضا سرودی"
 image: "/images/notes/dominofit.webp"
@@ -607,4 +607,4 @@ model.maximize(sum(preferred_variables))
 
 همین ساختار را می‌توان از یک پازل ریاضی تا مسائل واقعی جانمایی، بارگیری، انبارداری و زمان‌بندی توسعه داد.
 
-اگر می‌خواهید مدل‌سازی و حل کامل را در Python با ORTools قدم‌به‌قدم یاد بگیرید، این موضوع در <a href="/courses/vrp-python/" style="color:#2563EB; font-weight:bold;">دوره بهینه‌سازی حمل و نقل </a> به‌صورت پروژه‌محور پوشش داده شده است.
+اگر می‌خواهید مدل‌سازی و حل کامل را در Python با OR-Tools قدم‌به‌قدم یاد بگیرید، این موضوع در <a href="/courses/vrp-python/" style="color:#2563EB; font-weight:bold;">دوره بهینه‌سازی حمل و نقل </a> به‌صورت پروژه‌محور پوشش داده شده است.

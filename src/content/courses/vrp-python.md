@@ -10,7 +10,7 @@ imageAlt: "کاور دوره آموزشی حمل و نقل VRP با پایتون
 # === متغیرهای اختصاصی دوره (برای نمایش در کارت‌ها و Schema) ===
 duration: "۱۰ ساعت"
 level: "مقدماتی تا پیشرفته"
-environment: "Python (ORTools)"
+environment: "Python (OR-Tools)"
 prerequisite: "آشنایی پایه با زبان برنامه‌نویسی پایتون"
 sessions: "۲۰ پروژه عملی"
 instructor: "dr-soroudi"

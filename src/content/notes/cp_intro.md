@@ -1,6 +1,6 @@
 ---
 title: "پیدا کردن همه جواب ها با OR-Tools"
-description: "حل مفهومی یک مدل ساده در ORTools"
+description: "حل مفهومی یک مدل ساده در OR-Tools"
 pubDate: 2026-08-07
 author: "علیرضا سرودی"
 image: "/images/notes/sat_logo.webp"
@@ -178,15 +178,13 @@ def all_solutions_sample_sat():
     solver.parameters.enumerate_all_solutions = True
     status = solver.solve(
         model,
-        solution_printer
-    )
+        solution_printer)
 
     print(f"Status = {solver.status_name(status)}")
     print(
         f"Number of solutions found: "
         f"{solution_printer.solution_count}"
     )
-
 all_solutions_sample_sat()
 ```
 
@@ -195,9 +193,7 @@ all_solutions_sample_sat()
 ```python
 solver.parameters.enumerate_all_solutions = True
 ```
-
 با فعال کردن این گزینه، Solver جست‌وجو را بعد از پیدا کردن اولین جواب متوقف نمی‌کند و تمام جواب‌های feasible را بررسی می‌کند.
-
 ---
 
 # بررسی جواب‌های Feasible 
@@ -221,9 +217,9 @@ $$
 
 اما اگر $y=1$ باشد، خواهیم داشت
 
-$
+$$
 x+5\leq2
-$
+$$
 
 که امکان‌پذیر نیست. برای $y=2$ نیز داریم
 
@@ -275,7 +271,6 @@ class VarArraySolutionPrinterNSolutions(
         n: int
     ):
         super().__init__()
-
         self.__variables = variables
         self.__solution_count = 0
         self.__limit = n
@@ -312,16 +307,13 @@ if self.__solution_count == self.__limit:
 
 ```python
 def all_solutions_sample_sat_nsolution():
-
     model = cp_model.CpModel()
     x = model.new_int_var(0, 2, "x")
     y = model.new_int_var(0, 2, "y")
     model.add(x + 5 * y <= 2)
     solver = cp_model.CpSolver()
     solution_printer = VarArraySolutionPrinterNSolutions(
-        [x, y],
-        2
-    )
+        [x, y],2)
     solver.parameters.enumerate_all_solutions = True
     status = solver.solve(model, solution_printer)
     print(f"Status = {solver.status_name(status)}")
@@ -329,8 +321,6 @@ def all_solutions_sample_sat_nsolution():
         f"Number of solutions found: "
         f"{solution_printer.solution_count}"
     )
-
-
 all_solutions_sample_sat_nsolution()
 ```
 
@@ -391,3 +381,5 @@ $$
 > **متغیرها دارای دامنه هستند و قیود، مقادیر سازگار در این دامنه‌ها را مشخص می‌کنند.**
 
 در مسائل بزرگ‌تر، قدرت Constraint Programming زمانی بیشتر مشخص می‌شود که قیود مختلف باعث حذف بخش بزرگی از فضای جست‌وجو شوند.
+
+اگر می‌خواهید مدل‌سازی و حل کامل مسایل پیچیده تر رو در Python با OR-Tools قدم‌به‌قدم یاد بگیرید، این موضوع در <a href="/courses/vrp-python/" style="color:#2563EB; font-weight:bold;">دوره بهینه‌سازی حمل و نقل </a> به‌صورت پروژه‌محور پوشش داده شده است.
