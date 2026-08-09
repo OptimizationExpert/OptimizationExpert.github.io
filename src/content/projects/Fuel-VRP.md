@@ -4,7 +4,7 @@ description: "پروژه آماده پایتون برای توزیع سوخت ب
 pubDate: "2026-07-18"
 category: "بهینه‌سازی و پایتون"
 image: "/images/projects/fuel_split_delivery.png"
-githubUrl: "https://github.com"
+githubUrl: "https://github.com/OptimizationExpert/Pyomo"
 tags: ["تحویل تقسیمی", "پنجره زمانی", "مسیریابی خودرو", "بهینه سازی", "پایتون", "Split Delivery"]
 ---
 

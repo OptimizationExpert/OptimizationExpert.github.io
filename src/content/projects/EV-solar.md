@@ -4,7 +4,7 @@ description: "پروژه آماده پایتون با Pyomo: هماهنگی شا
 pubDate: "2026-07-18"
 category: "بهینه‌سازی و پایتون"
 image: "/images/projects/ev.jpg"
-githubUrl: "https://github.com"
+githubUrl: "https://github.com/OptimizationExpert/Pyomo"
 tags: [ "خودرو الکتریکی", "پنل خورشیدی", "پاسخگویی بار", "شبکه توزیع", "پایتون" ]
 ---
 
