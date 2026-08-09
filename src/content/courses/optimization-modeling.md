@@ -15,7 +15,7 @@ prerequisite: "ندارد"
 instructor: "dr-soroudi"
 
 # === ارتباطات و ساختار سایت ===
-relatedCourses: ["optimization-modeling", "Advanced-Power-System", "intro-power-system", "vrp-python"]
+relatedCourses: ["optimization-modeling", "advanced-power-system", "intro-power-system", "vrp-python"]
 relatedNotes: ["mathematical-modeling-art", "modeling-before-coding", "google-colab", "pyomo-solvers"]
 # انتخاب ۵ تا ۷ تگ جامع به جای ۲۰ تگ پراکنده
 tags: ["آموزش بهینه سازی", "برنامه ریزی خطی", "LP", "MILP", "NLP"]

@@ -15,7 +15,7 @@ prerequisite: "ندارد"
 instructor: "dr-soroudi"
 
 # === ارتباطات و ساختار سایت ===
-relatedCourses: ["optimization-modeling", "Advanced-Power-System", vrp-python]
+relatedCourses: ["optimization-modeling", "advanced-power-system", vrp-python]
 relatedNotes: ["mathematical-modeling-art", "modeling-before-coding", "google-colab", "pyomo-solvers"]
 # انتخاب ۵ تا ۷ تگ جامع به جای ۲۰ تگ پراکنده
 tags: ["Robust Optimization", "Fuzzy", "IGDT", "عدم قطعیت", "نایقینی"]
