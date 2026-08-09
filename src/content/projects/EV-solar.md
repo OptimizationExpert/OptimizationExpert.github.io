@@ -4,6 +4,7 @@ description: "پروژه آماده پایتون با Pyomo: هماهنگی شا
 pubDate: "2026-07-18"
 category: "بهینه‌سازی و پایتون"
 image: "/images/projects/ev.jpg"
+imageAlt: "بهینه‌سازی شارژ خودروهای برقی با انرژی خورشیدی"
 githubUrl: "https://github.com/OptimizationExpert/Pyomo"
 tags: [ "خودرو الکتریکی", "پنل خورشیدی", "پاسخگویی بار", "شبکه توزیع", "پایتون" ]
 ---
@@ -77,7 +78,7 @@ m.energy = Constraint(expr=sum(m.P_ev[t] for t in range(24)) >= 30)  # کیلو�
   "headline": "هماهنگی خودرو الکتریکی، پنل خورشیدی و پاسخگویی بار در شبکه توزیع با پایتون",
   "description": "پروژه آماده پایتون و پایومو (Pyomo) برای هماهنگی هم‌زمان شارژ خودرو الکتریکی، تولید پنل خورشیدی و پاسخگویی بار در شبکه توزیع؛ کمینه‌کردن هزینه و رفع مشکل ولتاژ و پیک مصرف.",
   "inLanguage": "fa",
-  "url": "{{ page.url | absolute_url }}",
+  "url": "https://optexpert.org/projects/ev-solar/",
   "datePublished": "2026-07-18",
   "keywords": "خودرو الکتریکی, پنل خورشیدی, پاسخگویی بار, شبکه توزیع, بهینه سازی, پایتون, Pyomo, Demand Response",
   "author": {

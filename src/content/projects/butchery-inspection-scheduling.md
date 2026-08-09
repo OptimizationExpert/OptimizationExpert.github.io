@@ -1,6 +1,6 @@
 ---
 title: "مسئله زمان‌بندی بازرسی قصابی‌ها با OR-Tools"
-description: " task scheduling یک مدل عملی در OR-Tools"
+description: "مدل‌سازی و حل مسئله زمان‌بندی بازرسی قصابی‌ها با OR-Tools در پایتون؛ یک مثال عملی از Task Scheduling و تخصیص بهینه بازرس‌ها."
 pubDate: 2026-08-07
 author: "علیرضا سرودی"
 image: "/images/projects/butcher_inspection_scheduling_logo.webp"

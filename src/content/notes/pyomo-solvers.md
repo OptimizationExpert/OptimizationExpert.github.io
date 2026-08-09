@@ -1,6 +1,6 @@
 ---
 title: "سه راهکار عملی برای استفاده از سالور ها در پایومو"
-description: "سه راه برای نصب و استفاده از Solver های رایگان برای Pyomo: نصب محلی، Google Colab، و سرور NEOS."
+description: "سه راه برای نصب و استفاده از Solverهای رایگان برای Pyomo: نصب محلی، Google Colab و سرور NEOS."
 pubDate: 2026-06-19
 author: "علیرضا سرودی"
 image: "/images/notes/solvers.png"
@@ -55,8 +55,7 @@ print(value(m.x))
 **کل کاری که باید کنی:**
 
 1. این لینک رو باز کن:
-[LINK](https://colab.research.google.com/github/OptimizationExpert/Pyomo/blob/main/Pyomo_on_Google_Colab.ipynb
-)
+[LINK](https://colab.research.google.com/github/OptimizationExpert/Pyomo/blob/main/Pyomo_on_Google_Colab.ipynb)
 2. حساب Google خودت رو لاگین کن (رایگان).
 
 3. سلول‌های کد (cell) رو یکی بعد از دیگری اجرا کن (دکمه‌ی ▶ یا Shift+Enter).

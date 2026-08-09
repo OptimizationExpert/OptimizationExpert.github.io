@@ -1,6 +1,6 @@
 ---
 title: "پیدا کردن همه جواب ها با OR-Tools"
-description: "حل مفهومی یک مدل ساده در OR-Tools"
+description: "آموزش Constraint Programming با OR-Tools در پایتون، شامل تعریف متغیرها، محدودیت‌ها و بررسی جواب‌های feasible با مثال عملی."
 pubDate: 2026-08-07
 author: "علیرضا سرودی"
 image: "/images/notes/sat_logo.webp"

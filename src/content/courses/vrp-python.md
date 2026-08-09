@@ -17,7 +17,7 @@ instructor: "dr-soroudi"
 
 # === ارتباطات و ساختار سایت ===
 relatedCourses: ["optimization-modeling", "uncertainty-modeling"]
-relatedNotes: ["mathematical-modeling-art", "modeling-before-coding", "google-colab", "pyomo-solvers"]
+relatedNotes: ["mathematical-modeling-art", "google-colab", "cp_intro"]
 # انتخاب ۵ تا ۷ تگ جامع به جای ۲۰ تگ پراکنده
 tags: ["Vehicle Routing Problem", "Python", "OR-Tools", "بهینه‌سازی ترکیبی", "زنجیره تامین"]
 ---

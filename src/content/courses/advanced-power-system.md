@@ -2,7 +2,7 @@
 # === متغیرهای اصلی و سئو ===
 title: "دوره بهینه‌سازی پیشرفته سیستم‌های قدرت در پایتون با Pyomo"
 seoTitle: "بهینه سازی سیستم های قدرت با استفاده از پایتون و ابزار های متن باز | دوره پروژه‌محور"
-description: "دوره پیشرفته بهینه‌سازی سیستم‌های قدرت در پایتون با Pyomo. در این صفحه سرفصل های دوره با شما به اشتراک گذاشته میشود"
+description: "دوره پیشرفته بهینه‌سازی سیستم‌های قدرت در پایتون با Pyomo؛ شامل Unit Commitment، OPF، ذخیره‌ساز انرژی، توسعه شبکه و مدل‌سازی عدم قطعیت."
 pubDate: 2026-06-20
 image: "/images/courses/adv_logo2.webp"
 imageAlt: "کاور دوره آموزشی بهینه‌سازی پیشرفته سیستم‌های قدرت در پایتون با Pyomo"
@@ -16,7 +16,7 @@ instructor: "dr-soroudi"
 
 # === ارتباطات و ساختار سایت ===
 relatedCourses: ["optimization-modeling", "uncertainty-modeling"]
-relatedNotes: ["mathematical-modeling-art", "modeling-before-coding", "google-colab", "pyomo-solvers"]
+relatedNotes: ["mathematical-modeling-art", "google-colab", "pyomo-solvers"]
 
 tags: ["بهینه سازی سیستم قدرت", "پایتون", "Pyomo", "OPF", "بازار برق", "Unit Commitment", "آرایش بهینه واحدها", "سیستم قدرت", "DC-OPF"]
 ---
