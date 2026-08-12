@@ -1,8 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
 
 const softwares = await getCollection('softwares');
 ---
@@ -12,7 +10,6 @@ const softwares = await getCollection('softwares');
   description="مجموعه نرم‌افزارها، ابزارها و اسکریپت‌های کاربردی برای مهندسی و بهینه‌سازی"
 >
 
-  <Header />
 
   <main class="max-w-5xl mx-auto px-6 py-12 flex-grow w-full">
      
@@ -72,6 +69,5 @@ const softwares = await getCollection('softwares');
 
   </main>
 
-  <Footer />
 
 </Layout>
