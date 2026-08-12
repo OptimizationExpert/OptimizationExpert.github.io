@@ -1,0 +1,26 @@
+---
+// src/components/ColabButton.astro
+interface Props {
+  url: string;
+  label?: string;
+}
+
+const { url, label = "Run in Google Colab" } = Astro.props;
+---
+
+<a 
+  href={url} 
+  target="_blank" 
+  rel="noopener noreferrer" 
+  class="group inline-flex items-center gap-3 px-6 py-3 rounded-xl font-semibold text-sm bg-slate-900 text-amber-400 border border-amber-500/40 shadow-md hover:bg-slate-800 hover:border-amber-500 hover:text-amber-300 hover:shadow-lg hover:shadow-amber-500/15 transition-all duration-200 active:scale-95"
+>
+  <!-- لوگوی گوگل کولب -->
+  <span class="flex items-center justify-center w-5 h-5 text-amber-500 shrink-0 transition-transform duration-200 group-hover:scale-110">
+    <svg class="w-full h-full fill-current" viewBox="0 0 24 24">
+      <path d="M16.941 4.975a6.973 6.973 0 0 0-5.83 3.14 6.974 6.974 0 0 0-5.835-3.14 7.003 7.003 0 0 0-7.001 7.003 7.003 7.003 0 0 0 7.001 7.003 6.973 6.973 0 0 0 5.835-3.14 6.973 6.973 0 0 0 5.83 3.14 7.003 7.003 0 0 0 7.003-7.003 7.003 7.003 0 0 0-7.003-7.003zm-11.665 11.2a4.204 4.204 0 0 1-4.2-4.2 4.204 4.204 0 0 1 4.2-4.2 4.2 4.2 0 0 1 4.2 4.2 4.204 4.204 0 0 1-4.2 4.2zm11.665 0a4.204 4.204 0 0 1-4.2-4.2 4.2 4.2 0 0 1 4.2-4.2 4.204 4.204 0 0 1 4.2 4.2 4.204 4.204 0 0 1-4.2 4.2z"/>
+    </svg>
+  </span>
+
+  <!-- متن دکمه (هم‌ردیف و دقیق) -->
+  <span class="tracking-wide">{label}</span>
+</a>
