@@ -1,19 +1,55 @@
 ---
 // src/layouts/Layout.astro
 import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 import SEO from '../components/SEO.astro';
-import "katex/dist/katex.min.css";
+import Breadcrumbs from '../components/Breadcrumbs.astro';
 
 interface Props {
   title?: string;
   description?: string;
   image?: string;
+  article?: boolean;
+  type?: 'website' | 'article' | 'course' | 'software' | 'book';
+  pubDate?: Date;
+  author?: string;
+  noindex?: boolean;
+  courseDetails?: {
+    duration?: string;
+    level?: string;
+    instructorName?: string;
+    price?: string;
+    priceCurrency?: string;
+  };
+  softwareDetails?: {
+    category?: string;
+    version?: string;
+    operatingSystem?: string;
+    price?: string;
+  };
+  bookDetails?: {
+    category?: string;
+    format?: string;
+    pages?: number;
+    price?: string;
+  };
+  breadcrumbs?: { name: string; url?: string }[];
 }
 
 const {
-  title = 'مدل‌سازی و بهینه‌سازی کاربردی',
-  description = 'مرجع تخصصی مدل‌سازی ریاضی، برنامه‌نویسی پایتون، سالورهای بهینه‌سازی و تحلیل سیستم‌های قدرت به صورت پروژه‌محور.',
+  title,
+  description,
   image,
+  article = false,
+  type,
+  pubDate,
+  author,
+  noindex = false,
+  courseDetails,
+  softwareDetails,
+  bookDetails,
+  breadcrumbs,
 } = Astro.props;
 ---
 
@@ -22,32 +58,95 @@ const {
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- آیکون‌های محلی -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
-    <SEO title={title} description={description} image={image} />
-    
-    <!-- استایل محلی و آفلاین Font Awesome -->
+
+    <!-- تمام منطق سئو (تایتل، متا، OG، Twitter، JSON-LD) فقط اینجا و در یک فایل مدیریت می‌شود -->
+    <SEO
+      title={title}
+      description={description}
+      image={image}
+      article={article}
+      type={type}
+      pubDate={pubDate}
+      author={author}
+      noindex={noindex}
+      courseDetails={courseDetails}
+      softwareDetails={softwareDetails}
+      bookDetails={bookDetails}
+      breadcrumbs={breadcrumbs}
+    />
+
+    <!-- شناسایی خودکار فید RSS -->
+    <link rel="alternate" type="application/rss+xml" title="Optimization Expert" href="/rss.xml" />
+
+    <!-- استایل‌های محلی و ۱۰۰٪ آفلاین -->
     <link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css" />
-    
-    <!-- استایل محلی و آفلاین KaTeX -->
     <link rel="stylesheet" href="/katex/dist/katex.min.css" />
-    
-    <!-- اسکریپت آنی تشخیص و اعمال تم قبل از لود صفحه -->
+
+    <!-- اسکریپت آنی تشخیص و اعمال تم قبل از لود کامل صفحه (جلوگیری از سفید شدن صفحه) -->
     <script is:inline>
-      const theme = localStorage.getItem('theme');
-      if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        document.documentElement.classList.add('dark');
-      } else {
-        document.documentElement.classList.remove('dark');
-      }
+      (function () {
+        const savedTheme = localStorage.getItem('theme');
+        const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (savedTheme === 'dark' || (!savedTheme && systemDark)) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      })();
     </script>
   </head>
-  <body class="bg-site-bg text-site-text font-sans min-h-screen flex flex-col justify-between selection:bg-sky-500 selection:text-white">
+  <body class="bg-site-bg text-site-text font-sans min-h-screen flex flex-col justify-between selection:bg-site-primary selection:text-white">
+    <Header />
+    <Breadcrumbs items={breadcrumbs} />
     <slot />
+    <Footer />
 
-    <!-- اسکریپت سراسری دکمه کپی کدها -->
+    <!-- اسکریپت‌های سراسری: سوئیچ تم و دکمه کپی کدها -->
     <script is:inline>
+      function updateThemeUI(isDark) {
+        const moonIcon = document.getElementById('theme-icon-moon');
+        const sunIcon = document.getElementById('theme-icon-sun');
+
+        if (isDark) {
+          document.documentElement.classList.add('dark');
+          if (moonIcon) moonIcon.style.display = 'none';
+          if (sunIcon) sunIcon.style.display = 'inline-block';
+        } else {
+          document.documentElement.classList.remove('dark');
+          if (moonIcon) moonIcon.style.display = 'inline-block';
+          if (sunIcon) sunIcon.style.display = 'none';
+        }
+      }
+
+      function initThemeToggle() {
+        const themeBtn = document.getElementById('theme-toggle');
+
+        const savedTheme = localStorage.getItem('theme');
+        const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const isDark = savedTheme === 'dark' || (!savedTheme && systemDark);
+
+        updateThemeUI(isDark);
+
+        if (themeBtn) {
+          const newBtn = themeBtn.cloneNode(true);
+          if (themeBtn.parentNode) {
+            themeBtn.parentNode.replaceChild(newBtn, themeBtn);
+          }
+
+          newBtn.addEventListener('click', () => {
+            const currentlyDark = document.documentElement.classList.contains('dark');
+            const nextState = !currentlyDark;
+            localStorage.setItem('theme', nextState ? 'dark' : 'light');
+            updateThemeUI(nextState);
+          });
+        }
+      }
+
       function initCopyButtons() {
         const codeBlocks = document.querySelectorAll('pre, .astro-code');
 
@@ -81,14 +180,24 @@ const {
         });
       }
 
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initCopyButtons);
-      } else {
+      function initAll() {
+        initThemeToggle();
         initCopyButtons();
       }
 
-      // هماهنگ‌سازی با سیستم ناوبری و تغییر صفحات در Astro
-      document.addEventListener('astro:page-load', initCopyButtons);
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initAll);
+      } else {
+        initAll();
+      }
+
+      document.addEventListener('astro:page-load', initAll);
+      document.addEventListener('astro:after-swap', () => {
+        const savedTheme = localStorage.getItem('theme');
+        const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const isDark = savedTheme === 'dark' || (!savedTheme && systemDark);
+        updateThemeUI(isDark);
+      });
     </script>
   </body>
 </html>

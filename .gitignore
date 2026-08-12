@@ -22,8 +22,3 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
-
-seo_opportunity_output/
-seo_demand_output/
-seo_opportunity_bot_v3.py
-*.log

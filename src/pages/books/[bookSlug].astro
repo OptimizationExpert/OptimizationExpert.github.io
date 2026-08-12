@@ -1,9 +1,10 @@
 ---
 import { getCollection, render } from 'astro:content';
+import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
 import RelatedContent from '../../components/RelatedContent.astro';
+import TelegramCTA from '../../components/TelegramCTA.astro';
+import { imgSrc } from '../../utils/image';
 
 export async function getStaticPaths() {
   const books = await getCollection('books');
@@ -18,11 +19,30 @@ export async function getStaticPaths() {
 
 const { book } = Astro.props;
 const { Content } = await render(book);
+const bookSlug = book.id.replace(/\.md$/, '').split('/').pop();
+
+// تصویر پیش‌فرض یکسان با بقیه‌ی سایت
+const defaultImage = "/images/hero.webp";
+const bookImg = book.data.image || defaultImage;
 ---
 
-<Layout title={book.data.title} description={book.data.description} image={book.data.image}>
-
-  <Header />
+<Layout
+  title={book.data.seoTitle || book.data.title}
+  description={book.data.description}
+  image={imgSrc(bookImg)}
+  type="book"
+  bookDetails={{
+    category: book.data.category,
+    format: book.data.format,
+    pages: book.data.pages,
+    price: book.data.price,
+  }}
+  breadcrumbs={[
+    { name: 'خانه', url: '/' },
+    { name: 'کتاب‌ها و جزوات', url: '/books' },
+    { name: book.data.title },
+  ]}
+>
 
   <main class="max-w-3xl mx-auto px-6 py-12 flex-grow w-full">
      
@@ -73,7 +93,11 @@ const { Content } = await render(book);
       {book.data.image && (
         <div class="flex justify-center mb-8">
           <div class="bg-[var(--site-card)] rounded-2xl border border-[var(--site-border)] shadow-xs p-4 inline-flex items-center justify-center">
-            <img src={book.data.image} alt={book.data.title} class="max-h-[420px] w-auto object-contain rounded-xl shadow-xs" />
+            {typeof bookImg === 'string' ? (
+              <img src={bookImg} alt={book.data.title} class="max-h-[420px] w-auto object-contain rounded-xl shadow-xs" />
+            ) : (
+              <Image src={bookImg} alt={book.data.title} class="max-h-[420px] w-auto object-contain rounded-xl shadow-xs" />
+            )}
           </div>
         </div>
       )}
@@ -82,9 +106,9 @@ const { Content } = await render(book);
       <div class="bg-[var(--site-card)] border border-[var(--site-border)] rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4 mb-10 shadow-xs">
         <div>
           <span class="text-xs text-[var(--site-muted)] block mb-1">وضعیت هزینه</span>
-          <span class="text-lg font-bold text-emerald-600">{book.data.price || "رایگان"}</span>
+          <span class="text-lg font-bold text-[var(--site-accent)]">{book.data.price || "رایگان"}</span>
         </div>
-        <a href="#download-section" class="w-full sm:w-auto bg-[var(--site-primary)] hover:opacity-90 text-white font-medium px-6 py-3 rounded-xl transition text-xs text-center shadow-md shadow-sky-500/20">
+        <a href="#download-section" class="w-full sm:w-auto bg-[var(--site-primary)] hover:opacity-90 text-white font-medium px-6 py-3 rounded-xl transition text-xs text-center shadow-md shadow-[var(--site-primary)]/20">
           دریافت فایل و منابع
         </a>
       </div>
@@ -92,17 +116,25 @@ const { Content } = await render(book);
       <hr class="border-[var(--site-border)] mb-10" />
 
       <!-- محتوای کامل جزوه/کتاب -->
-      <div class="prose max-w-none leading-loose text-[var(--site-text)] space-y-6">
+      <div class="prose max-w-none leading-loose text-[var(--site-text)] space-y-6 mb-10">
         <Content />
       </div>
 
+      <!-- مقصد واقعی دکمه‌ی دانلود بالا: قبلاً به #download-section اشاره می‌کرد
+           بدون اینکه چنین بخشی در صفحه وجود داشته باشد (لینک شکسته) -->
+      <div id="download-section" class="scroll-mt-28">
+        <TelegramCTA
+          icon="fa-download"
+          heading="دریافت فایل کتاب"
+          description="برای دریافت فایل کتاب/جزوه و راهنمایی، با آیدی"
+        />
+      </div>
+
       <!-- برچسب‌ها و مطالب مرتبط -->
-      <RelatedContent tags={book.data.tags} />
+      <RelatedContent currentSlug={bookSlug} tags={book.data.tags} />
 
     </article>
 
   </main>
-
-  <Footer />
 
 </Layout>

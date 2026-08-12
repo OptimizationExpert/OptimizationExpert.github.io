@@ -1,36 +1,275 @@
 ---
 // src/components/SEO.astro
 interface Props {
-  title: string;
-  description: string;
+  title?: string;
+  description?: string;
   image?: string;
+  article?: boolean;
+  type?: 'website' | 'article' | 'course' | 'software' | 'book';
+  pubDate?: Date;
+  author?: string;
+  noindex?: boolean;
+  courseDetails?: {
+    duration?: string;
+    level?: string;
+    instructorName?: string;
+    price?: string;
+    priceCurrency?: string;
+  };
+  softwareDetails?: {
+    category?: string;
+    version?: string;
+    operatingSystem?: string;
+    price?: string;
+  };
+  bookDetails?: {
+    category?: string;
+    format?: string;
+    pages?: number;
+    price?: string;
+  };
+  breadcrumbs?: { name: string; url?: string }[];
 }
 
-const {  
-  title,  
-  description,  
-  image = "favicon.svg"
+const siteName = 'Optimization Expert';
+const defaultDescription = 'پلتفرم تخصصی آموزش، مقالات و پروژه‌های بهینه‌سازی، الگوریتم‌ها و پژوهش‌های عملیاتی';
+const defaultImage = '/images/og-default.png';
+
+const {
+  title,
+  description = defaultDescription,
+  image = defaultImage,
+  article = false,
+  type,
+  pubDate,
+  author = 'Optimization Expert',
+  noindex = false,
+  courseDetails,
+  softwareDetails,
+  bookDetails,
+  breadcrumbs,
 } = Astro.props;
 
-const SITE_NAME = "Optimization Expert";
-const fullTitle = title.includes(SITE_NAME) ? title : `${title} | ${SITE_NAME}`;
+// نوع نهایی صفحه: اگر type مشخص نشده باشد، از پرچم article قدیمی استنتاج می‌شود (سازگاری با کد قبلی)
+const pageType = type ?? (article ? 'article' : 'website');
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const resolvedImage = new URL(image, Astro.site);
+const pageTitle = title ? `${title} | ${siteName}` : siteName;
+
+const baseUrl = Astro.site || Astro.url.origin;
+const canonicalURL = new URL(Astro.url.pathname, baseUrl).href;
+const socialImageURL = new URL(image, baseUrl).href;
+const isHomePage = Astro.url.pathname === '/';
+
+// تبدیل ایمن متن فارسی مدت‌زمان (مثل «۲۲ ساعت») به فرمت استاندارد ISO 8601 Duration
+// که Schema.org برای courseWorkload/timeRequired نیاز دارد. اگر قابل تشخیص نبود، undefined
+// برمی‌گرداند تا هرگز داده‌ی نامعتبر در JSON-LD درج نشود.
+function toISODuration(text?: string): string | undefined {
+  if (!text) return undefined;
+  const persianDigits = '۰۱۲۳۴۵۶۷۸۹';
+  const normalized = text.replace(/[۰-۹]/g, (d) => String(persianDigits.indexOf(d)));
+  const match = normalized.match(/\d+/);
+  if (!match) return undefined;
+  const num = match[0];
+  if (text.includes('ساعت')) return `PT${num}H`;
+  if (text.includes('هفته')) return `P${num}W`;
+  if (text.includes('ماه')) return `P${num}M`;
+  if (text.includes('روز')) return `P${num}D`;
+  return undefined;
+}
+
+// تبدیل ایمن فیلد آزاد قیمت نرم‌افزار (که می‌تواند «رایگان» یا یک عدد باشد) به قیمت عددی معتبر
+// برای Schema.org Offer. اگر متن غیرقابل‌تفسیر باشد (مثلاً "با هماهنگی")، به‌جای حدس زدن
+// عدد، Offer اصلاً درج نمی‌شود تا داده‌ی نادرست در نتایج جستجو ظاهر نشود.
+function toOfferPrice(text?: string): string | undefined {
+  if (!text) return '0';
+  const trimmed = text.trim();
+  if (trimmed === 'رایگان' || trimmed.toLowerCase() === 'free') return '0';
+  return /^\d+(\.\d+)?$/.test(trimmed) ? trimmed : undefined;
+}
+
+// تبدیل ایمن فیلد آزاد «فرمت» کتاب (مثل «PDF» یا «چاپی») به مقدار استاندارد Schema.org bookFormat.
+// اگر متن قابل تشخیص نبود، هیچ مقداری درج نمی‌شود (حدس اشتباه بدتر از نبود داده است).
+function toBookFormat(text?: string): string | undefined {
+  if (!text) return undefined;
+  const t = text.toLowerCase();
+  if (t.includes('pdf') || t.includes('epub') || t.includes('الکترونیک')) return 'https://schema.org/EBook';
+  if (t.includes('چاپ') || t.includes('کاغذ') || t.includes('paperback')) return 'https://schema.org/Paperback';
+  if (t.includes('صوت') || t.includes('audio')) return 'https://schema.org/AudiobookFormat';
+  return undefined;
+}
+
+// تولید داده‌های ساختاریافته (JSON-LD) متناسب با نوع صفحه، بدون هیچ وابستگی خارجی
+let schemaData;
+if (pageType === 'course') {
+  const isoWorkload = toISODuration(courseDetails?.duration);
+
+  const hasCourseInstance = {
+    "@type": "CourseInstance",
+    "courseMode": "Online",
+    ...(isoWorkload && { "courseWorkload": isoWorkload }),
+    ...(courseDetails?.instructorName && {
+      "instructor": { "@type": "Person", "name": courseDetails.instructorName },
+    }),
+  };
+
+  schemaData = {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "name": title,
+    "description": description,
+    "image": socialImageURL,
+    "url": canonicalURL,
+    "provider": {
+      "@type": "Organization",
+      "name": siteName,
+      "sameAs": baseUrl,
+    },
+    ...(courseDetails?.level && { "educationalLevel": courseDetails.level }),
+    "hasCourseInstance": hasCourseInstance,
+    // offers فقط زمانی درج می‌شود که قیمت واقعی در frontmatter دوره ثبت شده باشد؛
+    // هرگز قیمت فرضی ساخته نمی‌شود چون داده‌ی نادرست در نتایج جستجو ممنوع است.
+    ...(courseDetails?.price && {
+      "offers": {
+        "@type": "Offer",
+        "category": courseDetails.price === '0' ? 'Free' : 'Paid',
+        "price": courseDetails.price,
+        "priceCurrency": courseDetails.priceCurrency || 'IRR',
+        "availability": "https://schema.org/InStock",
+        "url": canonicalURL,
+      },
+    }),
+  };
+} else if (pageType === 'software') {
+  const offerPrice = toOfferPrice(softwareDetails?.price);
+
+  schemaData = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": title,
+    "description": description,
+    "image": socialImageURL,
+    "url": canonicalURL,
+    ...(softwareDetails?.category && { "applicationCategory": softwareDetails.category }),
+    ...(softwareDetails?.version && { "softwareVersion": softwareDetails.version }),
+    ...(softwareDetails?.operatingSystem && { "operatingSystem": softwareDetails.operatingSystem }),
+    ...(offerPrice && {
+      "offers": {
+        "@type": "Offer",
+        "price": offerPrice,
+        "priceCurrency": "IRR",
+        "availability": "https://schema.org/InStock",
+        "url": canonicalURL,
+      },
+    }),
+  };
+} else if (pageType === 'book') {
+  const offerPrice = toOfferPrice(bookDetails?.price);
+  const bookFormat = toBookFormat(bookDetails?.format);
+
+  schemaData = {
+    "@context": "https://schema.org",
+    "@type": "Book",
+    "name": title,
+    "description": description,
+    "image": socialImageURL,
+    "url": canonicalURL,
+    ...(bookDetails?.category && { "genre": bookDetails.category }),
+    ...(bookFormat && { "bookFormat": bookFormat }),
+    ...(bookDetails?.pages && { "numberOfPages": bookDetails.pages }),
+    "author": {
+      "@type": "Person",
+      "name": author,
+    },
+    ...(offerPrice && {
+      "offers": {
+        "@type": "Offer",
+        "price": offerPrice,
+        "priceCurrency": "IRR",
+        "availability": "https://schema.org/InStock",
+        "url": canonicalURL,
+      },
+    }),
+  };
+} else if (pageType === 'article') {
+  schemaData = {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": title,
+    "description": description,
+    "image": socialImageURL,
+    "author": {
+      "@type": "Person",
+      "name": author,
+    },
+    "datePublished": pubDate ? pubDate.toISOString() : undefined,
+    "mainEntityOfPage": canonicalURL,
+  };
+} else {
+  schemaData = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": siteName,
+    "url": canonicalURL,
+    "description": description,
+    // Sitelinks Search Box: فقط در صفحه اصلی درج می‌شود (نیازی به تکرار در همه صفحات نیست)
+    ...(isHomePage && {
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": `${new URL('/search', baseUrl).href}?q={search_term_string}`,
+        "query-input": "required name=search_term_string",
+      },
+    }),
+  };
+}
+
+// مسیر ناوبری (Breadcrumb) کاملاً مستقل از نوع صفحه است و به‌صورت جداگانه‌
+// در کنار Schema اصلی درج می‌شود؛ گوگل چند بلاک JSON-LD در یک صفحه را بدون مشکل می‌پذیرد.
+// طبق توصیه‌ی گوگل، آیتم آخر (صفحه‌ی فعلی) بدون "item"/URL درج می‌شود.
+let breadcrumbSchema;
+if (breadcrumbs && breadcrumbs.length > 1) {
+  breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": breadcrumbs.map((crumb, i) => ({
+      "@type": "ListItem",
+      "position": i + 1,
+      "name": crumb.name,
+      ...(i < breadcrumbs.length - 1 && crumb.url && {
+        "item": new URL(crumb.url, baseUrl).href,
+      }),
+    })),
+  };
+}
 ---
 
-<title>{fullTitle}</title>
+<!-- Meta اطلاعات پایه -->
+<title>{pageTitle}</title>
 <meta name="description" content={description} />
 <link rel="canonical" href={canonicalURL} />
 
-<!-- Open Graph / Twitter -->
-<meta property="og:type" content="website" />
-<meta property="og:url" content={canonicalURL} />
-<meta property="og:title" content={fullTitle} />
-<meta property="og:description" content={description} />
-<meta property="og:image" content={resolvedImage} />
+{noindex && <meta name="robots" content="noindex, nofollow" />}
 
+<!-- Open Graph / Facebook / Telegram -->
+<meta property="og:type" content={pageType === 'article' ? 'article' : 'website'} />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:title" content={pageTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={socialImageURL} />
+<meta property="og:site_name" content={siteName} />
+<meta property="og:locale" content="fa_IR" />
+
+{pageType === 'article' && pubDate && <meta property="article:published_time" content={pubDate.toISOString()} />}
+{pageType === 'article' && author && <meta property="article:author" content={author} />}
+
+<!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content={fullTitle} />
+<meta name="twitter:url" content={canonicalURL} />
+<meta name="twitter:title" content={pageTitle} />
 <meta name="twitter:description" content={description} />
-<meta name="twitter:image" content={resolvedImage} />
+<meta name="twitter:image" content={socialImageURL} />
+
+<!-- داده‌های ساختاریافته موتورهای جستجو (JSON-LD) -->
+<script type="application/ld+json" is:inline set:html={JSON.stringify(schemaData)} />
+{breadcrumbSchema && (
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
+)}

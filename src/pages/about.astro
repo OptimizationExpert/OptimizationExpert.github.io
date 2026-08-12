@@ -1,25 +1,17 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
 
-// حوزه‌های تخصصی
 const skills = [
-  { title: "پایتون و بهینه‌سازی", desc: "مدل‌سازی ریاضی، برنامه‌نویسی و استفاده از سالورهای CPLEX, Gurobi و HiGHS", icon: "fa-terminal" },
-  { title: "پایتون و بهینه‌سازی", desc: "مدل‌سازی ریاضی، برنامه‌نویسی و استفاده از سالور CP-SAT", icon: "fa-terminal" },
+  { title: "پایتون و بهینه‌سازی", desc: "مدل‌سازی ریاضی، برنامه‌نویسی و استفاده از سالورهای Pyomo و HiGHS", icon: "fa-terminal" },
   { title: "مهندسی برق قدرت", desc: "تحلیل شبکه‌های توزیع", icon: "fa-bolt" },
-  { title: "گمز و بهینه سازی", desc: "مدل‌سازی ریاضی، برنامه‌نویسی در گمز", icon: "fa-solar-panel" },
+  { title: "سیستم‌های خورشیدی", desc: "طراحی، تحلیل و بهینه‌سازی نیروگاه‌های فتوولتائیک و انرژی خورشیدی", icon: "fa-solar-panel" },
 ];
 ---
 
-<Layout title="درباره ما" description="نگاهی کوتاه به مسیر تخصصی، تجربیات و حوزه‌های فعالیت من در دنیای مهندسی، برنامه‌نویسی و سیستم‌های انرژی.">
+<Layout title="درباره ما" description="نگاهی کوتاه به مسیر تخصصی، تجربیات و حوزه‌های فعالیت من در دنیای مهندسی، برنامه‌نویسی و سیستم‌های انرژی." breadcrumbs={[{ name: 'خانه', url: '/' }, { name: 'درباره ما' }]}>
 
-  <Header />
-
-  <!-- ساختار استاندارد و هماهنگ با سایر صفحات سایت -->
   <main class="max-w-4xl mx-auto px-6 py-12 flex-grow w-full">
-
-    <!-- هدر صفحه -->
+    
     <div class="mb-10 border-b border-[var(--site-border)] pb-6">
       <h1 class="text-3xl md:text-4xl font-extrabold text-[var(--site-heading)] mb-3">
         درباره ما
@@ -29,31 +21,27 @@ const skills = [
       </p>
     </div>
 
-    <!-- بخش بیوگرافی و معرفی با استفاده از کارت‌های سازگار با تم -->
     <div class="bg-[var(--site-card)] border border-[var(--site-border)] p-6 md:p-8 rounded-2xl mb-10 flex flex-col sm:flex-row items-center sm:items-start gap-6 shadow-xs">
+      
+      <div class="w-32 h-32 rounded-2xl bg-[var(--site-bg)] border border-[var(--site-border)] flex items-center justify-center flex-shrink-0 shadow-xs">
+        <i class="fa-solid fa-user-tie text-5xl text-[var(--site-primary)]"></i>
+      </div>
 
-        <!-- آواتار / تصویر پروفایل -->
-        <div class="w-32 h-32 rounded-2xl bg-[var(--site-bg)] border border-[var(--site-border)] flex items-center justify-center flex-shrink-0 shadow-xs overflow-hidden">
-          <img src="/images/instructors/dr-soroudi.jpg" alt="نام مدرس" class="w-full h-full object-cover" />
-        </div>
-
-      <!-- متن بیوگرافی -->
       <div class="space-y-4 text-[var(--site-text)] text-sm md:text-base leading-relaxed text-right">
-        <h2 class="text-xl font-bold text-[var(--site-heading)]">دکتر علیرضا سرودی</h2>
+        <h2 class="text-xl font-bold text-[var(--site-heading)]">مدیر سایت و متخصص فنی</h2>
         <p>
-          فعال در حوزه‌ی تلاقی مهندسی برق، زنجیره تامین و مدل‌سازی ریاضی با پایتون . هدف این مجموعه ارائه راهکارهای بهینه و کاربردی برای حل مسائل پیچیده مهندسی است.
+          فعال در حوزه‌ی تلاقی مهندسی برق، زنجیره تامین و مدل‌سازی ریاضی با پایتون . هدف ارائه راهکارهای بهینه و کاربردی برای حل مسائل پیچیده مهندسی است.
         </p>
         <p class="text-[var(--site-muted)] text-xs md:text-sm">
-          باور داریم ترکیب دانش تخصصی مهندسی و ابزارهای نرم‌افزاری دقیق، کلید اصلی خلق راه‌حل‌های پایدار و سریع می باشد.
+          باور دارم ترکیب دانش تخصصی مهندسی و ابزارهای نرم‌افزاری دقیق، کلید اصلی خلق راه‌حل‌های پایدار و سریع است.
         </p>
       </div>
 
     </div>
 
-    <!-- بخش تخصص‌ها و مهارت‌ها -->
     <div class="mb-10">
       <h2 class="text-2xl font-bold text-[var(--site-heading)] mb-6">حوزه‌های تخصص و مهارت‌ها</h2>
-
+      
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {
           skills.map((skill) => (
@@ -71,7 +59,6 @@ const skills = [
       </div>
     </div>
 
-    <!-- دکمه‌های اقدام (Call to action) -->
     <div class="pt-6 border-t border-[var(--site-border)] flex flex-wrap items-center gap-4">
       <a href="/contact" class="bg-[var(--site-primary)] hover:opacity-90 text-white font-medium px-6 py-3 rounded-xl transition shadow-md shadow-sky-500/20 text-sm inline-flex items-center gap-2">
         <i class="fa-solid fa-paper-plane text-xs"></i>
@@ -84,7 +71,5 @@ const skills = [
     </div>
 
   </main>
-
-  <Footer />
 
 </Layout>

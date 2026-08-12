@@ -1,183 +1,187 @@
-<header class="bg-[var(--site-card)]/80 backdrop-blur-xl border-b border-[var(--site-border)]/50 sticky top-0 z-50 transition-all duration-300 shadow-sm">
+---
+// Header.astro
+const currentPath = Astro.url.pathname;
+// مطابقت دقیق یا زیرمسیر (مثلاً /courses/x باید منوی «دوره‌ها» را هم فعال کند)
+// بدون اینکه مسیرهای هم‌پیشوند نامرتبط (مثلاً /courses-old) به‌اشتباه match شوند
+const isActive = (href: string) => currentPath === href || currentPath.startsWith(href + '/');
+---
+<header class="sticky top-0 z-50 w-full bg-[var(--site-card)]/90 backdrop-blur-md border-b border-[var(--site-border)] transition-colors duration-200">
   
-  <!-- ردیف اول: لوگو، جستجوی بزرگ و دکمه‌های عملیاتی -->
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 h-[4.5rem] flex items-center justify-between gap-4 border-b border-[var(--site-border)]/30">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
-    <!-- لوگو و نام سایت (بدون هاله اضافی، تمیز و مدرن) -->
-    <a href="/" class="group flex items-center gap-3 flex-shrink-0">
-      <img src="/favicon.svg" alt="لوگو" class="w-8 h-8 rounded-lg group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300 drop-shadow-sm" />
-      <span class="text-sm sm:text-base font-extrabold text-[var(--site-heading)] tracking-tight group-hover:text-[var(--site-primary)] transition-colors duration-300">
-        مدل‌سازی و بهینه‌سازی کاربردی
-      </span>
-    </a>
+    <div class="h-16 sm:h-20 flex items-center justify-between gap-4">
+      
+      <div class="flex items-center gap-3.5 flex-shrink-0">
+        <a href="/" class="group flex items-center gap-3 focus:outline-none">
+          <div class="w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+            <img src="/favicon.svg" alt="لوگو مدل‌سازی و بهینه‌سازی" class="w-7 h-7 sm:w-8 sm:h-8 object-contain" loading="eager" />
+          </div>
+          <div class="flex flex-col">
+            <div class="flex items-center gap-2">
+              <span class="text-sm sm:text-base font-black tracking-tight text-[var(--site-heading)] group-hover:text-[var(--site-primary)] transition-colors">
+                مدل‌سازی و بهینه‌سازی کاربردی
+              </span>
+              <span class="hidden xl:inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-[var(--site-accent)]/10 border border-[var(--site-accent)]/20 text-[9px] font-bold text-[var(--site-accent)]">
+                <span class="w-1.5 h-1.5 rounded-full bg-[var(--site-accent)] animate-pulse"></span>
+                Active
+              </span>
+            </div>
+            <span class="text-[10px] text-[var(--site-muted)] font-medium hidden sm:block">مرجع تخصصی مهندسی، الگوریتم و پایتون</span>
+          </div>
+        </a>
+      </div>
 
-    <!-- نوار جستجوی مرکزی با افکت برجستگی نرم -->
-    <div class="hidden md:flex flex-grow max-w-md mx-6">
-      <form id="desktop-search-form" class="relative w-full group">
-        <span class="absolute inset-y-0 right-0 flex items-center pr-4 pointer-events-none text-[var(--site-muted)] group-focus-within:text-[var(--site-primary)] transition-colors duration-300">
-          <i class="fa-solid fa-search text-sm"></i>
+      <div class="hidden md:flex flex-grow max-w-md mx-4">
+        <form id="desktop-search-form" action="/search" method="GET" class="relative w-full group" role="search">
+          <span class="absolute inset-y-0 right-0 flex items-center pr-3.5 pointer-events-none text-[var(--site-muted)] group-focus-within:text-[var(--site-primary)] transition-colors">
+            <i class="fa-solid fa-magnifying-glass text-xs sm:text-sm" aria-hidden="true"></i>
+          </span>
+          <input 
+            type="text" 
+            id="desktop-search-input"
+            name="q"
+            placeholder="جستجو در دوره‌ها، مقالات، پروژه‌ها..."
+            aria-label="جستجو در سایت"
+            class="w-full bg-[var(--site-bg)]/80 hover:bg-[var(--site-bg)] border border-[var(--site-border)] rounded-xl pr-10 pl-14 py-2.5 text-[var(--site-text)] text-xs focus:outline-none focus:bg-[var(--site-card)] focus:border-[var(--site-primary)] focus:ring-2 focus:ring-[var(--site-primary)]/20 transition-all shadow-2xs"
+          />
+          <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+            <kbd class="hidden xl:inline-flex items-center px-1.5 py-0.5 text-[9px] font-bold text-[var(--site-muted)] bg-[var(--site-card)] border border-[var(--site-border)] rounded-md shadow-2xs">⌘K</kbd>
+          </div>
+        </form>
+      </div>
+
+      <div class="flex items-center gap-2.5 flex-shrink-0">
+        
+        <button id="theme-toggle" class="w-10 h-10 relative flex items-center justify-center text-[var(--site-text)] hover:text-[var(--site-primary)] bg-[var(--site-bg)]/60 border border-[var(--site-border)] rounded-xl focus:outline-none hover:border-[var(--site-primary)]/40 transition-all shadow-2xs group" aria-label="تغییر تم سایت">
+          <i id="theme-icon-moon" class="fa-solid fa-moon text-xs relative z-10 transition-transform duration-300 group-hover:-rotate-12" aria-hidden="true"></i>
+          <i id="theme-icon-sun" class="fa-solid fa-sun text-xs text-[var(--site-gold)] relative z-10 transition-transform duration-300 group-hover:rotate-45" style="display: none;" aria-hidden="true"></i>
+        </button>
+
+        <!-- دکمه مشاوره تخصصی با افکت و انیمیشن درخواست شده -->
+        <a href="/consultation" class="hidden sm:inline-flex items-center gap-2 bg-gradient-to-r from-[var(--site-primary)] to-[var(--site-secondary)] text-white px-4 py-2.5 rounded-xl text-xs font-bold shadow-md shadow-[var(--site-primary)]/20 hover:shadow-lg hover:shadow-[var(--site-primary)]/40 hover:brightness-110 transition-all duration-300 hover:-translate-y-0.5 whitespace-nowrap overflow-hidden group">
+          <i class="fa-solid fa-headset text-sm group-hover:animate-bounce" aria-hidden="true"></i>
+          <span>مشاوره تخصصی</span>
+        </a>
+
+        <button id="menu-btn" class="lg:hidden w-10 h-10 flex items-center justify-center text-[var(--site-text)] hover:text-[var(--site-primary)] bg-[var(--site-bg)]/60 border border-[var(--site-border)] rounded-xl focus:outline-none transition-all shadow-2xs" aria-label="منوی ناوبری موبایل" aria-expanded="false" aria-controls="mobile-menu-panel">
+          <i class="fa-solid fa-bars text-xs transition-transform duration-200" id="menu-icon" aria-hidden="true"></i>
+        </button>
+      </div>
+
+    </div>
+
+    <div class="hidden lg:block py-2.5 border-t border-[var(--site-border)]/40">
+      <nav class="flex items-center justify-center gap-1.5 xl:gap-2.5 text-xs font-bold" aria-label="منوی اصلی">
+        {[
+          { title: 'دوره‌ها', href: '/courses', icon: 'fa-graduation-cap' },
+          { title: 'پروژه‌ها', href: '/projects', icon: 'fa-layer-group' },
+          { title: 'یادداشت‌ها', href: '/notes', icon: 'fa-pen-nib' },
+          { title: 'کتاب‌ها و جزوات', href: '/books', icon: 'fa-book-open' },
+          { title: 'دانلود نرم‌افزار', href: '/softwares', icon: 'fa-download' },
+          { title: 'مسیر یادگیری', href: '/roadmap', icon: 'fa-map' },
+          { title: 'لینک‌های مفید', href: '/links', icon: 'fa-link' },
+          { title: 'درباره ما', href: '/about', icon: 'fa-user-astronaut' },
+          { title: 'تماس با ما', href: '/contact', icon: 'fa-envelope' }
+        ].map((item) => {
+          const active = isActive(item.href);
+          return (
+            <a
+              href={item.href}
+              aria-current={active ? 'page' : undefined}
+              class={`relative group px-3.5 py-2 transition-colors duration-200 whitespace-nowrap flex items-center gap-2 rounded-xl ${
+                active
+                  ? 'text-[var(--site-primary)] bg-[var(--site-primary)]/10 font-extrabold'
+                  : 'text-[var(--site-text)] hover:text-[var(--site-primary)] hover:bg-[var(--site-primary)]/5'
+              }`}
+            >
+              <i
+                class={`fa-solid ${item.icon} text-xs text-[var(--site-primary)] transition-all duration-300 ease-out ${
+                  active ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0'
+                }`}
+                aria-hidden="true"
+              ></i>
+              <span class="relative z-10 transition-transform duration-200 group-hover:translate-x-0.5">{item.title}</span>
+            </a>
+          );
+        })}
+      </nav>
+    </div>
+
+    <!-- منوی موبایل و تبلت: تنها راه دسترسی به ناوبری و جستجو زیر breakpoint لایه lg -->
+    <div id="mobile-menu-panel" class="lg:hidden hidden border-t border-[var(--site-border)]/60 py-4">
+      <form action="/search" method="GET" class="relative w-full mb-4" role="search">
+        <span class="absolute inset-y-0 right-0 flex items-center pr-3.5 pointer-events-none text-[var(--site-muted)]">
+          <i class="fa-solid fa-magnifying-glass text-xs" aria-hidden="true"></i>
         </span>
-        <input 
-          type="text" 
-          id="desktop-search-input"
-          placeholder="جستجو در دوره‌ها، مقالات، پروژه‌ها..." 
-          class="w-full bg-[var(--site-bg)]/60 hover:bg-[var(--site-bg)] border border-[var(--site-border)] rounded-2xl pr-11 pl-4 py-2.5 text-[var(--site-text)] text-xs focus:outline-none focus:bg-[var(--site-card)] focus:border-[var(--site-primary)]/60 focus:ring-4 focus:ring-[var(--site-primary)]/15 transition-all duration-300 shadow-2xs focus:shadow-md"
+        <input
+          type="text"
+          name="q"
+          placeholder="جستجو در دوره‌ها، مقالات، پروژه‌ها..."
+          aria-label="جستجو در سایت"
+          class="w-full bg-[var(--site-bg)]/80 border border-[var(--site-border)] rounded-xl pr-10 pl-4 py-2.5 text-[var(--site-text)] text-xs focus:outline-none focus:border-[var(--site-primary)] focus:ring-2 focus:ring-[var(--site-primary)]/20 transition-all"
         />
       </form>
+      <nav class="grid grid-cols-2 gap-2 text-xs font-bold" aria-label="منوی موبایل">
+        {[
+          { title: 'دوره‌ها', href: '/courses', icon: 'fa-graduation-cap' },
+          { title: 'پروژه‌ها', href: '/projects', icon: 'fa-layer-group' },
+          { title: 'یادداشت‌ها', href: '/notes', icon: 'fa-pen-nib' },
+          { title: 'کتاب‌ها و جزوات', href: '/books', icon: 'fa-book-open' },
+          { title: 'دانلود نرم‌افزار', href: '/softwares', icon: 'fa-download' },
+          { title: 'مسیر یادگیری', href: '/roadmap', icon: 'fa-map' },
+          { title: 'لینک‌های مفید', href: '/links', icon: 'fa-link' },
+          { title: 'مشاوره تخصصی', href: '/consultation', icon: 'fa-headset' },
+          { title: 'درباره ما', href: '/about', icon: 'fa-user-astronaut' },
+          { title: 'تماس با ما', href: '/contact', icon: 'fa-envelope' }
+        ].map((item) => {
+          const active = isActive(item.href);
+          return (
+            <a
+              href={item.href}
+              aria-current={active ? 'page' : undefined}
+              class={`flex items-center gap-2.5 px-3 py-3 rounded-xl border transition-colors ${
+                active
+                  ? 'text-[var(--site-primary)] bg-[var(--site-primary)]/10 border-[var(--site-primary)]/25 font-extrabold'
+                  : 'text-[var(--site-text)] bg-[var(--site-bg)]/50 border-[var(--site-border)] hover:text-[var(--site-primary)] hover:border-[var(--site-primary)]/30'
+              }`}
+            >
+              <i class={`fa-solid ${item.icon} text-xs text-[var(--site-primary)] w-4 text-center shrink-0`} aria-hidden="true"></i>
+              <span class="truncate">{item.title}</span>
+            </a>
+          );
+        })}
+      </nav>
     </div>
-
-    <!-- بخش ابزارها (تغییر تم، مشاوره و منوی موبایل) -->
-    <div class="flex items-center gap-3 flex-shrink-0">
-      
-      <!-- دکمه تغییر تم با هاور شناور -->
-      <button id="theme-toggle" class="w-10 h-10 relative flex items-center justify-center text-[var(--site-text)] hover:text-[var(--site-primary)] bg-[var(--site-bg)]/50 border border-[var(--site-border)] rounded-2xl focus:outline-none transition-all duration-300 hover:scale-105 hover:bg-[var(--site-card)] shadow-2xs hover:shadow-sm" aria-label="تغییر تم سایت">
-        <i id="theme-icon-moon" class="fa-solid fa-moon text-sm transition-transform duration-300"></i>
-        <i id="theme-icon-sun" class="fa-solid fa-sun text-sm text-amber-500 transition-transform duration-300" style="display: none;"></i>
-      </button>
-
-      <!-- دکمه مشاوره (مدرن با درخشش ملایم) -->
-      <a href="/consultation" class="hidden sm:inline-flex items-center gap-2 bg-gradient-to-r from-[var(--site-primary)] to-blue-600 text-white px-4 py-2.5 rounded-2xl text-xs font-bold shadow-md shadow-[var(--site-primary)]/20 hover:shadow-lg hover:shadow-[var(--site-primary)]/40 transition-all duration-300 hover:-translate-y-0.5 whitespace-nowrap overflow-hidden group">
-        <i class="fa-solid fa-headset text-sm group-hover:animate-bounce"></i>
-        <span>مشاوره تخصصی</span>
-      </a>
-
-      <!-- دکمه منوی موبایل -->
-      <button id="menu-btn" class="lg:hidden w-10 h-10 flex items-center justify-center text-[var(--site-text)] hover:text-[var(--site-primary)] bg-[var(--site-bg)]/50 border border-[var(--site-border)] rounded-2xl focus:outline-none transition-all duration-300 hover:scale-105 shadow-2xs" aria-label="منو">
-        <i class="fa-solid fa-bars text-sm"></i>
-      </button>
-    </div>
-
-  </div>
-
-  <!-- ردیف دوم: منوی ناوبری (با افکت پس‌زمینه متحرک و فوق‌سبک) -->
-  <div class="hidden lg:block max-w-7xl mx-auto px-4 sm:px-6">
-    <nav class="flex items-center justify-center gap-2 xl:gap-3 h-12 text-xs font-bold">
-      
-      <!-- نمونه یک آیتم منو با افکت مدرن GPU-Accelerated -->
-      {[
-        { title: 'دوره‌ها', href: '/courses' },
-        { title: 'پروژه‌ها', href: '/projects' },
-        { title: 'یادداشت‌ها', href: '/notes' },
-        { title: 'کتاب‌ها و جزوات', href: '/books' },
-        { title: 'دانلود نرم‌افزار', href: '/softwares' },
-        { title: 'مسیر یادگیری', href: '/roadmap' },
-        { title: 'لینک‌های مفید', href: '/links' },
-        { title: 'درباره ما', href: '/about' },
-        { title: 'تماس با ما', href: '/contact' }
-      ].map((item) => (
-        <a href={item.href} class="relative group px-4 py-2 text-[var(--site-text)] hover:text-[var(--site-primary)] transition-colors duration-300 whitespace-nowrap">
-          <span class="relative z-10">{item.title}</span>
-          <!-- پس‌زمینه مخفی که در حالت هاور با انیمیشن نرم ظاهر می‌شود -->
-          <span class="absolute inset-0 bg-[var(--site-primary)]/10 rounded-xl scale-75 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-300 -z-0"></span>
-        </a>
-      ))}
-
-    </nav>
-  </div>
-
-  <!-- منوی کشویی موبایل (ریسپانسیو و شیک) -->
-  <div id="mobile-menu" class="hidden lg:hidden bg-[var(--site-card)]/95 backdrop-blur-2xl border-b border-[var(--site-border)] px-6 py-6 space-y-5 max-h-[85vh] overflow-y-auto shadow-2xl transition-all">
-    
-    <form id="mobile-search-form" class="relative w-full">
-      <span class="absolute inset-y-0 right-0 flex items-center pr-4 pointer-events-none text-[var(--site-primary)]">
-        <i class="fa-solid fa-search text-sm"></i>
-      </span>
-      <input 
-        type="text" 
-        id="mobile-search-input"
-        placeholder="جستجو در سایت..." 
-        class="w-full bg-[var(--site-bg)] border border-[var(--site-border)] rounded-2xl pr-11 pl-4 py-3.5 text-[var(--site-text)] text-xs focus:outline-none focus:border-[var(--site-primary)] focus:ring-4 focus:ring-[var(--site-primary)]/15 transition-all shadow-sm"
-      />
-    </form>
-
-    <div class="grid grid-cols-2 gap-3 text-xs font-bold pt-2">
-      <a href="/courses" class="block p-3.5 rounded-2xl bg-[var(--site-bg)] hover:bg-[var(--site-primary)]/10 hover:text-[var(--site-primary)] text-[var(--site-text)] transition-all border border-[var(--site-border)] text-center shadow-2xs">دوره‌ها</a>
-      <a href="/projects" class="block p-3.5 rounded-2xl bg-[var(--site-bg)] hover:bg-[var(--site-primary)]/10 hover:text-[var(--site-primary)] text-[var(--site-text)] transition-all border border-[var(--site-border)] text-center shadow-2xs">پروژه‌ها</a>
-      <a href="/notes" class="block p-3.5 rounded-2xl bg-[var(--site-bg)] hover:bg-[var(--site-primary)]/10 hover:text-[var(--site-primary)] text-[var(--site-text)] transition-all border border-[var(--site-border)] text-center shadow-2xs">یادداشت‌ها</a>
-      <a href="/books" class="block p-3.5 rounded-2xl bg-[var(--site-bg)] hover:bg-[var(--site-primary)]/10 hover:text-[var(--site-primary)] text-[var(--site-text)] transition-all border border-[var(--site-border)] text-center shadow-2xs">کتاب‌ها و جزوات</a>
-      <a href="/softwares" class="block p-3.5 rounded-2xl bg-[var(--site-bg)] hover:bg-[var(--site-primary)]/10 hover:text-[var(--site-primary)] text-[var(--site-text)] transition-all border border-[var(--site-border)] text-center shadow-2xs">دانلود نرم‌افزار</a>
-      <a href="/roadmap" class="block p-3.5 rounded-2xl bg-[var(--site-bg)] hover:bg-[var(--site-primary)]/10 hover:text-[var(--site-primary)] text-[var(--site-text)] transition-all border border-[var(--site-border)] text-center shadow-2xs">مسیر یادگیری</a>
-      <a href="/links" class="block p-3.5 rounded-2xl bg-[var(--site-bg)] hover:bg-[var(--site-primary)]/10 hover:text-[var(--site-primary)] text-[var(--site-text)] transition-all border border-[var(--site-border)] text-center shadow-2xs">لینک‌های مفید</a>
-      <a href="/about" class="block p-3.5 rounded-2xl bg-[var(--site-bg)] hover:bg-[var(--site-primary)]/10 hover:text-[var(--site-primary)] text-[var(--site-text)] transition-all border border-[var(--site-border)] text-center shadow-2xs">درباره ما</a>
-      
-      <!-- دکمه‌های ویژه در موبایل -->
-      <a href="/contact" class="block p-3.5 rounded-2xl bg-[var(--site-bg)] hover:bg-[var(--site-primary)]/10 hover:text-[var(--site-primary)] text-[var(--site-text)] transition-all border border-[var(--site-border)] text-center shadow-2xs col-span-2 sm:col-span-1">تماس با ما</a>
-      <a href="/consultation" class="block p-3.5 rounded-2xl bg-gradient-to-r from-[var(--site-primary)] to-blue-600 text-white transition-all text-center shadow-md col-span-2 sm:col-span-1 border-none">مشاوره تخصصی</a>
-    </div>
-
   </div>
 </header>
 
-<script>
-  function initHeaderScripts() {
-    const themeToggleBtn = document.getElementById('theme-toggle');
-    const moonIcon = document.getElementById('theme-icon-moon');
-    const sunIcon = document.getElementById('theme-icon-sun');
-
-    function updateThemeIcons() {
-      if (!moonIcon || !sunIcon) return;
-      
-      if (document.documentElement.classList.contains('dark')) {
-        moonIcon.style.display = 'none';
-        sunIcon.style.display = 'inline-block';
-      } else {
-        moonIcon.style.display = 'inline-block';
-        sunIcon.style.display = 'none';
-      }
-    }
-
-    updateThemeIcons();
-
-    if (themeToggleBtn && !themeToggleBtn.hasAttribute('data-bound')) {
-      themeToggleBtn.setAttribute('data-bound', 'true');
-      themeToggleBtn.addEventListener('click', () => {
-        if (document.documentElement.classList.contains('dark')) {
-          document.documentElement.classList.remove('dark');
-          localStorage.setItem('theme', 'light');
-        } else {
-          document.documentElement.classList.add('dark');
-          localStorage.setItem('theme', 'dark');
-        }
-        updateThemeIcons();
-      });
-    }
-
+<script is:inline>
+  function initMobileMenu() {
     const menuBtn = document.getElementById('menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    if (menuBtn && mobileMenu && !menuBtn.hasAttribute('data-bound')) {
-      menuBtn.setAttribute('data-bound', 'true');
-      menuBtn.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-      });
-    }
+    const menuIcon = document.getElementById('menu-icon');
+    const panel = document.getElementById('mobile-menu-panel');
+    if (!menuBtn || !panel) return;
 
-    const desktopForm = document.getElementById('desktop-search-form');
-    const desktopInput = document.getElementById('desktop-search-input') as HTMLInputElement;
-    if (desktopForm && !desktopForm.hasAttribute('data-bound')) {
-      desktopForm.setAttribute('data-bound', 'true');
-      desktopForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const query = desktopInput?.value.trim();
-        if (query) {
-          window.location.href = `/search?q=${encodeURIComponent(query)}`;
-        }
-      });
-    }
+    // جلوگیری از اتصال چندباره‌ی listener روی همان دکمه (مثلاً بعد از page transition)
+    const newBtn = menuBtn.cloneNode(true);
+    menuBtn.parentNode.replaceChild(newBtn, menuBtn);
 
-    const mobileForm = document.getElementById('mobile-search-form');
-    const mobileInput = document.getElementById('mobile-search-input') as HTMLInputElement;
-    if (mobileForm && !mobileForm.hasAttribute('data-bound')) {
-      mobileForm.setAttribute('data-bound', 'true');
-      mobileForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const query = mobileInput?.value.trim();
-        if (query) {
-          window.location.href = `/search?q=${encodeURIComponent(query)}`;
-        }
-      });
-    }
+    newBtn.addEventListener('click', () => {
+      const isOpen = !panel.classList.contains('hidden');
+      panel.classList.toggle('hidden');
+      newBtn.setAttribute('aria-expanded', String(!isOpen));
+      const icon = document.getElementById('menu-icon');
+      if (icon) {
+        icon.classList.toggle('fa-bars', isOpen);
+        icon.classList.toggle('fa-xmark', !isOpen);
+      }
+    });
   }
 
-  initHeaderScripts();
-  document.addEventListener('astro:after-swap', initHeaderScripts);
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initMobileMenu);
+  } else {
+    initMobileMenu();
+  }
+  document.addEventListener('astro:page-load', initMobileMenu);
 </script>

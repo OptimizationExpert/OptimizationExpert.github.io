@@ -1,90 +1,101 @@
 ---
-// Footer.astro
+// Footer.astro - Perfect Theme-Adaptive Edition
 ---
 
-<footer class="relative bg-[var(--site-card)]/80 backdrop-blur-xl border-t border-[var(--site-border)]/60 text-[var(--site-text)] pt-16 pb-10 mt-24 transition-colors overflow-hidden">
-  
-  <!-- خط نورانی بالای فوتر -->
-  <div class="absolute top-0 right-1/2 translate-x-1/2 w-3/4 max-w-2xl h-[1px] bg-gradient-to-r from-transparent via-[var(--site-primary)]/40 to-transparent"></div>
+<footer class="relative w-full bg-[var(--site-card)] border-t border-[var(--site-border)] text-[var(--site-text)] pt-20 pb-12 mt-32 transition-colors">
 
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 md:grid-cols-4 gap-10 lg:gap-12 pb-12">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-12 gap-12 pb-14 border-b border-[var(--site-border)]">
     
-    <!-- ستون اول: لوگو دقیقاً مطابق هدر (بدون هیچ هاله یا کادر اضافی) -->
-    <div class="md:col-span-2 space-y-4">
-      <a href="/" class="group inline-flex items-center gap-3 flex-shrink-0">
-        <img src="/favicon.svg" alt="لوگو" class="w-8 h-8 rounded-lg group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300 drop-shadow-sm" />
-        <span class="text-base sm:text-lg font-extrabold text-[var(--site-heading)] tracking-tight group-hover:text-[var(--site-primary)] transition-colors duration-300">
+    <!-- ستون اول: برند و معرفی تخصصی (۵ ستون) - بدون کادر دور لوگو -->
+    <div class="md:col-span-5 space-y-5">
+      <a href="/" class="group inline-flex items-center gap-3.5 focus:outline-none">
+        <div class="flex items-center justify-center transition-transform duration-300 group-hover:scale-105 group-hover:rotate-3">
+          <img src="/favicon.svg" alt="لوگو مرجع تخصصی مدل‌سازی و بهینه‌سازی" class="w-9 h-9 object-contain" />
+        </div>
+        <span class="text-base sm:text-lg font-black tracking-tight text-[var(--site-heading)] group-hover:text-[var(--site-primary)] transition-colors">
           مرجع تخصصی مدل‌سازی و بهینه‌سازی
         </span>
       </a>
       <p class="text-xs sm:text-sm leading-relaxed text-[var(--site-muted)] max-w-md font-normal">
-        توسعه مرجع تخصصی آموزش مدل‌های ریاضی، سالورهای پیشرفته پایتون، تحلیل شبکه‌های قدرت و ارائه راهکارهای مهندسی با رویکردی کاملاً کاربردی و پروژه‌محور.
+        مرجع تخصصی آموزش مدل‌های ریاضی، سالورهای پیشرفته پایتون، تحلیل شبکه‌های قدرت و ارائه راهکارهای مهندسی با رویکردی کاملاً کاربردی و پروژه‌محور.
       </p>
     </div>
 
-    <!-- ستون دوم: دسترسی سریع -->
-    <div class="space-y-4">
-      <h4 class="text-xs font-bold text-[var(--site-heading)] uppercase tracking-wider flex items-center gap-2">
-        <span class="w-2 h-2 rounded-full bg-[var(--site-primary)]"></span>
+    <!-- ستون دوم: دسترسی سریع (۳ ستون) -->
+    <div class="md:col-span-3 space-y-4">
+      <h4 class="text-xs font-black text-[var(--site-heading)] uppercase tracking-widest flex items-center gap-2">
+        <span class="w-1.5 h-1.5 rounded-full bg-[var(--site-primary)]"></span>
         دسترسی سریع
       </h4>
-      <ul class="space-y-2.5 text-xs font-medium">
+      <ul class="space-y-2.5 text-xs font-semibold">
         <li>
-          <a href="/courses" class="group inline-flex items-center gap-2 text-[var(--site-muted)] hover:text-[var(--site-primary)] transition-all duration-200">
-            <span class="w-1.5 h-1.5 rounded-full bg-[var(--site-border)] group-hover:bg-[var(--site-primary)] group-hover:scale-125 transition-all"></span>
-            <span>دوره‌های آموزشی</span>
+          <a href="/courses" class="group inline-flex items-center gap-2.5 text-[var(--site-muted)] hover:text-[var(--site-primary)] transition-colors">
+            <span class="w-1 h-1 rounded-full bg-[var(--site-border)] group-hover:bg-[var(--site-primary)] group-hover:scale-125 transition-all"></span>
+            <span class="group-hover:translate-x-1 transition-transform">دوره‌های آموزشی</span>
           </a>
         </li>
         <li>
-          <a href="/projects" class="group inline-flex items-center gap-2 text-[var(--site-muted)] hover:text-[var(--site-primary)] transition-all duration-200">
-            <span class="w-1.5 h-1.5 rounded-full bg-[var(--site-border)] group-hover:bg-[var(--site-primary)] group-hover:scale-125 transition-all"></span>
-            <span>پروژه‌های مهندسی</span>
+          <a href="/projects" class="group inline-flex items-center gap-2.5 text-[var(--site-muted)] hover:text-[var(--site-primary)] transition-colors">
+            <span class="w-1 h-1 rounded-full bg-[var(--site-border)] group-hover:bg-[var(--site-primary)] group-hover:scale-125 transition-all"></span>
+            <span class="group-hover:translate-x-1 transition-transform">پروژه‌های مهندسی</span>
           </a>
         </li>
         <li>
-          <a href="/notes" class="group inline-flex items-center gap-2 text-[var(--site-muted)] hover:text-[var(--site-primary)] transition-all duration-200">
-            <span class="w-1.5 h-1.5 rounded-full bg-[var(--site-border)] group-hover:bg-[var(--site-primary)] group-hover:scale-125 transition-all"></span>
-            <span>مقالات و یادداشت‌ها</span>
+          <a href="/notes" class="group inline-flex items-center gap-2.5 text-[var(--site-muted)] hover:text-[var(--site-primary)] transition-colors">
+            <span class="w-1 h-1 rounded-full bg-[var(--site-border)] group-hover:bg-[var(--site-primary)] group-hover:scale-125 transition-all"></span>
+            <span class="group-hover:translate-x-1 transition-transform">مقالات و یادداشت‌ها</span>
           </a>
         </li>
         <li>
-          <a href="/books" class="group inline-flex items-center gap-2 text-[var(--site-muted)] hover:text-[var(--site-primary)] transition-all duration-200">
-            <span class="w-1.5 h-1.5 rounded-full bg-[var(--site-border)] group-hover:bg-[var(--site-primary)] group-hover:scale-125 transition-all"></span>
-            <span>کتاب‌ها و جزوات</span>
+          <a href="/books" class="group inline-flex items-center gap-2.5 text-[var(--site-muted)] hover:text-[var(--site-primary)] transition-colors">
+            <span class="w-1 h-1 rounded-full bg-[var(--site-border)] group-hover:bg-[var(--site-primary)] group-hover:scale-125 transition-all"></span>
+            <span class="group-hover:translate-x-1 transition-transform">کتاب‌ها و جزوات</span>
+          </a>
+        </li>
+        <li>
+          <a href="/softwares" class="group inline-flex items-center gap-2.5 text-[var(--site-muted)] hover:text-[var(--site-primary)] transition-colors">
+            <span class="w-1 h-1 rounded-full bg-[var(--site-border)] group-hover:bg-[var(--site-primary)] group-hover:scale-125 transition-all"></span>
+            <span class="group-hover:translate-x-1 transition-transform">دانلود نرم‌افزار</span>
+          </a>
+        </li>
+        <li>
+          <a href="/links" class="group inline-flex items-center gap-2.5 text-[var(--site-muted)] hover:text-[var(--site-primary)] transition-colors">
+            <span class="w-1 h-1 rounded-full bg-[var(--site-border)] group-hover:bg-[var(--site-primary)] group-hover:scale-125 transition-all"></span>
+            <span class="group-hover:translate-x-1 transition-transform">لینک‌های مفید</span>
           </a>
         </li>
       </ul>
     </div>
 
-    <!-- ستون سوم: ارتباط و پشتیبانی -->
-    <div class="space-y-4">
-      <h4 class="text-xs font-bold text-[var(--site-heading)] uppercase tracking-wider flex items-center gap-2">
-        <span class="w-2 h-2 rounded-full bg-[var(--site-primary)]"></span>
+    <!-- ستون سوم: ارتباط و پشتیبانی (۴ ستون) -->
+    <div class="md:col-span-4 space-y-4">
+      <h4 class="text-xs font-black text-[var(--site-heading)] uppercase tracking-widest flex items-center gap-2">
+        <span class="w-1.5 h-1.5 rounded-full bg-[var(--site-primary)]"></span>
         ارتباط و پشتیبانی
       </h4>
-      <ul class="space-y-2.5 text-xs font-medium">
+      <ul class="space-y-2.5 text-xs font-semibold">
         <li>
-          <a href="/consultation" class="group inline-flex items-center gap-2 text-[var(--site-muted)] hover:text-[var(--site-primary)] transition-all duration-200">
-            <span class="w-1.5 h-1.5 rounded-full bg-[var(--site-border)] group-hover:bg-[var(--site-primary)] group-hover:scale-125 transition-all"></span>
-            <span>درخواست مشاوره</span>
+          <a href="/consultation" class="group inline-flex items-center gap-2.5 text-[var(--site-muted)] hover:text-[var(--site-primary)] transition-colors">
+            <span class="w-1 h-1 rounded-full bg-[var(--site-border)] group-hover:bg-[var(--site-primary)] group-hover:scale-125 transition-all"></span>
+            <span class="group-hover:translate-x-1 transition-transform">درخواست مشاوره</span>
           </a>
         </li>
         <li>
-          <a href="/roadmap" class="group inline-flex items-center gap-2 text-[var(--site-muted)] hover:text-[var(--site-primary)] transition-all duration-200">
-            <span class="w-1.5 h-1.5 rounded-full bg-[var(--site-border)] group-hover:bg-[var(--site-primary)] group-hover:scale-125 transition-all"></span>
-            <span>مسیر یادگیری</span>
+          <a href="/roadmap" class="group inline-flex items-center gap-2.5 text-[var(--site-muted)] hover:text-[var(--site-primary)] transition-colors">
+            <span class="w-1 h-1 rounded-full bg-[var(--site-border)] group-hover:bg-[var(--site-primary)] group-hover:scale-125 transition-all"></span>
+            <span class="group-hover:translate-x-1 transition-transform">مسیر یادگیری</span>
           </a>
         </li>
         <li>
-          <a href="/about" class="group inline-flex items-center gap-2 text-[var(--site-muted)] hover:text-[var(--site-primary)] transition-all duration-200">
-            <span class="w-1.5 h-1.5 rounded-full bg-[var(--site-border)] group-hover:bg-[var(--site-primary)] group-hover:scale-125 transition-all"></span>
-            <span>درباره ما</span>
+          <a href="/about" class="group inline-flex items-center gap-2.5 text-[var(--site-muted)] hover:text-[var(--site-primary)] transition-colors">
+            <span class="w-1 h-1 rounded-full bg-[var(--site-border)] group-hover:bg-[var(--site-primary)] group-hover:scale-125 transition-all"></span>
+            <span class="group-hover:translate-x-1 transition-transform">درباره ما</span>
           </a>
         </li>
         <li>
-          <a href="/contact" class="group inline-flex items-center gap-2 text-[var(--site-muted)] hover:text-[var(--site-primary)] transition-all duration-200">
-            <span class="w-1.5 h-1.5 rounded-full bg-[var(--site-border)] group-hover:bg-[var(--site-primary)] group-hover:scale-125 transition-all"></span>
-            <span>تماس با ما</span>
+          <a href="/contact" class="group inline-flex items-center gap-2.5 text-[var(--site-muted)] hover:text-[var(--site-primary)] transition-colors">
+            <span class="w-1 h-1 rounded-full bg-[var(--site-border)] group-hover:bg-[var(--site-primary)] group-hover:scale-125 transition-all"></span>
+            <span class="group-hover:translate-x-1 transition-transform">تماس با ما</span>
           </a>
         </li>
       </ul>
@@ -92,38 +103,71 @@
 
   </div>
 
-  <!-- بخش پایینی، کپی‌رایت و شبکه‌های اجتماعی -->
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 pt-8 border-t border-[var(--site-border)]/40 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[var(--site-muted)]">
-    <p class="font-medium">© ۱۴۰۵ تمامی حقوق محفوظ است.</p>
+  <!-- بخش پایینی: کپی‌رایت و شبکه‌های اجتماعی هماهنگ با تم تیره و روشن -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[var(--site-muted)]">
+    <p class="font-semibold tracking-tight">© ۱۴۰۵ تمامی حقوق محفوظ است.</p>
     
+    <!-- دکمه‌های اجتماعی: عمداً با رنگ برند خودِ هر پلتفرم، نه رنگ سایت -->
     <div class="flex items-center gap-3">
+      
       <a 
         href="https://github.com/OptimizationExpert" 
         target="_blank" 
         rel="noopener noreferrer" 
-        class="w-10 h-10 rounded-2xl bg-[var(--site-bg)] border border-[var(--site-border)] hover:border-[var(--site-primary)]/50 hover:text-[var(--site-heading)] hover:bg-[var(--site-card)] text-[var(--site-muted)] flex items-center justify-center transition-all duration-300 hover:-translate-y-1 hover:shadow-md" 
-        aria-label="GitHub"
+        class="w-10 h-10 rounded-xl bg-[var(--site-bg)] border border-[var(--site-border)] hover:border-[var(--site-heading)] hover:text-[var(--site-heading)] text-[var(--site-muted)] flex items-center justify-center transition-all duration-300 hover:-translate-y-1 group" 
+        aria-label="گیت‌هاب"
       >
-        <i class="fa-brands fa-github text-base"></i>
+        <i class="fa-brands fa-github text-sm transition-transform duration-300 group-hover:scale-110"></i>
       </a>
+
       <a 
         href="https://www.linkedin.com/in/soroudi/" 
         target="_blank" 
         rel="noopener noreferrer" 
-        class="w-10 h-10 rounded-2xl bg-[var(--site-bg)] border border-[var(--site-border)] hover:border-[#0A66C2]/40 hover:text-[#0A66C2] hover:bg-[#0A66C2]/10 text-[var(--site-muted)] flex items-center justify-center transition-all duration-300 hover:-translate-y-1 hover:shadow-md" 
-        aria-label="LinkedIn"
+        class="w-10 h-10 rounded-xl bg-[var(--site-bg)] border border-[var(--site-border)] hover:border-blue-500 hover:text-blue-500 text-[var(--site-muted)] flex items-center justify-center transition-all duration-300 hover:-translate-y-1 group" 
+        aria-label="لینکدین"
       >
-        <i class="fa-brands fa-linkedin text-base"></i>
+        <i class="fa-brands fa-linkedin text-sm transition-transform duration-300 group-hover:scale-110"></i>
       </a>
+
       <a 
         href="https://t.me/pypyid" 
         target="_blank" 
         rel="noopener noreferrer" 
-        class="w-10 h-10 rounded-2xl bg-[var(--site-bg)] border border-[var(--site-border)] hover:border-[#24A1DE]/40 hover:text-[#24A1DE] hover:bg-[#24A1DE]/10 text-[var(--site-muted)] flex items-center justify-center transition-all duration-300 hover:-translate-y-1 hover:shadow-md" 
-        aria-label="Telegram"
+        class="w-10 h-10 rounded-xl bg-[var(--site-bg)] border border-[var(--site-border)] hover:border-sky-400 hover:text-sky-400 text-[var(--site-muted)] flex items-center justify-center transition-all duration-300 hover:-translate-y-1 group" 
+        aria-label="تلگرام"
       >
-        <i class="fa-brands fa-telegram text-base"></i>
+        <i class="fa-brands fa-telegram text-sm transition-transform duration-300 group-hover:scale-110"></i>
       </a>
+
+      <a 
+        href="https://www.youtube.com/@optexpert-org" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        class="w-10 h-10 rounded-xl bg-[var(--site-bg)] border border-[var(--site-border)] hover:border-red-500 hover:text-red-500 text-[var(--site-muted)] flex items-center justify-center transition-all duration-300 hover:-translate-y-1 group" 
+        aria-label="یوتیوب"
+      >
+        <i class="fa-brands fa-youtube text-sm transition-transform duration-300 group-hover:scale-110"></i>
+      </a>
+
+      <a 
+        href="https://www.aparat.com/OptimizationOnline" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        class="w-10 h-10 rounded-xl bg-[var(--site-bg)] border border-[var(--site-border)] hover:border-pink-500 flex items-center justify-center transition-all duration-300 hover:-translate-y-1 group" 
+        aria-label="آپارات"
+      >
+        <span 
+          class="w-3.5 h-3.5 bg-current text-[var(--site-muted)] group-hover:hidden"
+          style="mask-image: url('/aparat_logo.svg'); -webkit-mask-image: url('/aparat_logo.svg'); mask-size: contain; -webkit-mask-size: contain; mask-repeat: no-repeat; -webkit-mask-repeat: no-repeat; mask-position: center; -webkit-mask-position: center;"
+        ></span>
+        <img 
+          src="/aparat_logo.svg" 
+          alt="آپارات" 
+          class="w-3.5 h-3.5 object-contain hidden group-hover:block transition-transform duration-300 group-hover:scale-110" 
+        />
+      </a>
+
     </div>
   </div>
 </footer>

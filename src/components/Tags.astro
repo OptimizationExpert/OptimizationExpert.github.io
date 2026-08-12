@@ -13,9 +13,12 @@ const { tags } = Astro.props;
       <span>برچسب‌ها:</span>
     </span>
     {tags.map((tag) => (
-      <span class="text-xs bg-[var(--site-card)] text-[var(--site-text)] px-3 py-1 rounded-full border border-[var(--site-border)] shadow-2xs">
-        #{tag}
-      </span>
+      <a 
+        href={`/search?tag=${encodeURIComponent(tag.trim())}`}
+        class="text-xs bg-[var(--site-card)] text-[var(--site-text)] hover:text-[var(--site-primary)] hover:border-[var(--site-primary)]/50 px-3 py-1 rounded-full border border-[var(--site-border)] transition-all duration-300 shadow-2xs group"
+      >
+        <span class="text-[var(--site-primary)] opacity-80 group-hover:opacity-100">#</span>{tag}
+      </a>
     ))}
   </div>
 )}

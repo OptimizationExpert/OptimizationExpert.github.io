@@ -1,316 +1,230 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+import ContentCard from '../components/ContentCard.astro';
+import HorizontalScroller from '../components/HorizontalScroller.astro';
+import ScrollerControls from '../components/ScrollerControls.astro';
 
-const courses = await getCollection('courses');
-const projects = await getCollection('projects');
-const notes = await getCollection('notes');
+const rawCourses = await getCollection('courses');
+const rawProjects = await getCollection('projects');
+const rawNotes = await getCollection('notes');
+
+const sortByDateDesc = (items: any[]) => {
+  return [...items].sort((a, b) => {
+    const dateA = new Date(a.data.pubDate || a.data.date || a.data.createdDate || 0).getTime();
+    const dateB = new Date(b.data.pubDate || b.data.date || b.data.createdDate || 0).getTime();
+    return dateB - dateA;
+  });
+};
+
+const courses = sortByDateDesc(rawCourses);
+const projects = sortByDateDesc(rawProjects);
+const notes = sortByDateDesc(rawNotes);
 
 const defaultImage = "/images/hero.webp";
-// داده‌ساختاریافته: سازمان آموزشی + فهرست دوره‌ها (برای نتایج غنی گوگل)
-const siteUrl = "https://optexpert.org";
-
-const orgSchema = {
-  "@context": "https://schema.org",
-  "@type": "EducationalOrganization",
-  "name": "Optimization Expert",
-  "url": `${siteUrl}/`,
-  "logo": `${siteUrl}${defaultImage}`,
-  "description": "دوره‌های تخصصی و پروژه‌محور در حوزه بهینه‌سازی، سیستم‌های قدرت، عدم قطعیت و مسیریابی وسایل نقلیه در Python.",
-  "sameAs": [
-    "https://github.com/OptimizationExpert",
-    "https://t.me/pypyid"
-  ]
-};
-
-const courseListSchema = {
-  "@context": "https://schema.org",
-  "@type": "ItemList",
-  "itemListElement": courses.map((course, index) => {
-    const slug = course.id.replace(/\.md$/, '').split('/').pop();
-    return {
-      "@type": "ListItem",
-      "position": index + 1,
-      "item": {
-        "@type": "Course",
-        "name": course.data.title,
-        "description": course.data.description,
-        "url": `${siteUrl}/courses/${slug}/`,
-        "provider": {
-          "@type": "EducationalOrganization",
-          "name": "Optimization Expert",
-          "url": `${siteUrl}/`
-        }
-      }
-    };
-  })
-};
 ---
 
 <Layout title="مدل‌سازی و بهینه‌سازی کاربردی" description="مرجع تخصصی مدل‌سازی ریاضی، برنامه‌نویسی پایتون، سالورهای بهینه‌سازی و تحلیل سیستم‌های قدرت به صورت پروژه‌محور.">
-
-  <script type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
-  <script type="application/ld+json" set:html={JSON.stringify(courseListSchema)} />
-
-  <Header />
-
-  <main class="flex-grow w-full overflow-hidden">
+   
+  <!-- ۱. بخش بنر (Hero Section) با نسبت 16:9 و ارتفاع فشرده و کنترل‌شده -->
+  <section class="w-full relative overflow-hidden bg-slate-950 h-[220px] xs:h-[260px] sm:h-[320px] md:h-[380px] lg:h-[420px] flex items-center justify-center">
     
-    <!-- ۱. بخش بنر (Hero Section) کاملاً سبک و بدون انیمیشن‌های پس‌زمینه -->
-    <section class="relative bg-[var(--site-bg)] border-b border-[var(--site-border)] overflow-hidden py-32 md:py-40 px-6">
-      <!-- تصویر بک‌گراند ثابت، ایستا و بدون تغییر مقیاس -->
-      <div class="absolute inset-0 opacity-85 bg-cover bg-center" style={`background-image: url('${defaultImage}');`}></div>
-      
-      <!-- لایه تیره عمیق برای خوانایی کامل متن -->
-      <div class="absolute inset-0 bg-black/35 dark:bg-black/90"></div>
-
-      <div class="max-w-4xl mx-auto relative z-10 text-center space-y-9">
+    <!-- تصویر اصلی با پوشش کامل -->
+    <img 
+      src={defaultImage} 
+      alt="مرجع تخصصی مدل‌سازی و بهینه‌سازی" 
+      fetchpriority="high"
+      class="absolute inset-0 w-full h-full object-cover object-center pointer-events-none z-0 brightness-90" 
+    />
+    
+    <!-- محتوای روی تصویر -->
+    <div class="relative z-20 w-full max-w-5xl mx-auto px-3 xs:px-4 sm:px-6 flex flex-col items-center justify-center text-center space-y-2.5 sm:space-y-3.5">
         
-        <!-- برچسب بالا کاملاً ایستا و سبک -->
-        <div class="inline-flex items-center gap-2.5 text-xs font-bold text-white bg-black/80 px-6 py-3 rounded-full border border-white/20 shadow-lg">
-          <i class="fa-solid fa-bolt text-amber-400 text-sm"></i>
-          <span>مرجع تخصصی مدل‌سازی، بهینه‌سازی و سیستم‌های قدرت</span>
-        </div>
-
-        <!-- عنوان اصلی با تایپ‌کننده بومی سریع و سبک -->
-        <div class="min-h-[4rem] flex items-center justify-center w-full overflow-x-hidden">
-          <h1 class="text-xl sm:text-3xl md:text-5xl font-black tracking-tight whitespace-nowrap" style="text-shadow: 0 4px 25px rgba(0,0,0,0.95);">
-            <span id="typewriter-output" class="text-white"></span>
-          </h1>
-        </div>
-
-        <p class="text-gray-100 text-base md:text-lg max-w-2xl mx-auto leading-relaxed font-medium" style="text-shadow: 0 2px 12px rgba(0,0,0,0.95);">
-          توسعه مدل‌های ریاضی پیشرفته، سالورهای بهینه‌سازی در پایتون، و تحلیل شبکه‌های قدرت با رویکردی کاملاً کاربردی و پروژه‌محور.
-        </p>
-
-        <!-- دکمه‌ها بدون افکت‌های سنگین -->
-        <div class="flex flex-wrap justify-center items-center gap-6 pt-4">
-          <a href="/courses" class="bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white font-bold px-9 py-4 rounded-2xl transition-all duration-200 shadow-xl shadow-sky-500/20 text-sm flex items-center gap-3 border border-sky-400/30">
-            <i class="fa-solid fa-graduation-cap text-base text-sky-200"></i>
-            <span>مشاهده دوره‌های آموزشی</span>
-          </a>
-          <a href="/consultation" class="bg-slate-950 hover:bg-slate-900 text-white border-2 border-amber-400 hover:border-amber-300 font-bold px-9 py-4 rounded-2xl transition-all duration-200 text-sm flex items-center gap-3 shadow-xl shadow-amber-500/5">
-            <i class="fa-solid fa-comments text-amber-400"></i>
-            <span>درخواست مشاوره تخصصی</span>
-          </a>
-        </div>
-
+      <!-- نشان‌گر -->
+      <div class="inline-flex items-center gap-1.5 xs:gap-2 text-[10px] xs:text-[11px] sm:text-xs font-bold text-white bg-slate-950/70 backdrop-blur-md px-3.5 py-1 sm:px-4 sm:py-1.5 rounded-full border border-white/20 shadow-lg">
+        <i class="fa-solid fa-bolt text-[var(--site-gold)] text-xs sm:text-sm shrink-0"></i>
+        <span class="truncate">مرجع تخصصی مدل‌سازی، بهینه‌سازی و سیستم‌های قدرت</span>
       </div>
-    </section>
 
-    <!-- اسکریپت بومی تایپ‌کننده استاندارد و فوق‌العاده سبک -->
-    <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        const output = document.getElementById('typewriter-output');
-        if (!output) return;
+      <h1 class="sr-only">مرجع تخصصی مدل‌سازی ریاضی، برنامه‌نویسی پایتون و بهینه‌سازی سیستم‌های قدرت</h1>
 
-        const text1 = "ابتدا ";
-        const text2 = "مدل‌سازی درست";
-        const text3 = "، سپس حل بهینه.";
-        const totalLen = text1.length + text2.length + text3.length;
+      <!-- تیتر اصلی -->
+      <div class="min-h-[1.75rem] xs:min-h-[2rem] sm:min-h-[2.25rem] flex items-center justify-center w-full" aria-hidden="true">
+        <div class="text-sm xs:text-base sm:text-xl md:text-2xl lg:text-3xl font-black tracking-tight leading-snug text-white drop-shadow-[0_4px_12px_rgba(0,0,0,1)]">
+          <span id="typewriter-output"></span>
+        </div>
+      </div>
+
+      <!-- توضیحات با عرض کمتر و وسط‌چین‌شده -->
+      <p class="text-white text-[15px] xs:text-xs sm:text-sm md:text-base max-w-lg mx-auto text-center leading-relaxed font-semibold [text-shadow:_0_2px_4px_rgb(0_0_0_/_90%),_0_0_16px_rgb(0_0_0_/_70%)] px-2">
+        توسعه مدل‌های ریاضی پیشرفته، سالورهای بهینه‌سازی در پایتون، و تحلیل شبکه‌های قدرت با رویکردی کاملاً کاربردی و پروژه‌محور.
+      </p>
+
+      <!-- دکمه‌ها -->
+      <div class="flex flex-row items-center justify-center gap-2 sm:gap-3 pt-1 w-full max-w-md sm:max-w-lg mx-auto">
+        <a href="/courses" class="flex-1 bg-gradient-to-r from-[var(--site-primary)] to-[var(--site-secondary)] hover:brightness-110 text-white font-bold px-3 py-2 sm:px-6 sm:py-2.5 rounded-xl transition-transform duration-200 hover:-translate-y-0.5 text-[10px] xs:text-xs sm:text-sm flex items-center justify-center gap-1.5 sm:gap-2 border border-[var(--site-primary)]/30 shadow-xl truncate">
+          <i class="fa-solid fa-graduation-cap text-xs sm:text-sm text-white/90 shrink-0"></i>
+          <span class="truncate">مشاهده دوره‌های آموزشی</span>
+        </a>
         
-        const cursorHTML = `<span class="inline-block w-1.5 h-5 sm:h-8 bg-amber-400 mr-1.5 align-middle rounded-full opacity-90"></span>`;
+        <a href="/consultation" class="flex-1 relative bg-slate-950/85 hover:bg-slate-900/95 text-white font-bold px-3 py-2 sm:px-6 sm:py-2.5 rounded-xl transition-transform duration-200 hover:-translate-y-0.5 border border-[var(--site-gold)]/80 text-[10px] xs:text-xs sm:text-sm flex items-center justify-center gap-1.5 sm:gap-2 shadow-xl backdrop-blur-md truncate">
+          <span class="absolute inset-x-0 bottom-0 h-[2px] bg-gradient-to-r from-transparent via-[var(--site-gold)] to-transparent opacity-80"></span>
+          <i class="fa-solid fa-comments text-[var(--site-gold)] text-xs sm:text-sm relative z-10 shrink-0"></i>
+          <span class="relative z-10 truncate">درخواست مشاوره تخصصی</span>
+        </a>
+      </div>
+    </div>
+  </section>
 
-        let charIndex = 0;
-        let isDeleting = false;
-        let delay = 100;
+  <!-- اسکریپت تایپ‌کننده -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const output = document.getElementById('typewriter-output');
+      if (!output) return;
 
-        function loop() {
-          if (!isDeleting) {
-            charIndex++;
-            if (charIndex > totalLen) {
-              isDeleting = true;
-              delay = 3000; 
-            } else {
-              delay = 80; 
-            }
+      const text1 = "ابتدا ";
+      const text2 = "مدل‌سازی درست";
+      const text3 = "، سپس حل بهینه";
+      const totalLen = text1.length + text2.length + text3.length;
+      
+      const cursorHTML = `<span class="inline-block w-1 sm:w-1.5 h-[0.9em] bg-[var(--site-gold)] mr-1 align-middle rounded-full opacity-90"></span>`;
+
+      let charIndex = 0;
+      let isDeleting = false;
+      let delay = 100;
+
+      function loop() {
+        if (!isDeleting) {
+          charIndex++;
+          if (charIndex > totalLen) {
+            isDeleting = true;
+            delay = 3000; 
           } else {
-            charIndex--;
-            if (charIndex === 0) {
-              isDeleting = false;
-              delay = 1000; 
-            } else {
-              delay = 35; 
-            }
+            delay = 80; 
           }
-
-          let currentHTML = "";
-          let t1End = text1.length;
-          let t2End = text1.length + text2.length;
-
-          if (charIndex <= t1End) {
-            currentHTML = text1.substring(0, charIndex);
-          } else if (charIndex <= t2End) {
-            let part1Str = text1;
-            let typedPart2 = text2.substring(0, charIndex - t1End);
-            let part2Str = `<span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-yellow-300 to-amber-400 font-black inline mx-1">${typedPart2}</span>`;
-            currentHTML = part1Str + part2Str;
+        } else {
+          charIndex--;
+          if (charIndex === 0) {
+            isDeleting = false;
+            delay = 1000; 
           } else {
-            let part1Str = text1;
-            let part2Str = `<span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-yellow-300 to-amber-400 font-black inline mx-1">${text2}</span>`;
-            let part3Str = text3.substring(0, charIndex - t2End);
-            currentHTML = part1Str + part2Str + part3Str;
+            delay = 35; 
           }
-
-          output.innerHTML = currentHTML + cursorHTML;
-          setTimeout(loop, delay);
         }
 
-        setTimeout(loop, 500);
-      });
-    </script>
+        let currentHTML = "";
+        let t1End = text1.length;
+        let t2End = text1.length + text2.length;
+        const goldGradientStyle = `gold-shimmer font-black inline-block mx-0.5`;
 
-    <!-- ۲. بخش دوره‌های آموزشی -->
-    <section class="max-w-6xl mx-auto px-6 py-24">
-      <div class="flex items-end justify-between mb-12">
-        <div>
-          <span class="text-xs font-bold text-[var(--site-primary)] uppercase tracking-widest block mb-1.5">آموزش تخصصی</span>
-          <h2 class="text-2xl md:text-3xl font-black text-[var(--site-heading)]">آخرین دوره‌های آموزشی</h2>
-        </div>
-        <a href="/courses" class="text-xs font-bold text-[var(--site-primary)] bg-[var(--site-primary)]/10 hover:bg-[var(--site-primary)] hover:text-white px-4 py-2.5 rounded-xl transition-all duration-200 inline-flex items-center gap-2">
-          <span>مشاهده همه</span>
-          <i class="fa-solid fa-arrow-left text-[10px]"></i>
+        if (charIndex <= t1End) {
+          currentHTML = text1.substring(0, charIndex);
+        } else if (charIndex <= t2End) {
+          currentHTML = text1 + `<span class="${goldGradientStyle}">${text2.substring(0, charIndex - t1End)}</span>`;
+        } else {
+          currentHTML = text1 + `<span class="${goldGradientStyle}">${text2}</span>` + text3.substring(0, charIndex - t2End);
+        }
+
+        output.innerHTML = currentHTML + cursorHTML;
+        setTimeout(loop, delay);
+      }
+      setTimeout(loop, 500);
+    });
+  </script>
+
+  <!-- بخش دوره‌های آموزشی -->
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-20 w-full">
+    <div class="flex items-end justify-between mb-8 sm:mb-12 gap-2">
+      <div>
+        <span class="text-xs font-bold text-[var(--site-primary)] uppercase tracking-widest block mb-1">آموزش تخصصی</span>
+        <h2 class="text-xl sm:text-3xl font-black text-[var(--site-heading)]">آخرین دوره‌های آموزشی</h2>
+      </div>
+      <div class="shrink-0 flex items-center gap-2">
+        <ScrollerControls id="scroller-courses" />
+        <a href="/courses" class="text-xs font-bold text-[var(--site-primary)] bg-[var(--site-primary)]/10 px-4 py-2 rounded-xl transition-colors hover:bg-[var(--site-primary)] hover:text-white inline-flex items-center gap-1">
+          مشاهده همه
         </a>
       </div>
+    </div>
+    <HorizontalScroller id="scroller-courses">
+      {courses.slice(0, 10).map((course) => (
+        <ContentCard
+          widthClass="w-[280px] sm:w-[320px]"
+          href={`/courses/${course.id.replace(/\.md$/, '').split('/').pop()}`}
+          image={course.data.minimalImage || course.data.image || defaultImage}
+          imageAlt={course.data.title}
+          title={course.data.title}
+          description={course.data.description}
+          badge={course.data.level}
+          metaIcon="fa-regular fa-clock"
+          metaText={course.data.duration || "دوره کاربردی"}
+          actionText="مشاهده دوره"
+        />
+      ))}
+    </HorizontalScroller>
+  </section>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {courses.slice(0, 3).map((course) => {
-          const cleanSlug = course.id.replace(/\.md$/, '').split('/').pop();
-          const courseImg = course.data.image || defaultImage;
-          return (
-            <article class="bg-[var(--site-card)] border border-[var(--site-border)] rounded-3xl p-5 flex flex-col justify-between hover:border-[var(--site-primary)] hover:shadow-xl transition-all duration-200 shadow-sm">
-              <div>
-                <div class="w-full aspect-video rounded-2xl bg-[var(--site-bg)] mb-5 overflow-hidden border border-[var(--site-border)] relative">
-                  <img src={courseImg} alt={course.data.title} loading="lazy" decoding="async" class="w-full h-full object-cover" />
-                </div>
-                <div class="flex flex-wrap items-center gap-2 mb-3">
-                  {course.data.level && (
-                    <span class="text-[10px] font-bold text-[var(--site-primary)] bg-[var(--site-primary)]/10 px-3 py-1 rounded-lg border border-[var(--site-primary)]/20">
-                      {course.data.level}
-                    </span>
-                  )}
-                </div>
-                <h3 class="text-base md:text-lg font-bold text-[var(--site-heading)] mb-2 hover:text-[var(--site-primary)] transition-colors line-clamp-1">
-                  <a href={`/courses/${cleanSlug}`}>{course.data.title}</a>
-                </h3>
-                <p class="text-[var(--site-muted)] text-xs leading-relaxed line-clamp-2 mb-4">
-                  {course.data.description}
-                </p>
-              </div>
-              <div class="pt-4 border-t border-[var(--site-border)]/60 flex items-center justify-between">
-                <span class="text-xs text-[var(--site-muted)] flex items-center gap-1.5 font-medium">
-                  <i class="fa-regular fa-clock text-[var(--site-primary)]"></i>
-                  <span>{course.data.duration || "دوره کاربردی"}</span>
-                </span>
-                <a href={`/courses/${cleanSlug}`} class="text-xs text-[var(--site-primary)] hover:opacity-80 font-bold inline-flex items-center gap-1.5">
-                  <span>مشاهده دوره</span>
-                  <i class="fa-solid fa-arrow-left text-[10px]"></i>
-                </a>
-              </div>
-            </article>
-          );
-        })}
-      </div>
-    </section>
-
-    <!-- ۳. بخش پروژه‌ها -->
-    <section class="bg-[var(--site-card)]/40 border-y border-[var(--site-border)] py-24">
-      <div class="max-w-6xl mx-auto px-6">
-        <div class="flex items-end justify-between mb-12">
-          <div>
-            <span class="text-xs font-bold text-[var(--site-primary)] uppercase tracking-widest block mb-1.5">پروژه‌های اجرایی</span>
-            <h2 class="text-2xl md:text-3xl font-black text-[var(--site-heading)]">پروژه‌های مهندسی و فنی</h2>
-          </div>
-          <a href="/projects" class="text-xs font-bold text-[var(--site-primary)] bg-[var(--site-primary)]/10 hover:bg-[var(--site-primary)] hover:text-white px-4 py-2.5 rounded-xl transition-all duration-200 inline-flex items-center gap-2">
-            <span>مشاهده همه</span>
-            <i class="fa-solid fa-arrow-left text-[10px]"></i>
+  <!-- بخش پروژه‌ها -->
+  <section class="bg-[var(--site-card)]/40 border-y border-[var(--site-border)] py-12 sm:py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 w-full">
+      <div class="flex items-end justify-between mb-8 sm:mb-12 gap-2">
+        <div>
+          <span class="text-xs font-bold text-[var(--site-primary)] uppercase tracking-widest block mb-1">پروژه‌های اجرایی</span>
+          <h2 class="text-xl sm:text-3xl font-black text-[var(--site-heading)]">پروژه‌های مهندسی</h2>
+        </div>
+        <div class="shrink-0 flex items-center gap-2">
+          <ScrollerControls id="scroller-projects" />
+          <a href="/projects" class="text-xs font-bold text-[var(--site-primary)] bg-[var(--site-primary)]/10 px-4 py-2 rounded-xl transition-colors hover:bg-[var(--site-primary)] hover:text-white inline-flex items-center gap-1">
+            مشاهده همه
           </a>
         </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {projects.slice(0, 3).map((project) => {
-            const cleanSlug = project.id.replace(/\.md$/, '').split('/').pop();
-            const projectImg = project.data.image || defaultImage;
-            return (
-              <article class="bg-[var(--site-card)] border border-[var(--site-border)] rounded-3xl p-5 flex flex-col justify-between hover:border-[var(--site-primary)] hover:shadow-xl transition-all duration-200 shadow-sm">
-                <div>
-                  <div class="w-full aspect-video rounded-2xl bg-[var(--site-bg)] mb-4 overflow-hidden border border-[var(--site-border)] relative">
-                    <img src={projectImg} alt={project.data.title} loading="lazy" decoding="async" class="w-full h-full object-cover" />
-                  </div>
-                  <h3 class="text-base md:text-lg font-bold text-[var(--site-heading)] mb-2 hover:text-[var(--site-primary)] transition-colors line-clamp-1">
-                    <a href={`/projects/${cleanSlug}`}>{project.data.title}</a>
-                  </h3>
-                  <p class="text-[var(--site-muted)] text-xs leading-relaxed line-clamp-2 mb-4">
-                    {project.data.description}
-                  </p>
-                </div>
-                <div class="pt-4 border-t border-[var(--site-border)]/60 flex items-center justify-between">
-                  <span class="text-xs text-[var(--site-muted)] flex items-center gap-1.5 font-medium">
-                    <i class="fa-solid fa-layer-group text-[var(--site-primary)]"></i>
-                    <span>{project.data.category || "پروژه تخصصی"}</span>
-                  </span>
-                  <a href={`/projects/${cleanSlug}`} class="text-xs text-[var(--site-primary)] hover:opacity-80 font-bold inline-flex items-center gap-1.5">
-                    <span>بررسی پروژه</span>
-                    <i class="fa-solid fa-arrow-left text-[10px]"></i>
-                  </a>
-                </div>
-              </article>
-            );
-          })}
-        </div>
       </div>
-    </section>
+      <HorizontalScroller id="scroller-projects">
+        {projects.slice(0, 10).map((project) => (
+          <ContentCard
+            widthClass="w-[280px] sm:w-[320px]"
+            href={`/projects/${project.id.replace(/\.md$/, '').split('/').pop()}`}
+            image={project.data.minimalImage || project.data.image || defaultImage}
+            imageAlt={project.data.title}
+            title={project.data.title}
+            description={project.data.description}
+            metaIcon="fa-solid fa-layer-group"
+            metaText={project.data.category || "پروژه تخصصی"}
+            actionText="بررسی پروژه"
+          />
+        ))}
+      </HorizontalScroller>
+    </div>
+  </section>
 
-    <!-- ۴. بخش یادداشت‌ها و مقالات -->
-    <section class="max-w-6xl mx-auto px-6 py-24">
-      <div class="flex items-end justify-between mb-12">
-        <div>
-          <span class="text-xs font-bold text-[var(--site-primary)] uppercase tracking-widest block mb-1.5">مقالات تخصصی</span>
-          <h2 class="text-2xl md:text-3xl font-black text-[var(--site-heading)]">آخرین مقالات و یادداشت‌ها</h2>
-        </div>
-        <a href="/notes" class="text-xs font-bold text-[var(--site-primary)] bg-[var(--site-primary)]/10 hover:bg-[var(--site-primary)] hover:text-white px-4 py-2.5 rounded-xl transition-all duration-200 inline-flex items-center gap-2">
-          <span>مشاهده همه</span>
-          <i class="fa-solid fa-arrow-left text-[10px]"></i>
+  <!-- بخش مقالات -->
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-20 w-full">
+    <div class="flex items-end justify-between mb-8 sm:mb-12 gap-2">
+      <div>
+        <span class="text-xs font-bold text-[var(--site-primary)] uppercase tracking-widest block mb-1">مقالات تخصصی</span>
+        <h2 class="text-xl sm:text-3xl font-black text-[var(--site-heading)]">آخرین یادداشت‌ها</h2>
+      </div>
+      <div class="shrink-0 flex items-center gap-2">
+        <ScrollerControls id="scroller-notes" />
+        <a href="/notes" class="text-xs font-bold text-[var(--site-primary)] bg-[var(--site-primary)]/10 px-4 py-2 rounded-xl transition-colors hover:bg-[var(--site-primary)] hover:text-white inline-flex items-center gap-1">
+          مشاهده همه
         </a>
       </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {notes.slice(0, 3).map((note) => {
-          const cleanSlug = note.id.replace(/\.md$/, '').split('/').pop();
-          const noteImg = note.data.image || defaultImage;
-          return (
-            <article class="bg-[var(--site-card)] border border-[var(--site-border)] rounded-3xl p-5 flex flex-col justify-between hover:border-[var(--site-primary)] hover:shadow-xl transition-all duration-200 shadow-sm">
-              <div>
-                <div class="w-full aspect-video rounded-2xl bg-[var(--site-bg)] mb-4 overflow-hidden border border-[var(--site-border)] relative">
-                  <img src={noteImg} alt={note.data.title} loading="lazy" decoding="async" class="w-full h-full object-cover" />
-                </div>
-                <h3 class="text-base md:text-lg font-bold text-[var(--site-heading)] mb-2 hover:text-[var(--site-primary)] transition-colors line-clamp-1">
-                  <a href={`/notes/${cleanSlug}`}>{note.data.title}</a>
-                </h3>
-                <p class="text-[var(--site-muted)] text-xs leading-relaxed line-clamp-2 mb-4">
-                  {note.data.description}
-                </p>
-              </div>
-              <div class="pt-4 border-t border-[var(--site-border)]/60 flex items-center justify-between">
-                <span class="text-xs text-[var(--site-muted)] flex items-center gap-1.5 font-medium">
-                  <i class="fa-regular fa-calendar text-[var(--site-primary)]"></i>
-                  <span>{new Date(note.data.pubDate).toLocaleDateString('fa-IR')}</span>
-                </span>
-                <a href={`/notes/${cleanSlug}`} class="text-xs text-[var(--site-primary)] hover:opacity-80 font-bold inline-flex items-center gap-1.5">
-                  <span>مطالعه مقاله</span>
-                  <i class="fa-solid fa-arrow-left text-[10px]"></i>
-                </a>
-              </div>
-            </article>
-          );
-        })}
-      </div>
-    </section>
-
-  </main>
-
-  <Footer />
-
+    </div>
+    <HorizontalScroller id="scroller-notes">
+      {notes.slice(0, 10).map((note) => (
+        <ContentCard
+          widthClass="w-[280px] sm:w-[320px]"
+          href={`/notes/${note.id.replace(/\.md$/, '').split('/').pop()}`}
+          image={note.data.minimalImage || note.data.image || defaultImage}
+          imageAlt={note.data.title}
+          title={note.data.title}
+          description={note.data.description}
+          metaIcon="fa-regular fa-calendar"
+          metaText={note.data.pubDate ? new Date(note.data.pubDate).toLocaleDateString('fa-IR') : "مقاله تخصصی"}
+          actionText="مطالعه مقاله"
+        />
+      ))}
+    </HorizontalScroller>
+  </section>
 </Layout>

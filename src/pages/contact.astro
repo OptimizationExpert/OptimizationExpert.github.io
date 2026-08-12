@@ -1,9 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
 
-// راه‌های ارتباطی جدید
 const contactInfo = [
   { 
     title: "تلگرام", 
@@ -29,13 +26,10 @@ const contactInfo = [
 ];
 ---
 
-<Layout title="تماس با پشتیبانی و مشاوره" description="اگر سؤالی دارید و یا می‌خواهید در پروژه‌ای همکاری کنید، می‌توانید از این طریق پیام بفرستید.">
-
-  <Header />
+<Layout title="تماس با پشتیبانی و مشاوره" description="اگر سؤالی دارید، می‌خواهید در پروژه‌ای همکاری کنید یا نیاز به مشاوره تخصصی دارید، می‌توانید از این طریق پیام بفرستید." breadcrumbs={[{ name: 'خانه', url: '/' }, { name: 'تماس با ما' }]}>
 
   <main class="max-w-3xl mx-auto px-4 sm:px-6 py-12 flex-grow w-full">
     
-    <!-- هدر صفحه -->
     <div class="mb-10 text-center border-b border-[var(--site-border)] pb-8">
       <h1 class="text-3xl md:text-4xl font-extrabold text-[var(--site-heading)] mb-3">
         تماس با ما
@@ -45,7 +39,6 @@ const contactInfo = [
       </p>
     </div>
 
-    <!-- کارت‌های راه‌های ارتباطی -->
     <div class="grid grid-cols-1 gap-4 max-w-xl mx-auto">
       {
         contactInfo.map((item) => (
@@ -69,7 +62,5 @@ const contactInfo = [
     </div>
 
   </main>
-
-  <Footer />
 
 </Layout>

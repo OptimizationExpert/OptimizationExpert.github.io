@@ -1,0 +1,43 @@
+---
+// src/components/Breadcrumbs.astro
+// نوار بصری مسیر ناوبری — از همان آرایه‌ی breadcrumbs که به SEO.astro برای
+// ساخت JSON-LD می‌رود تغذیه می‌شود (یک منبع داده، دو خروجی: بصری + Schema).
+// اگر صفحه‌ای breadcrumbs پاس ندهد یا فقط یک آیتم (خودِ خانه) داشته باشد، چیزی رندر نمی‌شود.
+interface Props {
+  items?: { name: string; url?: string }[];
+}
+
+const { items } = Astro.props;
+const showBreadcrumbs = items && items.length > 1;
+---
+
+{showBreadcrumbs && (
+  <nav aria-label="مسیر ناوبری" class="border-b border-[var(--site-border)]/60 bg-[var(--site-bg)]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5 overflow-x-auto custom-scrollbar">
+      <ol class="flex items-center gap-1.5 text-xs text-[var(--site-muted)] whitespace-nowrap">
+        {items.map((item, i) => (
+          <li class="flex items-center gap-1.5">
+            {i > 0 && (
+              <i class="fa-solid fa-chevron-left text-[9px] opacity-50 shrink-0" aria-hidden="true"></i>
+            )}
+            {item.url && i < items.length - 1 ? (
+              <a
+                href={item.url}
+                class="hover:text-[var(--site-primary)] transition-colors"
+              >
+                {i === 0 ? <i class="fa-solid fa-house text-[11px]" aria-label={item.name}></i> : item.name}
+              </a>
+            ) : (
+              <span
+                class="text-[var(--site-text)] font-medium max-w-[220px] sm:max-w-xs truncate"
+                aria-current="page"
+              >
+                {item.name}
+              </span>
+            )}
+          </li>
+        ))}
+      </ol>
+    </div>
+  </nav>
+)}

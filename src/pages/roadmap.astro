@@ -1,14 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
 
 const learningPaths = [
   {
     title: "مسیر انرژی و سیستم قدرت",
     subtitle: "پخش بار، شبکه‌های توزیع و مدل‌سازی ریسک",
     icon: "fa-solid fa-bolt",
-    accentColor: "from-amber-500/25 to-orange-500/25 text-amber-500 border-amber-500/30",
+    badge: "حوزه انرژی",
+    accentColor: "text-amber-500 bg-amber-500/10 border-amber-500/20",
     steps: [
       { number: "۱", title: "مدل‌سازی مسائل بهینه‌سازی", desc: "آشنایی با متغیرها، تابع هدف و محدودیت‌ها" },
       { number: "۲", title: "بهینه‌سازی سیستم‌های قدرت", desc: "تحلیل و پخش بار بهینه در شبکه‌های الکتریکی" },
@@ -19,7 +18,8 @@ const learningPaths = [
     title: "مسیر حمل‌ونقل و لجستیک",
     subtitle: "بهینه‌سازی ناوگان، مسیریابی و زنجیره تأمین",
     icon: "fa-solid fa-truck-fast",
-    accentColor: "from-blue-500/20 to-sky-500/20 text-blue-500 border-blue-500/30",
+    badge: "حوزه لجستیک",
+    accentColor: "text-blue-500 bg-blue-500/10 border-blue-500/20",
     steps: [
       { number: "۱", title: "مدل‌سازی مسائل بهینه‌سازی", desc: "آشنایی با متغیرها، تابع هدف و محدودیت‌ها" },
       { number: "۲", title: "آموزش VRP در Python", desc: "حل مسائل مسیریابی وسایل نقلیه با پایتون" },
@@ -29,66 +29,62 @@ const learningPaths = [
 ];
 ---
 
-<Layout title="مسیر پیشنهادی یادگیری" description="برای ورود اصولی به بهینه‌سازی، ابتدا مدل‌سازی را یاد بگیرید، سپس وارد حوزه تخصصی مورد علاقه خود شوید.">
+<Layout title="مسیر یادگیری" description="برای ورود اصولی به بهینه‌سازی، ابتدا مدل‌سازی را یاد بگیرید، سپس وارد حوزه تخصصی مورد علاقه خود شوید." breadcrumbs={[{ name: 'خانه', url: '/' }, { name: 'مسیر یادگیری' }]}>
 
-  <Header />
+  <main class="max-w-5xl mx-auto px-4 sm:px-6 py-16 flex-grow w-full">
 
-  <main class="max-w-5xl mx-auto px-6 py-12 flex-grow w-full">
-    
-    <!-- هدر صفحه -->
-    <div class="mb-14 text-center border-b border-[var(--site-border)] pb-8">
-      <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--site-primary)]/10 border border-[var(--site-primary)]/20 text-[var(--site-primary)] text-xs font-bold mb-4 shadow-xs">
+    <div class="mb-16 text-center">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--site-primary)]/10 border border-[var(--site-primary)]/20 text-[var(--site-primary)] text-xs font-bold mb-4">
         <i class="fa-solid fa-map-location-dot"></i>
         <span>نقشه راه تخصصی</span>
-      </span>
-      <h1 class="text-3xl md:text-4xl font-extrabold text-[var(--site-heading)] mb-3 tracking-tight">
+      </div>
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-black text-[var(--site-heading)] mb-4 tracking-tight">
         مسیر پیشنهادی یادگیری
       </h1>
-      <p class="text-[var(--site-muted)] text-sm md:text-base leading-relaxed max-w-xl mx-auto">
+      <p class="text-[var(--site-muted)] text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
         برای ورود اصولی به بهینه‌سازی، ابتدا مدل‌سازی را یاد بگیرید، سپس وارد حوزه تخصصی مورد علاقه خود شوید.
       </p>
     </div>
 
-    <!-- کارت‌های مسیرها -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
       {
         learningPaths.map((path) => (
-          <div class="bg-[var(--site-card)] border border-[var(--site-border)] p-6 md:p-8 rounded-3xl shadow-xs hover:border-[var(--site-primary)]/50 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+          <div class="bg-[var(--site-card)] border border-[var(--site-border)] hover:border-[var(--site-primary)]/50 rounded-3xl p-6 md:p-8 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-between">
             
             <div>
-              <!-- هدر کارت -->
               <div class="text-center mb-8 pb-6 border-b border-[var(--site-border)]">
-                <div class={`w-14 h-14 mx-auto rounded-2xl bg-gradient-to-br ${path.accentColor} border flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform shadow-sm`}>
-                  <i class={path.icon}></i>
+                <div class="flex items-center justify-between mb-4">
+                  <span class={`w-12 h-12 rounded-2xl ${path.accentColor} border flex items-center justify-center text-base shadow-xs`}>
+                    <i class={path.icon}></i>
+                  </span>
+                  <span class="px-3 py-1 rounded-full bg-[var(--site-border)]/40 text-[var(--site-muted)] text-[10px] font-bold">
+                    {path.badge}
+                  </span>
                 </div>
-                <h2 class="text-xl font-bold text-[var(--site-heading)] mb-1">
+                <h2 class="text-xl sm:text-2xl font-black text-[var(--site-heading)] mb-2 text-right tracking-tight">
                   {path.title}
                 </h2>
-                <p class="text-xs text-[var(--site-muted)] font-medium">
+                <p class="text-xs sm:text-sm text-[var(--site-muted)] font-medium text-right leading-relaxed">
                   {path.subtitle}
                 </p>
               </div>
 
-              <!-- لیست مراحل با خط اتصال عمودی -->
-              <div class="relative space-y-4 pr-3">
-                <!-- خط اتصال ظریف بین مراحل -->
-                <div class="absolute right-5 top-5 bottom-5 w-0.5 bg-[var(--site-border)] -z-0"></div>
+              <div class="relative space-y-3 pr-3">
+                <div class="absolute right-5 top-4 bottom-4 w-0.5 bg-[var(--site-border)]"></div>
 
                 {
                   path.steps.map((step, idx) => (
-                    <div class="relative z-10 bg-[var(--site-bg)] border border-[var(--site-border)] p-4 rounded-2xl flex items-center gap-4 hover:border-[var(--site-primary)]/30 transition shadow-2xs">
+                    <div class="relative z-10 bg-[var(--site-bg)] border border-[var(--site-border)] p-4 rounded-2xl flex items-center gap-4">
                       
-                      <!-- شماره مرحله -->
-                      <div class={`w-9 h-9 rounded-xl font-bold text-xs flex items-center justify-center shrink-0 shadow-xs ${idx === 2 ? 'bg-emerald-500 text-white shadow-emerald-500/20' : 'bg-[var(--site-primary)] text-white shadow-[var(--site-primary)]/20'}`}>
+                      <div class={`w-9 h-9 rounded-xl font-bold text-xs flex items-center justify-center shrink-0 text-white ${idx === 2 ? 'bg-[var(--site-accent)]' : 'bg-[var(--site-primary)]'}`}>
                         {step.number}
                       </div>
 
-                      <!-- توضیحات مرحله -->
                       <div class="flex-1 min-w-0 text-right">
-                        <div class="text-sm font-bold text-[var(--site-heading)] mb-0.5 truncate">
+                        <div class="text-xs sm:text-sm font-extrabold text-[var(--site-heading)] mb-0.5 truncate">
                           {step.title}
                         </div>
-                        <div class="text-[11px] text-[var(--site-muted)] truncate">
+                        <div class="text-[11px] text-[var(--site-muted)] truncate font-normal">
                           {step.desc}
                         </div>
                       </div>
@@ -106,7 +102,5 @@ const learningPaths = [
     </div>
 
   </main>
-
-  <Footer />
 
 </Layout>
