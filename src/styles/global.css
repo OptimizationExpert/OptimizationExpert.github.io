@@ -5,27 +5,27 @@
    ========================================================== */
 :root {
   /* ۱. پالت رنگی پس‌زمینه و ساختار (تم روشن - پیش‌فرض) */
-  --site-bg: #f8fafc;         
-  --site-card: #ffffff;        
-  --site-border: #e2e8f0;      
+  --site-bg: #f8fafc;
+  --site-card: #ffffff;
+  --site-border: #e2e8f0;
 
   /* ۲. رنگ متن‌ها و هدینگ‌ها */
-  --site-text: #334155;        
-  --site-muted: #64748b;       
-  --site-heading: #0f172a;     
+  --site-text: #334155;
+  --site-muted: #64748b;
+  --site-heading: #0f172a;
 
 /* ۳. رنگ‌های برند و المان‌های تعاملی (تم روشن) */
-  --site-primary: #0284c7;     
+  --site-primary: #0284c7;
   --site-primary-hover: #0369a1;
-  --site-accent: #059669;      
-  --site-secondary: #818cf8;   
+  --site-accent: #059669;
+  --site-secondary: #818cf8;
   --site-gold: #fbbf24;         /* رنگ طلایی واحد - در هر دو تم ثابت می‌ماند */
   --site-gold-light: #fde68a;   /* سایه‌ی روشن‌تر همان طلایی، برای گرادیان/درخشش */
 
   /* ۴. فونت‌ها و اندازه‌های پایه */
   --font-family: 'Vazirmatn', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-size-base: 0.95rem;   
-  --line-height-base: 1.75;     
+  --font-size-base: 0.95rem;
+  --line-height-base: 1.75;
 
   /* ۵. اندازه‌های تایپوگرافی هدینگ‌ها */
   --h1-size: clamp(2rem, 4vw, 3.25rem);
@@ -33,24 +33,24 @@
   --h3-size: 1.1rem;
 
   /* ۶. مقادیر انحنای لبه‌ها */
-  --radius-box: 1rem;          
-  --radius-btn: 0.75rem;       
+  --radius-box: 1rem;
+  --radius-btn: 0.75rem;
 }
 
 /* 🌙 حالت تیره */
 html.dark {
-  --site-bg: #0f172a;          
-  --site-card: #1e293b;        
-  --site-border: #334155;      
-  --site-text: #cbd5e1;        
-  --site-muted: #94a3b8;       
-  --site-heading: #f8fafc;     
-  --site-primary: #38bdf8;     
+  --site-bg: #0f172a;
+  --site-card: #1e293b;
+  --site-border: #334155;
+  --site-text: #cbd5e1;
+  --site-muted: #94a3b8;
+  --site-heading: #f8fafc;
+  --site-primary: #38bdf8;
   --site-primary-hover: #7dd3fc;
-  --site-accent: #34d399;      
-  --site-secondary: #818cf8;   
+  --site-accent: #34d399;
+  --site-secondary: #818cf8;
   /* توجه: --site-gold و --site-gold-light عمداً اینجا override نمی‌شوند؛
-     طلایی باید در هر دو تم دقیقاً یک رنگ ثابت باشد (تعریف در :root) */        
+     طلایی باید در هر دو تم دقیقاً یک رنگ ثابت باشد (تعریف در :root) */
 }
 
 /* اتصال متغیرها به سیستم تیل‌ویند نسخه ۴ */
@@ -82,7 +82,7 @@ html.dark {
 
   body {
     background-color: var(--site-bg);
-    background-image: 
+    background-image:
       linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
       linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
     background-size: 24px 24px;
@@ -94,7 +94,7 @@ html.dark {
   }
 
   html.dark body {
-    background-image: 
+    background-image:
       linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
       linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
   }
@@ -169,7 +169,7 @@ pre {
   direction: ltr !important;
   text-align: left !important;
   position: relative !important;
-  background-color: #0c1017 !important; 
+  background-color: #0c1017 !important;
   border: 1px solid #1e293b !important;
   border-radius: 12px !important;
   padding: 3.25rem 1.25rem 1.25rem 1.25rem !important;
@@ -256,7 +256,7 @@ pre::before {
   transform: translateY(-1px);
 }
 
-.colab-button img, 
+.colab-button img,
 .colab-button svg {
   width: 20px !important;
   height: 20px !important;
@@ -285,16 +285,16 @@ pre::before {
     #fbf5b7 80%,    /* بازتاب ثانویه ملایم */
     #a67c00 100%    /* بازگشت به سایه */
   ) !important;
-  
+
   background-size: 200% auto !important;
-  
+
   -webkit-background-clip: text !important;
   background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
   color: transparent !important;
 
   /* استفاده از دو سایه: یکی مشکی برای جداسازی از پس‌زمینه و یکی طلایی برای درخشش اطراف متن */
-  filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.7)) 
+  filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.7))
           drop-shadow(0px 4px 15px rgba(212, 175, 55, 0.25)) !important;
 
   animation: advanced-gold-shine 4s linear infinite;
@@ -362,24 +362,6 @@ pre::before {
   text-align: center !important;
 }
 
-.katex-display .katex .mtable,
-.katex-display .katex .array {
-  font-size: 1em !important;
-}
-
-.katex .vlist-t2 {
-  margin-top: 0.35em !important;
-}
-
-.katex .vlist-t2 .mord {
-  font-size: 0.78em !important;  
-}
-
-.katex-display .katex .mtable .mord,
-.katex-display .katex .mtable .mathdefault {
-  font-size: inherit !important;
-}
-
 /* ==========================================================
    📊 استایل اختصاصی جداول (Tables)
    ========================================================== */
@@ -429,7 +411,7 @@ html.dark tr:hover {
   background-color: rgba(255, 255, 255, 0.03);
 }
 
-.prose, 
+.prose,
 div:has(> table) {
   overflow-x: auto;
 }
@@ -437,7 +419,7 @@ div:has(> table) {
 /* ==========================================================
    📝 استایل لیست‌های مرتب و غیرمرتب در متون Markdown
    ========================================================== */
-article ul, 
+article ul,
 .content ul,
 .prose ul {
   list-style-type: disc !important;
@@ -447,7 +429,7 @@ article ul,
   padding-right: 1.25rem;
 }
 
-article ol, 
+article ol,
 .content ol,
 .prose ol {
   list-style-type: decimal !important;
@@ -457,7 +439,7 @@ article ol,
   padding-right: 1.25rem;
 }
 
-article li, 
+article li,
 .content li,
 .prose li {
   margin-bottom: 0.5rem;
@@ -519,15 +501,15 @@ blockquote {
   height: 6px;
 }
 .custom-scrollbar::-webkit-scrollbar-track {
-  background: rgba(150, 150, 150, 0.1); 
+  background: rgba(150, 150, 150, 0.1);
   border-radius: 10px;
 }
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: rgba(150, 150, 150, 0.3); 
+  background: rgba(150, 150, 150, 0.3);
   border-radius: 10px;
 }
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: rgba(150, 150, 150, 0.5); 
+  background: rgba(150, 150, 150, 0.5);
 }
 .custom-scrollbar {
   scrollbar-width: thin;
