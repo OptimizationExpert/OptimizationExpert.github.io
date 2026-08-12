@@ -4,7 +4,7 @@ seoTitle: "Google Colab | گوگل کولب"
 description: "معرفی ۱۰ مطالعه‌ی مهم در سیستم قدرت که به دلیل نیاز به ولتاژ، توان راکتیو یا تلفات دقیق، فقط با پخش بار AC قابل انجام هستند."
 pubDate: 2026-08-05
 author: "dr-soroudi"
-minimalImage: "./ac_studies-mini.webp"
+minimalImage: "./ac-studies-mini.webp"
 minimalImageAlt: "تصویر مینیمال آیکون بهینه‌سازی"
 image: "./ac_studies.webp"
 imageAlt: "تصویر Colab"

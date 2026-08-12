@@ -7,7 +7,7 @@ author: "dr-soroudi"
 minimalImage: "./domino-fit-CP-mini.webp"
 minimalImageAlt: "تصویر مینیمال آیکون بهینه‌سازی"
 image: "./dominofit.webp"
-imageAlt: "تصویر Colab"
+imageAlt: "تصویر Google Colab"
 tags: ["CP", "پازل ریاضی", "Constraint Programming"]
 relatedCourses: ["vrp-python"]
 relatedNotes: ["mathematical-modeling-art", "modeling-before-coding", "google-colab", "pyomo-solvers"]
