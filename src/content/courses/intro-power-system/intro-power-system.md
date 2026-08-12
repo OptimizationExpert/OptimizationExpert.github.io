@@ -1,7 +1,6 @@
 ---
 # === متغیرهای اصلی و سئو ===
 title: "دوره مقدماتی بهینه‌سازی سیستم‌های قدرت"
-seoTitle: "دوره مقدماتی بهینه‌سازی سیستم‌های قدرت"
 description: "دوره مقدماتی بهینه‌سازی سیستم‌های قدرت در ۸ ساعت: پخش بار اقتصادی، DC-OPF،  باتری، و مقدمه‌ای بر Unit Commitment در Python."
 pubDate: 2026-06-22
 minimalImage: "./intropower-mini.jpg"
@@ -18,8 +17,8 @@ sessions: "۱۰ جلسه"
 instructor: "dr-soroudi"
 
 # === ارتباطات و ساختار سایت ===
-relatedCourses: ["optimization-modeling", "Advanced-Power-System", "intro-power-system", "vrp-python"]
-relatedNotes: ["mathematical-modeling-art", "modeling-before-coding", "google-colab", "pyomo-solvers"]
+relatedCourses: ["optimization-modeling", "advanced-power-system", "vrp-python"]
+relatedNotes: ["mathematical-modeling-art", "google-colab", "pyomo-solvers"]
 # انتخاب ۵ تا ۷ تگ جامع به جای ۲۰ تگ پراکنده
 tags: ["آموزش بهینه سازی","سیستم قدرت", "برنامه ریزی خطی", "PYTHON"]
 ---

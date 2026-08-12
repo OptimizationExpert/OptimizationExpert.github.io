@@ -1,4 +1,5 @@
 ---
+import { entrySlug, isPublished } from '../../utils/content';
 import { getCollection, render } from 'astro:content';
 import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
@@ -7,19 +8,22 @@ import TelegramCTA from '../../components/TelegramCTA.astro';
 import { imgSrc } from '../../utils/image';
 
 export async function getStaticPaths() {
-  const books = await getCollection('books');
-  return books.map((book) => {
-    const bookSlug = book.id.replace(/\.md$/, '').split('/').pop();
-    return {
-      params: { bookSlug },
-      props: { book },
-    };
-  });
+  const books = await getCollection('books', isPublished);
+  return books.map((book) => ({
+    params: { bookSlug: entrySlug(book) },
+    props: { book },
+  }));
 }
 
 const { book } = Astro.props;
 const { Content } = await render(book);
-const bookSlug = book.id.replace(/\.md$/, '').split('/').pop();
+const bookSlug = entrySlug(book);
+
+const instructors = await getCollection('instructors', isPublished);
+const matchedInstructor = book.data.author
+  ? instructors.find((i) => entrySlug(i) === book.data.author || i.data.name === book.data.author)
+  : undefined;
+const authorFullName = matchedInstructor?.data.name || book.data.author || 'Optimization Expert';
 
 // تصویر پیش‌فرض یکسان با بقیه‌ی سایت
 const defaultImage = "/images/hero.webp";
@@ -27,10 +31,12 @@ const bookImg = book.data.image || defaultImage;
 ---
 
 <Layout
-  title={book.data.seoTitle || book.data.title}
+  title={book.data.title}
   description={book.data.description}
   image={imgSrc(bookImg)}
   type="book"
+  author={authorFullName}
+  authorUrl={matchedInstructor ? `/instructors/${entrySlug(matchedInstructor)}/` : undefined}
   bookDetails={{
     category: book.data.category,
     format: book.data.format,
@@ -39,7 +45,7 @@ const bookImg = book.data.image || defaultImage;
   }}
   breadcrumbs={[
     { name: 'خانه', url: '/' },
-    { name: 'کتاب‌ها و جزوات', url: '/books' },
+    { name: 'کتاب‌ها و جزوات', url: '/books/' },
     { name: book.data.title },
   ]}
 >
@@ -48,7 +54,7 @@ const bookImg = book.data.image || defaultImage;
      
     <!-- دکمه بازگشت -->
     <div class="mb-6">
-      <a href="/books" class="text-xs text-[var(--site-primary)] hover:opacity-80 inline-flex items-center gap-1.5 transition">
+      <a href="/books/" class="text-xs text-[var(--site-primary)] hover:opacity-80 inline-flex items-center gap-1.5 transition">
         <i class="fa-solid fa-arrow-right text-[10px]"></i>
         <span>بازگشت به کتاب‌ها و جزوات</span>
       </a>

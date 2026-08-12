@@ -1,16 +1,15 @@
 ---
-title: "Google Colab: مزایا و معایب"
-seoTitle: "Google Colab | گوگل کولب"
-description: "تحلیل منصفانه مزایا و معایب Google Colab برای یادگیری و کار با ابزارهای بهینه‌سازی."
+title: "Google Colab برای پایتون و بهینه‌سازی | مزایا و معایب"
+description: "بررسی کاربردی مزایا و معایب Google Colab برای Python و ابزارهای بهینه‌سازی؛ از راه‌اندازی محیط تا محدودیت‌های محاسباتی و انتخاب زمان استفاده."
 pubDate: 2026-06-17
 author: "dr-soroudi"
 minimalImage: "./colab-mini.jpg"
 minimalImageAlt: "تصویر مینیمال آیکون بهینه‌سازی"
 image: "./Colab.jpg"
-imageAlt: "تصویر Colab"
+imageAlt: "Google Colab برای پایتون و بهینه‌سازی | مزایا و معایب"
 tags: ["پایتون", "بهینه‌سازی", "Pyomo"]
 relatedCourses: ["optimization-modeling", "uncertainty-modeling"]
-relatedNotes: ["mathematical-modeling-art", "modeling-before-coding", "google-colab", "pyomo-solvers"]
+relatedNotes: ["mathematical-modeling-art", "pyomo-solvers"]
 ---
 
 Google Colab ابزار خوبی است، اما مثل همه چیز دیگر، مزایا و معایب دارد. بیایید یک بررسی صادقانه در هر دو سوی ماجرا داشته باشیم .

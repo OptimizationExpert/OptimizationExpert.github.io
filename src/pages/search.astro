@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 import { imgSrc } from '../utils/image';
+import { entrySlug, isPublished } from '../utils/content';
 
 // پیکربندی مجموعه‌ها برای جلوگیری از تکرار کد (اصول DRY)
 const collectionSources = [
@@ -15,7 +16,10 @@ const collectionSources = [
 // دریافت همزمان و بهینه‌ی تمامی کلکسیون‌ها و تبدیل به یک آرایه یکپارچه
 const allItems = (await Promise.all(
   collectionSources.map(async ({ name, type, typeId, path }) => {
-    const collection = await getCollection(name as any).catch(() => []);
+    const collection = await getCollection(
+      name as 'notes' | 'projects' | 'courses' | 'books' | 'softwares',
+      isPublished,
+    );
     return collection.map(item => ({
       title: item.data.title || '',
       description: item.data.description || '',
@@ -23,7 +27,7 @@ const allItems = (await Promise.all(
       tags: Array.isArray(item.data.tags) ? item.data.tags : [],
       type,
       typeId,
-      url: `/${path}/${item.id.replace(/\.md$/, '').split('/').pop()}`,
+      url: `/${path}/${entrySlug(item)}/`,
       pubDate: item.data.pubDate ? new Date(item.data.pubDate).getTime() : 0
     }));
   })
@@ -41,7 +45,7 @@ const allItems = (await Promise.all(
         <span>جستجوی پیشرفته در سایت</span>
       </span>
       <h1 class="text-3xl md:text-4xl font-extrabold text-[var(--site-heading)] mb-3 tracking-tight">
-        نتایج جستجو
+        نتیجه جستجو
       </h1>
       <p id="search-query-text" class="text-[var(--site-muted)] text-sm md:text-base leading-relaxed">
         لطفاً کلمه‌ای را برای جستجو وارد کنید یا روی برچسبی کلیک نمایید.
@@ -171,7 +175,7 @@ const allItems = (await Promise.all(
         const baseURLParam = tagQuery ? `tag=${encodeURIComponent(tagQuery)}` : `q=${encodeURIComponent(query)}`;
 
         let filterHTML = `
-          <a href="/search?${baseURLParam}&sort=${currentSort}&type=all" class="flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-bold transition-all duration-300 ${activeType === 'all' ? 'bg-[var(--site-primary)] text-white shadow-md shadow-[var(--site-primary)]/20 scale-[1.02]' : 'bg-[var(--site-bg)] text-[var(--site-muted)] hover:text-[var(--site-heading)] hover:border-[var(--site-primary)]/40 border border-[var(--site-border)]'}">
+          <a href="/search/?${baseURLParam}&sort=${currentSort}&type=all" class="flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-bold transition-all duration-300 ${activeType === 'all' ? 'bg-[var(--site-primary)] text-white shadow-md shadow-[var(--site-primary)]/20 scale-[1.02]' : 'bg-[var(--site-bg)] text-[var(--site-muted)] hover:text-[var(--site-heading)] hover:border-[var(--site-primary)]/40 border border-[var(--site-border)]'}">
             <i class="fa-solid fa-layer-group text-[10px]"></i>
             <span>همه</span>
             <span class="px-1.5 py-0.5 rounded-full text-[9px] ${activeType === 'all' ? 'bg-white/20 text-white' : 'bg-[var(--site-card)] text-[var(--site-muted)] border border-[var(--site-border)]'}">${counts.all}</span>
@@ -183,7 +187,7 @@ const allItems = (await Promise.all(
             const def = typeDefinitions[tId];
             const isActive = activeType === tId;
             filterHTML += `
-              <a href="/search?${baseURLParam}&sort=${currentSort}&type=${tId}" class="flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-bold transition-all duration-300 ${isActive ? 'bg-[var(--site-primary)] text-white shadow-md shadow-[var(--site-primary)]/20 scale-[1.02]' : 'bg-[var(--site-bg)] text-[var(--site-muted)] hover:text-[var(--site-heading)] hover:border-[var(--site-primary)]/40 border border-[var(--site-border)]'}">
+              <a href="/search/?${baseURLParam}&sort=${currentSort}&type=${tId}" class="flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-bold transition-all duration-300 ${isActive ? 'bg-[var(--site-primary)] text-white shadow-md shadow-[var(--site-primary)]/20 scale-[1.02]' : 'bg-[var(--site-bg)] text-[var(--site-muted)] hover:text-[var(--site-heading)] hover:border-[var(--site-primary)]/40 border border-[var(--site-border)]'}">
                 <i class="fa-solid ${def.icon} text-[10px]"></i>
                 <span>${def.label}</span>
                 <span class="px-1.5 py-0.5 rounded-full text-[9px] ${isActive ? 'bg-white/20 text-white' : 'bg-[var(--site-card)] text-[var(--site-muted)] border border-[var(--site-border)]'}">${counts[tId]}</span>
@@ -252,7 +256,7 @@ const allItems = (await Promise.all(
           if (totalPages > 1) {
             paginationContainer.classList.remove('hidden');
             let paginationHTML = '';
-            const baseLink = `/search?${baseURLParam}&sort=${currentSort}&type=${activeType}`;
+            const baseLink = `/search/?${baseURLParam}&sort=${currentSort}&type=${activeType}`;
             
             if (validPage > 1) {
               paginationHTML += `<a href="${baseLink}&page=${validPage - 1}" class="flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-[var(--site-card)] border border-[var(--site-border)] text-[var(--site-heading)] text-xs font-semibold hover:border-[var(--site-primary)] hover:text-[var(--site-primary)] transition-all duration-300 shadow-xs"><i class="fa-solid fa-chevron-right text-[10px]"></i><span>صفحه قبل</span></a>`;

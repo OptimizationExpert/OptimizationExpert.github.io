@@ -1,4 +1,5 @@
 ---
+import { entrySlug, isPublished } from '../../utils/content';
 import { getCollection, render } from 'astro:content';
 import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
@@ -8,16 +9,16 @@ import TelegramCTA from '../../components/TelegramCTA.astro';
 import { imgSrc } from '../../utils/image';
 
 export async function getStaticPaths() {
-  const courses = await getCollection('courses');
+  const courses = await getCollection('courses', isPublished);
   return courses.map((course) => ({
-    params: { courseSlug: course.id.replace(/\.md$/, '').split('/').pop() },
+    params: { courseSlug: entrySlug(course) },
     props: { course },
   }));
 }
 
 const { course } = Astro.props;
 const { Content } = await render(course);
-const courseSlug = course.id.replace(/\.md$/, '').split('/').pop();
+const courseSlug = entrySlug(course);
 
 const pageImage = course.data.image || course.data.minimalImage;
 const pageImageAlt = course.data.imageAlt || course.data.minimalImageAlt || course.data.title;
@@ -26,14 +27,14 @@ const pageImageAlt = course.data.imageAlt || course.data.minimalImageAlt || cour
 const prerequisite = course.data.prerequisite || course.data.prerequisites;
 
 // نام مدرس برای غنی‌سازی Schema.org (hasCourseInstance.instructor)
-const instructors = await getCollection('instructors');
+const instructors = await getCollection('instructors', isPublished);
 const instructorData = instructors.find(
-  (i) => i.id.replace(/\.md$/, '').split('/').pop() === course.data.instructor
+  (i) => entrySlug(i) === course.data.instructor
 );
 ---
 
 <Layout
-  title={course.data.seoTitle || course.data.title}
+  title={course.data.title}
   description={course.data.description}
   image={imgSrc(pageImage)}
   type="course"
@@ -41,19 +42,20 @@ const instructorData = instructors.find(
     duration: course.data.duration,
     level: course.data.level,
     instructorName: instructorData?.data.name,
+    instructorUrl: instructorData ? `/instructors/${entrySlug(instructorData)}/` : undefined,
     price: course.data.price,
     priceCurrency: course.data.priceCurrency,
   }}
   breadcrumbs={[
     { name: 'خانه', url: '/' },
-    { name: 'دوره‌ها', url: '/courses' },
+    { name: 'دوره‌ها', url: '/courses/' },
     { name: course.data.title },
   ]}>
 
   <main class="max-w-3xl mx-auto px-4 sm:px-6 py-10 flex-grow w-full relative pb-20">
      
     <div class="mb-6">
-      <a href="/courses" class="text-xs text-[var(--site-primary)] hover:opacity-80 inline-flex items-center gap-1.5 transition-all duration-200">
+      <a href="/courses/" class="text-xs text-[var(--site-primary)] hover:opacity-80 inline-flex items-center gap-1.5 transition-all duration-200">
         <i class="fa-solid fa-arrow-right text-[10px]"></i>
         <span>بازگشت به دوره‌ها</span>
       </a>

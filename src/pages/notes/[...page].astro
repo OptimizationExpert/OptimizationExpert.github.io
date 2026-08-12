@@ -1,11 +1,12 @@
 ---
+import { entrySlug, isPublished } from '../../utils/content';
 import { getCollection } from 'astro:content';
 import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
 import Pagination from '../../components/Pagination.astro';
 
 export async function getStaticPaths({ paginate }) {
-  const allNotes = await getCollection('notes');
+  const allNotes = await getCollection('notes', isPublished);
   
   const sortedNotes = allNotes.sort((a, b) => {
     const dateA = a.data.pubDate ? new Date(a.data.pubDate).getTime() : 0;
@@ -20,8 +21,10 @@ const { page } = Astro.props;
 ---
 
 <Layout 
-  title="یادداشت‌ها" 
+  title="یادداشت‌های علمی و فنی" 
   description="مجموعه‌ای از یادداشت‌ها، مقالات و نکات آموزشی مهندسی و برنامه‌نویسی."
+  
+  pageNumber={page.currentPage}
   breadcrumbs={[
     { name: 'خانه', url: '/' },
     { name: 'یادداشت‌ها' },
@@ -56,7 +59,7 @@ const { page } = Astro.props;
           </div>
         ) : (
           page.data.map((note) => {
-            const cleanSlug = note.id.replace(/\.md$/, '').split('/').pop();
+            const cleanSlug = entrySlug(note);
             const cardImage = note.data.minimalImage || note.data.image;
             const cardImageAlt = note.data.minimalImageAlt || note.data.imageAlt || note.data.title;
 
@@ -102,7 +105,7 @@ const { page } = Astro.props;
                     </div>
 
                     <h2 class="text-lg md:text-xl font-bold text-[var(--site-heading)] mb-2 group-hover:text-[var(--site-primary)] transition-colors">
-                      <a href={`/notes/${cleanSlug}`} class="outline-none">
+                      <a href={`/notes/${cleanSlug}/`} class="outline-none">
                         {note.data.title}
                       </a>
                     </h2>
@@ -113,7 +116,7 @@ const { page } = Astro.props;
                   </div>
 
                   <div class="flex items-center gap-4 text-xs font-semibold mt-auto">
-                    <a href={`/notes/${cleanSlug}`} class="inline-flex items-center gap-2 text-[var(--site-primary)] bg-[var(--site-primary)]/10 hover:bg-[var(--site-primary)] hover:text-white px-3.5 py-1.5 rounded-xl transition-all duration-300">
+                    <a href={`/notes/${cleanSlug}/`} class="inline-flex items-center gap-2 text-[var(--site-primary)] bg-[var(--site-primary)]/10 hover:bg-[var(--site-primary)] hover:text-white px-3.5 py-1.5 rounded-xl transition-all duration-300">
                       <span>مطالعه یادداشت</span>
                       <i class="fa-solid fa-arrow-left text-[10px] group-hover:-translate-x-1 transition-transform"></i>
                     </a>
@@ -133,7 +136,7 @@ const { page } = Astro.props;
       lastPage={page.lastPage}
       prevUrl={page.url.prev}
       nextUrl={page.url.next}
-      basePath="/notes"
+      basePath="/notes/"
     />
 
   </main>

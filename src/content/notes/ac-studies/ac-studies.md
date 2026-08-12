@@ -1,23 +1,31 @@
 ---
-title: "چه مطالعاتی به پخش بار AC نیاز دارند؟"
-seoTitle: "Google Colab | گوگل کولب"
+title: "مطالعات پخش بار AC؛ چه مسائلی به AC Power Flow نیاز دارند؟"
 description: "معرفی ۱۰ مطالعه‌ی مهم در سیستم قدرت که به دلیل نیاز به ولتاژ، توان راکتیو یا تلفات دقیق، فقط با پخش بار AC قابل انجام هستند."
 pubDate: 2026-08-05
 author: "dr-soroudi"
 minimalImage: "./ac_studies-mini.webp"
 minimalImageAlt: "تصویر مینیمال آیکون بهینه‌سازی"
 image: "./ac_studies.webp"
-imageAlt: "تصویر Colab"
+imageAlt: "مطالعات پخش بار AC؛ چه مسائلی به AC Power Flow نیاز دارند؟"
 tags: ["سیستم قدرت", "پخش بار", "AC Power Flow"]
 relatedCourses: ["advanced-power-system"]
-relatedNotes: ["mathematical-modeling-art", "modeling-before-coding", "google-colab", "pyomo-solvers"]
+relatedNotes: ["mathematical-modeling-art", "google-colab", "pyomo-solvers"]
 ---
 
 پخش بار DC روشی ساده و سریع است، اما پاسخ‌گوی بسیاری از پرسش‌های مهم مهندسی سیستم قدرت نیست؛ زیرا در این مدل فرض می‌شود دامنه‌ی ولتاژ در تمامی باس‌ها همواره برابر با یک پریونیت است، تلفات شبکه صفر در نظر گرفته می‌شود، و توان راکتیو اساساً در معادلات وارد نمی‌شود. بر همین اساس، هر مطالعه‌ای که محور آن یکی از این سه موضوع—ولتاژ، توان راکتیو یا تلفات—باشد، باید با استفاده از پخش بار AC انجام شود.
 
 ## ویدیوی آموزشی
 
-<style>.h_iframe-aparat_embed_frame{position:relative;}.h_iframe-aparat_embed_frame .ratio{display:block;width:100%;height:auto;}.h_iframe-aparat_embed_frame iframe{position:absolute;top:0;left:0;width:100%;height:100%;}</style><div class="h_iframe-aparat_embed_frame"><span style="display: block;padding-top: 57%"></span><iframe src="https://www.aparat.com/video/video/embed/videohash/aug8432/vt/frame" allowFullScreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe></div>
+<div class="content-video" aria-label="ویدیوی آموزشی چه مطالعاتی به پخش بار AC نیاز دارند؟">
+  <iframe
+    src="https://www.aparat.com/video/video/embed/videohash/aug8432/vt/frame"
+    title="چه مطالعاتی به پخش بار AC نیاز دارند؟"
+    loading="lazy"
+    allow="autoplay; fullscreen; picture-in-picture"
+    allowfullscreen
+    referrerpolicy="strict-origin-when-cross-origin"
+  ></iframe>
+</div>
 
 <script type="application/ld+json">
 {
@@ -27,8 +35,11 @@ relatedNotes: ["mathematical-modeling-art", "modeling-before-coding", "google-co
   "description": "معرفی ۱۰ مطالعه‌ی مهم در سیستم قدرت که فقط با پخش بار AC قابل انجام هستند.",
   "thumbnailUrl": "https://optexpert.org/images/notes/acstudies.webp",
   "uploadDate": "2026-08-05",
-  "contentUrl": "https://www.aparat.com/v/aug8432",
-  "embedUrl": "https://www.aparat.com/video/video/embed/videohash/aug8432/vt/frame"
+  "embedUrl": "https://www.aparat.com/video/video/embed/videohash/aug8432/vt/frame",
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://optexpert.org/#organization"
+  }
 }
 </script>
 
@@ -76,4 +87,4 @@ relatedNotes: ["mathematical-modeling-art", "modeling-before-coding", "google-co
 
 > انتخاب درست بین DC و AC، خودش یک تصمیم مهندسی است: DC برای سرعت و مقیاس‌پذیری در مطالعات برنامه‌ریزی بزرگ، و AC برای دقت در مطالعاتی که ولتاژ و توان راکتیو نقش اصلی را دارند.
 
-اگر می‌خواهید مدل‌سازی و حل کامل AC-OPF را در Python با Pyomo قدم‌به‌قدم یاد بگیرید، این موضوع در <a href="/courses/advanced-power-system/" style="color:#2563EB; font-weight:bold;">دوره پیشرفته بهینه‌سازی سیستم‌های قدرت</a> به‌صورت پروژه‌محور پوشش داده شده است.
+اگر می‌خواهید مدل‌سازی و حل کامل AC-OPF را در Python با Pyomo قدم‌به‌قدم یاد بگیرید، این موضوع در <a href="/courses/advanced-power-system/" class="content-link">دوره پیشرفته بهینه‌سازی سیستم‌های قدرت</a> به‌صورت پروژه‌محور پوشش داده شده است.

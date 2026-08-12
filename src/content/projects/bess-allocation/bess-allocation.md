@@ -1,19 +1,18 @@
 ---
-title: "پروژه آماده تحویل قدرت: جایابی بهینه ذخیره‌ساز انرژی برای کاهش هدر رفت تجدیدپذیرها"
-description: " جایابی ایستگاه‌های ذخیره‌سازی انرژی در شبکه انتقال برای بهینه‌سازی تولیدات تجدیدپذیر."
-seoTitle: "آموزش مسیریابی VRP با پایتون (OR-Tools) | دوره پروژه‌محور"
+title: "جایابی بهینه ذخیره‌ساز انرژی برای کاهش هدررفت تجدیدپذیرها"
+description: "جایابی بهینه ایستگاه‌های ذخیره‌سازی انرژی در شبکه انتقال برای کاهش هدررفت تولیدات تجدیدپذیر و بهبود بهره‌برداری با استفاده از مدل‌سازی ریاضی."
 category: "بهینه‌سازی و پایتون"
 environment: "Python (Pyomo) یا GAMS"
 status: "در حال تدوین"
 pubDate: 2026-07-29
+author: "dr-soroudi"
 level: "پیشرفته"
 minimalImage: "./bess-allocation-mini.webp"
 minimalImageAlt: "تصویر مینیمال آیکون بهینه‌سازی"
 image: "./storageallocation.jpg"
-imageAlt: "تصویر آیکون بهینه‌سازی"
-
+imageAlt: "جایابی بهینه ذخیره‌ساز انرژی برای کاهش هدررفت تجدیدپذیرها"
 relatedCourses: ["optimization-modeling", "uncertainty-modeling"]
-relatedNotes: ["mathematical-modeling-art", "modeling-before-coding", "google-colab", "pyomo-solvers"]
+relatedNotes: ["mathematical-modeling-art", "google-colab", "pyomo-solvers"]
 tags: ["پایتون", "بهینه‌سازی", "Pyomo"]
 ---
 

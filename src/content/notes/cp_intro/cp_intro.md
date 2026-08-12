@@ -1,16 +1,15 @@
 ---
-title: "پیدا کردن همه جواب ها با OR-Tools"
-seoTitle: "Google Colab | گوگل کولب"
-description: "حل مفهومی یک مدل ساده در OR-Tools"
+title: "حل همه جواب‌ها با OR-Tools و Constraint Programming"
+description: "آموزش پیدا کردن همه جواب‌های یک مدل با Constraint Programming در OR-Tools؛ همراه با یک مثال ساده و قابل اجرا در Python برای درک enumerate کردن جواب‌ها."
 pubDate: 2026-08-07
 author: "dr-soroudi"
 minimalImage: "./cp_intro-mini.webp"
 minimalImageAlt: "تصویر مینیمال آیکون بهینه‌سازی"
 image: "./cp_intro.webp"
-imageAlt: "تصویر Colab"
+imageAlt: "حل همه جواب‌ها با OR-Tools و Constraint Programming | پایتون"
 tags: ["CP", "پازل ریاضی", "Constraint Programming"]
 relatedCourses: ["vrp-python"]
-relatedNotes: ["mathematical-modeling-art", "modeling-before-coding", "google-colab", "pyomo-solvers"]
+relatedNotes: ["mathematical-modeling-art", "google-colab", "pyomo-solvers"]
 ---
 
 ## مرور مفهوم CP با OR-Tools
@@ -388,4 +387,4 @@ $$
 
 در مسائل بزرگ‌تر، قدرت Constraint Programming زمانی بیشتر مشخص می‌شود که قیود مختلف باعث حذف بخش بزرگی از فضای جست‌وجو شوند.
 
-اگر می‌خواهید مدل‌سازی و حل کامل مسایل پیچیده تر رو در Python با OR-Tools قدم‌به‌قدم یاد بگیرید، این موضوع در <a href="/courses/vrp-python/" style="color:#2563EB; font-weight:bold;">دوره بهینه‌سازی حمل و نقل </a> به‌صورت پروژه‌محور پوشش داده شده است.
+اگر می‌خواهید مدل‌سازی و حل کامل مسایل پیچیده تر رو در Python با OR-Tools قدم‌به‌قدم یاد بگیرید، این موضوع در <a href="/courses/vrp-python/" class="content-link">دوره بهینه‌سازی حمل و نقل </a> به‌صورت پروژه‌محور پوشش داده شده است.

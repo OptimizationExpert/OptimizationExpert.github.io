@@ -1,16 +1,15 @@
 ---
-title: "حل پازل Domino Fit با OR-Tools"
-seoTitle: "Google Colab | گوگل کولب"
-description: "حل پازل دومینو به همراه فرمولاسیون ریاضی و کد نویسی پایتون در OR-Tools"
+title: "حل پازل Domino Fit با OR-Tools | مدل‌سازی CP در پایتون"
+description: "حل پازل Domino Fit با فرمولاسیون ریاضی، Constraint Programming و کدنویسی Python در OR-Tools؛ نمونه‌ای کاربردی برای یادگیری مدل‌سازی CP."
 pubDate: 2026-08-06
 author: "dr-soroudi"
 minimalImage: "./domino-fit-CP-mini.webp"
 minimalImageAlt: "تصویر مینیمال آیکون بهینه‌سازی"
 image: "./dominofit.webp"
-imageAlt: "تصویر Colab"
+imageAlt: "حل پازل Domino Fit با OR-Tools | مدل‌سازی CP در پایتون"
 tags: ["CP", "پازل ریاضی", "Constraint Programming"]
 relatedCourses: ["vrp-python"]
-relatedNotes: ["mathematical-modeling-art", "modeling-before-coding", "google-colab", "pyomo-solvers"]
+relatedNotes: ["mathematical-modeling-art", "google-colab", "pyomo-solvers"]
 ---
 
 پازل **Domino Fit** یک مسئله‌ی جذاب جایابی است که در آن باید دومینوها را روی یک شبکه‌ی ثابت قرار دهیم؛ به‌طوری‌که هم تمام خانه‌های مجاز پوشانده شوند و هم مجموع اعداد هر سطر و ستون با مقادیر داده‌شده برابر باشد.
@@ -611,4 +610,4 @@ model.maximize(sum(preferred_variables))
 
 همین ساختار را می‌توان از یک پازل ریاضی تا مسائل واقعی جانمایی، بارگیری، انبارداری و زمان‌بندی توسعه داد.
 
-اگر می‌خواهید مدل‌سازی و حل کامل را در Python با OR-Tools قدم‌به‌قدم یاد بگیرید، این موضوع در <a href="/courses/vrp-python/" style="color:#2563EB; font-weight:bold;">دوره بهینه‌سازی حمل و نقل </a> به‌صورت پروژه‌محور پوشش داده شده است.
+اگر می‌خواهید مدل‌سازی و حل کامل را در Python با OR-Tools قدم‌به‌قدم یاد بگیرید، این موضوع در <a href="/courses/vrp-python/" class="content-link">دوره بهینه‌سازی حمل و نقل </a> به‌صورت پروژه‌محور پوشش داده شده است.

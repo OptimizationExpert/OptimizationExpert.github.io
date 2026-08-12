@@ -1,19 +1,19 @@
 ---
-title: "مسئله زمان‌بندی بازرسی قصابی‌ها با OR-Tools"
+title: "زمان‌بندی بازرسی قصابی‌ها با OR-Tools | پروژه عملی"
 description: "مدل‌سازی و حل مسئله زمان‌بندی بازرسی قصابی‌ها با OR-Tools در پایتون؛ یک مثال عملی از Task Scheduling و تخصیص بهینه بازرس‌ها."
-seoTitle: "آموزش مسیریابی VRP با پایتون (OR-Tools) | دوره پروژه‌محور"
 category: "بهینه‌سازی و پایتون"
 environment: "Python (Pyomo)"
 status: "پروژه آماده تحویل"
 pubDate: 2026-08-07
+author: "dr-soroudi"
 level: "پیشرفته"
 minimalImage: "./butchery-inspection-scheduling-mini.webp"
 minimalImageAlt: "تصویر مینیمال آیکون بهینه‌سازی"
 image: "./butchery-inspection-scheduling.webp"
-imageAlt: "تصویر آیکون بهینه‌سازی"
+imageAlt: "زمان‌بندی بازرسی قصابی‌ها با OR-Tools | پروژه عملی"
 tags: ["CP", "پازل ریاضی", "Constraint Programming"]
 relatedCourses: ["vrp-python"]
-relatedNotes: ["mathematical-modeling-art", "modeling-before-coding", "google-colab", "pyomo-solvers"]
+relatedNotes: ["mathematical-modeling-art", "google-colab", "pyomo-solvers"]
 ---
 
 ## شرح مسئله
@@ -243,4 +243,4 @@ relatedNotes: ["mathematical-modeling-art", "modeling-before-coding", "google-co
 
 ![نمونه برنامه ریزی بازرسی قضابی های استان البرز](./inspection_scheduling_solution.webp)
 
-اگر می‌خواهید مدل‌سازی و حل کامل را در Python با OR-Tools قدم‌به‌قدم یاد بگیرید، این موضوع در <a href="/courses/vrp-python/" style="color:#2563EB; font-weight:bold;">دوره بهینه‌سازی حمل و نقل </a> به‌صورت پروژه‌محور پوشش داده شده است.
+اگر می‌خواهید مدل‌سازی و حل کامل را در Python با OR-Tools قدم‌به‌قدم یاد بگیرید، این موضوع در <a href="/courses/vrp-python/" class="content-link">دوره بهینه‌سازی حمل و نقل </a> به‌صورت پروژه‌محور پوشش داده شده است.

@@ -10,6 +10,9 @@ interface Props {
 }
 
 const { currentPage, lastPage, prevUrl, nextUrl, basePath } = Astro.props;
+const normalizedBasePath = basePath.endsWith('/') ? basePath : `${basePath}/`;
+const normalizedPrevUrl = prevUrl ? (prevUrl.endsWith('/') ? prevUrl : `${prevUrl}/`) : undefined;
+const normalizedNextUrl = nextUrl ? (nextUrl.endsWith('/') ? nextUrl : `${nextUrl}/`) : undefined;
 
 const navBtnClass = "flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-[var(--site-card)] border border-[var(--site-border)] text-xs font-semibold transition-all duration-300 shadow-xs";
 ---
@@ -17,8 +20,8 @@ const navBtnClass = "flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-[var(--s
 {lastPage > 1 && (
   <nav class="flex justify-center items-center gap-2 mt-14" aria-label="Pagination">
 
-    {prevUrl ? (
-      <a href={prevUrl} class={`${navBtnClass} text-[var(--site-heading)] hover:border-[var(--site-primary)] hover:text-[var(--site-primary)]`}>
+    {normalizedPrevUrl ? (
+      <a href={normalizedPrevUrl} class={`${navBtnClass} text-[var(--site-heading)] hover:border-[var(--site-primary)] hover:text-[var(--site-primary)]`}>
         <i class="fa-solid fa-chevron-right text-[10px]"></i>
         <span>صفحه قبل</span>
       </a>
@@ -31,7 +34,7 @@ const navBtnClass = "flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-[var(--s
 
     <div class="hidden sm:flex items-center gap-1.5 bg-[var(--site-card)] border border-[var(--site-border)] p-1.5 rounded-2xl shadow-xs">
       {Array.from({ length: lastPage }, (_, i) => i + 1).map((pageNum) => {
-        const pageLink = pageNum === 1 ? basePath : `${basePath}/${pageNum}`;
+        const pageLink = pageNum === 1 ? normalizedBasePath : `${normalizedBasePath}${pageNum}/`;
         const isActive = currentPage === pageNum;
         const activeClass = "w-9 h-9 flex items-center justify-center rounded-xl text-xs font-bold transition-all duration-300 bg-[var(--site-primary)] text-white shadow-sm scale-105";
         const normalClass = "w-9 h-9 flex items-center justify-center rounded-xl text-xs font-bold transition-all duration-300 text-[var(--site-heading)] hover:bg-[var(--site-primary)]/10 hover:text-[var(--site-primary)]";
@@ -48,8 +51,8 @@ const navBtnClass = "flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-[var(--s
       {currentPage} از {lastPage}
     </div>
 
-    {nextUrl ? (
-      <a href={nextUrl} class={`${navBtnClass} text-[var(--site-heading)] hover:border-[var(--site-primary)] hover:text-[var(--site-primary)]`}>
+    {normalizedNextUrl ? (
+      <a href={normalizedNextUrl} class={`${navBtnClass} text-[var(--site-heading)] hover:border-[var(--site-primary)] hover:text-[var(--site-primary)]`}>
         <span>صفحه بعد</span>
         <i class="fa-solid fa-chevron-left text-[10px]"></i>
       </a>

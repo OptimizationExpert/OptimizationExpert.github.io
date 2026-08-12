@@ -1,16 +1,15 @@
 ---
-title: "حل پازل کاشی‌کاری با OR-Tools"
-seoTitle: "Google Colab | گوگل کولب"
-description: "فرمولاسیون ریاضی و کدنویسی پایتون پازل کاشی‌کاری روی شبکه با سالور CP-SAT از OR-Tools."
+title: "حل پازل Tiling با OR-Tools و Constraint Programming"
+description: "فرمولاسیون ریاضی و پیاده‌سازی پازل کاشی‌کاری روی شبکه با Python و CP-SAT در OR-Tools؛ از تعریف ترکیب‌ها تا قیود پوشش و حل مدل."
 pubDate: 2026-08-10
 author: "dr-soroudi"
 minimalImage: "./tiling-puzzle-cp-mini.jpg"
 minimalImageAlt: "تصویر مینیمال آیکون بهینه‌سازی"
 image: "./tiling_puzzle_thumb.webp"
-imageAlt: "تصویر Colab"
+imageAlt: "حل پازل Tiling با OR-Tools و Constraint Programming"
 tags: ["CP", "پازل ریاضی", "Constraint Programming", "OR-Tools"]
 relatedCourses: ["vrp-python"]
-relatedNotes: ["mathematical-modeling-art", "modeling-before-coding", "google-colab", "pyomo-solvers"]
+relatedNotes: ["mathematical-modeling-art", "google-colab", "pyomo-solvers"]
 ---
 
 یکی‌بود یکی‌نبود، دو مجموعه‌ی {۰,۱,۲,۳} و {۰,۱,۲,۳} کنار هم قرار گرفتند و تمام ترکیب‌های دوتایی *یکتا* را از خودشان ساختند. بیایید اسم این مجموعه ترکیب‌ها را $S$ بگذاریم:
@@ -69,12 +68,10 @@ $$
 $$
 u_{i,j,s} =
 \begin{cases}
-1 & (i,j,s) \text{ selected} \\
-0 & \text{otherwise}
+1 & \text{اگر جفت همسایه } (i,j) \text{ برای پوشش ترکیب } s \text{ انتخاب شود} \\
+0 & \text{در غیر این صورت}
 \end{cases}
 $$
-
-یعنی $u_{i,j,s}=1$ اگر جفت همسایه‌ی $(i,j)$ برای پوشش ترکیب $s$ انتخاب شود، و در غیر این صورت $u_{i,j,s}=0$.
 
 نکته‌ی مهم: این متغیر فقط برای جفت‌هایی ساخته می‌شود که **هم همسایه باشند و هم** مقدارشان با ترکیب مدنظر مطابقت داشته باشد؛ یعنی از ابتدا فضای جست‌وجو به‌شدت کوچک نگه داشته می‌شود (این دقیقاً همان چیزی است که در کد پایتون خط زیر انجام می‌دهد):
 

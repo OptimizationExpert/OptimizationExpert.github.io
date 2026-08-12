@@ -1,16 +1,15 @@
 ---
-title: "سه راهکار عملی برای استفاده از سالور ها در پایومو"
-seoTitle: "Google Colab | گوگل کولب"
-description: "سه راه برای نصب و استفاده از Solver های رایگان برای Pyomo: نصب محلی، Google Colab، و سرور NEOS."
+title: "سه روش عملی استفاده از Solverها در Pyomo"
+description: "سه روش عملی برای نصب و استفاده از Solverهای رایگان در Pyomo؛ اجرای محلی، کار با Google Colab و استفاده از سرویس NEOS برای حل مدل‌های بهینه‌سازی."
 pubDate: 2026-06-19
 author: "dr-soroudi"
 minimalImage: "./solvers-mini.png"
 minimalImageAlt: "تصویر مینیمال آیکون بهینه‌سازی"
 image: "./solvers.jpg"
-imageAlt: "تصویر Colab"
+imageAlt: "سه روش عملی استفاده از Solverها در Pyomo"
 tags: ["پایتون", "بهینه‌سازی", "Pyomo"]
 relatedCourses: ["optimization-modeling", "uncertainty-modeling"]
-relatedNotes: ["mathematical-modeling-art", "modeling-before-coding", "google-colab", "pyomo-solvers"]
+relatedNotes: ["mathematical-modeling-art", "google-colab"]
 ---
 
 وقتی می‌خوای با Pyomo مدل‌سازی کنی، اول باید یک **Solver** داشته باشی. مسئله اینه که خیلی از solverهای خوب (Gurobi، CPLEX) رایگان نیستن. ولی خیلی راهکار رایگان و قابل‌اعتماد هم هست. اینجا سه تا بهترین گزینه رو معرفی می‌کنم.

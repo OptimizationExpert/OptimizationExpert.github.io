@@ -1,19 +1,18 @@
 ---
-title: "توزیع سوخت و گاز مایع با تحویل تقسیمی و پنجره زمانی در پایتون"
+title: "مسیریابی توزیع سوخت با Split Delivery و Time Windows"
 description: "پروژه آماده پایتون برای توزیع سوخت با تحویل تقسیمی و پنجره زمانی؛ مسیریابی ناوگان تانکرها برای کمینه‌کردن هزینه با رعایت ظرفیت جایگاه‌ها."
-seoTitle: "آموزش مسیریابی VRP با پایتون (OR-Tools) | دوره پروژه‌محور"
 category: "بهینه‌سازی و پایتون"
 environment: "Python"
 status: "پروژه آماده تحویل"
 pubDate: 2026-07-18
+author: "dr-soroudi"
 level: "پیشرفته"
 minimalImage: "./fuel-vrp-mini.webp"
 minimalImageAlt: "تصویر مینیمال آیکون بهینه‌سازی"
 image: "./fuel_split_delivery.png"
-imageAlt: "تصویر آیکون بهینه‌سازی"
-
+imageAlt: "مسیریابی توزیع سوخت با Split Delivery و Time Windows"
 relatedCourses: ["optimization-modeling", "uncertainty-modeling"]
-relatedNotes: ["mathematical-modeling-art", "modeling-before-coding", "google-colab", "pyomo-solvers"]
+relatedNotes: ["mathematical-modeling-art", "google-colab", "pyomo-solvers"]
 tags: ["تحویل تقسیمی", "پنجره زمانی", "مسیریابی خودرو", "بهینه سازی", "پایتون", "Split Delivery"]
 ---
 

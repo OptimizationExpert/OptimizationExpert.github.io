@@ -1,7 +1,6 @@
 ---
 # === متغیرهای اصلی و سئو ===
-title: "دوره جامع بهینه‌سازی و مسیریابی (VRP) در Python"
-seoTitle: "آموزش مسیریابی VRP با پایتون (OR-Tools) | دوره پروژه‌محور"
+title: "آموزش مسیریابی VRP با Python و OR-Tools"
 description: "دوره جامع و پروژه‌محور مسیریابی وسایل نقلیه (VRP) در Python با OR-Tools و CP-SAT؛ ۲۰ پروژه عملی از TSP و CVRP تا VRPTW و مسیریابی خودروی برقی."
 pubDate: 2026-06-24
 minimalImage: "./vrp-mini.jpg"
@@ -19,7 +18,7 @@ instructor: "dr-soroudi"
 
 # === ارتباطات و ساختار سایت ===
 relatedCourses: ["optimization-modeling", "uncertainty-modeling"]
-relatedNotes: ["mathematical-modeling-art", "modeling-before-coding", "google-colab", "pyomo-solvers"]
+relatedNotes: ["mathematical-modeling-art", "google-colab", "pyomo-solvers"]
 # انتخاب ۵ تا ۷ تگ جامع به جای ۲۰ تگ پراکنده
 tags: ["Vehicle Routing Problem", "Python", "OR-Tools", "بهینه‌سازی ترکیبی", "زنجیره تامین"]
 ---

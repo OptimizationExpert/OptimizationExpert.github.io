@@ -1,7 +1,6 @@
 ---
 # === متغیرهای اصلی و سئو ===
 title: "دوره مدل‌سازی مسائل بهینه‌سازی"
-seoTitle: "دوره مدل‌سازی مسائل بهینه‌سازی"
 description: "دوره پایه مدل‌سازی مسائل بهینه‌سازی؛ تبدیل مسائل واقعی به مدل ریاضی: متغیر تصمیم، تابع هدف، قیود و انواع مسائل LP/MILP/NLP."
 pubDate: 2026-06-21
 minimalImage: "./modeling-mini.webp"
@@ -18,8 +17,8 @@ sessions: "۱۰ جلسه"
 instructor: "dr-soroudi"
 
 # === ارتباطات و ساختار سایت ===
-relatedCourses: ["optimization-modeling", "Advanced-Power-System", "intro-power-system", "vrp-python"]
-relatedNotes: ["mathematical-modeling-art", "modeling-before-coding", "google-colab", "pyomo-solvers"]
+relatedCourses: ["advanced-power-system", "intro-power-system", "vrp-python"]
+relatedNotes: ["mathematical-modeling-art", "google-colab", "pyomo-solvers"]
 # انتخاب ۵ تا ۷ تگ جامع به جای ۲۰ تگ پراکنده
 tags: ["آموزش بهینه سازی", "برنامه ریزی خطی", "LP", "MILP", "NLP"]
 ---

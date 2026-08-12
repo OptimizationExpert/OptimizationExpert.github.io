@@ -1,7 +1,6 @@
 ---
 # === متغیرهای اصلی و سئو ===
-title: "دوره فشرده مدل‌سازی عدم قطعیت"
-seoTitle: "آموزش مدل‌سازی عدم قطعیت در بهینه‌سازی و سیستم قدرت"
+title: "آموزش مدل‌سازی عدم قطعیت در بهینه‌سازی و سیستم قدرت"
 description: "دوره فشرده مدل‌سازی عدم قطعیت: مقایسه روش‌های Stochastic، Fuzzy، Robust و IGDT با کاربرد در انرژی و سیستم قدرت."
 pubDate: 2026-06-23
 minimalImage: "./uncertainty_mini.webp"
@@ -18,8 +17,8 @@ sessions: "۱۰ جلسه"
 instructor: "dr-soroudi"
 
 # === ارتباطات و ساختار سایت ===
-relatedCourses: ["optimization-modeling", "Advanced-Power-System", vrp-python]
-relatedNotes: ["mathematical-modeling-art", "modeling-before-coding", "google-colab", "pyomo-solvers"]
+relatedCourses: ["optimization-modeling", "advanced-power-system", "vrp-python"]
+relatedNotes: ["mathematical-modeling-art", "google-colab", "pyomo-solvers"]
 # انتخاب ۵ تا ۷ تگ جامع به جای ۲۰ تگ پراکنده
 tags: ["Robust Optimization", "Fuzzy", "IGDT", "عدم قطعیت", "نایقینی"]
 ---

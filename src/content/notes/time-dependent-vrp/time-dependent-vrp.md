@@ -1,16 +1,15 @@
 ---
-title: "وقتی فاصله‌ها به زمان وابسته‌اند — مسئله‌ای سخت‌تر از آن‌چه فکر می‌کنی"
-seoTitle: "Google Colab | گوگل کولب"
+title: "مسئله مسیریابی وابسته به زمان (TDVRP) با پایتون"
 description: "مسئله مسیریابی وابسته به زمان (Time Dependent VRP): چرا وقتی هزینه سفر به ساعت حرکت بستگی دارد، حل مسئله چند برابر پیچیده‌تر می‌شود."
 pubDate: 2026-06-19
 author: "dr-soroudi"
 minimalImage: "./TDVRP-mini.webp"
 minimalImageAlt: "تصویر مینیمال آیکون بهینه‌سازی"
 image: "./TDvrp.jpg"
-imageAlt: "تصویر Colab"
+imageAlt: "مسئله مسیریابی وابسته به زمان (TDVRP) با پایتون"
 tags: ["پایتون", "بهینه‌سازی", "Pyomo"]
 relatedCourses: ["optimization-modeling", "uncertainty-modeling"]
-relatedNotes: ["mathematical-modeling-art", "modeling-before-coding", "google-colab", "pyomo-solvers"]
+relatedNotes: ["mathematical-modeling-art", "google-colab", "pyomo-solvers"]
 ---
 
 

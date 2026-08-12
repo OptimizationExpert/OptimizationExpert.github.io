@@ -3,7 +3,11 @@
 const currentPath = Astro.url.pathname;
 // مطابقت دقیق یا زیرمسیر (مثلاً /courses/x باید منوی «دوره‌ها» را هم فعال کند)
 // بدون اینکه مسیرهای هم‌پیشوند نامرتبط (مثلاً /courses-old) به‌اشتباه match شوند
-const isActive = (href: string) => currentPath === href || currentPath.startsWith(href + '/');
+const isActive = (href: string) => {
+  const normalizedCurrentPath = currentPath.replace(/\/$/, '') || '/';
+  const normalizedHref = href.replace(/\/$/, '') || '/';
+  return normalizedCurrentPath === normalizedHref || normalizedCurrentPath.startsWith(`${normalizedHref}/`);
+};
 ---
 <header class="sticky top-0 z-50 w-full bg-[var(--site-card)]/90 backdrop-blur-md border-b border-[var(--site-border)] transition-colors duration-200">
   
@@ -32,7 +36,7 @@ const isActive = (href: string) => currentPath === href || currentPath.startsWit
       </div>
 
       <div class="hidden md:flex flex-grow max-w-md mx-4">
-        <form id="desktop-search-form" action="/search" method="GET" class="relative w-full group" role="search">
+        <form id="desktop-search-form" action="/search/" method="GET" class="relative w-full group" role="search">
           <span class="absolute inset-y-0 right-0 flex items-center pr-3.5 pointer-events-none text-[var(--site-muted)] group-focus-within:text-[var(--site-primary)] transition-colors">
             <i class="fa-solid fa-magnifying-glass text-xs sm:text-sm" aria-hidden="true"></i>
           </span>
@@ -54,11 +58,11 @@ const isActive = (href: string) => currentPath === href || currentPath.startsWit
         
         <button id="theme-toggle" class="w-10 h-10 relative flex items-center justify-center text-[var(--site-text)] hover:text-[var(--site-primary)] bg-[var(--site-bg)]/60 border border-[var(--site-border)] rounded-xl focus:outline-none hover:border-[var(--site-primary)]/40 transition-all shadow-2xs group" aria-label="تغییر تم سایت">
           <i id="theme-icon-moon" class="fa-solid fa-moon text-xs relative z-10 transition-transform duration-300 group-hover:-rotate-12" aria-hidden="true"></i>
-          <i id="theme-icon-sun" class="fa-solid fa-sun text-xs text-[var(--site-gold)] relative z-10 transition-transform duration-300 group-hover:rotate-45" style="display: none;" aria-hidden="true"></i>
+          <i id="theme-icon-sun" class="fa-solid fa-sun text-xs text-[var(--site-gold)] relative z-10 transition-transform duration-300 group-hover:rotate-45" hidden aria-hidden="true"></i>
         </button>
 
         <!-- دکمه مشاوره تخصصی با افکت و انیمیشن درخواست شده -->
-        <a href="/consultation" class="hidden sm:inline-flex items-center gap-2 bg-gradient-to-r from-[var(--site-primary)] to-[var(--site-secondary)] text-white px-4 py-2.5 rounded-xl text-xs font-bold shadow-md shadow-[var(--site-primary)]/20 hover:shadow-lg hover:shadow-[var(--site-primary)]/40 hover:brightness-110 transition-all duration-300 hover:-translate-y-0.5 whitespace-nowrap overflow-hidden group">
+        <a href="/consultation/" class="hidden sm:inline-flex items-center gap-2 bg-gradient-to-r from-[var(--site-primary)] to-[var(--site-secondary)] text-white px-4 py-2.5 rounded-xl text-xs font-bold shadow-md shadow-[var(--site-primary)]/20 hover:shadow-lg hover:shadow-[var(--site-primary)]/40 hover:brightness-110 transition-all duration-300 hover:-translate-y-0.5 whitespace-nowrap overflow-hidden group">
           <i class="fa-solid fa-headset text-sm group-hover:animate-bounce" aria-hidden="true"></i>
           <span>مشاوره تخصصی</span>
         </a>
@@ -73,15 +77,15 @@ const isActive = (href: string) => currentPath === href || currentPath.startsWit
     <div class="hidden lg:block py-2.5 border-t border-[var(--site-border)]/40">
       <nav class="flex items-center justify-center gap-1.5 xl:gap-2.5 text-xs font-bold" aria-label="منوی اصلی">
         {[
-          { title: 'دوره‌ها', href: '/courses', icon: 'fa-graduation-cap' },
-          { title: 'پروژه‌ها', href: '/projects', icon: 'fa-layer-group' },
-          { title: 'یادداشت‌ها', href: '/notes', icon: 'fa-pen-nib' },
-          { title: 'کتاب‌ها و جزوات', href: '/books', icon: 'fa-book-open' },
-          { title: 'دانلود نرم‌افزار', href: '/softwares', icon: 'fa-download' },
-          { title: 'مسیر یادگیری', href: '/roadmap', icon: 'fa-map' },
-          { title: 'لینک‌های مفید', href: '/links', icon: 'fa-link' },
-          { title: 'درباره ما', href: '/about', icon: 'fa-user-astronaut' },
-          { title: 'تماس با ما', href: '/contact', icon: 'fa-envelope' }
+          { title: 'دوره‌ها', href: '/courses/', icon: 'fa-graduation-cap' },
+          { title: 'پروژه‌ها', href: '/projects/', icon: 'fa-layer-group' },
+          { title: 'یادداشت‌ها', href: '/notes/', icon: 'fa-pen-nib' },
+          { title: 'کتاب‌ها و جزوات', href: '/books/', icon: 'fa-book-open' },
+          { title: 'دانلود نرم‌افزار', href: '/softwares/', icon: 'fa-download' },
+          { title: 'مسیر یادگیری', href: '/roadmap/', icon: 'fa-map' },
+          { title: 'لینک‌های مفید', href: '/links/', icon: 'fa-link' },
+          { title: 'درباره ما', href: '/about/', icon: 'fa-user-astronaut' },
+          { title: 'تماس با ما', href: '/contact/', icon: 'fa-envelope' }
         ].map((item) => {
           const active = isActive(item.href);
           return (
@@ -109,7 +113,7 @@ const isActive = (href: string) => currentPath === href || currentPath.startsWit
 
     <!-- منوی موبایل و تبلت: تنها راه دسترسی به ناوبری و جستجو زیر breakpoint لایه lg -->
     <div id="mobile-menu-panel" class="lg:hidden hidden border-t border-[var(--site-border)]/60 py-4">
-      <form action="/search" method="GET" class="relative w-full mb-4" role="search">
+      <form action="/search/" method="GET" class="relative w-full mb-4" role="search">
         <span class="absolute inset-y-0 right-0 flex items-center pr-3.5 pointer-events-none text-[var(--site-muted)]">
           <i class="fa-solid fa-magnifying-glass text-xs" aria-hidden="true"></i>
         </span>
@@ -123,16 +127,16 @@ const isActive = (href: string) => currentPath === href || currentPath.startsWit
       </form>
       <nav class="grid grid-cols-2 gap-2 text-xs font-bold" aria-label="منوی موبایل">
         {[
-          { title: 'دوره‌ها', href: '/courses', icon: 'fa-graduation-cap' },
-          { title: 'پروژه‌ها', href: '/projects', icon: 'fa-layer-group' },
-          { title: 'یادداشت‌ها', href: '/notes', icon: 'fa-pen-nib' },
-          { title: 'کتاب‌ها و جزوات', href: '/books', icon: 'fa-book-open' },
-          { title: 'دانلود نرم‌افزار', href: '/softwares', icon: 'fa-download' },
-          { title: 'مسیر یادگیری', href: '/roadmap', icon: 'fa-map' },
-          { title: 'لینک‌های مفید', href: '/links', icon: 'fa-link' },
-          { title: 'مشاوره تخصصی', href: '/consultation', icon: 'fa-headset' },
-          { title: 'درباره ما', href: '/about', icon: 'fa-user-astronaut' },
-          { title: 'تماس با ما', href: '/contact', icon: 'fa-envelope' }
+          { title: 'دوره‌ها', href: '/courses/', icon: 'fa-graduation-cap' },
+          { title: 'پروژه‌ها', href: '/projects/', icon: 'fa-layer-group' },
+          { title: 'یادداشت‌ها', href: '/notes/', icon: 'fa-pen-nib' },
+          { title: 'کتاب‌ها و جزوات', href: '/books/', icon: 'fa-book-open' },
+          { title: 'دانلود نرم‌افزار', href: '/softwares/', icon: 'fa-download' },
+          { title: 'مسیر یادگیری', href: '/roadmap/', icon: 'fa-map' },
+          { title: 'لینک‌های مفید', href: '/links/', icon: 'fa-link' },
+          { title: 'مشاوره تخصصی', href: '/consultation/', icon: 'fa-headset' },
+          { title: 'درباره ما', href: '/about/', icon: 'fa-user-astronaut' },
+          { title: 'تماس با ما', href: '/contact/', icon: 'fa-envelope' }
         ].map((item) => {
           const active = isActive(item.href);
           return (

@@ -1,13 +1,14 @@
 ---
+import { entrySlug, isPublished } from '../utils/content';
 import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 import ContentCard from '../components/ContentCard.astro';
 import HorizontalScroller from '../components/HorizontalScroller.astro';
 import ScrollerControls from '../components/ScrollerControls.astro';
 
-const rawCourses = await getCollection('courses');
-const rawProjects = await getCollection('projects');
-const rawNotes = await getCollection('notes');
+const rawCourses = await getCollection('courses', isPublished);
+const rawProjects = await getCollection('projects', isPublished);
+const rawNotes = await getCollection('notes', isPublished);
 
 const sortByDateDesc = (items: any[]) => {
   return [...items].sort((a, b) => {
@@ -24,7 +25,7 @@ const notes = sortByDateDesc(rawNotes);
 const defaultImage = "/images/hero.webp";
 ---
 
-<Layout title="مدل‌سازی و بهینه‌سازی کاربردی" description="مرجع تخصصی مدل‌سازی ریاضی، برنامه‌نویسی پایتون، سالورهای بهینه‌سازی و تحلیل سیستم‌های قدرت به صورت پروژه‌محور.">
+<Layout title="مرجع تخصصی مدل‌سازی، بهینه‌سازی و سیستم‌های قدرت" description="مرجع تخصصی مدل‌سازی ریاضی، برنامه‌نویسی پایتون، سالورهای بهینه‌سازی و تحلیل سیستم‌های قدرت به صورت پروژه‌محور.">
    
   <!-- ۱. بخش بنر (Hero Section) با نسبت 16:9 و ارتفاع فشرده و کنترل‌شده -->
   <section class="w-full relative overflow-hidden bg-slate-950 h-[220px] xs:h-[260px] sm:h-[320px] md:h-[380px] lg:h-[420px] flex items-center justify-center">
@@ -46,7 +47,7 @@ const defaultImage = "/images/hero.webp";
         <span class="truncate">مرجع تخصصی مدل‌سازی، بهینه‌سازی و سیستم‌های قدرت</span>
       </div>
 
-      <h1 class="sr-only">مرجع تخصصی مدل‌سازی ریاضی، برنامه‌نویسی پایتون و بهینه‌سازی سیستم‌های قدرت</h1>
+      <h1 class="sr-only">مرجع تخصصی مدل‌سازی، بهینه‌سازی و سیستم‌های قدرت</h1>
 
       <!-- تیتر اصلی -->
       <div class="min-h-[1.75rem] xs:min-h-[2rem] sm:min-h-[2.25rem] flex items-center justify-center w-full" aria-hidden="true">
@@ -62,12 +63,12 @@ const defaultImage = "/images/hero.webp";
 
       <!-- دکمه‌ها -->
       <div class="flex flex-row items-center justify-center gap-2 sm:gap-3 pt-1 w-full max-w-md sm:max-w-lg mx-auto">
-        <a href="/courses" class="flex-1 bg-gradient-to-r from-[var(--site-primary)] to-[var(--site-secondary)] hover:brightness-110 text-white font-bold px-3 py-2 sm:px-6 sm:py-2.5 rounded-xl transition-transform duration-200 hover:-translate-y-0.5 text-[10px] xs:text-xs sm:text-sm flex items-center justify-center gap-1.5 sm:gap-2 border border-[var(--site-primary)]/30 shadow-xl truncate">
+        <a href="/courses/" class="flex-1 bg-gradient-to-r from-[var(--site-primary)] to-[var(--site-secondary)] hover:brightness-110 text-white font-bold px-3 py-2 sm:px-6 sm:py-2.5 rounded-xl transition-transform duration-200 hover:-translate-y-0.5 text-[10px] xs:text-xs sm:text-sm flex items-center justify-center gap-1.5 sm:gap-2 border border-[var(--site-primary)]/30 shadow-xl truncate">
           <i class="fa-solid fa-graduation-cap text-xs sm:text-sm text-white/90 shrink-0"></i>
           <span class="truncate">مشاهده دوره‌های آموزشی</span>
         </a>
         
-        <a href="/consultation" class="flex-1 relative bg-slate-950/85 hover:bg-slate-900/95 text-white font-bold px-3 py-2 sm:px-6 sm:py-2.5 rounded-xl transition-transform duration-200 hover:-translate-y-0.5 border border-[var(--site-gold)]/80 text-[10px] xs:text-xs sm:text-sm flex items-center justify-center gap-1.5 sm:gap-2 shadow-xl backdrop-blur-md truncate">
+        <a href="/consultation/" class="flex-1 relative bg-slate-950/85 hover:bg-slate-900/95 text-white font-bold px-3 py-2 sm:px-6 sm:py-2.5 rounded-xl transition-transform duration-200 hover:-translate-y-0.5 border border-[var(--site-gold)]/80 text-[10px] xs:text-xs sm:text-sm flex items-center justify-center gap-1.5 sm:gap-2 shadow-xl backdrop-blur-md truncate">
           <span class="absolute inset-x-0 bottom-0 h-[2px] bg-gradient-to-r from-transparent via-[var(--site-gold)] to-transparent opacity-80"></span>
           <i class="fa-solid fa-comments text-[var(--site-gold)] text-xs sm:text-sm relative z-10 shrink-0"></i>
           <span class="relative z-10 truncate">درخواست مشاوره تخصصی</span>
@@ -141,7 +142,7 @@ const defaultImage = "/images/hero.webp";
       </div>
       <div class="shrink-0 flex items-center gap-2">
         <ScrollerControls id="scroller-courses" />
-        <a href="/courses" class="text-xs font-bold text-[var(--site-primary)] bg-[var(--site-primary)]/10 px-4 py-2 rounded-xl transition-colors hover:bg-[var(--site-primary)] hover:text-white inline-flex items-center gap-1">
+        <a href="/courses/" class="text-xs font-bold text-[var(--site-primary)] bg-[var(--site-primary)]/10 px-4 py-2 rounded-xl transition-colors hover:bg-[var(--site-primary)] hover:text-white inline-flex items-center gap-1">
           مشاهده همه
         </a>
       </div>
@@ -149,8 +150,8 @@ const defaultImage = "/images/hero.webp";
     <HorizontalScroller id="scroller-courses">
       {courses.slice(0, 10).map((course) => (
         <ContentCard
-          widthClass="w-[280px] sm:w-[320px]"
-          href={`/courses/${course.id.replace(/\.md$/, '').split('/').pop()}`}
+          widthClass="w-[250px] sm:w-[280px] md:w-[300px]"
+          href={`/courses/${entrySlug(course)}/`}
           image={course.data.minimalImage || course.data.image || defaultImage}
           imageAlt={course.data.title}
           title={course.data.title}
@@ -174,7 +175,7 @@ const defaultImage = "/images/hero.webp";
         </div>
         <div class="shrink-0 flex items-center gap-2">
           <ScrollerControls id="scroller-projects" />
-          <a href="/projects" class="text-xs font-bold text-[var(--site-primary)] bg-[var(--site-primary)]/10 px-4 py-2 rounded-xl transition-colors hover:bg-[var(--site-primary)] hover:text-white inline-flex items-center gap-1">
+          <a href="/projects/" class="text-xs font-bold text-[var(--site-primary)] bg-[var(--site-primary)]/10 px-4 py-2 rounded-xl transition-colors hover:bg-[var(--site-primary)] hover:text-white inline-flex items-center gap-1">
             مشاهده همه
           </a>
         </div>
@@ -182,8 +183,8 @@ const defaultImage = "/images/hero.webp";
       <HorizontalScroller id="scroller-projects">
         {projects.slice(0, 10).map((project) => (
           <ContentCard
-            widthClass="w-[280px] sm:w-[320px]"
-            href={`/projects/${project.id.replace(/\.md$/, '').split('/').pop()}`}
+            widthClass="w-[250px] sm:w-[280px] md:w-[300px]"
+            href={`/projects/${entrySlug(project)}/`}
             image={project.data.minimalImage || project.data.image || defaultImage}
             imageAlt={project.data.title}
             title={project.data.title}
@@ -206,7 +207,7 @@ const defaultImage = "/images/hero.webp";
       </div>
       <div class="shrink-0 flex items-center gap-2">
         <ScrollerControls id="scroller-notes" />
-        <a href="/notes" class="text-xs font-bold text-[var(--site-primary)] bg-[var(--site-primary)]/10 px-4 py-2 rounded-xl transition-colors hover:bg-[var(--site-primary)] hover:text-white inline-flex items-center gap-1">
+        <a href="/notes/" class="text-xs font-bold text-[var(--site-primary)] bg-[var(--site-primary)]/10 px-4 py-2 rounded-xl transition-colors hover:bg-[var(--site-primary)] hover:text-white inline-flex items-center gap-1">
           مشاهده همه
         </a>
       </div>
@@ -214,8 +215,8 @@ const defaultImage = "/images/hero.webp";
     <HorizontalScroller id="scroller-notes">
       {notes.slice(0, 10).map((note) => (
         <ContentCard
-          widthClass="w-[280px] sm:w-[320px]"
-          href={`/notes/${note.id.replace(/\.md$/, '').split('/').pop()}`}
+          widthClass="w-[250px] sm:w-[280px] md:w-[300px]"
+          href={`/notes/${entrySlug(note)}/`}
           image={note.data.minimalImage || note.data.image || defaultImage}
           imageAlt={note.data.title}
           title={note.data.title}

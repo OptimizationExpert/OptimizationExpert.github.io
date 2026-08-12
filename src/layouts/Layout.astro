@@ -1,5 +1,4 @@
 ---
-// src/layouts/Layout.astro
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
@@ -14,11 +13,13 @@ interface Props {
   type?: 'website' | 'article' | 'course' | 'software' | 'book';
   pubDate?: Date;
   author?: string;
+  authorUrl?: string;
   noindex?: boolean;
   courseDetails?: {
     duration?: string;
     level?: string;
     instructorName?: string;
+    instructorUrl?: string;
     price?: string;
     priceCurrency?: string;
   };
@@ -35,6 +36,7 @@ interface Props {
     price?: string;
   };
   breadcrumbs?: { name: string; url?: string }[];
+  pageNumber?: number;
 }
 
 const {
@@ -45,34 +47,38 @@ const {
   type,
   pubDate,
   author,
+  authorUrl,
   noindex = false,
   courseDetails,
   softwareDetails,
   bookDetails,
   breadcrumbs,
+  pageNumber,
 } = Astro.props;
+
+const resolvedTitle = pageNumber && pageNumber > 1 ? `${title} | صفحه ${pageNumber}` : title;
 ---
 
 <!doctype html>
 <html lang="fa" dir="rtl">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!-- آیکون‌های محلی -->
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f8fafc" />
     <meta name="generator" content={Astro.generator} />
 
-    <!-- تمام منطق سئو (تایتل، متا، OG، Twitter، JSON-LD) فقط اینجا و در یک فایل مدیریت می‌شود -->
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
     <SEO
-      title={title}
+      title={resolvedTitle}
       description={description}
       image={image}
       article={article}
       type={type}
       pubDate={pubDate}
       author={author}
+      authorUrl={authorUrl}
       noindex={noindex}
       courseDetails={courseDetails}
       softwareDetails={softwareDetails}
@@ -80,124 +86,109 @@ const {
       breadcrumbs={breadcrumbs}
     />
 
-    <!-- شناسایی خودکار فید RSS -->
     <link rel="alternate" type="application/rss+xml" title="Optimization Expert" href="/rss.xml" />
 
-    <!-- استایل‌های محلی و ۱۰۰٪ آفلاین -->
+    <!-- Everything required at runtime is served locally. -->
     <link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css" />
     <link rel="stylesheet" href="/katex/dist/katex.min.css" />
 
-    <!-- اسکریپت آنی تشخیص و اعمال تم قبل از لود کامل صفحه (جلوگیری از سفید شدن صفحه) -->
+    <!-- Apply the saved/system theme before first paint to avoid a flash. -->
     <script is:inline>
-      (function () {
+      (() => {
+        const root = document.documentElement;
         const savedTheme = localStorage.getItem('theme');
-        const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        if (savedTheme === 'dark' || (!savedTheme && systemDark)) {
-          document.documentElement.classList.add('dark');
-        } else {
-          document.documentElement.classList.remove('dark');
-        }
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const isDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
+        root.classList.toggle('dark', isDark);
       })();
     </script>
   </head>
+
   <body class="bg-site-bg text-site-text font-sans min-h-screen flex flex-col justify-between selection:bg-site-primary selection:text-white">
     <Header />
     <Breadcrumbs items={breadcrumbs} />
     <slot />
     <Footer />
 
-    <!-- اسکریپت‌های سراسری: سوئیچ تم و دکمه کپی کدها -->
     <script is:inline>
-      function updateThemeUI(isDark) {
-        const moonIcon = document.getElementById('theme-icon-moon');
-        const sunIcon = document.getElementById('theme-icon-sun');
+      (() => {
+        const getIsDark = () => {
+          const savedTheme = localStorage.getItem('theme');
+          const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          return savedTheme === 'dark' || (!savedTheme && prefersDark);
+        };
 
-        if (isDark) {
-          document.documentElement.classList.add('dark');
-          if (moonIcon) moonIcon.style.display = 'none';
-          if (sunIcon) sunIcon.style.display = 'inline-block';
-        } else {
-          document.documentElement.classList.remove('dark');
-          if (moonIcon) moonIcon.style.display = 'inline-block';
-          if (sunIcon) sunIcon.style.display = 'none';
-        }
-      }
+        const updateThemeUI = (isDark) => {
+          document.documentElement.classList.toggle('dark', isDark);
 
-      function initThemeToggle() {
-        const themeBtn = document.getElementById('theme-toggle');
+          const moonIcon = document.getElementById('theme-icon-moon');
+          const sunIcon = document.getElementById('theme-icon-sun');
 
-        const savedTheme = localStorage.getItem('theme');
-        const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        const isDark = savedTheme === 'dark' || (!savedTheme && systemDark);
+          if (moonIcon) moonIcon.hidden = isDark;
+          if (sunIcon) sunIcon.hidden = !isDark;
+        };
 
-        updateThemeUI(isDark);
+        const initThemeToggle = () => {
+          updateThemeUI(getIsDark());
 
-        if (themeBtn) {
-          const newBtn = themeBtn.cloneNode(true);
-          if (themeBtn.parentNode) {
-            themeBtn.parentNode.replaceChild(newBtn, themeBtn);
-          }
+          const button = document.getElementById('theme-toggle');
+          if (!button || button.dataset.bound === 'true') return;
 
-          newBtn.addEventListener('click', () => {
-            const currentlyDark = document.documentElement.classList.contains('dark');
-            const nextState = !currentlyDark;
-            localStorage.setItem('theme', nextState ? 'dark' : 'light');
-            updateThemeUI(nextState);
+          button.dataset.bound = 'true';
+          button.addEventListener('click', () => {
+            const nextIsDark = !document.documentElement.classList.contains('dark');
+            localStorage.setItem('theme', nextIsDark ? 'dark' : 'light');
+            updateThemeUI(nextIsDark);
           });
-        }
-      }
+        };
 
-      function initCopyButtons() {
-        const codeBlocks = document.querySelectorAll('pre, .astro-code');
+        const initCopyButtons = () => {
+          document.querySelectorAll('pre, .astro-code').forEach((codeBlock) => {
+            if (codeBlock.querySelector('.copy-code-button')) return;
 
-        codeBlocks.forEach((codeBlock) => {
-          if (!codeBlock.querySelector('.copy-code-button')) {
-            const copyButton = document.createElement('button');
-            copyButton.className = 'copy-code-button';
-            copyButton.type = 'button';
-            copyButton.innerText = 'Copy';
+            const button = document.createElement('button');
+            button.className = 'copy-code-button';
+            button.type = 'button';
+            button.textContent = 'Copy';
 
-            codeBlock.appendChild(copyButton);
-
-            copyButton.addEventListener('click', async () => {
+            button.addEventListener('click', async () => {
               const codeElement = codeBlock.querySelector('code');
-              const textToCopy = codeElement ? codeElement.innerText : codeBlock.innerText;
+              const text = codeElement?.innerText ?? codeBlock.innerText;
 
               try {
-                await navigator.clipboard.writeText(textToCopy);
-                copyButton.innerText = 'Copied!';
-                copyButton.classList.add('copied');
+                await navigator.clipboard.writeText(text);
+                button.textContent = 'Copied!';
+                button.classList.add('copied');
 
-                setTimeout(() => {
-                  copyButton.innerText = 'Copy';
-                  copyButton.classList.remove('copied');
+                window.setTimeout(() => {
+                  button.textContent = 'Copy';
+                  button.classList.remove('copied');
                 }, 2000);
-              } catch (err) {
-                console.error('Error copying code:', err);
+              } catch {
+                button.textContent = 'Failed';
+                window.setTimeout(() => {
+                  button.textContent = 'Copy';
+                }, 2000);
               }
             });
-          }
-        });
-      }
 
-      function initAll() {
-        initThemeToggle();
-        initCopyButtons();
-      }
+            codeBlock.appendChild(button);
+          });
+        };
 
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initAll);
-      } else {
-        initAll();
-      }
+        const init = () => {
+          initThemeToggle();
+          initCopyButtons();
+        };
 
-      document.addEventListener('astro:page-load', initAll);
-      document.addEventListener('astro:after-swap', () => {
-        const savedTheme = localStorage.getItem('theme');
-        const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        const isDark = savedTheme === 'dark' || (!savedTheme && systemDark);
-        updateThemeUI(isDark);
-      });
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', init, { once: true });
+        } else {
+          init();
+        }
+
+        document.addEventListener('astro:page-load', init);
+      })();
     </script>
   </body>
 </html>

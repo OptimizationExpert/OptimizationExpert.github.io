@@ -1,19 +1,18 @@
 ---
-title: "هماهنگی خودرو الکتریکی، پنل خورشیدی و پاسخگویی بار در شبکه توزیع با پایتون"
+title: "هماهنگی خودرو برقی، خورشیدی و پاسخگویی بار با Pyomo"
 description: "پروژه آماده پایتون با Pyomo: هماهنگی شارژ خودرو الکتریکی، پنل خورشیدی و پاسخگویی بار در شبکه توزیع برای کمینه‌کردن هزینه و رفع پیک مصرف."
-seoTitle: "آموزش مسیریابی VRP با پایتون (OR-Tools) | دوره پروژه‌محور"
 category: "بهینه‌سازی و پایتون"
 environment: "Python (Pyomo)"
 status: "پروژه آماده تحویل"
 pubDate: 2026-07-18
+author: "dr-soroudi"
 level: "پیشرفته"
 minimalImage: "./ev-mini.webp"
 minimalImageAlt: "تصویر مینیمال آیکون بهینه‌سازی"
 image: "./ev.jpg"
-imageAlt: "تصویر آیکون بهینه‌سازی"
-
+imageAlt: "هماهنگی خودرو برقی، خورشیدی و پاسخگویی بار با Pyomo"
 relatedCourses: ["optimization-modeling", "uncertainty-modeling"]
-relatedNotes: ["mathematical-modeling-art", "modeling-before-coding", "google-colab", "pyomo-solvers"]
+relatedNotes: ["mathematical-modeling-art", "google-colab", "pyomo-solvers"]
 tags: [ "خودرو الکتریکی", "پنل خورشیدی", "پاسخگویی بار", "شبکه توزیع", "پایتون" ]
 ---
 

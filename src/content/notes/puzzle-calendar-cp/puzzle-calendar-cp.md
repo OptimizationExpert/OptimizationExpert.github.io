@@ -1,16 +1,15 @@
 ---
-title: "امروز چندمه؟ یک رویکرد برنامه‌ریزی محدودیتی"
-seoTitle: "Google Colab | گوگل کولب"
-description: "فرمولاسیون و کدنویسی یک پازل ریاضی با ابزار OR-Tools"
+title: "حل پازل تقویم با Constraint Programming و OR-Tools"
+description: "فرمولاسیون و کدنویسی پازل تقویم با Constraint Programming و OR-Tools؛ نمونه‌ای آموزشی برای تبدیل یک مسئله منطقی به مدل ریاضی قابل حل."
 pubDate: 2026-08-08
 author: "dr-soroudi"
 minimalImage: "./puzzle-calendar-mini.jpg"
 minimalImageAlt: "تصویر مینیمال آیکون بهینه‌سازی"
 image: "./puzzle_calendar_base.webp"
-imageAlt: "تصویر Colab"
+imageAlt: "حل پازل تقویم با Constraint Programming و OR-Tools"
 tags: ["Constraint Programming", "پازل ریاضی", "OR-Tools"]
 relatedCourses: ["vrp-python"]
-relatedNotes: ["mathematical-modeling-art", "modeling-before-coding", "google-colab", "pyomo-solvers"]
+relatedNotes: ["mathematical-modeling-art", "google-colab", "pyomo-solvers"]
 ---
 
 معمولاً وقتی به تقویم نگاه می‌کنید، فقط می‌خواهید تاریخ یک روز مشخص، مثلاً امروز، را بدانید. اما وقتی یکی از دوستانتان نظرتان را درباره یک پازل مرتبط با تقویم می‌پرسد، ماجرا کمی فرق می‌کند. شما تاریخ را می‌دانید و باید هشت قطعه چوبی مختلف را روی صفحه بچینید، طوری که همه خانه‌ها پوشیده شوند، به‌جز دو خانه مربوط به ماه و روز مورد نظر. اجازه دارید همه قطعات را بچرخانید، برعکس کنید و به‌صورت افقی یا عمودی جابه‌جا کنید تا برای هر روز، چیدمان درست را پیدا کنید. این یک اسباب‌بازی محبوب در بین علاقه‌مندان به ریاضی است.
@@ -208,4 +207,4 @@ for n in candidates:
 
 همین ساختار را می‌توان از یک پازل ریاضی تا مسائل واقعی جانمایی، بارگیری، انبارداری و زمان‌بندی توسعه داد.
 
-اگر می‌خواهید مدل‌سازی و حل کامل را در Python با OR-Tools قدم‌به‌قدم یاد بگیرید، این موضوع در <a href="/courses/vrp-python/" style="color:#2563EB; font-weight:bold;">دوره بهینه‌سازی حمل و نقل</a> به‌صورت پروژه‌محور پوشش داده شده است.
+اگر می‌خواهید مدل‌سازی و حل کامل را در Python با OR-Tools قدم‌به‌قدم یاد بگیرید، این موضوع در <a href="/courses/vrp-python/" class="content-link">دوره بهینه‌سازی حمل و نقل</a> به‌صورت پروژه‌محور پوشش داده شده است.

@@ -1,26 +1,27 @@
 ---
+import { entrySlug, isPublished } from '../../utils/content';
 import { getCollection, render } from 'astro:content';
 import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
 import { imgSrc } from '../../utils/image';
 
 export async function getStaticPaths() {
-  const instructors = await getCollection('instructors');
+  const instructors = await getCollection('instructors', isPublished);
   return instructors.map((instructor) => ({
-    params: { instructorSlug: instructor.id.replace(/\.md$/, '').split('/').pop() },
+    params: { instructorSlug: entrySlug(instructor) },
     props: { instructor },
   }));
 }
 
 const { instructor } = Astro.props;
-const instructorSlug = instructor.id.replace(/\.md$/, '').split('/').pop();
+const instructorSlug = entrySlug(instructor);
 const { Content } = await render(instructor);
 
 // دریافت مجموعه‌ها به صورت موازی برای بهینه‌سازی عملکرد
 const [allCourses, allNotes, allProjects] = await Promise.all([
-  getCollection('courses'),
-  getCollection('notes'),
-  getCollection('projects')
+  getCollection('courses', isPublished),
+  getCollection('notes', isPublished),
+  getCollection('projects', isPublished)
 ]);
 
 const instructorCourses = allCourses.filter(c => c.data.instructor === instructorSlug);
@@ -28,27 +29,65 @@ const instructorNotes = allNotes.filter(n => n.data.author === instructor.data.n
 const instructorProjects = allProjects.filter(p => p.data.instructor === instructorSlug);
 
 const siteUrl = (Astro.site || new URL(Astro.url.origin)).href.replace(/\/$/, '');
+const profileUrl = `${siteUrl}/instructors/${instructorSlug}/`;
+const personId = `${profileUrl}#person`;
 const sameAs = [instructor.data.githubUrl, instructor.data.linkedinUrl].filter(Boolean);
 const instructorImg = imgSrc(instructor.data.image);
 
 const personSchema = {
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": instructor.data.name,
-  "url": `${siteUrl}/instructors/${instructorSlug}/`,
-  ...(instructor.data.title && { "jobTitle": instructor.data.title }),
-  // new URL(...) هم مسیر نسبی (/images/x.png) و هم لینک مطلق (https://...) را درست مدیریت می‌کند؛
-  // قبلاً با الحاق مستقیم رشته، تصویرهای خارجی به یک URL خراب مثل site.orghttps://... تبدیل می‌شدند.
-  ...(instructorImg && { "image": new URL(instructorImg, siteUrl).href }),
-  ...(instructor.data.email && { "email": instructor.data.email }),
-  ...(sameAs.length > 0 && { "sameAs": sameAs }),
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'ProfilePage',
+      '@id': profileUrl,
+      url: profileUrl,
+      name: instructor.data.name,
+      inLanguage: 'fa-IR',
+      mainEntity: { '@id': personId },
+      ...(instructorCourses.length + instructorNotes.length + instructorProjects.length > 0 ? {
+        hasPart: [
+          ...instructorCourses.map((course) => ({
+            '@type': 'Course',
+            name: course.data.title,
+            url: `${siteUrl}/courses/${entrySlug(course)}/`,
+            provider: { '@id': `${siteUrl}/#organization` },
+          })),
+          ...instructorNotes.map((note) => ({
+            '@type': 'BlogPosting',
+            headline: note.data.title,
+            url: `${siteUrl}/notes/${entrySlug(note)}/`,
+            ...(note.data.pubDate ? { datePublished: note.data.pubDate.toISOString() } : {}),
+            author: { '@id': personId },
+          })),
+          ...instructorProjects.map((project) => ({
+            '@type': 'Article',
+            headline: project.data.title,
+            url: `${siteUrl}/projects/${entrySlug(project)}/`,
+            ...(project.data.pubDate ? { datePublished: project.data.pubDate.toISOString() } : {}),
+            author: { '@id': personId },
+          })),
+        ],
+      } : {}),
+    },
+    {
+      '@type': 'Person',
+      '@id': personId,
+      name: instructor.data.name,
+      ...(instructor.data.jobTitle ? { jobTitle: instructor.data.jobTitle } : {}),
+      ...(sameAs.length ? { sameAs } : {}),
+      url: profileUrl,
+    }
+  ],
 };
 ---
 
 <Layout 
-  title={instructor.data.seoTitle || `پروفایل ${instructor.data.name}`} 
-  description={instructor.data.title || `مقاله‌ها، دوره‌ها و پروژه‌های ${instructor.data.name}`} 
+  title={instructor.data.name}
+
+  description={`${instructor.data.jobTitle || "متخصص بهینه‌سازی و تحقیق در عملیات"}. دوره‌ها، یادداشت‌ها و پروژه‌های تخصصی ${instructor.data.name}.`} 
   image={instructorImg}
+  author={instructor.data.name}
+  authorUrl={profileUrl}
   breadcrumbs={[
     { name: 'خانه', url: '/' },
     { name: instructor.data.name },
@@ -83,9 +122,9 @@ const personSchema = {
           <h1 class="text-2xl md:text-3xl font-extrabold text-[var(--site-heading)] mb-2">
             {instructor.data.name}
           </h1>
-          {instructor.data.title && (
+          {instructor.data.jobTitle && (
             <p class="text-sm text-[var(--site-primary)] font-medium mb-4">
-              {instructor.data.title}
+              {instructor.data.jobTitle}
             </p>
           )}
           <div class="text-[var(--site-text)] text-sm leading-relaxed prose max-w-none">
@@ -104,7 +143,7 @@ const personSchema = {
         </h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           {instructorCourses.map((course) => {
-            const slug = course.id.replace(/\.md$/, '').split('/').pop();
+            const slug = entrySlug(course);
             const image = course.data.minimalImage || course.data.image;
             return (
               <a href={`/courses/${slug}/`} class="bg-[var(--site-card)] border border-[var(--site-border)] hover:border-[var(--site-primary)]/50 hover:shadow-xl hover:-translate-y-1 rounded-2xl p-4 sm:p-5 transition-all duration-300 group shadow-xs flex flex-col justify-between">
@@ -141,7 +180,7 @@ const personSchema = {
         </h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           {instructorNotes.map((note) => {
-            const slug = note.id.replace(/\.md$/, '').split('/').pop();
+            const slug = entrySlug(note);
             const image = note.data.minimalImage || note.data.image;
             return (
               <a href={`/notes/${slug}/`} class="bg-[var(--site-card)] border border-[var(--site-border)] hover:border-[var(--site-primary)]/50 hover:shadow-xl hover:-translate-y-1 rounded-2xl p-4 sm:p-5 transition-all duration-300 group shadow-xs flex flex-col justify-between">
@@ -178,7 +217,7 @@ const personSchema = {
         </h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           {instructorProjects.map((project) => {
-            const slug = project.id.replace(/\.md$/, '').split('/').pop();
+            const slug = entrySlug(project);
             const image = project.data.minimalImage || project.data.image;
             return (
               <a href={`/projects/${slug}/`} class="bg-[var(--site-card)] border border-[var(--site-border)] hover:border-[var(--site-primary)]/50 hover:shadow-xl hover:-translate-y-1 rounded-2xl p-4 sm:p-5 transition-all duration-300 group shadow-xs flex flex-col justify-between">

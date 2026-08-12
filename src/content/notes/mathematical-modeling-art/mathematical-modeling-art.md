@@ -1,16 +1,15 @@
 ---
-title: "مدل‌سازی ریاضی: هنری ضروری برای هر برنامه‌نویس و محقق"
-seoTitle: "Google Colab | گوگل کولب"
-description: "چرا پیش از هر کدنویسی باید مدل‌سازی ریاضی را یاد بگیریم؟ مدل‌سازی مثل نقشه ساختمان است."
+title: "مدل‌سازی ریاضی؛ چرا برای برنامه‌نویس و پژوهشگر ضروری است؟"
+description: "چرا پیش از هر کدنویسی باید مدل‌سازی ریاضی را یاد بگیریم؟ در این یادداشت نقش مدل‌سازی به‌عنوان نقشه حل مسئله برای برنامه‌نویس و پژوهشگر بررسی می‌شود."
 pubDate: 2026-06-19
 author: "dr-soroudi"
 minimalImage: "./modeling-mini.webp"
 minimalImageAlt: "تصویر مینیمال آیکون بهینه‌سازی"
 image: "./modeling.jpg"
-imageAlt: "تصویر Colab"
+imageAlt: "مدل‌سازی ریاضی؛ چرا برای برنامه‌نویس و پژوهشگر ضروری است؟"
 tags: ["پایتون", "بهینه‌سازی", "Pyomo"]
 relatedCourses: ["optimization-modeling", "uncertainty-modeling"]
-relatedNotes: ["mathematical-modeling-art", "modeling-before-coding", "google-colab", "pyomo-solvers"]
+relatedNotes: ["google-colab", "pyomo-solvers"]
 ---
 
 🎨🔢 آیا می‌دانستید پیش از شروع هر پروژه کدنویسی، باید گامی اساسی و مهم برداشت؟ 🤔
