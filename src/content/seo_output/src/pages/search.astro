@@ -1,0 +1,291 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import { imgSrc } from '../utils/image';
+
+// پیکربندی مجموعه‌ها برای جلوگیری از تکرار کد (اصول DRY)
+const collectionSources = [
+  { name: 'notes', type: 'یادداشت', typeId: 'note', path: 'notes' },
+  { name: 'projects', type: 'پروژه', typeId: 'project', path: 'projects' },
+  { name: 'courses', type: 'دوره آموزشی', typeId: 'course', path: 'courses' },
+  { name: 'books', type: 'کتاب و جزوه', typeId: 'book', path: 'books' },
+  { name: 'softwares', type: 'نرم‌افزار', typeId: 'software', path: 'softwares' },
+];
+
+// دریافت همزمان و بهینه‌ی تمامی کلکسیون‌ها و تبدیل به یک آرایه یکپارچه
+const allItems = (await Promise.all(
+  collectionSources.map(async ({ name, type, typeId, path }) => {
+    const collection = await getCollection(name as any).catch(() => []);
+    return collection.map(item => ({
+      title: item.data.title || '',
+      description: item.data.description || '',
+      image: imgSrc(item.data.minimalImage) || imgSrc(item.data.image) || '',
+      tags: Array.isArray(item.data.tags) ? item.data.tags : [],
+      type,
+      typeId,
+      url: `/${path}/${item.id.replace(/\.md$/, '').split('/').pop()}`,
+      pubDate: item.data.pubDate ? new Date(item.data.pubDate).getTime() : 0
+    }));
+  })
+)).flat();
+---
+
+<Layout title="نتیجه جستجو" description="نتایج جستجو در مطالب، پروژه‌ها، دوره‌ها، کتاب‌ها و نرم‌افزارها." noindex={true}>
+
+  <main class="max-w-4xl mx-auto px-6 py-12 flex-grow w-full">
+     
+    <!-- هدر صفحه -->
+    <div class="mb-8 border-b border-[var(--site-border)] pb-8">
+      <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--site-primary)]/10 border border-[var(--site-primary)]/20 text-[var(--site-primary)] text-xs font-bold mb-4 shadow-xs">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <span>جستجوی پیشرفته در سایت</span>
+      </span>
+      <h1 class="text-3xl md:text-4xl font-extrabold text-[var(--site-heading)] mb-3 tracking-tight">
+        نتایج جستجو
+      </h1>
+      <p id="search-query-text" class="text-[var(--site-muted)] text-sm md:text-base leading-relaxed">
+        لطفاً کلمه‌ای را برای جستجو وارد کنید یا روی برچسبی کلیک نمایید.
+      </p>
+    </div>
+
+    <!-- کنترل‌باکس پیشرفته و ریسپانسیو -->
+    <div id="advanced-controls" class="mb-8 hidden bg-[var(--site-card)] border border-[var(--site-border)] p-4 sm:p-5 rounded-3xl shadow-xs flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+      
+      <!-- فیلترهای دسته‌بندی -->
+      <div id="filter-container" class="flex flex-wrap items-center gap-2">
+      </div>
+      
+      <!-- منوی مرتب‌سازی -->
+      <div class="flex items-center gap-2 flex-shrink-0 pt-3 lg:pt-0 lg:pr-4 border-t lg:border-t-0 lg:border-r border-[var(--site-border)]">
+        <span class="text-xs text-[var(--site-muted)] whitespace-nowrap font-medium">مرتب‌سازی:</span>
+        <select id="sort-select" class="bg-[var(--site-bg)] text-[var(--site-heading)] text-xs font-bold border border-[var(--site-border)] rounded-xl px-3 py-2 focus:outline-none focus:border-[var(--site-primary)] transition cursor-pointer">
+          <option value="relevance">مرتبط‌ترین</option>
+          <option value="newest">جدیدترین</option>
+        </select>
+      </div>
+
+    </div>
+
+    <!-- لیست نتایج -->
+    <div id="search-results-container" class="grid gap-6">
+    </div>
+
+    <!-- بخش شماره‌گذاری صفحات (Pagination) -->
+    <nav id="pagination-container" class="hidden flex justify-center items-center gap-2 mt-14" aria-label="Pagination">
+    </nav>
+
+  </main>
+
+  <!-- تزریق امن داده‌ها به کلاینت -->
+  <script id="search-data" type="application/json" set:html={JSON.stringify(allItems)}></script>
+
+  <script>
+    const allItems = JSON.parse(document.getElementById('search-data')?.textContent || '[]');
+
+    const typeDefinitions = {
+      note: { label: 'یادداشت‌ها', icon: 'fa-pen-nib' },
+      project: { label: 'پروژه‌ها', icon: 'fa-laptop-code' },
+      course: { label: 'دوره‌ها', icon: 'fa-graduation-cap' },
+      book: { label: 'کتاب و جزوه', icon: 'fa-book-open' },
+      software: { label: 'نرم‌افزارها', icon: 'fa-download' }
+    };
+
+    // تابع ساده‌شده برای استانداردسازی تگ‌ها با توجه به ساختار تمیز آرایه
+    function normalizeTag(str) {
+      return String(str || '').trim().toLowerCase();
+    }
+
+    // استخراج مجموعه تمامی تگ‌های معتبر سایت جهت تطبیق دقیق
+    const allValidTags = new Set();
+    allItems.forEach(item => {
+      item.tags.forEach(t => allValidTags.add(normalizeTag(t)));
+    });
+
+    const urlParams = new URLSearchParams(window.location.search);
+    let query = (urlParams.get('q') || '').trim().toLowerCase();
+    let tagQuery = (urlParams.get('tag') || '').trim();
+    
+    if (!tagQuery && query && allValidTags.has(normalizeTag(query))) {
+      tagQuery = query;
+      query = '';
+    }
+
+    const currentPage = parseInt(urlParams.get('page') || '1', 10);
+    const activeType = urlParams.get('type') || 'all';
+    const currentSort = urlParams.get('sort') || 'relevance';
+    const pageSize = 10;
+    
+    const queryTextEl = document.getElementById('search-query-text');
+    const advancedControls = document.getElementById('advanced-controls');
+    const filterContainer = document.getElementById('filter-container');
+    const sortSelect = document.getElementById('sort-select');
+    const resultsContainer = document.getElementById('search-results-container');
+    const paginationContainer = document.getElementById('pagination-container');
+
+    if (sortSelect) {
+      sortSelect.value = currentSort;
+      sortSelect.addEventListener('change', (e) => {
+        urlParams.set('sort', e.target.value);
+        urlParams.set('page', '1');
+        window.location.search = urlParams.toString();
+      });
+    }
+
+    if (query || tagQuery) {
+      const normalizedTagQuery = normalizeTag(tagQuery);
+
+      if (tagQuery) {
+        queryTextEl.textContent = `نمایش مطالب مرتبط با برچسب: #${tagQuery}`;
+      } else {
+        queryTextEl.textContent = `نمایش نتایج برای جستجوی: "${query}"`;
+      }
+
+      const matchedItems = allItems.filter(item => {
+        if (tagQuery) {
+          const itemTags = item.tags.map(t => normalizeTag(t));
+          return itemTags.includes(normalizedTagQuery);
+        }
+
+        const title = item.title.toLowerCase();
+        const desc = item.description.toLowerCase();
+        return title.includes(query) || desc.includes(query);
+      });
+
+      if (matchedItems.length === 0) {
+        resultsContainer.innerHTML = `
+          <div class="text-center py-16 bg-[var(--site-card)] border border-[var(--site-border)] rounded-3xl shadow-xs">
+            <div class="w-12 h-12 mx-auto rounded-2xl bg-[var(--site-primary)]/10 text-[var(--site-primary)] flex items-center justify-center text-lg mb-3">
+              <i class="fa-solid fa-folder-open"></i>
+            </div>
+            <p class="text-[var(--site-muted)] font-medium text-sm">متأسفانه موردی مطابق با جستجوی شما پیدا نشد.</p>
+          </div>
+        `;
+      } else {
+        advancedControls.classList.remove('hidden');
+        
+        const counts = { all: matchedItems.length };
+        Object.keys(typeDefinitions).forEach(tId => {
+          counts[tId] = matchedItems.filter(i => i.typeId === tId).length;
+        });
+
+        const baseURLParam = tagQuery ? `tag=${encodeURIComponent(tagQuery)}` : `q=${encodeURIComponent(query)}`;
+
+        let filterHTML = `
+          <a href="/search?${baseURLParam}&sort=${currentSort}&type=all" class="flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-bold transition-all duration-300 ${activeType === 'all' ? 'bg-[var(--site-primary)] text-white shadow-md shadow-[var(--site-primary)]/20 scale-[1.02]' : 'bg-[var(--site-bg)] text-[var(--site-muted)] hover:text-[var(--site-heading)] hover:border-[var(--site-primary)]/40 border border-[var(--site-border)]'}">
+            <i class="fa-solid fa-layer-group text-[10px]"></i>
+            <span>همه</span>
+            <span class="px-1.5 py-0.5 rounded-full text-[9px] ${activeType === 'all' ? 'bg-white/20 text-white' : 'bg-[var(--site-card)] text-[var(--site-muted)] border border-[var(--site-border)]'}">${counts.all}</span>
+          </a>
+        `;
+
+        Object.keys(typeDefinitions).forEach(tId => {
+          if (counts[tId] > 0) {
+            const def = typeDefinitions[tId];
+            const isActive = activeType === tId;
+            filterHTML += `
+              <a href="/search?${baseURLParam}&sort=${currentSort}&type=${tId}" class="flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-bold transition-all duration-300 ${isActive ? 'bg-[var(--site-primary)] text-white shadow-md shadow-[var(--site-primary)]/20 scale-[1.02]' : 'bg-[var(--site-bg)] text-[var(--site-muted)] hover:text-[var(--site-heading)] hover:border-[var(--site-primary)]/40 border border-[var(--site-border)]'}">
+                <i class="fa-solid ${def.icon} text-[10px]"></i>
+                <span>${def.label}</span>
+                <span class="px-1.5 py-0.5 rounded-full text-[9px] ${isActive ? 'bg-white/20 text-white' : 'bg-[var(--site-card)] text-[var(--site-muted)] border border-[var(--site-border)]'}">${counts[tId]}</span>
+              </a>
+            `;
+          }
+        });
+        filterContainer.innerHTML = filterHTML;
+
+        let finalItems = activeType === 'all' ? matchedItems : matchedItems.filter(i => i.typeId === activeType);
+
+        if (currentSort === 'newest') {
+          finalItems.sort((a, b) => b.pubDate - a.pubDate);
+        }
+
+        if (finalItems.length === 0) {
+          resultsContainer.innerHTML = `
+            <div class="text-center py-12 bg-[var(--site-card)] border border-[var(--site-border)] rounded-3xl shadow-xs">
+              <p class="text-[var(--site-muted)] font-medium text-sm">در این بخش موردی یافت نشد.</p>
+            </div>
+          `;
+        } else {
+          const totalPages = Math.ceil(finalItems.length / pageSize);
+          const validPage = Math.max(1, Math.min(currentPage, totalPages));
+          const startIndex = (validPage - 1) * pageSize;
+          const paginatedItems = finalItems.slice(startIndex, startIndex + pageSize);
+
+          resultsContainer.innerHTML = paginatedItems.map(item => {
+            const imageHTML = item.image ? `
+              <div class="flex-shrink-0 w-full md:w-56 lg:w-64 aspect-video rounded-2xl overflow-hidden border border-[var(--site-border)] bg-[var(--site-bg)] shadow-sm">
+                <img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              </div>
+            ` : '';
+
+            return `
+              <article class="bg-[var(--site-card)] border border-[var(--site-border)] p-5 sm:p-6 rounded-3xl hover:border-[var(--site-primary)]/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col md:flex-row-reverse items-start justify-between gap-6 shadow-xs group">
+                ${imageHTML}
+                <div class="flex-grow w-full flex flex-col h-full min-h-[8rem] justify-between">
+                  <div>
+                    <div class="flex flex-wrap items-center gap-1.5 mb-3">
+                      <span class="text-xs font-semibold text-[var(--site-primary)] bg-[var(--site-primary)]/10 px-3 py-1 rounded-full border border-[var(--site-primary)]/25 shadow-2xs">
+                        ${item.type}
+                      </span>
+                    </div>
+
+                    <h2 class="text-lg md:text-xl font-bold text-[var(--site-heading)] mb-2 group-hover:text-[var(--site-primary)] transition-colors">
+                      <a href="${item.url}" class="outline-none">${item.title}</a>
+                    </h2>
+
+                    <p class="text-[var(--site-muted)] text-xs md:text-sm leading-relaxed mb-4 line-clamp-2">
+                      ${item.description}
+                    </p>
+                  </div>
+
+                  <div class="flex items-center gap-4 text-xs font-semibold mt-auto pt-2">
+                    <a href="${item.url}" class="inline-flex items-center gap-2 text-[var(--site-primary)] bg-[var(--site-primary)]/10 hover:bg-[var(--site-primary)] hover:text-white px-3.5 py-1.5 rounded-xl transition-all duration-300">
+                      <span>مشاهده</span>
+                      <i class="fa-solid fa-arrow-left text-[10px] group-hover:-translate-x-1 transition-transform"></i>
+                    </a>
+                  </div>
+                </div>
+              </article>
+            `;
+          }).join('');
+
+          if (totalPages > 1) {
+            paginationContainer.classList.remove('hidden');
+            let paginationHTML = '';
+            const baseLink = `/search?${baseURLParam}&sort=${currentSort}&type=${activeType}`;
+            
+            if (validPage > 1) {
+              paginationHTML += `<a href="${baseLink}&page=${validPage - 1}" class="flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-[var(--site-card)] border border-[var(--site-border)] text-[var(--site-heading)] text-xs font-semibold hover:border-[var(--site-primary)] hover:text-[var(--site-primary)] transition-all duration-300 shadow-xs"><i class="fa-solid fa-chevron-right text-[10px]"></i><span>صفحه قبل</span></a>`;
+            } else {
+              paginationHTML += `<span class="flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-[var(--site-card)] border border-[var(--site-border)] text-[var(--site-muted)] text-xs font-semibold opacity-40 cursor-not-allowed shadow-xs"><i class="fa-solid fa-chevron-right text-[10px]"></i><span>صفحه قبل</span></span>`;
+            }
+
+            paginationHTML += `<div class="hidden sm:flex items-center gap-1.5 bg-[var(--site-card)] border border-[var(--site-border)] p-1.5 rounded-2xl shadow-xs">`;
+            for (let i = 1; i <= totalPages; i++) {
+              const pageLink = `${baseLink}&page=${i}`;
+              if (i === validPage) {
+                paginationHTML += `<a href="${pageLink}" class="w-9 h-9 flex items-center justify-center rounded-xl text-xs font-bold transition-all duration-300 bg-[var(--site-primary)] text-white shadow-sm scale-105">${i}</a>`;
+              } else {
+                paginationHTML += `<a href="${pageLink}" class="w-9 h-9 flex items-center justify-center rounded-xl text-xs font-bold transition-all duration-300 text-[var(--site-heading)] hover:bg-[var(--site-primary)]/10 hover:text-[var(--site-primary)]">${i}</a>`;
+              }
+            }
+            paginationHTML += `</div>`;
+
+            paginationHTML += `<div class="sm:hidden px-4 py-2 rounded-2xl bg-[var(--site-card)] border border-[var(--site-border)] text-xs font-bold text-[var(--site-heading)] shadow-xs">${validPage} از ${totalPages}</div>`;
+
+            if (validPage < totalPages) {
+              paginationHTML += `<a href="${baseLink}&page=${validPage + 1}" class="flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-[var(--site-card)] border border-[var(--site-border)] text-[var(--site-heading)] text-xs font-semibold hover:border-[var(--site-primary)] hover:text-[var(--site-primary)] transition-all duration-300 shadow-xs"><span>صفحه بعد</span><i class="fa-solid fa-chevron-left text-[10px]"></i></a>`;
+            } else {
+              paginationHTML += `<span class="flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-[var(--site-card)] border border-[var(--site-border)] text-[var(--site-muted)] text-xs font-semibold opacity-40 cursor-not-allowed shadow-xs"><span>صفحه بعد</span><i class="fa-solid fa-chevron-left text-[10px]"></i></span>`;
+            }
+
+            paginationContainer.innerHTML = paginationHTML;
+          }
+        }
+      }
+    } else {
+      queryTextEl.textContent = 'لطفاً کلمه‌ای را برای جستجو وارد کنید یا روی برچسبی کلیک نمایید.';
+    }
+  </script>
+
+</Layout>
