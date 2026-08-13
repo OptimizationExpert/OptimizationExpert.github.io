@@ -2,7 +2,7 @@
 title: "بازآرایی شبکه توزیع: صرفه جویی با کلیدزنی"
 description: "آشنایی با مسئله بازآرایی شبکه‌های توزیع برق (Distribution Network Reconfiguration)، فرمول‌بندی ریاضی آن برای کاهش تلفات و بهبود پروفیل ولتاژ، و روش‌های حل."
 pubDate: 2026-08-13
-author: "علیرضا سرودی"
+author: "dr-soroudi"
 minimalImage: "./dist-reconfiguration_mini.webp"
 minimalImageAlt: "تصویر مینیمال آیکون تغییر ارایش شبکه توزیع"
 image: "./dist-reconfiguration.webp"
