@@ -24,9 +24,24 @@ const [allCourses, allNotes, allProjects] = await Promise.all([
   getCollection('projects', isPublished)
 ]);
 
-const instructorCourses = allCourses.filter(c => c.data.instructor === instructorSlug);
-const instructorNotes = allNotes.filter(n => n.data.author === instructor.data.name || n.data.author === instructorSlug);
-const instructorProjects = allProjects.filter(p => p.data.instructor === instructorSlug);
+// تابع کمکی برای مرتب‌سازی نزولی بر اساس تاریخ انتشار (جدیدترین بالا)
+const sortByDateDesc = (a, b) => {
+  const dateA = a.data.pubDate ? new Date(a.data.pubDate).getTime() : 0;
+  const dateB = b.data.pubDate ? new Date(b.data.pubDate).getTime() : 0;
+  return dateB - dateA;
+};
+
+const instructorCourses = allCourses
+  .filter(c => c.data.instructor === instructorSlug)
+  .sort(sortByDateDesc);
+
+const instructorNotes = allNotes
+  .filter(n => n.data.author === instructor.data.name || n.data.author === instructorSlug)
+  .sort(sortByDateDesc);
+
+const instructorProjects = allProjects
+  .filter(p => p.data.instructor === instructorSlug)
+  .sort(sortByDateDesc);
 
 const siteUrl = (Astro.site || new URL(Astro.url.origin)).href.replace(/\/$/, '');
 const profileUrl = `${siteUrl}/instructors/${instructorSlug}/`;
@@ -83,7 +98,6 @@ const personSchema = {
 
 <Layout 
   title={instructor.data.name}
-
   description={`${instructor.data.jobTitle || "متخصص بهینه‌سازی و تحقیق در عملیات"}. دوره‌ها، یادداشت‌ها و پروژه‌های تخصصی ${instructor.data.name}.`} 
   image={instructorImg}
   author={instructor.data.name}
