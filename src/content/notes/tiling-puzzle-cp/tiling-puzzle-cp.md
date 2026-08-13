@@ -1,5 +1,5 @@
 ---
-title: "حل پازل Tiling با OR-Tools و Constraint Programming"
+title: "حل پازل Tiling با OR-Tools"
 description: "فرمولاسیون ریاضی و پیاده‌سازی پازل کاشی‌کاری روی شبکه با Python و CP-SAT در OR-Tools؛ از تعریف ترکیب‌ها تا قیود پوشش و حل مدل."
 pubDate: 2026-08-10
 author: "dr-soroudi"

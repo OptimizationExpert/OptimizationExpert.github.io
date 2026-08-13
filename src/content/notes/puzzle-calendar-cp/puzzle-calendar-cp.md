@@ -1,5 +1,5 @@
 ---
-title: "حل پازل تقویم با Constraint Programming و OR-Tools"
+title: "حل پازل تقویم با OR-Tools"
 description: "فرمولاسیون و کدنویسی پازل تقویم با Constraint Programming و OR-Tools؛ نمونه‌ای آموزشی برای تبدیل یک مسئله منطقی به مدل ریاضی قابل حل."
 pubDate: 2026-08-08
 author: "dr-soroudi"
