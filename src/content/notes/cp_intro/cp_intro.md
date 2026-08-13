@@ -1,5 +1,5 @@
 ---
-title: "حل همه جواب‌ها با OR-Tools و Constraint Programming"
+title: "حل همه جواب‌ها با OR-Tools"
 description: "آموزش پیدا کردن همه جواب‌های یک مدل با Constraint Programming در OR-Tools؛ همراه با یک مثال ساده و قابل اجرا در Python برای درک enumerate کردن جواب‌ها."
 pubDate: 2026-08-07
 author: "dr-soroudi"

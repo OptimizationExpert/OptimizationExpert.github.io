@@ -1,5 +1,5 @@
 ---
-title: "مسیریابی توزیع سوخت با Split Delivery و Time Windows"
+title: "مسیریابی با Split Delivery و Time Windows"
 description: "پروژه آماده پایتون برای توزیع سوخت با تحویل تقسیمی و پنجره زمانی؛ مسیریابی ناوگان تانکرها برای کمینه‌کردن هزینه با رعایت ظرفیت جایگاه‌ها."
 category: "بهینه‌سازی و پایتون"
 environment: "Python"

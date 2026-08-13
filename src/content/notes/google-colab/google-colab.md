@@ -1,5 +1,5 @@
 ---
-title: "Google Colab برای پایتون و بهینه‌سازی | مزایا و معایب"
+title: "Google Colab مزایا و معایب"
 description: "بررسی کاربردی مزایا و معایب Google Colab برای Python و ابزارهای بهینه‌سازی؛ از راه‌اندازی محیط تا محدودیت‌های محاسباتی و انتخاب زمان استفاده."
 pubDate: 2026-06-17
 author: "dr-soroudi"

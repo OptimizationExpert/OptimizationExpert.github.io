@@ -1,5 +1,5 @@
 ---
-title: "حل پازل Domino Fit با OR-Tools | مدل‌سازی CP در پایتون"
+title: "حل پازل Domino Fit با OR-Tools"
 description: "حل پازل Domino Fit با فرمولاسیون ریاضی، Constraint Programming و کدنویسی Python در OR-Tools؛ نمونه‌ای کاربردی برای یادگیری مدل‌سازی CP."
 pubDate: 2026-08-06
 author: "dr-soroudi"
