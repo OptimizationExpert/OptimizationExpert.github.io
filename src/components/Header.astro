@@ -21,15 +21,9 @@ const isActive = (href: string) => {
             <img src="/favicon.svg" alt="لوگو مدل‌سازی و بهینه‌سازی" class="w-7 h-7 sm:w-8 sm:h-8 object-contain" loading="eager" />
           </div>
           <div class="flex flex-col">
-            <div class="flex items-center gap-2">
-              <span class="text-sm sm:text-base font-black tracking-tight text-[var(--site-heading)] group-hover:text-[var(--site-primary)] transition-colors">
-                مدل‌سازی و بهینه‌سازی کاربردی
-              </span>
-              <span class="hidden xl:inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-[var(--site-accent)]/10 border border-[var(--site-accent)]/20 text-[9px] font-bold text-[var(--site-accent)]">
-                <span class="w-1.5 h-1.5 rounded-full bg-[var(--site-accent)] animate-pulse"></span>
-                Active
-              </span>
-            </div>
+            <span class="text-sm sm:text-base font-black tracking-tight text-[var(--site-heading)] group-hover:text-[var(--site-primary)] transition-colors">
+              مدل‌سازی و بهینه‌سازی کاربردی
+            </span>
             <span class="text-[10px] text-[var(--site-muted)] font-medium hidden sm:block">مرجع تخصصی مهندسی، الگوریتم و پایتون</span>
           </div>
         </a>
@@ -61,7 +55,7 @@ const isActive = (href: string) => {
           <i id="theme-icon-sun" class="fa-solid fa-sun text-xs text-[var(--site-gold)] relative z-10 transition-transform duration-300 group-hover:rotate-45" hidden aria-hidden="true"></i>
         </button>
 
-        <!-- دکمه مشاوره تخصصی با افکت و انیمیشن درخواست شده -->
+        <!-- دکمه مشاوره تخصصی -->
         <a href="/consultation/" class="hidden sm:inline-flex items-center gap-2 bg-gradient-to-r from-[var(--site-primary)] to-[var(--site-secondary)] text-white px-4 py-2.5 rounded-xl text-xs font-bold shadow-md shadow-[var(--site-primary)]/20 hover:shadow-lg hover:shadow-[var(--site-primary)]/40 hover:brightness-110 transition-all duration-300 hover:-translate-y-0.5 whitespace-nowrap overflow-hidden group">
           <i class="fa-solid fa-headset text-sm group-hover:animate-bounce" aria-hidden="true"></i>
           <span>مشاوره تخصصی</span>
@@ -111,7 +105,7 @@ const isActive = (href: string) => {
       </nav>
     </div>
 
-    <!-- منوی موبایل و تبلت: تنها راه دسترسی به ناوبری و جستجو زیر breakpoint لایه lg -->
+    <!-- منوی موبایل و تبلت -->
     <div id="mobile-menu-panel" class="lg:hidden hidden border-t border-[var(--site-border)]/60 py-4">
       <form action="/search/" method="GET" class="relative w-full mb-4" role="search">
         <span class="absolute inset-y-0 right-0 flex items-center pr-3.5 pointer-events-none text-[var(--site-muted)]">
