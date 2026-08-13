@@ -441,24 +441,6 @@ pre::before {
   text-align: center !important;
 }
 
-.katex-display .katex .mtable,
-.katex-display .katex .array {
-  font-size: 1em !important;
-}
-
-.katex .vlist-t2 {
-  margin-top: 0.35em !important;
-}
-
-.katex .vlist-t2 .mord {
-  font-size: 0.78em !important;  
-}
-
-.katex-display .katex .mtable .mord,
-.katex-display .katex .mtable .mathdefault {
-  font-size: inherit !important;
-}
-
 /* ==========================================================
    📊 استایل اختصاصی جداول (Tables)
    ========================================================== */
