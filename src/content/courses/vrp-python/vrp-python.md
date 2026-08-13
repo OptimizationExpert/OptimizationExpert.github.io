@@ -1,6 +1,6 @@
 ---
 # === متغیرهای اصلی و سئو ===
-title: "آموزش مسیریابی VRP با Python و OR-Tools"
+title: "دوره جامع بهینه سازی با OR-Tools Python"
 description: "دوره جامع و پروژه‌محور مسیریابی وسایل نقلیه (VRP) در Python با OR-Tools و CP-SAT؛ ۲۰ پروژه عملی از TSP و CVRP تا VRPTW و مسیریابی خودروی برقی."
 pubDate: 2026-06-24
 minimalImage: "./vrp-mini.jpg"
