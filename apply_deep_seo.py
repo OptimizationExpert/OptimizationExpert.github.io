@@ -81,7 +81,7 @@ const siteUrl = new URL(Astro.site || Astro.url.origin).origin;
 const organizationId = `${siteUrl}/#organization`;
 const websiteId = `${siteUrl}/#website`;
 const defaultDescription = 'مرجع تخصصی آموزش و محتوای کاربردی در مدل‌سازی ریاضی، بهینه‌سازی، برنامه‌نویسی پایتون و سیستم‌های قدرت';
-const defaultImage = '/images/hero.webp';
+const defaultImage = '/images/hero2.webp';
 const organizationSameAs = [
   'https://github.com/OptimizationExpert',
   'https://t.me/pypyid',
@@ -407,7 +407,7 @@ p.write_text(s,encoding='utf-8')
 # 7) Add course ItemList + pageNumber to courses archive; pageNumber to other archives.
 p=root/'src/pages/courses/[...page].astro'; s=p.read_text(encoding='utf-8')
 # add course list JSON before --- end of frontmatter
-needle="const defaultImage = '/images/hero.webp';\n"
+needle="const defaultImage = '/images/hero2.webp';\n"
 insert=needle+"\nconst courseListSchema = {\n  '@context': 'https://schema.org',\n  '@type': 'ItemList',\n  itemListElement: page.data.map((course, index) => ({\n    '@type': 'ListItem',\n    position: (page.currentPage - 1) * page.size + index + 1,\n    url: new URL(`/courses/${entrySlug(course)}/`, Astro.site || Astro.url.origin).href,\n    item: {\n      '@type': 'Course',\n      name: course.data.title,\n      description: course.data.description,\n      url: new URL(`/courses/${entrySlug(course)}/`, Astro.site || Astro.url.origin).href,\n      provider: { '@type': 'Organization', name: 'Optimization Expert', url: 'https://optexpert.org/' },\n    },\n  })),\n};\n"
 s=s.replace(needle,insert,1)
 s=s.replace('  <main class="flex-grow">', '  <script type="application/ld+json" set:html={JSON.stringify(courseListSchema)} />\n\n  <main class="flex-grow">',1)
