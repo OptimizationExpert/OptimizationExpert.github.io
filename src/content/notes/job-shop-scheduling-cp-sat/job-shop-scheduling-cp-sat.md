@@ -58,8 +58,87 @@ $$
 
 خبر خوب این است که برای حل مسائل زمان‌بندی کارگاهی، نیازی به نرم‌افزار یا سالور تجاری گران‌قیمت نیست. کتابخانه متن‌باز [OR-Tools](https://developers.google.com/optimization) گوگل، به‌خصوص ماژول CP-SAT آن که بر پایه برنامه‌ریزی محدودیت (Constraint Programming) کار می‌کند، دقیقاً برای همین نوع مسائل با محدودیت‌های منطقی و ترکیبیاتی طراحی شده است. CP-SAT دارای نوع داده ویژه‌ای به نام `NewIntervalVar` است که مستقیماً بازه‌های زمانی هر عملیات را مدل می‌کند و محدودیت `AddNoOverlap` که دقیقاً همان محدودیت عدم هم‌پوشانی ماشین‌ها را بدون نیاز به نوشتن دستی متغیرهای دودویی پیاده‌سازی می‌کند.
 
-یک رویکرد معمول این است که برای هر سفارش، دنباله بازه‌های زمانی متناظر با عملیات‌هایش را با $$s_{o'} >= s_o + p_o$$ 
+یک رویکرد معمول این است که برای هر سفارش، دنباله بازه‌های زمانی متناظر با عملیات‌هایش را با
+
+$$
+s_{o'} \geq s_o + p_o
+$$
+
 به هم متصل کنیم، سپس تمام عملیات‌هایی که روی یک ماشین مشترک هستند را در یک محدودیت `AddNoOverlap` قرار دهیم، و در نهایت تابع هدف را کمینه کردن بیشینه زمان پایان (Makespan) تعریف کنیم. برای مسائل با ابعاد متوسط، CP-SAT معمولاً در عرض چند ثانیه تا چند دقیقه به جواب بهینه یا نزدیک به بهینه می‌رسد. اگر مسئله بزرگ‌تر و شبکه‌ای‌تر باشد (مثلاً وقتی توالی حمل مواد بین ایستگاه‌ها هم مهم است)، کتابخانه [NetworkX](https://networkx.org/) ابزار خوبی برای مدل‌سازی و تحلیل ساختار جریان کار بین ماشین‌ها است. این ترکیب از ابزارهای کاملاً رایگان و متن‌باز، امکان می‌دهد حتی کارگاه‌های کوچک و متوسط هم بدون هزینه‌های سنگین لایسنس، از بهینه‌سازی ریاضی واقعی بهره ببرند.
+
+برای این‌که موضوع کاملاً ملموس شود، یک نسخه کوچک از همان مثال آشپزخانه را با داده واقعی می‌سازیم. فرض کنید سه سفارش A، B و C داریم که هر کدام باید طبق یک توالی ثابت از پنج ایستگاه عبور کنند: صندوق (cashier)، فر (oven)، سوشف (sous_chef)، سرآشپز (head_chef) و ویتر (waiter). جدول زیر همان چیزی است که در فایل نمونه `sample_data_job_shop.csv` آمده؛ ستون `sequence` ترتیب اجرای هر عملیات درون سفارش را مشخص می‌کند و مدت‌زمان‌ها بر حسب دقیقه هستند:
+
+| job | sequence | resource | duration_min |
+|---|---|---|---|
+| A | 1 | cashier | 2 |
+| A | 2 | oven | 8 |
+| A | 3 | sous_chef | 5 |
+| A | 4 | head_chef | 3 |
+| A | 5 | waiter | 2 |
+| B | 1 | cashier | 2 |
+| B | 2 | oven | 6 |
+| B | 3 | sous_chef | 4 |
+| B | 4 | head_chef | 3 |
+| B | 5 | waiter | 2 |
+| C | 1 | cashier | 2 |
+| C | 2 | oven | 10 |
+| C | 3 | sous_chef | 6 |
+| C | 4 | head_chef | 4 |
+| C | 5 | waiter | 2 |
+
+کد زیر با [OR-Tools](https://developers.google.com/optimization) و ماژول CP-SAT، دقیقاً همین فایل CSV را می‌خواند و مسئله را مدل‌سازی و حل می‌کند تا بهترین زمان‌بندی ممکن برای رسیدن هر سه سفارش به میز مشتری پیدا شود:
+
+```python
+import csv
+from collections import defaultdict
+from ortools.sat.python import cp_model
+
+# خواندن داده از فایل CSV (ستون‌ها: job, sequence, resource, duration_min)
+jobs = defaultdict(list)
+with open("sample_data_job_shop.csv", newline="", encoding="utf-8") as f:
+    for row in csv.DictReader(f):
+        jobs[row["job"]].append((int(row["sequence"]), row["resource"], int(row["duration_min"])))
+
+for job_name in jobs:
+    jobs[job_name].sort(key=lambda op: op[0])  # مرتب‌سازی طبق ستون sequence
+
+model = cp_model.CpModel()
+horizon = sum(d for ops in jobs.values() for _, _, d in ops)
+
+intervals_per_resource = defaultdict(list)
+job_ends = []
+
+for job_name, ops in jobs.items():
+    prev_end = None
+    for seq, resource, duration in ops:
+        start = model.NewIntVar(0, horizon, f"start_{job_name}_{seq}")
+        end = model.NewIntVar(0, horizon, f"end_{job_name}_{seq}")
+        interval = model.NewIntervalVar(start, duration, end, f"interval_{job_name}_{seq}")
+
+        if prev_end is not None:
+            model.Add(start >= prev_end)  # رعایت توالی عملیات داخل هر سفارش
+        prev_end = end
+
+        intervals_per_resource[resource].append(interval)
+
+    job_ends.append(prev_end)
+
+# هر منبع (cashier، oven، sous_chef، head_chef، waiter) در هر لحظه فقط یک کار انجام می‌دهد
+for resource, intervals in intervals_per_resource.items():
+    model.AddNoOverlap(intervals)
+
+makespan = model.NewIntVar(0, horizon, "makespan")
+model.AddMaxEquality(makespan, job_ends)
+model.Minimize(makespan)
+
+solver = cp_model.CpSolver()
+status = solver.Solve(model)
+
+if status in (cp_model.OPTIMAL, cp_model.FEASIBLE):
+    print("کوتاه‌ترین زمان تحویل کل سفارش‌ها:", solver.Value(makespan), "دقیقه")
+```
+
+با اجرای این کد روی داده نمونه بالا، CP-SAT در کسری از ثانیه بهترین ترتیب استفاده از منابع را پیدا می‌کند؛ همان کاری که یک مدیر آشپزخانه باتجربه با حدس و تجربه شخصی انجام می‌دهد، اما این‌جا با تضمین ریاضی برای بهینه بودن جواب.
 
 ## سوالات متداول
 
