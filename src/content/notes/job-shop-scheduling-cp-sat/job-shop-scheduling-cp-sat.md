@@ -1,5 +1,5 @@
 ---
-title: "آشپزخونه: زمان‌بندی تحویل با CP-SAT"
+title: "آشپزخونه بزنیم؟ زمان‌بندی تحویل با CP-SAT"
 description: "آشنایی با مسئله زمان‌بندی تولید کارگاهی (Job Shop Scheduling) و حل آن با ابزار متن‌باز OR-Tools در پایتون."
 pubDate: 2026-08-14
 author: "dr-soroudi"
