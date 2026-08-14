@@ -1,6 +1,6 @@
 ---
 # === متغیرهای اصلی و سئو ===
-title: "دوره پیشرفته بهینه‌سازی سیستم قدرت با Python"
+title: "دوره پیشرفته بهینه‌سازی سیستم قدرت با پایتون"
 description: "دوره پیشرفته بهینه‌سازی سیستم‌های قدرت در پایتون با Pyomo؛ ۱۰ سرفصل پروژه‌محور: Unit Commitment، پخش بار DC/AC (OPF)، N-1، جایابی باتری، توسعه شبکه و عدم قطعیت.."
 pubDate: 2026-06-20
 minimalImage: "./ADVpower-mini.jpg"
@@ -15,7 +15,7 @@ environment: "Python (Pyomo)"
 prerequisite: "آشنایی پایه با زبان برنامه‌نویسی پایتون"
 sessions: "۱۰ جلسه"
 instructor: "dr-soroudi"
-
+author: "dr-soroudi"
 # === ارتباطات و ساختار سایت ===
 relatedCourses: ["optimization-modeling", "uncertainty-modeling"]
 relatedNotes: ["mathematical-modeling-art", "google-colab", "pyomo-solvers"]
