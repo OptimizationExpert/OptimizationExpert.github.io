@@ -1,0 +1,57 @@
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="800" height="450" fill="#0f172a"/>
+
+  <!-- Title area left blank, this is a technical diagram -->
+
+  <!-- Demand curve panel -->
+  <text x="40" y="35" fill="#93c5fd" font-family="Arial, sans-serif" font-size="16" font-weight="bold">منحنی بار شبکه (MW)</text>
+  <polyline points="40,90 100,80 160,60 220,50 280,45 340,42 400,40 460,45 520,55 580,65 640,75 700,82 760,88"
+            fill="none" stroke="#38bdf8" stroke-width="3"/>
+  <polygon points="40,90 100,80 160,60 220,50 280,45 340,42 400,40 460,45 520,55 580,65 640,75 700,82 760,88 760,110 40,110"
+           fill="#38bdf8" opacity="0.15"/>
+
+  <!-- Hour axis -->
+  <line x1="40" y1="110" x2="760" y2="110" stroke="#334155" stroke-width="1"/>
+  <text x="40" y="126" fill="#64748b" font-family="Arial, sans-serif" font-size="11">0h</text>
+  <text x="390" y="126" fill="#64748b" font-family="Arial, sans-serif" font-size="11">12h</text>
+  <text x="740" y="126" fill="#64748b" font-family="Arial, sans-serif" font-size="11">24h</text>
+
+  <!-- Unit rows label -->
+  <text x="40" y="160" fill="#93c5fd" font-family="Arial, sans-serif" font-size="16" font-weight="bold">وضعیت واحدهای تولید</text>
+
+  <!-- Unit 1 - baseload, always on -->
+  <text x="40" y="195" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="12">واحد ۱</text>
+  <rect x="100" y="180" width="660" height="26" rx="4" fill="#22c55e"/>
+
+  <!-- Unit 2 - on most of day -->
+  <text x="40" y="235" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="12">واحد ۲</text>
+  <rect x="100" y="220" width="60" height="26" rx="4" fill="#334155"/>
+  <rect x="160" y="220" width="500" height="26" rx="4" fill="#22c55e"/>
+  <rect x="660" y="220" width="100" height="26" rx="4" fill="#334155"/>
+
+  <!-- Unit 3 - peaking, on during high demand -->
+  <text x="40" y="275" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="12">واحد ۳</text>
+  <rect x="100" y="260" width="180" height="26" rx="4" fill="#334155"/>
+  <rect x="280" y="260" width="240" height="26" rx="4" fill="#f59e0b"/>
+  <rect x="520" y="260" width="240" height="26" rx="4" fill="#334155"/>
+
+  <!-- Unit 4 - peaking, short bursts -->
+  <text x="40" y="315" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="12">واحد ۴</text>
+  <rect x="100" y="300" width="220" height="26" rx="4" fill="#334155"/>
+  <rect x="320" y="300" width="90" height="26" rx="4" fill="#f59e0b"/>
+  <rect x="410" y="300" width="60" height="26" rx="4" fill="#334155"/>
+  <rect x="470" y="300" width="90" height="26" rx="4" fill="#f59e0b"/>
+  <rect x="560" y="300" width="200" height="26" rx="4" fill="#334155"/>
+
+  <!-- Legend -->
+  <rect x="100" y="350" width="18" height="18" rx="3" fill="#22c55e"/>
+  <text x="126" y="364" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="13">روشن (Baseload)</text>
+
+  <rect x="280" y="350" width="18" height="18" rx="3" fill="#f59e0b"/>
+  <text x="306" y="364" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="13">روشن (Peaking)</text>
+
+  <rect x="460" y="350" width="18" height="18" rx="3" fill="#334155"/>
+  <text x="486" y="364" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="13">خاموش</text>
+
+  <text x="40" y="410" fill="#64748b" font-family="Arial, sans-serif" font-size="12">تعهد واحدها: تصمیم روشن/خاموش هر نیروگاه در هر ساعت برای پوشش بار با کمترین هزینه</text>
+</svg>

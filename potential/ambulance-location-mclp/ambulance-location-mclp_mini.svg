@@ -1,0 +1,15 @@
+<svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="300" height="300" fill="#ffffff"/>
+
+  <!-- Coverage circle -->
+  <circle cx="150" cy="150" r="95" fill="#ef4444" fill-opacity="0.08" stroke="#ef4444" stroke-width="3" stroke-dasharray="8,5"/>
+
+  <!-- Demand zones inside coverage -->
+  <rect x="95" y="90" width="22" height="22" rx="4" fill="#f59e0b"/>
+  <rect x="185" y="105" width="22" height="22" rx="4" fill="#f59e0b"/>
+  <rect x="120" y="195" width="22" height="22" rx="4" fill="#f59e0b"/>
+
+  <!-- Station -->
+  <circle cx="150" cy="150" r="22" fill="#dc2626"/>
+  <path d="M 141 150 L 159 150 M 150 141 L 150 159" stroke="#ffffff" stroke-width="4" stroke-linecap="round"/>
+</svg>

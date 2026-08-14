@@ -1,0 +1,21 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="200" height="200" fill="#ffffff"/>
+
+  <!-- depot -->
+  <rect x="85" y="25" width="30" height="24" rx="4" fill="#1e88e5"/>
+
+  <!-- customer nodes -->
+  <circle cx="40" cy="90" r="14" fill="#ffffff" stroke="#f57c00" stroke-width="3"/>
+  <circle cx="160" cy="90" r="14" fill="#ffffff" stroke="#f57c00" stroke-width="3"/>
+  <circle cx="100" cy="150" r="14" fill="#ffffff" stroke="#f57c00" stroke-width="3"/>
+
+  <!-- routes -->
+  <path d="M 100 49 L 46 78" stroke="#1e88e5" stroke-width="3" fill="none" stroke-dasharray="6,4"/>
+  <path d="M 100 49 L 154 78" stroke="#1e88e5" stroke-width="3" fill="none" stroke-dasharray="6,4"/>
+  <path d="M 48 100 L 92 143" stroke="#1e88e5" stroke-width="3" fill="none" stroke-dasharray="6,4"/>
+  <path d="M 152 100 L 108 143" stroke="#1e88e5" stroke-width="3" fill="none" stroke-dasharray="6,4"/>
+
+  <!-- small inventory sawtooth under -->
+  <polyline points="20,178 60,190 60,178 100,192 100,176 140,190 140,174 180,186"
+    fill="none" stroke="#f57c00" stroke-width="3"/>
+</svg>

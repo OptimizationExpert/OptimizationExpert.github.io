@@ -1,0 +1,21 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="200" height="200" fill="#ffffff"/>
+
+  <!-- Axes -->
+  <line x1="30" y1="30" x2="30" y2="160" stroke="#334155" stroke-width="2"/>
+  <line x1="30" y1="160" x2="180" y2="160" stroke="#334155" stroke-width="2"/>
+
+  <!-- Safety stock band -->
+  <rect x="30" y="135" width="150" height="18" fill="#FDBA74" opacity="0.45"/>
+
+  <!-- Simplified sawtooth -->
+  <polyline points="30,55 80,140 80,55 130,130 130,55 175,120"
+            fill="none" stroke="#1D4ED8" stroke-width="4" stroke-linejoin="round"/>
+
+  <!-- order arrival dots -->
+  <circle cx="80" cy="55" r="5" fill="#16A34A"/>
+  <circle cx="130" cy="55" r="5" fill="#16A34A"/>
+
+  <!-- small dashed reorder line -->
+  <line x1="30" y1="105" x2="180" y2="105" stroke="#EA580C" stroke-width="2" stroke-dasharray="5,4"/>
+</svg>

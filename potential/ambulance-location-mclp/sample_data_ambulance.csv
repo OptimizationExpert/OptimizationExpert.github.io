@@ -1,0 +1,6 @@
+demand_zone,weight,candidates_in_range
+Zone1,120,"Center,North"
+Zone2,80,"North,East"
+Zone3,150,"Center,South"
+Zone4,60,"South"
+Zone5,90,"East"

@@ -1,0 +1,64 @@
+<svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif">
+  <rect x="0" y="0" width="800" height="500" fill="#ffffff"/>
+
+  <!-- Route path: depot -> C1 -> C2 -> charging -> C3 -> C4 -> depot -->
+  <path d="M 100 250 L 220 130 L 340 90 L 460 160 L 580 110 L 690 220 L 100 250"
+        fill="none" stroke="#cbd5e1" stroke-width="4" stroke-dasharray="2 0"/>
+
+  <!-- Colored energy segments: green (full) to orange/red (low) then reset to green after charging -->
+  <path d="M 100 250 L 220 130" fill="none" stroke="#16a34a" stroke-width="5"/>
+  <path d="M 220 130 L 340 90" fill="none" stroke="#65a30d" stroke-width="5"/>
+  <path d="M 340 90 L 460 160" fill="none" stroke="#f59e0b" stroke-width="5"/>
+  <path d="M 460 160 L 580 110" fill="none" stroke="#16a34a" stroke-width="5"/>
+  <path d="M 580 110 L 690 220" fill="none" stroke="#65a30d" stroke-width="5"/>
+  <path d="M 690 220 L 100 250" fill="none" stroke="#f59e0b" stroke-width="5" stroke-dasharray="6 5"/>
+
+  <!-- Depot -->
+  <rect x="75" y="225" width="50" height="50" fill="#1e293b" rx="4"/>
+  <text x="100" y="255" text-anchor="middle" fill="#ffffff" font-size="20" font-weight="bold">D</text>
+  <text x="100" y="300" text-anchor="middle" fill="#1e293b" font-size="16">انبار</text>
+
+  <!-- Customers -->
+  <circle cx="220" cy="130" r="18" fill="#2563eb"/>
+  <text x="220" y="136" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="bold">C1</text>
+
+  <circle cx="340" cy="90" r="18" fill="#2563eb"/>
+  <text x="340" y="96" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="bold">C2</text>
+
+  <circle cx="460" cy="160" r="18" fill="#2563eb"/>
+  <text x="460" y="166" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="bold">C3</text>
+
+  <circle cx="580" cy="110" r="18" fill="#2563eb"/>
+  <text x="580" y="116" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="bold">C4</text>
+
+  <circle cx="690" cy="220" r="18" fill="#2563eb"/>
+  <text x="690" y="226" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="bold">C5</text>
+
+  <!-- Charging station (diamond) between C3 and C4 area, placed near path at (520,135) representing stop -->
+  <g transform="translate(520,135)">
+    <polygon points="0,-26 26,0 0,26 -26,0" fill="#16a34a"/>
+    <path d="M -6,-12 L 6,-4 L -2,-4 L 8,12 L -8,2 L 0,2 Z" fill="#ffffff"/>
+  </g>
+  <text x="520" y="180" text-anchor="middle" fill="#166534" font-size="14">ایستگاه شارژ</text>
+
+  <!-- Battery gauge legend -->
+  <g transform="translate(560,380)">
+    <text x="0" y="-15" font-size="16" fill="#1e293b" font-weight="bold">سطح باتری در طول مسیر</text>
+    <rect x="0" y="0" width="180" height="18" fill="none" stroke="#1e293b" stroke-width="2" rx="3"/>
+    <rect x="2" y="2" width="60" height="14" fill="#16a34a"/>
+    <rect x="62" y="2" width="60" height="14" fill="#65a30d"/>
+    <rect x="122" y="2" width="56" height="14" fill="#f59e0b"/>
+    <text x="0" y="40" font-size="13" fill="#1e293b">پر</text>
+    <text x="150" y="40" font-size="13" fill="#1e293b">کم</text>
+  </g>
+
+  <!-- Title-ish icon top left: EV van icon -->
+  <g transform="translate(60,60)">
+    <rect x="0" y="10" width="70" height="30" rx="6" fill="#0ea5e9"/>
+    <rect x="8" y="0" width="30" height="18" rx="4" fill="#0ea5e9"/>
+    <circle cx="18" cy="42" r="8" fill="#1e293b"/>
+    <circle cx="55" cy="42" r="8" fill="#1e293b"/>
+    <path d="M 20,20 L 26,12 L 22,20 L 28,20 L 22,28 Z" fill="#facc15"/>
+  </g>
+  <text x="60" y="20" font-size="16" fill="#0ea5e9" font-weight="bold">EVRP</text>
+</svg>

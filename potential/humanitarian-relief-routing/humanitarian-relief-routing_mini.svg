@@ -1,0 +1,22 @@
+<svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="300" height="300" fill="#ffffff"/>
+
+  <!-- Depot -->
+  <g>
+    <rect x="30" y="130" width="55" height="40" rx="5" fill="#1f2937"/>
+    <polygon points="30,130 57,110 85,130" fill="#1f2937"/>
+    <rect x="50" y="145" width="15" height="25" fill="#ffffff"/>
+  </g>
+
+  <!-- High priority nodes reached -->
+  <circle cx="190" cy="80" r="20" fill="#dc2626"/>
+  <line x1="82" y1="132" x2="172" y2="90" stroke="#dc2626" stroke-width="4"/>
+
+  <circle cx="230" cy="190" r="18" fill="#dc2626"/>
+  <line x1="190" y1="98" x2="230" y2="174" stroke="#dc2626" stroke-width="4"/>
+  <line x1="85" y1="150" x2="214" y2="185" stroke="#dc2626" stroke-width="4"/>
+
+  <!-- Low priority skipped -->
+  <circle cx="255" cy="60" r="12" fill="#fbbf24"/>
+  <line x1="205" y1="70" x2="245" y2="62" stroke="#9ca3af" stroke-width="2" stroke-dasharray="4,3"/>
+</svg>

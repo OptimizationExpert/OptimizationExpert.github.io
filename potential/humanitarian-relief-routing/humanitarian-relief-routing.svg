@@ -1,0 +1,59 @@
+<svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg" font-family="Tahoma, Arial, sans-serif">
+  <rect x="0" y="0" width="800" height="500" fill="#ffffff"/>
+
+  <!-- Title -->
+  <text x="400" y="35" text-anchor="middle" font-size="20" font-weight="bold" fill="#1f2937">مسیریابی امدادی پس از بحران</text>
+
+  <!-- Legend -->
+  <g font-size="13" fill="#374151">
+    <circle cx="600" cy="65" r="8" fill="#dc2626"/>
+    <text x="615" y="70">اولویت بالا</text>
+    <circle cx="600" cy="90" r="8" fill="#f97316"/>
+    <text x="615" y="95">اولویت متوسط</text>
+    <circle cx="600" cy="115" r="8" fill="#fbbf24"/>
+    <text x="615" y="120">اولویت پایین</text>
+    <line x1="595" y1="140" x2="615" y2="140" stroke="#dc2626" stroke-width="3"/>
+    <text x="620" y="145">مسیر انتخاب‌شده</text>
+    <line x1="595" y1="163" x2="615" y2="163" stroke="#9ca3af" stroke-width="2" stroke-dasharray="4,3"/>
+    <text x="620" y="168">پوشش داده‌نشده</text>
+  </g>
+
+  <!-- Depot -->
+  <g>
+    <rect x="60" y="230" width="70" height="50" rx="6" fill="#1f2937"/>
+    <polygon points="60,230 95,205 130,230" fill="#1f2937"/>
+    <rect x="85" y="250" width="20" height="30" fill="#ffffff"/>
+    <text x="95" y="300" text-anchor="middle" font-size="13" fill="#1f2937" font-weight="bold">انبار امدادی</text>
+  </g>
+
+  <!-- High priority region 1 -->
+  <circle cx="330" cy="130" r="26" fill="#dc2626"/>
+  <text x="330" y="135" text-anchor="middle" font-size="12" fill="#ffffff" font-weight="bold">روستای الف</text>
+  <line x1="126" y1="235" x2="308" y2="145" stroke="#dc2626" stroke-width="3"/>
+
+  <!-- High priority region 2 -->
+  <circle cx="480" cy="330" r="24" fill="#dc2626"/>
+  <text x="480" y="335" text-anchor="middle" font-size="12" fill="#ffffff" font-weight="bold">روستای ج</text>
+  <line x1="330" y1="150" x2="480" y2="308" stroke="#dc2626" stroke-width="3"/>
+
+  <!-- Medium priority region 3 -->
+  <circle cx="330" cy="380" r="20" fill="#f97316"/>
+  <text x="330" y="385" text-anchor="middle" font-size="11" fill="#ffffff" font-weight="bold">روستای ه</text>
+  <line x1="480" y1="330" x2="352" y2="380" stroke="#dc2626" stroke-width="3"/>
+  <line x1="330" y1="360" x2="128" y2="255" stroke="#dc2626" stroke-width="3"/>
+
+  <!-- Medium priority skipped -->
+  <circle cx="620" cy="150" r="18" fill="#f97316"/>
+  <text x="620" y="155" text-anchor="middle" font-size="10" fill="#ffffff" font-weight="bold">محله ب</text>
+  <line x1="356" y1="120" x2="605" y2="150" stroke="#9ca3af" stroke-width="2" stroke-dasharray="4,3"/>
+
+  <!-- Low priority skipped -->
+  <circle cx="650" cy="400" r="16" fill="#fbbf24"/>
+  <text x="650" y="405" text-anchor="middle" font-size="10" fill="#1f2937" font-weight="bold">محله د</text>
+  <line x1="500" y1="335" x2="637" y2="392" stroke="#9ca3af" stroke-width="2" stroke-dasharray="4,3"/>
+
+  <!-- Time budget note -->
+  <rect x="60" y="420" width="330" height="55" rx="8" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="225" y="443" text-anchor="middle" font-size="13" fill="#7f1d1d">بودجه زمانی محدود: T_max</text>
+  <text x="225" y="463" text-anchor="middle" font-size="13" fill="#7f1d1d">هدف: بیشینه‌سازی مجموع اولویت پوشش‌داده‌شده</text>
+</svg>

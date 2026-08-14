@@ -1,5 +1,5 @@
 ---
-title: "زمان‌بندی بازرسی قصابی‌ها با OR-Tools | پروژه عملی"
+title: "زمان‌بندی بازرسی قصابی‌ها با OR-Tools"
 description: "مدل‌سازی و حل مسئله زمان‌بندی بازرسی قصابی‌ها با OR-Tools در پایتون؛ یک مثال عملی از Task Scheduling و تخصیص بهینه بازرس‌ها."
 category: "بهینه‌سازی و پایتون"
 environment: "Python (Pyomo)"
