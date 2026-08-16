@@ -63,7 +63,7 @@ $$
 
 ### پیاده‌سازی مسئله در OR-Tools
 
-برای حل مسئله از حل‌کننده‌ی **CP-SAT** در کتابخانه‌ی OR-Tools استفاده می‌کنیم.
+برای حل مسئله از سالوری **CP-SAT** در کتابخانه‌ی OR-Tools استفاده می‌کنیم.
 
 ```python
 from ortools.sat.python import cp_model
