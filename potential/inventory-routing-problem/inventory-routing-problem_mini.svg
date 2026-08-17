@@ -1,21 +1,22 @@
-<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif">
   <rect x="0" y="0" width="200" height="200" fill="#ffffff"/>
 
-  <!-- depot -->
-  <rect x="85" y="25" width="30" height="24" rx="4" fill="#1e88e5"/>
+  <!-- route -->
+  <path d="M40,150 C80,110 100,130 150,90" fill="none" stroke="#e07a1f" stroke-width="4" stroke-dasharray="8,6"/>
 
-  <!-- customer nodes -->
-  <circle cx="40" cy="90" r="14" fill="#ffffff" stroke="#f57c00" stroke-width="3"/>
-  <circle cx="160" cy="90" r="14" fill="#ffffff" stroke="#f57c00" stroke-width="3"/>
-  <circle cx="100" cy="150" r="14" fill="#ffffff" stroke="#f57c00" stroke-width="3"/>
+  <!-- truck -->
+  <g transform="translate(20,120)">
+    <rect x="0" y="10" width="45" height="24" rx="3" fill="#e07a1f"/>
+    <rect x="45" y="16" width="20" height="18" rx="2" fill="#f2a44c"/>
+    <circle cx="12" cy="38" r="6" fill="#333"/>
+    <circle cx="55" cy="38" r="6" fill="#333"/>
+  </g>
 
-  <!-- routes -->
-  <path d="M 100 49 L 46 78" stroke="#1e88e5" stroke-width="3" fill="none" stroke-dasharray="6,4"/>
-  <path d="M 100 49 L 154 78" stroke="#1e88e5" stroke-width="3" fill="none" stroke-dasharray="6,4"/>
-  <path d="M 48 100 L 92 143" stroke="#1e88e5" stroke-width="3" fill="none" stroke-dasharray="6,4"/>
-  <path d="M 152 100 L 108 143" stroke="#1e88e5" stroke-width="3" fill="none" stroke-dasharray="6,4"/>
+  <!-- tank with gauge -->
+  <g transform="translate(130,60)">
+    <rect x="0" y="0" width="42" height="90" rx="8" fill="none" stroke="#1e3a5f" stroke-width="3"/>
+    <rect x="3" y="55" width="36" height="32" fill="#3fa66b"/>
+  </g>
 
-  <!-- small inventory sawtooth under -->
-  <polyline points="20,178 60,190 60,178 100,192 100,176 140,190 140,174 180,186"
-    fill="none" stroke="#f57c00" stroke-width="3"/>
+  <text x="100" y="185" text-anchor="middle" font-size="14" fill="#1e3a5f" font-weight="bold">مسیریابی-موجودی</text>
 </svg>

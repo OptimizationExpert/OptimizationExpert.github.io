@@ -1,66 +1,57 @@
-<svg viewBox="0 0 800 520" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif">
-  <rect x="0" y="0" width="800" height="520" fill="#ffffff"/>
+<svg viewBox="0 0 900 520" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif">
+  <rect x="0" y="0" width="900" height="520" fill="#ffffff"/>
 
-  <!-- Title labels -->
-  <text x="400" y="32" text-anchor="middle" font-size="20" font-weight="bold" fill="#1e3a5f">مسیریابی-موجودی (Inventory Routing)</text>
-
-  <!-- ===== Top: route map ===== -->
+  <!-- Depot -->
   <g>
-    <!-- Depot -->
-    <rect x="365" y="70" width="70" height="50" rx="6" fill="#1e88e5"/>
-    <text x="400" y="100" text-anchor="middle" font-size="13" fill="#ffffff" font-weight="bold">انبار</text>
-
-    <!-- Customer A -->
-    <circle cx="140" cy="230" r="30" fill="#ffffff" stroke="#f57c00" stroke-width="3"/>
-    <text x="140" y="235" text-anchor="middle" font-size="12" fill="#f57c00" font-weight="bold">A</text>
-
-    <!-- Customer B -->
-    <circle cx="400" cy="270" r="30" fill="#ffffff" stroke="#f57c00" stroke-width="3"/>
-    <text x="400" y="275" text-anchor="middle" font-size="12" fill="#f57c00" font-weight="bold">B</text>
-
-    <!-- Customer C -->
-    <circle cx="660" cy="230" r="30" fill="#ffffff" stroke="#f57c00" stroke-width="3"/>
-    <text x="660" y="235" text-anchor="middle" font-size="12" fill="#f57c00" font-weight="bold">C</text>
-
-    <!-- Route lines -->
-    <path d="M 400 120 L 155 205" stroke="#1e88e5" stroke-width="3" fill="none" stroke-dasharray="8,5"/>
-    <path d="M 140 260 L 380 268" stroke="#1e88e5" stroke-width="3" fill="none" stroke-dasharray="8,5"/>
-    <path d="M 425 260 L 645 210" stroke="#1e88e5" stroke-width="3" fill="none" stroke-dasharray="8,5"/>
-    <path d="M 660 200 L 420 120" stroke="#1e88e5" stroke-width="3" fill="none" stroke-dasharray="8,5"/>
-
-    <!-- Truck icon on a route segment -->
-    <g transform="translate(255,225)">
-      <rect x="0" y="0" width="34" height="18" rx="2" fill="#455a64"/>
-      <rect x="30" y="4" width="14" height="14" rx="2" fill="#455a64"/>
-      <circle cx="8" cy="20" r="4" fill="#263238"/>
-      <circle cx="34" cy="20" r="4" fill="#263238"/>
-    </g>
+    <rect x="40" y="360" width="120" height="90" rx="6" fill="#1e3a5f"/>
+    <polygon points="30,360 100,320 170,360" fill="#16304d"/>
+    <rect x="75" y="400" width="30" height="50" fill="#ffffff"/>
+    <rect x="60" y="375" width="20" height="20" fill="#dbe7f4"/>
+    <rect x="120" y="375" width="20" height="20" fill="#dbe7f4"/>
+    <text x="100" y="480" text-anchor="middle" font-size="18" fill="#1e3a5f" font-weight="bold">انبار مرکزی</text>
   </g>
 
-  <!-- ===== Bottom: inventory sawtooth chart ===== -->
-  <g transform="translate(60,340)">
-    <text x="0" y="-15" font-size="14" fill="#1e3a5f" font-weight="bold">سطح موجودی مشتری در طول زمان</text>
-    <line x1="0" y1="140" x2="680" y2="140" stroke="#455a64" stroke-width="2"/>
-    <line x1="0" y1="0" x2="0" y2="140" stroke="#455a64" stroke-width="2"/>
+  <!-- Route dashed lines -->
+  <path d="M170,400 C260,300 320,340 380,300" fill="none" stroke="#e07a1f" stroke-width="4" stroke-dasharray="10,8"/>
+  <path d="M380,300 C460,260 500,320 560,280" fill="none" stroke="#e07a1f" stroke-width="4" stroke-dasharray="10,8"/>
+  <path d="M560,280 C630,240 660,330 730,320" fill="none" stroke="#e07a1f" stroke-width="4" stroke-dasharray="10,8"/>
 
-    <!-- capacity dashed line -->
-    <line x1="0" y1="15" x2="680" y2="15" stroke="#9e9e9e" stroke-width="2" stroke-dasharray="6,4"/>
-    <text x="685" y="19" font-size="11" fill="#9e9e9e">ظرفیت مخزن</text>
-
-    <!-- sawtooth pattern: depletion then delivery -->
-    <polyline points="10,25 160,110 160,25 340,120 340,20 520,130 520,15 660,105"
-      fill="none" stroke="#f57c00" stroke-width="3"/>
-
-    <!-- delivery markers -->
-    <circle cx="160" cy="25" r="5" fill="#1e88e5"/>
-    <circle cx="340" cy="20" r="5" fill="#1e88e5"/>
-    <circle cx="520" cy="15" r="5" fill="#1e88e5"/>
-    <text x="160" y="-2" text-anchor="middle" font-size="10" fill="#1e88e5">تحویل</text>
-    <text x="340" y="-2" text-anchor="middle" font-size="10" fill="#1e88e5">تحویل</text>
-    <text x="520" y="-2" text-anchor="middle" font-size="10" fill="#1e88e5">تحویل</text>
-
-    <text x="0" y="158" font-size="11" fill="#455a64">روز ۱</text>
-    <text x="330" y="158" font-size="11" fill="#455a64">روز ۲</text>
-    <text x="650" y="158" font-size="11" fill="#455a64">روز ۳</text>
+  <!-- Truck on route -->
+  <g transform="translate(300,255)">
+    <rect x="0" y="20" width="70" height="35" rx="4" fill="#e07a1f"/>
+    <rect x="70" y="30" width="30" height="25" rx="3" fill="#f2a44c"/>
+    <rect x="76" y="34" width="16" height="10" fill="#dbe7f4"/>
+    <circle cx="18" cy="60" r="9" fill="#333"/>
+    <circle cx="80" cy="60" r="9" fill="#333"/>
+    <circle cx="18" cy="60" r="4" fill="#ccc"/>
+    <circle cx="80" cy="60" r="4" fill="#ccc"/>
   </g>
+
+  <!-- Customer tank 1 : nearly full -->
+  <g transform="translate(370,150)">
+    <rect x="0" y="0" width="60" height="140" rx="10" fill="none" stroke="#1e3a5f" stroke-width="4"/>
+    <rect x="4" y="20" width="52" height="116" fill="#3fa66b"/>
+    <text x="30" y="-10" text-anchor="middle" font-size="16" fill="#1e3a5f" font-weight="bold">مشتری A</text>
+    <text x="30" y="165" text-anchor="middle" font-size="14" fill="#3fa66b">۸۵٪ پر</text>
+  </g>
+
+  <!-- Customer tank 2 : medium -->
+  <g transform="translate(550,130)">
+    <rect x="0" y="0" width="60" height="140" rx="10" fill="none" stroke="#1e3a5f" stroke-width="4"/>
+    <rect x="4" y="70" width="52" height="66" fill="#e8b93f"/>
+    <text x="30" y="-10" text-anchor="middle" font-size="16" fill="#1e3a5f" font-weight="bold">مشتری B</text>
+    <text x="30" y="165" text-anchor="middle" font-size="14" fill="#e8b93f">۴۵٪ پر</text>
+  </g>
+
+  <!-- Customer tank 3 : low, needs urgent visit -->
+  <g transform="translate(720,170)">
+    <rect x="0" y="0" width="60" height="140" rx="10" fill="none" stroke="#c0392b" stroke-width="4"/>
+    <rect x="4" y="118" width="52" height="18" fill="#c0392b"/>
+    <text x="30" y="-10" text-anchor="middle" font-size="16" fill="#c0392b" font-weight="bold">مشتری C</text>
+    <text x="30" y="165" text-anchor="middle" font-size="14" fill="#c0392b">۱۲٪ پر - فوری</text>
+  </g>
+
+  <!-- title -->
+  <text x="450" y="40" text-anchor="middle" font-size="26" fill="#1e3a5f" font-weight="bold">مسئله مسیریابی-موجودی (IRP)</text>
+  <text x="450" y="70" text-anchor="middle" font-size="16" fill="#5a6b7a">کِی سر بزنیم، چقدر پر کنیم، با کدام مسیر؟</text>
 </svg>
