@@ -1,5 +1,5 @@
 ---
-title: "پازل Patches لینکدین: وقتی برنامه‌ریزی محدودیت یک بازی روزانه را حل می‌کند"
+title: "حل پازل Patches لینکدین با پایتون"
 description: "چگونه پازل محبوب Patches در لینکدین (نسخه‌ای از Shikaku ژاپنی) را با Constraint Programming و OR-Tools به‌صورت خودکار حل کنیم."
 pubDate: 2026-08-17
 author: "dr-soroudi"
