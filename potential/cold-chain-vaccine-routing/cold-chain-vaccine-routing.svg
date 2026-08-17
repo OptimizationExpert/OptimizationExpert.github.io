@@ -6,7 +6,7 @@
     <rect x="40" y="360" width="140" height="120" rx="6" fill="#e6f2ff" stroke="#1e6fbf" stroke-width="3"/>
     <rect x="70" y="410" width="35" height="70" fill="#1e6fbf"/>
     <rect x="130" y="400" width="30" height="30" fill="#1e6fbf"/>
-    <text x="110" y="340" font-size="20" font-family="Arial" fill="#1e3a5f" text-anchor="middle" font-weight="bold">انبار مرکزی واکسن</text>
+    <text x="110" y="340" font-size="20" font-family="Vazirmatn, Tahoma, Arial, sans-serif" fill="#1e3a5f" text-anchor="middle" font-weight="bold">انبار مرکزی واکسن</text>
     <!-- snowflake on building -->
     <g stroke="#1e6fbf" stroke-width="2">
       <line x1="150" y1="380" x2="150" y2="400"/>
@@ -35,7 +35,7 @@
       <line x1="-7" y1="-7" x2="7" y2="7"/>
       <line x1="7" y1="-7" x2="-7" y2="7"/>
     </g>
-    <text x="45" y="-12" font-size="15" font-family="Arial" fill="#1e3a5f" text-anchor="middle" font-weight="bold">کامیون زنجیره سرد</text>
+    <text x="45" y="-12" font-size="15" font-family="Vazirmatn, Tahoma, Arial, sans-serif" fill="#1e3a5f" text-anchor="middle" font-weight="bold">کامیون زنجیره سرد</text>
   </g>
 
   <!-- Clinic 1 -->
@@ -43,11 +43,11 @@
     <rect x="0" y="0" width="90" height="70" rx="6" fill="#fdeeee" stroke="#c0392b" stroke-width="3"/>
     <rect x="35" y="15" width="20" height="40" fill="#c0392b"/>
     <rect x="20" y="30" width="50" height="10" fill="#c0392b"/>
-    <text x="45" y="-10" font-size="16" font-family="Arial" fill="#1e3a5f" text-anchor="middle" font-weight="bold">کلینیک ۱</text>
+    <text x="45" y="-10" font-size="16" font-family="Vazirmatn, Tahoma, Arial, sans-serif" fill="#1e3a5f" text-anchor="middle" font-weight="bold">کلینیک ۱</text>
     <!-- risk gauge -->
     <rect x="0" y="80" width="90" height="12" rx="4" fill="#eeeeee" stroke="#999" stroke-width="1"/>
     <rect x="0" y="80" width="35" height="12" rx="4" fill="#2fa3a3"/>
-    <text x="45" y="105" font-size="12" font-family="Arial" fill="#555" text-anchor="middle">ریسک دمایی: کم</text>
+    <text x="45" y="105" font-size="12" font-family="Vazirmatn, Tahoma, Arial, sans-serif" fill="#555" text-anchor="middle">ریسک دمایی: کم</text>
   </g>
 
   <!-- Clinic 2 -->
@@ -55,10 +55,10 @@
     <rect x="0" y="0" width="90" height="70" rx="6" fill="#fdeeee" stroke="#c0392b" stroke-width="3"/>
     <rect x="35" y="15" width="20" height="40" fill="#c0392b"/>
     <rect x="20" y="30" width="50" height="10" fill="#c0392b"/>
-    <text x="45" y="-10" font-size="16" font-family="Arial" fill="#1e3a5f" text-anchor="middle" font-weight="bold">کلینیک ۲</text>
+    <text x="45" y="-10" font-size="16" font-family="Vazirmatn, Tahoma, Arial, sans-serif" fill="#1e3a5f" text-anchor="middle" font-weight="bold">کلینیک ۲</text>
     <rect x="0" y="80" width="90" height="12" rx="4" fill="#eeeeee" stroke="#999" stroke-width="1"/>
     <rect x="0" y="80" width="60" height="12" rx="4" fill="#e0a020"/>
-    <text x="45" y="105" font-size="12" font-family="Arial" fill="#555" text-anchor="middle">ریسک دمایی: متوسط</text>
+    <text x="45" y="105" font-size="12" font-family="Vazirmatn, Tahoma, Arial, sans-serif" fill="#555" text-anchor="middle">ریسک دمایی: متوسط</text>
   </g>
 
   <!-- Clinic 3 -->
@@ -66,10 +66,10 @@
     <rect x="0" y="0" width="90" height="70" rx="6" fill="#fdeeee" stroke="#c0392b" stroke-width="3"/>
     <rect x="35" y="15" width="20" height="40" fill="#c0392b"/>
     <rect x="20" y="30" width="50" height="10" fill="#c0392b"/>
-    <text x="45" y="-10" font-size="16" font-family="Arial" fill="#1e3a5f" text-anchor="middle" font-weight="bold">کلینیک ۳</text>
+    <text x="45" y="-10" font-size="16" font-family="Vazirmatn, Tahoma, Arial, sans-serif" fill="#1e3a5f" text-anchor="middle" font-weight="bold">کلینیک ۳</text>
     <rect x="0" y="80" width="90" height="12" rx="4" fill="#eeeeee" stroke="#999" stroke-width="1"/>
     <rect x="0" y="80" width="85" height="12" rx="4" fill="#c0392b"/>
-    <text x="45" y="105" font-size="12" font-family="Arial" fill="#555" text-anchor="middle">ریسک دمایی: نزدیک سقف</text>
+    <text x="45" y="105" font-size="12" font-family="Vazirmatn, Tahoma, Arial, sans-serif" fill="#555" text-anchor="middle">ریسک دمایی: نزدیک سقف</text>
   </g>
 
   <!-- vaccine box icon near depot -->
@@ -79,8 +79,8 @@
     <line x1="25" y1="0" x2="25" y2="40" stroke="#2fa3a3" stroke-width="2"/>
     <rect x="18" y="8" width="14" height="4" fill="#c0392b"/>
     <rect x="23" y="3" width="4" height="14" fill="#c0392b"/>
-    <text x="25" y="-8" font-size="13" font-family="Arial" fill="#1e3a5f" text-anchor="middle">جعبه واکسن</text>
+    <text x="25" y="-8" font-size="13" font-family="Vazirmatn, Tahoma, Arial, sans-serif" fill="#1e3a5f" text-anchor="middle">جعبه واکسن</text>
   </g>
 
-  <text x="450" y="40" font-size="24" font-family="Arial" fill="#1e3a5f" text-anchor="middle" font-weight="bold">مسیریابی زنجیره سرد و تجمع ریسک دمایی</text>
+  <text x="450" y="40" font-size="24" font-family="Vazirmatn, Tahoma, Arial, sans-serif" fill="#1e3a5f" text-anchor="middle" font-weight="bold">مسیریابی زنجیره سرد و تجمع ریسک دمایی</text>
 </svg>

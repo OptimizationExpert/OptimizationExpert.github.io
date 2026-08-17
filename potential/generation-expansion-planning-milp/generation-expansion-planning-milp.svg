@@ -4,8 +4,8 @@
   <!-- Axes -->
   <line x1="80" y1="400" x2="740" y2="400" stroke="#1e293b" stroke-width="2"/>
   <line x1="80" y1="400" x2="80" y2="60" stroke="#1e293b" stroke-width="2"/>
-  <text x="410" y="440" font-family="Arial, sans-serif" font-size="16" fill="#334155" text-anchor="middle">افق برنامه‌ریزی (سال)</text>
-  <text x="40" y="230" font-family="Arial, sans-serif" font-size="16" fill="#334155" text-anchor="middle" transform="rotate(-90 40 230)">ظرفیت / تقاضا (مگاوات)</text>
+  <text x="410" y="440" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="16" fill="#334155" text-anchor="middle">افق برنامه‌ریزی (سال)</text>
+  <text x="40" y="230" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="16" fill="#334155" text-anchor="middle" transform="rotate(-90 40 230)">ظرفیت / تقاضا (مگاوات)</text>
 
   <!-- Year gridlines and labels -->
   <g stroke="#e2e8f0" stroke-width="1">
@@ -15,7 +15,7 @@
     <line x1="510" y1="60" x2="510" y2="400"/>
     <line x1="630" y1="60" x2="630" y2="400"/>
   </g>
-  <g font-family="Arial, sans-serif" font-size="13" fill="#64748b" text-anchor="middle">
+  <g font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="13" fill="#64748b" text-anchor="middle">
     <text x="150" y="418">سال ۱</text>
     <text x="270" y="418">سال ۳</text>
     <text x="390" y="418">سال ۵</text>
@@ -58,7 +58,7 @@
   <polyline points="150,310 270,268 390,220 510,168 630,112" fill="none" stroke="#f59e0b" stroke-width="2" stroke-dasharray="6,5"/>
 
   <!-- Legend -->
-  <g font-family="Arial, sans-serif" font-size="13" fill="#334155">
+  <g font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="13" fill="#334155">
     <rect x="600" y="30" width="14" height="14" fill="#93c5fd"/>
     <text x="620" y="41">ظرفیت موجود</text>
 

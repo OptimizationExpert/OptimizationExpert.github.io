@@ -2,18 +2,18 @@
   <rect x="0" y="0" width="800" height="500" fill="#ffffff"/>
 
   <!-- Title labels -->
-  <text x="400" y="36" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#1e3a5f" text-anchor="middle">زمان‌بندی پاسخگویی بار در ۲۴ ساعت</text>
+  <text x="400" y="36" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="20" font-weight="bold" fill="#1e3a5f" text-anchor="middle">زمان‌بندی پاسخگویی بار در ۲۴ ساعت</text>
 
   <!-- Axes -->
   <line x1="70" y1="420" x2="740" y2="420" stroke="#333333" stroke-width="2"/>
   <line x1="70" y1="80" x2="70" y2="420" stroke="#333333" stroke-width="2"/>
-  <text x="405" y="460" font-family="Arial, sans-serif" font-size="15" fill="#333333" text-anchor="middle">ساعت روز (۰ تا ۲۴)</text>
-  <text x="35" y="250" font-family="Arial, sans-serif" font-size="15" fill="#333333" text-anchor="middle" transform="rotate(-90 35 250)">قیمت / توان</text>
+  <text x="405" y="460" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="15" fill="#333333" text-anchor="middle">ساعت روز (۰ تا ۲۴)</text>
+  <text x="35" y="250" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="15" fill="#333333" text-anchor="middle" transform="rotate(-90 35 250)">قیمت / توان</text>
 
   <!-- Price curve (line, peak in afternoon/evening) -->
   <polyline points="70,360 110,355 150,345 190,330 230,300 270,260 310,220 350,190 390,150 430,120 470,105 510,115 550,140 590,180 630,230 670,290 710,340 740,360"
     fill="none" stroke="#f97316" stroke-width="3"/>
-  <text x="470" y="95" font-family="Arial, sans-serif" font-size="14" fill="#f97316" font-weight="bold" text-anchor="middle">منحنی قیمت برق</text>
+  <text x="470" y="95" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="14" fill="#f97316" font-weight="bold" text-anchor="middle">منحنی قیمت برق</text>
 
   <!-- Original (peak) load bars - light red, tall in afternoon -->
   <g fill="#fca5a5" opacity="0.85">
@@ -23,7 +23,7 @@
     <rect x="455" y="170" width="20" height="250"/>
     <rect x="480" y="190" width="20" height="230"/>
   </g>
-  <text x="430" y="150" font-family="Arial, sans-serif" font-size="13" fill="#dc2626" text-anchor="middle">مصرف اولیه (ساعات پیک)</text>
+  <text x="430" y="150" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="13" fill="#dc2626" text-anchor="middle">مصرف اولیه (ساعات پیک)</text>
 
   <!-- Shifted load bars - green, moved to early morning (off-peak) -->
   <g fill="#86efac" opacity="0.9">
@@ -33,7 +33,7 @@
     <rect x="185" y="250" width="20" height="170"/>
     <rect x="210" y="260" width="20" height="160"/>
   </g>
-  <text x="160" y="200" font-family="Arial, sans-serif" font-size="13" fill="#16a34a" text-anchor="middle">مصرف جابه‌جاشده (ساعات ارزان)</text>
+  <text x="160" y="200" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="13" fill="#16a34a" text-anchor="middle">مصرف جابه‌جاشده (ساعات ارزان)</text>
 
   <!-- Arrow showing shift -->
   <path d="M 400 190 C 320 130, 220 130, 165 195" fill="none" stroke="#1e3a5f" stroke-width="2.5" marker-end="url(#arrow)"/>
@@ -42,16 +42,16 @@
       <path d="M0,0 L0,6 L9,3 z" fill="#1e3a5f"/>
     </marker>
   </defs>
-  <text x="290" y="120" font-family="Arial, sans-serif" font-size="14" fill="#1e3a5f" font-weight="bold" text-anchor="middle">جابه‌جایی مصرف قابل‌انعطاف</text>
+  <text x="290" y="120" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="14" fill="#1e3a5f" font-weight="bold" text-anchor="middle">جابه‌جایی مصرف قابل‌انعطاف</text>
 
   <!-- Peak cap line -->
   <line x1="70" y1="150" x2="740" y2="150" stroke="#64748b" stroke-width="2" stroke-dasharray="6,4"/>
-  <text x="700" y="143" font-family="Arial, sans-serif" font-size="13" fill="#64748b" text-anchor="end">سقف پیک مجاز (P_cap)</text>
+  <text x="700" y="143" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="13" fill="#64748b" text-anchor="end">سقف پیک مجاز (P_cap)</text>
 
   <!-- Time labels -->
-  <text x="70" y="440" font-family="Arial, sans-serif" font-size="13" fill="#333333" text-anchor="middle">۰</text>
-  <text x="270" y="440" font-family="Arial, sans-serif" font-size="13" fill="#333333" text-anchor="middle">۶</text>
-  <text x="470" y="440" font-family="Arial, sans-serif" font-size="13" fill="#333333" text-anchor="middle">۱۲</text>
-  <text x="670" y="440" font-family="Arial, sans-serif" font-size="13" fill="#333333" text-anchor="middle">۱۸</text>
-  <text x="740" y="440" font-family="Arial, sans-serif" font-size="13" fill="#333333" text-anchor="middle">۲۴</text>
+  <text x="70" y="440" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="13" fill="#333333" text-anchor="middle">۰</text>
+  <text x="270" y="440" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="13" fill="#333333" text-anchor="middle">۶</text>
+  <text x="470" y="440" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="13" fill="#333333" text-anchor="middle">۱۲</text>
+  <text x="670" y="440" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="13" fill="#333333" text-anchor="middle">۱۸</text>
+  <text x="740" y="440" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="13" fill="#333333" text-anchor="middle">۲۴</text>
 </svg>

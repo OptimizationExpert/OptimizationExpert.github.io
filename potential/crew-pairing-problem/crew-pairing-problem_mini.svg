@@ -1,0 +1,29 @@
+<svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="300" height="300" fill="#ffffff"/>
+
+  <!-- mini route -->
+  <circle cx="60" cy="80" r="8" fill="#0f3d63"/>
+  <circle cx="150" cy="55" r="6" fill="#f28c28"/>
+  <circle cx="240" cy="90" r="6" fill="#f28c28"/>
+
+  <path d="M60,80 L150,55" stroke="#2e6da4" stroke-width="3" fill="none" stroke-dasharray="7,5"/>
+  <path d="M150,55 L240,90" stroke="#2e6da4" stroke-width="3" fill="none" stroke-dasharray="7,5"/>
+  <path d="M240,90 Q 150,160 60,80" stroke="#c0392b" stroke-width="3" fill="none" stroke-dasharray="7,5"/>
+
+  <g transform="translate(105,60) rotate(-10)">
+    <path d="M0,0 L16,3 L0,6 L4,3 Z" fill="#0f3d63"/>
+  </g>
+  <g transform="translate(195,68) rotate(20)">
+    <path d="M0,0 L16,3 L0,6 L4,3 Z" fill="#0f3d63"/>
+  </g>
+
+  <!-- mini roster strip -->
+  <rect x="40" y="180" width="220" height="45" rx="6" fill="#f2f2f2" stroke="#dddddd"/>
+  <rect x="48" y="188" width="45" height="29" rx="4" fill="#2e6da4"/>
+  <rect x="100" y="188" width="30" height="29" rx="4" fill="#ffffff" stroke="#999999" stroke-dasharray="3,3"/>
+  <rect x="138" y="188" width="45" height="29" rx="4" fill="#f28c28"/>
+  <rect x="190" y="188" width="30" height="29" rx="4" fill="#ffffff" stroke="#999999" stroke-dasharray="3,3"/>
+  <rect x="228" y="188" width="24" height="29" rx="4" fill="#c0392b"/>
+
+  <text x="150" y="255" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="14" font-weight="bold" fill="#0f3d63" text-anchor="middle">زمان‌بندی خدمه پروازی</text>
+</svg>

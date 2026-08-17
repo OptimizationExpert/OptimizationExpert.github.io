@@ -1,0 +1,33 @@
+<svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" font-family="Vazirmatn, Tahoma, Arial, sans-serif">
+  <rect x="0" y="0" width="300" height="300" fill="#ffffff"/>
+
+  <!-- street -->
+  <rect x="0" y="210" width="300" height="60" fill="#e5e7eb"/>
+  <line x1="0" y1="240" x2="300" y2="240" stroke="#ffffff" stroke-width="3" stroke-dasharray="14,10"/>
+
+  <!-- route -->
+  <path d="M 60 200 L 130 200 L 200 200" fill="none" stroke="#16a34a" stroke-width="4" stroke-dasharray="8,6"/>
+
+  <!-- bin 1 -->
+  <g transform="translate(45,175)">
+    <rect x="0" y="8" width="26" height="30" rx="4" fill="#16a34a"/>
+    <rect x="-2" y="3" width="30" height="6" rx="2" fill="#166534"/>
+  </g>
+
+  <!-- bin 2 (not today) -->
+  <g transform="translate(120,180)">
+    <rect x="0" y="8" width="22" height="26" rx="4" fill="#9ca3af"/>
+    <rect x="-2" y="3" width="26" height="6" rx="2" fill="#6b7280"/>
+  </g>
+
+  <!-- truck -->
+  <g transform="translate(190,180)">
+    <rect x="0" y="0" width="70" height="38" rx="5" fill="#16a34a" stroke="#14532d" stroke-width="2"/>
+    <rect x="-30" y="10" width="32" height="28" rx="4" fill="#22c55e" stroke="#14532d" stroke-width="2"/>
+    <rect x="-25" y="14" width="14" height="11" rx="2" fill="#dcfce7"/>
+    <circle cx="-12" cy="42" r="8" fill="#1f2937"/>
+    <circle cx="45" cy="42" r="8" fill="#1f2937"/>
+  </g>
+
+  <text x="150" y="270" text-anchor="middle" font-size="16" fill="#166534" font-weight="bold">مسیریابی جمع‌آوری پسماند</text>
+</svg>

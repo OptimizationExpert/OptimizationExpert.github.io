@@ -2,7 +2,7 @@
   <rect width="800" height="500" fill="#ffffff"/>
 
   <!-- Title area icons -->
-  <text x="40" y="40" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#1e293b">برنامه‌ریزی شارژ/دشارژ باتری</text>
+  <text x="40" y="40" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="20" font-weight="bold" fill="#1e293b">برنامه‌ریزی شارژ/دشارژ باتری</text>
 
   <!-- Battery icon -->
   <g transform="translate(40,60)">
@@ -13,17 +13,17 @@
 
   <!-- Price curve chart -->
   <g transform="translate(60,120)">
-    <text x="0" y="-10" font-family="Arial, sans-serif" font-size="14" fill="#334155">قیمت برق در طول شبانه‌روز (تومان/کیلووات‌ساعت)</text>
+    <text x="0" y="-10" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="14" fill="#334155">قیمت برق در طول شبانه‌روز (تومان/کیلووات‌ساعت)</text>
     <line x1="0" y1="140" x2="680" y2="140" stroke="#94a3b8" stroke-width="2"/>
     <line x1="0" y1="0" x2="0" y2="140" stroke="#94a3b8" stroke-width="2"/>
     <polyline points="0,110 60,115 120,120 180,100 240,60 300,30 360,20 420,35 480,70 540,100 600,110 660,90"
       fill="none" stroke="#f59e0b" stroke-width="3"/>
-    <text x="660" y="160" font-family="Arial, sans-serif" font-size="11" fill="#64748b">ساعت</text>
+    <text x="660" y="160" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="11" fill="#64748b">ساعت</text>
   </g>
 
   <!-- SoC chart -->
   <g transform="translate(60,300)">
-    <text x="0" y="-10" font-family="Arial, sans-serif" font-size="14" fill="#334155">سطح شارژ باتری (State of Charge)</text>
+    <text x="0" y="-10" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="14" fill="#334155">سطح شارژ باتری (State of Charge)</text>
     <line x1="0" y1="140" x2="680" y2="140" stroke="#94a3b8" stroke-width="2"/>
     <line x1="0" y1="0" x2="0" y2="140" stroke="#94a3b8" stroke-width="2"/>
 
@@ -34,7 +34,7 @@
       fill="none" stroke="#0f766e" stroke-width="3"/>
 
     <!-- charge/discharge arrows -->
-    <g font-family="Arial, sans-serif" font-size="12" fill="#0369a1">
+    <g font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="12" fill="#0369a1">
       <line x1="60" y1="180" x2="60" y2="150" stroke="#0369a1" stroke-width="2" marker-end="url(#arrowUp)"/>
       <text x="30" y="200" fill="#0369a1">شارژ</text>
 
@@ -56,7 +56,7 @@
   </defs>
 
   <!-- Legend -->
-  <g transform="translate(560,60)" font-family="Arial, sans-serif" font-size="12">
+  <g transform="translate(560,60)" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="12">
     <rect x="0" y="0" width="14" height="14" fill="#f59e0b"/>
     <text x="20" y="12" fill="#334155">قیمت برق</text>
     <rect x="0" y="22" width="14" height="14" fill="#0f766e"/>

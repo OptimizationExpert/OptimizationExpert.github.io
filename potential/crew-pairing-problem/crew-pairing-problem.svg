@@ -1,0 +1,95 @@
+<svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="800" height="500" fill="#ffffff"/>
+
+  <!-- Title area -->
+  <text x="400" y="40" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="20" font-weight="bold" fill="#0f3d63" text-anchor="middle">زنجیره پرواز خدمه (Crew Pairing)</text>
+
+  <!-- Route map -->
+  <g>
+    <!-- city nodes -->
+    <circle cx="110" cy="130" r="10" fill="#0f3d63"/>
+    <text x="110" y="105" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="16" fill="#0f3d63" text-anchor="middle">پایگاه A</text>
+
+    <circle cx="330" cy="90" r="8" fill="#f28c28"/>
+    <text x="330" y="65" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="15" fill="#f28c28" text-anchor="middle">شهر B</text>
+
+    <circle cx="560" cy="140" r="8" fill="#f28c28"/>
+    <text x="560" y="115" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="15" fill="#f28c28" text-anchor="middle">شهر C</text>
+
+    <circle cx="700" cy="90" r="8" fill="#f28c28"/>
+    <text x="700" y="65" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="15" fill="#f28c28" text-anchor="middle">شهر D</text>
+
+    <!-- flight path lines -->
+    <path d="M110,130 L330,90" stroke="#2e6da4" stroke-width="3" fill="none" stroke-dasharray="8,6"/>
+    <path d="M330,90 L560,140" stroke="#2e6da4" stroke-width="3" fill="none" stroke-dasharray="8,6"/>
+    <path d="M560,140 L700,90" stroke="#2e6da4" stroke-width="3" fill="none" stroke-dasharray="8,6"/>
+    <path d="M700,90 Q 500,220 110,130" stroke="#c0392b" stroke-width="3" fill="none" stroke-dasharray="8,6"/>
+    <text x="430" y="225" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="13" fill="#c0392b" text-anchor="middle">بازگشت اجباری به پایگاه</text>
+
+    <!-- small airplane icons on legs -->
+    <g transform="translate(215,100) rotate(-15)">
+      <path d="M0,0 L20,4 L0,8 L5,4 Z" fill="#0f3d63"/>
+    </g>
+    <g transform="translate(445,105) rotate(20)">
+      <path d="M0,0 L20,4 L0,8 L5,4 Z" fill="#0f3d63"/>
+    </g>
+    <g transform="translate(635,105) rotate(-40)">
+      <path d="M0,0 L20,4 L0,8 L5,4 Z" fill="#0f3d63"/>
+    </g>
+  </g>
+
+  <!-- Duty roster / calendar strip -->
+  <g>
+    <text x="60" y="290" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="15" font-weight="bold" fill="#333333">تقویم شیفت خدمه پروازی</text>
+
+    <!-- day labels -->
+    <text x="100" y="315" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="12" fill="#555555" text-anchor="middle">روز ۱</text>
+    <text x="240" y="315" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="12" fill="#555555" text-anchor="middle">روز ۲</text>
+    <text x="380" y="315" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="12" fill="#555555" text-anchor="middle">روز ۳</text>
+    <text x="520" y="315" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="12" fill="#555555" text-anchor="middle">روز ۴</text>
+    <text x="660" y="315" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="12" fill="#555555" text-anchor="middle">روز ۵</text>
+
+    <!-- roster row background -->
+    <rect x="50" y="325" width="700" height="55" rx="6" fill="#f2f2f2" stroke="#dddddd"/>
+
+    <!-- duty blocks (flights) -->
+    <rect x="60" y="335" width="70" height="35" rx="4" fill="#2e6da4"/>
+    <text x="95" y="357" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="11" fill="#ffffff" text-anchor="middle">پرواز A-B</text>
+
+    <!-- rest gap -->
+    <rect x="140" y="335" width="60" height="35" rx="4" fill="#ffffff" stroke="#999999" stroke-dasharray="4,3"/>
+    <text x="170" y="357" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="10" fill="#999999" text-anchor="middle">استراحت</text>
+
+    <rect x="210" y="335" width="70" height="35" rx="4" fill="#2e6da4"/>
+    <text x="245" y="357" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="11" fill="#ffffff" text-anchor="middle">پرواز B-C</text>
+
+    <rect x="290" y="335" width="60" height="35" rx="4" fill="#ffffff" stroke="#999999" stroke-dasharray="4,3"/>
+    <text x="320" y="357" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="10" fill="#999999" text-anchor="middle">استراحت</text>
+
+    <rect x="360" y="335" width="70" height="35" rx="4" fill="#f28c28"/>
+    <text x="395" y="357" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="11" fill="#ffffff" text-anchor="middle">پرواز C-D</text>
+
+    <rect x="440" y="335" width="60" height="35" rx="4" fill="#ffffff" stroke="#999999" stroke-dasharray="4,3"/>
+    <text x="470" y="357" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="10" fill="#999999" text-anchor="middle">اقامت شب</text>
+
+    <rect x="510" y="335" width="90" height="35" rx="4" fill="#c0392b"/>
+    <text x="555" y="357" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="11" fill="#ffffff" text-anchor="middle">پرواز D-A</text>
+
+    <rect x="610" y="335" width="120" height="35" rx="4" fill="#ffffff" stroke="#999999" stroke-dasharray="4,3"/>
+    <text x="670" y="357" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="10" fill="#999999" text-anchor="middle">پایان جفت / استراحت پایگاه</text>
+  </g>
+
+  <!-- Crew icons -->
+  <g transform="translate(60,410)">
+    <circle cx="0" cy="0" r="14" fill="#0f3d63"/>
+    <rect x="-10" y="10" width="20" height="26" rx="6" fill="#0f3d63"/>
+    <text x="35" y="5" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="13" fill="#333333">خلبان</text>
+  </g>
+  <g transform="translate(160,410)">
+    <circle cx="0" cy="0" r="14" fill="#f28c28"/>
+    <rect x="-10" y="10" width="20" height="26" rx="6" fill="#f28c28"/>
+    <text x="35" y="5" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="13" fill="#333333">مهماندار</text>
+  </g>
+
+  <text x="700" y="460" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="13" fill="#666666" text-anchor="end">هر پرواز دقیقاً یک‌بار پوشش داده می‌شود</text>
+</svg>

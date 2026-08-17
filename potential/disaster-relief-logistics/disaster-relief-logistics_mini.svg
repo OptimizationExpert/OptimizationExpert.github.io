@@ -1,7 +1,7 @@
 <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
   <rect width="400" height="400" fill="#FFFFFF"/>
 
-  <text x="30" y="50" font-family="Arial, sans-serif" font-size="19" fill="#1E293B" font-weight="bold">Relief Logistics</text>
+  <text x="30" y="50" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="19" fill="#1E293B" font-weight="bold">Relief Logistics</text>
 
   <!-- damaged road -->
   <line x1="200" y1="110" x2="200" y2="185" stroke="#EF4444" stroke-width="3" stroke-dasharray="7,5"/>
@@ -22,7 +22,7 @@
 
   <!-- hub -->
   <rect x="165" y="65" width="70" height="42" rx="6" fill="#1D4ED8"/>
-  <text x="200" y="91" font-family="Arial" font-size="11" fill="#FFFFFF" text-anchor="middle" font-weight="bold">HUB</text>
+  <text x="200" y="91" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="11" fill="#FFFFFF" text-anchor="middle" font-weight="bold">HUB</text>
 
   <!-- opened depots -->
   <circle cx="100" cy="170" r="20" fill="#F97316"/>
@@ -37,6 +37,6 @@
   <circle cx="270" cy="295" r="8" fill="#DC2626"/>
   <circle cx="340" cy="275" r="8" fill="#DC2626"/>
 
-  <text x="30" y="345" font-family="Arial" font-size="12" fill="#64748B">Facility location + routing</text>
-  <text x="30" y="368" font-family="Arial" font-size="12" fill="#64748B">OR-Tools · PuLP</text>
+  <text x="30" y="345" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="12" fill="#64748B">Facility location + routing</text>
+  <text x="30" y="368" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="12" fill="#64748B">OR-Tools · PuLP</text>
 </svg>

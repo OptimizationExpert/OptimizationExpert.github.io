@@ -1,12 +1,12 @@
 <svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
   <rect width="800" height="450" fill="#FFFFFF"/>
-  <text x="40" y="60" font-family="Arial, sans-serif" font-size="24" fill="#1D4ED8" font-weight="bold">آشپزخانه مدرن به‌عنوان یک Job Shop</text>
+  <text x="40" y="60" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="24" fill="#1D4ED8" font-weight="bold">آشپزخانه مدرن به‌عنوان یک Job Shop</text>
 
-  <text x="40" y="120" font-family="Arial" font-size="14" fill="#334155">صندوق</text>
-  <text x="40" y="180" font-family="Arial" font-size="14" fill="#334155">فر</text>
-  <text x="40" y="240" font-family="Arial" font-size="14" fill="#334155">سوشف</text>
-  <text x="40" y="300" font-family="Arial" font-size="14" fill="#334155">سرآشپز</text>
-  <text x="40" y="360" font-family="Arial" font-size="14" fill="#334155">ویتر</text>
+  <text x="40" y="120" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="14" fill="#334155">صندوق</text>
+  <text x="40" y="180" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="14" fill="#334155">فر</text>
+  <text x="40" y="240" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="14" fill="#334155">سوشف</text>
+  <text x="40" y="300" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="14" fill="#334155">سرآشپز</text>
+  <text x="40" y="360" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="14" fill="#334155">ویتر</text>
 
   <line x1="110" y1="100" x2="760" y2="100" stroke="#E2E8F0" stroke-width="1"/>
   <line x1="110" y1="160" x2="760" y2="160" stroke="#E2E8F0" stroke-width="1"/>
@@ -30,5 +30,5 @@
   <rect x="580" y="345" width="90" height="34" rx="5" fill="#2563EB"/>
   <rect x="700" y="345" width="60" height="34" rx="5" fill="#22C55E"/>
 
-  <text x="40" y="420" font-family="Arial" font-size="13" fill="#64748B">هر سفارش رنگ خودش را دارد و از منابع محدود عبور می‌کند</text>
+  <text x="40" y="420" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="13" fill="#64748B">هر سفارش رنگ خودش را دارد و از منابع محدود عبور می‌کند</text>
 </svg>

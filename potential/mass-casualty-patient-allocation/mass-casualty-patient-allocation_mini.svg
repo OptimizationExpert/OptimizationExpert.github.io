@@ -1,0 +1,43 @@
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="400" height="300" fill="#ffffff"/>
+
+  <g transform="translate(80,150)">
+    <circle cx="0" cy="0" r="34" fill="#fff3e0" stroke="#f4511e" stroke-width="1.5" stroke-dasharray="3 2"/>
+    <polygon points="0,-18 4,-6 15,-8 6,0 10,10 0,4 -10,10 -6,0 -15,-8 -4,-6" fill="#e53935"/>
+    <circle cx="-16" cy="18" r="4" fill="#e53935"/>
+    <circle cx="-4" cy="22" r="4" fill="#fbc02d"/>
+    <circle cx="10" cy="20" r="4" fill="#43a047"/>
+  </g>
+
+  <g transform="translate(170,120)">
+    <rect x="-13" y="-6" width="26" height="12" rx="2" fill="#ffffff" stroke="#1e88e5" stroke-width="1.5"/>
+    <line x1="0" y1="-8" x2="0" y2="-2" stroke="#e53935" stroke-width="1.5"/>
+    <line x1="-3" y1="-5" x2="3" y2="-5" stroke="#e53935" stroke-width="1.5"/>
+  </g>
+  <path d="M115,145 Q145,125 165,120" fill="none" stroke="#90a4ae" stroke-width="1.5" stroke-dasharray="4 3"/>
+
+  <g transform="translate(170,190)">
+    <rect x="-13" y="-6" width="26" height="12" rx="2" fill="#ffffff" stroke="#1e88e5" stroke-width="1.5"/>
+    <line x1="0" y1="-8" x2="0" y2="-2" stroke="#e53935" stroke-width="1.5"/>
+    <line x1="-3" y1="-5" x2="3" y2="-5" stroke="#e53935" stroke-width="1.5"/>
+  </g>
+  <path d="M112,160 Q145,180 165,190" fill="none" stroke="#90a4ae" stroke-width="1.5" stroke-dasharray="4 3"/>
+
+  <g transform="translate(280,90)">
+    <rect x="-40" y="-28" width="80" height="52" rx="4" fill="#ffffff" stroke="#26a69a" stroke-width="1.8"/>
+    <line x1="0" y1="-18" x2="0" y2="-2" stroke="#e53935" stroke-width="3"/>
+    <line x1="-8" y1="-10" x2="8" y2="-10" stroke="#e53935" stroke-width="3"/>
+    <rect x="-30" y="12" width="60" height="6" rx="3" fill="#eceff1" stroke="#90a4ae" stroke-width="0.8"/>
+    <rect x="-30" y="12" width="50" height="6" rx="3" fill="#e53935"/>
+  </g>
+  <path d="M195,115 Q235,100 250,90" fill="none" stroke="#90a4ae" stroke-width="1.5" stroke-dasharray="4 3"/>
+
+  <g transform="translate(300,205)">
+    <rect x="-40" y="-28" width="80" height="52" rx="4" fill="#ffffff" stroke="#26a69a" stroke-width="1.8"/>
+    <line x1="0" y1="-18" x2="0" y2="-2" stroke="#e53935" stroke-width="3"/>
+    <line x1="-8" y1="-10" x2="8" y2="-10" stroke="#e53935" stroke-width="3"/>
+    <rect x="-30" y="12" width="60" height="6" rx="3" fill="#eceff1" stroke="#90a4ae" stroke-width="0.8"/>
+    <rect x="-30" y="12" width="20" height="6" rx="3" fill="#43a047"/>
+  </g>
+  <path d="M195,195 Q245,200 260,205" fill="none" stroke="#90a4ae" stroke-width="1.5" stroke-dasharray="4 3"/>
+</svg>
