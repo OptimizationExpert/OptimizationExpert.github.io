@@ -3,9 +3,9 @@
 title: "دوره جامع بهینه‌سازی سیستم‌های سلامت با پایتون"
 description: "دوره جامع و پروژه‌محور بهینه‌سازی در حوزه سلامت و درمان با Python و OR-Tools؛ ۲۰ پروژه عملی از تخصیص تخت بیمارستان تا امداد پهپادی به مناطق آسیب‌دیده."
 pubDate: 2026-08-15
-minimalImage: "./health-opt-mini.jpg"
+minimalImage: "./health-opt-mini.webp"
 minimalImageAlt: "تصویر مینیمال آیکون بهینه‌سازی سلامت"
-image: "./health-opt-cover.jpg"
+image: "./health-opt-cover.webp"
 imageAlt: "کاور دوره آموزشی بهینه‌سازی سیستم‌های سلامت با پایتون"
 # === متغیرهای اختصاصی دوره ===
 duration: "۱۲ ساعت"

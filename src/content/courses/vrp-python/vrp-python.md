@@ -3,9 +3,9 @@
 title: "دوره جامع بهینه سازی با OR-Tools Python"
 description: "دوره جامع و پروژه‌محور مسیریابی وسایل نقلیه (VRP) در Python با OR-Tools و CP-SAT؛ ۲۰ پروژه عملی از TSP و CVRP تا VRPTW و مسیریابی خودروی برقی."
 pubDate: 2026-06-24
-minimalImage: "./vrp-mini.jpg"
+minimalImage: "./vrp-mini.webp"
 minimalImageAlt: "تصویر مینیمال آیکون بهینه‌سازی"
-image: "./TDvrp.jpg"
+image: "./TDvrp.webp"
 imageAlt: "کاور دوره آموزشی حمل و نقل VRP با پایتون و ابزارهای بهینه‌سازی"
 
 # === متغیرهای اختصاصی دوره (برای نمایش در کارت‌ها و Schema) ===

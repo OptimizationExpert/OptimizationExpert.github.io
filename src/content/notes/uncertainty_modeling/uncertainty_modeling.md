@@ -3,9 +3,9 @@ title: "مدل‌سازی عدم‌قطعیت در سیستم‌های قدرت"
 description: "مروری کاربردی بر روش‌های مدل‌سازی عدم‌قطعیت در تصمیم‌گیری‌های سیستم قدرت — از رویکرد احتمالاتی و فازی تا نظریه شکاف اطلاعاتی و بهینه‌سازی مقاوم."
 pubDate: 2026-08-12
 author: "dr-soroudi"
-minimalImage: "./uncertainty_modeling-mini.jpg"
+minimalImage: "./uncertainty_modeling-mini.webp"
 minimalImageAlt: "تصویر مینیمال آیکون بهینه‌سازی"
-image: "./uncertainty_modeling.jpg"
+image: "./uncertainty_modeling.webp"
 imageAlt: "مدل‌سازی عدم‌قطعیت در سیستم‌های قدرت | Robust و Stochastic و Fuzzy"
 tags: ["عدم‌قطعیت", "Robust Optimization", "IGDT", "بهینه‌سازی", "روش احتمالاتی "]
 relatedCourses: ["advanced-power-system"]

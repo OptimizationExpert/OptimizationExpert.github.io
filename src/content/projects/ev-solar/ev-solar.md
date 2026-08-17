@@ -9,7 +9,7 @@ author: "dr-soroudi"
 level: "پیشرفته"
 minimalImage: "./ev-mini.webp"
 minimalImageAlt: "تصویر مینیمال آیکون بهینه‌سازی"
-image: "./ev.jpg"
+image: "./ev.webp"
 imageAlt: "هماهنگی خودرو برقی، خورشیدی و پاسخگویی بار با Pyomo"
 relatedCourses: ["optimization-modeling", "uncertainty-modeling"]
 relatedNotes: ["mathematical-modeling-art", "google-colab", "pyomo-solvers"]

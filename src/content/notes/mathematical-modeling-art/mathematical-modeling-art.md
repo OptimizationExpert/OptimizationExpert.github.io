@@ -5,7 +5,7 @@ pubDate: 2026-06-19
 author: "dr-soroudi"
 minimalImage: "./modeling-mini.webp"
 minimalImageAlt: "تصویر مینیمال آیکون بهینه‌سازی"
-image: "./modeling.jpg"
+image: "./modeling.webp"
 imageAlt: "مدل‌سازی ریاضی؛ چرا برای برنامه‌نویس و پژوهشگر ضروری است؟"
 tags: ["پایتون", "بهینه‌سازی", "Pyomo"]
 relatedCourses: ["optimization-modeling", "uncertainty-modeling"]

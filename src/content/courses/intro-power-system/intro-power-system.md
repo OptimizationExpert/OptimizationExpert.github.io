@@ -3,7 +3,7 @@
 title: "دوره مقدماتی بهینه‌سازی سیستم‌های قدرت"
 description: "دوره مقدماتی بهینه‌سازی سیستم‌های قدرت در ۸ ساعت: پخش بار اقتصادی، DC-OPF،  باتری، و مقدمه‌ای بر Unit Commitment در Python."
 pubDate: 2026-06-22
-minimalImage: "./intropower-mini.jpg"
+minimalImage: "./intropower-mini.webp"
 minimalImageAlt: "تصویر مینیمال آیکون بهینه‌سازی"
 image: "./intropower_logo.webp"
 imageAlt: "کاور دوره مقدماتی بهینه‌سازی سیستم‌های قدرت"

@@ -9,7 +9,7 @@ author: "dr-soroudi"
 level: "پیشرفته"
 minimalImage: "./bess-allocation-mini.webp"
 minimalImageAlt: "تصویر مینیمال آیکون بهینه‌سازی"
-image: "./storageallocation.jpg"
+image: "./storageallocation.webp"
 imageAlt: "جایابی بهینه ذخیره‌ساز انرژی برای کاهش هدررفت تجدیدپذیرها"
 relatedCourses: ["optimization-modeling", "uncertainty-modeling"]
 relatedNotes: ["mathematical-modeling-art", "google-colab", "pyomo-solvers"]

@@ -3,7 +3,7 @@ title: "حل پازل تقویم با OR-Tools"
 description: "فرمولاسیون و کدنویسی پازل تقویم با Constraint Programming و OR-Tools؛ نمونه‌ای آموزشی برای تبدیل یک مسئله منطقی به مدل ریاضی قابل حل."
 pubDate: 2026-08-08
 author: "dr-soroudi"
-minimalImage: "./puzzle-calendar-mini.jpg"
+minimalImage: "./puzzle-calendar-mini.webp"
 minimalImageAlt: "تصویر مینیمال آیکون بهینه‌سازی"
 image: "./puzzle_calendar_base.webp"
 imageAlt: "حل پازل تقویم با Constraint Programming و OR-Tools"

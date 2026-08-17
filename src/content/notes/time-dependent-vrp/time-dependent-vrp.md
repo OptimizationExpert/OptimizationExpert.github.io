@@ -5,7 +5,7 @@ pubDate: 2026-06-19
 author: "dr-soroudi"
 minimalImage: "./TDVRP-mini.webp"
 minimalImageAlt: "تصویر مینیمال آیکون بهینه‌سازی"
-image: "./TDvrp.jpg"
+image: "./TDvrp.webp"
 imageAlt: "مسئله مسیریابی وابسته به زمان (TDVRP) با پایتون"
 tags: ["پایتون", "بهینه‌سازی", "Pyomo"]
 relatedCourses: ["optimization-modeling", "uncertainty-modeling"]

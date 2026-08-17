@@ -3,7 +3,7 @@
 title: "دوره پیشرفته بهینه‌سازی سیستم قدرت با پایتون"
 description: "دوره پیشرفته بهینه‌سازی سیستم‌های قدرت در پایتون با Pyomo؛ ۱۰ سرفصل پروژه‌محور: Unit Commitment، پخش بار DC/AC (OPF)، N-1، جایابی باتری، توسعه شبکه و عدم قطعیت.."
 pubDate: 2026-06-20
-minimalImage: "./ADVpower-mini.jpg"
+minimalImage: "./ADVpower-mini.webp"
 minimalImageAlt: "تصویر مینیمال آیکون بهینه‌سازی"
 image: "./adv_logo2.webp"
 imageAlt: "کاور دوره آموزشی بهینه‌سازی پیشرفته سیستم‌های قدرت در پایتون با Pyomo"

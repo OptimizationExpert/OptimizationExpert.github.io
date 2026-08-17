@@ -3,9 +3,9 @@ title: "سه روش عملی استفاده از Solverها در Pyomo"
 description: "سه روش عملی برای نصب و استفاده از Solverهای رایگان در Pyomo؛ اجرای محلی، کار با Google Colab و استفاده از سرویس NEOS برای حل مدل‌های بهینه‌سازی."
 pubDate: 2026-06-19
 author: "dr-soroudi"
-minimalImage: "./solvers-mini.png"
+minimalImage: "./solvers-mini.webp"
 minimalImageAlt: "تصویر مینیمال آیکون بهینه‌سازی"
-image: "./solvers.jpg"
+image: "./solvers.webp"
 imageAlt: "سه روش عملی استفاده از Solverها در Pyomo"
 tags: ["پایتون", "بهینه‌سازی", "Pyomo"]
 relatedCourses: ["optimization-modeling", "uncertainty-modeling"]
