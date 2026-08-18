@@ -3,7 +3,7 @@ title: "بهینه سازی و مدیریت بانک خون با پایتون"
 description: "آشنایی با مسئله مدیریت موجودی فرآورده‌های خونی به‌عنوان یک مسئله کنترل موجودی فسادپذیر در حوزه سلامت، و حل آن با ابزارهای متن‌باز پایتون."
 pubDate: 2026-08-18
 author: "dr-soroudi"
-minimalImage: "./blood-bank-inventory-management_thumb.svg"
+minimalImage: "./blood-bank-inventory-management_mini.svg"
 minimalImageAlt: "نماد ساده کیسه خون و نمودار سطح موجودی رو به کاهش"
 image: "./blood-bank-inventory-management.svg"
 imageAlt: "نمودار موجودی فرآورده‌های خونی به تفکیک گروه سنی کیسه، تقاضای روزانه، و کیسه‌های دورریز شده به دلیل انقضا"
