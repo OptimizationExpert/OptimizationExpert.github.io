@@ -2,39 +2,41 @@
   <rect width="800" height="480" fill="#ffffff"/>
 
   <!-- Title band -->
-  <text x="400" y="34" text-anchor="middle" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="20" font-weight="bold" fill="#7f1d1d">مدیریت موجودی فرآورده‌های خونی</text>
+  <text x="400" y="28" text-anchor="middle" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="20" font-weight="bold" fill="#7f1d1d">مدیریت موجودی فرآورده‌های خونی</text>
+
+  <!-- FIFO caption and arrow, clear of the title above and the bags below -->
+  <g font-family="Vazirmatn, Tahoma, Arial, sans-serif">
+    <text x="250" y="54" text-anchor="middle" font-size="13" fill="#7f1d1d">ترتیب مصرف FIFO: قدیمی‌ترین کیسه اول</text>
+    <line x1="60" y1="64" x2="440" y2="64" stroke="#7f1d1d" stroke-width="2" marker-end="url(#arrow)"/>
+  </g>
 
   <!-- Blood bags row, aged by color intensity -->
   <g font-family="Vazirmatn, Tahoma, Arial, sans-serif">
-    <g transform="translate(70,70)">
+    <g transform="translate(70,100)">
       <rect x="0" y="0" width="46" height="60" rx="10" fill="#dc2626"/>
       <rect x="16" y="-14" width="14" height="16" rx="3" fill="#991b1b"/>
       <text x="23" y="80" text-anchor="middle" font-size="12" fill="#7f1d1d">روز ۱</text>
     </g>
-    <g transform="translate(150,70)">
+    <g transform="translate(150,100)">
       <rect x="0" y="0" width="46" height="60" rx="10" fill="#ef4444"/>
       <rect x="16" y="-14" width="14" height="16" rx="3" fill="#b91c1c"/>
       <text x="23" y="80" text-anchor="middle" font-size="12" fill="#7f1d1d">روز ۷</text>
     </g>
-    <g transform="translate(230,70)">
+    <g transform="translate(230,100)">
       <rect x="0" y="0" width="46" height="60" rx="10" fill="#f87171"/>
       <rect x="16" y="-14" width="14" height="16" rx="3" fill="#dc2626"/>
       <text x="23" y="80" text-anchor="middle" font-size="12" fill="#7f1d1d">روز ۲۰</text>
     </g>
-    <g transform="translate(310,70)">
+    <g transform="translate(310,100)">
       <rect x="0" y="0" width="46" height="60" rx="10" fill="#fca5a5"/>
       <rect x="16" y="-14" width="14" height="16" rx="3" fill="#f87171"/>
       <text x="23" y="80" text-anchor="middle" font-size="12" fill="#7f1d1d">روز ۳۵</text>
     </g>
-    <g transform="translate(390,70)">
+    <g transform="translate(390,100)">
       <rect x="0" y="0" width="46" height="60" rx="10" fill="#fecaca"/>
       <rect x="16" y="-14" width="14" height="16" rx="3" fill="#fca5a5"/>
       <text x="23" y="80" text-anchor="middle" font-size="12" fill="#991b1b" font-weight="bold">روز ۴۲ (انقضا)</text>
     </g>
-
-    <!-- FIFO arrow -->
-    <line x1="60" y1="30" x2="440" y2="30" stroke="#7f1d1d" stroke-width="2" marker-end="url(#arrow)"/>
-    <text x="250" y="20" text-anchor="middle" font-size="13" fill="#7f1d1d">ترتیب مصرف FIFO: قدیمی‌ترین کیسه اول</text>
   </g>
 
   <defs>
@@ -45,7 +47,7 @@
 
   <!-- Inventory level chart -->
   <g font-family="Vazirmatn, Tahoma, Arial, sans-serif">
-    <text x="400" y="200" text-anchor="middle" font-size="15" font-weight="bold" fill="#111827">سطح موجودی روزانه در طول افق برنامه‌ریزی</text>
+    <text x="400" y="210" text-anchor="middle" font-size="15" font-weight="bold" fill="#111827">سطح موجودی روزانه در طول افق برنامه‌ریزی</text>
 
     <!-- axes -->
     <line x1="80" y1="410" x2="720" y2="410" stroke="#374151" stroke-width="2"/>
@@ -58,8 +60,8 @@
               fill="none" stroke="#2563eb" stroke-width="3"/>
 
     <!-- reorder threshold line -->
-    <line x1="80" y1="370" x2="680" y2="370" stroke="#f59e0b" stroke-width="2" stroke-dasharray="6,4"/>
-    <text x="690" y="374" font-size="12" fill="#b45309">حداقل موجودی ایمنی</text>
+    <line x1="80" y1="370" x2="610" y2="370" stroke="#f59e0b" stroke-width="2" stroke-dasharray="6,4"/>
+    <text x="620" y="374" font-size="12" fill="#b45309">حداقل موجودی ایمنی</text>
 
     <!-- expiry waste markers -->
     <circle cx="230" cy="340" r="6" fill="#7f1d1d"/>

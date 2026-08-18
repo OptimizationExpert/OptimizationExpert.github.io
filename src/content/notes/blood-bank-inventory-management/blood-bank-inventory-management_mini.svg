@@ -2,9 +2,9 @@
   <rect width="200" height="200" fill="#ffffff"/>
 
   <!-- blood bag -->
-  <g transform="translate(66,30)">
+  <g transform="translate(66,20)">
     <rect x="0" y="0" width="68" height="86" rx="14" fill="#dc2626"/>
-    <rect x="24" y="-18" width="20" height="22" rx="4" fill="#991b1b"/>
+    <rect x="24" y="-14" width="20" height="18" rx="4" fill="#991b1b"/>
   </g>
 
   <!-- simple bar chart representing inventory level -->
