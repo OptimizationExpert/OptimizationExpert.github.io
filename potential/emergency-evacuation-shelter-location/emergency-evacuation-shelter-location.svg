@@ -1,0 +1,86 @@
+<svg viewBox="0 0 900 560" xmlns="http://www.w3.org/2000/svg" font-family="Vazirmatn, Tahoma, Arial, sans-serif">
+  <rect x="0" y="0" width="900" height="560" fill="#ffffff"/>
+
+  <!-- Danger zone neighborhood -->
+  <g>
+    <rect x="60" y="90" width="220" height="160" rx="10" fill="#fff1ee" stroke="#e04b34" stroke-width="2" stroke-dasharray="6,4"/>
+    <text x="170" y="80" text-anchor="middle" font-size="20" font-weight="bold" fill="#c23a26">منطقه در معرض خطر</text>
+
+    <!-- houses -->
+    <g fill="#f2a08e" stroke="#c23a26" stroke-width="1.5">
+      <rect x="85" y="120" width="34" height="28"/>
+      <polygon points="82,120 102,102 122,120"/>
+      <rect x="140" y="120" width="34" height="28"/>
+      <polygon points="137,120 157,102 177,120"/>
+      <rect x="195" y="120" width="34" height="28"/>
+      <polygon points="192,120 212,102 232,120"/>
+      <rect x="85" y="175" width="34" height="28"/>
+      <polygon points="82,175 102,157 122,175"/>
+      <rect x="140" y="175" width="34" height="28"/>
+      <polygon points="137,175 157,157 177,175"/>
+      <rect x="195" y="175" width="34" height="28"/>
+      <polygon points="192,175 212,157 232,175"/>
+    </g>
+    <text x="170" y="235" text-anchor="middle" font-size="15" fill="#8a2f1e">جمعیت: ۴۲۰۰ نفر</text>
+  </g>
+
+  <!-- second neighborhood -->
+  <g>
+    <rect x="60" y="330" width="220" height="150" rx="10" fill="#fff1ee" stroke="#e04b34" stroke-width="2" stroke-dasharray="6,4"/>
+    <text x="170" y="320" text-anchor="middle" font-size="20" font-weight="bold" fill="#c23a26">محله ۲</text>
+    <g fill="#f2a08e" stroke="#c23a26" stroke-width="1.5">
+      <rect x="90" y="365" width="34" height="28"/>
+      <polygon points="87,365 107,347 127,365"/>
+      <rect x="145" y="365" width="34" height="28"/>
+      <polygon points="142,365 162,347 182,365"/>
+      <rect x="200" y="365" width="34" height="28"/>
+      <polygon points="197,365 217,347 237,365"/>
+      <rect x="118" y="415" width="34" height="28"/>
+      <polygon points="115,415 135,397 155,415"/>
+      <rect x="173" y="415" width="34" height="28"/>
+      <polygon points="170,415 190,397 210,415"/>
+    </g>
+    <text x="170" y="465" text-anchor="middle" font-size="15" fill="#8a2f1e">جمعیت: ۳۱۰۰ نفر</text>
+  </g>
+
+  <!-- Roads -->
+  <path d="M 280 170 C 420 170, 480 230, 560 260" stroke="#8d8d8d" stroke-width="10" fill="none"/>
+  <path d="M 280 400 C 420 400, 480 300, 560 270" stroke="#8d8d8d" stroke-width="10" fill="none"/>
+  <path d="M 280 170 C 420 170, 480 230, 560 260" stroke="#ffffff" stroke-width="2" stroke-dasharray="10,10" fill="none"/>
+  <path d="M 280 400 C 420 400, 480 300, 560 270" stroke="#ffffff" stroke-width="2" stroke-dasharray="10,10" fill="none"/>
+
+  <!-- evacuation arrows -->
+  <polygon points="540,250 570,262 540,274" fill="#2f7d4f"/>
+  <polygon points="540,258 570,270 540,282" fill="#2f7d4f" transform="translate(0,10)"/>
+
+  <text x="420" y="150" text-anchor="middle" font-size="15" fill="#3a3a3a">مسیر تخلیه ۱</text>
+  <text x="420" y="420" text-anchor="middle" font-size="15" fill="#3a3a3a">مسیر تخلیه ۲</text>
+
+  <!-- Shelter A -->
+  <g>
+    <rect x="600" y="150" width="220" height="180" rx="12" fill="#eaf6ef" stroke="#2f7d4f" stroke-width="2.5"/>
+    <text x="710" y="140" text-anchor="middle" font-size="20" font-weight="bold" fill="#1f5c38">پناهگاه اضطراری A</text>
+    <!-- shelter building icon -->
+    <rect x="655" y="205" width="110" height="70" fill="#bfe3cd" stroke="#2f7d4f" stroke-width="2"/>
+    <polygon points="648,205 710,165 772,205" fill="#2f7d4f"/>
+    <rect x="695" y="235" width="30" height="40" fill="#eaf6ef" stroke="#2f7d4f" stroke-width="1.5"/>
+    <text x="710" y="300" text-anchor="middle" font-size="15" fill="#1f5c38">ظرفیت: ۵۰۰۰ نفر</text>
+    <rect x="630" y="308" width="160" height="14" rx="7" fill="#d7ecdf"/>
+    <rect x="630" y="308" width="112" height="14" rx="7" fill="#2f7d4f"/>
+  </g>
+
+  <!-- Shelter B -->
+  <g>
+    <rect x="600" y="360" width="220" height="160" rx="12" fill="#eaf6ef" stroke="#2f7d4f" stroke-width="2.5"/>
+    <text x="710" y="350" text-anchor="middle" font-size="20" font-weight="bold" fill="#1f5c38">پناهگاه اضطراری B</text>
+    <rect x="655" y="405" width="110" height="60" fill="#bfe3cd" stroke="#2f7d4f" stroke-width="2"/>
+    <polygon points="648,405 710,370 772,405" fill="#2f7d4f"/>
+    <rect x="695" y="430" width="30" height="35" fill="#eaf6ef" stroke="#2f7d4f" stroke-width="1.5"/>
+    <text x="710" y="490" text-anchor="middle" font-size="15" fill="#1f5c38">ظرفیت: ۲۸۰۰ نفر</text>
+    <rect x="630" y="498" width="160" height="14" rx="7" fill="#d7ecdf"/>
+    <rect x="630" y="498" width="140" height="14" rx="7" fill="#2f7d4f"/>
+  </g>
+
+  <text x="450" y="40" text-anchor="middle" font-size="26" font-weight="bold" fill="#2a2a2a">تخلیه اضطراری: مکان‌یابی پناهگاه و تخصیص جمعیت</text>
+  <text x="450" y="545" text-anchor="middle" font-size="14" fill="#6b6b6b">هر محله به کدام پناهگاه، با چه ظرفیتی، و از کدام مسیر؟</text>
+</svg>
