@@ -1,0 +1,17 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="200" height="200" fill="#ffffff"/>
+
+  <line x1="20" y1="100" x2="180" y2="100" stroke="#374151" stroke-width="3"/>
+
+  <rect x="60" y="90" width="12" height="20" fill="#10b981" stroke="#047857" stroke-width="1.5"/>
+  <rect x="128" y="90" width="12" height="20" fill="#ef4444" stroke="#991b1b" stroke-width="1.5"/>
+
+  <rect x="20" y="92" width="40" height="16" fill="#bbf7d0" opacity="0.7"/>
+  <rect x="72" y="92" width="56" height="16" fill="#bbf7d0" opacity="0.7"/>
+  <rect x="140" y="92" width="40" height="16" fill="#fecaca" opacity="0.7"/>
+
+  <polygon points="158,55 168,78 148,78" fill="#f59e0b" stroke="#b45309" stroke-width="1.5"/>
+  <text x="158" y="72" text-anchor="middle" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="10" font-weight="bold" fill="#7c2d12">!</text>
+
+  <text x="100" y="140" text-anchor="middle" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="13" font-weight="bold" fill="#1f2937">SAIDI</text>
+</svg>

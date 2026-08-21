@@ -1,0 +1,7 @@
+truck_id,truck_type,arrival_time_min,duration_min,linked_truck_id,pallets,due_time_min
+IN-1,inbound,0,45,,120,
+IN-2,inbound,10,50,,140,
+IN-3,inbound,25,35,,90,
+OUT-1,outbound,,60,IN-1;IN-2,130,180
+OUT-2,outbound,,55,IN-1;IN-3,95,200
+OUT-3,outbound,,50,IN-2;IN-3,125,210

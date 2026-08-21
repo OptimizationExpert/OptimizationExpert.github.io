@@ -94,9 +94,12 @@ const allItems = (await Promise.all(
       software: { label: 'نرم‌افزارها', icon: 'fa-download' }
     };
 
-    // تابع ساده‌شده برای استانداردسازی تگ‌ها با توجه به ساختار تمیز آرایه
+    // تابع جامع برای یکسان‌سازی فاصله‌ها، نیم‌فاصله‌ها و حروف کوچک
     function normalizeTag(str) {
-      return String(str || '').trim().toLowerCase();
+      return String(str || '')
+        .trim()
+        .toLowerCase()
+        .replace(/[\u200c\s]+/g, '');
     }
 
     // استخراج مجموعه تمامی تگ‌های معتبر سایت جهت تطبیق دقیق
@@ -106,7 +109,7 @@ const allItems = (await Promise.all(
     });
 
     const urlParams = new URLSearchParams(window.location.search);
-    let query = (urlParams.get('q') || '').trim().toLowerCase();
+    let query = (urlParams.get('q') || '').trim();
     let tagQuery = (urlParams.get('tag') || '').trim();
     
     if (!tagQuery && query && allValidTags.has(normalizeTag(query))) {
@@ -137,6 +140,7 @@ const allItems = (await Promise.all(
 
     if (query || tagQuery) {
       const normalizedTagQuery = normalizeTag(tagQuery);
+      const normalizedQuery = normalizeTag(query);
 
       if (tagQuery) {
         queryTextEl.textContent = `نمایش مطالب مرتبط با برچسب: #${tagQuery}`;
@@ -150,9 +154,10 @@ const allItems = (await Promise.all(
           return itemTags.includes(normalizedTagQuery);
         }
 
-        const title = item.title.toLowerCase();
-        const desc = item.description.toLowerCase();
-        return title.includes(query) || desc.includes(query);
+        const titleNorm = normalizeTag(item.title);
+        const descNorm = normalizeTag(item.description);
+        const tagsNorm = item.tags.map(t => normalizeTag(t)).join(' ');
+        return titleNorm.includes(normalizedQuery) || descNorm.includes(normalizedQuery) || tagsNorm.includes(normalizedQuery);
       });
 
       if (matchedItems.length === 0) {
@@ -223,7 +228,7 @@ const allItems = (await Promise.all(
             ` : '';
 
             return `
-              <article class="bg-[var(--site-card)] border border-[var(--site-border)] p-5 sm:p-6 rounded-3xl hover:border-[var(--site-primary)]/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col md:flex-row-reverse items-start justify-between gap-6 shadow-xs group">
+              <article class="card-stretched relative bg-[var(--site-card)] border border-[var(--site-border)] p-5 sm:p-6 rounded-3xl hover:border-[var(--site-primary)]/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col md:flex-row-reverse items-start justify-between gap-6 shadow-xs group">
                 ${imageHTML}
                 <div class="flex-grow w-full flex flex-col h-full min-h-[8rem] justify-between">
                   <div>
@@ -234,7 +239,7 @@ const allItems = (await Promise.all(
                     </div>
 
                     <h2 class="text-lg md:text-xl font-bold text-[var(--site-heading)] mb-2 group-hover:text-[var(--site-primary)] transition-colors">
-                      <a href="${item.url}" class="outline-none">${item.title}</a>
+                      <a href="${item.url}" class="stretched-card-link outline-none">${item.title}</a>
                     </h2>
 
                     <p class="text-[var(--site-muted)] text-xs md:text-sm leading-relaxed mb-4 line-clamp-2">
@@ -243,7 +248,7 @@ const allItems = (await Promise.all(
                   </div>
 
                   <div class="flex items-center gap-4 text-xs font-semibold mt-auto pt-2">
-                    <a href="${item.url}" class="inline-flex items-center gap-2 text-[var(--site-primary)] bg-[var(--site-primary)]/10 hover:bg-[var(--site-primary)] hover:text-white px-3.5 py-1.5 rounded-xl transition-all duration-300">
+                    <a href="${item.url}" class="card-action-link inline-flex items-center gap-2 text-[var(--site-primary)] bg-[var(--site-primary)]/10 hover:bg-[var(--site-primary)] hover:text-white px-3.5 py-1.5 rounded-xl transition-all duration-300">
                       <span>مشاهده</span>
                       <i class="fa-solid fa-arrow-left text-[10px] group-hover:-translate-x-1 transition-transform"></i>
                     </a>

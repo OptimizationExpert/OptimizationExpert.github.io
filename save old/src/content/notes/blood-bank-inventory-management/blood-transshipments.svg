@@ -1,0 +1,55 @@
+<svg viewBox="0 0 900 320" xmlns="http://www.w3.org/2000/svg">
+  <rect width="900" height="320" fill="#ffffff"/>
+
+  <text x="450" y="34" text-anchor="middle" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="19" font-weight="bold" fill="#111827">هماهنگی موجودی خون بین چند بیمارستان یک منطقه</text>
+
+  <!-- faded third hospital in the network, upper middle -->
+  <g opacity="0.4" font-family="Vazirmatn, Tahoma, Arial, sans-serif">
+    <rect x="410" y="60" width="80" height="60" rx="6" fill="#e5e7eb" stroke="#9ca3af" stroke-width="2"/>
+    <rect x="440" y="48" width="20" height="16" fill="#9ca3af"/>
+    <line x1="450" y1="48" x2="450" y2="60" stroke="#6b7280" stroke-width="3"/>
+    <line x1="442" y1="54" x2="458" y2="54" stroke="#6b7280" stroke-width="3"/>
+    <text x="450" y="135" text-anchor="middle" font-size="12" fill="#6b7280">بیمارستان ج (شبکه منطقه‌ای)</text>
+  </g>
+  <line x1="450" y1="120" x2="180" y2="190" stroke="#9ca3af" stroke-width="1.5" stroke-dasharray="4,4"/>
+  <line x1="450" y1="120" x2="720" y2="190" stroke="#9ca3af" stroke-width="1.5" stroke-dasharray="4,4"/>
+
+  <!-- Hospital A: shortage, left -->
+  <g font-family="Vazirmatn, Tahoma, Arial, sans-serif">
+    <rect x="90" y="150" width="140" height="105" rx="8" fill="#fee2e2" stroke="#dc2626" stroke-width="2.5"/>
+    <rect x="145" y="132" width="30" height="22" fill="#fca5a5" stroke="#dc2626" stroke-width="2"/>
+    <line x1="160" y1="132" x2="160" y2="150" stroke="#991b1b" stroke-width="4"/>
+    <line x1="149" y1="141" x2="171" y2="141" stroke="#991b1b" stroke-width="4"/>
+    <text x="160" y="200" text-anchor="middle" font-size="15" font-weight="bold" fill="#991b1b">بیمارستان الف</text>
+    <text x="160" y="222" text-anchor="middle" font-size="13" fill="#991b1b">کمبود گروه O⁻</text>
+    <text x="160" y="242" text-anchor="middle" font-size="12" fill="#7f1d1d">موجودی: ۲ واحد</text>
+  </g>
+
+  <!-- Hospital B: surplus, right -->
+  <g font-family="Vazirmatn, Tahoma, Arial, sans-serif">
+    <rect x="670" y="150" width="140" height="105" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="2.5"/>
+    <rect x="725" y="132" width="30" height="22" fill="#86efac" stroke="#16a34a" stroke-width="2"/>
+    <line x1="740" y1="132" x2="740" y2="150" stroke="#166534" stroke-width="4"/>
+    <line x1="729" y1="141" x2="751" y2="141" stroke="#166534" stroke-width="4"/>
+    <text x="740" y="200" text-anchor="middle" font-size="15" font-weight="bold" fill="#166534">بیمارستان ب</text>
+    <text x="740" y="222" text-anchor="middle" font-size="13" fill="#166534">مازاد گروه O⁻</text>
+    <text x="740" y="242" text-anchor="middle" font-size="12" fill="#14532d">نزدیک به انقضا</text>
+  </g>
+
+  <!-- transfer route: truck carrying blood, moving from B to A -->
+  <line x1="655" y1="290" x2="245" y2="290" stroke="#2563eb" stroke-width="3" marker-end="url(#arrowT)"/>
+  <defs>
+    <marker id="arrowT" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#2563eb"/>
+    </marker>
+  </defs>
+
+  <g transform="translate(420,262)" font-family="Vazirmatn, Tahoma, Arial, sans-serif">
+    <rect x="0" y="6" width="46" height="24" rx="4" fill="#2563eb"/>
+    <rect x="46" y="14" width="18" height="16" rx="2" fill="#1d4ed8"/>
+    <circle cx="12" cy="32" r="6" fill="#111827"/>
+    <circle cx="52" cy="32" r="6" fill="#111827"/>
+    <rect x="8" y="10" width="16" height="14" rx="2" fill="#ffffff"/>
+  </g>
+  <text x="450" y="255" text-anchor="middle" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="13" font-weight="bold" fill="#1d4ed8">انتقال بین‌بیمارستانی: ۱۰ واحد O⁻</text>
+</svg>

@@ -137,7 +137,13 @@ const authorDisplayName = matchedInstructor
         description="برای مشاوره و ثبت‌نام در دوره‌ها و دریافت پروژه‌ها با آیدی"
       />
 
-      <RelatedContent currentSlug={noteSlug} tags={note.data.tags} />
+      <RelatedContent
+        currentSlug={noteSlug}
+        tags={note.data.tags}
+        relatedCourses={note.data.relatedCourses}
+        relatedNotes={note.data.relatedNotes}
+        relatedProjects={note.data.relatedProjects}
+      />
 
     </article>
 

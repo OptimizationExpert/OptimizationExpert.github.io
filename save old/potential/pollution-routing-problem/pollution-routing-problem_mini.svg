@@ -1,0 +1,33 @@
+<svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" font-family="Vazirmatn, Tahoma, Arial, sans-serif">
+  <rect x="0" y="0" width="300" height="300" fill="#ffffff"/>
+
+  <!-- Road -->
+  <rect x="0" y="200" width="300" height="40" fill="#e5e7eb"/>
+  <line x1="0" y1="220" x2="300" y2="220" stroke="#ffffff" stroke-width="3" stroke-dasharray="16,12"/>
+
+  <!-- Route -->
+  <path d="M 60 170 C 130 130, 170 150, 240 110" fill="none" stroke="#16a34a" stroke-width="3" stroke-dasharray="6,5"/>
+  <circle cx="240" cy="110" r="7" fill="#22c55e"/>
+
+  <!-- Truck (optimal speed, small exhaust) -->
+  <g transform="translate(100,192)">
+    <rect x="0" y="0" width="55" height="26" rx="4" fill="#15803d"/>
+    <rect x="43" y="-14" width="24" height="20" rx="3" fill="#166534"/>
+    <rect x="47" y="-10" width="8" height="8" fill="#bbf7d0"/>
+    <circle cx="11" cy="28" r="7" fill="#111827"/>
+    <circle cx="43" cy="28" r="7" fill="#111827"/>
+    <circle cx="-8" cy="-2" r="5" fill="#9ca3af" opacity="0.6"/>
+    <circle cx="-16" cy="-8" r="6" fill="#9ca3af" opacity="0.4"/>
+  </g>
+
+  <!-- Speed gauge -->
+  <g transform="translate(200,50)">
+    <circle cx="35" cy="35" r="32" fill="#ffffff" stroke="#16a34a" stroke-width="3"/>
+    <path d="M 10 52 A 32 32 0 0 1 60 52" fill="none" stroke="#f59e0b" stroke-width="5"/>
+    <path d="M 10 52 A 32 32 0 0 1 35 3" fill="none" stroke="#22c55e" stroke-width="5"/>
+    <line x1="35" y1="35" x2="24" y2="14" stroke="#111827" stroke-width="3"/>
+    <circle cx="35" cy="35" r="3" fill="#111827"/>
+  </g>
+
+  <text x="150" y="270" font-size="16" fill="#166534" text-anchor="middle" font-weight="bold">مسیریابی سبز</text>
+</svg>

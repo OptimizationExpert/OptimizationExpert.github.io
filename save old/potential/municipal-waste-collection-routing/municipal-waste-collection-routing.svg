@@ -1,0 +1,98 @@
+<svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg" font-family="Vazirmatn, Tahoma, Arial, sans-serif">
+  <rect x="0" y="0" width="800" height="500" fill="#ffffff"/>
+
+  <!-- Weekly calendar strip -->
+  <text x="400" y="36" text-anchor="middle" font-size="20" fill="#1f2937" font-weight="bold">برنامه هفتگی سرویس‌دهی</text>
+  <g>
+    <!-- 7 day boxes -->
+    <g>
+      <rect x="60" y="55" width="90" height="46" rx="8" fill="#e5e7eb" stroke="#9ca3af" stroke-width="1.5"/>
+      <text x="105" y="83" text-anchor="middle" font-size="16" fill="#374151">شنبه</text>
+    </g>
+    <g>
+      <rect x="160" y="55" width="90" height="46" rx="8" fill="#16a34a" stroke="#15803d" stroke-width="1.5"/>
+      <text x="205" y="83" text-anchor="middle" font-size="16" fill="#ffffff" font-weight="bold">یکشنبه</text>
+    </g>
+    <g>
+      <rect x="260" y="55" width="90" height="46" rx="8" fill="#e5e7eb" stroke="#9ca3af" stroke-width="1.5"/>
+      <text x="305" y="83" text-anchor="middle" font-size="16" fill="#374151">دوشنبه</text>
+    </g>
+    <g>
+      <rect x="360" y="55" width="90" height="46" rx="8" fill="#e5e7eb" stroke="#9ca3af" stroke-width="1.5"/>
+      <text x="405" y="83" text-anchor="middle" font-size="16" fill="#374151">سه‌شنبه</text>
+    </g>
+    <g>
+      <rect x="460" y="55" width="90" height="46" rx="8" fill="#16a34a" stroke="#15803d" stroke-width="1.5"/>
+      <text x="505" y="83" text-anchor="middle" font-size="16" fill="#ffffff" font-weight="bold">چهارشنبه</text>
+    </g>
+    <g>
+      <rect x="560" y="55" width="90" height="46" rx="8" fill="#e5e7eb" stroke="#9ca3af" stroke-width="1.5"/>
+      <text x="605" y="83" text-anchor="middle" font-size="16" fill="#374151">پنجشنبه</text>
+    </g>
+    <g>
+      <rect x="660" y="55" width="90" height="46" rx="8" fill="#e5e7eb" stroke="#9ca3af" stroke-width="1.5"/>
+      <text x="705" y="83" text-anchor="middle" font-size="16" fill="#374151">جمعه</text>
+    </g>
+  </g>
+  <text x="400" y="120" text-anchor="middle" font-size="14" fill="#6b7280">امروز: یکشنبه — نقاط سبز زیر، سرویس امروز هستند</text>
+
+  <!-- Street -->
+  <rect x="0" y="360" width="800" height="90" fill="#e5e7eb"/>
+  <line x1="0" y1="405" x2="800" y2="405" stroke="#ffffff" stroke-width="4" stroke-dasharray="20,16"/>
+
+  <!-- Sidewalk / buildings backdrop -->
+  <rect x="30" y="240" width="90" height="120" fill="#f3f4f6" stroke="#d1d5db"/>
+  <rect x="150" y="220" width="70" height="140" fill="#f3f4f6" stroke="#d1d5db"/>
+  <rect x="640" y="230" width="90" height="130" fill="#f3f4f6" stroke="#d1d5db"/>
+  <rect x="540" y="250" width="70" height="110" fill="#f3f4f6" stroke="#d1d5db"/>
+
+  <!-- Route path connecting bins scheduled today -->
+  <path d="M 120 355 L 260 355 L 420 355 L 590 355" fill="none" stroke="#16a34a" stroke-width="4" stroke-dasharray="10,8"/>
+
+  <!-- Bin 1 - scheduled today -->
+  <g transform="translate(100,320)">
+    <rect x="0" y="10" width="34" height="40" rx="4" fill="#16a34a"/>
+    <rect x="-3" y="4" width="40" height="8" rx="2" fill="#166534"/>
+    <text x="17" y="66" text-anchor="middle" font-size="12" fill="#166534">سطل A</text>
+  </g>
+
+  <!-- Bin 2 - not today -->
+  <g transform="translate(230,325)">
+    <rect x="0" y="10" width="30" height="35" rx="4" fill="#9ca3af"/>
+    <rect x="-3" y="4" width="36" height="7" rx="2" fill="#6b7280"/>
+    <text x="15" y="60" text-anchor="middle" font-size="12" fill="#6b7280">سطل B</text>
+  </g>
+
+  <!-- Bin 3 - scheduled today -->
+  <g transform="translate(400,320)">
+    <rect x="0" y="10" width="34" height="40" rx="4" fill="#16a34a"/>
+    <rect x="-3" y="4" width="40" height="8" rx="2" fill="#166534"/>
+    <text x="17" y="66" text-anchor="middle" font-size="12" fill="#166534">سطل C</text>
+  </g>
+
+  <!-- Bin 4 - not today -->
+  <g transform="translate(480,328)">
+    <rect x="0" y="10" width="28" height="32" rx="4" fill="#9ca3af"/>
+    <rect x="-3" y="4" width="34" height="7" rx="2" fill="#6b7280"/>
+    <text x="14" y="56" text-anchor="middle" font-size="12" fill="#6b7280">سطل D</text>
+  </g>
+
+  <!-- Bin 5 - scheduled today -->
+  <g transform="translate(565,320)">
+    <rect x="0" y="10" width="34" height="40" rx="4" fill="#16a34a"/>
+    <rect x="-3" y="4" width="40" height="8" rx="2" fill="#166534"/>
+    <text x="17" y="66" text-anchor="middle" font-size="12" fill="#166534">سطل E</text>
+  </g>
+
+  <!-- Garbage truck -->
+  <g transform="translate(640,330)">
+    <rect x="0" y="0" width="110" height="55" rx="6" fill="#16a34a" stroke="#14532d" stroke-width="2"/>
+    <rect x="-42" y="14" width="46" height="41" rx="5" fill="#22c55e" stroke="#14532d" stroke-width="2"/>
+    <rect x="-36" y="20" width="20" height="16" rx="2" fill="#dcfce7"/>
+    <circle cx="-15" cy="60" r="12" fill="#1f2937"/>
+    <circle cx="70" cy="60" r="12" fill="#1f2937"/>
+    <circle cx="-15" cy="60" r="5" fill="#9ca3af"/>
+    <circle cx="70" cy="60" r="5" fill="#9ca3af"/>
+    <text x="55" y="34" text-anchor="middle" font-size="13" fill="#ffffff" font-weight="bold">جمع‌آوری پسماند</text>
+  </g>
+</svg>

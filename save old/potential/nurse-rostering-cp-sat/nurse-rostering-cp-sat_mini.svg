@@ -1,0 +1,29 @@
+<svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" font-family="Vazirmatn, Tahoma, Arial, sans-serif">
+  <rect x="0" y="0" width="300" height="300" fill="#ffffff"/>
+
+  <!-- simple 3x4 schedule grid -->
+  <g stroke="#cbd5e1" stroke-width="2">
+    <line x1="60" y1="70" x2="60" y2="230"/>
+    <line x1="120" y1="70" x2="120" y2="230"/>
+    <line x1="180" y1="70" x2="180" y2="230"/>
+    <line x1="240" y1="70" x2="240" y2="230"/>
+    <line x1="60" y1="70" x2="240" y2="70"/>
+    <line x1="60" y1="123" x2="240" y2="123"/>
+    <line x1="60" y1="176" x2="240" y2="176"/>
+    <line x1="60" y1="230" x2="240" y2="230"/>
+  </g>
+
+  <!-- colored shift blocks -->
+  <rect x="62" y="72" width="56" height="49" fill="#38bdf8"/>
+  <rect x="122" y="72" width="56" height="49" fill="#f59e0b"/>
+  <rect x="182" y="125" width="56" height="49" fill="#4338ca"/>
+  <rect x="62" y="178" width="56" height="49" fill="#f59e0b"/>
+  <rect x="122" y="178" width="56" height="49" fill="#4338ca"/>
+  <rect x="182" y="72" width="56" height="49" fill="#38bdf8"/>
+
+  <!-- small cross/health icon top -->
+  <rect x="140" y="18" width="20" height="8" rx="2" fill="#16a34a"/>
+  <rect x="146" y="12" width="8" height="20" rx="2" fill="#16a34a"/>
+
+  <text x="150" y="266" text-anchor="middle" font-size="16" font-weight="bold" fill="#0f766e">زمان‌بندی پرستاران</text>
+</svg>

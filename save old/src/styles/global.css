@@ -1,0 +1,614 @@
+@import "tailwindcss";
+
+/* ==========================================================
+   🎨 سیستم طراحی مرکزی سایت (Design System) - تم روشن و تیره
+   ========================================================== */
+:root {
+  /* ۱. پالت رنگی پس‌زمینه و ساختار (تم روشن - پیش‌فرض) */
+  --site-bg: #f8fafc;         
+  --site-card: #ffffff;        
+  --site-border: #e2e8f0;      
+
+  /* ۲. رنگ متن‌ها و هدینگ‌ها */
+  --site-text: #334155;        
+  --site-muted: #64748b;       
+  --site-heading: #0f172a;     
+
+/* ۳. رنگ‌های برند و المان‌های تعاملی (تم روشن) */
+  --site-primary: #0284c7;     
+  --site-primary-hover: #0369a1;
+  --site-accent: #059669;      
+  --site-secondary: #818cf8;   
+  --site-gold: #fbbf24;         /* رنگ طلایی واحد - در هر دو تم ثابت می‌ماند */
+  --site-gold-light: #fde68a;   /* سایه‌ی روشن‌تر همان طلایی، برای گرادیان/درخشش */
+
+  /* ۴. فونت‌ها و اندازه‌های پایه */
+  --font-family: 'Vazirmatn', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-size-base: 0.95rem;   
+  --line-height-base: 1.75;     
+
+  /* ۵. اندازه‌های تایپوگرافی هدینگ‌ها */
+  --h1-size: clamp(2rem, 4vw, 3.25rem);
+  --h2-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  --h3-size: 1.1rem;
+
+  /* ۶. مقادیر انحنای لبه‌ها */
+  --radius-box: 1rem;          
+  --radius-btn: 0.75rem;       
+}
+
+/* 🌙 حالت تیره */
+html.dark {
+  --site-bg: #0f172a;          
+  --site-card: #1e293b;        
+  --site-border: #334155;      
+  --site-text: #cbd5e1;        
+  --site-muted: #94a3b8;       
+  --site-heading: #f8fafc;     
+  --site-primary: #38bdf8;     
+  --site-primary-hover: #7dd3fc;
+  --site-accent: #34d399;      
+  --site-secondary: #818cf8;   
+  /* توجه: --site-gold و --site-gold-light عمداً اینجا override نمی‌شوند؛
+     طلایی باید در هر دو تم دقیقاً یک رنگ ثابت باشد (تعریف در :root) */        
+}
+
+/* اتصال متغیرها به سیستم تیل‌ویند نسخه ۴ */
+@theme {
+  --color-site-bg: var(--site-bg);
+  --color-site-card: var(--site-card);
+  --color-site-border: var(--site-border);
+  --color-site-text: var(--site-text);
+  --color-site-muted: var(--site-muted);
+  --color-site-heading: var(--site-heading);
+  --color-site-primary: var(--site-primary);
+  --color-site-accent: var(--site-accent);
+  --color-site-secondary: var(--site-secondary);
+  --color-site-gold: var(--site-gold);
+  --color-site-gold-light: var(--site-gold-light);
+  --font-sans: var(--font-family);
+}
+
+/* شناسایی کلاس dark. برای کلاس‌های تعاملی تیل‌ویند v4 */
+@variant dark (&:where(.dark, .dark *));
+
+/* ==========================================================
+   🌐 تنظیمات پایه HTML و تایپوگرافی عمومی
+   ========================================================== */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--site-bg);
+    background-image: 
+      linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+    background-size: 24px 24px;
+    color: var(--site-text);
+    font-family: var(--font-family);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-base);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  html.dark body {
+    background-image: 
+      linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  }
+
+  h1 {
+    font-size: var(--h1-size);
+    color: var(--site-heading);
+    font-weight: 800;
+    letter-spacing: -0.025em;
+  }
+
+  h2 {
+    font-size: var(--h2-size);
+    color: var(--site-heading);
+    font-weight: 700;
+  }
+
+  h3 {
+    font-size: var(--h3-size);
+    color: var(--site-heading);
+    font-weight: 600;
+  }
+
+  p {
+    color: var(--site-text);
+    text-align: justify;
+  }
+
+  a {
+    transition: color 0.2s ease, background-color 0.2s ease;
+  }
+
+  ::selection {
+    background-color: var(--site-primary);
+    color: #ffffff;
+  }
+}
+
+/* ==========================================================
+   🔤 تعریف فونت‌های محلی (Local Fonts - 100% Offline)
+   ========================================================== */
+@font-face {
+  font-family: 'Vazirmatn';
+  src: url('../fonts/Vazirmatn-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Vazirmatn';
+  src: url('../fonts/Vazirmatn-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Vazirmatn';
+  src: url('../fonts/Vazirmatn-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ==========================================================
+   🖼️ تصاویر محتوای Markdown
+   همه تصاویر داخل متن مقاله/یادداشت/پروژه/کتاب/دوره مستقل از
+   نحوه نوشتن Markdown، وسط‌چین و responsive نمایش داده می‌شوند.
+   ========================================================== */
+.prose > p > img,
+.prose p > img,
+.prose p > a > img,
+.prose figure > img,
+.prose img {
+  display: block !important;
+  max-width: 100%;
+  height: auto;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Markdown images may be wrapped by the Markdown renderer in a paragraph
+   or in a link. Center the containing line too so RTL text alignment cannot
+   force the image back to the right edge. */
+.prose > p:has(> img),
+.prose > p:has(> a > img),
+.prose figure:has(> img) {
+  text-align: center !important;
+}
+
+/* ==========================================================
+   🎬 ویدئوی داخلی Markdown
+   استاندارد ثابت 16:9 برای Embedهای Aparat و سایر سرویس‌ها.
+   در Markdown فقط iframe را داخل .content-video قرار دهید.
+   ========================================================== */
+.content-video {
+  position: relative;
+  width: min(100%, 960px);
+  aspect-ratio: 16 / 9;
+  margin: 2rem auto 2.5rem;
+  overflow: hidden;
+  border: 1px solid var(--site-border);
+  border-radius: var(--radius-box);
+  background: #000;
+  box-shadow: 0 12px 35px -12px rgba(15, 23, 42, 0.28);
+}
+
+.content-video iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: 0;
+}
+
+/* سازگاری با Embedهای قدیمی Aparat که ممکن است در Markdownهای قبلی باقی بمانند. */
+.h_iframe-aparat_embed_frame {
+  position: relative;
+  width: min(100%, 960px);
+  aspect-ratio: 16 / 9;
+  margin: 2rem auto 2.5rem;
+  overflow: hidden;
+  border: 1px solid var(--site-border);
+  border-radius: var(--radius-box);
+  background: #000;
+  box-shadow: 0 12px 35px -12px rgba(15, 23, 42, 0.28);
+}
+
+.h_iframe-aparat_embed_frame .ratio {
+  display: none;
+}
+
+.h_iframe-aparat_embed_frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+@media (max-width: 640px) {
+  .content-video,
+  .h_iframe-aparat_embed_frame {
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+    border-radius: 0.75rem;
+  }
+}
+
+/* ==========================================================
+   💻 استایل کدهای برنامه‌نویسی
+   ========================================================== */
+.prose pre,
+.astro-code,
+pre {
+  direction: ltr !important;
+  text-align: left !important;
+  position: relative !important;
+  background-color: #0c1017 !important; 
+  border: 1px solid #1e293b !important;
+  border-radius: 12px !important;
+  padding: 3.25rem 1.25rem 1.25rem 1.25rem !important;
+  margin: 2rem 0 !important;
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.4);
+  overflow-x: auto;
+  font-family: 'Fira Code', 'JetBrains Mono', Consolas, monospace !important;
+  font-size: 0.92rem;
+  line-height: 1.8;
+  color: #f8fafc;
+}
+
+.astro-code code,
+pre code {
+  background-color: transparent !important;
+  font-family: inherit !important;
+}
+
+.astro-code::before,
+pre::before {
+  content: '';
+  position: absolute;
+  top: 1.1rem;
+  left: 1.1rem;
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 50%;
+  background-color: #ff5f56;
+  box-shadow: 1.25rem 0 0 #ffbd2e, 2.5rem 0 0 #27c93f;
+  z-index: 5;
+}
+
+.copy-code-button {
+  position: absolute;
+  top: 0.8rem;
+  right: 0.8rem;
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  color: #cbd5e1 !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 0.5rem;
+  padding: 0.3rem 0.75rem;
+  font-size: 0.75rem;
+  font-family: var(--font-sans);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.copy-code-button:hover {
+  background-color: rgba(255, 255, 255, 0.18) !important;
+  color: #ffffff !important;
+}
+
+.copy-code-button.copied {
+  background-color: #10b981 !important;
+  color: #ffffff !important;
+  border-color: #10b981 !important;
+}
+
+
+/* لینک‌های تأکیدی داخل محتوای Markdown؛ استایل در یک نقطه نگهداری می‌شود. */
+.content-link {
+  color: var(--site-primary);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.content-link:hover {
+  color: var(--site-primary-hover);
+}
+
+.content-note {
+  margin: 1.5rem 0;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--site-border);
+  border-radius: var(--radius-box);
+  background: var(--site-card);
+}
+
+.aparat-icon-mask {
+  width: 1.4rem;
+  height: 1.4rem;
+  background: currentColor;
+  mask-image: url('/aparat_logo.svg');
+  -webkit-mask-image: url('/aparat_logo.svg');
+  mask-size: contain;
+  -webkit-mask-size: contain;
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-position: center;
+}
+
+/* ==========================================================
+   ✨ افکت طلایی سینمایی و لوکس (Gold Foil)
+   ========================================================== */
+.gold-shimmer {
+  /* ترکیب رنگی استاندارد برای شبیه‌سازی درخشش واقعی طلا */
+  background: linear-gradient(
+    -70deg,
+    #a67c00 0%,     /* سایه عمیق طلا */
+    #bf953f 25%,    /* طلایی پایه */
+    #fcf6ba 40%,    /* نقطه شدید بازتاب نور (سفید-زرد) */
+    #b38728 60%,    /* طلایی میانه */
+    #fbf5b7 80%,    /* بازتاب ثانویه ملایم */
+    #a67c00 100%    /* بازگشت به سایه */
+  ) !important;
+  
+  background-size: 200% auto !important;
+  
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+
+  /* استفاده از دو سایه: یکی مشکی برای جداسازی از پس‌زمینه و یکی طلایی برای درخشش اطراف متن */
+  filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.7)) 
+          drop-shadow(0px 4px 15px rgba(212, 175, 55, 0.25)) !important;
+
+  animation: advanced-gold-shine 4s linear infinite;
+}
+
+@keyframes advanced-gold-shine {
+  0% {
+    background-position: 200% center;
+  }
+  100% {
+    background-position: 0% center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gold-shimmer {
+    animation: none;
+    background-position: 0% center;
+  }
+}
+
+/* ==========================================================
+   📐 استایل‌های محلی و اختصاصی KaTeX (ریاضیات آفلاین)
+   ========================================================== */
+.katex-mathml {
+  position: absolute !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden !important;
+  white-space: nowrap !important;
+}
+
+.prose .katex .vlist-r,
+.prose .katex span {
+  line-height: normal !important;
+}
+
+.prose .katex .vlist-t {
+  border-collapse: separate !important;
+}
+
+.katex {
+  font-size: 1.15em;
+  direction: ltr !important;
+  unicode-bidi: embed;
+  color: inherit !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.katex-display {
+  display: block !important;
+  text-align: center !important;
+  margin: 2rem auto !important;
+  padding: 0.75rem 0 !important;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.katex-display > .katex {
+  display: inline-block !important;
+  text-align: center !important;
+}
+
+.katex-display .katex .mtable,
+.katex-display .katex .array {
+  font-size: 1em !important;
+}
+
+.katex .vlist-t2 {
+  margin-top: 0.35em !important;
+}
+
+.katex .vlist-t2 .mord {
+  font-size: 0.78em !important;  
+}
+
+.katex-display .katex .mtable .mord,
+.katex-display .katex .mtable .mathdefault {
+  font-size: inherit !important;
+}
+
+/* ==========================================================
+   📊 استایل اختصاصی جداول (Tables)
+   ========================================================== */
+.prose table,
+table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  margin: 2rem 0 !important;
+  font-size: 0.9rem !important;
+  background-color: var(--site-card) !important;
+  border: 1px solid var(--site-border) !important;
+  border-radius: var(--radius-box) !important;
+  overflow: hidden !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.prose th,
+th {
+  background-color: var(--site-bg) !important;
+  color: var(--site-heading) !important;
+  font-weight: 700 !important;
+  padding: 0.85rem 1rem !important;
+  border-bottom: 2px solid var(--site-border) !important;
+  text-align: right !important;
+}
+
+.prose td,
+td {
+  padding: 0.85rem 1rem !important;
+  border-bottom: 1px solid var(--site-border) !important;
+  color: var(--site-text) !important;
+  text-align: right !important;
+}
+
+.prose tr:last-child td,
+tr:last-child td {
+  border-bottom: none !important;
+}
+
+.prose tr:hover,
+tr:hover {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+html.dark .prose tr:hover,
+html.dark tr:hover {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+.prose, 
+div:has(> table) {
+  overflow-x: auto;
+}
+
+/* ==========================================================
+   📝 استایل لیست‌های مرتب و غیرمرتب در متون Markdown
+   ========================================================== */
+article ul, 
+.content ul,
+.prose ul {
+  list-style-type: disc !important;
+  list-style-position: inside !important;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding-right: 1.25rem;
+}
+
+article ol, 
+.content ol,
+.prose ol {
+  list-style-type: decimal !important;
+  list-style-position: inside !important;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding-right: 1.25rem;
+}
+
+article li, 
+.content li,
+.prose li {
+  margin-bottom: 0.5rem;
+}
+
+/* ==========================================================
+   💬 استایل نقل‌قول‌ها (Blockquotes)
+   ========================================================== */
+.prose blockquote,
+blockquote {
+  border-right: 4px solid var(--site-primary) !important;
+  border-left: none !important;
+  padding: 0.75rem 1.25rem !important;
+  margin: 1.5rem 0 !important;
+  background-color: var(--site-card) !important;
+  border-radius: 0.5rem !important;
+  color: var(--site-muted) !important;
+  font-style: normal !important;
+}
+
+/* ==========================================================
+   ◀▶ دکمه‌های جابجایی ردیف‌های اسکرول افقی (دسکتاپ)
+   کنار «مشاهده همه» در هدر بخش قرار می‌گیرند، نه شناور روی کارت‌ها
+   ========================================================== */
+.scroll-arrow-btn {
+  width: 2.25rem;
+  height: 2.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-btn);
+  background-color: var(--site-card);
+  border: 1px solid var(--site-border);
+  color: var(--site-text);
+  font-size: 0.7rem;
+  box-shadow: 0 2px 6px -2px rgba(0, 0, 0, 0.12);
+  transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease, opacity 0.2s ease;
+  cursor: pointer;
+}
+
+.scroll-arrow-btn:hover:not(:disabled) {
+  color: var(--site-primary);
+  border-color: var(--site-primary);
+  background-color: color-mix(in srgb, var(--site-primary) 8%, var(--site-card));
+}
+
+.scroll-arrow-btn:active:not(:disabled) {
+  transform: scale(0.93);
+}
+
+.scroll-arrow-btn:disabled {
+  cursor: default;
+}
+
+/* ==========================================================
+   🔄 استایل اختصاصی اسکرول‌بار (متمرکز در فایل مرکزی)
+   ========================================================== */
+.custom-scrollbar::-webkit-scrollbar {
+  height: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(150, 150, 150, 0.1); 
+  border-radius: 10px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(150, 150, 150, 0.3); 
+  border-radius: 10px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(150, 150, 150, 0.5); 
+}
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(150, 150, 150, 0.3) rgba(150, 150, 150, 0.1);
+}

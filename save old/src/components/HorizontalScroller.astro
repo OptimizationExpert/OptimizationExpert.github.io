@@ -1,0 +1,123 @@
+---
+// src/components/HorizontalScroller.astro
+interface Props {
+  id: string;
+}
+
+const { id } = Astro.props;
+---
+
+<!-- کلاس scroll-smooth حذف شد تا دستی و کاملاً نرم انیمیشن را کنترل کنیم -->
+<div
+  id={id}
+  class="horizontal-scroller flex overflow-x-auto gap-4 sm:gap-6 pt-4 pb-8 snap-x snap-mandatory custom-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0"
+>
+  <slot />
+</div>
+
+<script is:inline>
+  function initHorizontalScrollers() {
+    document.querySelectorAll('.horizontal-scroller').forEach((scroller) => {
+      if (scroller.dataset.scrollerReady === 'true') return;
+      scroller.dataset.scrollerReady = 'true';
+
+      const prevBtn = document.querySelector(`.scroll-arrow-btn[data-scroll-target="${scroller.id}"][data-scroll-dir="prev"]`);
+      const nextBtn = document.querySelector(`.scroll-arrow-btn[data-scroll-target="${scroller.id}"][data-scroll-dir="next"]`);
+
+      const updateButtonsState = () => {
+        if (!prevBtn && !nextBtn) return;
+        
+        const maxScroll = Math.max(0, scroller.scrollWidth - scroller.clientWidth);
+        const currentScroll = Math.abs(Math.round(scroller.scrollLeft));
+        
+        const hasOverflow = maxScroll > 5;
+        
+        if (prevBtn) {
+          prevBtn.classList.toggle('lg:!hidden', !hasOverflow);
+          const isAtStart = currentScroll <= 5;
+          prevBtn.disabled = isAtStart;
+          prevBtn.classList.toggle('opacity-40', isAtStart);
+          prevBtn.classList.toggle('pointer-events-none', isAtStart);
+        }
+        
+        if (nextBtn) {
+          nextBtn.classList.toggle('lg:!hidden', !hasOverflow);
+          const isAtEnd = currentScroll >= (maxScroll - 5);
+          nextBtn.disabled = isAtEnd;
+          nextBtn.classList.toggle('opacity-40', isAtEnd);
+          nextBtn.classList.toggle('pointer-events-none', isAtEnd);
+        }
+      };
+
+      updateButtonsState();
+      scroller.addEventListener('scroll', () => requestAnimationFrame(updateButtonsState), { passive: true });
+      window.addEventListener('resize', () => requestAnimationFrame(updateButtonsState), { passive: true });
+
+      // تابع انیمیشن اختصاصی و نرم
+      const animateScroll = (distance, duration = 600) => {
+        // جلوگیری از اجرای همزمان چند انیمیشن (اسپم کلیک)
+        if (scroller.dataset.animating === 'true') return;
+        scroller.dataset.animating = 'true';
+
+        // خاموش کردن موقت Snap برای جلوگیری از تداخل و پرش
+        scroller.style.scrollSnapType = 'none';
+
+        const start = scroller.scrollLeft;
+        const startTime = performance.now();
+
+        // منحنی حرکتی: شروع سریع، پایان بسیار نرم
+        const easeOutQuart = (t) => 1 - Math.pow(1 - t, 4);
+
+        const step = (now) => {
+          const elapsed = now - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          
+          scroller.scrollLeft = start + (distance * easeOutQuart(progress));
+
+          if (progress < 1) {
+            requestAnimationFrame(step);
+          } else {
+            // روشن کردن مجدد Snap پس از پایان حرکت
+            scroller.style.scrollSnapType = '';
+            scroller.dataset.animating = 'false';
+            updateButtonsState();
+          }
+        };
+
+        requestAnimationFrame(step);
+      };
+
+      const goTo = (direction) => {
+        const cards = Array.from(scroller.children);
+        if (cards.length < 2) return;
+
+        const cardWidth = cards[0].getBoundingClientRect().width;
+        const gap = parseFloat(window.getComputedStyle(scroller).gap) || 0;
+        
+        // مسافت جابجایی معادل دقیقاً ۲ کارت
+        const distance = (cardWidth + gap) * 2;
+        
+        const isRTL = window.getComputedStyle(scroller).direction === 'rtl';
+        let moveAmount = direction === 'next' ? distance : -distance;
+        
+        if (isRTL) {
+          moveAmount = direction === 'next' ? -distance : distance;
+        }
+
+        // اجرای انیمیشن با زمان 600 میلی‌ثانیه برای حرکت بسیار شیک و نرم
+        animateScroll(moveAmount, 600);
+      };
+
+      if (prevBtn) prevBtn.addEventListener('click', () => goTo('prev'));
+      if (nextBtn) nextBtn.addEventListener('click', () => goTo('next'));
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initHorizontalScrollers);
+  } else {
+    initHorizontalScrollers();
+  }
+  document.addEventListener('astro:page-load', initHorizontalScrollers);
+  window.addEventListener('load', initHorizontalScrollers);
+</script>

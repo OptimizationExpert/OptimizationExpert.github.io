@@ -23,7 +23,7 @@ const { Content } = await render(software);
 const softwareSlug = entrySlug(software);
 
 // تصویر پیش‌فرض یکسان با بقیه‌ی سایت (قبلاً به‌اشتباه تصویر یک دوره استفاده می‌شد)
-const defaultImage = "/images/hero2.webp";
+const defaultImage = "/images/hero.webp";
 const softwareImg = software.data.image || defaultImage;
 const instructors = await getCollection('instructors', isPublished);
 const matchedInstructor = software.data.author

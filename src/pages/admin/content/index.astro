@@ -1,0 +1,205 @@
+---
+import AdminLayout from '../../../layouts/AdminLayout.astro';
+import { getCollection } from 'astro:content';
+import { entrySlug, isPublished } from '../../../utils/content';
+
+const sources = [
+  { collection: 'notes' as const, typeId: 'note', typeLabel: 'یادداشت', path: 'notes' },
+  { collection: 'projects' as const, typeId: 'project', typeLabel: 'پروژه', path: 'projects' },
+  { collection: 'courses' as const, typeId: 'course', typeLabel: 'دوره', path: 'courses' },
+  { collection: 'books' as const, typeId: 'book', typeLabel: 'کتاب', path: 'books' },
+  { collection: 'softwares' as const, typeId: 'software', typeLabel: 'نرم‌افزار', path: 'softwares' },
+];
+
+const allEntriesRaw = await Promise.all(sources.map(async s => ({ s, entries: await getCollection(s.collection) })));
+const instructors = await getCollection('instructors', isPublished);
+const instructorNameBySlug = new Map(instructors.map(i => [entrySlug(i), i.data.name]));
+
+type Row = { title: string; typeLabel: string; path: string; slug: string; pubDate: Date | null; draft: boolean; instructor?: string };
+const allRows: Row[] = [];
+for (const { s, entries } of allEntriesRaw) {
+  for (const e of entries) {
+    allRows.push({
+      title: e.data.title,
+      typeLabel: s.typeLabel,
+      path: s.path,
+      slug: entrySlug(e),
+      pubDate: e.data.pubDate ? new Date(e.data.pubDate) : null,
+      draft: Boolean(e.data.draft),
+      instructor: 'instructor' in e.data ? (e.data.instructor as string | undefined) : undefined,
+    });
+  }
+}
+
+const published = allRows.filter(r => !r.draft);
+const drafts = allRows.filter(r => r.draft);
+
+// جدول زمانی انتشار: تعداد مطلب منتشرشده در هر ماه
+const monthCounts = new Map<string, number>();
+for (const r of published) {
+  if (!r.pubDate) continue;
+  const key = `${r.pubDate.getFullYear()}-${String(r.pubDate.getMonth() + 1).padStart(2, '0')}`;
+  monthCounts.set(key, (monthCounts.get(key) ?? 0) + 1);
+}
+const timeline = [...monthCounts.entries()].sort((a, b) => a[0].localeCompare(b[0]));
+const maxMonthCount = Math.max(1, ...timeline.map(([, c]) => c));
+
+// محتوای قدیمی — بیش از ۱۲ ماه از انتشار گذشته، ممکن است نیاز به بازبینی داشته باشد
+const now = Date.now();
+const ONE_YEAR = 365 * 24 * 60 * 60 * 1000;
+const staleContent = published
+  .filter(r => r.pubDate && now - r.pubDate.getTime() > ONE_YEAR)
+  .sort((a, b) => (a.pubDate!.getTime()) - (b.pubDate!.getTime()));
+
+// پوشش مدرس — فقط برای انواعی که فیلد instructor دارند (فعلاً دوره‌ها)
+const withInstructorField = published.filter(r => r.instructor !== undefined);
+const missingInstructor = withInstructorField.filter(r => !r.instructor);
+const instructorCounts = new Map<string, number>();
+for (const r of withInstructorField) {
+  if (!r.instructor) continue;
+  instructorCounts.set(r.instructor, (instructorCounts.get(r.instructor) ?? 0) + 1);
+}
+
+const typeCounts = sources.map(s => ({ label: s.typeLabel, count: published.filter(r => r.typeLabel === s.typeLabel).length }));
+
+const publishPaths = [
+  {
+    stage: 'ایده / پیش‌نویس اولیه',
+    location: 'potential/‎',
+    locationNote: 'کاملاً بیرون از src — Astro اصلاً این پوشه را نمی‌بیند',
+    visibility: 'هیچ‌جای سایت دیده نمی‌شود؛ نه صفحه، نه sitemap، نه RSS، نه جست‌وجو.',
+    when: 'برای نوشتن و مصورسازی یک مطلب در طول چند روز/هفته، بدون نگرانی از انتشار زودهنگام یا نیمه‌کاره دیده‌شدن.',
+    tone: 'neutral',
+    icon: 'fa-pen',
+  },
+  {
+    stage: 'آماده برای بازبینی نهایی',
+    location: 'src/content/<نوع>/<اسلاگ>/‎ + draft: true',
+    locationNote: 'داخل کالکشن اصلی، ولی با فلگ draft',
+    visibility: 'در build اعتبارسنجی می‌شود (اگر تصویر یا فرمت خراب باشد همین‌جا خطا می‌دهید)، اما هیچ صفحه‌ای برایش ساخته نمی‌شود و در هیچ لیست/sitemap/RSS/جست‌وجویی ظاهر نمی‌شود.',
+    when: 'وقتی محتوا تقریباً نهایی است و می‌خواهید مطمئن شوید frontmatter و تصاویرش با schema سایت مشکلی ندارد، بدون این‌که هنوز عمومی شود.',
+    tone: 'warn',
+    icon: 'fa-eye-slash',
+  },
+  {
+    stage: 'منتشرشده',
+    location: 'src/content/<نوع>/<اسلاگ>/‎ (بدون draft، یا draft: false)',
+    locationNote: 'draft پیش‌فرضش false است؛ کافی‌ست اصلاً ننویسیدش',
+    visibility: 'صفحه ساخته می‌شود، در فهرست‌ها/sitemap/RSS/جست‌وجو/تگ‌ها ظاهر می‌شود و توسط build بعدی به‌طور کامل ایندکس می‌شود.',
+    when: 'وقتی محتوا نهایی و آماده‌ی دیده‌شدن توسط بازدیدکننده‌هاست.',
+    tone: 'good',
+    icon: 'fa-check',
+  },
+];
+function pathToneClass(tone: string) {
+  if (tone === 'good') return 'border-green-500/25 bg-green-500/[0.04]';
+  if (tone === 'warn') return 'border-amber-500/25 bg-amber-500/[0.04]';
+  return 'border-[var(--site-border)] bg-[var(--site-card)]';
+}
+function pathIconClass(tone: string) {
+  if (tone === 'good') return 'bg-green-500/15 text-green-600 dark:text-green-400';
+  if (tone === 'warn') return 'bg-amber-500/15 text-amber-600 dark:text-amber-400';
+  return 'bg-[var(--site-primary)]/10 text-[var(--site-primary)]';
+}
+---
+<AdminLayout title="داشبورد محتوا" description="نمای کلی از محتوای سایت: روند انتشار، محتوای قدیمی نیازمند بازبینی، پیش‌نویس‌ها، و پوشش مدرسان." breadcrumbs={[{name:'خانه',url:'/'},{name:'پنل مدیریت',url:'/admin/'},{name:'داشبورد محتوا'}]}>
+<main class="max-w-7xl mx-auto px-4 sm:px-6 py-10 w-full flex-grow">
+<header class="mb-8">
+<span class="inline-flex items-center gap-2 text-xs font-bold text-[var(--site-primary)] bg-[var(--site-primary)]/10 px-3.5 py-1.5 rounded-full border border-[var(--site-primary)]/20"><i class="fa-solid fa-chart-simple" aria-hidden="true"></i>ابزار داخلی — فقط مدیر سایت</span>
+<h1 class="text-3xl md:text-4xl font-black text-[var(--site-heading)] mt-4 mb-3">داشبورد محتوا</h1>
+<p class="text-sm leading-7 text-[var(--site-muted)] max-w-3xl">نمای کلی از وضعیت انتشار محتوا در کل سایت — کاملاً خودکار، بدون هیچ تنظیم دستی. برای بررسی سئو و کیفیت تصاویر هر مطلب، سراغ ابزارهای دیگر پنل بروید. <a href="/admin/seo/" class="text-[var(--site-primary)] hover:underline font-bold">سلامت سئو</a> · <a href="/admin/images/" class="text-[var(--site-primary)] hover:underline font-bold">بررسی تصاویر</a> · <a href="/admin/tags/" class="text-[var(--site-primary)] hover:underline font-bold">مدیریت تگ‌ها</a></p>
+</header>
+
+<!-- راهنمای کامل مسیر انتشار — پاسخ مستقیم به این‌که «پست منتشرنشده را
+     کجا بگذاریم» — سه مرحله‌ی واقعی که در این پروژه استفاده می‌شود -->
+<section class="mb-10 rounded-3xl border border-[var(--site-primary)]/25 bg-[var(--site-primary)]/[0.04] p-5 sm:p-7">
+<div class="flex items-start gap-3 mb-6">
+<div class="w-10 h-10 rounded-2xl bg-[var(--site-primary)]/15 flex items-center justify-center shrink-0"><i class="fa-solid fa-route text-[var(--site-primary)]" aria-hidden="true"></i></div>
+<div>
+<h2 class="text-lg font-black text-[var(--site-heading)]">مطلب منتشرنشده را کجا بگذاریم؟</h2>
+<p class="text-xs text-[var(--site-muted)] mt-1">این سایت سه مرحله‌ی مشخص برای یک مطلب دارد؛ کدام مرحله را انتخاب کنید به این بستگی دارد که مطلب چقدر آماده است.</p>
+</div>
+</div>
+<div class="grid lg:grid-cols-3 gap-4">
+{publishPaths.map((p,i)=>(
+<div class={`rounded-2xl border p-5 ${pathToneClass(p.tone)}`}>
+<div class="flex items-center gap-2.5 mb-3">
+<div class={`w-8 h-8 rounded-xl flex items-center justify-center shrink-0 ${pathIconClass(p.tone)}`}><i class={`fa-solid ${p.icon} text-xs`} aria-hidden="true"></i></div>
+<span class="text-[10px] font-bold text-[var(--site-muted)]">مرحله {i+1}</span>
+</div>
+<h3 class="text-sm font-black text-[var(--site-heading)] mb-1.5">{p.stage}</h3>
+<code class="block text-[11px] bg-[var(--site-bg)] border border-[var(--site-border)] rounded-lg px-2.5 py-1.5 mb-2 break-all" dir="ltr">{p.location}</code>
+<p class="text-[10px] text-[var(--site-muted)] mb-3">{p.locationNote}</p>
+<p class="text-xs text-[var(--site-text)] leading-relaxed mb-2"><span class="font-bold">قابل مشاهده:</span> {p.visibility}</p>
+<p class="text-xs text-[var(--site-muted)] leading-relaxed"><span class="font-bold text-[var(--site-text)]">کِی از این مرحله استفاده کنیم:</span> {p.when}</p>
+</div>
+))}
+</div>
+<p class="text-xs text-[var(--site-muted)] mt-5 leading-relaxed">
+همه‌ی مقالات مرحله‌ی اول همین الان در <a href="/admin/content-bank/" class="text-[var(--site-primary)] hover:underline font-bold">بانک محتوای آماده</a> لیست شده‌اند؛ پیش‌نویس‌های مرحله‌ی دوم (draft: true) هم پایین همین صفحه، در بخش «پیش‌نویس‌ها» دیده می‌شوند.
+</p>
+</section>
+
+<div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-10">
+{typeCounts.map(t=><div class="bg-[var(--site-card)] border border-[var(--site-border)] rounded-2xl p-5"><p class="text-2xl font-black text-[var(--site-heading)]">{t.count}</p><p class="text-xs text-[var(--site-muted)] mt-1">{t.label}</p></div>)}
+</div>
+
+<section class="mb-10">
+<h2 class="text-lg font-black text-[var(--site-heading)] mb-1">روند انتشار محتوا</h2>
+<p class="text-xs text-[var(--site-muted)] mb-4">تعداد مطلب منتشرشده در هر ماه — برای دیدن یکنواختی یا افت‌وخیز سرعت انتشار.</p>
+<div class="bg-[var(--site-card)] border border-[var(--site-border)] rounded-2xl p-5 overflow-x-auto">
+<div class="flex items-end gap-2 min-w-max" style="height:120px">
+{timeline.map(([month,count])=><div class="flex flex-col items-center justify-end gap-1.5 w-9" title={`${month}: ${count}`}>
+<span class="text-[10px] font-bold text-[var(--site-muted)]">{count}</span>
+<div class="w-full bg-[var(--site-primary)] rounded-t-md" style={`height:${Math.max(6,(count/maxMonthCount)*80)}px`}></div>
+<span class="text-[9px] text-[var(--site-muted)]" style="writing-mode:vertical-rl;">{month}</span>
+</div>)}
+</div>
+</div>
+</section>
+
+<section class="mb-10 grid lg:grid-cols-2 gap-5">
+<div class="rounded-3xl border border-amber-500/25 bg-amber-500/[0.04] p-5 sm:p-6">
+<div class="flex items-start gap-3 mb-4">
+<div class="w-9 h-9 rounded-xl bg-amber-500/15 flex items-center justify-center shrink-0"><i class="fa-solid fa-clock-rotate-left text-amber-600 dark:text-amber-400 text-sm" aria-hidden="true"></i></div>
+<div><h2 class="text-base font-black text-[var(--site-heading)]">محتوای قدیمی ({staleContent.length})</h2><p class="text-xs text-[var(--site-muted)] mt-0.5">بیش از یک سال از انتشارشان گذشته؛ برای سایتی درباره‌ی ابزارها و کتابخانه‌های به‌روزشونده، بررسی دوره‌ای این‌ها ارزش دارد.</p></div>
+</div>
+<div class="space-y-2 max-h-80 overflow-y-auto">
+{staleContent.length===0&&<p class="text-xs text-[var(--site-muted)]">هیچ محتوای قدیمی‌ای پیدا نشد. 🎉</p>}
+{staleContent.map(r=><a href={`/${r.path}/${r.slug}/`} class="flex items-center justify-between gap-2 text-xs bg-[var(--site-bg)] border border-[var(--site-border)] rounded-xl px-3 py-2 hover:border-amber-500/40"><span class="font-bold text-[var(--site-text)] truncate">{r.title}</span><span class="text-[var(--site-muted)] shrink-0">{r.pubDate?.toLocaleDateString('fa-IR')}</span></a>)}
+</div>
+</div>
+
+<div class="rounded-3xl border border-[var(--site-border)] bg-[var(--site-card)] p-5 sm:p-6">
+<div class="flex items-start gap-3 mb-4">
+<div class="w-9 h-9 rounded-xl bg-[var(--site-primary)]/15 flex items-center justify-center shrink-0"><i class="fa-solid fa-file-pen text-[var(--site-primary)] text-sm" aria-hidden="true"></i></div>
+<div><h2 class="text-base font-black text-[var(--site-heading)]">پیش‌نویس‌ها ({drafts.length})</h2><p class="text-xs text-[var(--site-muted)] mt-0.5">مطالبی با draft: true — روی سایت منتشر نشده‌اند.</p></div>
+</div>
+<div class="space-y-2 max-h-80 overflow-y-auto">
+{drafts.length===0&&<p class="text-xs text-[var(--site-muted)]">هیچ پیش‌نویسی وجود ندارد.</p>}
+{drafts.map(r=><div class="flex items-center justify-between gap-2 text-xs bg-[var(--site-bg)] border border-[var(--site-border)] rounded-xl px-3 py-2"><span class="font-bold text-[var(--site-text)] truncate">{r.title}</span><span class="text-[var(--site-muted)] shrink-0">{r.typeLabel}</span></div>)}
+</div>
+</div>
+</section>
+
+{withInstructorField.length>0&&<section class="mb-10">
+<h2 class="text-lg font-black text-[var(--site-heading)] mb-1">پوشش مدرسان</h2>
+<p class="text-xs text-[var(--site-muted)] mb-4">تعداد دوره به ازای هر مدرس، و دوره‌هایی که هنوز مدرس ندارند.</p>
+<div class="grid sm:grid-cols-2 gap-3">
+<div class="bg-[var(--site-card)] border border-[var(--site-border)] rounded-2xl p-4">
+<p class="text-xs font-bold text-[var(--site-muted)] mb-3">تعداد دوره به ازای مدرس</p>
+<div class="space-y-2">
+{[...instructorCounts.entries()].sort((a,b)=>b[1]-a[1]).map(([slug,count])=><div class="flex items-center justify-between text-xs"><span class="font-bold text-[var(--site-text)]">{instructorNameBySlug.get(slug) ?? slug}</span><span class="text-[var(--site-primary)] font-black">{count}</span></div>)}
+</div>
+</div>
+<div class="bg-[var(--site-card)] border border-[var(--site-border)] rounded-2xl p-4">
+<p class="text-xs font-bold text-[var(--site-muted)] mb-3">بدون مدرس مشخص‌شده ({missingInstructor.length})</p>
+{missingInstructor.length===0&&<p class="text-xs text-[var(--site-muted)]">همه‌ی موارد مدرس دارند. 🎉</p>}
+<div class="space-y-2">
+{missingInstructor.map(r=><a href={`/${r.path}/${r.slug}/`} class="block text-xs font-bold text-[var(--site-text)] hover:text-[var(--site-primary)] truncate">{r.title}</a>)}
+</div>
+</div>
+</div>
+</section>}
+</main>
+</AdminLayout>

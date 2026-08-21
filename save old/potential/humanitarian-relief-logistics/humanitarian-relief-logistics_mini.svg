@@ -1,0 +1,19 @@
+<svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="300" height="300" fill="#ffffff"/>
+
+  <!-- Warehouse hub -->
+  <rect x="130" y="130" width="40" height="30" rx="4" fill="#ea580c"/>
+  <text x="150" y="150" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="9" font-weight="bold" fill="#ffffff" text-anchor="middle">انبار</text>
+
+  <!-- Zones -->
+  <circle cx="60" cy="80" r="16" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+  <circle cx="240" cy="70" r="16" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+  <circle cx="70" cy="230" r="16" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+  <circle cx="235" cy="225" r="16" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+
+  <!-- Routes -->
+  <path d="M133,138 L74,88" fill="none" stroke="#ea580c" stroke-width="2.5"/>
+  <path d="M168,138 L228,78" fill="none" stroke="#ea580c" stroke-width="2.5"/>
+  <path d="M135,158 L80,220" fill="none" stroke="#ea580c" stroke-width="2.5"/>
+  <path d="M167,158 L225,215" fill="none" stroke="#ea580c" stroke-width="2.5"/>
+</svg>

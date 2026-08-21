@@ -24,7 +24,7 @@ export async function getStaticPaths({ paginate }) {
 
 const { page } = Astro.props;
 // تصویر پیش‌فرض یکسان با بقیه‌ی سایت (قبلاً به‌اشتباه تصویر یک دوره استفاده می‌شد)
-const defaultImage = "/images/hero2.webp";
+const defaultImage = "/images/hero.webp";
 ---
 
 <Layout title="نرم‌افزارها و ابزارها" description="مجموعه‌ای از نرم‌افزارهای کاربردی، ابزارهای مهندسی و محیط‌های توسعه تخصصی." 
@@ -55,7 +55,7 @@ const defaultImage = "/images/hero2.webp";
             const cleanSlug = entrySlug(software);
             const softwareImg = software.data.image || defaultImage;
             return (
-              <div class="bg-[var(--site-card)] border border-[var(--site-border)] rounded-2xl p-5 flex flex-col justify-between hover:border-[var(--site-primary)]/40 hover:shadow-md transition-all duration-300 shadow-xs">
+              <div class="card-stretched relative bg-[var(--site-card)] border border-[var(--site-border)] rounded-2xl p-5 flex flex-col justify-between hover:border-[var(--site-primary)]/40 hover:shadow-md transition-all duration-300 shadow-xs">
                 <div>
                   <div class="w-full aspect-video rounded-xl bg-[var(--site-bg)] mb-4 overflow-hidden border border-[var(--site-border)] relative group">
                     {typeof softwareImg === 'string' ? (
@@ -85,7 +85,7 @@ const defaultImage = "/images/hero2.webp";
                   </div>
 
                   <h3 class="text-base font-bold text-[var(--site-heading)] mb-2 line-clamp-2">
-                    <a href={`/softwares/${cleanSlug}/`} class="hover:text-[var(--site-primary)] transition">{software.data.title}</a>
+                    <a href={`/softwares/${cleanSlug}/`} class="stretched-card-link hover:text-[var(--site-primary)] transition">{software.data.title}</a>
                   </h3>
 
                   <p class="text-[var(--site-muted)] text-xs leading-relaxed line-clamp-3 mb-4">
@@ -95,7 +95,7 @@ const defaultImage = "/images/hero2.webp";
 
                 <div class="pt-4 border-t border-[var(--site-border)] flex items-center justify-between">
                   <span class="text-xs font-semibold text-[var(--site-accent)]">{software.data.price || "رایگان"}</span>
-                  <a href={`/softwares/${cleanSlug}/`} class="text-xs text-[var(--site-primary)] hover:opacity-80 font-medium inline-flex items-center gap-1 transition">
+                  <a href={`/softwares/${cleanSlug}/`} class="card-action-link text-xs text-[var(--site-primary)] hover:opacity-80 font-medium inline-flex items-center gap-1 transition">
                     <span>مشاهده و دانلود</span>
                     <i class="fa-solid fa-arrow-left text-[10px]"></i>
                   </a>

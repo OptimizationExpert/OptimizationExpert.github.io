@@ -1,3 +1,4 @@
 Sitemap: https://optexpert.org/sitemap-index.xml
 User-agent: *
 Allow: /
+Disallow: /admin/

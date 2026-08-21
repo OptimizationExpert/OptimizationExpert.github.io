@@ -1,0 +1,322 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  article?: boolean;
+  type?: 'website' | 'article' | 'course' | 'software' | 'book';
+  pubDate?: Date;
+  author?: string;
+  authorUrl?: string;
+  noindex?: boolean;
+  courseDetails?: {
+    duration?: string;
+    level?: string;
+    instructorName?: string;
+    instructorUrl?: string;
+    price?: string;
+    priceCurrency?: string;
+  };
+  softwareDetails?: {
+    category?: string;
+    version?: string;
+    operatingSystem?: string;
+    price?: string;
+  };
+  bookDetails?: {
+    category?: string;
+    format?: string;
+    pages?: number;
+    price?: string;
+  };
+  breadcrumbs?: { name: string; url?: string }[];
+}
+
+const siteName = 'Optimization Expert';
+const siteUrl = new URL(Astro.site || Astro.url.origin).origin;
+const organizationId = `${siteUrl}/#organization`;
+const websiteId = `${siteUrl}/#website`;
+const defaultDescription = 'مرجع تخصصی آموزش و محتوای کاربردی در مدل‌سازی ریاضی، بهینه‌سازی، برنامه‌نویسی پایتون و سیستم‌های قدرت';
+const defaultImage = '/images/hero2.webp';
+const organizationSameAs = [
+  'https://github.com/OptimizationExpert',
+  'https://t.me/pypyid',
+  'https://www.youtube.com/@optexpert-org',
+  'https://www.aparat.com/OptimizationOnline',
+];
+
+const {
+  title,
+  description = defaultDescription,
+  image = defaultImage,
+  article = false,
+  type,
+  pubDate,
+  author = 'Optimization Expert',
+  authorUrl,
+  noindex = false,
+  courseDetails,
+  softwareDetails,
+  bookDetails,
+  breadcrumbs,
+} = Astro.props;
+
+const pageType = type ?? (article ? 'article' : 'website');
+const pageTitle = title ? `${title} | ${siteName}` : siteName;
+const canonicalURL = new URL(Astro.url.pathname, siteUrl).href;
+const socialImageURL = new URL(image, siteUrl).href;
+const socialImageType = /\.jpe?g(?:$|[?#])/i.test(socialImageURL)
+  ? 'image/jpeg'
+  : /\.png(?:$|[?#])/i.test(socialImageURL)
+    ? 'image/png'
+    : /\.svg(?:$|[?#])/i.test(socialImageURL)
+      ? 'image/svg+xml'
+      : 'image/webp';
+const isHomePage = Astro.url.pathname === '/';
+const resolvedAuthorUrl = authorUrl ? new URL(authorUrl, siteUrl).href : undefined;
+const authorId = resolvedAuthorUrl ? `${resolvedAuthorUrl}#person` : organizationId;
+
+function normalizeDigits(value: string): string {
+  return value.replace(/[۰-۹]/g, (digit) => String('۰۱۲۳۴۵۶۷۸۹'.indexOf(digit)));
+}
+
+function toISODuration(text?: string): string | undefined {
+  if (!text) return undefined;
+  const normalized = normalizeDigits(text);
+  const match = normalized.match(/\d+(?:\.\d+)?/);
+  if (!match) return undefined;
+  const unit = [
+    ['ساعت', 'H'],
+    ['دقیقه', 'M'],
+    ['هفته', 'W'],
+    ['ماه', 'M'],
+    ['روز', 'D'],
+  ].find(([label]) => text.includes(label));
+  if (!unit) return undefined;
+  if (unit[0] === 'ماه') return `P${match[0]}M`;
+  if (unit[1] === 'H' || unit[1] === 'M') return `PT${match[0]}${unit[1]}`;
+  return `P${match[0]}${unit[1]}`;
+}
+
+function toOfferPrice(value?: string): string | undefined {
+  if (!value) return undefined;
+  const trimmed = value.trim().replace(/,/g, '');
+  if (/^(رایگان|free)$/i.test(trimmed)) return '0';
+  if (/^\d+(?:\.\d+)?$/.test(trimmed)) return trimmed;
+  return undefined;
+}
+
+function toBookFormat(text?: string): string | undefined {
+  if (!text) return undefined;
+  const value = text.toLowerCase();
+  if (value.includes('pdf') || value.includes('epub') || value.includes('الکترونیک')) return 'https://schema.org/EBook';
+  if (value.includes('چاپ') || value.includes('کاغذ') || value.includes('paperback')) return 'https://schema.org/Paperback';
+  if (value.includes('صوت') || value.includes('audio')) return 'https://schema.org/AudiobookFormat';
+  return undefined;
+}
+
+const organization = {
+  '@type': 'Organization',
+  '@id': organizationId,
+  name: siteName,
+  url: `${siteUrl}/`,
+  logo: `${siteUrl}/images/logo-512.png`,
+  sameAs: organizationSameAs,
+};
+
+const website = {
+  '@type': 'WebSite',
+  '@id': websiteId,
+  name: siteName,
+  url: `${siteUrl}/`,
+  description: defaultDescription,
+  publisher: { '@id': organizationId },
+  inLanguage: 'fa-IR',
+};
+
+const authorEntity = author && author !== siteName
+  ? {
+      '@type': 'Person',
+      '@id': authorId,
+      name: author,
+      ...(resolvedAuthorUrl ? { url: resolvedAuthorUrl } : {}),
+    }
+  : { '@id': organizationId };
+
+const breadcrumbSchema = breadcrumbs && breadcrumbs.length > 1
+  ? {
+      '@type': 'BreadcrumbList',
+      itemListElement: breadcrumbs.map((crumb, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        name: crumb.name,
+        ...(crumb.url ? { item: new URL(crumb.url, siteUrl).href } : {}),
+      })),
+    }
+  : undefined;
+
+const webpage = {
+  '@type': isHomePage ? 'WebPage' : 'WebPage',
+  '@id': `${canonicalURL}#webpage`,
+  url: canonicalURL,
+  name: title || siteName,
+  description,
+  isPartOf: { '@id': websiteId },
+  about: { '@id': organizationId },
+  inLanguage: 'fa-IR',
+};
+
+const contentEntity = (() => {
+  if (pageType === 'course') {
+    const offerPrice = toOfferPrice(courseDetails?.price);
+    const workload = toISODuration(courseDetails?.duration);
+    const instructorUrl = courseDetails?.instructorUrl
+      ? new URL(courseDetails.instructorUrl, siteUrl).href
+      : undefined;
+    const instructorId = instructorUrl ? `${instructorUrl}#person` : undefined;
+    return {
+      '@type': 'Course',
+      '@id': `${canonicalURL}#course`,
+      name: title,
+      description,
+      url: canonicalURL,
+      image: [socialImageURL],
+      inLanguage: 'fa-IR',
+      provider: { '@id': organizationId },
+      ...(courseDetails?.level ? { educationalLevel: courseDetails.level } : {}),
+      hasCourseInstance: {
+        '@type': 'CourseInstance',
+        courseMode: 'online',
+        ...(workload ? { courseWorkload: workload } : {}),
+        ...(instructorUrl ? {
+          instructor: {
+            '@type': 'Person',
+            '@id': instructorId,
+            name: courseDetails.instructorName,
+            url: instructorUrl,
+          },
+        } : {}),
+      },
+      ...(offerPrice ? {
+        offers: {
+          '@type': 'Offer',
+          price: offerPrice,
+          priceCurrency: courseDetails?.priceCurrency || 'IRR',
+          availability: 'https://schema.org/InStock',
+          url: canonicalURL,
+        },
+      } : {}),
+      mainEntityOfPage: { '@id': `${canonicalURL}#webpage` },
+    };
+  }
+
+  if (pageType === 'software') {
+    const offerPrice = toOfferPrice(softwareDetails?.price);
+    return {
+      '@type': 'SoftwareApplication',
+      '@id': `${canonicalURL}#software`,
+      name: title,
+      description,
+      image: [socialImageURL],
+      url: canonicalURL,
+      inLanguage: 'fa-IR',
+      ...(softwareDetails?.category ? { applicationCategory: softwareDetails.category } : {}),
+      ...(softwareDetails?.version ? { softwareVersion: softwareDetails.version } : {}),
+      ...(softwareDetails?.operatingSystem ? { operatingSystem: softwareDetails.operatingSystem } : {}),
+      ...(offerPrice ? {
+        offers: {
+          '@type': 'Offer',
+          price: offerPrice,
+          priceCurrency: 'IRR',
+          availability: 'https://schema.org/InStock',
+          url: canonicalURL,
+        },
+      } : {}),
+      mainEntityOfPage: { '@id': `${canonicalURL}#webpage` },
+    };
+  }
+
+  if (pageType === 'book') {
+    const offerPrice = toOfferPrice(bookDetails?.price);
+    const bookFormat = toBookFormat(bookDetails?.format);
+    return {
+      '@type': 'Book',
+      '@id': `${canonicalURL}#book`,
+      name: title,
+      description,
+      image: [socialImageURL],
+      url: canonicalURL,
+      inLanguage: 'fa-IR',
+      ...(bookDetails?.category ? { genre: bookDetails.category } : {}),
+      ...(bookFormat ? { bookFormat } : {}),
+      ...(bookDetails?.pages ? { numberOfPages: bookDetails.pages } : {}),
+      author: authorEntity,
+      ...(pubDate ? { datePublished: pubDate.toISOString() } : {}),
+      ...(offerPrice ? {
+        offers: {
+          '@type': 'Offer',
+          price: offerPrice,
+          priceCurrency: 'IRR',
+          availability: 'https://schema.org/InStock',
+          url: canonicalURL,
+        },
+      } : {}),
+      mainEntityOfPage: { '@id': `${canonicalURL}#webpage` },
+    };
+  }
+
+  if (pageType === 'article') {
+    return {
+      '@type': 'BlogPosting',
+      '@id': `${canonicalURL}#article`,
+      headline: title,
+      description,
+      image: [socialImageURL],
+      url: canonicalURL,
+      inLanguage: 'fa-IR',
+      author: authorEntity,
+      publisher: { '@id': organizationId },
+      ...(pubDate ? { datePublished: pubDate.toISOString() } : {}),
+      mainEntityOfPage: { '@id': `${canonicalURL}#webpage` },
+    };
+  }
+
+  return undefined;
+})();
+
+if (contentEntity && typeof contentEntity === 'object' && '@id' in contentEntity) {
+  webpage.mainEntity = { '@id': contentEntity['@id'] };
+}
+webpage.primaryImageOfPage = { '@type': 'ImageObject', contentUrl: socialImageURL };
+
+const graph = [organization, website, webpage, ...(contentEntity ? [contentEntity] : []), ...(breadcrumbSchema ? [breadcrumbSchema] : [])];
+---
+<title>{pageTitle}</title>
+<meta name="description" content={description} />
+<meta name="robots" content={noindex ? 'noindex, follow' : 'index, follow'} />
+<link rel="canonical" href={canonicalURL} />
+<meta name="max-image-preview" content="large" />
+<meta name="author" content={author} />
+
+<meta property="og:type" content={pageType === 'article' ? 'article' : 'website'} />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:title" content={pageTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={socialImageURL} />
+<meta property="og:image:alt" content={title || siteName} />
+<meta property="og:site_name" content={siteName} />
+<meta property="og:locale" content="fa_IR" />
+<meta property="og:image:type" content={socialImageType} />
+
+{pageType === 'article' && pubDate && (
+  <meta property="article:published_time" content={pubDate.toISOString()} />
+)}
+{pageType === 'article' && author && <meta property="article:author" content={resolvedAuthorUrl || author} />}
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={pageTitle} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={socialImageURL} />
+<meta name="twitter:image:alt" content={title || siteName} />
+
+<script type="application/ld+json" set:html={JSON.stringify({ '@context': 'https://schema.org', '@graph': graph })} />

@@ -1,0 +1,71 @@
+<svg viewBox="0 0 700 460" xmlns="http://www.w3.org/2000/svg">
+  <rect width="700" height="460" fill="#FFFFFF"/>
+
+  <text x="30" y="38" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="20" fill="#1E293B" font-weight="bold">Disaster Relief Network Design</text>
+  <text x="30" y="58" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="12" fill="#64748B">Emergency depot location + relief vehicle routing</text>
+
+  <!-- damaged road: hub to rejected depot -->
+  <line x1="350" y1="115" x2="350" y2="235" stroke="#EF4444" stroke-width="3" stroke-dasharray="8,6"/>
+  <g transform="translate(350,175)">
+    <line x1="-9" y1="-9" x2="9" y2="9" stroke="#EF4444" stroke-width="3"/>
+    <line x1="-9" y1="9" x2="9" y2="-9" stroke="#EF4444" stroke-width="3"/>
+  </g>
+
+  <!-- open roads: hub to depot 1 and depot 2 -->
+  <line x1="320" y1="110" x2="150" y2="185" stroke="#2563EB" stroke-width="3"/>
+  <line x1="380" y1="110" x2="560" y2="185" stroke="#2563EB" stroke-width="3"/>
+
+  <!-- routes: depot1 to villages -->
+  <line x1="150" y1="205" x2="60" y2="330" stroke="#F97316" stroke-width="2.5"/>
+  <line x1="150" y1="205" x2="150" y2="365" stroke="#F97316" stroke-width="2.5"/>
+
+  <!-- routes: depot2 to villages -->
+  <line x1="560" y1="205" x2="560" y2="330" stroke="#F97316" stroke-width="2.5"/>
+  <line x1="560" y1="205" x2="655" y2="365" stroke="#F97316" stroke-width="2.5"/>
+  <line x1="560" y1="205" x2="465" y2="385" stroke="#F97316" stroke-width="2.5"/>
+
+  <!-- regional hub -->
+  <rect x="310" y="60" width="80" height="52" rx="6" fill="#1D4ED8"/>
+  <text x="350" y="91" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="12" fill="#FFFFFF" text-anchor="middle" font-weight="bold">Regional</text>
+  <text x="350" y="106" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="12" fill="#FFFFFF" text-anchor="middle" font-weight="bold">Hub</text>
+
+  <!-- opened depots -->
+  <circle cx="150" cy="195" r="24" fill="#F97316"/>
+  <text x="150" y="200" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="12" fill="#FFFFFF" text-anchor="middle" font-weight="bold">D1</text>
+  <text x="150" y="235" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="11" fill="#334155" text-anchor="middle">Opened depot</text>
+
+  <circle cx="560" cy="195" r="24" fill="#F97316"/>
+  <text x="560" y="200" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="12" fill="#FFFFFF" text-anchor="middle" font-weight="bold">D2</text>
+  <text x="560" y="235" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="11" fill="#334155" text-anchor="middle">Opened depot</text>
+
+  <!-- rejected candidate depot -->
+  <circle cx="350" cy="255" r="18" fill="#FFFFFF" stroke="#94A3B8" stroke-width="2.5" stroke-dasharray="4,3"/>
+  <text x="350" y="260" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="10" fill="#94A3B8" text-anchor="middle">D3</text>
+  <text x="350" y="290" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="11" fill="#94A3B8" text-anchor="middle">Not opened</text>
+
+  <!-- affected villages -->
+  <circle cx="60" cy="335" r="9" fill="#DC2626"/>
+  <circle cx="150" cy="372" r="9" fill="#DC2626"/>
+  <circle cx="560" cy="337" r="9" fill="#DC2626"/>
+  <circle cx="655" cy="372" r="9" fill="#DC2626"/>
+  <circle cx="465" cy="392" r="9" fill="#DC2626"/>
+
+  <text x="60" y="358" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="10" fill="#334155" text-anchor="middle">Village A</text>
+  <text x="150" y="395" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="10" fill="#334155" text-anchor="middle">Village B</text>
+  <text x="560" y="360" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="10" fill="#334155" text-anchor="middle">Village C</text>
+  <text x="655" y="395" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="10" fill="#334155" text-anchor="middle">Village D</text>
+  <text x="465" y="415" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="10" fill="#334155" text-anchor="middle">Village E</text>
+
+  <!-- legend -->
+  <rect x="30" y="415" width="14" height="14" fill="#1D4ED8" rx="2"/>
+  <text x="50" y="426" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="11" fill="#334155">Regional hub</text>
+
+  <circle cx="197" cy="422" r="7" fill="#F97316"/>
+  <text x="210" y="426" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="11" fill="#334155">Opened depot</text>
+
+  <circle cx="330" cy="422" r="7" fill="#FFFFFF" stroke="#94A3B8" stroke-width="2"/>
+  <text x="343" y="426" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="11" fill="#334155">Rejected depot</text>
+
+  <line x1="470" y1="422" x2="495" y2="422" stroke="#EF4444" stroke-width="3" stroke-dasharray="5,4"/>
+  <text x="502" y="426" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="11" fill="#334155">Damaged road</text>
+</svg>

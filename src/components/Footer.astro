@@ -1,5 +1,26 @@
 ---
 // Footer.astro
+import { getCollection } from 'astro:content';
+import { isPublished } from '../utils/content';
+import { buildTagIndex, MIN_HUB_USES } from '../utils/tags';
+
+const [courses, projects, notes, index] = await Promise.all([
+  getCollection('courses', isPublished),
+  getCollection('projects', isPublished),
+  getCollection('notes', isPublished),
+  buildTagIndex(),
+]);
+
+const topTags = [...index.values()]
+  .filter(b => b.items.length >= MIN_HUB_USES)
+  .sort((a, b) => b.items.length - a.items.length)
+  .slice(0, 6);
+
+const stats = [
+  { icon: 'fa-graduation-cap', value: courses.length, label: 'دوره' },
+  { icon: 'fa-layer-group', value: projects.length, label: 'پروژه' },
+  { icon: 'fa-pen-nib', value: notes.length, label: 'یادداشت' },
+];
 ---
 
 <footer
@@ -46,6 +67,28 @@
         تحلیل شبکه‌های قدرت و ارائه راهکارهای مهندسی با رویکردی
         کاملاً کاربردی و پروژه‌محور.
       </p>
+
+      <div class="flex items-center gap-5 sm:gap-6 pt-1">
+        {stats.map(s => (
+          <div class="flex items-center gap-2">
+            <i class={`fa-solid ${s.icon} text-[var(--site-primary)] text-xs`} aria-hidden="true"></i>
+            <span class="text-xs font-bold text-[var(--site-heading)]">{s.value}<span class="text-[var(--site-muted)] font-medium mr-1">{s.label}</span></span>
+          </div>
+        ))}
+      </div>
+
+      {topTags.length > 0 && (
+        <div class="pt-1">
+          <p class="text-[10px] font-bold text-[var(--site-muted)] uppercase tracking-widest mb-2.5">پرکاربردترین تگ‌ها</p>
+          <div class="flex flex-wrap gap-2">
+            {topTags.map(t => (
+              <a href={`/tags/${t.slug}/`} class="text-[11px] font-bold text-[var(--site-text)] bg-[var(--site-bg)] border border-[var(--site-border)] hover:border-[var(--site-primary)]/50 hover:text-[var(--site-primary)] px-2.5 py-1 rounded-full transition-colors">
+                #{t.name}
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
 
 
@@ -355,7 +398,7 @@
         aria-label="آپارات"
       >
         <!--
-          استفاده از mask باعث می‌شود:
+          کلاس .aparat-icon-mask (تعریف‌شده در global.css) باعث می‌شود:
           1. شکل واقعی لوگوی آپارات حفظ شود.
           2. رنگ لوگو از currentColor گرفته شود.
           3. در حالت عادی همان رنگ سایر آیکون‌ها باشد.
@@ -363,18 +406,8 @@
           5. دیگر مربع توپر نمایش داده نشود.
         -->
         <span
-          class="w-[18px] h-[18px] bg-current transition-transform duration-300 group-hover:scale-110"
+          class="aparat-icon-mask transition-transform duration-300 group-hover:scale-110"
           aria-hidden="true"
-          style="
-            -webkit-mask-image: url('/aparat_logo.svg');
-            mask-image: url('/aparat_logo.svg');
-            -webkit-mask-size: contain;
-            mask-size: contain;
-            -webkit-mask-repeat: no-repeat;
-            mask-repeat: no-repeat;
-            -webkit-mask-position: center;
-            mask-position: center;
-          "
         ></span>
       </a>
 

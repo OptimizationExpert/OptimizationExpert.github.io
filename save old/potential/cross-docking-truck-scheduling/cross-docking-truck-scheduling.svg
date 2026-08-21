@@ -1,0 +1,107 @@
+<svg viewBox="0 0 800 460" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="800" height="460" fill="#ffffff"/>
+
+  <!-- Cross-dock terminal building -->
+  <rect x="220" y="120" width="360" height="160" fill="#eef2f7" stroke="#334155" stroke-width="3"/>
+  <text x="400" y="105" text-anchor="middle" font-size="18" font-weight="bold" fill="#1e293b">پایانه کراس‌داک</text>
+
+  <!-- Doors on left (inbound) -->
+  <rect x="220" y="140" width="14" height="30" fill="#0ea5e9"/>
+  <rect x="220" y="185" width="14" height="30" fill="#0ea5e9"/>
+  <rect x="220" y="230" width="14" height="30" fill="#0ea5e9"/>
+  <text x="150" y="160" font-size="13" fill="#0369a1">درب ۱</text>
+  <text x="150" y="205" font-size="13" fill="#0369a1">درب ۲</text>
+  <text x="150" y="250" font-size="13" fill="#0369a1">درب ۳</text>
+
+  <!-- Doors on right (outbound) -->
+  <rect x="566" y="140" width="14" height="30" fill="#f59e0b"/>
+  <rect x="566" y="185" width="14" height="30" fill="#f59e0b"/>
+  <rect x="566" y="230" width="14" height="30" fill="#f59e0b"/>
+  <text x="600" y="160" font-size="13" fill="#b45309">درب ۴</text>
+  <text x="600" y="205" font-size="13" fill="#b45309">درب ۵</text>
+  <text x="600" y="250" font-size="13" fill="#b45309">درب ۶</text>
+
+  <!-- Inbound trucks -->
+  <g transform="translate(40,148)">
+    <rect x="0" y="0" width="70" height="30" rx="4" fill="#0ea5e9"/>
+    <rect x="60" y="6" width="16" height="18" rx="2" fill="#0284c7"/>
+    <circle cx="15" cy="32" r="6" fill="#1e293b"/>
+    <circle cx="55" cy="32" r="6" fill="#1e293b"/>
+    <text x="35" y="20" text-anchor="middle" font-size="11" fill="#ffffff">IN-1</text>
+  </g>
+  <g transform="translate(40,193)">
+    <rect x="0" y="0" width="70" height="30" rx="4" fill="#0ea5e9"/>
+    <rect x="60" y="6" width="16" height="18" rx="2" fill="#0284c7"/>
+    <circle cx="15" cy="32" r="6" fill="#1e293b"/>
+    <circle cx="55" cy="32" r="6" fill="#1e293b"/>
+    <text x="35" y="20" text-anchor="middle" font-size="11" fill="#ffffff">IN-2</text>
+  </g>
+  <g transform="translate(40,238)">
+    <rect x="0" y="0" width="70" height="30" rx="4" fill="#0ea5e9"/>
+    <rect x="60" y="6" width="16" height="18" rx="2" fill="#0284c7"/>
+    <circle cx="15" cy="32" r="6" fill="#1e293b"/>
+    <circle cx="55" cy="32" r="6" fill="#1e293b"/>
+    <text x="35" y="20" text-anchor="middle" font-size="11" fill="#ffffff">IN-3</text>
+  </g>
+
+  <!-- Outbound trucks -->
+  <g transform="translate(690,148)">
+    <rect x="0" y="0" width="70" height="30" rx="4" fill="#f59e0b"/>
+    <rect x="-6" y="6" width="16" height="18" rx="2" fill="#d97706"/>
+    <circle cx="15" cy="32" r="6" fill="#1e293b"/>
+    <circle cx="55" cy="32" r="6" fill="#1e293b"/>
+    <text x="35" y="20" text-anchor="middle" font-size="11" fill="#ffffff">OUT-1</text>
+  </g>
+  <g transform="translate(690,193)">
+    <rect x="0" y="0" width="70" height="30" rx="4" fill="#f59e0b"/>
+    <rect x="-6" y="6" width="16" height="18" rx="2" fill="#d97706"/>
+    <circle cx="15" cy="32" r="6" fill="#1e293b"/>
+    <circle cx="55" cy="32" r="6" fill="#1e293b"/>
+    <text x="35" y="20" text-anchor="middle" font-size="11" fill="#ffffff">OUT-2</text>
+  </g>
+  <g transform="translate(690,238)">
+    <rect x="0" y="0" width="70" height="30" rx="4" fill="#f59e0b"/>
+    <rect x="-6" y="6" width="16" height="18" rx="2" fill="#d97706"/>
+    <circle cx="15" cy="32" r="6" fill="#1e293b"/>
+    <circle cx="55" cy="32" r="6" fill="#1e293b"/>
+    <text x="35" y="20" text-anchor="middle" font-size="11" fill="#ffffff">OUT-3</text>
+  </g>
+
+  <!-- connecting lines (flow of pallets) -->
+  <line x1="110" y1="163" x2="220" y2="155" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="110" y1="208" x2="220" y2="200" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="110" y1="253" x2="220" y2="245" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="580" y1="155" x2="690" y2="163" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="580" y1="200" x2="690" y2="208" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="580" y1="245" x2="690" y2="253" stroke="#94a3b8" stroke-width="2"/>
+
+  <!-- pallet flow inside terminal -->
+  <rect x="280" y="165" width="20" height="20" fill="#22c55e"/>
+  <rect x="330" y="200" width="20" height="20" fill="#22c55e"/>
+  <rect x="280" y="235" width="20" height="20" fill="#22c55e"/>
+  <line x1="300" y1="175" x2="470" y2="150" stroke="#16a34a" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <line x1="340" y1="210" x2="470" y2="195" stroke="#16a34a" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <line x1="300" y1="245" x2="470" y2="240" stroke="#16a34a" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+  <!-- Gantt schedule strip at bottom -->
+  <text x="400" y="320" text-anchor="middle" font-size="15" font-weight="bold" fill="#1e293b">زمان‌بندی درب‌ها</text>
+  <g transform="translate(150,335)">
+    <rect x="0" y="0" width="500" height="16" fill="#f1f5f9" stroke="#cbd5e1"/>
+    <text x="-30" y="12" font-size="12" fill="#334155">درب ۱</text>
+    <rect x="10" y="1" width="90" height="14" fill="#0ea5e9"/>
+
+    <rect x="0" y="24" width="500" height="16" fill="#f1f5f9" stroke="#cbd5e1"/>
+    <text x="-30" y="36" font-size="12" fill="#334155">درب ۲</text>
+    <rect x="30" y="25" width="100" height="14" fill="#0ea5e9"/>
+
+    <rect x="0" y="48" width="500" height="16" fill="#f1f5f9" stroke="#cbd5e1"/>
+    <text x="-30" y="60" font-size="12" fill="#334155">درب ۴</text>
+    <rect x="120" y="49" width="120" height="14" fill="#f59e0b"/>
+
+    <rect x="0" y="72" width="500" height="16" fill="#f1f5f9" stroke="#cbd5e1"/>
+    <text x="-30" y="84" font-size="12" fill="#334155">درب ۵</text>
+    <rect x="180" y="73" width="110" height="14" fill="#f59e0b"/>
+  </g>
+
+  <text x="400" y="445" text-anchor="middle" font-size="13" fill="#64748b">کامیون ورودی، تخصیص درب و انتقال پالت به کامیون خروجی</text>
+</svg>

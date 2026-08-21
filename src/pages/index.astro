@@ -6,134 +6,346 @@ import ContentCard from '../components/ContentCard.astro';
 import HorizontalScroller from '../components/HorizontalScroller.astro';
 import ScrollerControls from '../components/ScrollerControls.astro';
 
-const rawCourses = await getCollection('courses', isPublished);
-const rawProjects = await getCollection('projects', isPublished);
-const rawNotes = await getCollection('notes', isPublished);
+/* ────────────── داده‌ها ────────────── */
 
-const sortByDateDesc = (items: any[]) => {
-  return [...items].sort((a, b) => {
+const rawCourses   = await getCollection('courses', isPublished);
+const rawProjects  = await getCollection('projects', isPublished);
+const rawNotes     = await getCollection('notes', isPublished);
+const rawBooks     = await getCollection('books', isPublished);
+const rawSoftwares = await getCollection('softwares', isPublished);
+
+const sortByDateDesc = (items: any[]) =>
+  [...items].sort((a, b) => {
     const dateA = new Date(a.data.pubDate || a.data.date || a.data.createdDate || 0).getTime();
     const dateB = new Date(b.data.pubDate || b.data.date || b.data.createdDate || 0).getTime();
     return dateB - dateA;
   });
+
+const courses  = sortByDateDesc(rawCourses);
+const projects = sortByDateDesc(rawProjects);
+const notes    = sortByDateDesc(rawNotes);
+
+const defaultImage = '/images/hero.webp';
+
+const stats = [
+  { icon: 'fa-graduation-cap', value: rawCourses.length,   label: 'دوره آموزشی',   accent: '#2dd4bf', href: '/courses/' },
+  { icon: 'fa-layer-group',    value: rawProjects.length,  label: 'پروژه مهندسی',  accent: '#38bdf8', href: '/projects/' },
+  { icon: 'fa-pen-nib',        value: rawNotes.length,     label: 'یادداشت تخصصی', accent: '#a78bfa', href: '/notes/' },
+  { icon: 'fa-book-open',      value: rawBooks.length,     label: 'کتاب و جزوه',   accent: '#fbbf24', href: '/books/' },
+  { icon: 'fa-download',       value: rawSoftwares.length, label: 'نرم‌افزار',     accent: '#fb923c', href: '/softwares/' },
+];
+
+/* ────────────── صحنه‌ی هیرو: حوزه‌ها + مدل ریاضی (LaTeX → KaTeX) ────────────── */
+
+const sceneSectors = [
+  {
+    icon: 'fa-bolt', label: 'برق و انرژی', tag: 'OPF', color: '#fbbf24', name: 'Optimal Power Flow',
+    model: {
+      obj:  String.raw`\min \sum\limits_{i \in \mathcal{G}} C_i(P_i^G)`,
+      cons: [
+        String.raw`P_i^G - P_i^D = \sum\limits_j V_i V_j (G_{ij}\cos\theta_{ij} + B_{ij}\sin\theta_{ij})`,
+        String.raw`V^{\min} \le V_i \le V^{\max}, \quad |S_\ell| \le S_\ell^{\max}`,
+      ],
+    },
+  },
+  {
+    icon: 'fa-heart-pulse', label: 'بهداشت و درمان', tag: 'NSP', color: '#f472b6', name: 'Nurse Scheduling Problem',
+    model: {
+      obj:  String.raw`\min \sum\limits_{n}\sum\limits_{s}\sum\limits_{d} c_{nsd}\, x_{nsd}`,
+      cons: [
+        String.raw`\sum\limits_{n} x_{nsd} \ge \mathrm{req}_{sd} \quad \forall (s,d)`,
+        String.raw`\sum\limits_{s,d} x_{nsd} \le H_n^{\max} \quad \forall n`,
+      ],
+    },
+  },
+  {
+    icon: 'fa-truck-fast', label: 'لجستیک و ناوگان', tag: 'VRP', color: '#34d399', name: 'Vehicle Routing Problem',
+    model: {
+      obj:  String.raw`\min \sum\limits_{k}\sum\limits_{i}\sum\limits_{j} c_{ij}\, x_{ij}^{k}`,
+      cons: [
+        String.raw`\sum\limits_{k}\sum\limits_{j} x_{ij}^{k} = 1 \quad \forall i \in \mathcal{C}`,
+        String.raw`\sum\limits_{i} q_i\, y_i^{k} \le Q^{k} \quad \forall k`,
+      ],
+    },
+  },
+  {
+    icon: 'fa-car-side', label: 'حمل‌ونقل', tag: 'TAP', color: '#38bdf8', name: 'Traffic Assignment Problem',
+    model: {
+      obj:  String.raw`\min \sum\limits_{a} \int_{0}^{x_a} t_a(w)\, dw`,
+      cons: [
+        String.raw`\sum\limits_{p} f_p^{rs} = d_{rs} \quad \forall (r,s)`,
+        String.raw`x_a = \sum\limits_{r,s}\sum\limits_{p} \delta_{ap}^{rs}\, f_p^{rs}`,
+      ],
+    },
+  },
+  {
+    icon: 'fa-industry', label: 'صنعت و تولید', tag: 'JSP', color: '#a78bfa', name: 'Job-Shop Scheduling',
+    model: {
+      obj:  String.raw`\min \; C_{\max}`,
+      cons: [
+        String.raw`S_j \ge S_i + p_i \quad \forall (i \to j)`,
+        String.raw`S_i + p_i \le S_j \;\lor\; S_j + p_j \le S_i`,
+      ],
+    },
+  },
+  {
+    icon: 'fa-boxes-stacked', label: 'زنجیره تامین', tag: 'SCM', color: '#fb923c', name: 'Supply Chain Network Design',
+    model: {
+      obj:  String.raw`\min \sum\limits_{f} F_f\, z_f + \sum\limits_{i,j} c_{ij}\, x_{ij}`,
+      cons: [
+        String.raw`\sum\limits_{j} x_{ij} - \sum\limits_{j} x_{ji} = b_i \quad \forall i`,
+        String.raw`x_{ij} \le u_{ij}\, z_f \quad \forall (i,j)`,
+      ],
+    },
+  },
+];
+
+/* مدل کلی بهینه‌سازی — نمایش با هاور روی دایره‌ی مرکزی */
+const generalModel = {
+  tag: 'OPT', label: 'مدل کلی بهینه‌سازی', color: '#f59e0b', name: 'General Optimization Model',
+  model: {
+    obj:  String.raw`\min\limits_{x \in \mathbb{R}^n} \; f(x)`,
+    cons: [
+      String.raw`g_i(x) \le 0, \quad i = 1,\dots,m`,
+      String.raw`h_j(x) = 0, \quad j = 1,\dots,p`,
+    ],
+  },
 };
 
-const courses = sortByDateDesc(rawCourses);
-const projects = sortByDateDesc(rawProjects);
-const notes = sortByDateDesc(rawNotes);
+/* ────────────── هندسه‌ی صحنه (SVG) ────────────── */
 
-const defaultImage = "/images/hero2.webp";
+const VB_MIN = -25, VB_SIZE = 150;
+const pct = (v: number) => +(((v - VB_MIN) / VB_SIZE) * 100).toFixed(2);
+
+const R_NODE = 54, R_TAG = 34, R_CONNECTOR_OUT = 54, R_CONNECTOR_IN = 22;
+
+const angleOf = (i: number) => -Math.PI / 2 + (i / sceneSectors.length) * Math.PI * 2;
+const pt = (r: number, a: number): [number, number] => [
+  +(50 + r * Math.cos(a)).toFixed(2),
+  +(50 + r * Math.sin(a)).toFixed(2),
+];
+
+const scene = sceneSectors.map((s, i) => {
+  const a = angleOf(i);
+  const [x, y]       = pt(R_NODE, a);
+  const [tx, ty]     = pt(R_TAG, a);
+  const [xOut, yOut] = pt(R_CONNECTOR_OUT, a);
+  const [xIn, yIn]   = pt(R_CONNECTOR_IN, a);
+  return {
+    ...s, x, y, tx, ty,
+    lx: pct(x), ly: pct(y),
+    connector: { x1: xOut, y1: yOut, x2: xIn, y2: yIn },
+  };
+});
+
+const ticks = Array.from({ length: 48 }, (_, i) => {
+  const a = (i / 48) * Math.PI * 2;
+  const r1 = 57, r2 = i % 4 === 0 ? 59 : 58;
+  const [x1, y1] = pt(r1, a);
+  const [x2, y2] = pt(r2, a);
+  return { x1, y1, x2, y2, major: i % 4 === 0 };
+});
+
+const hexPath = sceneSectors.map((_, i) => {
+  const [x, y] = pt(45, angleOf(i));
+  return `${i === 0 ? 'M' : 'L'} ${x} ${y}`;
+}).join(' ') + ' Z';
+
+/* ────────────── پی‌لود مدل‌ها برای اسکریپت کنسول (تک‌منبع) ────────────── */
+
+const modelPayload = scene.map(({ tag, label, color, name, model }) => ({ tag, label, color, name, model }));
 ---
 
 <Layout title="مرجع تخصصی مدل‌سازی، بهینه‌سازی و سیستم‌های قدرت" description="مرجع تخصصی مدل‌سازی ریاضی، برنامه‌نویسی پایتون، سالورهای بهینه‌سازی و تحلیل سیستم‌های قدرت به صورت پروژه‌محور.">
-   
-  <!-- ۱. بخش بنر (Hero Section) با نسبت 16:9 و ارتفاع فشرده و کنترل‌شده -->
-  <section class="w-full relative overflow-hidden bg-slate-950 h-[220px] xs:h-[260px] sm:h-[320px] md:h-[380px] lg:h-[420px] flex items-center justify-center">
-    
-    <!-- تصویر اصلی با پوشش کامل -->
-    <img 
-      src={defaultImage} 
-      alt="مرجع تخصصی مدل‌سازی و بهینه‌سازی" 
-      fetchpriority="high"
-      class="absolute inset-0 w-full h-full object-cover object-center pointer-events-none z-0 brightness-90" 
-    />
-    
-    <!-- محتوای روی تصویر -->
-    <div class="relative z-20 w-full max-w-5xl mx-auto px-3 xs:px-4 sm:px-6 flex flex-col items-center justify-center text-center space-y-2.5 sm:space-y-3.5">
-        
-      <!-- نشان‌گر -->
-      <div class="inline-flex items-center gap-1.5 xs:gap-2 text-[10px] xs:text-[11px] sm:text-xs font-bold text-white bg-slate-950/70 backdrop-blur-md px-3.5 py-1 sm:px-4 sm:py-1.5 rounded-full border border-white/20 shadow-lg">
-        <i class="fa-solid fa-bolt text-[var(--site-gold)] text-xs sm:text-sm shrink-0"></i>
-        <span class="truncate">مرجع تخصصی مدل‌سازی، بهینه‌سازی و سیستم‌های قدرت</span>
-      </div>
 
-      <h1 class="sr-only">مرجع تخصصی مدل‌سازی، بهینه‌سازی و سیستم‌های قدرت</h1>
+  <!-- ═══════════ هیرو ═══════════ -->
+  <section id="hero-section" class="hero-section">
 
-      <!-- تیتر اصلی -->
-      <div class="min-h-[1.75rem] xs:min-h-[2rem] sm:min-h-[2.25rem] flex items-center justify-center w-full" aria-hidden="true">
-        <div class="text-sm xs:text-base sm:text-xl md:text-2xl lg:text-3xl font-black tracking-tight leading-snug text-white drop-shadow-[0_4px_12px_rgba(0,0,0,1)]">
-          <span id="typewriter-output"></span>
+    <div class="hero-deco" aria-hidden="true">
+      <div class="hero-deco-orb hero-deco-orb-1"></div>
+      <div class="hero-deco-orb hero-deco-orb-2"></div>
+      <div class="hero-deco-orb hero-deco-orb-3"></div>
+    </div>
+    <div class="hero-grid" aria-hidden="true"></div>
+
+    <div class="hero-content">
+      <div class="hero-grid-layout">
+
+        <!-- ستون متن -->
+        <div class="hero-text-col">
+
+          <div class="hero-fade-in" style="animation-delay:.05s">
+            <div class="hero-badge">
+              <span class="hero-badge-dot">
+                <span class="hero-badge-dot-ping"></span>
+                <span class="hero-badge-dot-core"></span>
+              </span>
+              <span>مدیریت هوشمند زیرساخت‌ها با بهینه‌سازی ریاضی</span>
+            </div>
+          </div>
+
+          <h1 id="hero-h1" class="hero-fade-in hero-title" style="animation-delay:.15s">
+            <span id="typewriter-sizer" aria-hidden="true" class="tw-sizer">ابتدا <span class="gold-shimmer font-black inline-block mx-0.5">مدل‌سازی درست</span>، سپس حل بهینه</span>
+            <span id="typewriter-output" class="tw-output">ابتدا <span class="gold-shimmer font-black inline-block mx-0.5">مدل‌سازی درست</span>، سپس حل بهینه</span>
+          </h1>
+
+          <p class="hero-fade-in hero-desc" style="animation-delay:.25s">
+            انتقال و توزیع برق، بهداشت و درمان، حمل‌ونقل، لجستیک و زنجیره تامین — هر مسئله‌ی واقعی اول یک
+            <span class="hero-desc-accent-1">مدل ریاضی دقیق</span>
+            می‌خواهد و بعد یک
+            <span class="hero-desc-accent-2">حل بهینه</span>.
+            ما هر دو را کاملاً پروژه‌محور آموزش می‌دهیم.
+          </p>
+
+          <div class="hero-fade-in hero-btns" style="animation-delay:.35s">
+            <a href="/courses/" class="hero-btn hero-btn-primary">
+              <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
+              <span>مشاهده دوره‌های آموزشی</span>
+            </a>
+            <a href="/consultation/" class="hero-btn hero-btn-secondary">
+              <i class="fa-solid fa-comments" aria-hidden="true"></i>
+              <span>درخواست مشاوره تخصصی</span>
+            </a>
+          </div>
+
+          <div class="hero-fade-in hero-stats" style="animation-delay:.45s">
+            {stats.map((s) => (
+              <a href={s.href} class="hero-stat-card flex flex-col items-center justify-center text-center" style={`--accent:${s.accent}`}>
+                <div class="hero-stat-icon" style={`background:${s.accent}18; border:1px solid ${s.accent}40;`}>
+                  <i class={`fa-solid ${s.icon}`} style={`color:${s.accent}`} aria-hidden="true"></i>
+                </div>
+                <p class="hero-stat-value counter-value" data-target={s.value}>0</p>
+                <p class="hero-stat-label text-center leading-tight">{s.label}</p>
+              </a>
+            ))}
+          </div>
         </div>
-      </div>
 
-      <!-- توضیحات با عرض کمتر و وسط‌چین‌شده -->
-      <p class="text-white text-[15px] xs:text-xs sm:text-sm md:text-base max-w-lg mx-auto text-center leading-relaxed font-semibold [text-shadow:_0_2px_4px_rgb(0_0_0_/_90%),_0_0_16px_rgb(0_0_0_/_70%)] px-2">
-        توسعه مدل‌های ریاضی پیشرفته، سالورهای بهینه‌سازی در پایتون، و تحلیل شبکه‌های قدرت با رویکردی کاملاً کاربردی و پروژه‌محور.
-      </p>
+        <!-- ستون صحنه + کنسول مدل -->
+        <div class="hero-scene-col hero-fade-in" style="animation-delay:.2s">
 
-      <!-- دکمه‌ها -->
-      <div class="flex flex-row items-center justify-center gap-2 sm:gap-3 pt-1 w-full max-w-md sm:max-w-lg mx-auto">
-        <a href="/courses/" class="flex-1 bg-gradient-to-r from-[var(--site-primary)] to-[var(--site-secondary)] hover:brightness-110 text-white font-bold px-3 py-2 sm:px-6 sm:py-2.5 rounded-xl transition-transform duration-200 hover:-translate-y-0.5 text-[10px] xs:text-xs sm:text-sm flex items-center justify-center gap-1.5 sm:gap-2 border border-[var(--site-primary)]/30 shadow-xl truncate">
-          <i class="fa-solid fa-graduation-cap text-xs sm:text-sm text-white/90 shrink-0"></i>
-          <span class="truncate">مشاهده دوره‌های آموزشی</span>
-        </a>
-        
-        <a href="/consultation/" class="flex-1 relative bg-slate-950/85 hover:bg-slate-900/95 text-white font-bold px-3 py-2 sm:px-6 sm:py-2.5 rounded-xl transition-transform duration-200 hover:-translate-y-0.5 border border-[var(--site-gold)]/80 text-[10px] xs:text-xs sm:text-sm flex items-center justify-center gap-1.5 sm:gap-2 shadow-xl backdrop-blur-md truncate">
-          <span class="absolute inset-x-0 bottom-0 h-[2px] bg-gradient-to-r from-transparent via-[var(--site-gold)] to-transparent opacity-80"></span>
-          <i class="fa-solid fa-comments text-[var(--site-gold)] text-xs sm:text-sm relative z-10 shrink-0"></i>
-          <span class="relative z-10 truncate">درخواست مشاوره تخصصی</span>
-        </a>
+          <div class="scene-wrapper">
+            <div class="scene-glow" aria-hidden="true"></div>
+
+            <svg viewBox="-25 -25 150 150" class="scene-svg" aria-hidden="true">
+              <defs>
+                <radialGradient id="coreGlow" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="#fbbf24" stop-opacity="0.9" />
+                  <stop offset="100%" stop-color="#fbbf24" stop-opacity="0" />
+                </radialGradient>
+                <linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#2dd4bf" />
+                  <stop offset=".5" stop-color="#38bdf8" />
+                  <stop offset="1" stop-color="#2dd4bf" />
+                </linearGradient>
+                <filter id="softBlur" x="-40%" y="-40%" width="180%" height="180%">
+                  <feGaussianBlur stdDeviation="1.3" />
+                </filter>
+                <filter id="glow" filterUnits="userSpaceOnUse" x="-25" y="-25" width="150" height="150">
+                  <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+                  <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                </filter>
+                <filter id="strongGlow" filterUnits="userSpaceOnUse" x="-25" y="-25" width="150" height="150">
+                  <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                  <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                </filter>
+              </defs>
+
+              <circle cx="50" cy="50" r="54" fill="none" stroke="#2dd4bf" stroke-width="2.2" opacity=".15" filter="url(#softBlur)" />
+              <circle cx="50" cy="50" r="58" fill="none" stroke="#2dd4bf" stroke-opacity=".12" stroke-width=".7" />
+
+              {ticks.map(t => (
+                <line x1={t.x1} y1={t.y1} x2={t.x2} y2={t.y2} stroke="#5eead4" stroke-width={t.major ? '.6' : '.3'} opacity={t.major ? '.6' : '.3'} />
+              ))}
+
+              <circle cx="50" cy="50" r="54" fill="none" stroke="url(#ringGrad)" stroke-width="1.2" opacity=".9" filter="url(#strongGlow)" />
+              <circle class="scene-ring-cw" cx="50" cy="50" r="48" fill="none" stroke="#5eead4" stroke-width=".5" stroke-dasharray="2 4" opacity=".4" />
+              <circle class="scene-ring-ccw" cx="50" cy="50" r="34" fill="none" stroke="#38bdf8" stroke-width=".4" stroke-dasharray="5 7" opacity=".3" />
+
+              <path d={hexPath} fill="none" stroke="#38bdf8" stroke-width=".4" opacity=".2" />
+
+              <g class="scene-connectors" aria-hidden="true">
+                {scene.map((g) => (
+                  <line
+                    x1={g.connector.x1} y1={g.connector.y1}
+                    x2={g.connector.x2} y2={g.connector.y2}
+                    stroke={g.color} stroke-opacity="0.95" stroke-width="1.6"
+                    stroke-linecap="round" filter="url(#glow)"
+                  />
+                ))}
+              </g>
+
+              {scene.map((g) => (
+                <circle cx={g.x} cy={g.y} r="2" fill="#1e293b" stroke={g.color} stroke-width=".6" opacity=".9" filter="url(#glow)" />
+              ))}
+
+              {scene.map((g) => (
+                <text x={g.tx} y={g.ty} text-anchor="middle" font-size="2.7" fill={g.color} opacity=".95" stroke="#0f172a" stroke-width="1" paint-order="stroke" font-family="ui-monospace, monospace" font-weight="800" filter="url(#glow)">{g.tag}</text>
+              ))}
+
+              <circle cx="50" cy="50" r="24" fill="url(#coreGlow)" />
+              <circle cx="50" cy="50" r="22" class="hero-core-circle" stroke-width="1" filter="url(#strongGlow)" />
+
+              <g>
+                <circle cx="50" cy="50" r="24" fill="none" stroke-width="1" stroke-dasharray="15 10" opacity="0.95" stroke-linecap="round" class="hero-orbit-ring" />
+                <animateTransform attributeName="transform" type="rotate" from="360 50 50" to="0 50 50" dur="9s" repeatCount="indefinite" />
+              </g>
+
+              <text class="hero-formula-text" x="50" y="51.5" text-anchor="middle" font-size="4.2" font-style="italic" font-family="Georgia, 'Times New Roman', serif" font-weight="700">optexpert.org</text>
+
+              <!-- ناحیه‌ی هاور هسته‌ی مرکزی: نمایش مدل کلی بهینه‌سازی -->
+              <circle class="scene-core-hit" cx="50" cy="50" r="25" fill="transparent">
+                <title>مدل کلی بهینه‌سازی</title>
+              </circle>
+            </svg>
+
+            {scene.map((g, i) => (
+              <div class="scene-chip-wrap" style={`left:${g.lx}%; top:${g.ly}%; --c:${g.color}`}>
+                <div class="scene-chip" style={`flex-direction: ${g.y < 50 ? 'column-reverse' : 'column'}; animation-delay:${i * 0.7}s`}>
+                  <span class="scene-chip-icon" style={`border-color:${g.color}70; box-shadow:0 2px 10px ${g.color}25;`}>
+                    <i class={`fa-solid ${g.icon}`} style={`color:${g.color}`} aria-hidden="true"></i>
+                  </span>
+                  <span class="scene-chip-label">{g.label}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <!-- کنسول مدل: فرمول‌بندی ریاضی مسائل (رندر واقعی با KaTeX) -->
+          <div
+            class="model-console"
+            id="model-console"
+            data-models={JSON.stringify(modelPayload)}
+            data-general={JSON.stringify(generalModel)}
+            aria-live="polite"
+          >
+            <div class="model-console-head">
+              <span class="model-dot"   id="model-dot"></span>
+              <span class="model-tag"   id="model-tag">OPF</span>
+              <span class="model-name"  id="model-name">Optimal Power Flow</span>
+              <span class="model-label" id="model-label">برق و انرژی</span>
+            </div>
+
+            <div class="model-body" id="model-body" dir="ltr">
+              <div class="model-obj" id="model-obj"></div>
+              <div class="model-con">
+                <span class="model-st">s.t.</span>
+                <span class="model-math" id="model-con-0"></span>
+              </div>
+              <div class="model-con model-con-indent">
+                <span class="model-math" id="model-con-1"></span>
+              </div>
+            </div>
+
+            <div class="model-dots" id="model-dots"></div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- اسکریپت تایپ‌کننده -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const output = document.getElementById('typewriter-output');
-      if (!output) return;
-
-      const text1 = "ابتدا ";
-      const text2 = "مدل‌سازی درست";
-      const text3 = "، سپس حل بهینه";
-      const totalLen = text1.length + text2.length + text3.length;
-      
-      const cursorHTML = `<span class="inline-block w-1 sm:w-1.5 h-[0.9em] bg-[var(--site-gold)] mr-1 align-middle rounded-full opacity-90"></span>`;
-
-      let charIndex = 0;
-      let isDeleting = false;
-      let delay = 100;
-
-      function loop() {
-        if (!isDeleting) {
-          charIndex++;
-          if (charIndex > totalLen) {
-            isDeleting = true;
-            delay = 3000; 
-          } else {
-            delay = 80; 
-          }
-        } else {
-          charIndex--;
-          if (charIndex === 0) {
-            isDeleting = false;
-            delay = 1000; 
-          } else {
-            delay = 35; 
-          }
-        }
-
-        let currentHTML = "";
-        let t1End = text1.length;
-        let t2End = text1.length + text2.length;
-        const goldGradientStyle = `gold-shimmer font-black inline-block mx-0.5`;
-
-        if (charIndex <= t1End) {
-          currentHTML = text1.substring(0, charIndex);
-        } else if (charIndex <= t2End) {
-          currentHTML = text1 + `<span class="${goldGradientStyle}">${text2.substring(0, charIndex - t1End)}</span>`;
-        } else {
-          currentHTML = text1 + `<span class="${goldGradientStyle}">${text2}</span>` + text3.substring(0, charIndex - t2End);
-        }
-
-        output.innerHTML = currentHTML + cursorHTML;
-        setTimeout(loop, delay);
-      }
-      setTimeout(loop, 500);
-    });
-  </script>
-
-  <!-- بخش دوره‌های آموزشی -->
+  <!-- ═══════════ دوره‌های آموزشی ═══════════ -->
   <section class="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-20 w-full">
     <div class="flex items-end justify-between mb-8 sm:mb-12 gap-2">
       <div>
@@ -165,7 +377,7 @@ const defaultImage = "/images/hero2.webp";
     </HorizontalScroller>
   </section>
 
-  <!-- بخش پروژه‌ها -->
+  <!-- ═══════════ پروژه‌های مهندسی ═══════════ -->
   <section class="bg-[var(--site-card)]/40 border-y border-[var(--site-border)] py-12 sm:py-20">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 w-full">
       <div class="flex items-end justify-between mb-8 sm:mb-12 gap-2">
@@ -198,7 +410,7 @@ const defaultImage = "/images/hero2.webp";
     </div>
   </section>
 
-  <!-- بخش مقالات -->
+  <!-- ═══════════ یادداشت‌ها ═══════════ -->
   <section class="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-20 w-full">
     <div class="flex items-end justify-between mb-8 sm:mb-12 gap-2">
       <div>
@@ -228,4 +440,235 @@ const defaultImage = "/images/hero2.webp";
       ))}
     </HorizontalScroller>
   </section>
+
+  <!-- ═══════════ اسکریپت ۱: تایپ‌رایتر + شمارنده‌ها ═══════════ -->
+  <script is:inline>
+    document.addEventListener('DOMContentLoaded', () => {
+      const output = document.getElementById('typewriter-output');
+      const sizer  = document.getElementById('typewriter-sizer');
+      const h1     = document.getElementById('hero-h1');
+
+      function fitLine() {
+        if (!output || !sizer || !h1) return;
+        output.style.fontSize = '';
+        output.style.whiteSpace = 'nowrap';
+        const available = h1.clientWidth;
+        const full = sizer.getBoundingClientRect().width;
+        if (full > available && full > 0) {
+          const base = parseFloat(getComputedStyle(sizer).fontSize);
+          const newSize = Math.max(14, Math.floor(base * available / full));
+          output.style.fontSize = newSize + 'px';
+        }
+      }
+      fitLine();
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitLine);
+      window.addEventListener('load', fitLine);
+      let rT;
+      window.addEventListener('resize', () => { clearTimeout(rT); rT = setTimeout(fitLine, 120); });
+
+      const text1 = "ابتدا ";
+      const text2 = "مدل‌سازی درست";
+      const text3 = "، سپس حل بهینه";
+      const totalLen = text1.length + text2.length + text3.length;
+      const cursorHTML = '<span class="tw-cursor"></span>';
+
+      let charIndex = totalLen;
+      let isDeleting = false;
+      let delay = 3000;
+
+      function loop() {
+        if (!isDeleting) {
+          charIndex++;
+          if (charIndex > totalLen) { isDeleting = true; delay = 3500; }
+          else delay = 90;
+        } else {
+          charIndex--;
+          if (charIndex === 0) { isDeleting = false; delay = 1200; }
+          else delay = 35;
+        }
+
+        let currentHTML = "";
+        const t1End = text1.length;
+        const t2End = text1.length + text2.length;
+        const goldStyle = 'gold-shimmer font-black inline-block mx-0.5';
+
+        if (charIndex <= t1End) {
+          currentHTML = text1.substring(0, charIndex);
+        } else if (charIndex <= t2End) {
+          currentHTML = text1 + '<span class="' + goldStyle + '">' + text2.substring(0, charIndex - t1End) + '</span>';
+        } else {
+          currentHTML = text1 + '<span class="' + goldStyle + '">' + text2 + '</span>' + text3.substring(0, charIndex - t2End);
+        }
+
+        output.innerHTML = currentHTML + cursorHTML;
+        fitLine();
+        setTimeout(loop, delay);
+      }
+      setTimeout(loop, delay);
+
+      const counters = document.querySelectorAll('.counter-value');
+      const animateCounter = (el) => {
+        const target = parseInt(el.dataset.target);
+        const duration = 2000;
+        const start = performance.now();
+        const update = (now) => {
+          const progress = Math.min((now - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 4);
+          el.textContent = Math.floor(eased * target).toLocaleString('fa-IR');
+          if (progress < 1) requestAnimationFrame(update);
+          else el.textContent = target.toLocaleString('fa-IR');
+        };
+        requestAnimationFrame(update);
+      };
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) { animateCounter(entry.target); observer.unobserve(entry.target); }
+        });
+      }, { threshold: 0.5 });
+      counters.forEach(c => observer.observe(c));
+    });
+  </script>
+
+  <!-- ═══════════ اسکریپت ۲: کنسول مدل با رندر واقعی KaTeX + ارتفاع قفل‌شده ═══════════ -->
+  <script>
+    import katex from 'katex';
+
+    const renderMath = (el, tex) =>
+      katex.render(tex, el, { throwOnError: false, displayMode: false });
+
+    const onReady = (fn) => {
+      if (document.readyState !== 'loading') fn();
+      else document.addEventListener('DOMContentLoaded', fn);
+    };
+
+    onReady(() => {
+      const consoleEl = document.getElementById('model-console');
+      if (!consoleEl) return;
+
+      const MODELS  = JSON.parse(consoleEl.dataset.models  || '[]');
+      const GENERAL = JSON.parse(consoleEl.dataset.general || 'null');
+      if (!MODELS.length) return;
+
+      const ALL = GENERAL ? MODELS.concat([GENERAL]) : MODELS;
+      const SECTOR_COUNT = MODELS.length;
+      const GENERAL_INDEX = SECTOR_COUNT;
+
+      const els = {
+        body:  document.getElementById('model-body'),
+        dot:   document.getElementById('model-dot'),
+        tag:   document.getElementById('model-tag'),
+        name:  document.getElementById('model-name'),
+        label: document.getElementById('model-label'),
+        dots:  document.getElementById('model-dots'),
+      };
+      const chips   = Array.from(document.querySelectorAll('.scene-chip-wrap'));
+      const coreHit = document.querySelector('.scene-core-hit');
+      const wrapper = document.querySelector('.scene-wrapper');
+
+      /* نقطه‌های ناوبری (فقط حوزه‌ها) */
+      els.dots.innerHTML = MODELS.map((m, i) =>
+        '<button type="button" data-i="' + i + '" aria-label="' + m.name + '"></button>'
+      ).join('');
+      const dots = Array.from(els.dots.children);
+
+      const INTERVAL = 5200;
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      let active = -1;
+      let timer = null;
+
+      /* ── رندر ساختار فرمول در ظرف هدف (بدنه یا اندازه‌گیر) ── */
+      function fill(container, m) {
+        container.innerHTML =
+          '<div class="model-obj"></div>' +
+          '<div class="model-con"><span class="model-st">s.t.</span><span class="model-math"></span></div>' +
+          '<div class="model-con model-con-indent"><span class="model-math"></span></div>';
+        const objEl   = container.querySelector('.model-obj');
+        const mathEls = container.querySelectorAll('.model-math');
+        objEl.style.color = m.color;
+        renderMath(objEl, m.model.obj);
+        m.model.cons.forEach((c, idx) => { if (mathEls[idx]) renderMath(mathEls[idx], c); });
+      }
+
+      /* ── ضدپرش: اندازه‌گیر مخفی، بلندترین مدل را می‌سنجد و ارتفاع بدنه را قفل می‌کند ── */
+      const sizer = document.createElement('div');
+      sizer.className = 'model-body model-body-sizer';
+      sizer.setAttribute('aria-hidden', 'true');
+      consoleEl.appendChild(sizer);
+
+      function lockHeight() {
+        let max = 0;
+        ALL.forEach(m => {
+          fill(sizer, m);
+          max = Math.max(max, sizer.offsetHeight);
+        });
+        if (max > 0) els.body.style.height = max + 'px';
+      }
+
+      function show(i) {
+        if (i === active || !ALL[i]) return;
+        active = i;
+        const m = ALL[i];
+
+        /* سربرگ کنسول */
+        els.dot.style.background = m.color;
+        els.dot.style.boxShadow  = '0 0 10px ' + m.color;
+        els.tag.textContent   = m.tag;
+        els.tag.style.color   = m.color;
+        els.name.textContent  = m.name;
+        els.label.textContent = m.label;
+
+        /* بدنه‌ی فرمول — رندر ریاضی با KaTeX */
+        fill(els.body, m);
+
+        /* انیمیشن تعویض (فقط opacity/transform — بدون تغییر چیدمان) */
+        els.body.classList.remove('swap');
+        void els.body.offsetWidth;
+        els.body.classList.add('swap');
+
+        /* هایلایت چیپ + نقطه‌ی فعال */
+        chips.forEach((c, idx) => c.classList.toggle('active', idx === i));
+        dots.forEach((d, idx) => {
+          d.classList.toggle('on', idx === i);
+          d.style.background = idx === i ? m.color : '';
+        });
+      }
+
+      /* چرخه‌ی خودکار فقط روی ۶ حوزه؛ بعد از مدل کلی به اول برمی‌گردد */
+      const next  = () => show(active >= SECTOR_COUNT ? 0 : (active + 1) % SECTOR_COUNT);
+      const start = () => { if (!reduce && !timer) timer = setInterval(next, INTERVAL); };
+      const stop  = () => { clearInterval(timer); timer = null; };
+
+      /* تعامل چیپ‌ها و نقطه‌ها */
+      chips.forEach((chip, i) => {
+        chip.addEventListener('mouseenter', () => { stop(); show(i); });
+        chip.addEventListener('click',      () => { stop(); show(i); start(); });
+      });
+      dots.forEach((d, i) => d.addEventListener('click', () => { stop(); show(i); start(); }));
+      consoleEl.addEventListener('mouseenter', stop);
+      consoleEl.addEventListener('mouseleave', start);
+
+      /* هاور/کلیک روی دایره‌ی مرکزی → مدل کلی بهینه‌سازی */
+      if (coreHit && GENERAL) {
+        coreHit.addEventListener('mouseenter', () => {
+          stop(); show(GENERAL_INDEX);
+          wrapper && wrapper.classList.add('core-active');
+        });
+        coreHit.addEventListener('mouseleave', () => {
+          wrapper && wrapper.classList.remove('core-active');
+          start();
+        });
+        coreHit.addEventListener('click', () => { stop(); show(GENERAL_INDEX); start(); });
+      }
+
+      /* قفل ارتفاع: ابتدا + پس از لود فونت‌های KaTeX + هنگام resize */
+      lockHeight();
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(lockHeight);
+      window.addEventListener('load', lockHeight);
+      let hT;
+      window.addEventListener('resize', () => { clearTimeout(hT); hT = setTimeout(lockHeight, 150); });
+
+      show(0);
+      start();
+    });
+  </script>
 </Layout>

@@ -26,7 +26,7 @@ relatedNotes: ["mathematical-modeling-art", "google-colab", "pyomo-solvers"]
 
 هدف این است که برای ۱۲ ماه آینده برنامه‌ای تهیه شود که مشخص کند **هر بازرسی در چه روز و شیفتی، توسط چه بازرسانی و با کدام خودرو انجام شود**؛ به‌گونه‌ای که بیشترین تعداد بازرسی ممکن انجام شود و تمام محدودیت‌های عملیاتی رعایت شوند.
 
-![برنامه ریزی بازرسی قضابی های استان البرز](./inspection_scheduling.webp)
+![برنامه ریزی بازرسی قضابی های استان البرز](./inspection-scheduling.webp)
 
 ---
 
@@ -241,6 +241,6 @@ relatedNotes: ["mathematical-modeling-art", "google-colab", "pyomo-solvers"]
 - برنامه کاری هر بازرس چیست
 - برنامه استفاده از هر خودرو چیست
 
-![نمونه برنامه ریزی بازرسی قضابی های استان البرز](./inspection_scheduling_solution.webp)
+![نمونه برنامه ریزی بازرسی قضابی های استان البرز](./inspection-scheduling-solution.webp)
 
 اگر می‌خواهید مدل‌سازی و حل کامل را در Python با OR-Tools قدم‌به‌قدم یاد بگیرید، این موضوع در <a href="/courses/vrp-python/" class="content-link">دوره بهینه‌سازی حمل و نقل </a> به‌صورت پروژه‌محور پوشش داده شده است.

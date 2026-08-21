@@ -89,7 +89,7 @@ const courseListSchema = {
             const cardImageAlt = course.data.minimalImageAlt || course.data.imageAlt || course.data.title;
 
             return (
-              <article class="bg-[var(--site-card)] border border-[var(--site-border)] p-5 sm:p-6 rounded-3xl hover:border-[var(--site-primary)]/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col md:flex-row-reverse items-start justify-between gap-6 shadow-xs group">
+              <article class="card-stretched relative bg-[var(--site-card)] border border-[var(--site-border)] p-5 sm:p-6 rounded-3xl hover:border-[var(--site-primary)]/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col md:flex-row-reverse items-start justify-between gap-6 shadow-xs group">
                 
                 {cardImage && (
                   <div class="w-full md:w-56 flex-shrink-0">
@@ -142,7 +142,7 @@ const courseListSchema = {
                     </div>
 
                     <h2 class="text-lg md:text-xl font-bold text-[var(--site-heading)] mb-2 group-hover:text-[var(--site-primary)] transition-colors">
-                      <a href={`/courses/${cleanSlug}/`} class="outline-none">
+                      <a href={`/courses/${cleanSlug}/`} class="stretched-card-link outline-none">
                         {course.data.title}
                       </a>
                     </h2>
@@ -153,7 +153,7 @@ const courseListSchema = {
                   </div>
 
                   <div class="flex items-center gap-4 text-xs font-semibold mt-auto">
-                    <a href={`/courses/${cleanSlug}/`} class="inline-flex items-center gap-2 text-[var(--site-primary)] bg-[var(--site-primary)]/10 hover:bg-[var(--site-primary)] hover:text-white px-3.5 py-1.5 rounded-xl transition-all duration-300">
+                    <a href={`/courses/${cleanSlug}/`} class="card-action-link inline-flex items-center gap-2 text-[var(--site-primary)] bg-[var(--site-primary)]/10 hover:bg-[var(--site-primary)] hover:text-white px-3.5 py-1.5 rounded-xl transition-all duration-300">
                       <span>مشاهده جزئیات دوره</span>
                       <i class="fa-solid fa-arrow-left text-[10px] group-hover:-translate-x-1 transition-transform"></i>
                     </a>

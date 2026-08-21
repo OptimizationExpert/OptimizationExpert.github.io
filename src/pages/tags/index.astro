@@ -1,0 +1,67 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { buildTagIndex, MIN_HUB_USES } from '../../utils/tags';
+
+// همه‌ی تگ‌هایی که به آستانه‌ی «صفحه‌ی اختصاصی» رسیده‌اند (همان فیلتری که
+// در tags/[tagId].astro برای ساخت مسیرها استفاده می‌شود)، مرتب‌شده بر اساس
+// پرکاربردترین تگ‌ها — یک منبع واحد برای هر دو صفحه.
+const index = await buildTagIndex();
+const buckets = [...index.values()]
+  .filter(bucket => bucket.items.length >= MIN_HUB_USES)
+  .sort((a, b) => b.items.length - a.items.length);
+
+const description = `نقشه‌ی کامل ${buckets.length} برچسب موضوعی سایت — از مسیریابی و برنامه‌ریزی خطی تا سیستم قدرت و بهینه‌سازی ترکیبیاتی — برای دسترسی سریع به همه‌ی دوره‌ها، پروژه‌ها و یادداشت‌های مرتبط.`;
+---
+
+<Layout
+  title="نقشه تگ‌ها"
+  description={description}
+  breadcrumbs={[
+    { name: 'خانه', url: '/' },
+    { name: 'نقشه تگ‌ها' },
+  ]}
+>
+  <main class="max-w-5xl mx-auto px-6 py-12 flex-grow w-full">
+
+    <!-- هدر صفحه -->
+    <div class="mb-12 border-b border-[var(--site-border)] pb-8">
+      <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--site-primary)]/10 border border-[var(--site-primary)]/20 text-[var(--site-primary)] text-xs font-bold mb-4 shadow-xs">
+        <i class="fa-solid fa-tags" aria-hidden="true"></i>
+        <span>نقشه تگ‌ها</span>
+      </span>
+      <h1 class="text-3xl md:text-4xl font-extrabold text-[var(--site-heading)] mb-3 tracking-tight">
+        همه‌ی موضوعات سایت
+      </h1>
+      <p class="text-[var(--site-muted)] text-sm md:text-base leading-relaxed max-w-2xl">
+        {description}
+      </p>
+    </div>
+
+    <!-- لیست تگ‌ها -->
+    {buckets.length === 0 ? (
+      <div class="text-center py-16 bg-[var(--site-card)] border border-[var(--site-border)] rounded-3xl shadow-xs">
+        <div class="w-12 h-12 mx-auto rounded-2xl bg-[var(--site-primary)]/10 text-[var(--site-primary)] flex items-center justify-center text-lg mb-3">
+          <i class="fa-solid fa-tags"></i>
+        </div>
+        <p class="text-[var(--site-muted)] font-medium text-sm">هنوز هیچ تگی به آستانه‌ی صفحه‌ی اختصاصی نرسیده است.</p>
+      </div>
+    ) : (
+      <div class="flex flex-wrap gap-3">
+        {buckets.map((bucket) => (
+          <a
+            href={`/tags/${bucket.slug}/`}
+            class="group flex items-center gap-2.5 bg-[var(--site-card)] border border-[var(--site-border)] hover:border-[var(--site-primary)]/50 hover:shadow-md px-4 py-2.5 rounded-2xl transition-all duration-300 shadow-xs"
+          >
+            <span class="text-sm font-bold text-[var(--site-heading)] group-hover:text-[var(--site-primary)] transition-colors">
+              <span class="text-[var(--site-primary)]">#</span>{bucket.name}
+            </span>
+            <span class="text-[10px] font-bold text-[var(--site-muted)] bg-[var(--site-bg)] border border-[var(--site-border)] rounded-full px-2 py-0.5 tabular-nums">
+              {bucket.items.length}
+            </span>
+          </a>
+        ))}
+      </div>
+    )}
+
+  </main>
+</Layout>

@@ -121,7 +121,13 @@ const authorFullName = projectInstructor?.data.name || project.data.author || 'O
         description="برای دریافت پروژه و راهنمایی، در تلگرام به آیدی"
       />
 
-      <RelatedContent currentSlug={projectSlug} tags={project.data.tags} />
+      <RelatedContent
+        currentSlug={projectSlug}
+        tags={project.data.tags}
+        relatedCourses={project.data.relatedCourses}
+        relatedNotes={project.data.relatedNotes}
+        relatedProjects={project.data.relatedProjects}
+      />
 
     </article>
 

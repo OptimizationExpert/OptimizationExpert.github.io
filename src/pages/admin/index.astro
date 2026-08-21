@@ -1,0 +1,21 @@
+---
+import AdminLayout, { adminTools } from '../../layouts/AdminLayout.astro';
+
+const tools = adminTools;
+---
+<AdminLayout title="پنل ابزارهای مدیریت سایت" description="ورودی مرکزی به تمام ابزارهای داخلی مدیریت محتوا و سئوی سایت.">
+<main class="max-w-6xl mx-auto px-4 sm:px-6 py-10 w-full flex-grow">
+<header class="mb-10">
+<span class="inline-flex items-center gap-2 text-xs font-bold text-[var(--site-primary)] bg-[var(--site-primary)]/10 px-3.5 py-1.5 rounded-full border border-[var(--site-primary)]/20"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i>فقط مدیر سایت</span>
+<h1 class="text-3xl md:text-4xl font-black text-[var(--site-heading)] mt-4 mb-3">پنل ابزارهای مدیریت سایت</h1>
+<p class="text-sm leading-7 text-[var(--site-muted)] max-w-2xl">همه‌ی ابزارهای داخلی سایت اینجا جمع شده‌اند. این صفحات برای بازدیدکنندگان عادی لینک نمی‌شوند و از نتایج گوگل هم مستثنی‌اند.</p>
+</header>
+<div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+{tools.map(t=><a href={t.href} class="group bg-[var(--site-card)] border border-[var(--site-border)] rounded-3xl p-6 hover:border-[var(--site-primary)]/50 hover:-translate-y-0.5 transition-all">
+<div class="w-11 h-11 rounded-2xl bg-[var(--site-primary)]/10 flex items-center justify-center mb-4 group-hover:bg-[var(--site-primary)]/15"><i class={`fa-solid ${t.icon} text-[var(--site-primary)]`} aria-hidden="true"></i></div>
+<h2 class="text-base font-black text-[var(--site-heading)] mb-1.5">{t.title}</h2>
+<p class="text-xs text-[var(--site-muted)] leading-relaxed">{t.desc}</p>
+</a>)}
+</div>
+</main>
+</AdminLayout>

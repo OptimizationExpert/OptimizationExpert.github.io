@@ -57,6 +57,10 @@ const {
 } = Astro.props;
 
 const resolvedTitle = pageNumber && pageNumber > 1 ? `${title} | صفحه ${pageNumber}` : title;
+
+/* تصویر پیش‌فرض معرف برند (برج فرماندهی) — وقتی صفحه تصویر اختصاصی ندارد،
+   همان hero.webp به‌عنوان OG Image در تلگرام/لینکدین/توییتر استفاده می‌شود. */
+const resolvedImage = image ?? '/images/hero.webp';
 ---
 
 <!doctype html>
@@ -73,7 +77,7 @@ const resolvedTitle = pageNumber && pageNumber > 1 ? `${title} | صفحه ${page
     <SEO
       title={resolvedTitle}
       description={description}
-      image={image}
+      image={resolvedImage}
       article={article}
       type={type}
       pubDate={pubDate}

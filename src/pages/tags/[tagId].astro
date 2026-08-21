@@ -1,0 +1,25 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { buildTagIndex, describeTag, MIN_HUB_USES } from '../../utils/tags';
+
+export async function getStaticPaths(){
+  const index = await buildTagIndex();
+  return [...index.values()]
+    .filter(bucket => bucket.items.length >= MIN_HUB_USES)
+    .map(bucket => ({ params: { tagId: bucket.slug }, props: { name: bucket.name, items: bucket.items } }));
+}
+
+const { name, items } = Astro.props;
+const description = describeTag(name, items);
+---
+<Layout title={`${name} | برچسب`} description={description} breadcrumbs={[{name:'خانه',url:'/'},{name:'نقشه تگ‌ها',url:'/tags/'},{name}]}>
+<main class="max-w-6xl mx-auto px-4 sm:px-6 py-10 w-full flex-grow">
+<header class="mb-8"><a href="/tags/" class="text-xs font-bold text-[var(--site-primary)] hover:underline">← نقشه تگ‌ها</a><h1 class="text-3xl md:text-4xl font-black text-[var(--site-heading)] mt-5 mb-3">{name}</h1><p class="text-sm leading-7 text-[var(--site-muted)]">{description}</p></header>
+<div class="flex flex-wrap gap-2 mb-6">{[['all','همه'],['note','یادداشت'],['project','پروژه'],['course','دوره'],['book','کتاب'],['software','نرم‌افزار']].map(([id,label])=><button type="button" data-filter={id} class="tag-filter px-4 py-2.5 rounded-xl border border-[var(--site-border)] text-xs font-bold">{label}</button>)}</div>
+<p id="tag-count" class="text-xs text-[var(--site-muted)] mb-4"></p>
+<div class="grid gap-4">{items.map(item=><article data-type={item.typeId} class="bg-[var(--site-card)] border border-[var(--site-border)] rounded-2xl p-5 hover:border-[var(--site-primary)]/40 hover:shadow-md"><span class="text-[10px] font-bold text-[var(--site-primary)]">{item.typeLabel}</span><h2 class="text-base font-bold text-[var(--site-heading)] mt-1"><a href={item.url} class="hover:text-[var(--site-primary)]">{item.title}</a></h2></article>)}</div>
+</main>
+<script>
+const fs=[...document.querySelectorAll('.tag-filter')],cs=[...document.querySelectorAll('[data-type]')],c=document.getElementById('tag-count');function u(t){let n=0;cs.forEach(x=>{x.hidden=t!=='all'&&x.dataset.type!==t;if(!x.hidden)n++});fs.forEach(b=>{const a=b.dataset.filter===t;b.classList.toggle('bg-[var(--site-primary)]',a);b.classList.toggle('text-white',a)});if(c)c.textContent=`${n} محتوا`}fs.forEach(b=>b.addEventListener('click',()=>u(b.dataset.filter)));u('all');
+</script>
+</Layout>

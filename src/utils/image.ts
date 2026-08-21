@@ -10,7 +10,14 @@ export function imgSrc(field: unknown): string | undefined {
 
   if (typeof field === 'string') {
     src = field;
-  } else if (typeof field === 'object' && field !== null && 'src' in field) {
+  } else if (
+    (typeof field === 'object' || typeof field === 'function') &&
+    field !== null &&
+    'src' in (field as object)
+  ) {
+    // نکته: برای تصاویر SVG، Astro مقدار متادیتا را به‌صورت یک تابع
+    // برمی‌گرداند (برای پشتیبانی از رندر inline SVG)، نه یک آبجکت ساده؛
+    // این تابع همچنان ویژگی‌های src/width/height/format را دارد.
     const value = (field as { src?: unknown }).src;
     if (typeof value === 'string') src = value;
   }

@@ -8,8 +8,30 @@ const isActive = (href: string) => {
   const normalizedHref = href.replace(/\/$/, '') || '/';
   return normalizedCurrentPath === normalizedHref || normalizedCurrentPath.startsWith(`${normalizedHref}/`);
 };
+
+// یک منبع واحد برای آیتم‌های منو — هم در نوار دسکتاپ و هم در پنل موبایل
+// استفاده می‌شود تا هیچ آیتمی در دو جا جداگانه نوشته نشود.
+const navItems = [
+  { title: 'دوره‌ها', href: '/courses/', icon: 'fa-graduation-cap' },
+  { title: 'پروژه‌ها', href: '/projects/', icon: 'fa-layer-group' },
+  { title: 'یادداشت‌ها', href: '/notes/', icon: 'fa-pen-nib' },
+  { title: 'کتاب‌ها و جزوات', href: '/books/', icon: 'fa-book-open' },
+  { title: 'دانلود نرم‌افزار', href: '/softwares/', icon: 'fa-download' },
+  { title: 'مسیر یادگیری', href: '/roadmap/', icon: 'fa-map' },
+  { title: 'لینک‌های مفید', href: '/links/', icon: 'fa-link' },
+  { title: 'درباره ما', href: '/about/', icon: 'fa-user-astronaut' },
+  { title: 'تماس با ما', href: '/contact/', icon: 'fa-envelope' },
+];
+
+// پنل موبایل علاوه‌بر آیتم‌های اصلی، لینک «مشاوره تخصصی» را هم دارد (چون
+// دکمه‌ی جداگانه‌ی مشاوره در نوار بالا فقط از sm به بالا دیده می‌شود).
+const mobileNavItems = [
+  ...navItems.slice(0, 6),
+  { title: 'مشاوره تخصصی', href: '/consultation/', icon: 'fa-headset' },
+  ...navItems.slice(6),
+];
 ---
-<header class="sticky top-0 z-50 w-full bg-[var(--site-card)]/90 backdrop-blur-md border-b border-[var(--site-border)] transition-colors duration-200">
+<header class="sticky top-0 z-50 w-full relative bg-[var(--site-card)]/90 backdrop-blur-md border-b border-[var(--site-border)] transition-colors duration-200">
   
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
@@ -29,21 +51,32 @@ const isActive = (href: string) => {
         </a>
       </div>
 
+      <!-- جستجوی دسکتاپ -->
       <div class="hidden md:flex flex-grow max-w-md mx-4">
         <form id="desktop-search-form" action="/search/" method="GET" class="relative w-full group" role="search">
-          <span class="absolute inset-y-0 right-0 flex items-center pr-3.5 pointer-events-none text-[var(--site-muted)] group-focus-within:text-[var(--site-primary)] transition-colors">
+          <button type="submit" aria-label="جستجو" class="absolute inset-y-0 right-0 flex items-center pr-3.5 text-[var(--site-muted)] hover:text-[var(--site-primary)] group-focus-within:text-[var(--site-primary)] transition-colors cursor-pointer bg-transparent border-none">
             <i class="fa-solid fa-magnifying-glass text-xs sm:text-sm" aria-hidden="true"></i>
-          </span>
+          </button>
+          
           <input 
             type="text" 
             id="desktop-search-input"
             name="q"
             placeholder="جستجو در دوره‌ها، مقالات، پروژه‌ها..."
             aria-label="جستجو در سایت"
-            class="w-full bg-[var(--site-bg)]/80 hover:bg-[var(--site-bg)] border border-[var(--site-border)] rounded-xl pr-10 pl-14 py-2.5 text-[var(--site-text)] text-xs focus:outline-none focus:bg-[var(--site-card)] focus:border-[var(--site-primary)] focus:ring-2 focus:ring-[var(--site-primary)]/20 transition-all shadow-2xs"
+            autocomplete="off"
+            class="w-full bg-[var(--site-bg)]/80 hover:bg-[var(--site-bg)] border border-[var(--site-border)] rounded-xl pr-10 pl-16 py-2.5 text-[var(--site-text)] text-xs focus:outline-none focus:bg-[var(--site-card)] focus:border-[var(--site-primary)] focus:ring-2 focus:ring-[var(--site-primary)]/20 transition-all shadow-2xs"
           />
-          <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-            <kbd class="hidden xl:inline-flex items-center px-1.5 py-0.5 text-[9px] font-bold text-[var(--site-muted)] bg-[var(--site-card)] border border-[var(--site-border)] rounded-md shadow-2xs">⌘K</kbd>
+
+          <div class="absolute inset-y-0 left-0 flex items-center pl-3 gap-1.5">
+            <button 
+              type="button" 
+              id="desktop-clear-search" 
+              aria-label="پاک کردن جستجو"
+              class="hidden text-[var(--site-muted)] hover:text-[var(--site-heading)] transition-colors p-1 cursor-pointer"
+            >
+              <i class="fa-solid fa-xmark text-xs" aria-hidden="true"></i>
+            </button>
           </div>
         </form>
       </div>
@@ -70,17 +103,7 @@ const isActive = (href: string) => {
 
     <div class="hidden lg:block py-2.5 border-t border-[var(--site-border)]/40">
       <nav class="flex items-center justify-center gap-1.5 xl:gap-2.5 text-xs font-bold" aria-label="منوی اصلی">
-        {[
-          { title: 'دوره‌ها', href: '/courses/', icon: 'fa-graduation-cap' },
-          { title: 'پروژه‌ها', href: '/projects/', icon: 'fa-layer-group' },
-          { title: 'یادداشت‌ها', href: '/notes/', icon: 'fa-pen-nib' },
-          { title: 'کتاب‌ها و جزوات', href: '/books/', icon: 'fa-book-open' },
-          { title: 'دانلود نرم‌افزار', href: '/softwares/', icon: 'fa-download' },
-          { title: 'مسیر یادگیری', href: '/roadmap/', icon: 'fa-map' },
-          { title: 'لینک‌های مفید', href: '/links/', icon: 'fa-link' },
-          { title: 'درباره ما', href: '/about/', icon: 'fa-user-astronaut' },
-          { title: 'تماس با ما', href: '/contact/', icon: 'fa-envelope' }
-        ].map((item) => {
+        {navItems.map((item) => {
           const active = isActive(item.href);
           return (
             <a
@@ -106,32 +129,33 @@ const isActive = (href: string) => {
     </div>
 
     <!-- منوی موبایل و تبلت -->
-    <div id="mobile-menu-panel" class="lg:hidden hidden border-t border-[var(--site-border)]/60 py-4">
-      <form action="/search/" method="GET" class="relative w-full mb-4" role="search">
-        <span class="absolute inset-y-0 right-0 flex items-center pr-3.5 pointer-events-none text-[var(--site-muted)]">
+    <div id="mobile-menu-panel" class="lg:hidden hidden absolute inset-x-0 top-full z-[60] max-h-[calc(100vh-4rem)] overflow-y-auto border-t border-[var(--site-border)]/60 bg-[var(--site-card)] shadow-2xl py-4 px-4 sm:px-6">
+      <form id="mobile-search-form" action="/search/" method="GET" class="relative w-full mb-4" role="search">
+        <button type="submit" aria-label="جستجو" class="absolute inset-y-0 right-0 flex items-center pr-3.5 text-[var(--site-muted)] hover:text-[var(--site-primary)] transition-colors cursor-pointer bg-transparent border-none">
           <i class="fa-solid fa-magnifying-glass text-xs" aria-hidden="true"></i>
-        </span>
+        </button>
         <input
           type="text"
+          id="mobile-search-input"
           name="q"
           placeholder="جستجو در دوره‌ها، مقالات، پروژه‌ها..."
           aria-label="جستجو در سایت"
-          class="w-full bg-[var(--site-bg)]/80 border border-[var(--site-border)] rounded-xl pr-10 pl-4 py-2.5 text-[var(--site-text)] text-xs focus:outline-none focus:border-[var(--site-primary)] focus:ring-2 focus:ring-[var(--site-primary)]/20 transition-all"
+          autocomplete="off"
+          class="w-full bg-[var(--site-bg)]/80 border border-[var(--site-border)] rounded-xl pr-10 pl-10 py-2.5 text-[var(--site-text)] text-xs focus:outline-none focus:border-[var(--site-primary)] focus:ring-2 focus:ring-[var(--site-primary)]/20 transition-all"
         />
+        <div class="absolute inset-y-0 left-0 flex items-center pl-3">
+          <button 
+            type="button" 
+            id="mobile-clear-search" 
+            aria-label="پاک کردن جستجو"
+            class="hidden text-[var(--site-muted)] hover:text-[var(--site-heading)] transition-colors p-1 cursor-pointer"
+          >
+            <i class="fa-solid fa-xmark text-xs" aria-hidden="true"></i>
+          </button>
+        </div>
       </form>
       <nav class="grid grid-cols-2 gap-2 text-xs font-bold" aria-label="منوی موبایل">
-        {[
-          { title: 'دوره‌ها', href: '/courses/', icon: 'fa-graduation-cap' },
-          { title: 'پروژه‌ها', href: '/projects/', icon: 'fa-layer-group' },
-          { title: 'یادداشت‌ها', href: '/notes/', icon: 'fa-pen-nib' },
-          { title: 'کتاب‌ها و جزوات', href: '/books/', icon: 'fa-book-open' },
-          { title: 'دانلود نرم‌افزار', href: '/softwares/', icon: 'fa-download' },
-          { title: 'مسیر یادگیری', href: '/roadmap/', icon: 'fa-map' },
-          { title: 'لینک‌های مفید', href: '/links/', icon: 'fa-link' },
-          { title: 'مشاوره تخصصی', href: '/consultation/', icon: 'fa-headset' },
-          { title: 'درباره ما', href: '/about/', icon: 'fa-user-astronaut' },
-          { title: 'تماس با ما', href: '/contact/', icon: 'fa-envelope' }
-        ].map((item) => {
+        {mobileNavItems.map((item) => {
           const active = isActive(item.href);
           return (
             <a
@@ -154,32 +178,23 @@ const isActive = (href: string) => {
 </header>
 
 <script is:inline>
-  function initMobileMenu() {
-    const menuBtn = document.getElementById('menu-btn');
-    const menuIcon = document.getElementById('menu-icon');
-    const panel = document.getElementById('mobile-menu-panel');
-    if (!menuBtn || !panel) return;
-
-    // جلوگیری از اتصال چندباره‌ی listener روی همان دکمه (مثلاً بعد از page transition)
-    const newBtn = menuBtn.cloneNode(true);
-    menuBtn.parentNode.replaceChild(newBtn, menuBtn);
-
-    newBtn.addEventListener('click', () => {
-      const isOpen = !panel.classList.contains('hidden');
-      panel.classList.toggle('hidden');
-      newBtn.setAttribute('aria-expanded', String(!isOpen));
-      const icon = document.getElementById('menu-icon');
-      if (icon) {
-        icon.classList.toggle('fa-bars', isOpen);
-        icon.classList.toggle('fa-xmark', !isOpen);
-      }
-    });
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initMobileMenu);
-  } else {
-    initMobileMenu();
-  }
-  document.addEventListener('astro:page-load', initMobileMenu);
+function initHeaderUI(){
+ const btn=document.getElementById('menu-btn'),panel=document.getElementById('mobile-menu-panel');
+ if(btn&&panel&&btn.dataset.bound!=='true'){
+  btn.dataset.bound='true';
+  const setOpen=open=>{panel.classList.toggle('hidden',!open);btn.setAttribute('aria-expanded',String(open));const icon=document.getElementById('menu-icon');icon?.classList.toggle('fa-bars',!open);icon?.classList.toggle('fa-xmark',open);document.body.classList.toggle('mobile-menu-open',open);};
+  btn.addEventListener('click',()=>setOpen(panel.classList.contains('hidden')));
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!panel.classList.contains('hidden')){setOpen(false);btn.focus();}});
+  panel.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setOpen(false)));
+ }
+ function searchBox(inputId,clearId){
+  const input=document.getElementById(inputId),clear=document.getElementById(clearId);
+  if(!input||!clear||clear.dataset.bound==='true')return;clear.dataset.bound='true';
+  const update=()=>clear.classList.toggle('hidden',input.value.trim().length===0);update();
+  input.addEventListener('input',update);clear.addEventListener('click',e=>{e.preventDefault();input.value='';update();input.focus();});
+ }
+ searchBox('desktop-search-input','desktop-clear-search');searchBox('mobile-search-input','mobile-clear-search');
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',initHeaderUI,{once:true});else initHeaderUI();
+document.addEventListener('astro:page-load',initHeaderUI);
 </script>

@@ -1,0 +1,39 @@
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" font-family="Vazirmatn, Tahoma, Arial, sans-serif">
+  <rect width="400" height="300" fill="#ffffff"/>
+
+  <!-- Substation A -->
+  <rect x="30" y="60" width="45" height="38" rx="3" fill="#1e3a5f"/>
+  <rect x="37" y="66" width="12" height="26" fill="#fbbf24"/>
+  <rect x="55" y="66" width="12" height="26" fill="#fbbf24"/>
+
+  <!-- Substation B -->
+  <rect x="325" y="60" width="45" height="38" rx="3" fill="#1e3a5f"/>
+  <rect x="332" y="66" width="12" height="26" fill="#fbbf24"/>
+  <rect x="350" y="66" width="12" height="26" fill="#fbbf24"/>
+
+  <!-- Feeder A -->
+  <path d="M75 80 L150 80 L150 170 L190 170" stroke="#2563eb" stroke-width="4" fill="none"/>
+  <!-- Feeder B -->
+  <path d="M325 80 L250 80 L250 170 L210 170" stroke="#059669" stroke-width="4" fill="none"/>
+
+  <!-- closed switch feeder A -->
+  <circle cx="150" cy="125" r="9" fill="#ffffff" stroke="#16a34a" stroke-width="2.5"/>
+  <path d="M146 125 l3 3 l6 -7" stroke="#16a34a" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+
+  <!-- closed switch feeder B -->
+  <circle cx="250" cy="125" r="9" fill="#ffffff" stroke="#16a34a" stroke-width="2.5"/>
+  <path d="M246 125 l3 3 l6 -7" stroke="#16a34a" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+
+  <!-- open tie switch -->
+  <path d="M190 170 L210 170" stroke="#dc2626" stroke-width="3" stroke-dasharray="5 4" fill="none"/>
+  <circle cx="200" cy="170" r="11" fill="#ffffff" stroke="#dc2626" stroke-width="2.5"/>
+  <path d="M196 166 l8 8 M204 166 l-8 8" stroke="#dc2626" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- houses -->
+  <path d="M105 55 l10 -9 l10 9 v15 h-20 z" fill="#93c5fd" stroke="#1e3a5f" stroke-width="1.2"/>
+  <path d="M295 55 l10 -9 l10 9 v15 h-20 z" fill="#a7f3d0" stroke="#065f46" stroke-width="1.2"/>
+  <path d="M155 200 l10 -9 l10 9 v18 h-20 z" fill="#93c5fd" stroke="#1e3a5f" stroke-width="1.2"/>
+  <path d="M245 200 l10 -9 l10 9 v18 h-20 z" fill="#a7f3d0" stroke="#065f46" stroke-width="1.2"/>
+
+  <text x="200" y="270" font-size="15" fill="#0f172a" text-anchor="middle" font-weight="bold">بازآرایی شبکه توزیع</text>
+</svg>

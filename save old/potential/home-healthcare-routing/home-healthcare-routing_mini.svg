@@ -1,0 +1,28 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="200" height="200" fill="#ffffff"/>
+
+  <!-- Depot -->
+  <g>
+    <rect x="88" y="90" width="24" height="20" fill="#0f766e"/>
+    <polygon points="86,90 100,78 114,90" fill="#0f766e"/>
+  </g>
+
+  <!-- Homes -->
+  <g>
+    <polygon points="30,45 42,35 54,45" fill="#f97316"/>
+    <rect x="34" y="45" width="16" height="14" fill="#fdba74"/>
+
+    <polygon points="150,40 162,30 174,40" fill="#2563eb"/>
+    <rect x="154" y="40" width="16" height="14" fill="#93c5fd"/>
+
+    <polygon points="160,140 172,130 184,140" fill="#2563eb"/>
+    <rect x="164" y="140" width="16" height="14" fill="#93c5fd"/>
+
+    <polygon points="35,150 47,140 59,150" fill="#f97316"/>
+    <rect x="39" y="150" width="16" height="14" fill="#fdba74"/>
+  </g>
+
+  <!-- Routes -->
+  <polyline points="100,100 42,52 47,157 100,100" fill="none" stroke="#f97316" stroke-width="3"/>
+  <polyline points="100,100 162,47 172,147 100,100" fill="none" stroke="#2563eb" stroke-width="3"/>
+</svg>

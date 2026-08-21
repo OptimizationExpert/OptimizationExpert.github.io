@@ -1,0 +1,33 @@
+<svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" font-family="Vazirmatn, Tahoma, Arial, sans-serif">
+  <rect x="0" y="0" width="300" height="300" fill="#ffffff"/>
+
+  <!-- three infusion chairs with IV poles -->
+  <g transform="translate(40,90)">
+    <rect x="0" y="30" width="55" height="50" rx="9" fill="#fef3c7" stroke="#d97706" stroke-width="2.5"/>
+    <circle cx="27" cy="18" r="11" fill="#fde68a" stroke="#b45309" stroke-width="1.5"/>
+    <line x1="58" y1="8" x2="58" y2="55" stroke="#64748b" stroke-width="3"/>
+    <circle cx="58" cy="6" r="6" fill="#e2e8f0" stroke="#64748b" stroke-width="1.5"/>
+  </g>
+
+  <g transform="translate(122,90)">
+    <rect x="0" y="30" width="55" height="50" rx="9" fill="#dcfce7" stroke="#16a34a" stroke-width="2.5"/>
+    <circle cx="27" cy="18" r="11" fill="#bbf7d0" stroke="#15803d" stroke-width="1.5"/>
+    <line x1="58" y1="8" x2="58" y2="55" stroke="#64748b" stroke-width="3"/>
+    <circle cx="58" cy="6" r="6" fill="#e2e8f0" stroke="#64748b" stroke-width="1.5"/>
+  </g>
+
+  <g transform="translate(204,90)">
+    <rect x="0" y="30" width="55" height="50" rx="9" fill="#fee2e2" stroke="#dc2626" stroke-width="2.5"/>
+    <circle cx="27" cy="18" r="11" fill="#fecaca" stroke="#b91c1c" stroke-width="1.5"/>
+    <line x1="58" y1="8" x2="58" y2="55" stroke="#64748b" stroke-width="3"/>
+    <circle cx="58" cy="6" r="6" fill="#e2e8f0" stroke="#64748b" stroke-width="1.5"/>
+  </g>
+
+  <!-- small schedule bar underneath -->
+  <rect x="35" y="200" width="230" height="14" rx="4" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <rect x="40" y="203" width="55" height="8" rx="2" fill="#fbbf24"/>
+  <rect x="100" y="203" width="80" height="8" rx="2" fill="#4ade80"/>
+  <rect x="185" y="203" width="60" height="8" rx="2" fill="#f87171"/>
+
+  <text x="150" y="245" text-anchor="middle" font-size="16" font-weight="bold" fill="#0f766e">شیمی‌درمانی</text>
+</svg>

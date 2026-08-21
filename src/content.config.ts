@@ -1,5 +1,6 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
+import { resolveCanonicalTag, normalizeTag } from './utils/tag-text';
 
 /**
  * A content image can live either beside the Markdown file (Astro-processed)
@@ -7,13 +8,40 @@ import { glob } from 'astro/loaders';
  */
 const imageField = (image: any) => z.union([image(), z.string()]).optional();
 
+/**
+ * Tags need zero setup. Write anything in frontmatter — new tag, old tag,
+ * doesn't matter — and it just works: it shows on the page, it's searchable,
+ * and (once used on enough items) it gets its own /tags/<slug>/ page for SEO.
+ * The only thing this does automatically:
+ *  - trims stray whitespace
+ *  - if the tag is listed in src/data/tag-aliases.ts as a variant of another
+ *    tag (e.g. "LP" → "Linear Programming"), it's swapped to that canonical
+ *    form so both spellings end up on the same tag page
+ *  - removes exact/near-duplicates within the same entry
+ * Nothing here can fail validation, so a typo in a tag never breaks the site.
+ */
+const tagsField = () => z.array(z.string()).default([]).transform(values => {
+  const seen = new Set<string>();
+  const result: string[] = [];
+  for (const raw of values) {
+    const trimmed = String(raw ?? '').trim();
+    if (!trimmed) continue;
+    const canonical = resolveCanonicalTag(trimmed);
+    const key = normalizeTag(canonical);
+    if (seen.has(key)) continue;
+    seen.add(key);
+    result.push(canonical);
+  }
+  return result;
+});
+
 const commonContentFields = (image: any) => ({
   title: z.string(),
   description: z.string(),
   pubDate: z.coerce.date().optional(),
   image: imageField(image),
   imageAlt: z.string().optional(),
-  tags: z.array(z.string()).default([]),
+  tags: tagsField(),
   draft: z.boolean().default(false),
 });
 
@@ -101,7 +129,7 @@ const instructorsCollection = defineCollection({
   schema: ({ image }) => z.object({
     name: z.string(),
     shortName: z.string().optional(),
-      title: z.string().optional(),
+    title: z.string().optional(),
     jobTitle: z.string().optional(),
     image: imageField(image),
     imageAlt: z.string().optional(),

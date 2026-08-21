@@ -1,0 +1,234 @@
+---
+import AdminLayout from '../../../layouts/AdminLayout.astro';
+import { buildSeoReport, summarizeIssues, summarizeByType, THRESHOLDS } from '../../../utils/seo-audit';
+
+const pages = await buildSeoReport();
+const issueSummary = summarizeIssues(pages);
+const typeSummary = summarizeByType(pages);
+const errorCount = pages.filter(p => p.issues.some(i => i.severity === 'error')).length;
+const cleanCount = pages.filter(p => p.issues.length === 0).length;
+const avgScore = pages.length ? Math.round(pages.reduce((s, p) => s + p.score, 0) / pages.length) : 0;
+const topIssues = issueSummary.slice(0, 6);
+const t = THRESHOLDS;
+
+const typeChips: [string, string][] = [['all', 'همه انواع'], ['note', 'یادداشت'], ['project', 'پروژه'], ['course', 'دوره'], ['book', 'کتاب'], ['software', 'نرم‌افزار']];
+const severityChips: [string, string][] = [['all', 'همه'], ['error', 'فقط مشکل جدی'], ['warning', 'فقط هشدار']];
+
+const checklist = [
+  { title: 'عنوان (title)', detail: `بین ${t.titleMin} تا ${t.titleMax} نویسه، شامل مهم‌ترین کلمه‌ی موضوع مطلب.` },
+  { title: 'توضیحات (description)', detail: `بین ${t.descriptionMin} تا ${t.descriptionMax} نویسه؛ خلاصه‌ای دقیق و جذاب که دلیل کلیک‌کردن را نشان دهد.` },
+  { title: 'تصویر شاخص', detail: 'حتماً یک تصویر شاخص با فیلد imageAlt پر و توصیفی داشته باشد (نه صرفاً نام فایل).' },
+  { title: 'حجم متن', detail: `حداقل ${t.thinContentWords} کلمه؛ برای رتبه‌ی بهتر ترجیحاً ${t.goodContentWords}+ کلمه.` },
+  { title: 'ساختار با زیرعنوان', detail: `اگر متن از ${t.longContentForHeadings} کلمه بیشتر است، حتماً از ## یا ### برای بخش‌بندی استفاده کنید.` },
+  { title: 'فقط یک تیتر اصلی', detail: 'داخل بدنه هرگز از # (تیتر سطح ۱) استفاده نکنید — عنوان اصلی از frontmatter می‌آید و تکرارش تداخل ایجاد می‌کند.' },
+  { title: 'لینک داخلی', detail: 'حداقل یک لینک به یک مطلب مرتبط دیگر در سایت اضافه کنید؛ به کاربر و گوگل کمک می‌کند مسیر سایت را بهتر بفهمد.' },
+  { title: 'تگ مرتبط', detail: 'حداقل یک تگ اضافه کنید. قبلش سری به «مدیریت تگ‌ها» بزنید تا از تگ موجود استفاده کنید، نه یک نسخه‌ی مشابه جدید.' },
+  { title: 'پاراگراف و جمله کوتاه', detail: `هر پاراگراف را زیر ${t.maxParagraphWords} کلمه و میانگین جملات را زیر ${t.maxAvgSentenceWords} کلمه نگه دارید.` },
+  { title: 'تصویر میانی برای متن بلند', detail: `اگر متن از ${t.longContentForImages} کلمه بیشتر شد، حداقل یک تصویر یا نمودار داخل بدنه اضافه کنید.` },
+];
+
+// این‌ها همیشه و خودکار توسط خود سایت انجام می‌شوند — نیازی به کار دستی نیست
+const automatedItems = [
+  { title: 'sitemap-index.xml', detail: 'با هر build خودکار بازسازی می‌شود و شامل تاریخ آخرین ویرایش (lastmod) هر مطلب — مستقیم از pubDate — است.' },
+  { title: 'فید RSS', detail: 'در rss.xml همیشه شامل ۵۰ مطلب اخیر از تمام بخش‌های سایت است؛ با هر مطلب جدید خودکار به‌روز می‌شود.' },
+  { title: 'canonical و Open Graph', detail: 'برای هر صفحه خودکار تولید می‌شود؛ نیازی به تنظیم دستی برای هیچ مطلبی نیست.' },
+  { title: 'داده‌ساختاریافته (JSON-LD)', detail: 'برای دوره، پروژه، کتاب، نرم‌افزار و یادداشت خودکار بر اساس نوع محتوا تولید می‌شود.' },
+  { title: 'تشخیص تگ و صفحه‌ی اختصاصی', detail: 'با هر تگ جدید در محتوا، صفحه‌ی مربوطه (در صورت رسیدن به آستانه‌ی استفاده) خودکار ساخته می‌شود.' },
+  { title: 'تحلیل سئوی این صفحه', detail: 'با هر build، تمام مطالب دوباره بررسی و امتیازدهی می‌شوند — همین صفحه‌ای که الان می‌بینید.' },
+];
+
+// این‌ها را هیچ اسکریپتی نمی‌تواند برای یک سایت استاتیک انجام دهد — باید
+// یک‌بار (یا به‌صورت دوره‌ای) توسط مدیر سایت به‌صورت دستی و بیرون از کد انجام شوند
+const manualItems = [
+  { title: 'ثبت در Google Search Console', detail: 'مالکیت دامنه را تأیید کنید و sitemap-index.xml را در بخش Sitemaps ثبت کنید تا گوگل صفحات را سریع‌تر پیدا کند.', link: 'https://search.google.com/search-console' },
+  { title: 'ثبت در Bing Webmaster Tools', detail: 'فایل BingSiteAuth.xml از قبل روی سایت هست؛ فقط باید در پنل Bing تأیید نهایی را انجام دهید.', link: 'https://www.bing.com/webmasters' },
+  { title: 'نصب ابزار آنالیتیکس', detail: 'در حال حاضر هیچ ابزار آماری (مثل GA4 یا Plausible) نصب نیست؛ بدون آن نمی‌دانید کدام مطلب واقعاً بازدید می‌گیرد.' },
+  { title: 'بررسی دوره‌ای Core Web Vitals', detail: 'هر چند ماه یک‌بار چند صفحه‌ی پربازدید را در PageSpeed Insights بررسی کنید.', link: 'https://pagespeed.web.dev' },
+  { title: 'بررسی گزارش Coverage در Search Console', detail: 'ببینید آیا صفحه‌ای به‌اشتباه ایندکس نشده یا خطای خزش دارد؛ چیزی است که فقط از سمت گوگل قابل مشاهده است.' },
+  { title: 'تست سازگاری با موبایل', detail: 'به‌صورت دوره‌ای با Mobile-Friendly Test گوگل بررسی کنید، مخصوصاً بعد از تغییرات بزرگ در طراحی.', link: 'https://search.google.com/test/mobile-friendly' },
+  { title: 'بررسی لینک‌های شبکه‌های اجتماعی', detail: 'مطمئن شوید لینک‌های فوتر (گیت‌هاب، لینکدین، تلگرام، آپارات، یوتیوب) همیشه به آدرس درست و فعال اشاره می‌کنند.' },
+  { title: 'ریدایرکت ۳۰۱ در صورت تغییر آدرس', detail: 'اگر اسم پوشه‌ی یک مطلب منتشرشده را تغییر دادید، حتماً در astro.config.mjs یک redirect برایش اضافه کنید تا لینک قدیمی از بین نرود.' },
+];
+
+
+function scoreClass(score: number) {
+  if (score >= 90) return 'text-green-600 dark:text-green-400';
+  if (score >= 60) return 'text-amber-600 dark:text-amber-400';
+  return 'text-red-600 dark:text-red-400';
+}
+function scoreBg(score: number) {
+  if (score >= 90) return 'bg-green-500';
+  if (score >= 60) return 'bg-amber-500';
+  return 'bg-red-500';
+}
+---
+<AdminLayout title="سلامت سئوی محتوا" description="بررسی خودکار و کامل سئوی تمام صفحات سایت، لینک‌های شکسته، خوانایی متن، و راهنمای نوشتن مطلب سئوشده." breadcrumbs={[{name:'خانه',url:'/'},{name:'پنل مدیریت',url:'/admin/'},{name:'سلامت سئو'}]}>
+<main class="max-w-7xl mx-auto px-4 sm:px-6 py-10 w-full flex-grow">
+<header class="mb-8">
+<span class="inline-flex items-center gap-2 text-xs font-bold text-[var(--site-primary)] bg-[var(--site-primary)]/10 px-3.5 py-1.5 rounded-full border border-[var(--site-primary)]/20"><i class="fa-solid fa-magnifying-glass-chart" aria-hidden="true"></i>ابزار داخلی — فقط مدیر سایت</span>
+<h1 class="text-3xl md:text-4xl font-black text-[var(--site-heading)] mt-4 mb-3">سلامت سئوی محتوا</h1>
+<p class="text-sm leading-7 text-[var(--site-muted)] max-w-3xl">این صفحه بدون هیچ تنظیم دستی، همه‌ی مطالب سایت را تحلیل و امتیاز می‌دهد. برای انتشار مطلب جدید کافی‌ست فایل md و تصویر را اضافه کنید؛ این صفحه خودش نتیجه را نشان می‌دهد. <a href="/admin/tags/" class="text-[var(--site-primary)] hover:underline font-bold">مدیریت تگ‌ها</a> · <a href="/admin/images/" class="text-[var(--site-primary)] hover:underline font-bold">بررسی تصاویر</a> · <a href="/admin/content/" class="text-[var(--site-primary)] hover:underline font-bold">داشبورد محتوا</a></p>
+</header>
+
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+<div class="bg-[var(--site-card)] border border-[var(--site-border)] rounded-2xl p-5"><p class="text-2xl font-black text-[var(--site-heading)]">{pages.length}</p><p class="text-xs text-[var(--site-muted)] mt-1">کل صفحات بررسی‌شده</p></div>
+<div class="bg-[var(--site-card)] border border-[var(--site-border)] rounded-2xl p-5"><p class="text-2xl font-black text-green-600 dark:text-green-400">{cleanCount}</p><p class="text-xs text-[var(--site-muted)] mt-1">بدون هیچ مشکل</p></div>
+<div class="bg-[var(--site-card)] border border-[var(--site-border)] rounded-2xl p-5"><p class="text-2xl font-black text-red-600 dark:text-red-400">{errorCount}</p><p class="text-xs text-[var(--site-muted)] mt-1">دارای مشکل جدی</p></div>
+<div class="bg-[var(--site-card)] border border-[var(--site-border)] rounded-2xl p-5"><p class={`text-2xl font-black ${scoreClass(avgScore)}`}>{avgScore}</p><p class="text-xs text-[var(--site-muted)] mt-1">میانگین امتیاز سئو</p></div>
+</div>
+
+<!-- راهنمای نوشتن مطلب سئوشده — همیشه در دسترس نویسنده، مستقل از هر تحلیلی -->
+<section class="mb-10 rounded-3xl border border-[var(--site-primary)]/25 bg-[var(--site-primary)]/[0.04] p-5 sm:p-7">
+<div class="flex items-start gap-3 mb-5">
+<div class="w-10 h-10 rounded-2xl bg-[var(--site-primary)]/15 flex items-center justify-center shrink-0"><i class="fa-solid fa-list-check text-[var(--site-primary)]" aria-hidden="true"></i></div>
+<div>
+<h2 class="text-lg font-black text-[var(--site-heading)]">راهنمای نوشتن مطلب سئوشده</h2>
+<p class="text-xs text-[var(--site-muted)] mt-1">دقیقاً همان معیارهایی که تحلیل خودکار زیر بررسی می‌کند — قبل از انتشار مطلب جدید، این چک‌لیست را مرور کنید.</p>
+</div>
+</div>
+<div class="grid sm:grid-cols-2 gap-x-6 gap-y-3">
+{checklist.map((c,i)=><div class="flex items-start gap-3">
+<span class="w-6 h-6 rounded-full bg-[var(--site-primary)]/15 text-[var(--site-primary)] text-[11px] font-black flex items-center justify-center shrink-0 mt-0.5">{i+1}</span>
+<div><p class="text-sm font-bold text-[var(--site-heading)]">{c.title}</p><p class="text-xs text-[var(--site-muted)] leading-relaxed mt-0.5">{c.detail}</p></div>
+</div>)}
+</div>
+</section>
+
+<!-- چه چیزی خودکار است، چه چیزی نیست — تفکیک شفاف تا نویسنده وقتش را
+     درست‌جا صرف کند -->
+<section class="mb-10 grid lg:grid-cols-2 gap-5">
+<div class="rounded-3xl border border-green-500/25 bg-green-500/[0.04] p-5 sm:p-6">
+<div class="flex items-start gap-3 mb-4">
+<div class="w-9 h-9 rounded-xl bg-green-500/15 flex items-center justify-center shrink-0"><i class="fa-solid fa-gears text-green-600 dark:text-green-400 text-sm" aria-hidden="true"></i></div>
+<div><h2 class="text-base font-black text-[var(--site-heading)]">این‌ها همیشه خودکار انجام می‌شوند</h2><p class="text-xs text-[var(--site-muted)] mt-0.5">هیچ کاری از شما لازم نیست.</p></div>
+</div>
+<div class="space-y-3">
+{automatedItems.map(a=><div class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-green-500 text-xs mt-1 shrink-0" aria-hidden="true"></i><div><p class="text-sm font-bold text-[var(--site-heading)]">{a.title}</p><p class="text-xs text-[var(--site-muted)] leading-relaxed mt-0.5">{a.detail}</p></div></div>)}
+</div>
+</div>
+
+<div class="rounded-3xl border border-amber-500/25 bg-amber-500/[0.04] p-5 sm:p-6">
+<div class="flex items-start gap-3 mb-4">
+<div class="w-9 h-9 rounded-xl bg-amber-500/15 flex items-center justify-center shrink-0"><i class="fa-solid fa-hand-pointer text-amber-600 dark:text-amber-400 text-sm" aria-hidden="true"></i></div>
+<div><h2 class="text-base font-black text-[var(--site-heading)]">چک‌لیست کارهای دستی</h2><p class="text-xs text-[var(--site-muted)] mt-0.5">این موارد را هیچ اسکریپتی برای یک سایت استاتیک نمی‌تواند خودکار انجام دهد.</p></div>
+</div>
+<div class="space-y-3">
+{manualItems.map(m=><div class="flex items-start gap-2.5"><i class="fa-regular fa-square text-amber-500 text-xs mt-1 shrink-0" aria-hidden="true"></i><div><p class="text-sm font-bold text-[var(--site-heading)]">{m.link?<a href={m.link} target="_blank" rel="noopener noreferrer" class="hover:text-[var(--site-primary)] hover:underline">{m.title} <i class="fa-solid fa-arrow-up-left-from-square text-[9px]" aria-hidden="true"></i></a>:m.title}</p><p class="text-xs text-[var(--site-muted)] leading-relaxed mt-0.5">{m.detail}</p></div></div>)}
+</div>
+</div>
+</section>
+
+{topIssues.length>0&&<section class="mb-10">
+<h2 class="text-lg font-black text-[var(--site-heading)] mb-1">اولویت‌های اصلاح (بیشترین تأثیر)</h2>
+<p class="text-xs text-[var(--site-muted)] mb-4">این مشکلات در بیشترین تعداد صفحه تکرار شده‌اند؛ رفعشان بیشترین تأثیر کلی روی سئوی سایت را دارد.</p>
+<div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+{topIssues.map(i=><div class={`rounded-2xl border p-4 flex items-start gap-3 ${i.severity==='error'?'border-red-500/30 bg-red-500/5':'border-amber-500/30 bg-amber-500/5'}`}>
+<i class={`fa-solid ${i.severity==='error'?'fa-circle-exclamation text-red-500':'fa-triangle-exclamation text-amber-500'} mt-0.5`} aria-hidden="true"></i>
+<div><p class="text-xs font-bold text-[var(--site-text)]">{i.message}</p><p class="text-[10px] text-[var(--site-muted)] mt-0.5">{i.count} صفحه</p></div>
+</div>)}
+</div>
+</section>}
+
+<section class="mb-10">
+<h2 class="text-lg font-black text-[var(--site-heading)] mb-1">میانگین سئو به تفکیک نوع محتوا</h2>
+<p class="text-xs text-[var(--site-muted)] mb-4">اگر یک نوع محتوا میانگین پایینی دارد، یعنی مشکل سیستماتیک است، نه اتفاقی در یک صفحه.</p>
+<div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-3">
+{typeSummary.map(t2=><div class="bg-[var(--site-card)] border border-[var(--site-border)] rounded-2xl p-4">
+<p class="text-xs font-bold text-[var(--site-muted)] mb-2">{t2.typeLabel} <span class="text-[10px]">({t2.count})</span></p>
+<div class="flex items-end justify-between mb-2"><span class={`text-xl font-black ${scoreClass(t2.avgScore)}`}>{t2.avgScore}</span></div>
+<div class="w-full h-1.5 rounded-full bg-[var(--site-border)] overflow-hidden"><div class={`h-full ${scoreBg(t2.avgScore)}`} style={`width:${t2.avgScore}%`}></div></div>
+</div>)}
+</div>
+</section>
+
+<!-- فیلترها: مرتب و دسته‌بندی‌شده تا سردرگم‌کننده نباشد -->
+<section class="bg-[var(--site-card)] border border-[var(--site-border)] rounded-3xl p-4 sm:p-5 mb-6 shadow-xs space-y-4">
+<input id="seo-search" type="search" placeholder="جستجوی عنوان..." class="w-full bg-[var(--site-bg)] border border-[var(--site-border)] rounded-xl px-4 py-3 text-sm text-[var(--site-text)] focus:outline-none focus:border-[var(--site-primary)]"/>
+<div>
+<p class="text-[10px] font-bold text-[var(--site-muted)] uppercase tracking-widest mb-2">نوع محتوا</p>
+<div class="flex flex-wrap gap-2">{typeChips.map(([id,label])=><button type="button" data-type-filter={id} class="seo-type-filter px-3.5 py-1.5 rounded-lg border border-[var(--site-border)] text-xs font-bold text-[var(--site-text)]">{label}</button>)}</div>
+</div>
+<div>
+<p class="text-[10px] font-bold text-[var(--site-muted)] uppercase tracking-widest mb-2">شدت مشکل</p>
+<div class="flex flex-wrap gap-2">{severityChips.map(([id,label])=><button type="button" data-severity-filter={id} class="seo-severity-filter px-3.5 py-1.5 rounded-lg border border-[var(--site-border)] text-xs font-bold text-[var(--site-text)]">{label}</button>)}</div>
+</div>
+<div class="flex items-center justify-between flex-wrap gap-3 pt-1 border-t border-[var(--site-border)]">
+<label class="flex items-center gap-2 text-xs font-bold text-[var(--site-muted)]"><input id="seo-only-issues" type="checkbox" class="accent-[var(--site-primary)]"/> فقط صفحات دارای مشکل</label>
+<div class="flex items-center gap-2">
+<span class="text-[10px] font-bold text-[var(--site-muted)]">مرتب‌سازی:</span>
+<button type="button" id="seo-sort-toggle" data-order="asc" class="text-xs font-bold text-[var(--site-primary)] border border-[var(--site-primary)]/30 rounded-lg px-3 py-1.5 hover:bg-[var(--site-primary)]/10 flex items-center gap-1.5"><i class="fa-solid fa-arrow-down-short-wide" aria-hidden="true"></i>ضعیف‌ترین اول</button>
+</div>
+</div>
+</section>
+<p id="seo-count" class="text-xs text-[var(--site-muted)] mb-3"></p>
+
+<div class="grid gap-3" id="seo-results">
+{pages.map((p,idx)=>
+<article class="seo-row bg-[var(--site-card)] border border-[var(--site-border)] rounded-2xl p-5" style={`order:${idx}`} data-title={p.title} data-type={p.typeId} data-score={p.score} data-has-issues={p.issues.length>0?'1':'0'} data-has-error={p.issues.some(i=>i.severity==='error')?'1':'0'} data-has-warning={p.issues.some(i=>i.severity==='warning')?'1':'0'}>
+<div class="flex flex-wrap items-start justify-between gap-3">
+<div class="min-w-0">
+<span class="text-[10px] font-bold text-[var(--site-primary)]">{p.typeLabel}</span>
+<h3 class="text-base font-bold text-[var(--site-heading)] mt-1 truncate"><a href={p.url} class="hover:text-[var(--site-primary)]">{p.title}</a></h3>
+<code class="text-[10px] text-[var(--site-muted)]" dir="ltr">{p.filePath}</code>
+</div>
+<div class={`text-2xl font-black shrink-0 ${scoreClass(p.score)}`}>{p.score}</div>
+</div>
+<div class="flex flex-wrap gap-x-4 gap-y-1 text-[11px] text-[var(--site-muted)] mt-3">
+<span>عنوان: {p.titleLength} نویسه</span>
+<span>توضیحات: {p.descriptionLength} نویسه</span>
+<span>~{p.wordCount} کلمه (~{p.readingTimeMin} دقیقه)</span>
+<span>{p.headingCount} زیرعنوان</span>
+<span>{p.internalLinks.length} لینک داخلی</span>
+<span>{p.externalLinkCount} لینک بیرونی</span>
+<span>{p.bodyImageCount} تصویر در متن</span>
+<span>~{p.avgSentenceLength} کلمه/جمله</span>
+<span>{p.tagCount} تگ</span>
+<span>{p.hasImage?'دارای تصویر':'بدون تصویر'}</span>
+</div>
+{p.issues.length>0&&<ul class="mt-3 space-y-1">{p.issues.map(i=><li class={`text-xs flex items-start gap-2 ${i.severity==='error'?'text-red-600 dark:text-red-400':'text-amber-600 dark:text-amber-400'}`}><i class={`fa-solid ${i.severity==='error'?'fa-circle-exclamation':'fa-triangle-exclamation'} mt-0.5`} aria-hidden="true"></i><span>{i.message}</span></li>)}</ul>}
+</article>
+)}
+</div>
+</main>
+<style>#seo-results{display:flex;flex-direction:column;}</style>
+<script>
+const q=document.getElementById('seo-search'),onlyIssues=document.getElementById('seo-only-issues'),typeFilters=[...document.querySelectorAll('.seo-type-filter')],severityFilters=[...document.querySelectorAll('.seo-severity-filter')],sortToggle=document.getElementById('seo-sort-toggle'),rows=[...document.querySelectorAll('.seo-row')],count=document.getElementById('seo-count');
+let activeType='all',activeSeverity='all',sortOrder='asc';
+
+function update(){
+  const term=(q&&'value' in q?q.value:'').toLocaleLowerCase('fa-IR').trim();
+  const issuesOnly=onlyIssues&&'checked' in onlyIssues?onlyIssues.checked:false;
+  let n=0;
+  rows.forEach(r=>{
+    const title=(r.getAttribute('data-title')||'').toLocaleLowerCase('fa-IR');
+    const type=r.getAttribute('data-type');
+    const hasIssues=r.getAttribute('data-has-issues')==='1';
+    const hasError=r.getAttribute('data-has-error')==='1';
+    const hasWarning=r.getAttribute('data-has-warning')==='1';
+    const matchesText=!term||title.includes(term);
+    const matchesType=activeType==='all'||type===activeType;
+    const matchesIssues=!issuesOnly||hasIssues;
+    const matchesSeverity=activeSeverity==='all'||(activeSeverity==='error'&&hasError)||(activeSeverity==='warning'&&hasWarning);
+    const visible=matchesText&&matchesType&&matchesIssues&&matchesSeverity;
+    r.hidden=!visible;
+    const score=Number(r.getAttribute('data-score')||0);
+    r.style.order=String(sortOrder==='asc'?score:-score);
+    if(visible)n++;
+  });
+  if(count)count.textContent=`${n} صفحه نمایش داده می‌شود.`;
+  typeFilters.forEach(b=>{const a=b.getAttribute('data-type-filter')===activeType;b.classList.toggle('bg-[var(--site-primary)]',a);b.classList.toggle('text-white',a);b.classList.toggle('border-[var(--site-primary)]',a);});
+  severityFilters.forEach(b=>{const a=b.getAttribute('data-severity-filter')===activeSeverity;b.classList.toggle('bg-[var(--site-primary)]',a);b.classList.toggle('text-white',a);b.classList.toggle('border-[var(--site-primary)]',a);});
+}
+q?.addEventListener('input',update);
+onlyIssues?.addEventListener('change',update);
+typeFilters.forEach(b=>b.addEventListener('click',()=>{activeType=b.getAttribute('data-type-filter')||'all';update();}));
+severityFilters.forEach(b=>b.addEventListener('click',()=>{activeSeverity=b.getAttribute('data-severity-filter')||'all';update();}));
+sortToggle?.addEventListener('click',()=>{
+  sortOrder=sortOrder==='asc'?'desc':'asc';
+  sortToggle.setAttribute('data-order',sortOrder);
+  sortToggle.innerHTML=sortOrder==='asc'?'<i class="fa-solid fa-arrow-down-short-wide" aria-hidden="true"></i>ضعیف‌ترین اول':'<i class="fa-solid fa-arrow-up-short-wide" aria-hidden="true"></i>قوی‌ترین اول';
+  update();
+});
+update();
+</script>
+</AdminLayout>

@@ -16,108 +16,26 @@ const { id } = Astro.props;
 </div>
 
 <script is:inline>
-  function initHorizontalScrollers() {
-    document.querySelectorAll('.horizontal-scroller').forEach((scroller) => {
-      if (scroller.dataset.scrollerReady === 'true') return;
-      scroller.dataset.scrollerReady = 'true';
-
-      const prevBtn = document.querySelector(`.scroll-arrow-btn[data-scroll-target="${scroller.id}"][data-scroll-dir="prev"]`);
-      const nextBtn = document.querySelector(`.scroll-arrow-btn[data-scroll-target="${scroller.id}"][data-scroll-dir="next"]`);
-
-      const updateButtonsState = () => {
-        if (!prevBtn && !nextBtn) return;
-        
-        const maxScroll = Math.max(0, scroller.scrollWidth - scroller.clientWidth);
-        const currentScroll = Math.abs(Math.round(scroller.scrollLeft));
-        
-        const hasOverflow = maxScroll > 5;
-        
-        if (prevBtn) {
-          prevBtn.classList.toggle('lg:!hidden', !hasOverflow);
-          const isAtStart = currentScroll <= 5;
-          prevBtn.disabled = isAtStart;
-          prevBtn.classList.toggle('opacity-40', isAtStart);
-          prevBtn.classList.toggle('pointer-events-none', isAtStart);
-        }
-        
-        if (nextBtn) {
-          nextBtn.classList.toggle('lg:!hidden', !hasOverflow);
-          const isAtEnd = currentScroll >= (maxScroll - 5);
-          nextBtn.disabled = isAtEnd;
-          nextBtn.classList.toggle('opacity-40', isAtEnd);
-          nextBtn.classList.toggle('pointer-events-none', isAtEnd);
-        }
-      };
-
-      updateButtonsState();
-      scroller.addEventListener('scroll', () => requestAnimationFrame(updateButtonsState), { passive: true });
-      window.addEventListener('resize', () => requestAnimationFrame(updateButtonsState), { passive: true });
-
-      // تابع انیمیشن اختصاصی و نرم
-      const animateScroll = (distance, duration = 600) => {
-        // جلوگیری از اجرای همزمان چند انیمیشن (اسپم کلیک)
-        if (scroller.dataset.animating === 'true') return;
-        scroller.dataset.animating = 'true';
-
-        // خاموش کردن موقت Snap برای جلوگیری از تداخل و پرش
-        scroller.style.scrollSnapType = 'none';
-
-        const start = scroller.scrollLeft;
-        const startTime = performance.now();
-
-        // منحنی حرکتی: شروع سریع، پایان بسیار نرم
-        const easeOutQuart = (t) => 1 - Math.pow(1 - t, 4);
-
-        const step = (now) => {
-          const elapsed = now - startTime;
-          const progress = Math.min(elapsed / duration, 1);
-          
-          scroller.scrollLeft = start + (distance * easeOutQuart(progress));
-
-          if (progress < 1) {
-            requestAnimationFrame(step);
-          } else {
-            // روشن کردن مجدد Snap پس از پایان حرکت
-            scroller.style.scrollSnapType = '';
-            scroller.dataset.animating = 'false';
-            updateButtonsState();
-          }
-        };
-
-        requestAnimationFrame(step);
-      };
-
-      const goTo = (direction) => {
-        const cards = Array.from(scroller.children);
-        if (cards.length < 2) return;
-
-        const cardWidth = cards[0].getBoundingClientRect().width;
-        const gap = parseFloat(window.getComputedStyle(scroller).gap) || 0;
-        
-        // مسافت جابجایی معادل دقیقاً ۲ کارت
-        const distance = (cardWidth + gap) * 2;
-        
-        const isRTL = window.getComputedStyle(scroller).direction === 'rtl';
-        let moveAmount = direction === 'next' ? distance : -distance;
-        
-        if (isRTL) {
-          moveAmount = direction === 'next' ? -distance : distance;
-        }
-
-        // اجرای انیمیشن با زمان 600 میلی‌ثانیه برای حرکت بسیار شیک و نرم
-        animateScroll(moveAmount, 600);
-      };
-
-      if (prevBtn) prevBtn.addEventListener('click', () => goTo('prev'));
-      if (nextBtn) nextBtn.addEventListener('click', () => goTo('next'));
-    });
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initHorizontalScrollers);
-  } else {
-    initHorizontalScrollers();
-  }
-  document.addEventListener('astro:page-load', initHorizontalScrollers);
-  window.addEventListener('load', initHorizontalScrollers);
+function initHorizontalScrollers(){
+ document.querySelectorAll('.horizontal-scroller').forEach(scroller=>{
+  if(scroller.dataset.scrollerReady==='true')return;scroller.dataset.scrollerReady='true';
+  const prev=document.querySelector(`.scroll-arrow-btn[data-scroll-target="${scroller.id}"][data-scroll-dir="prev"]`);
+  const next=document.querySelector(`.scroll-arrow-btn[data-scroll-target="${scroller.id}"][data-scroll-dir="next"]`);
+  const update=()=>{const max=Math.max(0,scroller.scrollWidth-scroller.clientWidth),cur=Math.abs(Math.round(scroller.scrollLeft)),overflow=max>5;
+   [prev,next].forEach((b,i)=>{if(!b)return;b.classList.toggle('lg:!hidden',!overflow);const edge=i===0?cur<=5:cur>=max-5;b.disabled=edge;b.classList.toggle('opacity-40',edge);b.classList.toggle('pointer-events-none',edge);});
+  };
+  const animate=(distance,duration=500)=>{if(scroller.dataset.animating==='true')return;scroller.dataset.animating='true';scroller.style.scrollSnapType='none';const start=scroller.scrollLeft,t0=performance.now();const step=now=>{const t=Math.min((now-t0)/duration,1),e=1-Math.pow(1-t,4);scroller.scrollLeft=start+distance*e;if(t<1)requestAnimationFrame(step);else{scroller.style.scrollSnapType='';scroller.dataset.animating='false';update();}};requestAnimationFrame(step);};
+  const go=dir=>{const card=scroller.firstElementChild;if(!card)return;const d=(card.getBoundingClientRect().width+(parseFloat(getComputedStyle(scroller).gap)||0))*2;const rtl=getComputedStyle(scroller).direction==='rtl';animate(rtl?(dir==='next'?-d:d):(dir==='next'?d:-d));};
+  prev?.addEventListener('click',()=>go('prev'));next?.addEventListener('click',()=>go('next'));
+  let dragging=false,moved=false,startX=0,startScroll=0,suppress=0;
+  scroller.addEventListener('pointerdown',e=>{if(e.pointerType!=='mouse'||e.button!==0)return;dragging=true;moved=false;startX=e.clientX;startScroll=scroller.scrollLeft;scroller.classList.add('is-pointer-dragging');scroller.setPointerCapture?.(e.pointerId);});
+  scroller.addEventListener('pointermove',e=>{if(!dragging)return;const dx=e.clientX-startX;if(Math.abs(dx)>5){moved=true;e.preventDefault();}if(moved)scroller.scrollLeft=startScroll-dx;});
+  const end=e=>{if(!dragging)return;dragging=false;scroller.classList.remove('is-pointer-dragging');if(moved)suppress=performance.now()+120;try{scroller.releasePointerCapture?.(e.pointerId);}catch{}update();};
+  scroller.addEventListener('pointerup',end);scroller.addEventListener('pointercancel',end);
+  scroller.addEventListener('click',e=>{if(performance.now()<suppress){e.preventDefault();e.stopPropagation();}},true);
+  scroller.addEventListener('scroll',()=>requestAnimationFrame(update),{passive:true});window.addEventListener('resize',()=>requestAnimationFrame(update),{passive:true});update();
+ });
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',initHorizontalScrollers,{once:true});else initHorizontalScrollers();
+document.addEventListener('astro:page-load',initHorizontalScrollers);
 </script>

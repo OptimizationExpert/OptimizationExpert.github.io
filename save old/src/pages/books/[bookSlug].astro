@@ -1,0 +1,146 @@
+---
+import { entrySlug, isPublished } from '../../utils/content';
+import { getCollection, render } from 'astro:content';
+import { Image } from 'astro:assets';
+import Layout from '../../layouts/Layout.astro';
+import RelatedContent from '../../components/RelatedContent.astro';
+import TelegramCTA from '../../components/TelegramCTA.astro';
+import { imgSrc } from '../../utils/image';
+
+export async function getStaticPaths() {
+  const books = await getCollection('books', isPublished);
+  return books.map((book) => ({
+    params: { bookSlug: entrySlug(book) },
+    props: { book },
+  }));
+}
+
+const { book } = Astro.props;
+const { Content } = await render(book);
+const bookSlug = entrySlug(book);
+
+const instructors = await getCollection('instructors', isPublished);
+const matchedInstructor = book.data.author
+  ? instructors.find((i) => entrySlug(i) === book.data.author || i.data.name === book.data.author)
+  : undefined;
+const authorFullName = matchedInstructor?.data.name || book.data.author || 'Optimization Expert';
+
+// تصویر پیش‌فرض یکسان با بقیه‌ی سایت
+const defaultImage = "/images/hero2.webp";
+const bookImg = book.data.image || defaultImage;
+---
+
+<Layout
+  title={book.data.title}
+  description={book.data.description}
+  image={imgSrc(bookImg)}
+  type="book"
+  author={authorFullName}
+  authorUrl={matchedInstructor ? `/instructors/${entrySlug(matchedInstructor)}/` : undefined}
+  bookDetails={{
+    category: book.data.category,
+    format: book.data.format,
+    pages: book.data.pages,
+    price: book.data.price,
+  }}
+  breadcrumbs={[
+    { name: 'خانه', url: '/' },
+    { name: 'کتاب‌ها و جزوات', url: '/books/' },
+    { name: book.data.title },
+  ]}
+>
+
+  <main class="max-w-3xl mx-auto px-6 py-12 flex-grow w-full">
+     
+    <!-- دکمه بازگشت -->
+    <div class="mb-6">
+      <a href="/books/" class="text-xs text-[var(--site-primary)] hover:opacity-80 inline-flex items-center gap-1.5 transition">
+        <i class="fa-solid fa-arrow-right text-[10px]"></i>
+        <span>بازگشت به کتاب‌ها و جزوات</span>
+      </a>
+    </div>
+
+    <article>
+      <!-- دسته‌بندی، فرمت، تعداد صفحات و تاریخ انتشار -->
+      <div class="flex flex-wrap items-center gap-3 mb-4">
+        {book.data.category && (
+          <span class="text-xs font-semibold text-[var(--site-primary)] bg-[var(--site-primary)]/10 px-3.5 py-1 rounded-full border border-[var(--site-primary)]/20">
+            {book.data.category}
+          </span>
+        )}
+        {book.data.format && (
+          <span class="text-xs text-[var(--site-text)] bg-[var(--site-bg)] px-3.5 py-1 rounded-full border border-[var(--site-border)]">
+            فرمت: {book.data.format}
+          </span>
+        )}
+        {book.data.pages && (
+          <span class="text-xs text-[var(--site-muted)] flex items-center gap-1.5">
+            <i class="fa-regular fa-file-lines text-[var(--site-primary)]"></i>
+            <span>{book.data.pages} صفحه</span>
+          </span>
+        )}
+        {book.data.pubDate && (
+          <span class="text-xs text-[var(--site-muted)] flex items-center gap-1.5">
+            <i class="fa-regular fa-calendar"></i>
+            <span>{book.data.pubDate.toLocaleDateString('fa-IR')}</span>
+          </span>
+        )}
+      </div>
+
+      <h1 class="text-3xl md:text-4xl font-extrabold text-[var(--site-heading)] mb-6 leading-tight">
+        {book.data.title}
+      </h1>
+
+      <p class="text-[var(--site-text)] text-base md:text-lg leading-relaxed mb-8 bg-[var(--site-card)] p-5 rounded-2xl border border-[var(--site-border)] shadow-xs">
+        {book.data.description}
+      </p>
+
+      <!-- تصویر کتاب (فیت‌شده و متناسب با ابعاد عمودی) -->
+      {book.data.image && (
+        <div class="flex justify-center mb-8">
+          <div class="bg-[var(--site-card)] rounded-2xl border border-[var(--site-border)] shadow-xs p-4 inline-flex items-center justify-center">
+            {typeof bookImg === 'string' ? (
+              <img src={bookImg} alt={book.data.title} class="max-h-[420px] w-auto object-contain rounded-xl shadow-xs" />
+            ) : (
+              <Image src={bookImg} alt={book.data.title} class="max-h-[420px] w-auto object-contain rounded-xl shadow-xs" />
+            )}
+          </div>
+        </div>
+      )}
+
+      <!-- باکس وضعیت هزینه و دکمه دانلود -->
+      <div class="bg-[var(--site-card)] border border-[var(--site-border)] rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4 mb-10 shadow-xs">
+        <div>
+          <span class="text-xs text-[var(--site-muted)] block mb-1">وضعیت هزینه</span>
+          <span class="text-lg font-bold text-[var(--site-accent)]">{book.data.price || "رایگان"}</span>
+        </div>
+        <a href="#download-section" class="w-full sm:w-auto bg-[var(--site-primary)] hover:opacity-90 text-white font-medium px-6 py-3 rounded-xl transition text-xs text-center shadow-md shadow-[var(--site-primary)]/20">
+          دریافت فایل و منابع
+        </a>
+      </div>
+
+      <hr class="border-[var(--site-border)] mb-10" />
+
+      <!-- محتوای کامل جزوه/کتاب -->
+      <div class="prose max-w-none leading-loose text-[var(--site-text)] space-y-6 mb-10">
+        <Content />
+      </div>
+
+      <!-- مقصد واقعی دکمه‌ی دانلود بالا: قبلاً به #download-section اشاره می‌کرد
+           بدون اینکه چنین بخشی در صفحه وجود داشته باشد (لینک شکسته) -->
+      <div id="download-section" class="scroll-mt-28">
+        <TelegramCTA
+          icon="fa-download"
+          heading="دریافت فایل کتاب"
+          description="برای دریافت فایل کتاب/جزوه و راهنمایی، با آیدی"
+        />
+      </div>
+
+      <!-- برچسب‌ها و مطالب مرتبط -->
+      <RelatedContent currentSlug={bookSlug} tags={book.data.tags} />
+
+    </article>
+
+  </main>
+
+</Layout>

@@ -48,7 +48,7 @@ const [allCourses, allNotes, allProjects] = await Promise.all([
   getCollection('projects', isPublished),
 ]);
 
-const defaultImage = '/images/hero2.webp';
+const defaultImage = '/images/hero.webp';
 const MIN_ITEMS = 4;
 const normalizedCurrentSlug = normalizeSlug(currentSlug);
 
@@ -86,6 +86,47 @@ function getFilteredItems(allCollection: RelatedEntry[], manualSlugs: string[] =
 const suggestedCourses = getFilteredItems(allCourses, manualCourses);
 const suggestedNotes = getFilteredItems(allNotes, manualNotes);
 const suggestedProjects = getFilteredItems(allProjects, manualProjects);
+
+// پیکربندی هر نوع محتوا در یک آرایه‌ی واحد تا رندر سه بخش (دوره/یادداشت/
+// پروژه) با یک حلقه انجام شود، نه سه بلوک تقریباً یکسان (اصل DRY).
+const sections = [
+  {
+    id: 'related-scroller-courses',
+    icon: 'fa-solid fa-graduation-cap',
+    heading: 'دوره‌های آموزشی مرتبط',
+    viewAllHref: '/courses/',
+    basePath: '/courses',
+    items: suggestedCourses,
+    metaIcon: 'fa-regular fa-clock',
+    actionText: 'مشاهده دوره',
+    getBadge: (item: RelatedEntry) => item.data.level,
+    getMetaText: (item: RelatedEntry) => item.data.duration || 'دوره کاربردی',
+  },
+  {
+    id: 'related-scroller-notes',
+    icon: 'fa-solid fa-note-sticky',
+    heading: 'مقالات و یادداشت‌های مرتبط',
+    viewAllHref: '/notes/',
+    basePath: '/notes',
+    items: suggestedNotes,
+    metaIcon: 'fa-regular fa-calendar',
+    actionText: 'مطالعه مقاله',
+    getBadge: () => undefined,
+    getMetaText: (item: RelatedEntry) => item.data.pubDate ? item.data.pubDate.toLocaleDateString('fa-IR') : 'مقاله تخصصی',
+  },
+  {
+    id: 'related-scroller-projects',
+    icon: 'fa-solid fa-diagram-project',
+    heading: 'پروژه‌های مرتبط',
+    viewAllHref: '/projects/',
+    basePath: '/projects',
+    items: suggestedProjects,
+    metaIcon: 'fa-solid fa-layer-group',
+    actionText: 'بررسی پروژه',
+    getBadge: () => undefined,
+    getMetaText: (item: RelatedEntry) => item.data.category || 'پروژه تخصصی',
+  },
+] as const;
 ---
 
 <div class="mt-16 pt-10 border-t border-[var(--site-border)] space-y-12">
@@ -93,128 +134,48 @@ const suggestedProjects = getFilteredItems(allProjects, manualProjects);
 
   <section class="space-y-10" aria-labelledby="related-content-title">
     <h3 id="related-content-title" class="text-xl font-black text-[var(--site-heading)] mb-6">
-      مطالب و دوره‌های پیشنهادی
+      مطالب پیشنهادی
     </h3>
 
-    {suggestedCourses.length > 0 && (
+    {sections.map((section) => section.items.length > 0 && (
       <div class="space-y-4">
         <div class="flex items-center justify-between gap-3">
           <h4 class="text-xs font-bold uppercase tracking-wider text-[var(--site-primary)] flex items-center gap-2">
-            <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
-            دوره‌های آموزشی مرتبط
+            <i class={section.icon} aria-hidden="true"></i>
+            {section.heading}
           </h4>
           <div class="flex items-center gap-2.5 shrink-0">
-            <ScrollerControls id="related-scroller-courses" />
-            <a href="/courses/" class="text-xs font-bold text-[var(--site-primary)] bg-[var(--site-primary)]/10 hover:bg-[var(--site-primary)] hover:text-white px-3.5 py-2 rounded-xl transition-colors duration-200 inline-flex items-center gap-1.5 group">
+            <ScrollerControls id={section.id} />
+            <a href={section.viewAllHref} class="text-xs font-bold text-[var(--site-primary)] bg-[var(--site-primary)]/10 hover:bg-[var(--site-primary)] hover:text-white px-3.5 py-2 rounded-xl transition-colors duration-200 inline-flex items-center gap-1.5 group">
               <span>مشاهده همه</span>
               <i class="fa-solid fa-arrow-left text-[10px]" aria-hidden="true"></i>
             </a>
           </div>
         </div>
 
-        <HorizontalScroller id="related-scroller-courses">
-          {suggestedCourses.map((course) => {
-            const slug = entrySlug(course);
-            const courseImg = course.data.minimalImage || course.data.image || defaultImage;
-            const courseImgAlt = course.data.minimalImageAlt || course.data.imageAlt || course.data.title;
+        <HorizontalScroller id={section.id}>
+          {section.items.map((item) => {
+            const slug = entrySlug(item);
+            const itemImg = item.data.minimalImage || item.data.image || defaultImage;
+            const itemImgAlt = item.data.minimalImageAlt || item.data.imageAlt || item.data.title;
 
             return (
               <ContentCard
                 widthClass="w-[250px] sm:w-[280px] md:w-[300px]"
-                href={`/courses/${slug}/`}
-                image={courseImg}
-                imageAlt={courseImgAlt}
-                title={course.data.title}
-                description={course.data.description}
-                badge={course.data.level}
-                metaIcon="fa-regular fa-clock"
-                metaText={course.data.duration || 'دوره کاربردی'}
-                actionText="مشاهده دوره"
+                href={`${section.basePath}/${slug}/`}
+                image={itemImg}
+                imageAlt={itemImgAlt}
+                title={item.data.title}
+                description={item.data.description}
+                badge={section.getBadge(item)}
+                metaIcon={section.metaIcon}
+                metaText={section.getMetaText(item)}
+                actionText={section.actionText}
               />
             );
           })}
         </HorizontalScroller>
       </div>
-    )}
-
-    {suggestedNotes.length > 0 && (
-      <div class="space-y-4">
-        <div class="flex items-center justify-between gap-3">
-          <h4 class="text-xs font-bold uppercase tracking-wider text-[var(--site-primary)] flex items-center gap-2">
-            <i class="fa-solid fa-note-sticky" aria-hidden="true"></i>
-            مقالات و یادداشت‌ها
-          </h4>
-          <div class="flex items-center gap-2.5 shrink-0">
-            <ScrollerControls id="related-scroller-notes" />
-            <a href="/notes/" class="text-xs font-bold text-[var(--site-primary)] bg-[var(--site-primary)]/10 hover:bg-[var(--site-primary)] hover:text-white px-3.5 py-2 rounded-xl transition-colors duration-200 inline-flex items-center gap-1.5 group">
-              <span>مشاهده همه</span>
-              <i class="fa-solid fa-arrow-left text-[10px]" aria-hidden="true"></i>
-            </a>
-          </div>
-        </div>
-
-        <HorizontalScroller id="related-scroller-notes">
-          {suggestedNotes.map((note) => {
-            const slug = entrySlug(note);
-            const noteImg = note.data.minimalImage || note.data.image || defaultImage;
-            const noteImgAlt = note.data.minimalImageAlt || note.data.imageAlt || note.data.title;
-
-            return (
-              <ContentCard
-                widthClass="w-[250px] sm:w-[280px] md:w-[300px]"
-                href={`/notes/${slug}/`}
-                image={noteImg}
-                imageAlt={noteImgAlt}
-                title={note.data.title}
-                description={note.data.description}
-                metaIcon="fa-regular fa-calendar"
-                metaText={note.data.pubDate ? note.data.pubDate.toLocaleDateString('fa-IR') : 'مقاله تخصصی'}
-                actionText="مطالعه مقاله"
-              />
-            );
-          })}
-        </HorizontalScroller>
-      </div>
-    )}
-
-    {suggestedProjects.length > 0 && (
-      <div class="space-y-4">
-        <div class="flex items-center justify-between gap-3">
-          <h4 class="text-xs font-bold uppercase tracking-wider text-[var(--site-primary)] flex items-center gap-2">
-            <i class="fa-solid fa-diagram-project" aria-hidden="true"></i>
-            پروژه‌های مهندسی
-          </h4>
-          <div class="flex items-center gap-2.5 shrink-0">
-            <ScrollerControls id="related-scroller-projects" />
-            <a href="/projects/" class="text-xs font-bold text-[var(--site-primary)] bg-[var(--site-primary)]/10 hover:bg-[var(--site-primary)] hover:text-white px-3.5 py-2 rounded-xl transition-colors duration-200 inline-flex items-center gap-1.5 group">
-              <span>مشاهده همه</span>
-              <i class="fa-solid fa-arrow-left text-[10px]" aria-hidden="true"></i>
-            </a>
-          </div>
-        </div>
-
-        <HorizontalScroller id="related-scroller-projects">
-          {suggestedProjects.map((project) => {
-            const slug = entrySlug(project);
-            const projectImg = project.data.minimalImage || project.data.image || defaultImage;
-            const projectImgAlt = project.data.minimalImageAlt || project.data.imageAlt || project.data.title;
-
-            return (
-              <ContentCard
-                widthClass="w-[250px] sm:w-[280px] md:w-[300px]"
-                href={`/projects/${slug}/`}
-                image={projectImg}
-                imageAlt={projectImgAlt}
-                title={project.data.title}
-                description={project.data.description}
-                metaIcon="fa-solid fa-layer-group"
-                metaText={project.data.category || 'پروژه تخصصی'}
-                actionText="بررسی پروژه"
-              />
-            );
-          })}
-        </HorizontalScroller>
-      </div>
-    )}
+    ))}
   </section>
 </div>

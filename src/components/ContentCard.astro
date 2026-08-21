@@ -23,7 +23,7 @@ const {
 } = Astro.props;
 ---
 
-<article class={`${widthClass} flex-shrink-0 snap-start bg-[var(--site-card)] border border-[var(--site-border)] rounded-2xl p-4 flex flex-col justify-between hover:border-[var(--site-primary)]/50 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 shadow-sm group`}>
+<article class={`card-stretched relative ${widthClass} flex-shrink-0 snap-start bg-[var(--site-card)] border border-[var(--site-border)] rounded-2xl p-4 flex flex-col justify-between hover:border-[var(--site-primary)]/50 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 shadow-sm group`}>
   <div>
     <div class="w-full aspect-video rounded-xl bg-[var(--site-bg)] mb-3 overflow-hidden border border-[var(--site-border)] relative">
       {typeof image === 'string' ? (
@@ -40,7 +40,7 @@ const {
       </div>
     )}
     <h5 class="text-sm font-bold leading-6 text-[var(--site-heading)] mb-2 min-h-[3rem] line-clamp-2 group-hover:text-[var(--site-primary)] transition-colors">
-      <a href={href}>{title}</a>
+      <a href={href} class="stretched-card-link">{title}</a>
     </h5>
     <p class="text-[var(--site-muted)] text-[11px] leading-5 line-clamp-2 mb-3">
       {description}
@@ -51,7 +51,7 @@ const {
       <i class={`${metaIcon} text-[var(--site-primary)]`}></i>
       <span>{metaText}</span>
     </span>
-    <a href={href} class="text-xs text-[var(--site-primary)] hover:opacity-80 font-bold inline-flex items-center gap-1.5 group/btn">
+    <a href={href} class="card-action-link text-xs text-[var(--site-primary)] hover:opacity-80 font-bold inline-flex items-center gap-1.5 group/btn">
       <span>{actionText}</span>
       <i class="fa-solid fa-arrow-left text-[10px] group-hover/btn:-translate-x-1 transition-transform"></i>
     </a>

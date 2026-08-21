@@ -1,0 +1,26 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" font-family="Vazirmatn, Tahoma, Arial, sans-serif">
+  <rect x="0" y="0" width="200" height="200" fill="#ffffff"/>
+  <circle cx="100" cy="120" r="70" fill="none" stroke="#16a34a" stroke-width="2" stroke-dasharray="5,5" opacity="0.5"/>
+
+  <!-- base -->
+  <rect x="35" y="130" width="30" height="40" fill="#0f172a"/>
+  <rect x="27" y="120" width="46" height="10" fill="#1e293b"/>
+
+  <!-- flight path -->
+  <path d="M65 128 Q 110 90 150 115" fill="none" stroke="#2563eb" stroke-width="3" stroke-dasharray="6,5"/>
+
+  <!-- drone -->
+  <g transform="translate(105,100)">
+    <rect x="-16" y="-2" width="32" height="6" rx="3" fill="#334155"/>
+    <circle cx="-16" cy="-2" r="7" fill="none" stroke="#334155" stroke-width="2"/>
+    <circle cx="16" cy="-2" r="7" fill="none" stroke="#334155" stroke-width="2"/>
+    <rect x="-6" y="3" width="12" height="10" rx="2" fill="#ef4444"/>
+  </g>
+
+  <!-- clinic -->
+  <g transform="translate(145,120)">
+    <rect x="0" y="0" width="38" height="30" fill="#ffffff" stroke="#0f172a" stroke-width="2"/>
+    <polygon points="-4,0 42,0 19,-16" fill="#0f172a"/>
+    <rect x="15" y="12" width="8" height="8" fill="#ef4444"/>
+  </g>
+</svg>

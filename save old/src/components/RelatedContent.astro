@@ -1,0 +1,220 @@
+---
+import { getCollection } from 'astro:content';
+import type { ImageMetadata } from 'astro';
+import ContentCard from './ContentCard.astro';
+import Tags from './Tags.astro';
+import HorizontalScroller from './HorizontalScroller.astro';
+import ScrollerControls from './ScrollerControls.astro';
+import { entrySlug, isPublished, normalizeSlug } from '../utils/content';
+
+interface RelatedEntry {
+  id: string;
+  slug?: string;
+  data: {
+    title: string;
+    description: string;
+    tags?: string[];
+    minimalImage?: string | ImageMetadata;
+    minimalImageAlt?: string;
+    image?: string | ImageMetadata;
+    imageAlt?: string;
+    level?: string;
+    duration?: string;
+    pubDate?: Date;
+    category?: string;
+    draft?: boolean;
+  };
+}
+
+interface Props {
+  currentSlug?: string;
+  tags?: string[];
+  relatedCourses?: string[];
+  relatedNotes?: string[];
+  relatedProjects?: string[];
+}
+
+const {
+  currentSlug = '',
+  tags = [],
+  relatedCourses: manualCourses = [],
+  relatedNotes: manualNotes = [],
+  relatedProjects: manualProjects = [],
+} = Astro.props;
+
+const [allCourses, allNotes, allProjects] = await Promise.all([
+  getCollection('courses', isPublished),
+  getCollection('notes', isPublished),
+  getCollection('projects', isPublished),
+]);
+
+const defaultImage = '/images/hero2.webp';
+const MIN_ITEMS = 4;
+const normalizedCurrentSlug = normalizeSlug(currentSlug);
+
+function getFilteredItems(allCollection: RelatedEntry[], manualSlugs: string[] = []): RelatedEntry[] {
+  const others = allCollection.filter(
+    (item) => normalizeSlug(entrySlug(item)) !== normalizedCurrentSlug,
+  );
+
+  const bySlug = new Map(others.map((item) => [normalizeSlug(entrySlug(item)), item]));
+  const selected: RelatedEntry[] = [];
+
+  for (const manualSlug of manualSlugs) {
+    const item = bySlug.get(normalizeSlug(manualSlug));
+    if (item && !selected.includes(item)) selected.push(item);
+  }
+
+  if (selected.length < MIN_ITEMS && tags.length > 0) {
+    const tagMatches = others.filter((item) => {
+      if (selected.includes(item)) return false;
+      return (item.data.tags ?? []).some((tag) => tags.includes(tag));
+    });
+    selected.push(...tagMatches);
+  }
+
+  const remaining = others
+    .filter((item) => !selected.includes(item))
+    .sort((a, b) => (b.data.pubDate?.getTime() ?? 0) - (a.data.pubDate?.getTime() ?? 0));
+
+  const targetCount = Math.max(MIN_ITEMS, manualSlugs.length);
+  selected.push(...remaining.slice(0, Math.max(0, targetCount - selected.length)));
+
+  return selected.slice(0, targetCount);
+}
+
+const suggestedCourses = getFilteredItems(allCourses, manualCourses);
+const suggestedNotes = getFilteredItems(allNotes, manualNotes);
+const suggestedProjects = getFilteredItems(allProjects, manualProjects);
+---
+
+<div class="mt-16 pt-10 border-t border-[var(--site-border)] space-y-12">
+  <Tags tags={tags} />
+
+  <section class="space-y-10" aria-labelledby="related-content-title">
+    <h3 id="related-content-title" class="text-xl font-black text-[var(--site-heading)] mb-6">
+      مطالب و دوره‌های پیشنهادی
+    </h3>
+
+    {suggestedCourses.length > 0 && (
+      <div class="space-y-4">
+        <div class="flex items-center justify-between gap-3">
+          <h4 class="text-xs font-bold uppercase tracking-wider text-[var(--site-primary)] flex items-center gap-2">
+            <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
+            دوره‌های آموزشی مرتبط
+          </h4>
+          <div class="flex items-center gap-2.5 shrink-0">
+            <ScrollerControls id="related-scroller-courses" />
+            <a href="/courses/" class="text-xs font-bold text-[var(--site-primary)] bg-[var(--site-primary)]/10 hover:bg-[var(--site-primary)] hover:text-white px-3.5 py-2 rounded-xl transition-colors duration-200 inline-flex items-center gap-1.5 group">
+              <span>مشاهده همه</span>
+              <i class="fa-solid fa-arrow-left text-[10px]" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+
+        <HorizontalScroller id="related-scroller-courses">
+          {suggestedCourses.map((course) => {
+            const slug = entrySlug(course);
+            const courseImg = course.data.minimalImage || course.data.image || defaultImage;
+            const courseImgAlt = course.data.minimalImageAlt || course.data.imageAlt || course.data.title;
+
+            return (
+              <ContentCard
+                widthClass="w-[250px] sm:w-[280px] md:w-[300px]"
+                href={`/courses/${slug}/`}
+                image={courseImg}
+                imageAlt={courseImgAlt}
+                title={course.data.title}
+                description={course.data.description}
+                badge={course.data.level}
+                metaIcon="fa-regular fa-clock"
+                metaText={course.data.duration || 'دوره کاربردی'}
+                actionText="مشاهده دوره"
+              />
+            );
+          })}
+        </HorizontalScroller>
+      </div>
+    )}
+
+    {suggestedNotes.length > 0 && (
+      <div class="space-y-4">
+        <div class="flex items-center justify-between gap-3">
+          <h4 class="text-xs font-bold uppercase tracking-wider text-[var(--site-primary)] flex items-center gap-2">
+            <i class="fa-solid fa-note-sticky" aria-hidden="true"></i>
+            مقالات و یادداشت‌ها
+          </h4>
+          <div class="flex items-center gap-2.5 shrink-0">
+            <ScrollerControls id="related-scroller-notes" />
+            <a href="/notes/" class="text-xs font-bold text-[var(--site-primary)] bg-[var(--site-primary)]/10 hover:bg-[var(--site-primary)] hover:text-white px-3.5 py-2 rounded-xl transition-colors duration-200 inline-flex items-center gap-1.5 group">
+              <span>مشاهده همه</span>
+              <i class="fa-solid fa-arrow-left text-[10px]" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+
+        <HorizontalScroller id="related-scroller-notes">
+          {suggestedNotes.map((note) => {
+            const slug = entrySlug(note);
+            const noteImg = note.data.minimalImage || note.data.image || defaultImage;
+            const noteImgAlt = note.data.minimalImageAlt || note.data.imageAlt || note.data.title;
+
+            return (
+              <ContentCard
+                widthClass="w-[250px] sm:w-[280px] md:w-[300px]"
+                href={`/notes/${slug}/`}
+                image={noteImg}
+                imageAlt={noteImgAlt}
+                title={note.data.title}
+                description={note.data.description}
+                metaIcon="fa-regular fa-calendar"
+                metaText={note.data.pubDate ? note.data.pubDate.toLocaleDateString('fa-IR') : 'مقاله تخصصی'}
+                actionText="مطالعه مقاله"
+              />
+            );
+          })}
+        </HorizontalScroller>
+      </div>
+    )}
+
+    {suggestedProjects.length > 0 && (
+      <div class="space-y-4">
+        <div class="flex items-center justify-between gap-3">
+          <h4 class="text-xs font-bold uppercase tracking-wider text-[var(--site-primary)] flex items-center gap-2">
+            <i class="fa-solid fa-diagram-project" aria-hidden="true"></i>
+            پروژه‌های مهندسی
+          </h4>
+          <div class="flex items-center gap-2.5 shrink-0">
+            <ScrollerControls id="related-scroller-projects" />
+            <a href="/projects/" class="text-xs font-bold text-[var(--site-primary)] bg-[var(--site-primary)]/10 hover:bg-[var(--site-primary)] hover:text-white px-3.5 py-2 rounded-xl transition-colors duration-200 inline-flex items-center gap-1.5 group">
+              <span>مشاهده همه</span>
+              <i class="fa-solid fa-arrow-left text-[10px]" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+
+        <HorizontalScroller id="related-scroller-projects">
+          {suggestedProjects.map((project) => {
+            const slug = entrySlug(project);
+            const projectImg = project.data.minimalImage || project.data.image || defaultImage;
+            const projectImgAlt = project.data.minimalImageAlt || project.data.imageAlt || project.data.title;
+
+            return (
+              <ContentCard
+                widthClass="w-[250px] sm:w-[280px] md:w-[300px]"
+                href={`/projects/${slug}/`}
+                image={projectImg}
+                imageAlt={projectImgAlt}
+                title={project.data.title}
+                description={project.data.description}
+                metaIcon="fa-solid fa-layer-group"
+                metaText={project.data.category || 'پروژه تخصصی'}
+                actionText="بررسی پروژه"
+              />
+            );
+          })}
+        </HorizontalScroller>
+      </div>
+    )}
+  </section>
+</div>

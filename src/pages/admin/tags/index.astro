@@ -1,0 +1,248 @@
+---
+import AdminLayout from '../../../layouts/AdminLayout.astro';
+import { buildTagIndex, MIN_HUB_USES } from '../../../utils/tags';
+import { buildSeoReport } from '../../../utils/seo-audit';
+
+const [index, seoPages] = await Promise.all([buildTagIndex(), buildSeoReport()]);
+const seoById = new Map(seoPages.map(p => [p.id, p]));
+const WEAK_SCORE = 70;
+
+const rows = [...index.values()].map(bucket => {
+  const scores = bucket.items.map(i => seoById.get(i.id)?.score).filter((s): s is number => typeof s === 'number');
+  const avgScore = scores.length ? Math.round(scores.reduce((a, b) => a + b, 0) / scores.length) : null;
+  const hasHub = bucket.items.length >= MIN_HUB_USES;
+
+  let filterCategory: 'weak-seo' | 'orphan' | 'near-threshold' | 'healthy' = 'healthy';
+  let recommendation: { label: string; tone: 'good' | 'warn' | 'bad' } | null = null;
+
+  if (avgScore !== null && avgScore < WEAK_SCORE) {
+    filterCategory = 'weak-seo';
+    recommendation = { label: `میانگین سئوی صفحات این تگ پایین است (${avgScore}) — ابتدا خود این صفحات را اصلاح کنید`, tone: 'bad' };
+  } else if (bucket.items.length === 1) {
+    filterCategory = 'orphan';
+    recommendation = { label: 'فقط یک بار استفاده شده — یا تگ مشابه/مترادف را در tag-aliases.ts ادغام کنید، یا رهایش کنید', tone: 'warn' };
+  } else if (!hasHub && bucket.items.length === MIN_HUB_USES - 1) {
+    filterCategory = 'near-threshold';
+    recommendation = { label: `فقط ${MIN_HUB_USES - bucket.items.length} مطلب دیگر با این تگ تا گرفتن صفحه‌ی اختصاصی سئو`, tone: 'good' };
+  } else if (hasHub && avgScore !== null && avgScore >= 90) {
+    recommendation = { label: 'وضعیت خوب — نیازی به کار اضافه نیست', tone: 'good' };
+  }
+
+  return {
+    slug: bucket.slug,
+    name: bucket.name,
+    total: bucket.items.length,
+    avgScore,
+    hasHub,
+    filterCategory,
+    recommendation,
+    counts: {
+      note: bucket.items.filter(x => x.typeId === 'note').length,
+      project: bucket.items.filter(x => x.typeId === 'project').length,
+      course: bucket.items.filter(x => x.typeId === 'course').length,
+      book: bucket.items.filter(x => x.typeId === 'book').length,
+      software: bucket.items.filter(x => x.typeId === 'software').length,
+    },
+  };
+}).sort((a, b) => b.total - a.total || a.name.localeCompare(b.name, 'fa'));
+
+const weakTagCount = rows.filter(r => r.filterCategory === 'weak-seo').length;
+const nearThresholdCount = rows.filter(r => r.filterCategory === 'near-threshold').length;
+const orphanCount = rows.filter(r => r.filterCategory === 'orphan').length;
+
+const filterChips: [string, string][] = [
+  ['all', 'همه'],
+  ['weak-seo', `نیاز به بهبود سئو (${weakTagCount})`],
+  ['near-threshold', `نزدیک به آستانه (${nearThresholdCount})`],
+  ['orphan', `تک‌استفاده (${orphanCount})`],
+];
+
+const tagSteps = [
+  {
+    title: 'قبل از نوشتن تگ، همین صفحه را جست‌وجو کنید',
+    detail: 'در کادر جست‌وجوی پایین همین صفحه اسم موضوع را بزنید. اگر تگ مشابه از قبل هست، از دکمه‌ی «کپی» همان کارت استفاده کنید تا املای دقیقش (فاصله، نیم‌فاصله، جمع/مفرد) عیناً همان بماند.',
+  },
+  {
+    title: 'یک تگ تکراری با املای متفاوت نسازید',
+    detail: 'مثلاً «برنامه‌ریزی خطی» و «برنامه ریزی خطی» (با/بدون نیم‌فاصله) دو تگ جدا حساب می‌شوند و هرکدام صفحه‌ی سئوی ضعیف‌تری می‌گیرند. اگر چنین موردی دیدید، آن را به‌عنوان مترادف در src/data/tag-aliases.ts اضافه کنید تا خودکار ادغام شوند.',
+  },
+  {
+    title: `به آستانه‌ی ${MIN_HUB_USES} استفاده فکر کنید`,
+    detail: `هر تگ که به ${MIN_HUB_USES} مطلب برسد، خودش یک صفحه‌ی اختصاصی سئوشده (/tags/…/) می‌گیرد. تگ‌های ستون «نزدیک به آستانه» را در اولویت بگذارید — با یک مطلب دیگر، صفحه‌ی سئوی جدیدی به سایت اضافه می‌شود.`,
+  },
+  {
+    title: 'به هر مطلب ۳ تا ۶ تگ مرتبط بدهید، نه بیشتر',
+    detail: 'خیلی کم (۰ یا ۱ تگ) یعنی مطلب در جست‌وجوی داخلی و صفحات مرتبط دیده نمی‌شود. خیلی زیاد هم ارزش هر تگ را کم می‌کند. تگ‌هایی انتخاب کنید که واقعاً موضوع اصلی مطلب را نشان می‌دهند.',
+  },
+  {
+    title: 'تگ‌های تک‌استفاده را دوره‌ای مرور کنید',
+    detail: 'ستون «تک‌استفاده» یعنی تگی که فقط یک‌بار به‌کار رفته — یا باید مترادفش را در tag-aliases.ts به یک تگ پرکاربردتر ادغام کنید، یا اگر واقعاً موضوع خاصی است، بگذارید بماند تا مطلب بعدی به آن اضافه شود.',
+  },
+  {
+    title: 'میانگین سئوی پایین یک تگ یعنی مشکل از خود مطالب است',
+    detail: 'اگر ستون «نیاز به بهبود سئو» برای یک تگ رنگ قرمز نشان می‌دهد، مشکل معمولاً تگ نیست — خود صفحاتی که این تگ را دارند امتیاز سئوی پایینی دارند. برو به «سلامت سئو» و همان صفحات را اصلاح کن.',
+  },
+];
+
+function toneClass(tone: 'good' | 'warn' | 'bad') {
+  if (tone === 'bad') return 'border-red-500/30 bg-red-500/5 text-red-600 dark:text-red-400';
+  if (tone === 'warn') return 'border-amber-500/30 bg-amber-500/5 text-amber-600 dark:text-amber-400';
+  return 'border-green-500/30 bg-green-500/5 text-green-600 dark:text-green-400';
+}
+function scoreClass(score: number | null) {
+  if (score === null) return 'text-[var(--site-muted)]';
+  if (score >= 90) return 'text-green-600 dark:text-green-400';
+  if (score >= 60) return 'text-amber-600 dark:text-amber-400';
+  return 'text-red-600 dark:text-red-400';
+}
+---
+<AdminLayout title="مدیریت تگ‌ها" description="فهرست تگ‌های سایت، وضعیت سئوی هرکدام، و توصیه‌ی خودکار برای اینکه روی کدام تگ‌ها بیشتر یا کمتر کار کنید." breadcrumbs={[{name:'خانه',url:'/'},{name:'پنل مدیریت',url:'/admin/'},{name:'مدیریت تگ‌ها'}]}>
+<main class="max-w-7xl mx-auto px-4 sm:px-6 py-10 w-full flex-grow">
+<header class="mb-8"><span class="inline-flex items-center gap-2 text-xs font-bold text-[var(--site-primary)] bg-[var(--site-primary)]/10 px-3.5 py-1.5 rounded-full border border-[var(--site-primary)]/20"><i class="fa-solid fa-tags" aria-hidden="true"></i>ابزار داخلی — فقط مدیر سایت</span><h1 class="text-3xl md:text-4xl font-black text-[var(--site-heading)] mt-4 mb-3">مدیریت تگ‌ها</h1><p class="text-sm leading-7 text-[var(--site-muted)] max-w-3xl">تگ‌های سایت خودکار از محتوای فایل‌های md ساخته می‌شوند؛ نیازی به تعریف دستی نیست. قبل از تگ‌گذاری مطلب جدید، اینجا را جستجو کنید و نوشتار دقیق تگ موجود را کپی کنید. ستون «توصیه» بر اساس ترکیب تعداد استفاده و میانگین سئوی صفحات هر تگ محاسبه می‌شود. <a href="/admin/seo/" class="text-[var(--site-primary)] hover:underline font-bold">سلامت سئوی محتوا ←</a></p></header>
+
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+<div class="rounded-2xl border border-red-500/30 bg-red-500/5 p-5"><p class="text-2xl font-black text-red-600 dark:text-red-400">{weakTagCount}</p><p class="text-xs text-[var(--site-muted)] mt-1">تگ با میانگین سئوی پایین — اول این‌ها را اصلاح کنید</p></div>
+<div class="rounded-2xl border border-green-500/30 bg-green-500/5 p-5"><p class="text-2xl font-black text-green-600 dark:text-green-400">{nearThresholdCount}</p><p class="text-xs text-[var(--site-muted)] mt-1">تگ نزدیک به آستانه‌ی صفحه‌ی اختصاصی</p></div>
+<div class="rounded-2xl border border-amber-500/30 bg-amber-500/5 p-5"><p class="text-2xl font-black text-amber-600 dark:text-amber-400">{orphanCount}</p><p class="text-xs text-[var(--site-muted)] mt-1">تگ تک‌استفاده — کاندید ادغام یا حذف</p></div>
+</div>
+
+<!-- راهنمای گام‌به‌گام «برای تگ چه کار کنیم» — پاسخ مستقیم به سؤال اصلی
+     این صفحه: هدف از تگ‌گذاری چیست و دقیقاً چطور باید انجامش داد -->
+<section class="mb-10 rounded-3xl border border-[var(--site-primary)]/25 bg-[var(--site-primary)]/[0.04] p-5 sm:p-7">
+<div class="flex items-start gap-3 mb-5">
+<div class="w-10 h-10 rounded-2xl bg-[var(--site-primary)]/15 flex items-center justify-center shrink-0"><i class="fa-solid fa-list-check text-[var(--site-primary)]" aria-hidden="true"></i></div>
+<div>
+<h2 class="text-lg font-black text-[var(--site-heading)]">برای تگ‌گذاریِ خوب برای سئو دقیقاً چه کار کنیم؟</h2>
+<p class="text-xs text-[var(--site-muted)] mt-1">۶ قدم، بر همان منطقی که خود این صفحه با آن محاسبه و توصیه می‌دهد.</p>
+</div>
+</div>
+<div class="grid sm:grid-cols-2 gap-x-6 gap-y-4">
+{tagSteps.map((s,i)=><div class="flex items-start gap-3">
+<span class="w-6 h-6 rounded-full bg-[var(--site-primary)]/15 text-[var(--site-primary)] text-[11px] font-black flex items-center justify-center shrink-0 mt-0.5">{i+1}</span>
+<div><p class="text-sm font-bold text-[var(--site-heading)]">{s.title}</p><p class="text-xs text-[var(--site-muted)] leading-relaxed mt-0.5">{s.detail}</p></div>
+</div>)}
+</div>
+</section>
+
+<div class="bg-[var(--site-card)] border border-[var(--site-border)] rounded-3xl p-4 mb-4 shadow-xs flex flex-wrap gap-3 items-center">
+<input id="tag-search" type="search" placeholder="جستجوی تگ..." class="flex-1 min-w-[200px] bg-[var(--site-bg)] border border-[var(--site-border)] rounded-xl px-4 py-3 text-sm text-[var(--site-text)] focus:outline-none focus:border-[var(--site-primary)]"/>
+<button type="button" id="copy-all-tags" class="text-xs font-bold text-[var(--site-primary)] border border-[var(--site-primary)]/30 rounded-xl px-4 py-3 hover:bg-[var(--site-primary)]/10 flex items-center gap-2 shrink-0"><i class="fa-solid fa-copy" aria-hidden="true"></i>کپی همه به‌صورت آرایه</button>
+</div>
+<div class="flex flex-wrap gap-2 mb-4">
+{filterChips.map(([id,label])=><button type="button" data-filter={id} class="tag-filter-chip px-4 py-2 rounded-xl border border-[var(--site-border)] text-xs font-bold text-[var(--site-text)]">{label}</button>)}
+</div>
+<p id="tag-count" class="text-xs text-[var(--site-muted)] mb-3"></p>
+
+<div class="grid gap-3">
+{rows.map(r=>
+<div class="tag-row bg-[var(--site-card)] border border-[var(--site-border)] rounded-2xl p-5" data-search={`${r.slug} ${r.name}`} data-category={r.filterCategory} data-tag={r.name}>
+<div class="flex flex-wrap items-start justify-between gap-3 mb-2">
+<div class="flex items-start gap-3">
+<input type="checkbox" class="tag-select-checkbox mt-1.5 w-4 h-4 rounded accent-[var(--site-primary)] shrink-0" data-tag={r.name} aria-label={`انتخاب تگ ${r.name}`} />
+<div>
+<a href={r.hasHub?`/tags/${r.slug}/`:`/search/?tag=${encodeURIComponent(r.name)}`} class="font-bold text-[var(--site-heading)] hover:text-[var(--site-primary)]">{r.name}</a>
+<code class="block text-[10px] text-[var(--site-muted)] mt-1" dir="ltr">{r.slug}</code>
+</div>
+</div>
+<div class="flex items-center gap-4 shrink-0">
+<div class="text-center"><p class="text-lg font-black text-[var(--site-primary)]">{r.total}</p><p class="text-[9px] text-[var(--site-muted)]">استفاده</p></div>
+<div class="text-center"><p class={`text-lg font-black ${scoreClass(r.avgScore)}`}>{r.avgScore ?? '—'}</p><p class="text-[9px] text-[var(--site-muted)]">میانگین سئو</p></div>
+<button type="button" class="copy-tag text-xs font-bold text-[var(--site-primary)] border border-[var(--site-primary)]/30 rounded-lg px-3 py-1.5 hover:bg-[var(--site-primary)]/10" data-tag={r.name}>کپی</button>
+</div>
+</div>
+<div class="flex flex-wrap gap-x-4 gap-y-1 text-[10px] text-[var(--site-muted)] mb-2">
+<span>یادداشت: {r.counts.note}</span><span>پروژه: {r.counts.project}</span><span>دوره: {r.counts.course}</span><span>کتاب: {r.counts.book}</span><span>نرم‌افزار: {r.counts.software}</span>
+<span class="font-bold">{r.hasHub?'صفحه‌ی اختصاصی دارد':'کم‌استفاده'}</span>
+</div>
+{r.recommendation&&<div class={`text-xs rounded-xl border px-3 py-2 flex items-start gap-2 ${toneClass(r.recommendation.tone)}`}><i class={`fa-solid ${r.recommendation.tone==='bad'?'fa-circle-exclamation':r.recommendation.tone==='warn'?'fa-triangle-exclamation':'fa-circle-check'} mt-0.5`} aria-hidden="true"></i><span>{r.recommendation.label}</span></div>}
+</div>
+)}
+</div>
+
+<!-- نوار شناور انتخاب چندتایی — فقط وقتی حداقل یک تگ تیک خورده باشد نمایش داده می‌شود -->
+<div id="tag-selection-bar" class="hidden fixed inset-x-0 bottom-4 z-50 px-4">
+<div class="max-w-xl mx-auto bg-[var(--site-heading)] text-[var(--site-bg)] rounded-2xl shadow-2xl px-5 py-3.5 flex items-center justify-between gap-3 flex-wrap">
+<span id="tag-selection-count" class="text-xs font-bold"></span>
+<div class="flex items-center gap-2">
+<button type="button" id="tag-selection-clear" class="text-xs font-bold opacity-80 hover:opacity-100 px-3 py-2">لغو انتخاب</button>
+<button type="button" id="tag-selection-copy" class="text-xs font-bold bg-[var(--site-primary)] text-white rounded-xl px-4 py-2 flex items-center gap-2"><i class="fa-solid fa-copy" aria-hidden="true"></i>کپی به‌صورت آرایه</button>
+</div>
+</div>
+</div>
+</main>
+<script>
+const q=document.getElementById('tag-search'),rows=[...document.querySelectorAll('.tag-row')],count=document.getElementById('tag-count'),chips=[...document.querySelectorAll('.tag-filter-chip')],copyAllBtn=document.getElementById('copy-all-tags');
+const n=v=>String(v??'').normalize('NFKC').toLocaleLowerCase('fa-IR').replace(/[\u200c\u200d]+/g,'').replace(/\s+/g,' ').trim();
+let activeFilter='all';
+function update(){
+  const x=n(q?.value);
+  let c=0;
+  rows.forEach(r=>{
+    const matchesText=!x||n(r.dataset.search).includes(x);
+    const matchesFilter=activeFilter==='all'||r.dataset.category===activeFilter;
+    const visible=matchesText&&matchesFilter;
+    r.hidden=!visible;
+    if(visible)c++;
+  });
+  if(count)count.textContent=`${c} تگ نمایش داده می‌شود.`;
+  chips.forEach(b=>{
+    const active=b.getAttribute('data-filter')===activeFilter;
+    b.classList.toggle('bg-[var(--site-primary)]',active);
+    b.classList.toggle('text-white',active);
+    b.classList.toggle('border-[var(--site-primary)]',active);
+  });
+}
+q?.addEventListener('input',update);
+chips.forEach(b=>b.addEventListener('click',()=>{activeFilter=b.getAttribute('data-filter')||'all';update();}));
+update();
+document.querySelectorAll('.copy-tag').forEach(btn=>{btn.addEventListener('click',async()=>{const tag=btn.getAttribute('data-tag')||'';try{await navigator.clipboard.writeText(tag);const original=btn.textContent;btn.textContent='کپی شد ✓';setTimeout(()=>{btn.textContent=original;},1200);}catch(e){}});});
+copyAllBtn?.addEventListener('click',async()=>{
+  const visibleTags=rows.filter(r=>!r.hidden).map(r=>r.getAttribute('data-tag'));
+  const json=JSON.stringify(visibleTags);
+  try{
+    await navigator.clipboard.writeText(json);
+    const original=copyAllBtn.innerHTML;
+    copyAllBtn.innerHTML='<i class="fa-solid fa-check" aria-hidden="true"></i>کپی شد ✓';
+    setTimeout(()=>{copyAllBtn.innerHTML=original;},1400);
+  }catch(e){}
+});
+
+// انتخاب چندتایی: تیک بزن، نوار پایین ظاهر می‌شود، تگ‌های انتخابی را
+// یک‌جا به‌صورت آرایه‌ی JSON کپی کن — مستقل از فیلتر «کپی همه» بالا.
+const selectionCheckboxes=[...document.querySelectorAll('.tag-select-checkbox')];
+const selectionBar=document.getElementById('tag-selection-bar');
+const selectionCount=document.getElementById('tag-selection-count');
+const selectionClear=document.getElementById('tag-selection-clear');
+const selectionCopy=document.getElementById('tag-selection-copy');
+const selected=new Set();
+function updateSelectionBar(){
+  if(selected.size>0){
+    selectionBar?.classList.remove('hidden');
+    if(selectionCount)selectionCount.textContent=`${selected.size} تگ انتخاب شده`;
+  }else{
+    selectionBar?.classList.add('hidden');
+  }
+}
+selectionCheckboxes.forEach(cb=>{
+  cb.addEventListener('change',()=>{
+    const tag=cb.getAttribute('data-tag')||'';
+    if(cb.checked)selected.add(tag);else selected.delete(tag);
+    updateSelectionBar();
+  });
+});
+selectionClear?.addEventListener('click',()=>{
+  selected.clear();
+  selectionCheckboxes.forEach(cb=>{cb.checked=false;});
+  updateSelectionBar();
+});
+selectionCopy?.addEventListener('click',async()=>{
+  const json=JSON.stringify([...selected]);
+  try{
+    await navigator.clipboard.writeText(json);
+    const original=selectionCopy.innerHTML;
+    selectionCopy.innerHTML='<i class="fa-solid fa-check" aria-hidden="true"></i>کپی شد ✓';
+    setTimeout(()=>{selectionCopy.innerHTML=original;},1400);
+  }catch(e){}
+});
+</script>
+</AdminLayout>

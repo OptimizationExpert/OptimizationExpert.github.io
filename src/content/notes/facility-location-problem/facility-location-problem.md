@@ -3,7 +3,7 @@ title: "مکان‌یابی انبار: کجا بسازیم که هزینه کم
 description: "آشنایی با مسئله مکان‌یابی تسهیلات (Facility Location) در زنجیره تأمین و حل آن با ابزارهای متن‌باز پایتون."
 pubDate: 2026-08-15
 author: "dr-soroudi"
-minimalImage: "./facility-location-problem_mini.webp"
+minimalImage: "./facility-location-problem-mini.webp"
 minimalImageAlt: "نماد ساده انبار مرکزی و مشتریان اطراف آن"
 image: "./facility-location-problem.webp"
 imageAlt: "نقشه مفهومی مکان‌های کاندید انبار، مشتریان و مسیرهای تأمین انتخاب‌شده"

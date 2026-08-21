@@ -1,0 +1,169 @@
+---
+import AdminLayout from '../../../layouts/AdminLayout.astro';
+import { getCollection } from 'astro:content';
+import { buildContentBank } from '../../../utils/content-bank';
+import { buildTagIndex, slugifyTag } from '../../../utils/tags';
+import { entrySlug, isPublished } from '../../../utils/content';
+
+const tagIndex = await buildTagIndex();
+const liveTagSlugs = new Set(tagIndex.keys());
+
+// اسلاگ تمام مطالب منتشرشده (در هر ۵ نوع محتوا) — برای هشدار دادن وقتی
+// یک پوشه در بانک دقیقاً همان اسلاگ یک مطلب زنده را دارد (نسخه‌ی قدیمی
+// که باید حذف شود، یا برداشت دیگری از همان موضوع که نیاز به بازبینی دارد).
+const publishedSlugSources = ['notes', 'projects', 'courses', 'books', 'softwares'] as const;
+const publishedSlugLists = await Promise.all(
+  publishedSlugSources.map(name => getCollection(name, isPublished)),
+);
+const publishedSlugs = new Set(publishedSlugLists.flat().map(entrySlug));
+
+const entries = buildContentBank(liveTagSlugs, publishedSlugs);
+const collisions = entries.filter(e => e.collidesWithPublishedSlug);
+
+const readyCount = entries.filter(e => e.hasMiniImage && e.hasMainImage).length;
+const missingImageCount = entries.length - readyCount;
+const totalNewTags = new Set(entries.flatMap(e => e.newTags.map(t => slugifyTag(t)))).size;
+
+const publishSteps = [
+  {
+    title: 'یک مورد را از لیست پایین انتخاب کنید',
+    detail: 'هر مورد یک مقاله‌ی کاملاً نوشته و مصورشده است (متن، تصویر اصلی، تصویر مینیمال، تگ‌ها و پیوندهای مرتبط از قبل آماده‌اند) که فقط بیرون از src/content نگه داشته شده تا منتشر نشود.',
+  },
+  {
+    title: 'کل پوشه را منتقل کنید، نه فقط فایل md را',
+    detail: 'پوشه شامل فایل md به‌همراه تصویر اصلی و تصویر مینیمال است؛ هرسه باید با هم به مسیر جدید بروند تا لینک‌های نسبی داخل frontmatter (مثل ./cover.svg) کار کنند.',
+  },
+  {
+    title: 'مقصد را انتخاب کنید: یادداشت یا پروژه',
+    detail: 'این‌ها با ساختار «یادداشت» نوشته شده‌اند (توضیح مفهومی یک مسئله)، پس مقصد پیش‌فرض src/content/notes/‎ است. اگر محتوا بیشتر شبیه یک پیاده‌سازی/پروژه‌ی کد-محور بود، به‌جایش src/content/projects/‎ را انتخاب کنید.',
+  },
+  {
+    title: 'قبل از build، تگ‌های جدید را بررسی کنید',
+    detail: 'اگر مقاله تگ «جدید» دارد (پایین هر کارت مشخص شده)، مطمئن شوید که واقعاً تگ جدیدی است و معادل نوشتاری یک تگ موجود نیست — سری به «مدیریت تگ‌ها» بزنید.',
+  },
+  {
+    title: 'بعد از انتقال، دیگر کاری نیست',
+    detail: 'همین که پوشه داخل src/content باشد، خود سایت در build بعدی صفحه، سئو، sitemap و RSS آن را کاملاً خودکار می‌سازد — دقیقاً طبق همان اصلی که برای انتشار مطلب جدید دارید.',
+  },
+];
+---
+<AdminLayout title="بانک محتوای آماده" description="فهرست مقالات کاملاً نوشته و مصورشده‌ای که در پوشه‌ی potential/ منتظر انتشارند." breadcrumbs={[{name:'خانه',url:'/'},{name:'پنل مدیریت',url:'/admin/'},{name:'بانک محتوای آماده'}]}>
+<main class="max-w-7xl mx-auto px-4 sm:px-6 py-10 w-full flex-grow">
+<header class="mb-8">
+<span class="inline-flex items-center gap-2 text-xs font-bold text-[var(--site-primary)] bg-[var(--site-primary)]/10 px-3.5 py-1.5 rounded-full border border-[var(--site-primary)]/20"><i class="fa-solid fa-box-archive" aria-hidden="true"></i>ابزار داخلی — فقط مدیر سایت</span>
+<h1 class="text-3xl md:text-4xl font-black text-[var(--site-heading)] mt-4 mb-3">بانک محتوای آماده</h1>
+<p class="text-sm leading-7 text-[var(--site-muted)] max-w-3xl">
+پوشه‌ی <code class="text-[11px] bg-[var(--site-bg)] border border-[var(--site-border)] rounded px-1.5 py-0.5" dir="ltr">potential/</code> در ریشه‌ی پروژه (کنار <code class="text-[11px] bg-[var(--site-bg)] border border-[var(--site-border)] rounded px-1.5 py-0.5" dir="ltr">src/</code>) عمداً بیرون از سایت نگه داشته می‌شود — Astro اصلاً آن را نمی‌بیند، نه صفحه‌ای می‌سازد، نه در sitemap/RSS/جستجو می‌آید. همین‌جا مقاله می‌نویسید و کنارش تصویر می‌گذارید بدون این‌که چیزی زودتر از موعد منتشر شود؛ وقتی آماده بود، فقط پوشه‌اش را به <code class="text-[11px] bg-[var(--site-bg)] border border-[var(--site-border)] rounded px-1.5 py-0.5" dir="ltr">src/content/notes/</code> (یا <code class="text-[11px] bg-[var(--site-bg)] border border-[var(--site-border)] rounded px-1.5 py-0.5" dir="ltr">src/content/projects/</code>) منتقل کنید. همین صفحه هرچه الان آنجا آماده مانده را نشان می‌دهد.
+</p>
+</header>
+
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+<div class="bg-[var(--site-card)] border border-[var(--site-border)] rounded-2xl p-5"><p class="text-2xl font-black text-[var(--site-heading)]">{entries.length}</p><p class="text-xs text-[var(--site-muted)] mt-1">مقاله‌ی آماده در بانک</p></div>
+<div class="bg-[var(--site-card)] border border-[var(--site-border)] rounded-2xl p-5"><p class="text-2xl font-black text-green-600 dark:text-green-400">{readyCount}</p><p class="text-xs text-[var(--site-muted)] mt-1">با هر دو تصویر کامل</p></div>
+<div class="bg-[var(--site-card)] border border-[var(--site-border)] rounded-2xl p-5"><p class="text-2xl font-black text-amber-600 dark:text-amber-400">{missingImageCount}</p><p class="text-xs text-[var(--site-muted)] mt-1">تصویر ناقص — قبل از انتقال کامل کنید</p></div>
+<div class="bg-[var(--site-card)] border border-[var(--site-border)] rounded-2xl p-5"><p class="text-2xl font-black text-[var(--site-primary)]">{totalNewTags}</p><p class="text-xs text-[var(--site-muted)] mt-1">تگ در این بانک که هنوز در سایت زنده نیست</p></div>
+</div>
+
+{collisions.length > 0 && (
+<section class="mb-10 rounded-3xl border border-red-500/30 bg-red-500/5 p-5 sm:p-6">
+<div class="flex items-start gap-3">
+<div class="w-9 h-9 rounded-xl bg-red-500/15 flex items-center justify-center shrink-0"><i class="fa-solid fa-triangle-exclamation text-red-600 dark:text-red-400 text-sm" aria-hidden="true"></i></div>
+<div>
+<h2 class="text-base font-black text-[var(--site-heading)]">{collisions.length} مورد با اسلاگ یک مطلب منتشرشده تداخل دارد</h2>
+<p class="text-xs text-[var(--site-muted)] leading-relaxed mt-1 max-w-2xl">این پوشه‌ها همان نام یک مطلبی را دارند که از قبل روی سایت منتشر شده — یا نسخه‌ی قدیمیِ همان مطلب‌اند (که بی‌خطر است حذف شوند) یا نگارش دیگری از همان موضوع (که قبل از انتشار باید با نسخه‌ی زنده مقایسه شود تا محتوای تکراری روی سایت نیاید). این موارد پایین‌تر با نشان قرمز مشخص شده‌اند.</p>
+</div>
+</div>
+</section>
+)}
+
+<section class="mb-10 rounded-3xl border border-[var(--site-primary)]/25 bg-[var(--site-primary)]/[0.04] p-5 sm:p-7">
+<div class="flex items-start gap-3 mb-5">
+<div class="w-10 h-10 rounded-2xl bg-[var(--site-primary)]/15 flex items-center justify-center shrink-0"><i class="fa-solid fa-list-ol text-[var(--site-primary)]" aria-hidden="true"></i></div>
+<div>
+<h2 class="text-lg font-black text-[var(--site-heading)]">چطور یک مورد از بانک را منتشر کنیم؟</h2>
+<p class="text-xs text-[var(--site-muted)] mt-1">۵ قدم، بدون نیاز به تغییر هیچ کد یا تنظیماتی.</p>
+</div>
+</div>
+<div class="grid sm:grid-cols-2 gap-x-6 gap-y-4">
+{publishSteps.map((s,i)=><div class="flex items-start gap-3">
+<span class="w-6 h-6 rounded-full bg-[var(--site-primary)]/15 text-[var(--site-primary)] text-[11px] font-black flex items-center justify-center shrink-0 mt-0.5">{i+1}</span>
+<div><p class="text-sm font-bold text-[var(--site-heading)]">{s.title}</p><p class="text-xs text-[var(--site-muted)] leading-relaxed mt-0.5">{s.detail}</p></div>
+</div>)}
+</div>
+</section>
+
+{entries.length === 0 ? (
+<div class="text-center py-16 bg-[var(--site-card)] border border-[var(--site-border)] rounded-3xl shadow-xs">
+<div class="w-12 h-12 mx-auto rounded-2xl bg-[var(--site-primary)]/10 text-[var(--site-primary)] flex items-center justify-center text-lg mb-3"><i class="fa-solid fa-box-open"></i></div>
+<p class="text-[var(--site-muted)] font-medium text-sm">بانک محتوا الان خالی است — هر مقاله‌ای که اینجا بنویسید همین‌جا نمایش داده می‌شود.</p>
+</div>
+) : (
+<>
+<div class="bg-[var(--site-card)] border border-[var(--site-border)] rounded-3xl p-4 sm:p-5 mb-6 shadow-xs">
+<input id="bank-search" type="search" placeholder="جستجوی عنوان یا تگ..." class="w-full bg-[var(--site-bg)] border border-[var(--site-border)] rounded-xl px-4 py-3 text-sm text-[var(--site-text)] focus:outline-none focus:border-[var(--site-primary)]"/>
+</div>
+<p id="bank-count" class="text-xs text-[var(--site-muted)] mb-3"></p>
+
+<div class="grid gap-3" id="bank-results">
+{entries.map(e=>(
+<article class={`bank-row bg-[var(--site-card)] border rounded-2xl p-5 ${e.collidesWithPublishedSlug ? 'border-red-500/40' : 'border-[var(--site-border)]'}`} data-search={`${e.title} ${e.tags.join(' ')} ${e.folder}`}>
+<div class="flex flex-wrap items-start justify-between gap-3 mb-2">
+<div class="min-w-0">
+{e.collidesWithPublishedSlug && <span class="inline-flex items-center gap-1.5 text-[10px] font-bold text-red-600 dark:text-red-400 bg-red-500/10 border border-red-500/25 rounded-full px-2.5 py-1 mb-2"><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>احتمالاً از قبل منتشر شده — قبل از انتقال بررسی کنید</span>}
+<h3 class="text-base font-bold text-[var(--site-heading)]">{e.title}</h3>
+<p class="text-xs text-[var(--site-muted)] leading-relaxed mt-1 max-w-2xl">{e.description}</p>
+</div>
+<div class="text-left shrink-0 text-[10px] text-[var(--site-muted)]">
+{e.pubDate && <p>تاریخ پیشنهادی: {e.pubDate}</p>}
+<p class={e.hasMiniImage && e.hasMainImage ? 'text-green-600 dark:text-green-400 font-bold' : 'text-amber-600 dark:text-amber-400 font-bold'}>
+{e.hasMiniImage && e.hasMainImage ? 'هر دو تصویر آماده است' : 'یک تصویر کم است'}
+</p>
+</div>
+</div>
+
+<div class="flex flex-wrap gap-1.5 mb-3">
+{e.matchedTags.map(t=><span class="text-[10px] font-bold text-[var(--site-primary)] bg-[var(--site-primary)]/10 px-2.5 py-1 rounded-full border border-[var(--site-primary)]/20">#{t}</span>)}
+{e.newTags.map(t=><span class="text-[10px] font-bold text-amber-600 dark:text-amber-400 bg-amber-500/10 px-2.5 py-1 rounded-full border border-amber-500/20" title="این تگ هنوز در هیچ مطلب منتشرشده‌ای استفاده نشده">#{t} (جدید)</span>)}
+</div>
+
+<div class="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-[var(--site-border)]">
+<code class="text-[10px] text-[var(--site-muted)]" dir="ltr">potential/{e.folder}/</code>
+<button type="button" class="copy-move-cmd text-xs font-bold text-[var(--site-primary)] border border-[var(--site-primary)]/30 rounded-lg px-3 py-1.5 hover:bg-[var(--site-primary)]/10 flex items-center gap-1.5" data-cmd={`mv potential/${e.folder} src/content/notes/${e.folder}`}>
+<i class="fa-solid fa-terminal" aria-hidden="true"></i>کپی دستور انتقال به notes
+</button>
+</div>
+</article>
+))}
+</div>
+</>
+)}
+</main>
+<script>
+const q=document.getElementById('bank-search'),rows=[...document.querySelectorAll('.bank-row')],count=document.getElementById('bank-count');
+function update(){
+  const term=(q&&'value' in q?q.value:'').toLocaleLowerCase('fa-IR').trim();
+  let n=0;
+  rows.forEach(r=>{
+    const hay=(r.getAttribute('data-search')||'').toLocaleLowerCase('fa-IR');
+    const visible=!term||hay.includes(term);
+    r.hidden=!visible;
+    if(visible)n++;
+  });
+  if(count)count.textContent=`${n} مورد نمایش داده می‌شود.`;
+}
+q?.addEventListener('input',update);
+update();
+
+document.querySelectorAll('.copy-move-cmd').forEach(btn=>{
+  btn.addEventListener('click', async () => {
+    const cmd = btn.getAttribute('data-cmd') || '';
+    try {
+      await navigator.clipboard.writeText(cmd);
+      const original = btn.innerHTML;
+      btn.innerHTML = '<i class="fa-solid fa-check" aria-hidden="true"></i>کپی شد ✓';
+      setTimeout(() => { btn.innerHTML = original; }, 1400);
+    } catch {}
+  });
+});
+</script>
+</AdminLayout>

@@ -9,7 +9,7 @@ author: "dr-soroudi"
 level: "پیشرفته"
 minimalImage: "./fuel-vrp-mini.webp"
 minimalImageAlt: "تصویر مینیمال آیکون بهینه‌سازی"
-image: "./fuel_split_delivery.png"
+image: "./fuel-split-delivery.png"
 imageAlt: "مسیریابی توزیع سوخت با Split Delivery و Time Windows"
 relatedCourses: ["optimization-modeling", "uncertainty-modeling"]
 relatedNotes: ["mathematical-modeling-art", "google-colab", "pyomo-solvers"]

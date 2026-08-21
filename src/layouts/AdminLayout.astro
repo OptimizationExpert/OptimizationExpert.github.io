@@ -1,0 +1,109 @@
+---
+import crypto from 'node:crypto';
+import Layout from './Layout.astro';
+import { ADMIN_PASSWORD } from '../data/admin-access';
+
+interface Props {
+  title: string;
+  description: string;
+  breadcrumbs?: { name: string; url?: string }[];
+}
+
+const { title, description, breadcrumbs } = Astro.props;
+const ADMIN_PASSWORD_HASH = crypto.createHash('sha256').update(ADMIN_PASSWORD, 'utf8').digest('hex');
+
+// منبع واحد ابزارهای پنل مدیریت — هم در صفحه‌ی اصلی پنل (admin/index.astro)
+// و هم در نوار زیرمنوی همین لایوت استفاده می‌شود تا افزودن یک ابزار جدید
+// فقط در یک‌جا نیاز به تغییر داشته باشد.
+export const adminTools = [
+  { href: '/admin/content/', icon: 'fa-chart-simple', title: 'داشبورد محتوا', desc: 'روند انتشار، محتوای قدیمی نیازمند بازبینی، پیش‌نویس‌ها و پوشش مدرسان.' },
+  { href: '/admin/content-bank/', icon: 'fa-box-archive', title: 'بانک محتوای آماده', desc: 'مقالات کاملاً نوشته و مصورشده در پوشه‌ی potential/ که هنوز منتشر نشده‌اند.' },
+  { href: '/admin/seo/', icon: 'fa-magnifying-glass-chart', title: 'سلامت سئو', desc: 'تحلیل خودکار سئوی تمام صفحات، لینک شکسته، خوانایی متن و راهنمای نوشتن مطلب.' },
+  { href: '/admin/tags/', icon: 'fa-tags', title: 'مدیریت تگ‌ها', desc: 'فهرست تگ‌ها، وضعیت سئوی هرکدام، و توصیه‌ی خودکار برای اولویت کار.' },
+  { href: '/admin/images/', icon: 'fa-images', title: 'بررسی تصاویر', desc: 'کیفیت متن جایگزین، مسیرهای تصویری بهینه‌نشده، و فایل‌های حجیم.' },
+];
+
+// زیرمنو فقط در صفحات داخلی پنل نشان داده می‌شود، نه در خود صفحه‌ی اصلی
+// پنل (که breadcrumbs ندارد) — چون آنجا همین ابزارها به‌صورت کارت بزرگ‌تر
+// از قبل نمایش داده می‌شوند.
+const showSubNav = Boolean(breadcrumbs && breadcrumbs.length > 0);
+const currentPath = Astro.url.pathname;
+---
+
+<Layout title={title} description={description} noindex={true} breadcrumbs={breadcrumbs}>
+  <!--
+    گیت ساده‌ی سمت مرورگر برای پنل ابزارهای مدیریتی.
+    ⚠️ این یک لایه‌ی بازدارنده است، نه امنیت واقعی — توضیح کامل در
+    src/data/admin-access.ts. برای امنیت واقعی حتماً دسترسی به /admin/
+    را در سطح هاستینگ هم محدود کنید.
+  -->
+  <div id="admin-gate" class="min-h-[60vh] flex items-center justify-center px-4 py-16">
+    <div class="w-full max-w-sm bg-[var(--site-card)] border border-[var(--site-border)] rounded-3xl p-6 sm:p-8 shadow-xl text-center">
+      <div class="w-14 h-14 mx-auto rounded-2xl bg-[var(--site-primary)]/10 flex items-center justify-center mb-4">
+        <i class="fa-solid fa-lock text-[var(--site-primary)] text-xl" aria-hidden="true"></i>
+      </div>
+      <h1 class="text-lg font-black text-[var(--site-heading)] mb-2">پنل ابزارهای مدیریت سایت</h1>
+      <p class="text-xs text-[var(--site-muted)] leading-relaxed mb-5">این بخش فقط برای مدیر سایت است. برای ادامه رمز عبور را وارد کنید.</p>
+      <form id="admin-gate-form" class="space-y-3">
+        <input type="password" id="admin-gate-input" autocomplete="current-password" placeholder="رمز عبور" class="w-full bg-[var(--site-bg)] border border-[var(--site-border)] rounded-xl px-4 py-3 text-sm text-[var(--site-text)] text-center focus:outline-none focus:border-[var(--site-primary)]" />
+        <button type="submit" class="w-full bg-[var(--site-primary)] text-white font-bold rounded-xl px-4 py-3 text-sm">ورود</button>
+        <p id="admin-gate-error" class="hidden text-xs text-red-500 font-bold">رمز اشتباه است.</p>
+      </form>
+    </div>
+  </div>
+
+  <div id="admin-content" class="hidden">
+    {showSubNav && (
+      <nav class="max-w-7xl mx-auto px-4 sm:px-6 pt-6 flex flex-wrap gap-2" aria-label="ابزارهای پنل مدیریت">
+        {adminTools.map(tool => (
+          <a
+            href={tool.href}
+            class={`flex items-center gap-2 text-xs font-bold px-3.5 py-2 rounded-xl border transition-colors duration-200 ${
+              currentPath.startsWith(tool.href)
+                ? 'bg-[var(--site-primary)] text-white border-[var(--site-primary)] shadow-sm'
+                : 'bg-[var(--site-card)] text-[var(--site-muted)] border-[var(--site-border)] hover:text-[var(--site-heading)] hover:border-[var(--site-primary)]/40'
+            }`}
+          >
+            <i class={`fa-solid ${tool.icon} text-[10px]`} aria-hidden="true"></i>
+            <span>{tool.title}</span>
+          </a>
+        ))}
+      </nav>
+    )}
+    <slot />
+  </div>
+</Layout>
+
+<script define:vars={{ ADMIN_PASSWORD_HASH }}>
+  const STORAGE_KEY = 'admin_unlocked_v1';
+
+  async function sha256Hex(text) {
+    const data = new TextEncoder().encode(text);
+    const digest = await crypto.subtle.digest('SHA-256', data);
+    return [...new Uint8Array(digest)].map(b => b.toString(16).padStart(2, '0')).join('');
+  }
+
+  function unlock() {
+    document.getElementById('admin-gate')?.classList.add('hidden');
+    document.getElementById('admin-content')?.classList.remove('hidden');
+  }
+
+  if (sessionStorage.getItem(STORAGE_KEY) === '1') {
+    unlock();
+  }
+
+  document.getElementById('admin-gate-form')?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const input = document.getElementById('admin-gate-input');
+    const error = document.getElementById('admin-gate-error');
+    const value = input && 'value' in input ? input.value : '';
+    const hash = await sha256Hex(value);
+    if (hash === ADMIN_PASSWORD_HASH) {
+      sessionStorage.setItem(STORAGE_KEY, '1');
+      unlock();
+    } else {
+      error?.classList.remove('hidden');
+      if (input && 'value' in input) input.value = '';
+    }
+  });
+</script>

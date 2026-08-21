@@ -1,0 +1,29 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="200" height="200" fill="#ffffff"/>
+
+  <!-- water -->
+  <rect x="30" y="15" width="160" height="170" fill="#E0F2FE"/>
+
+  <!-- quay -->
+  <rect x="0" y="15" width="30" height="170" fill="#94A3B8"/>
+
+  <!-- crane -->
+  <g stroke="#334155" stroke-width="3" fill="none">
+    <line x1="12" y1="15" x2="12" y2="0"/>
+    <line x1="12" y1="0" x2="45" y2="0"/>
+  </g>
+
+  <!-- berth divider -->
+  <line x1="30" y1="95" x2="190" y2="95" stroke="#94A3B8" stroke-width="1" stroke-dasharray="4 3"/>
+
+  <!-- ship 1 -->
+  <path d="M40 35 L140 35 L132 65 L48 65 Z" fill="#2563EB"/>
+  <rect x="55" y="24" width="14" height="10" fill="#1D4ED8"/>
+  <rect x="80" y="24" width="14" height="10" fill="#1D4ED8"/>
+
+  <!-- ship 2 -->
+  <path d="M50 115 L170 115 L160 150 L60 150 Z" fill="#059669"/>
+  <rect x="70" y="103" width="14" height="10" fill="#047857"/>
+  <rect x="95" y="103" width="14" height="10" fill="#047857"/>
+  <rect x="120" y="103" width="14" height="10" fill="#047857"/>
+</svg>
