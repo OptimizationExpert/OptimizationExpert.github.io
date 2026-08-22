@@ -37,3 +37,5 @@ relatedNotes: ["mathematical-modeling-art", "google-colab", "pyomo-solvers"]
 این همون نوع مسئله‌ایه که **OR-Tools** برایش ساخته شده.
 
 [آموزش را ببین](https://t.me/pyomochannel/1590) یا کد آماده را بگیر (همراه با ۳۵ Case Study). جلسات مشاوره‌ی کانال هم برقرار هستند 🗣✨
+
+پیش از پیاده‌سازی، مرور یادداشت [مدل‌سازی ریاضی و اهمیت آن](/notes/mathematical-modeling-art/) کمک می‌کند مسئله را درست فرموله کنید. برای اجرای کد بدون نصب چیزی، راهنمای [Google Colab](/notes/google-colab/) و برای انتخاب سالور مناسب، یادداشت [سه روش عملی استفاده از سالورها در Pyomo](/notes/pyomo-solvers/) را ببینید.

@@ -87,4 +87,4 @@ relatedNotes: ["mathematical-modeling-art", "google-colab", "pyomo-solvers"]
 
 > انتخاب درست بین DC و AC، خودش یک تصمیم مهندسی است: DC برای سرعت و مقیاس‌پذیری در مطالعات برنامه‌ریزی بزرگ، و AC برای دقت در مطالعاتی که ولتاژ و توان راکتیو نقش اصلی را دارند.
 
-اگر می‌خواهید مدل‌سازی و حل کامل AC-OPF را در Python با Pyomo قدم‌به‌قدم یاد بگیرید، این موضوع در <a href="/courses/advanced-power-system/" class="content-link">دوره پیشرفته بهینه‌سازی سیستم‌های قدرت</a> به‌صورت پروژه‌محور پوشش داده شده است.
+اگر می‌خواهید مدل‌سازی و حل کامل AC-OPF را در Python با Pyomo قدم‌به‌قدم یاد بگیرید، این موضوع در <a href="/courses/advanced-power-system/" class="content-link">دوره پیشرفته بهینه‌سازی سیستم‌های قدرت</a> به‌صورت پروژه‌محور پوشش داده شده است. پیش از شروع، مرور یادداشت [مدل‌سازی ریاضی و اهمیت آن](/notes/mathematical-modeling-art/) پایه مفهومی خوبی می‌دهد، و برای اجرای بدون نصب، می‌توانید از راهنمای [Google Colab](/notes/google-colab/) و [روش‌های استفاده از سالورها در Pyomo](/notes/pyomo-solvers/) کمک بگیرید.
