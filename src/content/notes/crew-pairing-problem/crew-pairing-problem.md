@@ -3,7 +3,7 @@ title: "زمان‌بندی خدمه پرواز: چینش کادر پرواز د
 description: "مسئله ز‌وج سازی خدمه پروازی (Crew Pairing Problem) و مدل‌سازی آن به‌عنوان یک مسئله پوشش/افراز مجموعه برای کاهش هزینه‌های عملیاتی خطوط هوایی."
 pubDate: 2026-08-22
 author: "dr-soroudi"
-minimalImage: "./crew-pairing-problem_mini.svg"
+minimalImage: "./crew-pairing-problem_mini.webp"
 minimalImageAlt: "نمایش مینیمال یک زنجیره پرواز و تقویم شیفت خدمه پروازی"
 image: "./crew-pairing-problem.svg"
 imageAlt: "تصویرسازی یک زنجیره چندروزه پرواز بین چند شهر همراه با تقویم شیفت خلبان و مهماندار و بازه‌های استراحت اجباری"
