@@ -6,8 +6,10 @@ format: "PDF"
 pages: 210
 price: "رایگان"
 image: "./pyomo-optimization-guide.png"
+imageAlt: "کاور کتاب آموزشی بهینه‌سازی با استفاده از پکیچ پایومو"
 pubDate: 2026-06-15
 author: "dr-soroudi"
+relatedCourses: ["optimization-modeling", "uncertainty-modeling","advanced-power-system"]
 tags: ["پایتون", "بهینه‌سازی", "Pyomo"]
 ---
 
@@ -44,4 +46,5 @@ tags: ["پایتون", "بهینه‌سازی", "Pyomo"]
 
 ## دریافت فایل‌ها و کدهای نمونه
 تمامی کدهای پایتون و اسکریپت‌های نمونه این کتاب در مخزن گیت‌هاب پروژه به آدرس زیر قابل دسترسی است:
-[مخزن گیت‌هاب پروژه](https://optimizationexpert.github.io)
+[مخزن گیت‌هاب پروژه](https://github.com/Pyomo/pyomo-gallery)
+

@@ -4,7 +4,9 @@ description: "معرفی کتاب و کتابخانه مدل‌های بهینه
 pubDate: 2026-07-25
 author: "dr-soroudi"
 image: "./GAMS.png"
+imageAlt: "کاور کتاب آموزشی بهینه‌سازی سیستم های قدرت با استفاده از نرم افزار گمز نوشته دکتر سرودی"
 tags: ["سیستم قدرت", "بهینه‌سازی", "GAMS"]
+relatedCourses: ["optimization-modeling", "uncertainty-modeling","advanced-power-system"]
 ---
 
 
