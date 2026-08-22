@@ -9,7 +9,7 @@ image: "./job-shop-scheduling-cp-sat-mini.svg"
 imageAlt: "شبیه‌سازی خط تولید کارگاهی با چند ماشین و چند سفارش"
 tags: ["زنجیره تأمین", "زمان‌بندی تولید", "برنامه‌ریزی محدودیت", "OR-Tools", "بهینه‌سازی"]
 relatedCourses: ["vrp-python","optimization-modeling"]
-relatedNotes: ["cp-intro", "time-dependent-vrp", "domino-fit-CP","mathematical-modeling-art"]
+relatedNotes: ["cp-intro", "time-dependent-vrp", "domino-fit-cp","mathematical-modeling-art"]
 ---
 
 تصور کنید در آشپزخانه یک رستوران بزرگ و شلوغ ایستاده‌اید. برای این‌که یک غذا از سفارش تا روی میز مشتری برسد، باید پنج شش کار مشخص، پشت سر هم و با توالی درستی انجام شود: اول فیش سفارش از صندوق دریافت می‌شود، بعد آماده‌سازی روی فر انجام می‌گیرد، هم‌زمان یا بلافاصله بعد، سوشف آماده‌سازی برنج را انجام می‌دهد، سپس سرآشپز تاچ نهایی و چیدمان غذا را انجام می‌دهد، و در نهایت ویتر بشقاب را سر میز مشتری می‌برد.
