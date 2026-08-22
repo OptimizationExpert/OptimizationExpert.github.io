@@ -5,27 +5,27 @@
    ========================================================== */
 :root {
   /* ۱. پالت رنگی پس‌زمینه و ساختار (تم روشن - پیش‌فرض) */
-  --site-bg: #f8fafc;         
-  --site-card: #ffffff;        
-  --site-border: #e2e8f0;      
+  --site-bg: #f8fafc;
+  --site-card: #ffffff;
+  --site-border: #e2e8f0;
 
   /* ۲. رنگ متن‌ها و هدینگ‌ها */
-  --site-text: #334155;        
-  --site-muted: #64748b;       
-  --site-heading: #0f172a;     
+  --site-text: #334155;
+  --site-muted: #64748b;
+  --site-heading: #0f172a;
 
-/* ۳. رنگ‌های برند و المان‌های تعاملی (تم روشن) */
-  --site-primary: #0284c7;     
+  /* ۳. رنگ‌های برند و المان‌های تعاملی (تم روشن) */
+  --site-primary: #0284c7;
   --site-primary-hover: #0369a1;
-  --site-accent: #059669;      
-  --site-secondary: #818cf8;   
+  --site-accent: #059669;
+  --site-secondary: #818cf8;
   --site-gold: #fbbf24;         /* رنگ طلایی واحد - در هر دو تم ثابت می‌ماند */
   --site-gold-light: #fde68a;   /* سایه‌ی روشن‌تر همان طلایی، برای گرادیان/درخشش */
 
   /* ۴. فونت‌ها و اندازه‌های پایه */
   --font-family: 'Vazirmatn', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-size-base: 0.95rem;   
-  --line-height-base: 1.75;     
+  --font-size-base: 0.95rem;
+  --line-height-base: 1.75;
 
   /* ۵. اندازه‌های تایپوگرافی هدینگ‌ها */
   --h1-size: clamp(2rem, 4vw, 3.25rem);
@@ -33,24 +33,55 @@
   --h3-size: 1.1rem;
 
   /* ۶. مقادیر انحنای لبه‌ها */
-  --radius-box: 1rem;          
-  --radius-btn: 0.75rem;       
+  --radius-box: 1rem;
+  --radius-btn: 0.75rem;
+
+  /* ۷. توکن‌های هیرو (تم روشن) */
+  --hero-bg-from: #f0f7ff;
+  --hero-bg-via: #f0fdf9;
+  --hero-bg-to: #f5f3ff;
+  --hero-text: #0f172a;
+  --hero-muted: #475569;
+  --hero-card-bg: rgba(255,255,255,0.8);
+  --hero-card-border: rgba(0,0,0,0.08);
+  --hero-glow-1: rgba(2,132,199,0.12);
+  --hero-glow-2: rgba(5,150,105,0.10);
+  --hero-glow-3: rgba(251,191,36,0.10);
+  --hero-scene-shadow: rgba(2,132,199,0.10);
+  --hero-chip-text: #0f172a;
+  --hero-chip-bg: rgba(255,255,255,0.9);
+  --hero-chip-border: rgba(0,0,0,0.08);
 }
 
 /* 🌙 حالت تیره */
 html.dark {
-  --site-bg: #0f172a;          
-  --site-card: #1e293b;        
-  --site-border: #334155;      
-  --site-text: #cbd5e1;        
-  --site-muted: #94a3b8;       
-  --site-heading: #f8fafc;     
-  --site-primary: #38bdf8;     
+  --site-bg: #0f172a;
+  --site-card: #1e293b;
+  --site-border: #334155;
+  --site-text: #cbd5e1;
+  --site-muted: #94a3b8;
+  --site-heading: #f8fafc;
+  --site-primary: #38bdf8;
   --site-primary-hover: #7dd3fc;
-  --site-accent: #34d399;      
-  --site-secondary: #818cf8;   
+  --site-accent: #34d399;
+  --site-secondary: #818cf8;
   /* توجه: --site-gold و --site-gold-light عمداً اینجا override نمی‌شوند؛
-     طلایی باید در هر دو تم دقیقاً یک رنگ ثابت باشد (تعریف در :root) */        
+     طلایی باید در هر دو تم دقیقاً یک رنگ ثابت باشد (تعریف در :root) */
+
+  --hero-bg-from: #02050d;
+  --hero-bg-via: #0a1628;
+  --hero-bg-to: #0f172a;
+  --hero-text: #f8fafc;
+  --hero-muted: #94a3b8;
+  --hero-card-bg: rgba(255,255,255,0.04);
+  --hero-card-border: rgba(255,255,255,0.10);
+  --hero-glow-1: rgba(45,212,191,0.18);
+  --hero-glow-2: rgba(56,189,248,0.12);
+  --hero-glow-3: rgba(251,191,36,0.10);
+  --hero-scene-shadow: rgba(45,212,191,0.15);
+  --hero-chip-text: #f8fafc;
+  --hero-chip-bg: rgba(15,23,42,0.85);
+  --hero-chip-border: rgba(255,255,255,0.12);
 }
 
 /* اتصال متغیرها به سیستم تیل‌ویند نسخه ۴ */
@@ -69,7 +100,7 @@ html.dark {
   --font-sans: var(--font-family);
 }
 
-/* شناسایی کلاس dark. برای کلاس‌های تعاملی تیل‌ویند v4 */
+/* شناسایی کلاس dark برای کلاس‌های تعاملی تیل‌ویند v4 */
 @variant dark (&:where(.dark, .dark *));
 
 /* ==========================================================
@@ -79,10 +110,9 @@ html.dark {
   html {
     scroll-behavior: smooth;
   }
-
   body {
     background-color: var(--site-bg);
-    background-image: 
+    background-image:
       linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
       linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
     background-size: 24px 24px;
@@ -92,41 +122,34 @@ html.dark {
     line-height: var(--line-height-base);
     transition: background-color 0.3s ease, color 0.3s ease;
   }
-
   html.dark body {
-    background-image: 
+    background-image:
       linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
       linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
   }
-
   h1 {
     font-size: var(--h1-size);
     color: var(--site-heading);
     font-weight: 800;
     letter-spacing: -0.025em;
   }
-
   h2 {
     font-size: var(--h2-size);
     color: var(--site-heading);
     font-weight: 700;
   }
-
   h3 {
     font-size: var(--h3-size);
     color: var(--site-heading);
     font-weight: 600;
   }
-
   p {
     color: var(--site-text);
     text-align: justify;
   }
-
   a {
     transition: color 0.2s ease, background-color 0.2s ease;
   }
-
   ::selection {
     background-color: var(--site-primary);
     color: #ffffff;
@@ -134,7 +157,7 @@ html.dark {
 }
 
 /* ==========================================================
-   🔤 تعریف فونت‌های محلی (Local Fonts - 100% Offline)
+   تعریف فونت‌های محلی (Local Fonts - 100% Offline)
    ========================================================== */
 @font-face {
   font-family: 'Vazirmatn';
@@ -143,7 +166,6 @@ html.dark {
   font-style: normal;
   font-display: swap;
 }
-
 @font-face {
   font-family: 'Vazirmatn';
   src: url('../fonts/Vazirmatn-Medium.woff2') format('woff2');
@@ -151,7 +173,6 @@ html.dark {
   font-style: normal;
   font-display: swap;
 }
-
 @font-face {
   font-family: 'Vazirmatn';
   src: url('../fonts/Vazirmatn-Bold.woff2') format('woff2');
@@ -162,8 +183,6 @@ html.dark {
 
 /* ==========================================================
    🖼️ تصاویر محتوای Markdown
-   همه تصاویر داخل متن مقاله/یادداشت/پروژه/کتاب/دوره مستقل از
-   نحوه نوشتن Markdown، وسط‌چین و responsive نمایش داده می‌شوند.
    ========================================================== */
 .prose > p > img,
 .prose p > img,
@@ -176,10 +195,6 @@ html.dark {
   margin-left: auto !important;
   margin-right: auto !important;
 }
-
-/* Markdown images may be wrapped by the Markdown renderer in a paragraph
-   or in a link. Center the containing line too so RTL text alignment cannot
-   force the image back to the right edge. */
 .prose > p:has(> img),
 .prose > p:has(> a > img),
 .prose figure:has(> img) {
@@ -188,8 +203,6 @@ html.dark {
 
 /* ==========================================================
    🎬 ویدئوی داخلی Markdown
-   استاندارد ثابت 16:9 برای Embedهای Aparat و سایر سرویس‌ها.
-   در Markdown فقط iframe را داخل .content-video قرار دهید.
    ========================================================== */
 .content-video {
   position: relative;
@@ -202,7 +215,6 @@ html.dark {
   background: #000;
   box-shadow: 0 12px 35px -12px rgba(15, 23, 42, 0.28);
 }
-
 .content-video iframe {
   position: absolute;
   inset: 0;
@@ -211,35 +223,8 @@ html.dark {
   display: block;
   border: 0;
 }
-
-/* سازگاری با Embedهای قدیمی Aparat که ممکن است در Markdownهای قبلی باقی بمانند. */
-.h_iframe-aparat_embed_frame {
-  position: relative;
-  width: min(100%, 960px);
-  aspect-ratio: 16 / 9;
-  margin: 2rem auto 2.5rem;
-  overflow: hidden;
-  border: 1px solid var(--site-border);
-  border-radius: var(--radius-box);
-  background: #000;
-  box-shadow: 0 12px 35px -12px rgba(15, 23, 42, 0.28);
-}
-
-.h_iframe-aparat_embed_frame .ratio {
-  display: none;
-}
-
-.h_iframe-aparat_embed_frame iframe {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
-
 @media (max-width: 640px) {
-  .content-video,
-  .h_iframe-aparat_embed_frame {
+  .content-video {
     margin-top: 1.5rem;
     margin-bottom: 2rem;
     border-radius: 0.75rem;
@@ -247,7 +232,7 @@ html.dark {
 }
 
 /* ==========================================================
-   💻 استایل کدهای برنامه‌نویسی
+   استایل کدهای برنامه‌نویسی
    ========================================================== */
 .prose pre,
 .astro-code,
@@ -255,7 +240,7 @@ pre {
   direction: ltr !important;
   text-align: left !important;
   position: relative !important;
-  background-color: #0c1017 !important; 
+  background-color: #0c1017 !important;
   border: 1px solid #1e293b !important;
   border-radius: 12px !important;
   padding: 3.25rem 1.25rem 1.25rem 1.25rem !important;
@@ -267,13 +252,11 @@ pre {
   line-height: 1.8;
   color: #f8fafc;
 }
-
 .astro-code code,
 pre code {
   background-color: transparent !important;
   font-family: inherit !important;
 }
-
 .astro-code::before,
 pre::before {
   content: '';
@@ -287,7 +270,6 @@ pre::before {
   box-shadow: 1.25rem 0 0 #ffbd2e, 2.5rem 0 0 #27c93f;
   z-index: 5;
 }
-
 .copy-code-button {
   position: absolute;
   top: 0.8rem;
@@ -303,39 +285,26 @@ pre::before {
   transition: all 0.2s ease;
   z-index: 10;
 }
-
 .copy-code-button:hover {
   background-color: rgba(255, 255, 255, 0.18) !important;
   color: #ffffff !important;
 }
-
 .copy-code-button.copied {
   background-color: #10b981 !important;
   color: #ffffff !important;
   border-color: #10b981 !important;
 }
 
-
-/* لینک‌های تأکیدی داخل محتوای Markdown؛ استایل در یک نقطه نگهداری می‌شود. */
+/* لینک‌های تأکیدی داخل محتوای Markdown */
 .content-link {
   color: var(--site-primary);
   font-weight: 700;
   text-decoration: underline;
   text-underline-offset: 0.18em;
 }
-
 .content-link:hover {
   color: var(--site-primary-hover);
 }
-
-.content-note {
-  margin: 1.5rem 0;
-  padding: 1rem 1.25rem;
-  border: 1px solid var(--site-border);
-  border-radius: var(--radius-box);
-  background: var(--site-card);
-}
-
 .aparat-icon-mask {
   width: 1.4rem;
   height: 1.4rem;
@@ -354,40 +323,28 @@ pre::before {
    ✨ افکت طلایی سینمایی و لوکس (Gold Foil)
    ========================================================== */
 .gold-shimmer {
-  /* ترکیب رنگی استاندارد برای شبیه‌سازی درخشش واقعی طلا */
   background: linear-gradient(
     -70deg,
-    #a67c00 0%,     /* سایه عمیق طلا */
-    #bf953f 25%,    /* طلایی پایه */
-    #fcf6ba 40%,    /* نقطه شدید بازتاب نور (سفید-زرد) */
-    #b38728 60%,    /* طلایی میانه */
-    #fbf5b7 80%,    /* بازتاب ثانویه ملایم */
-    #a67c00 100%    /* بازگشت به سایه */
+    #a67c00 0%,
+    #bf953f 25%,
+    #fcf6ba 40%,
+    #b38728 60%,
+    #fbf5b7 80%,
+    #a67c00 100%
   ) !important;
-  
   background-size: 200% auto !important;
-  
   -webkit-background-clip: text !important;
   background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
   color: transparent !important;
-
-  /* استفاده از دو سایه: یکی مشکی برای جداسازی از پس‌زمینه و یکی طلایی برای درخشش اطراف متن */
-  filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.7)) 
+  filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.7))
           drop-shadow(0px 4px 15px rgba(212, 175, 55, 0.25)) !important;
-
   animation: advanced-gold-shine 4s linear infinite;
 }
-
 @keyframes advanced-gold-shine {
-  0% {
-    background-position: 200% center;
-  }
-  100% {
-    background-position: 0% center;
-  }
+  0%   { background-position: 200% center; }
+  100% { background-position: 0% center; }
 }
-
 @media (prefers-reduced-motion: reduce) {
   .gold-shimmer {
     animation: none;
@@ -408,16 +365,13 @@ pre::before {
   overflow: hidden !important;
   white-space: nowrap !important;
 }
-
 .prose .katex .vlist-r,
 .prose .katex span {
   line-height: normal !important;
 }
-
 .prose .katex .vlist-t {
   border-collapse: separate !important;
 }
-
 .katex {
   font-size: 1.15em;
   direction: ltr !important;
@@ -426,37 +380,38 @@ pre::before {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
 .katex-display {
   display: block !important;
   text-align: center !important;
-  margin: 2rem auto !important;
-  padding: 0.75rem 0 !important;
+  margin: 1rem auto !important;
+  padding: 0.25rem 0 !important;
   overflow-x: auto;
   overflow-y: hidden;
 }
-
 .katex-display > .katex {
   display: inline-block !important;
   text-align: center !important;
 }
-
 .katex-display .katex .mtable,
 .katex-display .katex .array {
   font-size: 1em !important;
 }
-
 .katex .vlist-t2 {
   margin-top: 0.35em !important;
 }
-
 .katex .vlist-t2 .mord {
-  font-size: 0.78em !important;  
+  font-size: 0.78em !important;
 }
-
 .katex-display .katex .mtable .mord,
 .katex-display .katex .mtable .mathdefault {
   font-size: inherit !important;
+}
+.katex .mfrac .vlist-t2 .mord,
+.katex-display .mfrac .mord {
+  font-size: 1em !important;
+}
+.katex-display .mfrac {
+  font-size: 1em !important;
 }
 
 /* ==========================================================
@@ -474,7 +429,6 @@ table {
   overflow: hidden !important;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
 }
-
 .prose th,
 th {
   background-color: var(--site-bg) !important;
@@ -484,7 +438,6 @@ th {
   border-bottom: 2px solid var(--site-border) !important;
   text-align: right !important;
 }
-
 .prose td,
 td {
   padding: 0.85rem 1rem !important;
@@ -492,31 +445,27 @@ td {
   color: var(--site-text) !important;
   text-align: right !important;
 }
-
 .prose tr:last-child td,
 tr:last-child td {
   border-bottom: none !important;
 }
-
 .prose tr:hover,
 tr:hover {
   background-color: rgba(0, 0, 0, 0.02);
 }
-
 html.dark .prose tr:hover,
 html.dark tr:hover {
   background-color: rgba(255, 255, 255, 0.03);
 }
-
-.prose, 
+.prose,
 div:has(> table) {
   overflow-x: auto;
 }
 
 /* ==========================================================
-   📝 استایل لیست‌های مرتب و غیرمرتب در متون Markdown
+   استایل لیست‌های مرتب و غیرمرتب در متون Markdown
    ========================================================== */
-article ul, 
+article ul,
 .content ul,
 .prose ul {
   list-style-type: disc !important;
@@ -525,8 +474,7 @@ article ul,
   margin-bottom: 1rem;
   padding-right: 1.25rem;
 }
-
-article ol, 
+article ol,
 .content ol,
 .prose ol {
   list-style-type: decimal !important;
@@ -535,12 +483,27 @@ article ol,
   margin-bottom: 1rem;
   padding-right: 1.25rem;
 }
-
-article li, 
+article li,
 .content li,
 .prose li {
   margin-bottom: 0.5rem;
 }
+
+/* ==========================================================
+🔗 استایل لینک‌های داخلی در محتوای Markdown
+========================================================== */
+.prose a:not(.content-link) {
+  color: var(--site-primary);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  transition: all 0.2s ease;
+}
+
+.prose a:not(.content-link):hover {
+  color: var(--site-primary-hover);
+}
+
 
 /* ==========================================================
    💬 استایل نقل‌قول‌ها (Blockquotes)
@@ -559,7 +522,6 @@ blockquote {
 
 /* ==========================================================
    ◀▶ دکمه‌های جابجایی ردیف‌های اسکرول افقی (دسکتاپ)
-   کنار «مشاهده همه» در هدر بخش قرار می‌گیرند، نه شناور روی کارت‌ها
    ========================================================== */
 .scroll-arrow-btn {
   width: 2.25rem;
@@ -576,17 +538,14 @@ blockquote {
   transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease, opacity 0.2s ease;
   cursor: pointer;
 }
-
 .scroll-arrow-btn:hover:not(:disabled) {
   color: var(--site-primary);
   border-color: var(--site-primary);
   background-color: color-mix(in srgb, var(--site-primary) 8%, var(--site-card));
 }
-
 .scroll-arrow-btn:active:not(:disabled) {
   transform: scale(0.93);
 }
-
 .scroll-arrow-btn:disabled {
   cursor: default;
 }
@@ -598,17 +557,264 @@ blockquote {
   height: 6px;
 }
 .custom-scrollbar::-webkit-scrollbar-track {
-  background: rgba(150, 150, 150, 0.1); 
+  background: rgba(150, 150, 150, 0.1);
   border-radius: 10px;
 }
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: rgba(150, 150, 150, 0.3); 
+  background: rgba(150, 150, 150, 0.3);
   border-radius: 10px;
 }
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: rgba(150, 150, 150, 0.5); 
+  background: rgba(150, 150, 150, 0.5);
 }
 .custom-scrollbar {
   scrollbar-width: thin;
   scrollbar-color: rgba(150, 150, 150, 0.3) rgba(150, 150, 150, 0.1);
+}
+
+/* کارت‌های کشیده: لینک عنوان کل کارت را پوشش می‌دهد */
+.card-stretched { position: relative; }
+.card-stretched .stretched-card-link { position: static; }
+.card-stretched .stretched-card-link::after { content: " "; position: absolute; inset: 0; z-index: 1; border-radius: inherit; }
+.card-stretched .card-action-link,
+.card-stretched button,
+.card-stretched input,
+.card-stretched select { position: relative; z-index: 2; }
+.horizontal-scroller { cursor: grab; scrollbar-width: thin; overscroll-behavior-inline: contain; -webkit-user-select: none; user-select: none; }
+.horizontal-scroller.is-pointer-dragging { cursor: grabbing; scroll-snap-type: none !important; }
+.horizontal-scroller.is-pointer-dragging a,
+.horizontal-scroller.is-pointer-dragging button,
+.horizontal-scroller.is-pointer-dragging img { pointer-events: none; }
+body.mobile-menu-open { overflow: hidden; }
+
+/* ==========================================================
+   🎯 صفحه اصلی: هیرو، صحنه‌ی SVG و کنسول مدل (KaTeX)
+   چیدمان: ردیف بالا = متن وسط‌چین | ردیف پایین = نمودار + کنسول کنار هم
+   موبایل: نمودار و کنسول در انتهای هیرو
+   ========================================================== */
+
+/* ── پس‌زمینه و دکور هیرو ── */
+.hero-section {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  min-height: 66svh;
+  background: linear-gradient(135deg, var(--hero-bg-from) 0%, var(--hero-bg-via) 50%, var(--hero-bg-to) 100%);
+  transition: background 0.4s ease;
+}
+
+/* ── بکگراند تصویری هیرو (برج فرماندهی — همان OG Image) ──
+   موبایل/تبلت: برش مرکزی عمودی = برج + بیلبورد برند
+   دسکتاپ: نمایش تمام عرض تصویر (100% auto) تا اطلاعات چپ/راست هرگز بریده نشوند */
+.hero-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: url('/images/hero.webp') center 55% / cover no-repeat;
+  opacity: 0.16;
+  transition: opacity 0.4s ease;
+}
+@media (min-width: 1024px) {
+  .hero-section::before {
+    background-size: 100% auto;
+    background-position: center 62%;
+  }
+}
+html.dark .hero-section::before { opacity: 0.26; }
+@media (max-width: 768px) {
+  .hero-section::before { opacity: 0.12; background-position: center 50%; }
+}
+
+.hero-deco { position: absolute; inset: 0; pointer-events: none; overflow: hidden; z-index: 0; }
+.hero-deco-orb { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.5; will-change: transform; }
+.hero-deco-orb-1 { top: -15%; right: -8%; width: 50vw; height: 50vw; max-width: 500px; max-height: 500px; background: radial-gradient(circle, var(--hero-glow-1), transparent 70%); animation: heroOrb1 25s ease-in-out infinite; }
+.hero-deco-orb-2 { bottom: -15%; left: -10%; width: 45vw; height: 45vw; max-width: 450px; max-height: 450px; background: radial-gradient(circle, var(--hero-glow-2), transparent 70%); animation: heroOrb2 30s ease-in-out infinite; }
+.hero-deco-orb-3 { top: 40%; left: 40%; width: 30vw; height: 30vw; max-width: 300px; max-height: 300px; background: radial-gradient(circle, var(--hero-glow-3), transparent 70%); opacity: 0.35; animation: heroOrb3 20s ease-in-out infinite; }
+html.dark .hero-deco-orb-2 { background: radial-gradient(circle, rgba(5,150,105,0.15), transparent 70%); opacity: 0.6; }
+@keyframes heroOrb1 { 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(-8%,10%) scale(1.15)} }
+@keyframes heroOrb2 { 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(10%,-8%) scale(1.1)} }
+@keyframes heroOrb3 { 0%,100%{transform:translate(-50%,-50%) scale(1)} 50%{transform:translate(-50%,-50%) scale(1.3)} }
+
+.hero-grid { position: absolute; inset: 0; pointer-events: none; z-index: 1; opacity: 0.04; background-image: linear-gradient(var(--hero-text) 1px, transparent 1px), linear-gradient(90deg, var(--hero-text) 1px, transparent 1px); background-size: 60px 60px; }
+html.dark .hero-grid { opacity: 0.06; }
+
+/* ── چیدمان هیرو: ستونیِ وسط‌چین در همه‌ی اندازه‌ها ── */
+.hero-content { position: relative; z-index: 10; max-width: 80rem; margin: 0 auto; padding: 1.25rem 0.75rem 0.75rem; min-height: 66svh; display: flex; flex-direction: column; justify-content: center; }
+@media (min-width:640px) { .hero-content { padding: 2rem 1.5rem 1.5rem; } }
+@media (min-width:1024px) { .hero-content { padding: 2.5rem 2rem 2rem; } }
+
+.hero-grid-layout { display: flex; flex-direction: column; align-items: center; gap: 1.5rem; width: 100%; }
+@media (min-width:1024px) { .hero-grid-layout { gap: 2rem; } }
+
+/* ستون متن: وسط‌چین در موبایل و دسکتاپ */
+.hero-text-col { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 0.9rem; width: 100%; }
+
+/* ستون بصری: موبایل = عمودی و در انتهای هیرو | دسکتاپ = نمودار و کنسول کنار هم */
+.hero-scene-col { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; }
+@media (min-width:1024px) { .hero-scene-col { flex-direction: row; align-items: center; justify-content: center; gap: 2.5rem; } }
+
+/* ── بج و عنوان ── */
+.hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.7rem; font-weight: 700; color: var(--hero-text); background: var(--hero-card-bg); backdrop-filter: blur(12px); padding: 0.5rem 1rem; border-radius: 9999px; border: 1px solid var(--hero-card-border); box-shadow: 0 2px 12px var(--hero-scene-shadow); }
+@media (min-width:640px) { .hero-badge { font-size: 0.75rem; padding: 0.6rem 1.25rem; } }
+.hero-badge-dot { position: relative; display: flex; height: 0.55rem; width: 0.55rem; }
+.hero-badge-dot-ping { position: absolute; inset: 0; border-radius: 9999px; background-color: var(--site-gold); opacity: 0.75; animation: badgePing 2s cubic-bezier(0,0,0.2,1) infinite; }
+.hero-badge-dot-core { position: relative; display: inline-flex; border-radius: 9999px; height: 0.55rem; width: 0.55rem; background: linear-gradient(to bottom right, var(--site-gold), #f59e0b); }
+@keyframes badgePing { 75%,100%{transform:scale(2);opacity:0} }
+
+.hero-title {
+  font-size: clamp(1.15rem, 3.5vw, 3.5rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  color: var(--hero-text);
+  transition: color 0.3s ease;
+  min-height: 2.4em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  overflow: hidden;
+}
+@media (min-width:640px) { .hero-title { font-size: clamp(1.5rem, 4.5vw, 3.75rem); min-height: 2.3em; } }
+@media (min-width:1024px) { .hero-title { font-size: clamp(2rem, 3.5vw, 3.75rem); } }
+
+.tw-sizer { visibility: hidden; position: absolute; white-space: nowrap; pointer-events: none; }
+.tw-output { position: relative; z-index: 1; display: inline; white-space: nowrap; max-width: 100%; overflow: hidden; }
+.tw-cursor { display: inline-block; width: 2px; height: 0.9em; background: linear-gradient(to bottom, var(--site-gold), #f59e0b); margin-right: 0.25rem; vertical-align: middle; border-radius: 9999px; opacity: 0.9; animation: twBlink 1s step-end infinite; box-shadow: 0 0 10px rgba(251,191,36,0.8); }
+@keyframes twBlink { 0%,100%{opacity:0.9} 50%{opacity:0} }
+
+/* ── توضیح و دکمه‌ها و آمار (وسط‌چین) ── */
+.hero-desc { max-width: 40rem; margin-inline: auto; color: var(--hero-muted); font-size: 0.875rem; line-height: 1.8; font-weight: 500; text-align: justify; text-align-last: center; }
+@media (min-width:640px) { .hero-desc { font-size: 1rem; } }
+.hero-desc-accent-1 { background: linear-gradient(to right, var(--site-accent), var(--site-primary)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent; font-weight: 700; }
+.hero-desc-accent-2 { background: linear-gradient(to right, var(--site-gold), #fb923c); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent; font-weight: 700; }
+
+.hero-btns { display: flex; flex-direction: column; gap: 0.75rem; width: 100%; max-width: 40rem; margin-inline: auto; }
+@media (min-width:640px) { .hero-btns { flex-direction: row; gap: 1rem; } }
+.hero-btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.65rem; padding: 0.85rem 1.35rem; border-radius: 1rem; font-size: 0.85rem; font-weight: 800; transition: all 0.35s cubic-bezier(0.34,1.56,0.64,1); cursor: pointer; text-decoration: none; white-space: nowrap; }
+@media (min-width:640px) { .hero-btn { flex: 1 1 0; font-size: 0.9rem; padding: 0.95rem 1.5rem; } }
+.hero-btn-primary { background: linear-gradient(135deg, var(--site-primary), var(--site-secondary)); color: #fff; box-shadow: 0 4px 20px var(--hero-glow-1); }
+.hero-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px var(--hero-glow-1); filter: brightness(1.1); }
+.hero-btn-primary:active { transform: scale(0.97); }
+
+.hero-btn-secondary { background: var(--site-card); color: var(--hero-text); border: 1.5px solid #cbd5e1; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+html.dark .hero-btn-secondary { background: var(--site-card); color: #f1f5f9; border: 1.5px solid #475569; box-shadow: 0 2px 12px rgba(0,0,0,0.35), inset 0 0 0 1px rgba(255,255,255,0.04); }
+.hero-btn-secondary:hover { transform: translateY(-2px); border-color: var(--site-gold); box-shadow: 0 8px 24px rgba(251,191,36,0.25); }
+html.dark .hero-btn-secondary:hover { border-color: var(--site-gold); box-shadow: 0 8px 24px rgba(251,191,36,0.2); }
+.hero-btn-secondary:active { transform: scale(0.97); }
+.hero-btn-secondary i { color: var(--site-gold); }
+
+.hero-stats { display: grid; grid-template-columns: repeat(5,1fr); gap: 0.5rem; width: 100%; max-width: 46rem; margin: 0.4rem auto 0; }
+@media (min-width:640px) { .hero-stats { gap: 0.75rem; } }
+.hero-stat-card { position: relative; overflow: hidden; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 0.35rem; padding: 0.65rem 0.35rem; border-radius: 1rem; background: var(--hero-card-bg); border: 1px solid var(--hero-card-border); backdrop-filter: blur(12px); transition: all 0.35s ease; cursor: pointer; text-decoration: none; }
+@media (min-width:640px) { .hero-stat-card { padding: 0.85rem 0.5rem; gap: 0.5rem; } }
+.hero-stat-card:hover { transform: translateY(-3px) scale(1.04); border-color: var(--accent, var(--site-primary)); box-shadow: 0 8px 25px var(--hero-scene-shadow); }
+.hero-stat-icon { width: 2rem; height: 2rem; display: flex; align-items: center; justify-content: center; border-radius: 0.6rem; font-size: 0.8rem; transition: transform 0.3s ease; }
+@media (min-width:640px) { .hero-stat-icon { width: 2.5rem; height: 2.5rem; font-size: 0.95rem; } }
+.hero-stat-card:hover .hero-stat-icon { transform: scale(1.15); }
+.hero-stat-value { font-size: 1.1rem; font-weight: 900; color: var(--hero-text); font-variant-numeric: tabular-nums; transition: all 0.3s ease; }
+@media (min-width:640px) { .hero-stat-value { font-size: 1.5rem; } }
+@media (min-width:1024px) { .hero-stat-value { font-size: 1.75rem; } }
+.hero-stat-card:hover .hero-stat-value { text-shadow: 0 0 20px var(--accent); color: var(--accent); }
+.hero-stat-label { font-size: 0.55rem; font-weight: 700; color: var(--hero-muted); line-height: 1.2; }
+@media (min-width:640px) { .hero-stat-label { font-size: 0.65rem; } }
+
+/* ── صحنه‌ی SVG ── */
+.scene-wrapper { position: relative; width: min(86vw, 310px); aspect-ratio: 1; margin: 0 auto; flex-shrink: 0; }
+@media (min-width:640px) { .scene-wrapper { width: min(60vw, 340px); } }
+@media (min-width:1024px) { .scene-wrapper { width: 400px; margin: 0; } }
+.scene-glow { position: absolute; inset: -1rem; border-radius: 50%; pointer-events: none; background: radial-gradient(circle, var(--hero-glow-1), transparent 60%); filter: blur(25px); animation: sceneGlowPulse 5s ease-in-out infinite; }
+html.dark .scene-glow { background: radial-gradient(circle, rgba(5,150,105,0.12), transparent 10%); }
+@keyframes sceneGlowPulse { 0%,100%{opacity:0.5;transform:scale(1)} 50%{opacity:0.8;transform:scale(1.05)} }
+.scene-svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; z-index: 1; }
+.scene-connectors { isolation: isolate; }
+.scene-ring-cw { transform-box: fill-box; transform-origin: center; animation: sceneRingCw 50s linear infinite; }
+@keyframes sceneRingCw { to { transform: rotate(360deg); } }
+.scene-ring-ccw { transform-box: fill-box; transform-origin: center; animation: sceneRingCcw 70s linear infinite; }
+@keyframes sceneRingCcw { to { transform: rotate(-360deg); } }
+
+/* ناحیه‌ی هاور هسته‌ی مرکزی */
+.scene-core-hit { cursor: pointer; pointer-events: all; }
+.hero-core-circle { transition: stroke-width .3s ease; }
+.scene-wrapper.core-active .hero-core-circle { stroke-width: 1.8; }
+
+/* ── چیپ‌های حوزه‌ها ── */
+.scene-chip-wrap { position: absolute; transform: translate(-50%,-50%); z-index: 10; }
+.scene-chip { display: flex; align-items: center; gap: 0.3rem; animation: sceneChipFloat 5s ease-in-out infinite; }
+@keyframes sceneChipFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
+
+.scene-chip-icon { position: relative; display: flex; align-items: center; justify-content: center; width: 2rem; height: 2rem; border-radius: 0.65rem; border: 1.5px solid; backdrop-filter: blur(8px); transition: all 0.4s ease; cursor: pointer; overflow: hidden; background: rgba(255,255,255,0.95); box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+html.dark .scene-chip-icon { background: rgba(30, 41, 59, 0.92); box-shadow: 0 2px 10px rgba(0,0,0,0.4); }
+@media (min-width:640px) { .scene-chip-icon { width: 2.5rem; height: 2.5rem; } }
+@media (min-width:1024px) { .scene-chip-icon { width: 3rem; height: 3rem; } }
+.scene-chip-icon:hover { transform: scale(1.2) rotate(6deg); }
+.scene-chip-icon i { position: relative; z-index: 2; font-size: 0.75rem; transition: transform 0.3s ease; }
+@media (min-width:640px) { .scene-chip-icon i { font-size: 0.9rem; } }
+@media (min-width:1024px) { .scene-chip-icon i { font-size: 1rem; } }
+.scene-chip-icon:hover i { transform: scale(1.2); }
+.scene-chip-label { font-size: 0.5rem; font-weight: 800; color: var(--hero-chip-text); line-height: 1; padding: 0.2rem 0.4rem; border-radius: 9999px; background: var(--hero-chip-bg); border: 1px solid var(--hero-chip-border); white-space: nowrap; backdrop-filter: blur(6px); box-shadow: 0 2px 8px rgba(0,0,0,0.1); transition: border-color .3s ease; }
+@media (min-width:640px) { .scene-chip-label { font-size: 0.6rem; padding: 0.25rem 0.5rem; } }
+@media (min-width:1024px) { .scene-chip-label { font-size: 0.7rem; padding: 0.3rem 0.6rem; } }
+
+/* هایلایت چیپِ حوزه‌ی فعال */
+.scene-chip-wrap.active .scene-chip-icon { transform: scale(1.16); box-shadow: 0 0 0 1.5px var(--c), 0 0 14px var(--c); }
+.scene-chip-wrap.active .scene-chip-label { border-color: var(--c); }
+
+/* ── دایره‌ی مرکزی ── */
+.hero-core-circle { fill: rgba(255, 255, 255, 0.98); stroke: var(--site-gold); }
+html.dark .hero-core-circle { fill: rgba(15, 23, 42, 0.97); stroke: var(--site-gold); }
+.hero-formula-text { fill: #b45309; filter: none; }
+html.dark .hero-formula-text { fill: var(--site-gold); }
+.hero-orbit-ring { stroke: var(--site-gold); }
+html.dark .hero-orbit-ring { stroke: var(--site-gold); }
+
+/* ── کنسول مدل: کنار نمودار در دسکتاپ، زیر نمودار در موبایل ── */
+.model-console { position: relative; z-index: 20; margin: .8rem auto 0; width: min(86vw, 310px); border-radius: 1rem; border: 1px solid var(--hero-card-border); background: var(--hero-card-bg); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); padding: .6rem .8rem .5rem; box-shadow: 0 10px 30px var(--hero-scene-shadow); }
+@media (min-width:640px) { .model-console { width: min(60vw, 340px); } }
+@media (min-width:1024px) { .model-console { width: 520px; max-width: 46vw; margin: 0; flex: 0 1 520px; } }
+
+.model-console-head { display: flex; align-items: center; gap: .5rem; margin-bottom: .45rem; }
+.model-dot { width: .55rem; height: .55rem; border-radius: 9999px; flex-shrink: 0; transition: background .4s ease, box-shadow .4s ease; }
+.model-tag { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .74rem; font-weight: 800; letter-spacing: .08em; transition: color .4s ease; }
+.model-name { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .58rem; color: var(--hero-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; flex: 1; min-width: 0; }
+.model-label { margin-inline-start: auto; font-size: .6rem; font-weight: 800; color: var(--hero-chip-text); background: var(--hero-chip-bg); border: 1px solid var(--hero-chip-border); padding: .16rem .5rem; border-radius: 9999px; white-space: nowrap; }
+@media (max-width:400px) { .model-name { display: none; } }
+
+/* بدنه‌ی فرمول: ارتفاع قفل‌شده ضدپرش (اسکریپت ارتفاع دقیق را ست می‌کند) */
+.model-body { direction: ltr; text-align: left; font-size: .72rem; line-height: 1.75; color: var(--hero-muted); height: 6.6em; overflow: hidden; }
+@media (min-width:640px) { .model-body { font-size: .8rem; } }
+
+/* اندازه‌گیر مخفی برای lockHeight */
+.model-body-sizer { position: absolute; left: 0; right: 0; height: auto !important; visibility: hidden; pointer-events: none; }
+
+.model-body .katex { font-size: 1.05em; }
+.model-obj { font-weight: 700; margin-bottom: .1rem; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+.model-obj::-webkit-scrollbar { display: none; }
+.model-con { display: flex; align-items: baseline; gap: .5ch; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+.model-con::-webkit-scrollbar { display: none; }
+.model-con-indent { padding-left: 3.4ch; }
+.model-st { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; opacity: .7; flex-shrink: 0; }
+.model-math { white-space: nowrap; }
+.model-body.swap { animation: modelIn .5s cubic-bezier(0.16,1,0.3,1); }
+@keyframes modelIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+.model-dots { display: flex; gap: .35rem; justify-content: center; margin-top: .5rem; }
+.model-dots button { width: 1.1rem; height: .3rem; border: none; padding: 0; border-radius: 9999px; background: var(--hero-card-border); cursor: pointer; transition: width .35s ease, background .35s ease; }
+.model-dots button.on { width: 1.7rem; }
+.model-dots button:hover { opacity: .85; }
+
+/* ── انیمیشن‌های عمومی هیرو ── */
+.hero-fade-in { animation: heroFadeIn 0.8s cubic-bezier(0.16,1,0.3,1) backwards; }
+@keyframes heroFadeIn { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-fade-in, .hero-deco-orb, .hero-badge-dot-ping, .scene-ring-cw, .scene-ring-ccw, .scene-chip, .scene-glow, .tw-cursor { animation: none !important; }
+  .hero-fade-in { opacity: 1 !important; }
+  .model-body.swap { animation: none !important; }
+}
+@media (max-width:768px) {
+  .hero-deco-orb { filter: blur(50px); opacity: 0.35; }
+  .scene-glow { filter: blur(20px); }
 }
