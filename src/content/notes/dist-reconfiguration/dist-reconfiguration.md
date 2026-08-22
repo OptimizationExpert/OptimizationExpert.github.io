@@ -7,7 +7,7 @@ minimalImage: "./dist-reconfiguration-mini.webp"
 minimalImageAlt: "تصویر مینیمال آیکون تغییر ارایش شبکه توزیع"
 image: "./dist-reconfiguration.webp"
 imageAlt: "شبکه واقعی و تغییر آرایش آن با سویچینگ"
-tags: ["بهینه‌سازی", "سیستم قدرت", "شبکه توزیع", "کاهش تلفات", "بازآرایی شبکه"]
+tags: ["بهینه‌سازی", "پخش بار", "شبکه توزیع", "کاهش تلفات", "بازآرایی شبکه"]
 relatedCourses: ["advanced-power-system"]
 relatedNotes: ["mathematical-modeling-art", "ac-studies", "pyomo-solvers"]
 relatedProjects: ["load-hosting","bess-allocation"]
