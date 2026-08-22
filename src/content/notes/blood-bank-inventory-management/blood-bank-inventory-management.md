@@ -8,8 +8,8 @@ minimalImageAlt: "نماد ساده کیسه خون و نمودار سطح مو�
 image: "./blood-bank-inventory-management.svg"
 imageAlt: "نمودار موجودی فرآورده‌های خونی به تفکیک گروه سنی کیسه، تقاضای روزانه، و کیسه‌های دورریز شده به دلیل انقضا"
 tags: ["بهینه‌سازی در سلامت", "کنترل موجودی", "موجودی فسادپذیر", "برنامه‌ریزی خطی", "زنجیره تأمین سلامت"]
-relatedCourses: ["optimization-modeling", "uncertainty-modeling"]
-relatedNotes: ["inventory-routing-problem", "operating-room-scheduling", "uncertainty-modeling"]
+relatedCourses: ["optimization-modeling", "uncertainty-modeling", "health-opt"]
+relatedNotes: ["ambulance-location-mclp", "linkedin-patches-cp", "uncertainty-modeling"]
 ---
 
 هر روز صبح، مسئول بانک خون یک بیمارستان بزرگ با یک صفحه‌گسترده روبه‌رو می‌شود که تعداد کیسه‌های خون موجود را به تفکیک گروه خونی و سن کیسه نشان می‌دهد. کیسه‌ای که دیروز اهدا شده با کیسه‌ای که سه هفته پیش وارد شده، از نظر پزشکی یکسان نیستند؛ گلبول قرمز معمولاً حدود ۴۲ روز عمر مفید دارد و بعد از آن باید دور ریخته شود.
