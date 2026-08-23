@@ -58,7 +58,9 @@ async function computeImageAudit(): Promise<ImagePage[]> {
       const imageAlt: string = entry.data.imageAlt ?? '';
 
       let featuredImageKind: ImagePage['featuredImageKind'] = 'missing';
-      if (imageData && typeof imageData === 'object') {
+      if (imageData && (typeof imageData === 'object' || typeof imageData === 'function')) {
+        // نکته: برای تصاویر SVG، Astro متادیتای تصویر را به‌صورت یک تابع برمی‌گرداند
+        // (نه یک آبجکت ساده)، تا رندر inline SVG هم ممکن باشد — دقیقاً مثل imgSrc در src/utils/image.ts.
         featuredImageKind = 'optimized';
       } else if (typeof imageData === 'string' && imageData.trim()) {
         featuredImageKind = 'external';
