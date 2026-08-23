@@ -1,13 +1,13 @@
 ---
 import fs from 'node:fs';
 import { fileURLToPath } from 'node:url';
-import Layout from '../layouts/Layout.astro';
+import Layout from '../../layouts/Layout.astro';
 
 // هر عکسی که داخل public/images/testimonials/ گذاشته شود، خودکار در این صفحه
 // نمایش داده می‌شود — با هر اسم و هر پسوند تصویری معتبری (jpg/jpeg/png/webp/gif).
 // کافی‌ست عکس‌های جدید را در آن پوشه کپی کنید؛ هیچ تغییر نامی لازم نیست.
 const IMAGE_EXTENSIONS = new Set(['.jpg', '.jpeg', '.png', '.webp', '.gif', '.avif']);
-const testimonialsDir = fileURLToPath(new URL('../../public/images/testimonials/', import.meta.url));
+const testimonialsDir = fileURLToPath(new URL('../../../public/images/testimonials/', import.meta.url));
 
 let testimonials = [];
 if (fs.existsSync(testimonialsDir)) {
