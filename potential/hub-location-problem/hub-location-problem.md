@@ -3,7 +3,7 @@ title: "مکان‌یابی هاب: کجا مرکز توزیع بگذاریم ک
 description: "آشنایی با مسئله مکان‌یابی هاب (Hub Location Problem) در شبکه‌های حمل‌ونقل و لجستیک، و نحوه مدل‌سازی و حل آن با ابزارهای متن‌باز پایتون."
 pubDate: 2026-08-17
 author: "dr-soroudi"
-minimalImage: "./hub-location-problem_mini.svg"
+minimalImage: "./hub-location-problem-mini.svg"
 minimalImageAlt: "نماد ساده یک هاب مرکزی با چند مسیر به شهرهای اطراف"
 image: "./hub-location-problem.svg"
 imageAlt: "نقشه مفهومی شبکه هاب و اسپوک با یک هاب مرکزی، چند شهر پیرامونی و یک هاب کاندید دوم"

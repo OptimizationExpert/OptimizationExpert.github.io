@@ -3,7 +3,7 @@ title: "پهپادهای پزشکی: کجا پایگاه بزنیم تا دار�
 description: "آشنایی با مسئله مکان‌یابی پایگاه و مسیریابی پهپادهای تحویل محصولات پزشکی به مناطق دورافتاده، و حل آن با ابزارهای متن‌باز پایتون."
 pubDate: 2026-08-17
 author: "dr-soroudi"
-minimalImage: "./drone-medical-delivery_mini.svg"
+minimalImage: "./drone-medical-delivery-mini.svg"
 minimalImageAlt: "پهپاد در حال تحویل محموله پزشکی به یک درمانگاه روستایی"
 image: "./drone-medical-delivery.svg"
 imageAlt: "شبکه پایگاه‌های پهپادی پزشکی و مسیر پرواز به درمانگاه روستایی"

@@ -3,7 +3,7 @@ title: "بهینه‌سازی موجودی زیر عدم‌قطعیت: مدل ن
 description: "وقتی تقاضا از قبل معلوم نیست، چقدر باید سفارش داد؟ آشنایی با مدل نیوزبوی و موجودی اطمینان برای تصمیم‌گیری موجودی زیر عدم‌قطعیت با ابزارهای متن‌باز پایتون."
 pubDate: 2026-08-14
 author: "dr-soroudi"
-minimalImage: "./newsvendor-safety-stock_mini.svg"
+minimalImage: "./newsvendor-safety-stock-mini.svg"
 minimalImageAlt: "نماد ساده نمودار سطح موجودی با ناحیه موجودی اطمینان"
 image: "./newsvendor-safety-stock.svg"
 imageAlt: "نمودار مفهومی سطح موجودی در طول زمان با نقطه سفارش مجدد، موجودی اطمینان و توزیع احتمالی تقاضا"

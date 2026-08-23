@@ -3,7 +3,7 @@ title: "زنجیره تأمین حلقه‌بسته سبز: کجا کالا را
 description: "معرفی مسئله طراحی شبکه زنجیره تأمین حلقه‌بسته سبز (Green Closed-Loop Supply Chain) و حل آن با ابزارهای متن‌باز پایتون."
 pubDate: 2026-08-14
 author: "dr-soroudi"
-minimalImage: "./green-closed-loop-supply-chain_mini.svg"
+minimalImage: "./green-closed-loop-supply-chain-mini.svg"
 minimalImageAlt: "نماد ساده جریان رفت و برگشت کالا بین کارخانه، مشتری و مرکز بازیافت"
 image: "./green-closed-loop-supply-chain.svg"
 imageAlt: "نمودار مفهومی شبکه رفت (تولید تا مشتری) و برگشت (جمع‌آوری تا بازیافت) در زنجیره تأمین حلقه‌بسته"

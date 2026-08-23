@@ -3,7 +3,7 @@ title: "تأمین مجدد مشترک: چرا سفارش‌های چند کال
 description: "آشنایی با مسئله تأمین مجدد مشترک (Joint Replenishment Problem) که با هماهنگ‌سازی زمان سفارش چند قلم کالا، هزینه‌های ثابت سفارش‌دهی را در زنجیره تأمین کاهش می‌دهد."
 pubDate: 2026-08-15
 author: "dr-soroudi"
-minimalImage: "./joint-replenishment-problem_mini.svg"
+minimalImage: "./joint-replenishment-problem-mini.svg"
 minimalImageAlt: "نماد ساده سه ردیف کالا با نقاط سفارش هماهنگ‌شده روی یک محور زمان"
 image: "./joint-replenishment-problem.svg"
 imageAlt: "نمودار مفهومی زمان‌بندی سفارش سه قلم کالا روی محور زمان با نقاط سفارش مشترک و جداگانه و منحنی سطح موجودی هر کالا"

@@ -3,7 +3,7 @@ title: "بازآرایی شبکه توزیع: صرفه‌جویی و بازیا�
 description: "معرفی مسئله بازآرایی شبکه توزیع برق (تغییر وضعیت کلیدهای عادی-باز و عادی-بسته) برای کاهش تلفات و بازیابی سریع برق پس از خرابی، و نحوه فرمول‌بندی و حل آن با ابزارهای متن‌باز پایتون."
 pubDate: 2026-08-17
 author: "dr-soroudi"
-minimalImage: "./distribution-network-reconfiguration_mini.svg"
+minimalImage: "./distribution-network-reconfiguration-mini.svg"
 minimalImageAlt: "نماد ساده دو فیدر توزیع با یک کلید مجزاساز باز و یک کلید بسته بین آن‌ها"
 image: "./distribution-network-reconfiguration.svg"
 imageAlt: "نمودار دو فیدر توزیع برق با پست‌های برق، ترانسفورماتور، خانه‌ها و کلیدهای عادی-باز و عادی-بسته که با تغییر وضعیت‌شان توپولوژی شبکه را بازآرایی می‌کنند"

@@ -3,7 +3,7 @@ title: "برنامه‌ریزی توسعه تولید: امسال کدام نی�
 description: "آشنایی با مسئله برنامه‌ریزی توسعه ظرفیت تولید (Generation Expansion Planning) در سیستم قدرت و فرمول‌بندی آن به‌صورت یک مدل MILP چندساله."
 pubDate: 2026-08-14
 author: "dr-soroudi"
-minimalImage: "./generation-expansion-planning-milp_mini.svg"
+minimalImage: "./generation-expansion-planning-milp-mini.svg"
 minimalImageAlt: "نمودار مینیمال رشد پلکانی ظرفیت تولید در کنار منحنی افزایش تقاضا"
 image: "./generation-expansion-planning-milp.svg"
 imageAlt: "نمودار افق چندساله برنامه‌ریزی توسعه تولید با میله‌های ظرفیت افزوده‌شده هر سال، منحنی رشد تقاضا و خط حاشیه اطمینان"

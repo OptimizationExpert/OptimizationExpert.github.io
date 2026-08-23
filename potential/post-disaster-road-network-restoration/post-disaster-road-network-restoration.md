@@ -3,7 +3,7 @@ title: "بازسازی شبکه جاده‌ای پس از بلایا: کدام �
 description: "چطور با بهینه‌سازی، ترتیب تعمیر جاده‌ها و پل‌های آسیب‌دیده بعد از زلزله یا سیل را طوری تعیین کنیم که بیمارستان‌ها و اردوگاه‌های امدادی زودتر به شبکه وصل شوند."
 pubDate: 2026-08-17
 author: "dr-soroudi"
-minimalImage: "./post-disaster-road-network-restoration_mini.webp"
+minimalImage: "./post-disaster-road-network-restoration-mini.webp"
 minimalImageAlt: "نقشه شماتیک شبکه جاده‌ای آسیب‌دیده با تیم تعمیر و مقصد بیمارستان"
 image: "./post-disaster-road-network-restoration.webp"
 imageAlt: "شبکه جاده‌ای بعد از زلزله با پل شکسته، کامیون تیم تعمیر و مسیر رسیدن به بیمارستان و اردوگاه امدادی"

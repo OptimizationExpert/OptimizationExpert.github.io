@@ -3,7 +3,7 @@ title: "مسیریابی سبز: وقتی سرعت کامیون هم یک متغ
 description: "معرفی مسئله مسیریابی با آلودگی (Pollution Routing Problem)، جایی که علاوه بر مسیر، سرعت و بار وسیله نقلیه هم برای کمینه‌کردن مصرف سوخت و انتشار کربن بهینه می‌شود."
 pubDate: 2026-08-17
 author: "dr-soroudi"
-minimalImage: "./pollution-routing-problem_mini.svg"
+minimalImage: "./pollution-routing-problem-mini.svg"
 minimalImageAlt: "کامیون توزیع در حال حرکت با نمودار سرعت و ابر آلودگی کاهش‌یافته"
 image: "./pollution-routing-problem.svg"
 imageAlt: "نقشه مسیریابی سبز با کامیون‌های توزیع، سرعت بهینه و میزان انتشار کربن"

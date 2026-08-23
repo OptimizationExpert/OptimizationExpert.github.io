@@ -3,7 +3,7 @@ title: "لجستیک بشردوستانه: مکان‌یابی انبار اضط
 description: "چطور با بهینه‌سازی ریاضی می‌شود بهترین نقطه را برای انبارهای اضطراری پیدا کرد و مسیر کامیون‌های امدادی را طوری طراحی کرد که کمک‌ها سریع‌تر به دست آسیب‌دیدگان یک بلای طبیعی برسد."
 pubDate: 2026-08-14
 author: "dr-soroudi"
-minimalImage: "./disaster-relief-logistics_mini.svg"
+minimalImage: "./disaster-relief-logistics-mini.svg"
 minimalImageAlt: "نماد مینیمال انبار امدادی و مسیرهای توزیع کمک"
 image: "./disaster-relief-logistics.svg"
 imageAlt: "نقشه مفهومی مکان‌یابی انبار اضطراری و مسیریابی کامیون‌های امدادی پس از بلای طبیعی"

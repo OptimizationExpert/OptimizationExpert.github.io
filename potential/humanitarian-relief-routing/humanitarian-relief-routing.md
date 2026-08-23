@@ -3,7 +3,7 @@ title: "لجستیک بشردوستانه: کدام منطقه زلزله‌زد
 description: "وقتی بعد از یک بلای طبیعی نمی‌شود به همه مناطق آسیب‌دیده سر زد، مسیریابی امدادی باید به‌جای «همه را پوشش بده» به «بیشترین اولویت را پوشش بده» فکر کند."
 pubDate: 2026-08-14
 author: "dr-soroudi"
-minimalImage: "./humanitarian-relief-routing_mini.svg"
+minimalImage: "./humanitarian-relief-routing-mini.svg"
 minimalImageAlt: "نماد ساده انبار امدادی و مسیرهای رسیدن به مناطق آسیب‌دیده"
 image: "./humanitarian-relief-routing.svg"
 imageAlt: "نقشه مفهومی مسیریابی امدادی از یک انبار مرکزی به مناطق آسیب‌دیده با اولویت‌های متفاوت"

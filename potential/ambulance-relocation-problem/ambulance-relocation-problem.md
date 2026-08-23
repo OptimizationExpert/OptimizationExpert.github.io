@@ -3,7 +3,7 @@ title: "جابه‌جایی پویای آمبولانس: کجا منتظر بم�
 description: "آشنایی با مسئله مکان‌یابی و جابه‌جایی پویای آمبولانس در خدمات اورژانس پزشکی، و مدل‌سازی آن با ابزارهای متن‌باز پایتون."
 pubDate: 2026-08-17
 author: "dr-soroudi"
-minimalImage: "./ambulance-relocation-problem_mini.svg"
+minimalImage: "./ambulance-relocation-problem-mini.svg"
 minimalImageAlt: "نمادی از دو آمبولانس در دو ایستگاه شهری با محدوده پوشش زمانی"
 image: "./ambulance-relocation-problem.svg"
 imageAlt: "نقشه شهر با ایستگاه‌های آمبولانس، محدوده‌های پوشش زمان پاسخ، و یک آمبولانس در حال جابه‌جایی بین ایستگاه‌ها"

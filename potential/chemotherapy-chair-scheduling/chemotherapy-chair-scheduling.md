@@ -3,7 +3,7 @@ title: "زمان‌بندی صندلی شیمی‌درمانی: وقتی صف ا
 description: "بررسی مسئله بهینه‌سازی زمان‌بندی صندلی‌ها و پرستاران در بخش شیمی‌درمانی سرپایی، و حل آن با ابزارهای متن‌باز پایتون مانند OR-Tools."
 pubDate: 2026-08-17
 author: "dr-soroudi"
-minimalImage: "./chemotherapy-chair-scheduling_mini.svg"
+minimalImage: "./chemotherapy-chair-scheduling-mini.svg"
 minimalImageAlt: "نمودار مینیمال زمان‌بندی صندلی‌های شیمی‌درمانی"
 image: "./chemotherapy-chair-scheduling.svg"
 imageAlt: "چیدمان بخش شیمی‌درمانی سرپایی با چند صندلی انفوزیون، پمپ سرم، پرستاران و تابلوی زمان‌بندی بیماران"

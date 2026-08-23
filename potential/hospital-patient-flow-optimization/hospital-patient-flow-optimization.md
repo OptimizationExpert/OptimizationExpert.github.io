@@ -3,7 +3,7 @@ title: "جریان بیمار در بیمارستان: کِی بستری کنی�
 description: "آشنایی با مسئله کنترل پذیرش و تخصیص تخت بیمارستانی به‌عنوان یکی از مسائل کلیدی بهینه‌سازی در حوزه سلامت، و حل آن با ابزار متن‌باز OR-Tools در پایتون."
 pubDate: 2026-08-17
 author: "dr-soroudi"
-minimalImage: "./hospital-patient-flow-optimization_mini.svg"
+minimalImage: "./hospital-patient-flow-optimization-mini.svg"
 minimalImageAlt: "نمودار مینیمال جریان بیمار از اورژانس به بخش‌های بیمارستان"
 image: "./hospital-patient-flow-optimization.svg"
 imageAlt: "نمودار جریان بیمار از اورژانس به بخش عمومی، ICU و بخش سرریز بیمارستان"

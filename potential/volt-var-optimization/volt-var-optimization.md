@@ -3,7 +3,7 @@ title: "بهینه‌سازی ولتاژ-توان راکتیو: کنترل هو�
 description: "معرفی مسئله بهینه‌سازی ولتاژ-توان راکتیو (VVO) در شبکه‌های توزیع و نحوه فرمول‌بندی و حل آن با ابزارهای متن‌باز پایتون."
 pubDate: 2026-08-15
 author: "dr-soroudi"
-minimalImage: "./volt-var-optimization_mini.svg"
+minimalImage: "./volt-var-optimization-mini.svg"
 minimalImageAlt: "نماد ساده یک فیدر توزیع با یک بانک خازنی و پروفیل ولتاژ"
 image: "./volt-var-optimization.svg"
 imageAlt: "نمودار فیدر توزیع با ترانسفورماتور OLTC، بانک‌های خازنی و اینورترهای هوشمند در طول فیدر، همراه با نمودار پروفیل ولتاژ قبل و بعد از بهینه‌سازی"

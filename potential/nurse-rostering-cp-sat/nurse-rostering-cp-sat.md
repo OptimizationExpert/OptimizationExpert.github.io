@@ -3,7 +3,7 @@ title: "زمان‌بندی پرستاران: بهینه‌سازی برای ش�
 description: "چطور می‌توان مسئله تخصیص شیفت پرستاران در بیمارستان را با برنامه‌ریزی محدودیت (Constraint Programming) مدل و حل کرد تا هم پوشش کادر درمان تضمین شود و هم عدالت بین پرستاران رعایت شود."
 pubDate: 2026-08-14
 author: "dr-soroudi"
-minimalImage: "./nurse-rostering-cp-sat_mini.svg"
+minimalImage: "./nurse-rostering-cp-sat-mini.svg"
 minimalImageAlt: "نمودار مینیمال زمان‌بندی شیفت پرستاران"
 image: "./nurse-rostering-cp-sat.svg"
 imageAlt: "نمودار گانت تخصیص شیفت‌های صبح، عصر و شب به چند پرستار در طول یک هفته"

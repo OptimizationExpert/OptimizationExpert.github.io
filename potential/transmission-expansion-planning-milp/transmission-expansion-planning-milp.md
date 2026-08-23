@@ -3,7 +3,7 @@ title: "برنامه‌ریزی توسعه انتقال: کجای شبکه خط 
 description: "معرفی مسئله برنامه‌ریزی توسعه شبکه انتقال (Transmission Expansion Planning) و فرمول‌بندی آن به‌صورت یک مدل MILP مبتنی بر پخش‌بار DC برای تصمیم‌گیری درباره ساخت خطوط جدید."
 pubDate: 2026-08-15
 author: "dr-soroudi"
-minimalImage: "./transmission-expansion-planning-milp_mini.svg"
+minimalImage: "./transmission-expansion-planning-milp-mini.svg"
 minimalImageAlt: "نمودار مینیمال شبکه انتقال با یک خط کاندید جدید به‌صورت خط‌چین"
 image: "./transmission-expansion-planning-milp.svg"
 imageAlt: "نمودار شبکه انتقال با خطوط موجود و خطوط کاندید جدید، همراه با جهت جریان توان و گلوگاه پرباری"

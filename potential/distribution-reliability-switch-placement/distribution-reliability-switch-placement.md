@@ -3,7 +3,7 @@ title: "قابلیت اطمینان توزیع: کجا کلید بزنیم تا 
 description: "آشنایی با شاخص‌های قابلیت اطمینان شبکه توزیع (SAIFI، SAIDI و CAIDI) و مسئله بهینه‌سازی مکان‌یابی کلیدهای سکشنالایزر برای کمینه‌کردن اثر خاموشی‌ها روی مشترکین."
 pubDate: 2026-08-17
 author: "dr-soroudi"
-minimalImage: "./distribution-reliability-switch-placement_mini.svg"
+minimalImage: "./distribution-reliability-switch-placement-mini.svg"
 minimalImageAlt: "نماد ساده یک فیدر توزیع با چند کلید سکشنالایزر و یک بخش خاموش شده"
 image: "./distribution-reliability-switch-placement.svg"
 imageAlt: "نمودار مفهومی یک فیدر توزیع با تیرهای برق، کلیدهای سکشنالایزر و یک بخش خطادار که با قطع کلید از بقیه فیدر ایزوله شده است"

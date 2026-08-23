@@ -3,7 +3,7 @@ title: "توزیع امداد پس از بلایا: کجا انبار بزنیم
 description: "آشنایی با مسئله مکان‌یابی-توزیع امداد در لجستیک بشردوستانه پس از بلایای طبیعی، و حل آن با ابزار متن‌باز OR-Tools در پایتون."
 pubDate: 2026-08-14
 author: "dr-soroudi"
-minimalImage: "./disaster-relief-distribution_mini.svg"
+minimalImage: "./disaster-relief-distribution-mini.svg"
 minimalImageAlt: "نماد ساده انبار امدادی مرکزی و مناطق آسیب‌دیده اطراف آن"
 image: "./disaster-relief-distribution.svg"
 imageAlt: "نقشه مفهومی انبارهای امدادی کاندید، مناطق آسیب‌دیده با سطوح مختلف تقاضا، و مسیرهای توزیع کالای امدادی"

@@ -3,7 +3,7 @@ title: "پاسخگویی بار: کِی مصرف کنیم که هم ارزان �
 description: "معرفی مسئله زمان‌بندی پاسخگویی بار (Demand Response Scheduling) در سیستم قدرت و فرمول‌بندی آن به‌صورت یک مدل MILP برای جابه‌جایی مصرف صنعتی و کاهش هزینه و پیک بار."
 pubDate: 2026-08-15
 author: "dr-soroudi"
-minimalImage: "./demand-response-scheduling-milp_mini.svg"
+minimalImage: "./demand-response-scheduling-milp-mini.svg"
 minimalImageAlt: "نمودار مینیمال جابه‌جایی مصرف از ساعت پیک به ساعت کم‌بار"
 image: "./demand-response-scheduling-milp.svg"
 imageAlt: "نمودار منحنی قیمت برق در طول شبانه‌روز همراه با میله‌های مصرف قبل و بعد از پاسخگویی بار"

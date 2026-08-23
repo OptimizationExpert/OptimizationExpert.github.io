@@ -3,7 +3,7 @@ title: "بهینه‌سازی موجودی چندسطحی: موجودی ایمن
 description: "چگونه با مدل سرویس تضمین‌شده (Guaranteed Service Model) تصمیم بگیریم موجودی ایمنی در کدام گره از زنجیره تأمین انباشته شود تا هزینه کل کمینه و سطح خدمت حفظ شود."
 pubDate: 2026-08-14
 author: "dr-soroudi"
-minimalImage: "./multi-echelon-inventory-optimization_mini.svg"
+minimalImage: "./multi-echelon-inventory-optimization-mini.svg"
 minimalImageAlt: "نمودار مینیمال شبکه چندسطحی موجودی با گره‌های تأمین‌کننده تا خرده‌فروش"
 image: "./multi-echelon-inventory-optimization.svg"
 imageAlt: "نمودار شبکه چندسطحی زنجیره تأمین با سطوح موجودی ایمنی متفاوت در هر گره"

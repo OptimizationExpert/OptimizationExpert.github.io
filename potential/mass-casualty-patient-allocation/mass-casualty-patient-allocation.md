@@ -3,7 +3,7 @@ title: "تخصیص مصدومان بحران: کدام بیمار به کدام 
 description: "چگونه بهینه‌سازی ریاضی به تصمیم حیاتی توزیع مصدومان یک حادثه انبوه بین بیمارستان‌های منطقه، با در نظر گرفتن ظرفیت و تخصص هر مرکز، کمک می‌کند."
 pubDate: 2026-08-17
 author: "dr-soroudi"
-minimalImage: "./mass-casualty-patient-allocation_mini.svg"
+minimalImage: "./mass-casualty-patient-allocation-mini.svg"
 minimalImageAlt: "نقشه شهر با چند بیمارستان و آمبولانس‌هایی که مصدومان را بین آن‌ها توزیع می‌کنند"
 image: "./mass-casualty-patient-allocation.svg"
 imageAlt: "صحنه‌ی یک حادثه انبوه با مصدومان دسته‌بندی‌شده بر اساس شدت و آمبولانس‌هایی که آن‌ها را به بیمارستان‌های مختلف با ظرفیت متفاوت منتقل می‌کنند"

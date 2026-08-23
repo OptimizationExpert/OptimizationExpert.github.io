@@ -3,7 +3,7 @@ title: "زمان‌بندی اقتصادی چندمحصولی: وقتی یک خ�
 description: "آشنایی با مسئله زمان‌بندی اقتصادی تولید (Economic Lot Scheduling Problem) که تعیین می‌کند چند محصول مختلف روی یک خط تولید مشترک با چه اندازه دسته و چه توالی تولید شوند."
 pubDate: 2026-08-17
 author: "dr-soroudi"
-minimalImage: "./economic-lot-scheduling-problem_mini.svg"
+minimalImage: "./economic-lot-scheduling-problem-mini.svg"
 minimalImageAlt: "نماد ساده یک خط تولید مشترک با سه محصول رنگی که به‌نوبت روی یک محور زمان تولید می‌شوند"
 image: "./economic-lot-scheduling-problem.svg"
 imageAlt: "نمودار مفهومی یک خط تولید مشترک با سه محصول مختلف که به‌ترتیب و با زمان تعویض قالب بین هرکدام تولید می‌شوند و منحنی سطح موجودی هر محصول"

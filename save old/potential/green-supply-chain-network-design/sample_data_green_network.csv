@@ -1,5 +1,0 @@
-route,cost_per_unit,emission_per_unit_kg
-Warehouse_A -> City_1,4,1.2
-Warehouse_A -> City_2,6,2.0
-Warehouse_B -> City_1,3,3.5
-Warehouse_B -> City_2,2,4.1

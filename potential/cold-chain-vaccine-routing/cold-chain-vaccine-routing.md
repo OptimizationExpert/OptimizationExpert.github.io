@@ -3,7 +3,7 @@ title: "مسیریابی زنجیره سرد: وقتی دما هم قید بهی
 description: "بررسی مسئله مسیریابی وسایل نقلیه در توزیع واکسن و داروهای حساس به دما، جایی که ریسک تجمعی شکست زنجیره سرد باید در کنار زمان و ظرفیت مدل‌سازی شود."
 pubDate: 2026-08-17
 author: "dr-soroudi"
-minimalImage: "./cold-chain-vaccine-routing_mini.svg"
+minimalImage: "./cold-chain-vaccine-routing-mini.svg"
 minimalImageAlt: "کامیون یخچالی در حال تحویل جعبه واکسن به یک کلینیک با نماد دماسنج"
 image: "./cold-chain-vaccine-routing.svg"
 imageAlt: "نقشه مسیر یک کامیون زنجیره سرد بین انبار مرکزی و چند کلینیک، همراه با جعبه‌های واکسن و نشانگر دما"

@@ -3,7 +3,7 @@ title: "اعزام آمبولانس: کدام پایگاه، به کدام حا�
 description: "چگونه بهینه‌سازی و مدل‌های پوشش احتمالاتی به تصمیم مکان‌یابی پایگاه و اعزام آمبولانس در شرایط عدم‌قطعیت تقاضا کمک می‌کنند."
 pubDate: 2026-08-17
 author: "dr-soroudi"
-minimalImage: "./ambulance-dispatch-location-optimization_mini.svg"
+minimalImage: "./ambulance-dispatch-location-optimization-mini.svg"
 minimalImageAlt: "نقشه شهر با پایگاه‌های آمبولانس و ناحیه پوشش هرکدام"
 image: "./ambulance-dispatch-location-optimization.svg"
 imageAlt: "آمبولانس در حال اعزام از پایگاه به محل حادثه روی نقشه شهر با دایره‌های پوشش"

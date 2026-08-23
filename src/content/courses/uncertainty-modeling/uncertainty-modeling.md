@@ -3,7 +3,7 @@
 title: "دوره فشرده مدل‌سازی عدم قطعیت در بهینه‌سازی"
 description: "دوره فشرده مدل‌سازی عدم قطعیت: مقایسه روش‌های Stochastic، Fuzzy، Robust و IGDT با کاربرد در انرژی و سیستم قدرت."
 pubDate: 2026-06-23
-minimalImage: "./uncertainty_mini.webp"
+minimalImage: "./uncertainty-mini.webp"
 minimalImageAlt: "تصویر مینیمال آیکون بهینه‌سازی"
 image: "./uncertainty.webp"
 imageAlt: "کاور دوره آموزشی مدل‌سازی عدم قطعیت در مسائل بهینه‌سازی"

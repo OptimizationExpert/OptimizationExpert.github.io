@@ -3,7 +3,7 @@ title: "مکانیابی ایستگاه آمبولانس با پایتون"
 description: "آشنایی با مسئله مکان‌یابی پوششی حداکثری (Maximum Covering Location Problem) برای استقرار آمبولانس و ایستگاه‌های اورژانس، و حل آن با ابزارهای متن‌باز پایتون."
 pubDate: 2026-08-16
 author: "dr-soroudi"
-minimalImage: "./ambulance-location-mclp_mini.svg"
+minimalImage: "./ambulance-location-mclp-mini.svg"
 minimalImageAlt: "نماد ساده یک آمبولانس و دایره پوشش آن روی نقشه"
 image: "./ambulance-location-mclp.svg"
 imageAlt: "نقشه مفهومی مناطق تقاضا، ایستگاه‌های کاندید آمبولانس و دایره‌های پوشش زمان پاسخ"

@@ -3,7 +3,7 @@ title: "زنجیره تأمین سبز: وقتی کربن هم وارد معاد
 description: "چگونه می‌توان طراحی شبکه توزیع را به‌گونه‌ای بهینه کرد که هم هزینه کمتر شود و هم انتشار کربن، با ابزارهای متن‌باز پایتون."
 pubDate: 2026-08-14
 author: "dr-soroudi"
-minimalImage: "./green-supply-chain-network-design_mini.svg"
+minimalImage: "./green-supply-chain-network-design-mini.svg"
 minimalImageAlt: "نماد ساده شبکه توزیع با برگ سبز به‌جای نماد کربن"
 image: "./green-supply-chain-network-design.svg"
 imageAlt: "نقشه مفهومی شبکه توزیع با دو مسیر جایگزین، یکی کم‌هزینه و یکی کم‌کربن"

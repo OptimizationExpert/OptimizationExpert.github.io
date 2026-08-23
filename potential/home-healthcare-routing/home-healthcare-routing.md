@@ -3,7 +3,7 @@ title: "مراقبت در منزل: کدام پرستار، کِی، به خان
 description: "آشنایی با مسئله مسیریابی و زمان‌بندی مراقبت در منزل (Home Health Care Routing) به‌عنوان یک مسئله ترکیبی از VRP و زمان‌بندی در حوزه سلامت، و حل آن با ابزار متن‌باز OR-Tools در پایتون."
 pubDate: 2026-08-14
 author: "dr-soroudi"
-minimalImage: "./home-healthcare-routing_mini.svg"
+minimalImage: "./home-healthcare-routing-mini.svg"
 minimalImageAlt: "نمودار مینیمال مسیر پرستاران بین خانه بیماران"
 image: "./home-healthcare-routing.svg"
 imageAlt: "نقشه مفهومی مسیرهای چند پرستار مراقبت در منزل از مرکز درمانی به خانه چند بیمار با بازه‌های زمانی مجاز ویزیت"

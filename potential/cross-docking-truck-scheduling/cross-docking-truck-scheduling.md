@@ -3,7 +3,7 @@ title: "زمان‌بندی کراس‌داکینگ: کدام کامیون، ک�
 description: "آشنایی با مسئله زمان‌بندی کامیون‌ها و درب‌های بارگیری در پایانه‌های کراس‌داکینگ به‌عنوان یکی از مسائل ترکیبیاتی کلیدی لجستیک زنجیره تأمین، و حل آن با ابزار متن‌باز OR-Tools در پایتون."
 pubDate: 2026-08-17
 author: "dr-soroudi"
-minimalImage: "./cross-docking-truck-scheduling_mini.svg"
+minimalImage: "./cross-docking-truck-scheduling-mini.svg"
 minimalImageAlt: "نمودار مینیمال چند کامیون ورودی و خروجی کنار درب‌های یک پایانه کراس‌داک"
 image: "./cross-docking-truck-scheduling.svg"
 imageAlt: "نمودار پایانه کراس‌داکینگ با کامیون‌های ورودی و خروجی، درب‌های بارگیری و جریان پالت بین آن‌ها به همراه نمودار زمان‌بندی"

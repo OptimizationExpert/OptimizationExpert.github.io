@@ -3,7 +3,7 @@ title: "بسته‌بندی کانتینر: وقتی چیدن جعبه‌ها ی
 description: "مسئله بارگیری کانتینر (Container Loading Problem) و مدل‌سازی ریاضی آن برای چیدن بهینه جعبه‌ها و پالت‌ها با ابزارهای متن‌باز پایتون."
 pubDate: 2026-08-17
 author: "dr-soroudi"
-minimalImage: "./container-loading-optimization_mini.svg"
+minimalImage: "./container-loading-optimization-mini.svg"
 minimalImageAlt: "نمایش مینیمال جعبه‌های چیده‌شده داخل یک کانتینر"
 image: "./container-loading-optimization.svg"
 imageAlt: "تصویرسازی کانتینر باربری با جعبه‌های چیده‌شده در ابعاد مختلف و جرثقیل بندری در پس‌زمینه"
