@@ -92,6 +92,15 @@ const resolvedImage = image ?? '/images/hero.webp';
 
     <link rel="alternate" type="application/rss+xml" title="Optimization Expert" href="/rss.xml" />
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JP6BHLE013"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-JP6BHLE013');
+    </script>
+
     <!-- Everything required at runtime is served locally. -->
     <link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css" />
     <link rel="stylesheet" href="/katex/dist/katex.min.css" />
