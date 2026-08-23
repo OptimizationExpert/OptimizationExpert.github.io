@@ -1,0 +1,181 @@
+---
+import fs from 'node:fs';
+import { fileURLToPath } from 'node:url';
+import Layout from '../layouts/Layout.astro';
+
+// هر عکسی که داخل public/images/testimonials/ گذاشته شود، خودکار در این صفحه
+// نمایش داده می‌شود — با هر اسم و هر پسوند تصویری معتبری (jpg/jpeg/png/webp/gif).
+// کافی‌ست عکس‌های جدید را در آن پوشه کپی کنید؛ هیچ تغییر نامی لازم نیست.
+const IMAGE_EXTENSIONS = new Set(['.jpg', '.jpeg', '.png', '.webp', '.gif', '.avif']);
+const testimonialsDir = fileURLToPath(new URL('../../public/images/testimonials/', import.meta.url));
+
+let testimonials = [];
+if (fs.existsSync(testimonialsDir)) {
+  testimonials = fs
+    .readdirSync(testimonialsDir, { withFileTypes: true })
+    .filter((entry) => entry.isFile() && IMAGE_EXTENSIONS.has(entry.name.slice(entry.name.lastIndexOf('.')).toLowerCase()))
+    .map((entry) => entry.name)
+    .sort((a, b) => a.localeCompare(b, 'fa'))
+    .map((filename, index) => ({
+      src: `/images/testimonials/${filename}`,
+      alt: `نظر مشتری ${index + 1}`,
+    }));
+}
+---
+
+<Layout
+  title="نظر مشتریان"
+  description="مجموعه‌ای از نظرات و بازخوردهای مشتریانی که در دوره‌ها، پروژه‌ها و مشاوره‌های تخصصی همکاری داشته‌اند."
+  breadcrumbs={[{ name: 'خانه', url: '/' }, { name: 'نظر مشتریان' }]}
+>
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 py-12 flex-grow w-full">
+
+    <div class="mb-10 border-b border-[var(--site-border)] pb-6">
+      <h1 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[var(--site-heading)] mb-3">
+        نظر مشتریان
+      </h1>
+      <p class="text-[var(--site-muted)] text-xs sm:text-sm md:text-base leading-relaxed">
+        بازخورد واقعی افرادی که در دوره‌ها، پروژه‌ها و مشاوره‌های تخصصی همراه بوده‌اند. برای دیدن نسخه‌ی بزرگ‌تر هر نظر، روی تصویر کلیک کنید.
+      </p>
+    </div>
+
+    {testimonials.length === 0 && (
+      <div class="text-center text-[var(--site-muted)] text-sm border border-dashed border-[var(--site-border)] rounded-2xl py-14">
+        هنوز عکسی در پوشه testimonials قرار نگرفته است.
+      </div>
+    )}
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      {
+        testimonials.map((item, index) => (
+          <button
+            type="button"
+            class="testimonial-thumb group relative block w-full aspect-[4/5] rounded-2xl overflow-hidden border border-[var(--site-border)] bg-[var(--site-card)] shadow-xs hover:border-[var(--site-primary)]/40 hover:shadow-md hover:-translate-y-1 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[var(--site-primary)]/40"
+            data-index={index}
+            aria-label={`بزرگ‌نمایی ${item.alt}`}
+          >
+            <img
+              src={item.src}
+              alt={item.alt}
+              loading="lazy"
+              class="w-full h-full object-cover"
+            />
+            <span class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
+              <i class="fa-solid fa-magnifying-glass-plus text-white text-lg opacity-0 group-hover:opacity-100 transition-opacity drop-shadow" aria-hidden="true"></i>
+            </span>
+          </button>
+        ))
+      }
+    </div>
+
+    <div class="pt-10 mt-4 border-t border-[var(--site-border)] flex flex-wrap items-center gap-4">
+      <a href="/consultation/" class="bg-[var(--site-primary)] hover:opacity-90 text-white font-medium px-6 py-3 rounded-xl transition shadow-md shadow-sky-500/20 text-sm inline-flex items-center gap-2">
+        <i class="fa-solid fa-headset text-xs"></i>
+        <span>درخواست مشاوره</span>
+      </a>
+      <a href="/courses/" class="bg-[var(--site-card)] hover:bg-[var(--site-bg)] text-[var(--site-primary)] border border-[var(--site-border)] font-medium px-6 py-3 rounded-xl transition text-sm inline-flex items-center gap-2">
+        <i class="fa-solid fa-graduation-cap text-xs"></i>
+        <span>مشاهده دوره‌ها</span>
+      </a>
+    </div>
+
+  </main>
+
+  <!-- لایت‌باکس -->
+  <div
+    id="testimonial-lightbox"
+    class="hidden fixed inset-0 z-[100] bg-black/85 backdrop-blur-sm flex items-center justify-center p-4 sm:p-8"
+    role="dialog"
+    aria-modal="true"
+    aria-label="نمایش بزرگ نظر مشتری"
+  >
+    <button
+      type="button"
+      id="lightbox-close"
+      class="absolute top-4 left-4 sm:top-6 sm:left-6 w-10 h-10 flex items-center justify-center rounded-xl bg-white/10 text-white hover:bg-white/20 transition-colors focus:outline-none"
+      aria-label="بستن"
+    >
+      <i class="fa-solid fa-xmark text-lg" aria-hidden="true"></i>
+    </button>
+
+    <button
+      type="button"
+      id="lightbox-prev"
+      class="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 w-11 h-11 flex items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors focus:outline-none"
+      aria-label="نظر قبلی"
+    >
+      <i class="fa-solid fa-chevron-right text-base" aria-hidden="true"></i>
+    </button>
+
+    <img id="lightbox-img" src="" alt="" class="max-w-full max-h-[85vh] rounded-2xl object-contain shadow-2xl" />
+
+    <button
+      type="button"
+      id="lightbox-next"
+      class="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 w-11 h-11 flex items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors focus:outline-none"
+      aria-label="نظر بعدی"
+    >
+      <i class="fa-solid fa-chevron-left text-base" aria-hidden="true"></i>
+    </button>
+  </div>
+</Layout>
+
+<script is:inline>
+function initTestimonialLightbox() {
+  const thumbs = Array.from(document.querySelectorAll('.testimonial-thumb'));
+  const lightbox = document.getElementById('testimonial-lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const closeBtn = document.getElementById('lightbox-close');
+  const prevBtn = document.getElementById('lightbox-prev');
+  const nextBtn = document.getElementById('lightbox-next');
+
+  if (!thumbs.length || !lightbox || !lightboxImg || lightbox.dataset.bound === 'true') return;
+  lightbox.dataset.bound = 'true';
+
+  let currentIndex = 0;
+
+  const show = (index) => {
+    currentIndex = (index + thumbs.length) % thumbs.length;
+    const img = thumbs[currentIndex].querySelector('img');
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt;
+  };
+
+  const open = (index) => {
+    show(index);
+    lightbox.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  };
+
+  const close = () => {
+    lightbox.classList.add('hidden');
+    document.body.style.overflow = '';
+  };
+
+  thumbs.forEach((thumb, index) => {
+    thumb.addEventListener('click', () => open(index));
+  });
+
+  closeBtn.addEventListener('click', close);
+  prevBtn.addEventListener('click', () => show(currentIndex - 1));
+  nextBtn.addEventListener('click', () => show(currentIndex + 1));
+
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) close();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (lightbox.classList.contains('hidden')) return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowLeft') show(currentIndex + 1);
+    if (e.key === 'ArrowRight') show(currentIndex - 1);
+  });
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initTestimonialLightbox, { once: true });
+} else {
+  initTestimonialLightbox();
+}
+document.addEventListener('astro:page-load', initTestimonialLightbox);
+</script>

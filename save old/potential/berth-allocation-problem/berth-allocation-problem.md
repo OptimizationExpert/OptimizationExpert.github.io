@@ -5,7 +5,7 @@ pubDate: 2026-08-16
 author: "dr-soroudi"
 minimalImage: "./berth-allocation-problem_mini.svg"
 minimalImageAlt: "نمایش مینیمال چند کشتی پهلوگرفته کنار اسکله بندر"
-image: "./berth-allocation-problem.svg"
+image: "./berth-allocation-problem.webp"
 imageAlt: "تصویرسازی بندر با اسکله، جرثقیل و چند کشتی پهلوگرفته و در انتظار پهلوگیری"
 tags: ["زنجیره تأمین", "حمل‌ونقل دریایی", "بهینه‌سازی خطی", "OR-Tools", "لجستیک بندری"]
 relatedCourses: ["vrp-python"]
