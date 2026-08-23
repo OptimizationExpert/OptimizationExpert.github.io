@@ -20,7 +20,7 @@ instructor: "dr-soroudi"
 relatedCourses: ["optimization-modeling", "advanced-power-system", "vrp-python"]
 relatedNotes: ["mathematical-modeling-art", "google-colab", "pyomo-solvers"]
 # انتخاب ۵ تا ۷ تگ جامع به جای ۲۰ تگ پراکنده
-tags: ["آموزش بهینه سازی","سیستم قدرت", "برنامه ریزی خطی", "PYTHON"]
+tags: ["آموزش بهینه سازی","سیستم قدرت", "برنامه ریزی خطی", "PYTHON","DC-OPF"]
 ---
 
 <!-- بخش اول: معرفی دوره -->

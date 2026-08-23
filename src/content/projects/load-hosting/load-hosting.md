@@ -11,7 +11,7 @@ minimalImage: "./load-hosting-mini.webp"
 minimalImageAlt: "تصویر مینیمال آیکون بهینه‌سازی"
 image: "./load-hosting.webp"
 imageAlt: "محاسبه ظرفیت بارپذیری شبکه قدرت با پخش بار DC و Pyomo"
-tags: [ "Linear Programming", "پخش بار", "Pyomo" ]
+tags: [ "Linear Programming", "پخش بار", "Pyomo", "DC-OPF" ]
 relatedCourses: ["advanced-power-system"]
 relatedNotes: ["mathematical-modeling-art", "google-colab", "pyomo-solvers"]
 ---
