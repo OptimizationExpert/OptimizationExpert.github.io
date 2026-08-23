@@ -490,6 +490,22 @@ article li,
 }
 
 /* ==========================================================
+🔗 استایل لینک‌های داخلی در محتوای Markdown
+========================================================== */
+.prose a:not(.content-link) {
+  color: var(--site-primary);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  transition: all 0.2s ease;
+}
+
+.prose a:not(.content-link):hover {
+  color: var(--site-primary-hover);
+}
+
+
+/* ==========================================================
    💬 استایل نقل‌قول‌ها (Blockquotes)
    ========================================================== */
 .prose blockquote,
