@@ -1,0 +1,56 @@
+<svg viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="1600" height="900" fill="#ffffff"/>
+
+  <!-- Roads (simplified city grid) -->
+  <g stroke="#cbd5c0" stroke-width="6" fill="none">
+    <path d="M 150 700 L 1450 700"/>
+    <path d="M 150 500 L 1300 500"/>
+    <path d="M 150 300 L 1300 300"/>
+    <path d="M 300 780 L 300 220"/>
+    <path d="M 650 780 L 650 220"/>
+    <path d="M 1000 780 L 1000 220"/>
+  </g>
+
+  <!-- Route highlighted (dashed) -->
+  <path d="M 300 700 L 650 700 L 650 500 L 1000 500 L 1000 300 L 300 300 L 300 500"
+        stroke="#2f855a" stroke-width="6" fill="none" stroke-dasharray="14 10"/>
+
+  <text x="1010" y="410" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="26" fill="#2f855a">مسیر</text>
+
+  <!-- Depot / garage -->
+  <g>
+    <rect x="120" y="740" width="130" height="90" rx="8" fill="#e2e8f0" stroke="#4a5568" stroke-width="4"/>
+    <polygon points="115,740 185,690 255,740" fill="#4a5568"/>
+    <rect x="165" y="780" width="40" height="50" fill="#94a3b8"/>
+    <text x="185" y="855" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="26" fill="#334155" text-anchor="middle">پایگاه</text>
+  </g>
+
+  <!-- Trash bins along the route -->
+  <g fill="#38a169" stroke="#276749" stroke-width="3">
+    <rect x="285" y="672" width="34" height="46" rx="4"/>
+    <rect x="620" y="472" width="34" height="46" rx="4"/>
+    <rect x="985" y="272" width="34" height="46" rx="4"/>
+    <rect x="270" y="472" width="34" height="46" rx="4"/>
+  </g>
+  <text x="302" y="655" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="20" fill="#276749" text-anchor="middle">سطل زباله</text>
+
+  <!-- Garbage truck icon 1 -->
+  <g transform="translate(560,660)">
+    <rect x="0" y="0" width="90" height="55" rx="6" fill="#dd6b20" stroke="#7b341e" stroke-width="3"/>
+    <rect x="90" y="15" width="40" height="40" rx="4" fill="#ed8936" stroke="#7b341e" stroke-width="3"/>
+    <circle cx="25" cy="60" r="14" fill="#2d3748"/>
+    <circle cx="105" cy="60" r="14" fill="#2d3748"/>
+    <text x="60" y="-14" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="24" fill="#7b341e" text-anchor="middle">کامیون زباله</text>
+  </g>
+
+  <!-- Garbage truck icon 2 -->
+  <g transform="translate(900,240)">
+    <rect x="0" y="0" width="90" height="55" rx="6" fill="#dd6b20" stroke="#7b341e" stroke-width="3"/>
+    <rect x="90" y="15" width="40" height="40" rx="4" fill="#ed8936" stroke="#7b341e" stroke-width="3"/>
+    <circle cx="25" cy="60" r="14" fill="#2d3748"/>
+    <circle cx="105" cy="60" r="14" fill="#2d3748"/>
+  </g>
+
+  <!-- Title label -->
+  <text x="800" y="90" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="34" fill="#2d3748" text-anchor="middle" font-weight="bold">مسیریابی جمع‌آوری پسماند شهری</text>
+</svg>

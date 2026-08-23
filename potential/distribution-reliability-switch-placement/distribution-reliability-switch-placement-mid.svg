@@ -1,0 +1,72 @@
+<svg viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="1600" height="900" fill="#ffffff"/>
+
+  <!-- feeder line -->
+  <line x1="150" y1="450" x2="1450" y2="450" stroke="#94a3b8" stroke-width="6"/>
+
+  <!-- source -->
+  <rect x="90" y="410" width="80" height="80" fill="#1e3a8a" rx="6"/>
+  <text x="130" y="520" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="24" fill="#1e3a8a" text-anchor="middle">منبع تغذیه</text>
+
+  <!-- poles along feeder -->
+  <g stroke="#94a3b8" stroke-width="4">
+    <line x1="350" y1="450" x2="350" y2="380"/>
+    <line x1="650" y1="450" x2="650" y2="380"/>
+    <line x1="950" y1="450" x2="950" y2="380"/>
+    <line x1="1250" y1="450" x2="1250" y2="380"/>
+  </g>
+
+  <!-- switches (sectionalizers) -->
+  <g>
+    <rect x="325" y="430" width="50" height="40" fill="#0f766e" rx="6"/>
+    <text x="350" y="405" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="22" fill="#0f766e" text-anchor="middle">کلید ۱</text>
+
+    <rect x="925" y="430" width="50" height="40" fill="#0f766e" rx="6"/>
+    <text x="950" y="405" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="22" fill="#0f766e" text-anchor="middle">کلید ۲</text>
+  </g>
+
+  <!-- faulted section highlighted between the two switches -->
+  <line x1="375" y1="450" x2="925" y2="450" stroke="#dc2626" stroke-width="10" stroke-dasharray="14 10"/>
+  <circle cx="650" cy="450" r="14" fill="#dc2626"/>
+  <text x="650" y="510" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="26" fill="#dc2626" text-anchor="middle">بخش خطادار</text>
+
+  <!-- isolation arrows showing switches opening -->
+  <path d="M350 430 L330 400 M350 430 L370 400" stroke="#0f766e" stroke-width="5" fill="none"/>
+  <path d="M950 430 L930 400 M950 430 L970 400" stroke="#0f766e" stroke-width="5" fill="none"/>
+
+  <!-- healthy sections with customers -->
+  <g fill="#334155">
+    <circle cx="230" cy="450" r="10"/>
+    <circle cx="500" cy="450" r="0"/>
+    <circle cx="1100" cy="450" r="10"/>
+    <circle cx="1350" cy="450" r="10"/>
+  </g>
+  <text x="230" y="500" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="22" fill="#334155" text-anchor="middle">مشترکین سالم</text>
+  <text x="1300" y="500" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="22" fill="#334155" text-anchor="middle">مشترکین سالم</text>
+
+  <!-- house icons healthy zone left -->
+  <g fill="#2563eb">
+    <rect x="200" y="330" width="34" height="28" rx="2"/>
+    <polygon points="197,330 217,308 237,330"/>
+    <rect x="290" y="330" width="34" height="28" rx="2"/>
+    <polygon points="287,330 307,308 327,330"/>
+  </g>
+
+  <!-- house icons healthy zone right -->
+  <g fill="#2563eb">
+    <rect x="1080" y="330" width="34" height="28" rx="2"/>
+    <polygon points="1077,330 1097,308 1117,330"/>
+    <rect x="1330" y="330" width="34" height="28" rx="2"/>
+    <polygon points="1327,330 1347,308 1367,330"/>
+  </g>
+
+  <!-- house icons faulted zone, dimmed -->
+  <g fill="#fca5a5">
+    <rect x="600" y="330" width="34" height="28" rx="2"/>
+    <polygon points="597,330 617,308 637,330"/>
+    <rect x="760" y="330" width="34" height="28" rx="2"/>
+    <polygon points="757,330 777,308 797,330"/>
+  </g>
+
+  <text x="800" y="650" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="30" fill="#1e293b" text-anchor="middle">مکان‌یابی کلید سکشنالایزر برای کمینه‌کردن SAIDI</text>
+</svg>

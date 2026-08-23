@@ -1,0 +1,73 @@
+<svg viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="1600" height="900" fill="#ffffff"/>
+
+  <!-- Water -->
+  <rect x="0" y="560" width="1600" height="120" fill="#eaf4f6"/>
+
+  <!-- Quay (dock) -->
+  <rect x="0" y="500" width="1600" height="60" fill="#3b4a5a"/>
+  <rect x="0" y="480" width="1600" height="20" fill="#6b7b8c"/>
+
+  <!-- Berth divider lines and labels -->
+  <line x1="380" y1="500" x2="380" y2="680" stroke="#9aa7b3" stroke-width="3" stroke-dasharray="10,8"/>
+  <line x1="820" y1="500" x2="820" y2="680" stroke="#9aa7b3" stroke-width="3" stroke-dasharray="10,8"/>
+  <line x1="1220" y1="500" x2="1220" y2="680" stroke="#9aa7b3" stroke-width="3" stroke-dasharray="10,8"/>
+
+  <text x="190" y="470" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="26" fill="#173b5c" text-anchor="middle">اسکله ۱</text>
+  <text x="600" y="470" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="26" fill="#173b5c" text-anchor="middle">اسکله ۲</text>
+  <text x="1020" y="470" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="26" fill="#173b5c" text-anchor="middle">اسکله ۳</text>
+  <text x="1400" y="470" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="26" fill="#173b5c" text-anchor="middle">اسکله ۴</text>
+
+  <!-- Crane at berth 1 -->
+  <g transform="translate(190,300)">
+    <rect x="-8" y="60" width="16" height="140" fill="#2f6f7a"/>
+    <rect x="-70" y="50" width="150" height="12" fill="#2f6f7a"/>
+    <rect x="-14" y="35" width="28" height="20" fill="#2f6f7a"/>
+    <line x1="70" y1="56" x2="70" y2="120" stroke="#173b5c" stroke-width="4"/>
+    <rect x="58" y="118" width="24" height="16" fill="#173b5c"/>
+    <text x="0" y="220" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="24" fill="#173b5c" text-anchor="middle">جرثقیل</text>
+  </g>
+
+  <!-- Ship docked at berth 1 -->
+  <g transform="translate(190,560)">
+    <path d="M -120,0 L 120,0 L 100,45 L -100,45 Z" fill="#1f5c73"/>
+    <rect x="-70" y="-35" width="140" height="35" fill="#e7edf0" stroke="#1f5c73" stroke-width="3"/>
+    <rect x="-10" y="-70" width="20" height="35" fill="#1f5c73"/>
+    <text x="0" y="75" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="24" fill="#173b5c" text-anchor="middle">کشتی</text>
+  </g>
+
+  <!-- Ship docked at berth 2 -->
+  <g transform="translate(600,560)">
+    <path d="M -140,0 L 140,0 L 118,45 L -118,45 Z" fill="#2f7d63"/>
+    <rect x="-85" y="-32" width="170" height="32" fill="#e7edf0" stroke="#2f7d63" stroke-width="3"/>
+    <rect x="-10" y="-62" width="20" height="30" fill="#2f7d63"/>
+  </g>
+
+  <!-- Ship waiting offshore (not yet docked) -->
+  <g transform="translate(1350,650)">
+    <path d="M -110,0 L 110,0 L 92,38 L -92,38 Z" fill="#8b98a3"/>
+    <rect x="-60" y="-28" width="120" height="28" fill="#f2f4f5" stroke="#8b98a3" stroke-width="3"/>
+    <rect x="-8" y="-52" width="16" height="24" fill="#8b98a3"/>
+    <text x="0" y="70" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="24" fill="#4a5a66" text-anchor="middle">کشتی در انتظار</text>
+  </g>
+
+  <!-- Waves -->
+  <path d="M 0,700 Q 40,690 80,700 T 160,700 T 240,700 T 320,700 T 400,700 T 480,700 T 560,700 T 640,700 T 720,700 T 800,700 T 880,700 T 960,700 T 1040,700 T 1120,700 T 1200,700 T 1280,700 T 1360,700 T 1440,700 T 1520,700 T 1600,700"
+        fill="none" stroke="#bcdce2" stroke-width="4"/>
+
+  <!-- Timeline / schedule bar -->
+  <g transform="translate(0,800)">
+    <line x1="120" y1="0" x2="1480" y2="0" stroke="#173b5c" stroke-width="4"/>
+    <line x1="120" y1="-10" x2="120" y2="10" stroke="#173b5c" stroke-width="4"/>
+    <line x1="500" y1="-10" x2="500" y2="10" stroke="#173b5c" stroke-width="4"/>
+    <line x1="880" y1="-10" x2="880" y2="10" stroke="#173b5c" stroke-width="4"/>
+    <line x1="1260" y1="-10" x2="1260" y2="10" stroke="#173b5c" stroke-width="4"/>
+    <line x1="1480" y1="-10" x2="1480" y2="10" stroke="#173b5c" stroke-width="4"/>
+
+    <rect x="140" y="-38" width="300" height="20" fill="#2f6f7a" rx="4"/>
+    <rect x="560" y="-38" width="260" height="20" fill="#2f7d63" rx="4"/>
+    <rect x="940" y="-38" width="260" height="20" fill="#c98a3f" rx="4"/>
+
+    <text x="800" y="45" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="26" fill="#173b5c" text-anchor="middle">زمان پهلوگیری</text>
+  </g>
+</svg>

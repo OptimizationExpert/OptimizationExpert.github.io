@@ -1,0 +1,42 @@
+<svg viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="1600" height="900" fill="#ffffff"/>
+
+  <!-- range circle around base -->
+  <circle cx="500" cy="480" r="320" fill="none" stroke="#94a3b8" stroke-width="4" stroke-dasharray="10 8"/>
+  <text x="500" y="140" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="24" fill="#64748b" text-anchor="middle">برد پروازی</text>
+
+  <!-- base station -->
+  <rect x="450" y="430" width="100" height="80" fill="#0e7490" rx="8"/>
+  <polygon points="450,430 500,390 550,430" fill="#0e7490"/>
+  <text x="500" y="545" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="26" fill="#0e7490" text-anchor="middle">پایگاه پهپاد</text>
+
+  <!-- flight path -->
+  <path d="M560 470 Q 850 300 1120 460" fill="none" stroke="#0284c7" stroke-width="5" stroke-dasharray="4 6"/>
+
+  <!-- drone icon along path -->
+  <g transform="translate(860,340)">
+    <line x1="-40" y1="0" x2="40" y2="0" stroke="#0284c7" stroke-width="6"/>
+    <line x1="0" y1="-40" x2="0" y2="40" stroke="#0284c7" stroke-width="6"/>
+    <circle cx="-40" cy="0" r="14" fill="#0284c7"/>
+    <circle cx="40" cy="0" r="14" fill="#0284c7"/>
+    <circle cx="0" cy="-40" r="14" fill="#0284c7"/>
+    <circle cx="0" cy="40" r="14" fill="#0284c7"/>
+    <rect x="-18" y="-10" width="36" height="26" fill="#e11d48" rx="4"/>
+    <line x1="-9" y1="3" x2="9" y2="3" stroke="#ffffff" stroke-width="4"/>
+    <line x1="0" y1="-6" x2="0" y2="12" stroke="#ffffff" stroke-width="4"/>
+  </g>
+  <text x="860" y="270" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="24" fill="#0284c7" text-anchor="middle">محموله پزشکی</text>
+
+  <!-- clinic destination -->
+  <rect x="1080" y="420" width="110" height="90" fill="#334155" rx="6"/>
+  <rect x="1115" y="450" width="40" height="60" fill="#ffffff"/>
+  <line x1="1120" y1="470" x2="1150" y2="470" stroke="#e11d48" stroke-width="6"/>
+  <line x1="1135" y1="455" x2="1135" y2="485" stroke="#e11d48" stroke-width="6"/>
+  <text x="1135" y="545" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="26" fill="#334155" text-anchor="middle">درمانگاه</text>
+
+  <!-- second smaller clinic outside range, dimmed -->
+  <rect x="1000" y="700" width="90" height="70" fill="#cbd5e1" rx="6"/>
+  <text x="1045" y="800" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="22" fill="#94a3b8" text-anchor="middle">خارج از پوشش</text>
+
+  <text x="800" y="850" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="30" fill="#1e293b" text-anchor="middle">مکان‌یابی پایگاه پهپاد برای پوشش حداکثری درمانگاه‌ها</text>
+</svg>

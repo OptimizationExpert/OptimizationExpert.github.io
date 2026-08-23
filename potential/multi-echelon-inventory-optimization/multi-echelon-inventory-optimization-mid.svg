@@ -1,0 +1,64 @@
+<svg viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="1600" height="900" fill="#ffffff"/>
+
+  <!-- Section label -->
+  <text x="800" y="90" text-anchor="middle" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="34" fill="#263238" font-weight="bold">سطوح موجودی در زنجیره تأمین</text>
+
+  <!-- Arrows connecting tiers -->
+  <line x1="410" y1="330" x2="620" y2="330" stroke="#90A4AE" stroke-width="6"/>
+  <polygon points="620,330 590,315 590,345" fill="#90A4AE"/>
+
+  <line x1="980" y1="330" x2="1190" y2="330" stroke="#90A4AE" stroke-width="6"/>
+  <polygon points="1190,330 1160,315 1160,345" fill="#90A4AE"/>
+
+  <!-- Tier 1: Factory -->
+  <g>
+    <rect x="180" y="260" width="220" height="140" fill="#37474F"/>
+    <polygon points="180,260 290,190 400,260" fill="#263238"/>
+    <rect x="220" y="300" width="40" height="60" fill="#ffffff" opacity="0.85"/>
+    <rect x="320" y="300" width="40" height="60" fill="#ffffff" opacity="0.85"/>
+    <text x="290" y="440" text-anchor="middle" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="30" fill="#263238" font-weight="bold">کارخانه</text>
+
+    <!-- Inventory stack: low stock (2 boxes) -->
+    <text x="290" y="500" text-anchor="middle" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="22" fill="#546E7A">موجودی</text>
+    <rect x="255" y="600" width="70" height="45" fill="#78909C" stroke="#37474F" stroke-width="2"/>
+    <rect x="255" y="550" width="70" height="45" fill="#90A4AE" stroke="#37474F" stroke-width="2"/>
+  </g>
+
+  <!-- Tier 2: Distributor -->
+  <g>
+    <rect x="710" y="230" width="260" height="170" fill="#00695C"/>
+    <rect x="750" y="270" width="45" height="60" fill="#ffffff" opacity="0.85"/>
+    <rect x="820" y="270" width="45" height="60" fill="#ffffff" opacity="0.85"/>
+    <rect x="890" y="270" width="45" height="60" fill="#ffffff" opacity="0.85"/>
+    <text x="840" y="440" text-anchor="middle" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="30" fill="#263238" font-weight="bold">توزیع‌کننده</text>
+
+    <!-- Inventory stack: medium stock (4 boxes) -->
+    <text x="840" y="480" text-anchor="middle" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="22" fill="#546E7A">موجودی</text>
+    <rect x="805" y="600" width="70" height="42" fill="#4DB6AC" stroke="#00695C" stroke-width="2"/>
+    <rect x="805" y="555" width="70" height="42" fill="#26A69A" stroke="#00695C" stroke-width="2"/>
+    <rect x="805" y="510" width="70" height="42" fill="#00897B" stroke="#00695C" stroke-width="2"/>
+    <rect x="805" y="465" width="70" height="42" fill="#00695C" stroke="#00695C" stroke-width="2"/>
+  </g>
+
+  <!-- Tier 3: Retailer -->
+  <g>
+    <rect x="1280" y="270" width="220" height="130" fill="#E65100"/>
+    <rect x="1310" y="230" width="160" height="40" fill="#F57C00"/>
+    <rect x="1315" y="310" width="40" height="60" fill="#ffffff" opacity="0.85"/>
+    <rect x="1415" y="310" width="40" height="60" fill="#ffffff" opacity="0.85"/>
+    <text x="1390" y="440" text-anchor="middle" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="30" fill="#263238" font-weight="bold">خرده‌فروش</text>
+
+    <!-- Inventory stack: higher buffer (6 boxes) -->
+    <text x="1390" y="480" text-anchor="middle" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="22" fill="#546E7A">موجودی</text>
+    <rect x="1355" y="650" width="70" height="38" fill="#FFB74D" stroke="#E65100" stroke-width="2"/>
+    <rect x="1355" y="610" width="70" height="38" fill="#FFA726" stroke="#E65100" stroke-width="2"/>
+    <rect x="1355" y="570" width="70" height="38" fill="#FB8C00" stroke="#E65100" stroke-width="2"/>
+    <rect x="1355" y="530" width="70" height="38" fill="#F57C00" stroke="#E65100" stroke-width="2"/>
+    <rect x="1355" y="490" width="70" height="38" fill="#EF6C00" stroke="#E65100" stroke-width="2"/>
+    <rect x="1355" y="450" width="70" height="38" fill="#E65100" stroke="#E65100" stroke-width="2"/>
+  </g>
+
+  <!-- Caption -->
+  <text x="800" y="820" text-anchor="middle" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="22" fill="#607D8B">موجودی ایمنی به‌جای انباشت در هر گره، بین سطوح هماهنگ می‌شود</text>
+</svg>

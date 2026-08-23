@@ -1,0 +1,84 @@
+<svg viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="1600" height="900" fill="#ffffff"/>
+
+  <!-- Route map area -->
+  <g>
+    <!-- dashed route line with stop pins -->
+    <path d="M 180 620 Q 400 480 620 560 T 1040 500 T 1380 420" fill="none" stroke="#0891B2" stroke-width="6" stroke-dasharray="14 10" stroke-linecap="round"/>
+
+    <!-- stop pins -->
+    <g>
+      <circle cx="180" cy="620" r="14" fill="#0E7490"/>
+      <circle cx="620" cy="560" r="12" fill="#0E7490"/>
+      <circle cx="1040" cy="500" r="12" fill="#0E7490"/>
+      <circle cx="1380" cy="420" r="16" fill="#0E7490"/>
+    </g>
+
+    <!-- pin markers (map pin shape) at two clinic stops -->
+    <g transform="translate(620,560)">
+      <path d="M0,-46 C24,-46 40,-28 40,-8 C40,20 0,46 0,46 C0,46 -40,20 -40,-8 C-40,-28 -24,-46 0,-46 Z" fill="#22D3EE" opacity="0.85"/>
+      <circle cx="0" cy="-8" r="12" fill="#ffffff"/>
+    </g>
+    <g transform="translate(1040,500)">
+      <path d="M0,-46 C24,-46 40,-28 40,-8 C40,20 0,46 0,46 C0,46 -40,20 -40,-8 C-40,-28 -24,-46 0,-46 Z" fill="#22D3EE" opacity="0.85"/>
+      <circle cx="0" cy="-8" r="12" fill="#ffffff"/>
+    </g>
+
+    <text x="1040" y="600" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="30" fill="#0E7490" text-anchor="middle">مسیر توزیع</text>
+  </g>
+
+  <!-- Refrigerated truck -->
+  <g transform="translate(210,270)">
+    <!-- cargo box -->
+    <rect x="0" y="0" width="230" height="130" rx="10" fill="#0E7490"/>
+    <rect x="14" y="14" width="202" height="102" rx="6" fill="#E0F7FA"/>
+    <!-- snowflake symbol -->
+    <g transform="translate(115,65)" stroke="#0891B2" stroke-width="6" stroke-linecap="round">
+      <line x1="-36" y1="0" x2="36" y2="0"/>
+      <line x1="0" y1="-36" x2="0" y2="36"/>
+      <line x1="-26" y1="-26" x2="26" y2="26"/>
+      <line x1="-26" y1="26" x2="26" y2="-26"/>
+    </g>
+    <!-- cab -->
+    <path d="M230,40 h60 a18,18 0 0 1 18,18 v50 a18,18 0 0 1 -18,18 h-60 z" fill="#155E75"/>
+    <rect x="248" y="58" width="36" height="30" rx="4" fill="#BAE6FD"/>
+    <!-- wheels -->
+    <circle cx="60" cy="140" r="24" fill="#334155"/>
+    <circle cx="60" cy="140" r="10" fill="#CBD5E1"/>
+    <circle cx="270" cy="140" r="24" fill="#334155"/>
+    <circle cx="270" cy="140" r="10" fill="#CBD5E1"/>
+    <text x="145" y="200" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="30" fill="#0E7490" text-anchor="middle">کامیون یخچالی</text>
+  </g>
+
+  <!-- Vaccine vial / box -->
+  <g transform="translate(760,190)">
+    <rect x="0" y="30" width="120" height="90" rx="8" fill="#38BDF8"/>
+    <rect x="0" y="30" width="120" height="24" rx="8" fill="#0EA5E9"/>
+    <rect x="52" y="0" width="16" height="40" fill="#0EA5E9"/>
+    <!-- vial -->
+    <g transform="translate(150,10)">
+      <rect x="10" y="0" width="20" height="14" fill="#94A3B8"/>
+      <path d="M8,14 h24 v50 a12,12 0 0 1 -12,12 h0 a12,12 0 0 1 -12,-12 z" fill="#ffffff" stroke="#0EA5E9" stroke-width="4"/>
+      <rect x="8" y="34" width="24" height="16" fill="#0EA5E9"/>
+    </g>
+    <text x="80" y="150" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="30" fill="#0369A1" text-anchor="middle">واکسن</text>
+  </g>
+
+  <!-- Thermometer -->
+  <g transform="translate(1280,140)">
+    <rect x="20" y="0" width="20" height="140" rx="10" fill="#F1F5F9" stroke="#F97316" stroke-width="4"/>
+    <circle cx="30" cy="160" r="26" fill="#F97316"/>
+    <rect x="24" y="60" width="12" height="100" fill="#F97316"/>
+    <line x1="48" y1="20" x2="60" y2="20" stroke="#94A3B8" stroke-width="4"/>
+    <line x1="48" y1="50" x2="60" y2="50" stroke="#94A3B8" stroke-width="4"/>
+    <line x1="48" y1="80" x2="60" y2="80" stroke="#94A3B8" stroke-width="4"/>
+    <text x="30" y="215" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="30" fill="#C2410C" text-anchor="middle">دما</text>
+  </g>
+
+  <!-- small warehouse marker at route start -->
+  <g transform="translate(140,700)">
+    <rect x="0" y="20" width="90" height="60" fill="#155E75"/>
+    <polygon points="0,20 45,-15 90,20" fill="#0E7490"/>
+    <text x="45" y="105" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="24" fill="#0E7490" text-anchor="middle">انبار مرکزی</text>
+  </g>
+</svg>

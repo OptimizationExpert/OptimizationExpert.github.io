@@ -1,0 +1,67 @@
+<svg viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="1600" height="900" fill="#ffffff"/>
+
+  <!-- Cross-dock warehouse building -->
+  <rect x="450" y="300" width="700" height="260" fill="#f1f5f9" stroke="#334155" stroke-width="6"/>
+  <text x="800" y="280" text-anchor="middle" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="30" fill="#1e293b">پایانه کراس‌داک</text>
+
+  <!-- Doors on left (inbound) -->
+  <rect x="450" y="340" width="14" height="60" fill="#2563EB"/>
+  <rect x="450" y="430" width="14" height="60" fill="#2563EB"/>
+  <rect x="450" y="500" width="14" height="60" fill="#2563EB"/>
+  <text x="380" y="380" text-anchor="middle" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="22" fill="#2563EB">درب‌های ورودی</text>
+
+  <!-- Doors on right (outbound) -->
+  <rect x="1136" y="340" width="14" height="60" fill="#f59e0b"/>
+  <rect x="1136" y="430" width="14" height="60" fill="#f59e0b"/>
+  <rect x="1136" y="500" width="14" height="60" fill="#f59e0b"/>
+  <text x="1220" y="380" text-anchor="middle" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="22" fill="#f59e0b">درب‌های خروجی</text>
+
+  <!-- Inbound trucks -->
+  <g>
+    <rect x="200" y="355" width="120" height="55" rx="6" fill="#2563EB"/>
+    <circle cx="225" cy="415" r="12" fill="#334155"/>
+    <circle cx="295" cy="415" r="12" fill="#334155"/>
+    <text x="260" y="390" text-anchor="middle" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="18" fill="#ffffff">کامیون</text>
+  </g>
+  <g>
+    <rect x="200" y="445" width="120" height="55" rx="6" fill="#2563EB"/>
+    <circle cx="225" cy="505" r="12" fill="#334155"/>
+    <circle cx="295" cy="505" r="12" fill="#334155"/>
+    <text x="260" y="480" text-anchor="middle" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="18" fill="#ffffff">کامیون</text>
+  </g>
+
+  <!-- Outbound trucks -->
+  <g>
+    <rect x="1280" y="355" width="120" height="55" rx="6" fill="#f59e0b"/>
+    <circle cx="1305" cy="415" r="12" fill="#334155"/>
+    <circle cx="1375" cy="415" r="12" fill="#334155"/>
+    <text x="1340" y="390" text-anchor="middle" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="18" fill="#ffffff">کامیون</text>
+  </g>
+  <g>
+    <rect x="1280" y="445" width="120" height="55" rx="6" fill="#f59e0b"/>
+    <circle cx="1305" cy="505" r="12" fill="#334155"/>
+    <circle cx="1375" cy="505" r="12" fill="#334155"/>
+    <text x="1340" y="480" text-anchor="middle" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="18" fill="#ffffff">کامیون</text>
+  </g>
+
+  <!-- Pallet flow arrows through warehouse -->
+  <line x1="320" y1="382" x2="460" y2="370" stroke="#94a3b8" stroke-width="4" marker-end="url(#arrow)"/>
+  <line x1="320" y1="472" x2="460" y2="520" stroke="#94a3b8" stroke-width="4" marker-end="url(#arrow)"/>
+  <line x1="1140" y1="370" x2="1280" y2="382" stroke="#94a3b8" stroke-width="4" marker-end="url(#arrow)"/>
+  <line x1="1140" y1="520" x2="1280" y2="472" stroke="#94a3b8" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+
+  <!-- Pallets inside dock -->
+  <rect x="700" y="400" width="50" height="50" fill="#10b981"/>
+  <rect x="770" y="400" width="50" height="50" fill="#10b981"/>
+  <rect x="840" y="400" width="50" height="50" fill="#10b981"/>
+  <text x="800" y="480" text-anchor="middle" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="20" fill="#334155">پالت‌ها</text>
+
+  <text x="800" y="640" text-anchor="middle" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="26" fill="#334155">جریان پالت بین کامیون‌های ورودی و خروجی کنار درب‌های محدود</text>
+</svg>

@@ -1,0 +1,54 @@
+<svg viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg" font-family="Vazirmatn, Tahoma, Arial, sans-serif">
+  <rect x="0" y="0" width="1600" height="900" fill="#ffffff"/>
+
+  <defs>
+    <marker id="arrowh" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L8,3 z" fill="#5a5a5a"/>
+    </marker>
+  </defs>
+
+  <!-- ER -->
+  <rect x="90" y="330" width="240" height="240" rx="16" fill="#fff4e6" stroke="#e07b00" stroke-width="3"/>
+  <circle cx="160" cy="410" r="14" fill="#c9761a"/>
+  <circle cx="210" cy="410" r="14" fill="#c9761a"/>
+  <circle cx="160" cy="460" r="14" fill="#c9761a"/>
+  <circle cx="210" cy="460" r="14" fill="#e0a458"/>
+  <text x="210" y="530" text-anchor="middle" font-size="30" font-family="Vazirmatn, Tahoma, Arial, sans-serif" fill="#7a4400">اورژانس</text>
+
+  <!-- arrows to three wards -->
+  <line x1="335" y1="380" x2="620" y2="220" stroke="#5a5a5a" stroke-width="3" marker-end="url(#arrowh)"/>
+  <line x1="335" y1="450" x2="620" y2="450" stroke="#5a5a5a" stroke-width="3" marker-end="url(#arrowh)"/>
+  <line x1="335" y1="520" x2="620" y2="680" stroke="#5a5a5a" stroke-width="3" marker-end="url(#arrowh)"/>
+
+  <!-- ICU -->
+  <rect x="630" y="110" width="360" height="190" rx="16" fill="#e8f0fb" stroke="#2456a6" stroke-width="3"/>
+  <text x="810" y="165" text-anchor="middle" font-size="30" font-weight="bold" font-family="Vazirmatn, Tahoma, Arial, sans-serif" fill="#173c73">ICU</text>
+  <rect x="670" y="190" width="70" height="40" rx="4" fill="#2456a6"/>
+  <rect x="760" y="190" width="70" height="40" rx="4" fill="#2456a6"/>
+  <rect x="850" y="190" width="70" height="40" rx="4" fill="#9fb8dd"/>
+  <text x="810" y="270" text-anchor="middle" font-size="20" font-family="Vazirmatn, Tahoma, Arial, sans-serif" fill="#173c73">تخت‌های ویژه</text>
+
+  <!-- General ward -->
+  <rect x="630" y="355" width="360" height="190" rx="16" fill="#e9f7ee" stroke="#1f8a4c" stroke-width="3"/>
+  <text x="810" y="410" text-anchor="middle" font-size="28" font-weight="bold" font-family="Vazirmatn, Tahoma, Arial, sans-serif" fill="#155c33">بخش عمومی</text>
+  <rect x="670" y="435" width="70" height="40" rx="4" fill="#1f8a4c"/>
+  <rect x="760" y="435" width="70" height="40" rx="4" fill="#a9dcbc"/>
+  <rect x="850" y="435" width="70" height="40" rx="4" fill="#a9dcbc"/>
+  <text x="810" y="515" text-anchor="middle" font-size="20" font-family="Vazirmatn, Tahoma, Arial, sans-serif" fill="#155c33">تخت‌های عادی</text>
+
+  <!-- Overflow -->
+  <rect x="630" y="600" width="360" height="170" rx="16" fill="#fdeaea" stroke="#c0392b" stroke-width="3" stroke-dasharray="8,5"/>
+  <text x="810" y="655" text-anchor="middle" font-size="26" font-weight="bold" font-family="Vazirmatn, Tahoma, Arial, sans-serif" fill="#8f271b">بخش سرریز</text>
+  <rect x="690" y="685" width="70" height="40" rx="4" fill="#c0392b"/>
+  <rect x="780" y="685" width="70" height="40" rx="4" fill="#f0b3ac"/>
+  <text x="810" y="750" text-anchor="middle" font-size="20" font-family="Vazirmatn, Tahoma, Arial, sans-serif" fill="#8f271b">ظرفیت اضطراری</text>
+
+  <!-- decision box -->
+  <rect x="1080" y="330" width="420" height="240" rx="16" fill="#f5f5f7" stroke="#555555" stroke-width="3"/>
+  <text x="1290" y="390" text-anchor="middle" font-size="26" font-weight="bold" font-family="Vazirmatn, Tahoma, Arial, sans-serif" fill="#333333">تصمیم تخصیص تخت</text>
+  <text x="1290" y="440" text-anchor="middle" font-size="20" font-family="Vazirmatn, Tahoma, Arial, sans-serif" fill="#555555">کدام بیمار؟</text>
+  <text x="1290" y="480" text-anchor="middle" font-size="20" font-family="Vazirmatn, Tahoma, Arial, sans-serif" fill="#555555">کدام بخش؟</text>
+  <text x="1290" y="520" text-anchor="middle" font-size="20" font-family="Vazirmatn, Tahoma, Arial, sans-serif" fill="#555555">چه زمانی؟</text>
+
+  <line x1="990" y1="450" x2="1075" y2="450" stroke="#5a5a5a" stroke-width="3" marker-end="url(#arrowh)"/>
+</svg>

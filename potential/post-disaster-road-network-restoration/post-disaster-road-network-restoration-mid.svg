@@ -1,0 +1,58 @@
+<svg viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="900" fill="#ffffff"/>
+
+  <!-- roads -->
+  <path d="M 120 700 L 500 700" stroke="#94a3b8" stroke-width="14" fill="none"/>
+  <path d="M 620 700 L 980 700" stroke="#94a3b8" stroke-width="14" fill="none" stroke-dasharray="2 18"/>
+  <path d="M 980 700 L 1350 700" stroke="#94a3b8" stroke-width="14" fill="none"/>
+  <path d="M 700 700 L 700 420 L 1100 420 L 1100 260" stroke="#2563eb" stroke-width="6" fill="none" stroke-dasharray="10 10"/>
+
+  <!-- broken bridge -->
+  <g>
+    <path d="M 500 700 L 560 660" stroke="#94a3b8" stroke-width="14" fill="none"/>
+    <path d="M 560 660 L 585 745" stroke="#94a3b8" stroke-width="14" fill="none"/>
+    <path d="M 585 745 L 620 700" stroke="#94a3b8" stroke-width="14" fill="none"/>
+    <circle cx="600" cy="705" r="26" fill="#fee2e2" stroke="#dc2626" stroke-width="4"/>
+    <text x="600" y="713" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="26" fill="#dc2626" text-anchor="middle">✕</text>
+    <text x="560" y="785" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="26" fill="#334155" text-anchor="middle">پل آسیب‌دیده</text>
+  </g>
+
+  <!-- repair crew -->
+  <g>
+    <rect x="240" y="600" width="90" height="55" rx="8" fill="#f59e0b"/>
+    <rect x="320" y="615" width="40" height="40" rx="6" fill="#fbbf24"/>
+    <circle cx="265" cy="662" r="14" fill="#334155"/>
+    <circle cx="315" cy="662" r="14" fill="#334155"/>
+    <text x="285" y="590" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="26" fill="#334155" text-anchor="middle">تیم تعمیر</text>
+  </g>
+
+  <!-- hospital node -->
+  <g>
+    <rect x="1040" y="180" width="120" height="90" rx="10" fill="#e0f2fe" stroke="#0284c7" stroke-width="4"/>
+    <rect x="1088" y="205" width="24" height="60" fill="#0284c7"/>
+    <rect x="1070" y="223" width="60" height="24" fill="#0284c7"/>
+    <text x="1100" y="300" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="26" fill="#334155" text-anchor="middle">بیمارستان</text>
+  </g>
+
+  <!-- relief camp node -->
+  <g>
+    <path d="M 60 660 L 120 610 L 180 660 Z" fill="#fde68a" stroke="#b45309" stroke-width="4"/>
+    <path d="M 105 655 L 105 615 L 135 615 L 135 655" fill="none" stroke="#b45309" stroke-width="4"/>
+    <text x="120" y="700" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="24" fill="#334155" text-anchor="middle">اردوگاه امدادی</text>
+  </g>
+
+  <!-- warehouse / origin node -->
+  <g>
+    <rect x="1300" y="640" width="130" height="90" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="4"/>
+    <text x="1365" y="695" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="24" fill="#166534" text-anchor="middle">انبار امداد</text>
+  </g>
+
+  <!-- intact junction -->
+  <circle cx="700" cy="700" r="10" fill="#334155"/>
+  <circle cx="980" cy="700" r="10" fill="#334155"/>
+  <circle cx="1100" cy="420" r="10" fill="#2563eb"/>
+
+  <text x="800" y="360" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="28" fill="#2563eb" text-anchor="middle">مسیر بازیابی اولویت‌دار</text>
+
+  <text x="800" y="820" font-family="Vazirmatn, Tahoma, Arial, sans-serif" font-size="24" fill="#64748b" text-anchor="middle">ترتیب تعمیر بر اساس اهمیت اتصال به نقاط حیاتی</text>
+</svg>
