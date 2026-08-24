@@ -84,7 +84,7 @@ if (fs.existsSync(testimonialsDir)) {
   <!-- لایت‌باکس -->
   <div
     id="testimonial-lightbox"
-    class="hidden fixed inset-0 z-[100] bg-black/85 backdrop-blur-sm flex items-center justify-center p-4 sm:p-8"
+    class="hidden fixed inset-0 z-[100] bg-black/85 backdrop-blur-sm flex items-center justify-center p-4 sm:p-8 select-none touch-pan-y"
     role="dialog"
     aria-modal="true"
     aria-label="نمایش بزرگ نظر مشتری"
@@ -101,18 +101,18 @@ if (fs.existsSync(testimonialsDir)) {
     <button
       type="button"
       id="lightbox-prev"
-      class="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 w-11 h-11 flex items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors focus:outline-none"
+      class="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 w-11 h-11 flex items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors focus:outline-none z-10"
       aria-label="نظر قبلی"
     >
       <i class="fa-solid fa-chevron-right text-base" aria-hidden="true"></i>
     </button>
 
-    <img id="lightbox-img" src="" alt="" class="max-w-full max-h-[85vh] rounded-2xl object-contain shadow-2xl" />
+    <img id="lightbox-img" src="" alt="" class="max-w-full max-h-[85vh] rounded-2xl object-contain shadow-2xl pointer-events-none" />
 
     <button
       type="button"
       id="lightbox-next"
-      class="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 w-11 h-11 flex items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors focus:outline-none"
+      class="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 w-11 h-11 flex items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors focus:outline-none z-10"
       aria-label="نظر بعدی"
     >
       <i class="fa-solid fa-chevron-left text-base" aria-hidden="true"></i>
@@ -170,6 +170,39 @@ function initTestimonialLightbox() {
     if (e.key === 'ArrowLeft') show(currentIndex + 1);
     if (e.key === 'ArrowRight') show(currentIndex - 1);
   });
+
+  // --- پشتیبانی از حرکت انگشت (Touch Swipe) ---
+  let touchStartX = 0;
+  let touchStartY = 0;
+  let touchEndX = 0;
+  let touchEndY = 0;
+
+  lightbox.addEventListener('touchstart', (e) => {
+    if (e.touches.length > 1) return; // نادیده گرفتن چندلمسی (برای زوم)
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+  }, { passive: true });
+
+  lightbox.addEventListener('touchend', (e) => {
+    if (e.changedTouches.length === 0) return;
+    touchEndX = e.changedTouches[0].clientX;
+    touchEndY = e.changedTouches[0].clientY;
+
+    const deltaX = touchEndX - touchStartX;
+    const deltaY = touchEndY - touchStartY;
+    const minSwipeDistance = 40; // حداقل جابه‌جایی افقی (به پیکسل)
+
+    // مطمئن می‌شویم حرکت افقی بیشتر از عمودی بوده تا با اسکرول تداخل نداشته باشد
+    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > minSwipeDistance) {
+      if (deltaX < 0) {
+        // کشیدن انگشت به سمت چپ -> تصویر بعدی
+        show(currentIndex + 1);
+      } else {
+        // کشیدن انگشت به سمت راست -> تصویر قبلی
+        show(currentIndex - 1);
+      }
+    }
+  }, { passive: true });
 }
 
 if (document.readyState === 'loading') {
