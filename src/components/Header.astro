@@ -95,22 +95,26 @@ const mobileNavItems = [
           <span>مشاوره تخصصی</span>
         </a>
 
-        <button id="menu-btn" class="lg:hidden w-10 h-10 flex items-center justify-center text-[var(--site-text)] hover:text-[var(--site-primary)] bg-[var(--site-bg)]/60 border border-[var(--site-border)] rounded-xl focus:outline-none transition-all shadow-2xs" aria-label="منوی ناوبری موبایل" aria-expanded="false" aria-controls="mobile-menu-panel">
+        <!-- تغییر کلاس lg:hidden به md:hidden -->
+        <button id="menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center text-[var(--site-text)] hover:text-[var(--site-primary)] bg-[var(--site-bg)]/60 border border-[var(--site-border)] rounded-xl focus:outline-none transition-all shadow-2xs" aria-label="منوی ناوبری موبایل" aria-expanded="false" aria-controls="mobile-menu-panel">
           <i class="fa-solid fa-bars text-xs transition-transform duration-200" id="menu-icon" aria-hidden="true"></i>
         </button>
       </div>
 
     </div>
 
-    <div class="hidden lg:block py-2.5 border-t border-[var(--site-border)]/40">
-      <nav class="flex items-center justify-center gap-1.5 xl:gap-2.5 text-xs font-bold" aria-label="منوی اصلی">
+    <!-- تغییر کلاس lg:block به md:block -->
+    <div class="hidden md:block py-2.5 border-t border-[var(--site-border)]/40">
+      <!-- کاهش فاصله (gap) در حالت تبلت و افزایش مجدد در حالت دسکتاپ -->
+      <nav class="flex items-center justify-center gap-1 lg:gap-1.5 xl:gap-2.5 text-xs font-bold" aria-label="منوی اصلی">
         {navItems.map((item) => {
           const active = isActive(item.href);
           return (
             <a
               href={item.href}
               aria-current={active ? 'page' : undefined}
-              class={`relative group px-3.5 py-2 transition-colors duration-200 whitespace-nowrap flex items-center gap-2 rounded-xl ${
+              // تنظیم padding کمتر برای تبلت تا آیتم‌ها جا شوند
+              class={`relative group px-2 lg:px-3.5 py-2 transition-colors duration-200 whitespace-nowrap flex items-center gap-1.5 lg:gap-2 rounded-xl ${
                 active
                   ? 'text-[var(--site-primary)] bg-[var(--site-primary)]/10 font-extrabold'
                   : 'text-[var(--site-text)] hover:text-[var(--site-primary)] hover:bg-[var(--site-primary)]/5'
@@ -130,7 +134,8 @@ const mobileNavItems = [
     </div>
 
     <!-- منوی موبایل و تبلت -->
-    <div id="mobile-menu-panel" class="lg:hidden hidden absolute inset-x-0 top-full z-[60] max-h-[calc(100vh-4rem)] overflow-y-auto border-t border-[var(--site-border)]/60 bg-[var(--site-card)] shadow-2xl py-4 px-4 sm:px-6">
+    <!-- تغییر کلاس lg:hidden به md:hidden -->
+    <div id="mobile-menu-panel" class="md:hidden hidden absolute inset-x-0 top-full z-[60] max-h-[calc(100vh-4rem)] overflow-y-auto border-t border-[var(--site-border)]/60 bg-[var(--site-card)] shadow-2xl py-4 px-4 sm:px-6">
       <form id="mobile-search-form" action="/search/" method="GET" class="relative w-full mb-4" role="search">
         <button type="submit" aria-label="جستجو" class="absolute inset-y-0 right-0 flex items-center pr-3.5 text-[var(--site-muted)] hover:text-[var(--site-primary)] transition-colors cursor-pointer bg-transparent border-none">
           <i class="fa-solid fa-magnifying-glass text-xs" aria-hidden="true"></i>
