@@ -3,7 +3,7 @@ title: "تخصیص اسکله بندر: کدام کشتی، کجا و کِی پ�
 description: "مسئله تخصیص اسکله (Berth Allocation Problem) و مدل‌سازی ریاضی آن برای کاهش زمان انتظار کشتی‌ها در بنادر با ابزارهای متن‌باز پایتون."
 pubDate: 2026-08-23
 author: "dr-soroudi"
-minimalImage: "./berth-allocation-problem-mini.svg"
+minimalImage: "./berth-allocation-problem-mini.webp"
 minimalImageAlt: "نمایش مینیمال چند کشتی پهلوگرفته کنار اسکله بندر"
 image: "./berth-allocation-problem.webp"
 imageAlt: "تصویرسازی بندر با اسکله، جرثقیل و چند کشتی پهلوگرفته و در انتظار پهلوگیری"
