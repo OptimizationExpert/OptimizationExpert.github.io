@@ -10,32 +10,4 @@ const { id } = Astro.props;
 <!-- کلاس scroll-smooth حذف شد تا دستی و کاملاً نرم انیمیشن را کنترل کنیم -->
 <div
   id={id}
-  class="horizontal-scroller flex overflow-x-auto gap-4 sm:gap-6 pt-4 pb-8 snap-x snap-mandatory custom-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0"
->
-  <slot />
-</div>
-
-<script is:inline>
-function initHorizontalScrollers(){
- document.querySelectorAll('.horizontal-scroller').forEach(scroller=>{
-  if(scroller.dataset.scrollerReady==='true')return;scroller.dataset.scrollerReady='true';
-  const prev=document.querySelector(`.scroll-arrow-btn[data-scroll-target="${scroller.id}"][data-scroll-dir="prev"]`);
-  const next=document.querySelector(`.scroll-arrow-btn[data-scroll-target="${scroller.id}"][data-scroll-dir="next"]`);
-  const update=()=>{const max=Math.max(0,scroller.scrollWidth-scroller.clientWidth),cur=Math.abs(Math.round(scroller.scrollLeft)),overflow=max>5;
-   [prev,next].forEach((b,i)=>{if(!b)return;b.classList.toggle('lg:!hidden',!overflow);const edge=i===0?cur<=5:cur>=max-5;b.disabled=edge;b.classList.toggle('opacity-40',edge);b.classList.toggle('pointer-events-none',edge);});
-  };
-  const animate=(distance,duration=500)=>{if(scroller.dataset.animating==='true')return;scroller.dataset.animating='true';scroller.style.scrollSnapType='none';const start=scroller.scrollLeft,t0=performance.now();const step=now=>{const t=Math.min((now-t0)/duration,1),e=1-Math.pow(1-t,4);scroller.scrollLeft=start+distance*e;if(t<1)requestAnimationFrame(step);else{scroller.style.scrollSnapType='';scroller.dataset.animating='false';update();}};requestAnimationFrame(step);};
-  const go=dir=>{const card=scroller.firstElementChild;if(!card)return;const d=(card.getBoundingClientRect().width+(parseFloat(getComputedStyle(scroller).gap)||0))*2;const rtl=getComputedStyle(scroller).direction==='rtl';animate(rtl?(dir==='next'?-d:d):(dir==='next'?d:-d));};
-  prev?.addEventListener('click',()=>go('prev'));next?.addEventListener('click',()=>go('next'));
-  let dragging=false,moved=false,startX=0,startScroll=0,suppress=0;
-  scroller.addEventListener('pointerdown',e=>{if(e.pointerType!=='mouse'||e.button!==0)return;dragging=true;moved=false;startX=e.clientX;startScroll=scroller.scrollLeft;scroller.classList.add('is-pointer-dragging');scroller.setPointerCapture?.(e.pointerId);});
-  scroller.addEventListener('pointermove',e=>{if(!dragging)return;const dx=e.clientX-startX;if(Math.abs(dx)>10){moved=true;e.preventDefault();}if(moved)scroller.scrollLeft=startScroll-dx;});
-  const end=e=>{if(!dragging)return;dragging=false;scroller.classList.remove('is-pointer-dragging');if(moved)suppress=performance.now()+120;try{scroller.releasePointerCapture?.(e.pointerId);}catch{}update();};
-  scroller.addEventListener('pointerup',end);scroller.addEventListener('pointercancel',end);
-  scroller.addEventListener('click',e=>{if(performance.now()<suppress){e.preventDefault();e.stopPropagation();}},true);
-  scroller.addEventListener('scroll',()=>requestAnimationFrame(update),{passive:true});window.addEventListener('resize',()=>requestAnimationFrame(update),{passive:true});update();
- });
-}
-if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',initHorizontalScrollers,{once:true});else initHorizontalScrollers();
-document.addEventListener('astro:page-load',initHorizontalScrollers);
-</script>
+  class="horizontal-scroller flex overflow-x-auto gap-4 sm:gap-6 pt-4 pb-8 snap-x snap-mandatory custom-scrollbar
