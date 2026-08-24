@@ -3,7 +3,7 @@ title: "آشپزخونه بزنیم؟ زمان‌بندی تحویل با CP-SAT
 description: "آشنایی با مسئله زمان‌بندی تولید کارگاهی (Job Shop Scheduling) و حل آن با ابزار متن‌باز OR-Tools در پایتون."
 pubDate: 2026-08-14
 author: "dr-soroudi"
-minimalImage: "./job-shop-scheduling-cp-sat-mini.svg"
+minimalImage: "./job-shop-scheduling-cp-sat-mini.webp"
 minimalImageAlt: "نمودار گانت زمان‌بندی تولید در چند ماشین"
 image: "./job-shop-scheduling-cp-sat-mini.svg"
 imageAlt: "شبیه‌سازی خط تولید کارگاهی با چند ماشین و چند سفارش"
