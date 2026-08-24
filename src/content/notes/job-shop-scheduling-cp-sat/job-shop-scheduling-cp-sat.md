@@ -5,7 +5,7 @@ pubDate: 2026-08-14
 author: "dr-soroudi"
 minimalImage: "./job-shop-scheduling-cp-sat-mini.webp"
 minimalImageAlt: "نمودار گانت زمان‌بندی تولید در چند ماشین"
-image: "./job-shop-scheduling-cp-sat-mini.svg"
+image: "./job-shop-scheduling-cp-sat.webp"
 imageAlt: "شبیه‌سازی خط تولید کارگاهی با چند ماشین و چند سفارش"
 tags: ["زنجیره تأمین", "زمان‌بندی تولید", "برنامه‌ریزی محدودیت", "OR-Tools", "بهینه‌سازی"]
 relatedCourses: ["vrp-python","optimization-modeling"]
