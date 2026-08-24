@@ -1,0 +1,19 @@
+<svg viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg">
+  <rect width="320" height="180" fill="#ffffff"/>
+
+  <!-- Central smart-grid node (kept small, with generous white margin around it) -->
+  <circle cx="160" cy="90" r="16" fill="#dbeafe" stroke="#2563eb" stroke-width="2.5"/>
+  <path d="M163,79 L154,93 L160,93 L157,102 L168,88 L161,88 Z" fill="#2563eb"/>
+
+  <!-- Satellite nodes: generation, storage, consumer, DER -->
+  <circle cx="100" cy="60" r="10" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+  <circle cx="220" cy="60" r="10" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+  <circle cx="100" cy="120" r="10" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+  <circle cx="220" cy="120" r="10" fill="#e0e7ff" stroke="#4f46e5" stroke-width="2"/>
+
+  <!-- Two-way connecting lines -->
+  <line x1="108" y1="66" x2="148" y2="83" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="3,3"/>
+  <line x1="212" y1="66" x2="172" y2="83" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="3,3"/>
+  <line x1="108" y1="114" x2="148" y2="97" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="3,3"/>
+  <line x1="212" y1="114" x2="172" y2="97" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="3,3"/>
+</svg>
