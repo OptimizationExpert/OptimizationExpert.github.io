@@ -3,7 +3,7 @@ title: "حل پازل Patches لینکدین با پایتون"
 description: "چگونه پازل محبوب Patches در لینکدین (نسخه‌ای از Shikaku ژاپنی) را با Constraint Programming و OR-Tools به‌صورت خودکار حل کنیم."
 pubDate: 2026-08-17
 author: "dr-soroudi"
-minimalImage: "./linkedin-patches-cp-mini.svg"
+minimalImage: "./linkedin-patches-cp-mini.webp"
 minimalImageAlt: "نمایش مینیمال چند مستطیل رنگی روی یک شبکه پازل"
 image: "./linkedin-patches-cp.svg"
 imageAlt: "شبکه پازل Patches با چند مستطیل رنگی، اعداد راهنما و یک خانه پرشده به‌شکل مربع"
