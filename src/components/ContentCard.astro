@@ -27,9 +27,9 @@ const {
   <div>
     <div class="w-full aspect-video rounded-xl bg-[var(--site-bg)] mb-3 overflow-hidden border border-[var(--site-border)] relative">
       {typeof image === 'string' ? (
-        <img src={image} alt={imageAlt} loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" />
+        <img src={image} alt={imageAlt} loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out pointer-events-none" />
       ) : (
-        <Image src={image} alt={imageAlt} class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" />
+        <Image src={image} alt={imageAlt} class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out pointer-events-none" />
       )}
     </div>
     {badge && (
