@@ -9,11 +9,11 @@ image: "./modeling.webp"
 imageAlt: "کاور دوره آموزشی مدل‌سازی در مسائل بهینه‌سازی"
 
 # === متغیرهای اختصاصی دوره (برای نمایش در کارت‌ها و Schema) ===
-duration: "۸ ساعت"
+duration: "4 ساعت"
 level: "مقدماتی تا پیشرفته"
 environment: "هر ابزار بهینه‌سازی"
 prerequisite: "ندارد"
-sessions: "۱۰ جلسه"
+sessions: "5 جلسه"
 instructor: "dr-soroudi"
 
 # === ارتباطات و ساختار سایت ===

@@ -13,7 +13,7 @@ duration: "۴ ساعت"
 level: "مقدماتی تا پیشرفته"
 environment: "No Coding"
 prerequisite: "ندارد"
-sessions: "۱۰ جلسه"
+sessions: "3 جلسه"
 instructor: "dr-soroudi"
 
 # === ارتباطات و ساختار سایت ===
