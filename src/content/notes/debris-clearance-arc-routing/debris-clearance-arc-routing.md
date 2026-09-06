@@ -3,7 +3,7 @@ title: "پاکسازی آوار پس از بلایا: مسیریابی کمان�
 description: "چرا پاکسازی جاده‌های پر از آوار بعد از زلزله یا سیل، یک مسئله مسیریابی کمانی است نه مسیریابی معمول بین نقاط، و چطور با بهینه‌سازی می‌توان آن را حل کرد."
 pubDate: 2026-09-06
 author: "dr-soroudi"
-minimalImage: "./debris-clearance-arc-routing_mini.svg"
+minimalImage: "./debris-clearance-arc-routing_mini.webp"
 minimalImageAlt: "نقشه مینیمال شبکه جاده‌ای با خطوط آوارگرفته و کامیون پاکسازی"
 image: "./debris-clearance-arc-routing.svg"
 imageAlt: "کامیون پاکسازی آوار در حال حرکت روی خیابان‌های آسیب‌دیده بعد از زلزله با علامت جاده‌های مسدود"
