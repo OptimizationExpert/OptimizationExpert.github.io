@@ -8,7 +8,7 @@ minimalImageAlt: "تصویر مینیمال آیکون بهینه‌سازی س�
 image: "./health-opt-cover.webp"
 imageAlt: "کاور دوره آموزشی بهینه‌سازی سیستم‌های سلامت با پایتون"
 # === متغیرهای اختصاصی دوره ===
-duration: "۱۲ ساعت"
+duration: "۲۰ ساعت"
 level: "مقدماتی تا پیشرفته"
 environment: "Python (OR-Tools)"
 prerequisite: "آشنایی پایه با زبان برنامه‌نویسی پایتون"
