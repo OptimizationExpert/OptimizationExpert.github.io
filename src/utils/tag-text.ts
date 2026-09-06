@@ -1,4 +1,4 @@
-import { tagAliases } from '../data/tag-aliases';
+import {tagAliases} from '../data/tag-aliases';
 
 /**
  * Normalizes a tag string for comparison purposes only (never shown to users):
@@ -7,16 +7,16 @@ import { tagAliases } from '../data/tag-aliases';
  * string are treated as the same tag.
  */
 export function normalizeTag(value: string): string {
-  return String(value ?? '')
-    .normalize('NFKC')
-    .trim()
-    .toLocaleLowerCase('fa-IR')
-    .replace(/[\u200c\u200d]+/g, '')
-    .replace(/\s+/g, ' ');
+    return String(value ?? '')
+        .normalize('NFKC')
+        .trim()
+        .toLocaleLowerCase('fa-IR')
+        .replace(/[\u200c\u200d]+/g, '')
+        .replace(/\s+/g, ' ');
 }
 
 const aliasMap = new Map<string, string>(
-  Object.entries(tagAliases).map(([variant, canonical]) => [normalizeTag(variant), canonical]),
+    Object.entries(tagAliases).map(([variant, canonical]) => [normalizeTag(variant), canonical]),
 );
 
 /**
@@ -27,9 +27,9 @@ const aliasMap = new Map<string, string>(
  *   out of the box, no registration required.
  */
 export function resolveCanonicalTag(value: string): string {
-  const trimmed = String(value ?? '').trim();
-  if (!trimmed) return trimmed;
-  return aliasMap.get(normalizeTag(trimmed)) ?? trimmed;
+    const trimmed = String(value ?? '').trim();
+    if (!trimmed) return trimmed;
+    return aliasMap.get(normalizeTag(trimmed)) ?? trimmed;
 }
 
 /**
@@ -39,13 +39,13 @@ export function resolveCanonicalTag(value: string): string {
  * isn't a letter or digit becomes a hyphen.
  */
 export function slugifyTag(value: string): string {
-  const slug = String(value ?? '')
-    .normalize('NFKC')
-    .trim()
-    .replace(/[\u200c\u200d]+/g, '')
-    .toLocaleLowerCase('fa-IR')
-    .replace(/[^\p{L}\p{N}]+/gu, '-')
-    .replace(/-+/g, '-')
-    .replace(/^-|-$/g, '');
-  return slug || 'tag';
+    const slug = String(value ?? '')
+        .normalize('NFKC')
+        .trim()
+        .replace(/[\u200c\u200d]+/g, '')
+        .toLocaleLowerCase('fa-IR')
+        .replace(/[^\p{L}\p{N}]+/gu, '-')
+        .replace(/-+/g, '-')
+        .replace(/^-|-$/g, '');
+    return slug || 'tag';
 }

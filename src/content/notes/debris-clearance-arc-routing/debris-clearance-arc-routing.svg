@@ -1,0 +1,71 @@
+<svg viewBox="0 0 1000 560" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="1000" height="560" fill="#ffffff"/>
+
+  <!-- ground line -->
+  <line x1="0" y1="460" x2="1000" y2="460" stroke="#cbd5e1" stroke-width="2"/>
+
+  <!-- damaged building left -->
+  <rect x="40" y="260" width="170" height="200" fill="#e2e8f0" stroke="#94a3b8" stroke-width="3"/>
+  <polygon points="40,260 125,175 210,260" fill="#cbd5e1" stroke="#94a3b8" stroke-width="3"/>
+  <rect x="70" y="300" width="30" height="40" fill="#ffffff" stroke="#94a3b8" stroke-width="2"/>
+  <rect x="155" y="300" width="30" height="40" fill="#ffffff" stroke="#94a3b8" stroke-width="2"/>
+  <polyline points="125,175 135,225 110,265 130,305" fill="none" stroke="#ef4444" stroke-width="3"/>
+
+  <!-- label: blocked street (clear gap above roof apex at y=175) -->
+  <text x="125" y="125" font-family="Vazirmatn" font-size="20" fill="#1e293b" text-anchor="middle">خیابان مسدود با آوار</text>
+
+  <!-- collapsed rubble from building -->
+  <polygon points="230,460 290,380 340,460" fill="#94a3b8" stroke="#64748b" stroke-width="2"/>
+  <polygon points="270,460 320,400 380,460" fill="#b0bcc9" stroke="#64748b" stroke-width="2"/>
+  <polygon points="310,460 350,410 410,460" fill="#94a3b8" stroke="#64748b" stroke-width="2"/>
+
+  <!-- scattered rubble on street -->
+  <rect x="430" y="440" width="24" height="20" fill="#94a3b8" stroke="#64748b" stroke-width="1.5" transform="rotate(12 442 450)"/>
+  <rect x="470" y="445" width="20" height="18" fill="#b0bcc9" stroke="#64748b" stroke-width="1.5" transform="rotate(-8 480 454)"/>
+  <rect x="500" y="438" width="26" height="22" fill="#94a3b8" stroke="#64748b" stroke-width="1.5" transform="rotate(20 513 449)"/>
+
+  <!-- road closed sign -->
+  <line x1="560" y1="370" x2="560" y2="460" stroke="#475569" stroke-width="5"/>
+  <rect x="530" y="328" width="60" height="42" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="3"/>
+  <text x="560" y="355" font-family="Vazirmatn" font-size="14" fill="#dc2626" text-anchor="middle">مسدود</text>
+
+  <!-- debris clearing truck -->
+  <g>
+    <rect x="650" y="360" width="130" height="55" rx="6" fill="#fbbf24" stroke="#b45309" stroke-width="3"/>
+    <rect x="665" y="330" width="60" height="35" rx="4" fill="#fcd34d" stroke="#b45309" stroke-width="3"/>
+    <rect x="672" y="338" width="22" height="18" fill="#ffffff" stroke="#b45309" stroke-width="2"/>
+    <circle cx="675" cy="418" r="16" fill="#334155" stroke="#1e293b" stroke-width="2"/>
+    <circle cx="755" cy="418" r="16" fill="#334155" stroke="#1e293b" stroke-width="2"/>
+    <polyline points="725,355 780,320 820,345" fill="none" stroke="#b45309" stroke-width="8" stroke-linecap="round"/>
+    <polygon points="815,335 850,340 845,360 810,358" fill="#fcd34d" stroke="#b45309" stroke-width="3"/>
+  </g>
+
+  <!-- label: truck (clear gap above the arm's highest point at y=320) -->
+  <text x="715" y="270" font-family="Vazirmatn" font-size="18" fill="#92400e" text-anchor="middle">کامیون پاکسازی</text>
+
+  <!-- clear street with hospital on right -->
+  <rect x="900" y="380" width="70" height="40" fill="#dcfce7" stroke="#16a34a" stroke-width="3"/>
+  <rect x="920" y="365" width="14" height="18" fill="#ffffff" stroke="#16a34a" stroke-width="2"/>
+  <line x1="926" y1="358" x2="926" y2="373" stroke="#dc2626" stroke-width="3"/>
+  <line x1="918" y1="365" x2="934" y2="365" stroke="#dc2626" stroke-width="3"/>
+
+  <!-- label: hospital (clear gap above cross at y=358) -->
+  <text x="935" y="335" font-family="Vazirmatn" font-size="16" fill="#166534" text-anchor="middle">بیمارستان</text>
+
+  <!-- dashed road centerline -->
+  <line x1="0" y1="485" x2="1000" y2="485" stroke="#94a3b8" stroke-width="3" stroke-dasharray="14,10"/>
+
+  <!-- route arrow from truck toward hospital -->
+  <path d="M 850 300 C 875 270, 895 270, 915 300" fill="none" stroke="#2563eb" stroke-width="3" stroke-dasharray="6,6" marker-end="url(#arrow)"/>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#2563eb"/>
+    </marker>
+  </defs>
+
+  <!-- label: route (clear gap above curve peak at y=270) -->
+  <text x="900" y="222" font-family="Vazirmatn" font-size="16" fill="#1d4ed8" text-anchor="middle">مسیر پس از پاکسازی</text>
+
+  <!-- caption below the road, clear of the dashed centerline at y=485 -->
+  <text x="230" y="520" font-family="Vazirmatn" font-size="16" fill="#475569" text-anchor="middle">مشتری = خود خیابان، نه یک نقطه</text>
+</svg>
