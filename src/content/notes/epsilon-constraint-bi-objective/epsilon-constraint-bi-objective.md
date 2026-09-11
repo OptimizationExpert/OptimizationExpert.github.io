@@ -8,7 +8,7 @@ minimalImageAlt: "نمودار مینیمال مرز پارتو با چند نق
 image: "./epsilon-constraint-mid.webp"
 imageAlt: "نمودار پراکندگی مرز پارتو حاصل از تکنیک اپسیلون محدود برای دو تابع هدف متعارض"
 tags: ["بهینه‌سازی", "بهینه‌سازی چندهدفه", "مرز پارتو", "GAMS", "برنامه‌ریزی غیرخطی"]
-relatedCourses: ["optimization-modeling"]
+relatedCourses: ["optimization-modeling","advanced-power-system"]
 relatedNotes: ["mathematical-modeling-art", "pyomo-solvers"]
 ---
 
