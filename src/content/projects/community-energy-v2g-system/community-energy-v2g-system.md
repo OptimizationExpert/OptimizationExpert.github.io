@@ -11,9 +11,9 @@ minimalImage: "./community-energy-mini.webp"
 minimalImageAlt: "آیکون مینیمال شهرک، پنل خورشیدی و خودروی برقی"
 image: "./community-aerial-view.webp"
 imageAlt: "نمای نزدیک سه خانه — بدون پنل، با پنل خورشیدی، و با پنل خورشیدی به‌همراه خودروی برقی"
-relatedCourses: ["optimization-modeling", "power-systems-optimization", "uncertainty-modeling"]
+relatedCourses: ["optimization-modeling", "advanced-power-system", "uncertainty-modeling"]
 relatedNotes: ["mathematical-modeling-art", "google-colab", "pyomo-solvers"]
-tags: ["پایتون", "بهینه‌سازی", "Pyomo", "سیستم قدرت", "خودروی برقی", "V2G"]
+tags: ["پایتون", "بهینه‌سازی", "Pyomo", "سیستم انرژی", "خودروی برقی", "V2G","مدیریت انرژی"]
 ---
 
 ## 📋 معرفی پروژه
