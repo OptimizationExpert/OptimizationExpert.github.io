@@ -18,7 +18,7 @@ instructor: "dr-soroudi"
 author: "dr-soroudi"
 # === ارتباطات و ساختار سایت ===
 relatedCourses: ["optimization-modeling", "uncertainty-modeling"]
-relatedNotes: ["mathematical-modeling-art", "google-colab", "pyomo-solvers"]
+relatedNotes: ["mathematical-modeling-art", "google-colab", "pyomo-solvers", "smart-grid-optimization"]
 tags: ["بهینه سازی سیستم قدرت", "پایتون", "Pyomo", "OPF", "بازار برق", "Unit Commitment", "آرایش بهینه واحدها", "سیستم قدرت", "DC-OPF"]
 ---
 

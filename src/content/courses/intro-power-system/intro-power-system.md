@@ -18,7 +18,7 @@ instructor: "dr-soroudi"
 
 # === ارتباطات و ساختار سایت ===
 relatedCourses: ["optimization-modeling", "advanced-power-system", "vrp-python"]
-relatedNotes: ["mathematical-modeling-art", "google-colab", "pyomo-solvers"]
+relatedNotes: ["mathematical-modeling-art", "google-colab", "pyomo-solvers", "smart-grid-optimization"]
 # انتخاب ۵ تا ۷ تگ جامع به جای ۲۰ تگ پراکنده
 tags: ["آموزش بهینه سازی","سیستم قدرت", "برنامه ریزی خطی", "PYTHON","DC-OPF"]
 ---
@@ -125,7 +125,9 @@ print(f"هزینه کل: {value(m.cost):.2f}")
 
 همین ساختار در گام‌های بعد با افزودن زمان، شبکه و باتری گسترش می‌یابد. اگر می‌خواهید این کد را بدون نصب چیزی روی سیستم
 خودتان اجرا کنید، راهنمای [Google Colab](/notes/google-colab/) کمک می‌کند؛ و برای آشنایی با گزینه‌های مختلف سالور در
-Pyomo، یادداشت [سه روش عملی استفاده از سالورها](/notes/pyomo-solvers/) را ببینید.
+Pyomo، یادداشت [سه روش عملی استفاده از سالورها](/notes/pyomo-solvers/) را ببینید. برای گامی فراتر از DC-OPF — یعنی
+کنترل ولتاژ، توان راکتیو و مسائل شبکه هوشمند برق — یادداشت [بهینه‌سازی و شبکه هوشمند برق](/notes/smart-grid-optimization/)
+را مطالعه کنید.
 
 ---
 
