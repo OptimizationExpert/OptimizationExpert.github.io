@@ -7,7 +7,7 @@ minimalImage: "./berth-allocation-problem-mini.webp"
 minimalImageAlt: "نمایش مینیمال چند کشتی پهلوگرفته کنار اسکله بندر"
 image: "./berth-allocation-problem.webp"
 imageAlt: "تصویرسازی بندر با اسکله، جرثقیل و چند کشتی پهلوگرفته و در انتظار پهلوگیری"
-tags: ["زنجیره تأمین", "حمل‌ونقل دریایی", "بهینه‌سازی خطی", "OR-Tools", "لجستیک بندری","آموزش بهینه‌سازی","برنامه‌ریزی محدودیت","عدم‌قطعیت"]
+tags: ["زنجیره تأمین", "حمل‌ونقل دریایی", "برنامه ریزی خطی", "OR-Tools", "لجستیک بندری","آموزش بهینه‌سازی","برنامه‌ریزی محدودیت","عدم‌قطعیت"]
 relatedCourses: ["vrp-python","optimization-modeling","uncertainty-modeling"]
 relatedNotes: ["job-shop-scheduling-cp-sat", "time-dependent-vrp", "facility-location-problem"]
 ---
