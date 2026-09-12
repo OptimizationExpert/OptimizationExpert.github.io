@@ -59,6 +59,8 @@ export default defineConfig({
     '/posts/2026/06/20/Advanced-Power-System-Course': '/courses/advanced-power-system/',
     '/posts/2026/06/24/vrp-python-course': '/courses/vrp-python/',
     '/projects/load_hosting': '/projects/load-hosting/',
+    '/notes/cp_intro': '/notes/cp-intro/',
+    '/notes/mathematical-modeling-art': '/notes/mathematical-modeling-art/',
   },
 
   vite: {
