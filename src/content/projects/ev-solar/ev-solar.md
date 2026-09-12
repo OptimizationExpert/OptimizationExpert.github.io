@@ -10,7 +10,7 @@ level: "پیشرفته"
 minimalImage: "./ev-mini.webp"
 minimalImageAlt: "تصویر مینیمال آیکون بهینه‌سازی"
 image: "./ev.webp"
-imageAlt: "هماهنگی خودرو برقی، خورشیدی و پاسخگویی بار با Pyomo"
+imageAlt: "هماهنگی خودرو الکتریکی، خورشیدی و پاسخگویی بار با Pyomo"
 relatedCourses: ["optimization-modeling", "uncertainty-modeling"]
 relatedNotes: ["mathematical-modeling-art", "google-colab", "pyomo-solvers"]
 tags: [ "خودرو الکتریکی", "پنل خورشیدی", "پاسخگویی بار", "شبکه توزیع", "پایتون" ]
