@@ -1,0 +1,40 @@
+<svg viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="1600" height="900" fill="#ffffff"/>
+
+  <text x="800" y="130" font-family="Vazirmatn" font-size="34" font-weight="bold" fill="#0f172a" text-anchor="middle">سه قید تداخل در زمان‌بندی مدرسه</text>
+
+  <!-- teacher conflict -->
+  <g transform="translate(180,260)">
+    <circle cx="90" cy="60" r="60" fill="#eff6ff" stroke="#1d4ed8" stroke-width="3"/>
+    <circle cx="90" cy="40" r="18" fill="#1d4ed8"/>
+    <rect x="62" y="60" width="56" height="46" rx="14" fill="#1d4ed8"/>
+    <text x="90" y="150" font-family="Vazirmatn" font-size="22" font-weight="bold" fill="#1d4ed8" text-anchor="middle">معلم</text>
+    <text x="90" y="182" font-family="Vazirmatn" font-size="18" fill="#334155" text-anchor="middle">یک ساعت، یک کلاس</text>
+  </g>
+
+  <!-- class conflict -->
+  <g transform="translate(680,260)">
+    <circle cx="90" cy="60" r="60" fill="#f0fdf4" stroke="#16a34a" stroke-width="3"/>
+    <rect x="45" y="25" width="90" height="65" rx="8" fill="#ffffff" stroke="#16a34a" stroke-width="3"/>
+    <line x1="60" y1="45" x2="120" y2="45" stroke="#16a34a" stroke-width="4"/>
+    <line x1="60" y1="62" x2="120" y2="62" stroke="#16a34a" stroke-width="4"/>
+    <line x1="60" y1="79" x2="105" y2="79" stroke="#16a34a" stroke-width="4"/>
+    <text x="90" y="150" font-family="Vazirmatn" font-size="22" font-weight="bold" fill="#16a34a" text-anchor="middle">کلاس</text>
+    <text x="90" y="182" font-family="Vazirmatn" font-size="18" fill="#334155" text-anchor="middle">یک ساعت، یک درس</text>
+  </g>
+
+  <!-- room conflict -->
+  <g transform="translate(1180,260)">
+    <circle cx="90" cy="60" r="60" fill="#fdf4ff" stroke="#7c3aed" stroke-width="3"/>
+    <rect x="50" y="30" width="80" height="60" fill="#ffffff" stroke="#7c3aed" stroke-width="3"/>
+    <rect x="62" y="42" width="20" height="20" fill="#7c3aed"/>
+    <rect x="98" y="42" width="20" height="20" fill="#7c3aed"/>
+    <text x="90" y="150" font-family="Vazirmatn" font-size="22" font-weight="bold" fill="#7c3aed" text-anchor="middle">اتاق</text>
+    <text x="90" y="182" font-family="Vazirmatn" font-size="18" fill="#334155" text-anchor="middle">یک ساعت، یک جلسه</text>
+  </g>
+
+  <text x="800" y="560" font-family="Vazirmatn" font-size="24" fill="#334155" text-anchor="middle">مدل باید هر سه محدودیت را هم‌زمان و بدون تداخل برآورده کند</text>
+
+  <rect x="450" y="650" width="700" height="80" rx="12" fill="#fff7ed" stroke="#ea580c" stroke-width="2.5"/>
+  <text x="800" y="700" font-family="Vazirmatn" font-size="26" font-weight="bold" fill="#c2410c" text-anchor="middle">برنامه‌ریزی محدودیت (CP)</text>
+</svg>

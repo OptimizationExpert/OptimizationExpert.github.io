@@ -1,0 +1,40 @@
+<svg viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="1600" height="900" fill="#ffffff"/>
+
+  <defs>
+    <marker id="arrowMid" markerWidth="10" markerHeight="10" refX="6" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 Z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <!-- patient icon -->
+  <g transform="translate(230,400)">
+    <rect x="-60" y="30" width="120" height="70" rx="10" fill="#ecfdf5" stroke="#059669" stroke-width="3"/>
+    <circle cx="0" cy="10" r="26" fill="#059669"/>
+    <text x="0" y="145" font-family="Vazirmatn" font-size="30" font-weight="bold" fill="#065f46" text-anchor="middle">نیاز تغذیه‌ای بیمار</text>
+  </g>
+
+  <path d="M370,450 L620,450" stroke="#64748b" stroke-width="4" fill="none" marker-end="url(#arrowMid)"/>
+
+  <!-- tray icon -->
+  <g transform="translate(800,450)">
+    <rect x="-130" y="-110" width="260" height="220" rx="18" fill="#f8fafc" stroke="#334155" stroke-width="4"/>
+    <line x1="0" y1="-110" x2="0" y2="110" stroke="#334155" stroke-width="2.5"/>
+    <line x1="-130" y1="0" x2="130" y2="0" stroke="#334155" stroke-width="2.5"/>
+    <ellipse cx="-65" cy="-55" rx="38" ry="26" fill="#fde68a" stroke="#b45309" stroke-width="2"/>
+    <path d="M55,-80 Q30,-55 55,-30 Q80,-55 55,-80 Z" fill="#86efac" stroke="#15803d" stroke-width="2"/>
+    <ellipse cx="-65" cy="55" rx="36" ry="24" fill="#fca5a5" stroke="#b91c1c" stroke-width="2"/>
+    <path d="M35,35 L80,35 L74,68 Q55,78 36,68 Z" fill="#93c5fd" stroke="#1d4ed8" stroke-width="2"/>
+    <text x="0" y="165" font-family="Vazirmatn" font-size="30" font-weight="bold" fill="#334155" text-anchor="middle">سینی غذایی بهینه</text>
+  </g>
+
+  <path d="M980,450 L1230,450" stroke="#64748b" stroke-width="4" fill="none" marker-end="url(#arrowMid)"/>
+
+  <!-- result: check + cost -->
+  <g transform="translate(1370,400)">
+    <rect x="-70" y="-30" width="140" height="90" rx="14" fill="#eff6ff" stroke="#1d4ed8" stroke-width="3"/>
+    <circle cx="0" cy="15" r="26" fill="#1d4ed8"/>
+    <path d="M-11,15 L-3,25 L14,2" stroke="#ffffff" stroke-width="5" fill="none"/>
+    <text x="0" y="145" font-family="Vazirmatn" font-size="30" font-weight="bold" fill="#1e3a8a" text-anchor="middle">تغذیه کافی، هزینه کمینه</text>
+  </g>
+</svg>

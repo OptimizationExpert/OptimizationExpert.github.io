@@ -1,0 +1,65 @@
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="800" height="450" fill="#ffffff"/>
+
+  <text x="400" y="34" font-family="Vazirmatn" font-size="20" font-weight="bold" fill="#0f172a" text-anchor="middle">لات‌سایزینگ سبز زیر سقف کربن</text>
+
+  <!-- factory building -->
+  <g transform="translate(60,120)">
+    <rect x="0" y="60" width="140" height="110" fill="#e2e8f0" stroke="#475569" stroke-width="2.5"/>
+    <polygon points="0,60 70,20 140,60" fill="#cbd5e1" stroke="#475569" stroke-width="2.5"/>
+    <rect x="20" y="100" width="26" height="26" fill="#93c5fd" stroke="#1d4ed8" stroke-width="1.5"/>
+    <rect x="60" y="100" width="26" height="26" fill="#93c5fd" stroke="#1d4ed8" stroke-width="1.5"/>
+    <rect x="100" y="120" width="30" height="50" fill="#fde68a" stroke="#ca8a04" stroke-width="1.5"/>
+    <!-- smokestack -->
+    <rect x="95" y="-40" width="22" height="60" fill="#94a3b8" stroke="#475569" stroke-width="2"/>
+  </g>
+
+  <!-- carbon gauge on top of smokestack -->
+  <g transform="translate(166,58)">
+    <path d="M -34 0 A 34 34 0 0 1 34 0" fill="none" stroke="#e2e8f0" stroke-width="10"/>
+    <path d="M 14 -31 A 34 34 0 0 1 34 0" fill="none" stroke="#dc2626" stroke-width="10"/>
+    <line x1="0" y1="0" x2="18" y2="-24" stroke="#0f172a" stroke-width="3"/>
+    <circle cx="0" cy="0" r="4" fill="#0f172a"/>
+    <text x="0" y="22" font-family="Vazirmatn" font-size="12" font-weight="bold" fill="#b91c1c" text-anchor="middle">سقف کربن</text>
+  </g>
+
+  <!-- conveyor line -->
+  <line x1="260" y1="300" x2="700" y2="300" stroke="#94a3b8" stroke-width="4"/>
+  <circle cx="260" cy="300" r="10" fill="#64748b"/>
+  <circle cx="700" cy="300" r="10" fill="#64748b"/>
+
+  <!-- batch 1 -->
+  <rect x="285" y="255" width="70" height="40" rx="4" fill="#93c5fd" stroke="#1d4ed8" stroke-width="2"/>
+  <text x="320" y="330" font-family="Vazirmatn" font-size="13" fill="#1d4ed8" text-anchor="middle">محصول A</text>
+
+  <!-- setup gap -->
+  <g transform="translate(385,275)">
+    <rect x="-14" y="-20" width="28" height="40" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="3,3"/>
+    <text x="0" y="45" font-family="Vazirmatn" font-size="12" font-weight="bold" fill="#b91c1c" text-anchor="middle">تعویض</text>
+  </g>
+
+  <!-- batch 2 -->
+  <rect x="420" y="250" width="90" height="50" rx="4" fill="#86efac" stroke="#16a34a" stroke-width="2"/>
+  <text x="465" y="330" font-family="Vazirmatn" font-size="13" fill="#16a34a" text-anchor="middle">محصول B</text>
+
+  <!-- setup gap 2 -->
+  <g transform="translate(545,275)">
+    <rect x="-14" y="-20" width="28" height="40" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="3,3"/>
+    <text x="0" y="45" font-family="Vazirmatn" font-size="12" font-weight="bold" fill="#b91c1c" text-anchor="middle">تعویض</text>
+  </g>
+
+  <!-- batch 3 -->
+  <rect x="580" y="258" width="75" height="42" rx="4" fill="#fde68a" stroke="#ca8a04" stroke-width="2"/>
+  <text x="617" y="330" font-family="Vazirmatn" font-size="13" fill="#ca8a04" text-anchor="middle">محصول C</text>
+
+  <!-- inventory stack -->
+  <g transform="translate(715,235)">
+    <rect x="0" y="40" width="34" height="28" fill="#fdba74" stroke="#c2410c" stroke-width="1.5"/>
+    <rect x="0" y="10" width="34" height="28" fill="#fdba74" stroke="#c2410c" stroke-width="1.5"/>
+    <rect x="0" y="-20" width="34" height="28" fill="#fdba74" stroke="#c2410c" stroke-width="1.5"/>
+    <text x="17" y="90" font-family="Vazirmatn" font-size="12" fill="#9a3412" text-anchor="middle">موجودی</text>
+  </g>
+
+  <rect x="150" y="380" width="500" height="46" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="400" y="408" font-family="Vazirmatn" font-size="14" font-weight="bold" fill="#166534" text-anchor="middle">چه‌قدر تولید کنیم، زیر سقف انتشار کربن؟</text>
+</svg>

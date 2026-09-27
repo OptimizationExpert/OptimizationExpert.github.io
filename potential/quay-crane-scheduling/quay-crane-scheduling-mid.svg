@@ -1,0 +1,43 @@
+<svg viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="1600" height="900" fill="#ffffff"/>
+
+  <text x="800" y="130" font-family="Vazirmatn" font-size="34" font-weight="bold" fill="#0f172a" text-anchor="middle">تخصیص بخش‌های کشتی به جرثقیل‌های ساحلی</text>
+
+  <!-- water -->
+  <rect x="0" y="700" width="1600" height="200" fill="#e0f2fe"/>
+
+  <!-- ship hull -->
+  <g transform="translate(230,540)">
+    <path d="M0,60 L1140,60 L1100,150 L40,150 Z" fill="#ffffff" stroke="#0f172a" stroke-width="3"/>
+    <line x1="230" y1="60" x2="215" y2="150" stroke="#94a3b8" stroke-width="2"/>
+    <line x1="460" y1="60" x2="450" y2="150" stroke="#94a3b8" stroke-width="2"/>
+    <line x1="690" y1="60" x2="685" y2="150" stroke="#94a3b8" stroke-width="2"/>
+    <line x1="920" y1="60" x2="920" y2="150" stroke="#94a3b8" stroke-width="2"/>
+    <text x="115" y="190" font-family="Vazirmatn" font-size="20" fill="#334155" text-anchor="middle">بخش ۱</text>
+    <text x="345" y="190" font-family="Vazirmatn" font-size="20" fill="#334155" text-anchor="middle">بخش ۲</text>
+    <text x="575" y="190" font-family="Vazirmatn" font-size="20" fill="#334155" text-anchor="middle">بخش ۳</text>
+    <text x="805" y="190" font-family="Vazirmatn" font-size="20" fill="#334155" text-anchor="middle">بخش ۴</text>
+    <text x="1035" y="190" font-family="Vazirmatn" font-size="20" fill="#334155" text-anchor="middle">بخش ۵</text>
+  </g>
+
+  <!-- rail -->
+  <rect x="180" y="500" width="1240" height="8" fill="#475569"/>
+
+  <!-- crane A over bays 1-2 -->
+  <g transform="translate(340,300)">
+    <line x1="0" y1="0" x2="0" y2="200" stroke="#1d4ed8" stroke-width="7"/>
+    <line x1="-90" y1="14" x2="90" y2="14" stroke="#1d4ed8" stroke-width="7"/>
+    <text x="0" y="-16" font-family="Vazirmatn" font-size="24" font-weight="bold" fill="#1d4ed8" text-anchor="middle">جرثقیل A</text>
+    <text x="0" y="240" font-family="Vazirmatn" font-size="18" fill="#1d4ed8" text-anchor="middle">بخش‌های ۱ و ۲</text>
+  </g>
+
+  <!-- crane B over bays 3-4-5 -->
+  <g transform="translate(920,300)">
+    <line x1="0" y1="0" x2="0" y2="200" stroke="#16a34a" stroke-width="7"/>
+    <line x1="-90" y1="14" x2="90" y2="14" stroke="#16a34a" stroke-width="7"/>
+    <text x="0" y="-16" font-family="Vazirmatn" font-size="24" font-weight="bold" fill="#16a34a" text-anchor="middle">جرثقیل B</text>
+    <text x="0" y="240" font-family="Vazirmatn" font-size="18" fill="#16a34a" text-anchor="middle">بخش‌های ۳ تا ۵</text>
+  </g>
+
+  <text x="800" y="860" font-family="Vazirmatn" font-size="22" fill="#334155" text-anchor="middle">ترتیب جرثقیل‌ها روی ریل هرگز نباید تغییر کند</text>
+</svg>

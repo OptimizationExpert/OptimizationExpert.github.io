@@ -1,0 +1,96 @@
+<svg viewBox="0 0 960 580" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="960" height="580" fill="#ffffff"/>
+
+  <!-- Title -->
+  <text x="480" y="48" font-family="Vazirmatn" font-size="27" font-weight="bold" fill="#0f172a" text-anchor="middle">بهینه‌سازی برنامه غذایی بیمارستان</text>
+
+  <defs>
+    <marker id="arrow1" markerWidth="9" markerHeight="9" refX="5" refY="4" orient="auto">
+      <path d="M0,0 L9,4 L0,8 Z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <!-- Clipboard: nutrition constraints (left) -->
+  <g>
+    <rect x="55" y="150" width="230" height="250" rx="14" fill="#eff6ff" stroke="#1d4ed8" stroke-width="2.5"/>
+    <rect x="140" y="138" width="60" height="24" rx="6" fill="#1d4ed8"/>
+    <text x="170" y="192" font-family="Vazirmatn" font-size="17" font-weight="bold" fill="#1d4ed8" text-anchor="middle">قیدهای تغذیه‌ای</text>
+
+    <circle cx="245" cy="228" r="10" fill="#1d4ed8"/>
+    <path d="M240,228 L244,233 L251,223" stroke="#ffffff" stroke-width="2.4" fill="none"/>
+    <text x="222" y="233" font-family="Vazirmatn" font-size="15" fill="#1e293b" text-anchor="end">کالری کافی</text>
+
+    <circle cx="245" cy="270" r="10" fill="#1d4ed8"/>
+    <path d="M240,270 L244,275 L251,265" stroke="#ffffff" stroke-width="2.4" fill="none"/>
+    <text x="222" y="275" font-family="Vazirmatn" font-size="15" fill="#1e293b" text-anchor="end">سدیم محدود</text>
+
+    <circle cx="245" cy="312" r="10" fill="#1d4ed8"/>
+    <path d="M240,312 L244,317 L251,307" stroke="#ffffff" stroke-width="2.4" fill="none"/>
+    <text x="222" y="317" font-family="Vazirmatn" font-size="15" fill="#1e293b" text-anchor="end">پروتئین کافی</text>
+
+    <circle cx="245" cy="354" r="10" fill="#1d4ed8"/>
+    <path d="M240,354 L244,359 L251,349" stroke="#ffffff" stroke-width="2.4" fill="none"/>
+    <text x="222" y="359" font-family="Vazirmatn" font-size="15" fill="#1e293b" text-anchor="end">تنوع غذایی</text>
+  </g>
+
+  <!-- Meal tray (center) -->
+  <g>
+    <text x="480" y="140" font-family="Vazirmatn" font-size="17" font-weight="bold" fill="#334155" text-anchor="middle">سینی غذایی روزانه</text>
+    <rect x="360" y="160" width="240" height="220" rx="16" fill="#f8fafc" stroke="#334155" stroke-width="3"/>
+    <line x1="480" y1="160" x2="480" y2="380" stroke="#334155" stroke-width="2"/>
+    <line x1="360" y1="270" x2="600" y2="270" stroke="#334155" stroke-width="2"/>
+
+    <!-- starch -->
+    <ellipse cx="420" cy="215" rx="34" ry="24" fill="#fde68a" stroke="#b45309" stroke-width="1.5"/>
+    <text x="420" y="250" font-family="Vazirmatn" font-size="12" fill="#78350f" text-anchor="middle">نشاسته</text>
+
+    <!-- vegetable -->
+    <path d="M540,195 Q520,215 540,235 Q560,215 540,195 Z" fill="#86efac" stroke="#15803d" stroke-width="1.5"/>
+    <text x="540" y="250" font-family="Vazirmatn" font-size="12" fill="#14532d" text-anchor="middle">سبزی</text>
+
+    <!-- protein -->
+    <ellipse cx="420" cy="325" rx="32" ry="22" fill="#fca5a5" stroke="#b91c1c" stroke-width="1.5"/>
+    <text x="420" y="360" font-family="Vazirmatn" font-size="12" fill="#7f1d1d" text-anchor="middle">پروتئین</text>
+
+    <!-- dairy/soup -->
+    <path d="M520,310 L560,310 L556,335 Q540,342 524,335 Z" fill="#93c5fd" stroke="#1d4ed8" stroke-width="1.5"/>
+    <text x="540" y="360" font-family="Vazirmatn" font-size="12" fill="#1e3a8a" text-anchor="middle">لبنیات</text>
+  </g>
+
+  <!-- three patient/bed cards (right) -->
+  <g>
+    <rect x="700" y="95" width="205" height="86" rx="12" fill="#ecfdf5" stroke="#059669" stroke-width="2.2"/>
+    <rect x="718" y="118" width="46" height="26" rx="5" fill="#059669"/>
+    <circle cx="730" cy="112" r="8" fill="#059669"/>
+    <text x="885" y="148" font-family="Vazirmatn" font-size="15" font-weight="bold" fill="#065f46" text-anchor="end">رژیم دیابتی</text>
+
+    <rect x="700" y="200" width="205" height="86" rx="12" fill="#fff7ed" stroke="#ea580c" stroke-width="2.2"/>
+    <rect x="718" y="223" width="46" height="26" rx="5" fill="#ea580c"/>
+    <circle cx="730" cy="217" r="8" fill="#ea580c"/>
+    <text x="885" y="253" font-family="Vazirmatn" font-size="15" font-weight="bold" fill="#9a3412" text-anchor="end">رژیم کم‌نمک</text>
+
+    <rect x="700" y="305" width="205" height="86" rx="12" fill="#f5f3ff" stroke="#7c3aed" stroke-width="2.2"/>
+    <rect x="718" y="328" width="46" height="26" rx="5" fill="#7c3aed"/>
+    <circle cx="730" cy="322" r="8" fill="#7c3aed"/>
+    <text x="885" y="358" font-family="Vazirmatn" font-size="15" font-weight="bold" fill="#5b21b6" text-anchor="end">رژیم پرکالری</text>
+  </g>
+
+  <!-- arrows from patients to tray -->
+  <path d="M695,138 L610,190" stroke="#64748b" stroke-width="2.5" fill="none" marker-end="url(#arrow1)"/>
+  <path d="M695,243 L605,270" stroke="#64748b" stroke-width="2.5" fill="none" marker-end="url(#arrow1)"/>
+  <path d="M695,348 L610,350" stroke="#64748b" stroke-width="2.5" fill="none" marker-end="url(#arrow1)"/>
+
+  <!-- arrow from clipboard to tray -->
+  <path d="M290,270 L355,270" stroke="#1d4ed8" stroke-width="2.5" fill="none" marker-end="url(#arrow1)"/>
+
+  <!-- cost tag (bottom center) -->
+  <g transform="translate(480,470)">
+    <rect x="-125" y="-30" width="250" height="60" rx="12" fill="#fef3c7" stroke="#b45309" stroke-width="2.2"/>
+    <rect x="-108" y="-14" width="46" height="28" rx="5" fill="#fde68a" stroke="#b45309" stroke-width="1.8"/>
+    <circle cx="-85" cy="0" r="7" fill="#b45309"/>
+    <text x="10" y="7" font-family="Vazirmatn" font-size="16" font-weight="bold" fill="#78350f" text-anchor="middle">بودجه روزانه هر بیمار</text>
+  </g>
+  <path d="M480,382 L480,438" stroke="#b45309" stroke-width="2.5" fill="none" marker-end="url(#arrow1)"/>
+
+  <text x="480" y="555" font-family="Vazirmatn" font-size="14" fill="#64748b" text-anchor="middle">کمینه‌سازی هزینه، با رعایت نیاز تغذیه‌ای هر بیمار</text>
+</svg>

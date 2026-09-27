@@ -1,0 +1,14 @@
+<svg viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="1600" height="900" fill="#ffffff"/>
+
+  <!-- small centered tray icon with generous white margin -->
+  <g transform="translate(800,450)">
+    <rect x="-140" y="-120" width="280" height="240" rx="20" fill="#f8fafc" stroke="#334155" stroke-width="5"/>
+    <line x1="0" y1="-120" x2="0" y2="120" stroke="#334155" stroke-width="3"/>
+    <line x1="-140" y1="0" x2="140" y2="0" stroke="#334155" stroke-width="3"/>
+    <ellipse cx="-70" cy="-60" rx="42" ry="28" fill="#fde68a" stroke="#b45309" stroke-width="2.5"/>
+    <path d="M60,-88 Q32,-60 60,-32 Q88,-60 60,-88 Z" fill="#86efac" stroke="#15803d" stroke-width="2.5"/>
+    <ellipse cx="-70" cy="60" rx="40" ry="26" fill="#fca5a5" stroke="#b91c1c" stroke-width="2.5"/>
+    <path d="M38,38 L88,38 L81,74 Q60,85 39,74 Z" fill="#93c5fd" stroke="#1d4ed8" stroke-width="2.5"/>
+  </g>
+</svg>

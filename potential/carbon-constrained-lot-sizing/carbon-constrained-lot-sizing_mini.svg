@@ -1,0 +1,21 @@
+<svg viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="320" height="180" fill="#ffffff"/>
+
+  <!-- small factory icon, centered with generous margin -->
+  <g transform="translate(112,52)">
+    <rect x="0" y="26" width="56" height="42" fill="#e2e8f0" stroke="#475569" stroke-width="2"/>
+    <polygon points="0,26 28,8 56,26" fill="#cbd5e1" stroke="#475569" stroke-width="2"/>
+    <rect x="38" y="-14" width="10" height="26" fill="#94a3b8" stroke="#475569" stroke-width="1.5"/>
+    <rect x="10" y="42" width="12" height="12" fill="#93c5fd" stroke="#1d4ed8" stroke-width="1"/>
+    <rect x="30" y="42" width="12" height="12" fill="#93c5fd" stroke="#1d4ed8" stroke-width="1"/>
+
+    <!-- gauge -->
+    <g transform="translate(43,-14)">
+      <path d="M -16 0 A 16 16 0 0 1 16 0" fill="none" stroke="#e2e8f0" stroke-width="5"/>
+      <path d="M 6 -15 A 16 16 0 0 1 16 0" fill="none" stroke="#dc2626" stroke-width="5"/>
+      <line x1="0" y1="0" x2="8" y2="-11" stroke="#0f172a" stroke-width="2"/>
+    </g>
+  </g>
+
+  <text x="160" y="150" font-family="Vazirmatn" font-size="14" font-weight="bold" fill="#166534" text-anchor="middle">لات‌سایزینگ سبز</text>
+</svg>

@@ -1,0 +1,55 @@
+<svg viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="1600" height="900" fill="#ffffff"/>
+
+  <text x="800" y="90" font-family="Vazirmatn" font-size="32" font-weight="bold" fill="#0f172a" text-anchor="middle">تأثیر سقف کربن بر اندازه دسته‌های تولید</text>
+
+  <!-- divider -->
+  <line x1="800" y1="150" x2="800" y2="780" stroke="#e2e8f0" stroke-width="3"/>
+
+  <!-- LEFT PANEL: without carbon cap -->
+  <text x="400" y="190" font-family="Vazirmatn" font-size="24" font-weight="bold" fill="#334155" text-anchor="middle">بدون سقف کربن</text>
+  <text x="400" y="222" font-family="Vazirmatn" font-size="18" fill="#64748b" text-anchor="middle">تعویض‌های مکرر، دسته‌های کوچک</text>
+
+  <line x1="140" y1="420" x2="660" y2="420" stroke="#94a3b8" stroke-width="4"/>
+  <rect x="150" y="395" width="60" height="50" rx="4" fill="#93c5fd" stroke="#1d4ed8" stroke-width="2"/>
+  <rect x="230" y="400" width="16" height="40" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="3,3"/>
+  <rect x="260" y="395" width="60" height="50" rx="4" fill="#86efac" stroke="#16a34a" stroke-width="2"/>
+  <rect x="340" y="400" width="16" height="40" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="3,3"/>
+  <rect x="370" y="395" width="60" height="50" rx="4" fill="#fde68a" stroke="#ca8a04" stroke-width="2"/>
+  <rect x="450" y="400" width="16" height="40" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="3,3"/>
+  <rect x="480" y="395" width="60" height="50" rx="4" fill="#93c5fd" stroke="#1d4ed8" stroke-width="2"/>
+  <rect x="560" y="400" width="16" height="40" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="3,3"/>
+  <rect x="590" y="395" width="60" height="50" rx="4" fill="#86efac" stroke="#16a34a" stroke-width="2"/>
+  <text x="400" y="475" font-family="Vazirmatn" font-size="16" fill="#b91c1c" text-anchor="middle">۵ تعویض خط در هر دوره</text>
+
+  <!-- emission gauge left: over cap -->
+  <g transform="translate(400,590)">
+    <rect x="-110" y="-24" width="220" height="48" rx="8" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+    <text x="10" y="8" font-family="Vazirmatn" font-size="20" font-weight="bold" fill="#b91c1c" text-anchor="middle">انتشار بالاتر از سقف</text>
+    <line x1="-96" y1="-9" x2="-80" y2="9" stroke="#b91c1c" stroke-width="4" stroke-linecap="round"/>
+    <line x1="-80" y1="-9" x2="-96" y2="9" stroke="#b91c1c" stroke-width="4" stroke-linecap="round"/>
+  </g>
+  <text x="400" y="660" font-family="Vazirmatn" font-size="17" fill="#334155" text-anchor="middle">هر تعویض خط، انتشار اضافه به همراه دارد</text>
+
+  <!-- RIGHT PANEL: with carbon cap -->
+  <text x="1200" y="190" font-family="Vazirmatn" font-size="24" font-weight="bold" fill="#334155" text-anchor="middle">با سقف کربن</text>
+  <text x="1200" y="222" font-family="Vazirmatn" font-size="18" fill="#64748b" text-anchor="middle">تعویض کمتر، دسته‌های بزرگ‌تر</text>
+
+  <line x1="940" y1="420" x2="1460" y2="420" stroke="#94a3b8" stroke-width="4"/>
+  <rect x="960" y="385" width="180" height="70" rx="4" fill="#93c5fd" stroke="#1d4ed8" stroke-width="2"/>
+  <rect x="1160" y="400" width="16" height="40" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="3,3"/>
+  <rect x="1190" y="380" width="220" height="80" rx="4" fill="#86efac" stroke="#16a34a" stroke-width="2"/>
+  <text x="1200" y="475" font-family="Vazirmatn" font-size="16" fill="#166534" text-anchor="middle">۱ تعویض خط در هر دوره</text>
+
+  <!-- emission gauge right: under cap -->
+  <g transform="translate(1200,590)">
+    <rect x="-100" y="-24" width="200" height="48" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+    <text x="10" y="8" font-family="Vazirmatn" font-size="20" font-weight="bold" fill="#166534" text-anchor="middle">انتشار زیر سقف</text>
+    <polyline points="-92,0 -84,10 -68,-10" fill="none" stroke="#16a34a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <text x="1200" y="660" font-family="Vazirmatn" font-size="17" fill="#334155" text-anchor="middle">موجودی کمی بیشتر، اما زیر سقف مجاز</text>
+
+  <rect x="380" y="740" width="840" height="70" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="800" y="775" font-family="Vazirmatn" font-size="19" font-weight="bold" fill="#0f172a" text-anchor="middle">همان تقاضا، دو تصمیم متفاوت درباره‌ی اندازه دسته</text>
+  <text x="800" y="800" font-family="Vazirmatn" font-size="16" fill="#475569" text-anchor="middle">سقف کربن، موازنه‌ی هزینه و موجودی را جابه‌جا می‌کند</text>
+</svg>

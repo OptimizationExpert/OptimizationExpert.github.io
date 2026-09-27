@@ -1,0 +1,67 @@
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="800" height="450" fill="#ffffff"/>
+
+  <text x="400" y="34" font-family="Vazirmatn" font-size="20" font-weight="bold" fill="#0f172a" text-anchor="middle">انتقال بین‌بیمارستانی</text>
+
+  <!-- Source hospital (overloaded) -->
+  <g transform="translate(60,80)">
+    <rect x="0" y="40" width="170" height="150" fill="#ffffff" stroke="#b91c1c" stroke-width="2.5"/>
+    <rect x="60" y="0" width="50" height="40" fill="#ffffff" stroke="#b91c1c" stroke-width="2.5"/>
+    <rect x="78" y="10" width="14" height="6" fill="#b91c1c"/>
+    <rect x="82" y="6" width="6" height="14" fill="#b91c1c"/>
+    <!-- windows / beds grid, mostly filled -->
+    <rect x="15" y="60" width="30" height="24" fill="#fecaca" stroke="#b91c1c" stroke-width="1.5"/>
+    <rect x="55" y="60" width="30" height="24" fill="#fecaca" stroke="#b91c1c" stroke-width="1.5"/>
+    <rect x="95" y="60" width="30" height="24" fill="#fecaca" stroke="#b91c1c" stroke-width="1.5"/>
+    <rect x="135" y="60" width="20" height="24" fill="#fecaca" stroke="#b91c1c" stroke-width="1.5"/>
+    <rect x="15" y="95" width="30" height="24" fill="#fecaca" stroke="#b91c1c" stroke-width="1.5"/>
+    <rect x="55" y="95" width="30" height="24" fill="#fecaca" stroke="#b91c1c" stroke-width="1.5"/>
+    <rect x="95" y="95" width="30" height="24" fill="#fecaca" stroke="#b91c1c" stroke-width="1.5"/>
+    <rect x="135" y="95" width="20" height="24" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.5" stroke-dasharray="4,3"/>
+    <text x="85" y="215" font-family="Vazirmatn" font-size="14" font-weight="bold" fill="#b91c1c" text-anchor="middle">بیمارستان مبدأ</text>
+    <text x="85" y="234" font-family="Vazirmatn" font-size="12" fill="#b91c1c" text-anchor="middle">ظرفیت پر، تخصص ناموجود</text>
+  </g>
+
+  <!-- Destination hospital (has capacity + specialty) -->
+  <g transform="translate(570,80)">
+    <rect x="0" y="40" width="170" height="150" fill="#ffffff" stroke="#0d9488" stroke-width="2.5"/>
+    <rect x="60" y="0" width="50" height="40" fill="#ffffff" stroke="#0d9488" stroke-width="2.5"/>
+    <rect x="78" y="10" width="14" height="6" fill="#0d9488"/>
+    <rect x="82" y="6" width="6" height="14" fill="#0d9488"/>
+    <rect x="15" y="60" width="30" height="24" fill="#fecaca" stroke="#0d9488" stroke-width="1.5"/>
+    <rect x="55" y="60" width="30" height="24" fill="#ccfbf1" stroke="#0d9488" stroke-width="1.5"/>
+    <rect x="95" y="60" width="30" height="24" fill="#ccfbf1" stroke="#0d9488" stroke-width="1.5"/>
+    <rect x="135" y="60" width="20" height="24" fill="#ccfbf1" stroke="#0d9488" stroke-width="1.5"/>
+    <rect x="15" y="95" width="30" height="24" fill="#ccfbf1" stroke="#0d9488" stroke-width="1.5"/>
+    <rect x="55" y="95" width="30" height="24" fill="#ccfbf1" stroke="#0d9488" stroke-width="1.5"/>
+    <rect x="95" y="95" width="30" height="24" fill="#ccfbf1" stroke="#0d9488" stroke-width="1.5"/>
+    <rect x="135" y="95" width="20" height="24" fill="#ccfbf1" stroke="#0d9488" stroke-width="1.5"/>
+    <text x="85" y="215" font-family="Vazirmatn" font-size="14" font-weight="bold" fill="#0d9488" text-anchor="middle">بیمارستان مقصد</text>
+    <text x="85" y="234" font-family="Vazirmatn" font-size="12" fill="#0d9488" text-anchor="middle">تخت خالی و تخصص لازم</text>
+  </g>
+
+  <!-- connecting road -->
+  <path d="M240,240 L560,240" stroke="#94a3b8" stroke-width="4" stroke-dasharray="10,8"/>
+
+  <!-- ambulance on the road -->
+  <g transform="translate(345,205)">
+    <rect x="0" y="18" width="80" height="34" rx="5" fill="#ffffff" stroke="#1d4ed8" stroke-width="2.5"/>
+    <rect x="55" y="6" width="26" height="30" rx="4" fill="#ffffff" stroke="#1d4ed8" stroke-width="2.5"/>
+    <circle cx="18" cy="56" r="8" fill="#0f172a"/>
+    <circle cx="62" cy="56" r="8" fill="#0f172a"/>
+    <rect x="26" y="28" width="18" height="6" fill="#dc2626"/>
+    <rect x="32" y="22" width="6" height="18" fill="#dc2626"/>
+    <text x="40" y="-8" font-family="Vazirmatn" font-size="13" font-weight="bold" fill="#1d4ed8" text-anchor="middle">انتقال بیمار</text>
+  </g>
+
+  <!-- specialty match badge -->
+  <g transform="translate(360,290)">
+    <circle cx="40" cy="20" r="22" fill="#ecfdf5" stroke="#059669" stroke-width="2.5"/>
+    <path d="M28,20 L37,29 L53,11" fill="none" stroke="#059669" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="40" y="62" font-family="Vazirmatn" font-size="13" fill="#059669" text-anchor="middle">تطبیق تخصص و ظرفیت</text>
+  </g>
+
+  <!-- decision question box -->
+  <rect x="230" y="350" width="340" height="46" rx="8" fill="#fff7ed" stroke="#ea580c" stroke-width="1.5"/>
+  <text x="400" y="378" font-family="Vazirmatn" font-size="14" font-weight="bold" fill="#c2410c" text-anchor="middle">کدام بیمار به کدام بیمارستان منتقل شود؟</text>
+</svg>

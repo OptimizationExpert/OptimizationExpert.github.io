@@ -1,0 +1,75 @@
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="800" height="450" fill="#ffffff"/>
+
+  <text x="400" y="34" font-family="Vazirmatn" font-size="20" font-weight="bold" fill="#0f172a" text-anchor="middle">زمان‌بندی هفتگی مدرسه</text>
+
+  <!-- timetable grid -->
+  <g transform="translate(120,60)">
+    <!-- day headers -->
+    <rect x="80" y="0" width="112" height="32" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.5"/>
+    <text x="136" y="21" font-family="Vazirmatn" font-size="13" fill="#1d4ed8" text-anchor="middle">شنبه</text>
+    <rect x="192" y="0" width="112" height="32" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.5"/>
+    <text x="248" y="21" font-family="Vazirmatn" font-size="13" fill="#1d4ed8" text-anchor="middle">یکشنبه</text>
+    <rect x="304" y="0" width="112" height="32" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.5"/>
+    <text x="360" y="21" font-family="Vazirmatn" font-size="13" fill="#1d4ed8" text-anchor="middle">دوشنبه</text>
+    <rect x="416" y="0" width="112" height="32" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.5"/>
+    <text x="472" y="21" font-family="Vazirmatn" font-size="13" fill="#1d4ed8" text-anchor="middle">سه‌شنبه</text>
+
+    <!-- hour rows -->
+    <rect x="0" y="32" width="80" height="38" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5"/>
+    <text x="40" y="56" font-family="Vazirmatn" font-size="12" fill="#334155" text-anchor="middle">ساعت ۱</text>
+    <rect x="0" y="70" width="80" height="38" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5"/>
+    <text x="40" y="94" font-family="Vazirmatn" font-size="12" fill="#334155" text-anchor="middle">ساعت ۲</text>
+    <rect x="0" y="108" width="80" height="38" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5"/>
+    <text x="40" y="132" font-family="Vazirmatn" font-size="12" fill="#334155" text-anchor="middle">ساعت ۳</text>
+
+    <!-- filled lesson cells -->
+    <rect x="80" y="32" width="112" height="38" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+    <text x="136" y="55" font-family="Vazirmatn" font-size="12" fill="#166534" text-anchor="middle">ریاضی</text>
+    <rect x="192" y="32" width="112" height="38" fill="#fef9c3" stroke="#ca8a04" stroke-width="1.5"/>
+    <text x="248" y="55" font-family="Vazirmatn" font-size="12" fill="#854d0e" text-anchor="middle">ادبیات</text>
+    <rect x="304" y="32" width="112" height="38" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+    <text x="360" y="55" font-family="Vazirmatn" font-size="12" fill="#5b21b6" text-anchor="middle">فیزیک</text>
+
+    <!-- conflict cell: two lessons overlapping -->
+    <rect x="416" y="32" width="112" height="38" fill="#fee2e2" stroke="#dc2626" stroke-width="2.5" stroke-dasharray="5,4"/>
+    <text x="472" y="48" font-family="Vazirmatn" font-size="11" fill="#b91c1c" text-anchor="middle">ریاضی</text>
+    <text x="472" y="63" font-family="Vazirmatn" font-size="11" fill="#b91c1c" text-anchor="middle">+ شیمی</text>
+
+    <rect x="80" y="70" width="112" height="38" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+    <text x="136" y="93" font-family="Vazirmatn" font-size="12" fill="#166534" text-anchor="middle">زیست</text>
+    <rect x="192" y="70" width="112" height="38" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+    <text x="248" y="93" font-family="Vazirmatn" font-size="12" fill="#5b21b6" text-anchor="middle">فیزیک</text>
+    <rect x="304" y="70" width="112" height="38" fill="#fef9c3" stroke="#ca8a04" stroke-width="1.5"/>
+    <text x="360" y="93" font-family="Vazirmatn" font-size="12" fill="#854d0e" text-anchor="middle">ادبیات</text>
+    <rect x="416" y="70" width="112" height="38" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+    <text x="472" y="93" font-family="Vazirmatn" font-size="12" fill="#166534" text-anchor="middle">ریاضی</text>
+
+    <rect x="80" y="108" width="112" height="38" fill="#fef9c3" stroke="#ca8a04" stroke-width="1.5"/>
+    <text x="136" y="131" font-family="Vazirmatn" font-size="12" fill="#854d0e" text-anchor="middle">ادبیات</text>
+    <rect x="192" y="108" width="112" height="38" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+    <text x="248" y="131" font-family="Vazirmatn" font-size="12" fill="#166534" text-anchor="middle">ریاضی</text>
+    <rect x="304" y="108" width="112" height="38" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+    <text x="360" y="131" font-family="Vazirmatn" font-size="12" fill="#166534" text-anchor="middle">زیست</text>
+    <rect x="416" y="108" width="112" height="38" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+    <text x="472" y="131" font-family="Vazirmatn" font-size="12" fill="#5b21b6" text-anchor="middle">فیزیک</text>
+  </g>
+
+  <!-- conflict callout -->
+  <g transform="translate(560,150)">
+    <circle cx="20" cy="20" r="20" fill="#fee2e2" stroke="#dc2626" stroke-width="2.5"/>
+    <text x="20" y="27" font-family="Vazirmatn" font-size="20" font-weight="bold" fill="#b91c1c" text-anchor="middle">؟</text>
+    <text x="20" y="60" font-family="Vazirmatn" font-size="13" font-weight="bold" fill="#b91c1c" text-anchor="middle">تداخل معلم</text>
+    <text x="20" y="78" font-family="Vazirmatn" font-size="13" font-weight="bold" fill="#b91c1c" text-anchor="middle">در یک ساعت</text>
+  </g>
+  <path d="M540,175 L620,175" stroke="#dc2626" stroke-width="2.5" marker-end="url(#arrowSchool)"/>
+
+  <rect x="150" y="360" width="500" height="46" rx="8" fill="#fff7ed" stroke="#ea580c" stroke-width="1.5"/>
+  <text x="400" y="388" font-family="Vazirmatn" font-size="14" font-weight="bold" fill="#c2410c" text-anchor="middle">چطور برنامه‌ای بدون تداخل و متوازن بچینیم؟</text>
+
+  <defs>
+    <marker id="arrowSchool" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#dc2626"/>
+    </marker>
+  </defs>
+</svg>

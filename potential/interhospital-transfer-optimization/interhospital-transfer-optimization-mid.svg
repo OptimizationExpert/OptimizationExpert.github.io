@@ -1,0 +1,53 @@
+<svg viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="1600" height="900" fill="#ffffff"/>
+
+  <text x="800" y="150" font-family="Vazirmatn" font-size="34" font-weight="bold" fill="#0f172a" text-anchor="middle">شبکه‌ی تصمیم انتقال بین‌بیمارستانی</text>
+
+  <!-- three source hospitals on the left -->
+  <g transform="translate(160,300)">
+    <rect x="0" y="30" width="110" height="90" fill="#ffffff" stroke="#b91c1c" stroke-width="3"/>
+    <rect x="38" y="0" width="34" height="30" fill="#ffffff" stroke="#b91c1c" stroke-width="3"/>
+    <rect x="49" y="8" width="12" height="14" fill="#b91c1c"/>
+    <text x="55" y="145" font-family="Vazirmatn" font-size="20" fill="#b91c1c" text-anchor="middle">مبدأ ۱</text>
+  </g>
+  <g transform="translate(160,480)">
+    <rect x="0" y="30" width="110" height="90" fill="#ffffff" stroke="#b91c1c" stroke-width="3"/>
+    <rect x="38" y="0" width="34" height="30" fill="#ffffff" stroke="#b91c1c" stroke-width="3"/>
+    <rect x="49" y="8" width="12" height="14" fill="#b91c1c"/>
+    <text x="55" y="145" font-family="Vazirmatn" font-size="20" fill="#b91c1c" text-anchor="middle">مبدأ ۲</text>
+  </g>
+  <g transform="translate(160,660)">
+    <rect x="0" y="30" width="110" height="90" fill="#ffffff" stroke="#b91c1c" stroke-width="3"/>
+    <rect x="38" y="0" width="34" height="30" fill="#ffffff" stroke="#b91c1c" stroke-width="3"/>
+    <rect x="49" y="8" width="12" height="14" fill="#b91c1c"/>
+    <text x="55" y="145" font-family="Vazirmatn" font-size="20" fill="#b91c1c" text-anchor="middle">مبدأ ۳</text>
+  </g>
+
+  <!-- two destination hospitals on the right -->
+  <g transform="translate(1330,380)">
+    <rect x="0" y="30" width="110" height="90" fill="#ffffff" stroke="#0d9488" stroke-width="3"/>
+    <rect x="38" y="0" width="34" height="30" fill="#ffffff" stroke="#0d9488" stroke-width="3"/>
+    <rect x="49" y="8" width="12" height="14" fill="#0d9488"/>
+    <text x="55" y="145" font-family="Vazirmatn" font-size="20" fill="#0d9488" text-anchor="middle">مقصد A</text>
+  </g>
+  <g transform="translate(1330,580)">
+    <rect x="0" y="30" width="110" height="90" fill="#ffffff" stroke="#0d9488" stroke-width="3"/>
+    <rect x="38" y="0" width="34" height="30" fill="#ffffff" stroke="#0d9488" stroke-width="3"/>
+    <rect x="49" y="8" width="12" height="14" fill="#0d9488"/>
+    <text x="55" y="145" font-family="Vazirmatn" font-size="20" fill="#0d9488" text-anchor="middle">مقصد B</text>
+  </g>
+
+  <!-- assignment edges -->
+  <path d="M280,355 L1330,440" fill="none" stroke="#1d4ed8" stroke-width="3" marker-end="url(#arrowMid)"/>
+  <path d="M280,535 L1330,460" fill="none" stroke="#1d4ed8" stroke-width="3" marker-end="url(#arrowMid)"/>
+  <path d="M280,535 L1330,620" fill="none" stroke="#94a3b8" stroke-width="2.5" stroke-dasharray="8,7"/>
+  <path d="M280,715 L1330,640" fill="none" stroke="#1d4ed8" stroke-width="3" marker-end="url(#arrowMid)"/>
+
+  <defs>
+    <marker id="arrowMid" markerWidth="9" markerHeight="9" refX="5" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 Z" fill="#1d4ed8"/>
+    </marker>
+  </defs>
+
+  <text x="800" y="820" font-family="Vazirmatn" font-size="22" fill="#334155" text-anchor="middle">هر خط، یک تخصیص بیمار به بیمارستان مقصد را نشان می‌دهد</text>
+</svg>
