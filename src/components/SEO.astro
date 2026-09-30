@@ -62,7 +62,10 @@ const {
 } = Astro.props;
 
 const pageType = type ?? (article ? 'article' : 'website');
-const pageTitle = title ? `${title} | ${siteName}` : siteName;
+const suffix = ` | ${siteName}`;
+const pageTitle = !title
+  ? siteName
+  : (title.length + suffix.length <= 60 ? title + suffix : title);
 const canonicalURL = new URL(Astro.url.pathname, siteUrl).href;
 const socialImageURL = new URL(image, siteUrl).href;
 const socialImageType = /\.jpe?g(?:$|[?#])/i.test(socialImageURL)
