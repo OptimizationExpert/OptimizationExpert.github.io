@@ -13,6 +13,7 @@ const isActive = (href: string) => {
 // استفاده می‌شود تا هیچ آیتمی در دو جا جداگانه نوشته نشود.
 const navItems = [
   { title: 'دوره‌ها', href: '/courses/', icon: 'fa-graduation-cap' },
+  { title: 'آموزش OR-Tools', href: '/ortools/', icon: 'fa-screwdriver-wrench' },
   { title: 'پروژه‌ها', href: '/projects/', icon: 'fa-layer-group' },
   { title: 'یادداشت‌ها', href: '/notes/', icon: 'fa-pen-nib' },
   { title: 'کتاب‌ها و جزوات', href: '/books/', icon: 'fa-book-open' },
@@ -27,9 +28,9 @@ const navItems = [
 // پنل موبایل علاوه‌بر آیتم‌های اصلی، لینک «مشاوره تخصصی» را هم دارد (چون
 // دکمه‌ی جداگانه‌ی مشاوره در نوار بالا فقط از sm به بالا دیده می‌شود).
 const mobileNavItems = [
-  ...navItems.slice(0, 6),
+  ...navItems.slice(0, 7),
   { title: 'مشاوره تخصصی', href: '/consultation/', icon: 'fa-headset' },
-  ...navItems.slice(6),
+  ...navItems.slice(7),
 ];
 ---
 <header class="sticky top-0 z-50 w-full relative bg-[var(--site-card)]/90 backdrop-blur-md border-b border-[var(--site-border)] transition-colors duration-200">

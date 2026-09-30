@@ -1,0 +1,528 @@
+---
+// OR-Tools pillar (hub) page: /ortools/
+// Links are resolved from content collections at build time, so a slug that
+// is missing or still a draft is skipped instead of producing a broken link.
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import TelegramCTA from '../../components/TelegramCTA.astro';
+import { entrySlug, isPublished } from '../../utils/content';
+
+type Kind = 'notes' | 'projects' | 'courses';
+
+const [notes, projects, courses] = await Promise.all([
+  getCollection('notes', isPublished),
+  getCollection('projects', isPublished),
+  getCollection('courses', isPublished),
+]);
+
+const index = new Map<string, { href: string; title: string; description: string; kind: Kind; duration?: string; level?: string }>();
+for (const [kind, list] of [['notes', notes], ['projects', projects], ['courses', courses]] as const) {
+  for (const entry of list) {
+    const slug = entrySlug(entry);
+    index.set(`${kind}/${slug}`, {
+      href: `/${kind}/${slug}/`,
+      title: entry.data.title,
+      description: entry.data.description,
+      kind,
+      duration: (entry.data as any).duration,
+      level: (entry.data as any).level,
+    });
+  }
+}
+
+const pick = (keys: string[]) => keys.map((k) => index.get(k)).filter((x): x is NonNullable<typeof x> => Boolean(x));
+const link = (key: string) => index.get(key);
+
+const kindLabel: Record<Kind, string> = { notes: 'یادداشت', projects: 'پروژه', courses: 'دوره' };
+
+// Learning path: a real sequence, so it is rendered as numbered steps.
+const ladder = [
+  {
+    title: 'مدل‌سازی ریاضی را یاد بگیرید',
+    text: 'قبل از هر ابزاری باید بتوانید یک مسئلهٔ واقعی را به متغیر تصمیم، تابع هدف و قید تبدیل کنید. این مهارت بین همهٔ سالورها مشترک است.',
+    items: pick(['notes/mathematical-modeling-art', 'courses/optimization-modeling']),
+  },
+  {
+    title: 'CP-SAT را با پازل‌ها تمرین کنید',
+    text: 'پازل‌ها کوچک‌ترین مسائل گسسته‌ای هستند که همهٔ مفاهیم CP-SAT را دارند: متغیر بولی، قیود منطقی، AllDifferent و پیدا کردن همهٔ جواب‌ها.',
+    items: pick(['notes/cp-intro', 'notes/puzzle-calendar-cp', 'notes/domino-fit-cp']),
+  },
+  {
+    title: 'زمان‌بندی و تخصیص صنعتی',
+    text: 'متغیرهای بازه‌ای (Interval)، قید NoOverlap و منابع تجمعی قلب مسائل زمان‌بندی تولید و خدمات هستند؛ جایی که CP-SAT از بیشتر سالورهای MILP قوی‌تر عمل می‌کند.',
+    items: pick(['notes/job-shop-scheduling-cp-sat', 'notes/brick-factory-scheduling', 'notes/crew-pairing-problem']),
+  },
+  {
+    title: 'مسیریابی و پروژه‌های واقعی',
+    text: 'کتابخانهٔ Routing برای TSP و VRP با پنجرهٔ زمانی، ظرفیت و چند انبار طراحی شده است. در این مرحله مدل را به داده و سناریوی واقعی وصل می‌کنید.',
+    items: pick(['notes/generalized-vehicle-routing-problem', 'projects/dynamic-vrp-reoptimization', 'courses/vrp-python']),
+  },
+];
+
+const clusters = [
+  {
+    id: 'scheduling',
+    title: 'زمان‌بندی تولید و خدمات',
+    text: 'چه کاری، روی کدام ماشین یا توسط چه کسی، و در چه زمانی انجام شود. از خط تولید تا اسکلهٔ بندر و کادر پرواز.',
+    items: pick([
+      'notes/job-shop-scheduling-cp-sat',
+      'notes/brick-factory-scheduling',
+      'notes/berth-allocation-problem',
+      'notes/crew-pairing-problem',
+      'notes/radiotherapy-scheduling-optimization',
+      'projects/butchery-inspection-scheduling',
+    ]),
+  },
+  {
+    id: 'routing',
+    title: 'مسیریابی و لجستیک',
+    text: 'طراحی مسیر ناوگان توزیع با محدودیت ظرفیت، زمان و ترافیک؛ هستهٔ عملیات لجستیک در زنجیرهٔ تأمین.',
+    items: pick([
+      'notes/generalized-vehicle-routing-problem',
+      'notes/time-dependent-vrp',
+      'notes/debris-clearance-arc-routing',
+      'projects/dynamic-vrp-reoptimization',
+    ]),
+  },
+  {
+    id: 'location',
+    title: 'مکان‌یابی و تخصیص',
+    text: 'تصمیم‌های راهبردی زنجیرهٔ تأمین: انبار، مرکز توزیع یا ایستگاه خدمت کجا ساخته شود و هر مشتری به کدام تخصیص یابد.',
+    items: pick(['notes/facility-location-problem', 'notes/ambulance-location-mclp']),
+  },
+  {
+    id: 'puzzles',
+    title: 'برنامه‌ریزی محدودیت با پازل',
+    text: 'راه سریع و سرگرم‌کننده برای درک منطق CP-SAT؛ همان تکنیک‌هایی که بعداً در زمان‌بندی و تخصیص به کار می‌روند.',
+    items: pick([
+      'notes/cp-intro',
+      'notes/puzzle-calendar-cp',
+      'notes/domino-fit-cp',
+      'notes/tiling-puzzle-cp',
+      'notes/linkedin-patches-cp',
+    ]),
+  },
+  {
+    id: 'debugging',
+    title: 'عیب‌یابی مدل',
+    text: 'وقتی سالور می‌گوید مسئله جواب شدنی ندارد، باید بدانید کدام قید مقصر است.',
+    items: pick(['notes/infeasible-model-diagnosis']),
+  },
+].filter((c) => c.items.length > 0);
+
+const relatedCourses = pick(['courses/vrp-python', 'courses/health-opt']);
+
+const faqs = [
+  {
+    q: 'آیا OR-Tools رایگان است؟',
+    a: 'بله. OR-Tools متن‌باز و با مجوز Apache 2.0 منتشر می‌شود، بنابراین استفاده از آن در پروژه‌های دانشگاهی و تجاری رایگان است و نیازی به خرید لایسنس سالور ندارد.',
+  },
+  {
+    q: 'برای یادگیری OR-Tools چه پیش‌نیازی لازم است؟',
+    a: 'آشنایی مقدماتی با پایتون و مفاهیم پایهٔ مدل‌سازی ریاضی کافی است. اگر مدل‌سازی برایتان تازه است، ابتدا از گام اول مسیر یادگیری همین صفحه شروع کنید.',
+  },
+  {
+    q: 'CP-SAT با سالورهای MILP مثل Gurobi چه فرقی دارد؟',
+    a: 'CP-SAT فقط با متغیرهای صحیح و بولی کار می‌کند و ترکیبی از برنامه‌ریزی محدودیت، SAT و برنامه‌ریزی خطی است. در مسائل زمان‌بندی و ترکیبیاتی معمولاً بسیار قوی است، اما برای مدل‌های پیوسته یا غیرخطی مناسب نیست.',
+  },
+  {
+    q: 'آیا OR-Tools برای مسائل واقعی صنعتی کافی است؟',
+    a: 'بله. OR-Tools در سیستم‌های عملیاتی واقعی مسیریابی و زمان‌بندی استفاده می‌شود. نکتهٔ اصلی در مسائل بزرگ، مدل‌سازی درست و تنظیم زمان و پارامترهای جست‌وجوی سالور است.',
+  },
+];
+
+const mathArt = link('notes/mathematical-modeling-art');
+const colab = link('notes/google-colab');
+const pyomoSolvers = link('notes/pyomo-solvers');
+const acStudies = link('notes/ac-studies');
+const advancedPower = link('courses/advanced-power-system');
+const infeasible = link('notes/infeasible-model-diagnosis');
+const berth = link('notes/berth-allocation-problem');
+
+const breadcrumbs = [{ name: 'خانه', url: '/' }, { name: 'آموزش OR-Tools' }];
+---
+
+<Layout
+  title="آموزش OR-Tools در پایتون: راهنمای جامع فارسی"
+  description="راهنمای جامع فارسی آموزش OR-Tools در پایتون: CP-SAT، مسیریابی وسایل نقلیه، زمان‌بندی و مکان‌یابی، با مسیر یادگیری گام‌به‌گام و پروژه‌های واقعی زنجیره تأمین."
+  type="article"
+  pubDate={new Date('2026-09-30')}
+  author="دکتر علیرضا سرودی"
+  authorUrl="/instructors/dr-soroudi/"
+  breadcrumbs={breadcrumbs}
+>
+  <main class="hub max-w-3xl mx-auto px-4 sm:px-6 py-12 sm:py-16 flex-grow w-full">
+
+    <header class="mb-12">
+      <h1 class="hub-title">آموزش OR-Tools در پایتون</h1>
+      <p class="hub-lede">
+        این صفحه نقطهٔ شروع یادگیری OR-Tools به زبان فارسی است: اینکه OR-Tools چیست، از چه بخش‌هایی تشکیل شده، کِی باید سراغ آن رفت و به چه ترتیبی یاد گرفت. همهٔ آموزش‌های سایت که با OR-Tools و CP-SAT نوشته شده‌اند، این‌جا بر اساس نوع مسئله دسته‌بندی شده‌اند؛ با تمرکز بر زنجیرهٔ تأمین، مهندسی صنایع و لجستیک.
+      </p>
+
+      <nav aria-label="فهرست این صفحه" class="hub-toc">
+        <a href="#what">OR-Tools چیست</a>
+        <a href="#components">اجزای OR-Tools</a>
+        <a href="#vs-pyomo">OR-Tools یا Pyomo</a>
+        <a href="#path">مسیر یادگیری</a>
+        <a href="#topics">آموزش‌ها بر اساس مسئله</a>
+        <a href="#faq">پرسش‌های رایج</a>
+      </nav>
+    </header>
+
+    <div class="prose max-w-none leading-loose text-[var(--site-text)]">
+
+      <h2 id="what">OR-Tools چیست؟</h2>
+      <p>
+        OR-Tools مجموعه‌ای متن‌باز از گوگل برای حل مسائل بهینه‌سازی ترکیبیاتی است؛ مسائلی که در آن‌ها باید از میان تعداد بسیار زیادی انتخاب گسسته بهترین را پیدا کرد. پرسش‌هایی مثل «کدام کار اول انجام شود؟»، «هر خودرو به کدام مشتری‌ها سر بزند؟» یا «انبار جدید کجا ساخته شود؟» دقیقاً از این نوع هستند.
+      </p>
+      <p>
+        هستهٔ OR-Tools با C++ نوشته شده و از پایتون، جاوا و #C قابل استفاده است. در این سایت همهٔ آموزش‌ها با پایتون هستند، چون برای یادگیری و نمونه‌سازی سریع‌ترین مسیر است و همان کد را می‌توان مستقیم در پروژهٔ واقعی به کار برد.
+      </p>
+
+      <h2 id="components">اجزای OR-Tools</h2>
+      <p>
+        OR-Tools یک سالور واحد نیست، بلکه چند ابزار تخصصی کنار هم است. دانستن اینکه هر مسئله را باید به کدام بخش سپرد، نیمی از کار است:
+      </p>
+      <div class="hub-table-wrap">
+        <table>
+          <thead>
+            <tr><th>بخش</th><th>برای چه مسائلی</th></tr>
+          </thead>
+          <tbody>
+            <tr><td dir="ltr" class="text-right">CP-SAT</td><td>زمان‌بندی، تخصیص، برنامه‌ریزی نیروی انسانی، پازل‌ها و بیشتر مسائل گسسته با قیود منطقی</td></tr>
+            <tr><td dir="ltr" class="text-right">Routing Library</td><td>مسئلهٔ فروشندهٔ دوره‌گرد (TSP) و مسیریابی وسایل نقلیه (VRP) با ظرفیت، پنجرهٔ زمانی و چند انبار</td></tr>
+            <tr><td dir="ltr" class="text-right">Linear Solver</td><td>برنامه‌ریزی خطی و عدد صحیح (LP و MILP) از طریق یک رابط واحد برای سالورهای مختلف</td></tr>
+            <tr><td>الگوریتم‌های گراف</td><td>کوتاه‌ترین مسیر، بیشینه‌جریان، جریان با کمترین هزینه و مسئلهٔ تخصیص</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        در عمل، CP-SAT پرکاربردترین بخش است و بیشتر آموزش‌های این سایت هم بر آن تکیه دارند. CP-SAT بارها در مسابقهٔ بین‌المللی سالورهای برنامه‌ریزی محدودیت (MiniZinc Challenge) رتبهٔ اول را کسب کرده است.
+      </p>
+
+      <h2 id="vs-pyomo">OR-Tools یا Pyomo؟</h2>
+      <p>
+        این دو رقیب هم نیستند، بلکه مکمل‌اند. OR-Tools در مسائل گسسته و ترکیبیاتی می‌درخشد: زمان‌بندی، مسیریابی و تخصیص. Pyomo یک زبان مدل‌سازی جبری است که مدل را جدا از سالور تعریف می‌کند و برای مسائل پیوسته و غیرخطی، مثل پخش بار بهینهٔ AC در شبکهٔ برق، انتخاب طبیعی‌تری است.
+      </p>
+      <p>
+        به همین دلیل در این سایت، بیشتر آموزش‌های زنجیرهٔ تأمین و زمان‌بندی با OR-Tools نوشته شده‌اند و آموزش‌های سیستم قدرت با Pyomo
+        {acStudies && <>(برای نمونه <a href={acStudies.href}>{acStudies.title}</a>)</>}.
+        {pyomoSolvers && <> اگر می‌خواهید با طرف دیگر هم آشنا شوید، <a href={pyomoSolvers.href}>{pyomoSolvers.title}</a> شروع خوبی است.</>}
+        {berth && <> در برخی یادداشت‌ها مثل <a href={berth.href}>{berth.title}</a> همان مسئله با هر دو رویکرد حل شده تا تفاوتشان را ببینید.</>}
+      </p>
+
+      <h2 id="install">نصب و شروع کار</h2>
+      <p>
+        نصب OR-Tools تنها با یک دستور انجام می‌شود: <code dir="ltr">pip install ortools</code>. سالور CP-SAT داخل همین بسته است و برخلاف بسیاری از ابزارهای بهینه‌سازی، نیازی به نصب جداگانهٔ سالور یا تهیهٔ لایسنس ندارید.
+        {colab && <> اگر نمی‌خواهید چیزی روی سیستم خود نصب کنید، می‌توانید همهٔ آموزش‌ها را در <a href={colab.href}>Google Colab</a> اجرا کنید.</>}
+      </p>
+    </div>
+
+    <section id="path" class="mt-14" aria-labelledby="path-title">
+      <h2 id="path-title" class="hub-h2">مسیر یادگیری OR-Tools</h2>
+      <p class="hub-section-lede">چهار مرحله، از مدل‌سازی تا پروژهٔ واقعی. هر مرحله روی مرحلهٔ قبل ساخته می‌شود.</p>
+
+      <ol class="ladder">
+        {ladder.map((step, i) => (
+          <li class="ladder-step">
+            <span class="ladder-num" aria-hidden="true">{(i + 1).toLocaleString('fa-IR')}</span>
+            <div class="ladder-body">
+              <h3 class="ladder-title">{step.title}</h3>
+              <p class="ladder-text">{step.text}</p>
+              {step.items.length > 0 && (
+                <ul class="ladder-links">
+                  {step.items.map((item) => (
+                    <li>
+                      <a href={item.href}>{item.title}</a>
+                      <span class="kind">{kindLabel[item.kind]}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          </li>
+        ))}
+      </ol>
+    </section>
+
+    <section id="topics" class="mt-16" aria-labelledby="topics-title">
+      <h2 id="topics-title" class="hub-h2">آموزش‌های OR-Tools بر اساس نوع مسئله</h2>
+      <p class="hub-section-lede">
+        هر آموزش یک مسئلهٔ واقعی را از تعریف تا پیاده‌سازی و تحلیل نتایج دنبال می‌کند.
+        {infeasible && <> اگر مدلتان جواب نمی‌دهد، <a href={infeasible.href}>راهنمای عیب‌یابی مدل غیرقابل‌اجرا</a> را ببینید.</>}
+      </p>
+
+      {clusters.map((cluster) => (
+        <div class="cluster" id={cluster.id}>
+          <h3 class="cluster-title">{cluster.title}</h3>
+          <p class="cluster-text">{cluster.text}</p>
+          <ul class="cluster-list">
+            {cluster.items.map((item) => (
+              <li>
+                <a href={item.href} class="cluster-link">{item.title}</a>
+                <p class="cluster-desc">{item.description}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </section>
+
+    {relatedCourses.length > 0 && (
+      <section class="mt-16" aria-labelledby="courses-title">
+        <h2 id="courses-title" class="hub-h2">دوره‌های OR-Tools</h2>
+        <p class="hub-section-lede">برای یادگیری ساختاریافته و پروژه‌محور، این دوره‌ها کل مسیر را با تمرین و پشتیبانی پوشش می‌دهند.</p>
+        <ul class="course-list">
+          {relatedCourses.map((c) => (
+            <li class="course">
+              <a href={c.href} class="course-title">{c.title}</a>
+              <p class="cluster-desc">{c.description}</p>
+              {(c.duration || c.level) && (
+                <p class="course-meta">
+                  {c.duration && <span><i class="fa-regular fa-clock" aria-hidden="true"></i> {c.duration}</span>}
+                  {c.level && <span><i class="fa-solid fa-signal" aria-hidden="true"></i> {c.level}</span>}
+                </p>
+              )}
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
+
+    <section id="faq" class="mt-16" aria-labelledby="faq-title">
+      <h2 id="faq-title" class="hub-h2">پرسش‌های رایج دربارهٔ OR-Tools</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <details>
+            <summary>{f.q}</summary>
+            <p>{f.a}</p>
+          </details>
+        ))}
+      </div>
+      {mathArt && (
+        <p class="hub-section-lede mt-6">
+          تازه شروع کرده‌اید؟ از <a href={mathArt.href}>{mathArt.title}</a> شروع کنید.
+        </p>
+      )}
+    </section>
+
+    <div class="mt-16">
+      <TelegramCTA
+        icon="fa-headset"
+        heading="پروژهٔ OR-Tools دارید؟"
+        description="برای مشاوره در مدل‌سازی و پیاده‌سازی مسائل زمان‌بندی، مسیریابی و زنجیرهٔ تأمین با"
+      />
+    </div>
+    <script type="application/ld+json" set:html={JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+})} />
+  </main>
+</Layout>
+
+
+
+<style>
+  .hub-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 900;
+    line-height: 1.25;
+    color: var(--site-heading);
+    margin-bottom: 1.25rem;
+  }
+  .hub-lede {
+    font-size: 1.0625rem;
+    line-height: 2;
+    color: var(--site-muted);
+    max-width: 62ch;
+  }
+  .hub-toc {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.25rem;
+    margin-top: 1.75rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--site-border);
+    font-size: 0.875rem;
+  }
+  .hub-toc a {
+    color: var(--site-primary);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .hub-toc a:hover { text-decoration: underline; }
+
+  .hub-h2 {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--site-heading);
+    margin-bottom: 0.5rem;
+  }
+  .hub-section-lede {
+    color: var(--site-muted);
+    line-height: 1.9;
+    margin-bottom: 1.75rem;
+  }
+  .hub-section-lede a,
+  .cluster-text a { color: var(--site-primary); font-weight: 600; }
+
+  .hub-table-wrap { overflow-x: auto; }
+
+  /* Learning ladder: the one distinctive element on the page. */
+  .ladder {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: relative;
+  }
+  .ladder::before {
+    content: '';
+    position: absolute;
+    top: 1.5rem;
+    bottom: 1.5rem;
+    inset-inline-start: 1.375rem;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--site-primary), var(--site-border));
+  }
+  .ladder-step {
+    position: relative;
+    display: grid;
+    grid-template-columns: 2.75rem 1fr;
+    gap: 1.25rem;
+    padding-bottom: 2.25rem;
+  }
+  .ladder-step:last-child { padding-bottom: 0; }
+  .ladder-num {
+    position: relative;
+    z-index: 1;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 999px;
+    display: grid;
+    place-items: center;
+    font-weight: 900;
+    font-size: 1.125rem;
+    color: var(--site-primary);
+    background: var(--site-bg);
+    border: 2px solid var(--site-primary);
+  }
+  .ladder-title {
+    font-size: 1.125rem;
+    font-weight: 800;
+    color: var(--site-heading);
+    margin: 0.5rem 0 0.375rem;
+  }
+  .ladder-text {
+    color: var(--site-text);
+    line-height: 1.9;
+    font-size: 0.9375rem;
+  }
+  .ladder-links {
+    list-style: none;
+    padding: 0;
+    margin: 0.875rem 0 0;
+    display: grid;
+    gap: 0.5rem;
+  }
+  .ladder-links li {
+    display: flex;
+    align-items: baseline;
+    gap: 0.625rem;
+    font-size: 0.9375rem;
+  }
+  .ladder-links a {
+    color: var(--site-primary);
+    font-weight: 700;
+    text-decoration: none;
+  }
+  .ladder-links a:hover { text-decoration: underline; }
+  .kind {
+    font-size: 0.75rem;
+    color: var(--site-muted);
+    white-space: nowrap;
+  }
+
+  .cluster {
+    padding: 1.5rem 0;
+    border-top: 1px solid var(--site-border);
+  }
+  .cluster-title {
+    font-size: 1.1875rem;
+    font-weight: 800;
+    color: var(--site-heading);
+    margin-bottom: 0.25rem;
+  }
+  .cluster-text {
+    color: var(--site-muted);
+    font-size: 0.9375rem;
+    line-height: 1.9;
+    margin-bottom: 1rem;
+  }
+  .cluster-list,
+  .course-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 1rem;
+  }
+  .cluster-link,
+  .course-title {
+    color: var(--site-heading);
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+  }
+  .cluster-link:hover,
+  .course-title:hover {
+    color: var(--site-primary);
+    border-bottom-color: currentColor;
+  }
+  .cluster-desc {
+    color: var(--site-muted);
+    font-size: 0.875rem;
+    line-height: 1.85;
+    margin-top: 0.25rem;
+  }
+
+  .course {
+    padding: 1.25rem;
+    border: 1px solid var(--site-border);
+    border-radius: 1rem;
+    background: var(--site-card);
+  }
+  .course-meta {
+    display: flex;
+    gap: 1.25rem;
+    margin-top: 0.625rem;
+    font-size: 0.8125rem;
+    color: var(--site-muted);
+  }
+
+  .faq details {
+    border-bottom: 1px solid var(--site-border);
+    padding: 1rem 0;
+  }
+  .faq summary {
+    cursor: pointer;
+    font-weight: 700;
+    color: var(--site-heading);
+  }
+  .faq details p {
+    margin-top: 0.75rem;
+    color: var(--site-text);
+    line-height: 1.95;
+  }
+
+  a:focus-visible,
+  summary:focus-visible {
+    outline: 2px solid var(--site-primary);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+</style>
