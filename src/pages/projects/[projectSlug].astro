@@ -20,7 +20,7 @@ export async function getStaticPaths() {
 const { project } = Astro.props;
 const { Content } = await render(project);
 const projectSlug = entrySlug(project);
-const inOrtoolsHub = isOrtoolsHubMember('projects', projectSlug, project.data.tags);
+const inOrtoolsHub = isOrtoolsHubMember('projects', projectSlug, project.data.tags, project.data.hubCluster);
 
 const instructors = (project.data.instructor || project.data.author)
   ? await getCollection('instructors', isPublished)

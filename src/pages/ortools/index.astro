@@ -6,7 +6,7 @@ import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import TelegramCTA from '../../components/TelegramCTA.astro';
 import { entrySlug, isPublished } from '../../utils/content';
-import { ortoolsLadder, ortoolsClusters, ortoolsCourses, curatedKeys, hasHubTag } from '../../data/ortools-hub';
+import { ortoolsLadder, ortoolsClusters, ortoolsCourses, curatedKeys, hasHubTag, isKnownCluster } from '../../data/ortools-hub';
 
 type Kind = 'notes' | 'projects' | 'courses';
 
@@ -16,7 +16,7 @@ const [notes, projects, courses] = await Promise.all([
   getCollection('courses', isPublished),
 ]);
 
-const index = new Map<string, { href: string; title: string; description: string; kind: Kind; duration?: string; level?: string; tags: string[] }>();
+const index = new Map<string, { href: string; title: string; description: string; kind: Kind; duration?: string; level?: string; tags: string[]; hubCluster?: string; pubDate?: Date }>();
 for (const [kind, list] of [['notes', notes], ['projects', projects], ['courses', courses]] as const) {
   for (const entry of list) {
     const slug = entrySlug(entry);
@@ -28,9 +28,25 @@ for (const [kind, list] of [['notes', notes], ['projects', projects], ['courses'
       duration: (entry.data as any).duration,
       level: (entry.data as any).level,
       tags: entry.data.tags ?? [],
+      hubCluster: (entry.data as any).hubCluster,
+      pubDate: (entry.data as any).pubDate,
     });
+    const hc = (entry.data as any).hubCluster;
+    if (hc && !isKnownCluster(hc)) {
+      console.warn(`[ortools hub] ${kind}/${slug}: unknown hubCluster "${hc}"; shown under "more" if tagged.`);
+    }
   }
 }
+
+// Curated keys first (in listed order), then entries that declare this
+// cluster in their own frontmatter, newest first.
+const clusterItems = (id: string, curated: string[] = []) => {
+  const extra = [...index.entries()]
+    .filter(([key, item]) => item.hubCluster === id && !curated.includes(key))
+    .sort(([, a], [, b]) => (b.pubDate?.getTime() ?? 0) - (a.pubDate?.getTime() ?? 0))
+    .map(([key]) => key);
+  return pick([...curated, ...extra]);
+};
 
 const pick = (keys: string[]) => keys.map((k) => index.get(k)).filter((x): x is NonNullable<typeof x> => Boolean(x));
 const link = (key: string) => index.get(key);
@@ -66,31 +82,31 @@ const clusters = [
     id: 'scheduling',
     title: 'زمان‌بندی تولید و خدمات',
     text: 'چه کاری، روی کدام ماشین یا توسط چه کسی، و در چه زمانی انجام شود. از خط تولید تا اسکلهٔ بندر و کادر پرواز.',
-    items: pick(ortoolsClusters.scheduling ?? []),
+    items: clusterItems('scheduling', ortoolsClusters.scheduling),
   },
   {
     id: 'routing',
     title: 'مسیریابی و لجستیک',
     text: 'طراحی مسیر ناوگان توزیع با محدودیت ظرفیت، زمان و ترافیک؛ هستهٔ عملیات لجستیک در زنجیرهٔ تأمین.',
-    items: pick(ortoolsClusters.routing ?? []),
+    items: clusterItems('routing', ortoolsClusters.routing),
   },
   {
     id: 'location',
     title: 'مکان‌یابی و تخصیص',
     text: 'تصمیم‌های راهبردی زنجیرهٔ تأمین: انبار، مرکز توزیع یا ایستگاه خدمت کجا ساخته شود و هر مشتری به کدام تخصیص یابد.',
-    items: pick(ortoolsClusters.location ?? []),
+    items: clusterItems('location', ortoolsClusters.location),
   },
   {
     id: 'puzzles',
     title: 'برنامه‌ریزی محدودیت با پازل',
     text: 'راه سریع و سرگرم‌کننده برای درک منطق CP-SAT؛ همان تکنیک‌هایی که بعداً در زمان‌بندی و تخصیص به کار می‌روند.',
-    items: pick(ortoolsClusters.puzzles ?? []),
+    items: clusterItems('puzzles', ortoolsClusters.puzzles),
   },
   {
     id: 'debugging',
     title: 'عیب‌یابی مدل',
     text: 'وقتی سالور می‌گوید مسئله جواب شدنی ندارد، باید بدانید کدام قید مقصر است.',
-    items: pick(ortoolsClusters.debugging ?? []),
+    items: clusterItems('debugging', ortoolsClusters.debugging),
   },
 ].filter((c) => c.items.length > 0);
 
@@ -98,7 +114,7 @@ const relatedCourses = pick(ortoolsCourses);
 
 // Tagged OR-Tools content that has not been placed in a cluster yet.
 const moreTutorials = [...index.entries()]
-  .filter(([key, item]) => !curatedKeys.has(key) && item.kind !== 'courses' && hasHubTag(item.tags))
+  .filter(([key, item]) => !curatedKeys.has(key) && !isKnownCluster(item.hubCluster) && item.kind !== 'courses' && hasHubTag(item.tags))
   .map(([, item]) => item);
 
 const faqs = [

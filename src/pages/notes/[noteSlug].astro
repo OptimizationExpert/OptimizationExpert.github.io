@@ -23,7 +23,7 @@ export async function getStaticPaths() {
 const { note } = Astro.props;
 const { Content } = await render(note);
 const noteSlug = entrySlug(note);
-const inOrtoolsHub = isOrtoolsHubMember('notes', noteSlug, note.data.tags);
+const inOrtoolsHub = isOrtoolsHubMember('notes', noteSlug, note.data.tags, note.data.hubCluster);
 
 const displayImage = note.data.image || note.data.minimalImage;
 

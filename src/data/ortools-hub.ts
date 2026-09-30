@@ -3,9 +3,10 @@
  *
  * Membership rules:
  *  1. Every key listed below (curated) belongs to the hub.
- *  2. Any published note/project/course tagged with one of HUB_TAGS also
- *     belongs, even if it is not curated yet. Such entries appear in the
- *     hub's "more tutorials" section until they are placed in a cluster.
+ *  2. Any published note/project whose frontmatter has `hubCluster: <key>`
+ *     belongs and is shown in that cluster automatically (no edit here).
+ *  3. Any published note/project/course tagged with one of HUB_TAGS also
+ *     belongs. Without a hubCluster it appears in the hub's "more" section.
  *
  * Keys use the form "<collection>/<slug>".
  */
@@ -71,8 +72,12 @@ export function hasHubTag(tags: string[] = []): boolean {
 }
 
 /** True when a page should link back to the OR-Tools hub. */
-export function isOrtoolsHubMember(kind: HubKind, slug: string, tags: string[] = []): boolean {
+export function isOrtoolsHubMember(kind: HubKind, slug: string, tags: string[] = [], hubCluster?: string): boolean {
   const key = `${kind}/${slug}`;
   if (NON_MEMBER_KEYS.has(key)) return false;
-  return curatedKeys.has(key) || hasHubTag(tags);
+  return curatedKeys.has(key) || isKnownCluster(hubCluster) || hasHubTag(tags);
+}
+
+export function isKnownCluster(key?: string): key is string {
+  return Boolean(key && Object.prototype.hasOwnProperty.call(ortoolsClusters, key));
 }

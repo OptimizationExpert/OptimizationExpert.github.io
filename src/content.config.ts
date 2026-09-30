@@ -57,6 +57,7 @@ const notesCollection = defineCollection({
     relatedCourses: z.array(z.string()).default([]),
     relatedNotes: z.array(z.string()).default([]),
     relatedProjects: z.array(z.string()).default([]),
+    hubCluster: z.string().optional(),
   }),
 });
 
@@ -75,6 +76,7 @@ const projectsCollection = defineCollection({
     relatedCourses: z.array(z.string()).default([]),
     relatedNotes: z.array(z.string()).default([]),
     relatedProjects: z.array(z.string()).default([]),
+    hubCluster: z.string().optional(),
   }),
 });
 
