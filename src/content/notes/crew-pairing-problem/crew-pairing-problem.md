@@ -9,7 +9,7 @@ image: "./crew-pairing-problem.svg"
 imageAlt: "تصویرسازی یک زنجیره چندروزه پرواز بین چند شهر همراه با تقویم شیفت خلبان و مهماندار و بازه‌های استراحت اجباری"
 tags: ["زمان‌بندی خدمه پرواز", "حمل‌ونقل هوایی", "برنامه‌ریزی محدودیت", "OR-Tools", "زمان‌بندی نیروی کار"]
 relatedCourses: ["vrp-python"]
-relatedNotes: ["nurse-rostering-cp-sat", "job-shop-scheduling-cp-sat", "berth-allocation-problem"]
+relatedNotes: ["job-shop-scheduling-cp-sat", "berth-allocation-problem"]
 ---
 
 هر خط هواپیمایی هر روز صدها یا هزاران پرواز را در سراسر دنیا اجرا می‌کند، و پشت هر یک از این پروازها یک خلبان و چند مهماندار ایستاده‌اند که باید سر ساعت درست، در فرودگاه درست، و با ساعات کاری قانونی حاضر باشند.
