@@ -1,0 +1,49 @@
+---
+// Compact link from a tutorial page back to its pillar (hub) page.
+interface Props {
+  href: string;
+  title: string;
+  icon?: string;
+}
+
+const { href, title, icon = 'fa-screwdriver-wrench' } = Astro.props;
+---
+
+<aside class="hub-backlink" aria-label="راهنمای مرتبط">
+  <i class={`fa-solid ${icon}`} aria-hidden="true"></i>
+  <p>
+    این مطلب بخشی از <a href={href}>{title}</a> است؛ مسیر یادگیری و همهٔ آموزش‌های مرتبط را آن‌جا ببینید.
+  </p>
+</aside>
+
+<style>
+  .hub-backlink {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    padding: 0.875rem 1.125rem;
+    border-inline-start: 3px solid var(--site-primary);
+    background: var(--site-card);
+    border-radius: 0.75rem;
+    font-size: 0.9375rem;
+    line-height: 1.9;
+    color: var(--site-text);
+  }
+  .hub-backlink i {
+    color: var(--site-primary);
+    flex-shrink: 0;
+  }
+  .hub-backlink p { margin: 0; }
+  .hub-backlink a {
+    color: var(--site-primary);
+    font-weight: 700;
+    text-decoration: none;
+  }
+  .hub-backlink a:hover { text-decoration: underline; }
+  .hub-backlink a:focus-visible {
+    outline: 2px solid var(--site-primary);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+</style>

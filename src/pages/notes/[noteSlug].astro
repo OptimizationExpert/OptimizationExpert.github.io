@@ -5,6 +5,8 @@ import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
 import RelatedContent from '../../components/RelatedContent.astro';
 import TelegramCTA from '../../components/TelegramCTA.astro';
+import HubBacklink from '../../components/HubBacklink.astro';
+import { isOrtoolsHubMember, ORTOOLS_HUB_URL, ORTOOLS_HUB_TITLE } from '../../data/ortools-hub';
 import { imgSrc } from '../../utils/image';
 
 export async function getStaticPaths() {
@@ -21,6 +23,7 @@ export async function getStaticPaths() {
 const { note } = Astro.props;
 const { Content } = await render(note);
 const noteSlug = entrySlug(note);
+const inOrtoolsHub = isOrtoolsHubMember('notes', noteSlug, note.data.tags);
 
 const displayImage = note.data.image || note.data.minimalImage;
 
@@ -112,6 +115,8 @@ const authorDisplayName = matchedInstructor
           {note.data.description}
         </p>
       )}
+
+      {inOrtoolsHub && <HubBacklink href={ORTOOLS_HUB_URL} title={ORTOOLS_HUB_TITLE} />}
 
       {displayImage && (
         <div class="w-full rounded-2xl overflow-hidden border border-[var(--site-border)] mb-6 bg-[var(--site-card)] flex items-center justify-center shadow-md">

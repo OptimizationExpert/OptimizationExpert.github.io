@@ -6,6 +6,8 @@ import Layout from '../../layouts/Layout.astro';
 import RelatedContent from '../../components/RelatedContent.astro';
 import InstructorBio from '../../components/InstructorBio.astro';
 import TelegramCTA from '../../components/TelegramCTA.astro';
+import HubBacklink from '../../components/HubBacklink.astro';
+import { isOrtoolsHubMember, ORTOOLS_HUB_URL, ORTOOLS_HUB_TITLE } from '../../data/ortools-hub';
 import { imgSrc } from '../../utils/image';
 
 export async function getStaticPaths() {
@@ -19,6 +21,7 @@ export async function getStaticPaths() {
 const { course } = Astro.props;
 const { Content } = await render(course);
 const courseSlug = entrySlug(course);
+const inOrtoolsHub = isOrtoolsHubMember('courses', courseSlug, course.data.tags);
 
 const pageImage = course.data.image || course.data.minimalImage;
 const pageImageAlt = course.data.imageAlt || course.data.minimalImageAlt || course.data.title;
@@ -92,6 +95,8 @@ const instructorData = instructors.find(
       <h1 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[var(--site-heading)] mb-5 leading-snug tracking-tight">
         {course.data.title}
       </h1>
+
+      {inOrtoolsHub && <HubBacklink href={ORTOOLS_HUB_URL} title={ORTOOLS_HUB_TITLE} />}
 
       {pageImage && (
         <div class="w-full rounded-2xl overflow-hidden border border-[var(--site-border)] bg-[var(--site-card)] flex items-center justify-center shadow-sm">
