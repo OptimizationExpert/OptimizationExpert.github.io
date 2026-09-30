@@ -293,9 +293,8 @@ const graph = [organization, website, webpage, ...(contentEntity ? [contentEntit
 ---
 <title>{pageTitle}</title>
 <meta name="description" content={description} />
-<meta name="robots" content={noindex ? 'noindex, follow' : 'index, follow'} />
+<meta name="robots" content={noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large'} />
 <link rel="canonical" href={canonicalURL} />
-<meta name="max-image-preview" content="large" />
 <meta name="author" content={author} />
 
 <meta property="og:type" content={pageType === 'article' ? 'article' : 'website'} />
