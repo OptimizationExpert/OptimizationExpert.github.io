@@ -1,0 +1,183 @@
+---
+// Homepage strip that promotes the pillar (hub) guides.
+// Tutorial counts are computed from the hub membership rules, so the number
+// stays correct as new notes are published.
+import { getCollection } from 'astro:content';
+import { entrySlug, isPublished } from '../utils/content';
+import { isOrtoolsHubMember, ORTOOLS_HUB_URL } from '../data/ortools-hub';
+
+const [notes, projects] = await Promise.all([
+  getCollection('notes', isPublished),
+  getCollection('projects', isPublished),
+]);
+
+const ortoolsCount =
+  notes.filter((n) => isOrtoolsHubMember('notes', entrySlug(n), n.data.tags, (n.data as any).hubCluster)).length +
+  projects.filter((p) => isOrtoolsHubMember('projects', entrySlug(p), p.data.tags, (p.data as any).hubCluster)).length;
+
+const toFa = (n: number) => n.toLocaleString('fa-IR');
+
+const guide = {
+  href: ORTOOLS_HUB_URL,
+  title: 'آموزش جامع OR-Tools',
+  text: 'از مدل‌سازی ریاضی و CP-SAT تا زمان‌بندی تولید، مسیریابی ناوگان و مکان‌یابی در زنجیرهٔ تأمین؛ همه در یک مسیر یادگیری مرحله‌به‌مرحله.',
+  steps: ['مدل‌سازی', 'CP-SAT', 'زمان‌بندی', 'مسیریابی'],
+  count: ortoolsCount,
+};
+---
+
+<section class="guides max-w-6xl mx-auto px-4 sm:px-6 pt-12 sm:pt-20 w-full" aria-labelledby="guides-title">
+  <div class="mb-6">
+    <h2 id="guides-title" class="text-xl sm:text-3xl font-black text-[var(--site-heading)]">راهنماهای جامع</h2>
+    <p class="guides-sub">نقطهٔ شروع یادگیری هر ابزار؛ همهٔ آموزش‌ها به ترتیب و دسته‌بندی‌شده.</p>
+  </div>
+
+  <a href={guide.href} class="guide-card">
+    <div class="guide-icon" aria-hidden="true"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+
+    <div class="guide-main">
+      <h3 class="guide-title">{guide.title}</h3>
+      <p class="guide-text">{guide.text}</p>
+      <ol class="guide-steps" aria-label="مراحل مسیر یادگیری">
+        {guide.steps.map((s, i) => (
+          <li><span class="num">{toFa(i + 1)}</span>{s}</li>
+        ))}
+      </ol>
+    </div>
+
+    <div class="guide-side">
+      <span class="guide-count"><strong>{toFa(guide.count)}</strong> آموزش</span>
+      <span class="guide-cta">شروع مسیر یادگیری <i class="fa-solid fa-arrow-left" aria-hidden="true"></i></span>
+    </div>
+  </a>
+</section>
+
+<style>
+  .guides-sub,
+  .guide-text {
+    text-align: start;
+  }
+  .guides-sub {
+    margin-top: 0.5rem;
+    color: var(--site-muted);
+    font-size: 0.9375rem;
+  }
+  .guide-card {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 1.5rem;
+    align-items: center;
+    padding: 1.75rem;
+    border: 1px solid var(--site-border);
+    border-inline-start: 5px solid var(--site-primary);
+    border-radius: 1.25rem;
+    background: var(--site-card);
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .guide-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px -12px rgba(2, 132, 199, 0.35);
+  }
+  .guide-card:focus-visible {
+    outline: 2px solid var(--site-primary);
+    outline-offset: 4px;
+  }
+  .guide-icon {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 1rem;
+    display: grid;
+    place-items: center;
+    font-size: 1.5rem;
+    color: var(--site-primary);
+    background: color-mix(in srgb, var(--site-primary) 12%, transparent);
+  }
+  .guide-title {
+    font-size: 1.375rem;
+    font-weight: 900;
+    color: var(--site-heading);
+  }
+  .guide-text {
+    margin-top: 0.375rem;
+    color: var(--site-text);
+    line-height: 1.9;
+    font-size: 0.9375rem;
+    max-width: 60ch;
+  }
+  .guide-steps {
+    list-style: none;
+    padding: 0;
+    margin: 0.875rem 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .guide-steps li {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.25rem 0.75rem 0.25rem 0.5rem;
+    border: 1px solid var(--site-border);
+    border-radius: 999px;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: var(--site-heading);
+  }
+  .guide-steps .num {
+    width: 1.375rem;
+    height: 1.375rem;
+    border-radius: 999px;
+    display: grid;
+    place-items: center;
+    font-size: 0.75rem;
+    color: #fff;
+    background: var(--site-primary);
+  }
+  .guide-side {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.75rem;
+    white-space: nowrap;
+  }
+  .guide-count {
+    color: var(--site-muted);
+    font-size: 0.875rem;
+  }
+  .guide-count strong {
+    font-size: 1.75rem;
+    font-weight: 900;
+    color: var(--site-heading);
+    margin-inline-end: 0.25rem;
+  }
+  .guide-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.625rem 1.125rem;
+    border-radius: 0.75rem;
+    font-weight: 800;
+    font-size: 0.9375rem;
+    color: #fff;
+    background: var(--site-primary);
+  }
+
+  @media (max-width: 767px) {
+    .guide-card {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      padding: 1.25rem;
+    }
+    .guide-icon { width: 3.25rem; height: 3.25rem; font-size: 1.25rem; }
+    .guide-side {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .guide-card { transition: none; }
+    .guide-card:hover { transform: none; }
+  }
+</style>

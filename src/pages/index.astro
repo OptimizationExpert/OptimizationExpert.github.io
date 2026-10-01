@@ -5,6 +5,7 @@ import Layout from '../layouts/Layout.astro';
 import ContentCard from '../components/ContentCard.astro';
 import HorizontalScroller from '../components/HorizontalScroller.astro';
 import ScrollerControls from '../components/ScrollerControls.astro';
+import GuidesStrip from '../components/GuidesStrip.astro';
 
 /* ────────────── داده‌ها ────────────── */
 
@@ -39,7 +40,7 @@ const stats = [
 
 const sceneSectors = [
   {
-    icon: 'fa-bolt', label: 'برق و انرژی', tag: 'OPF', color: '#fbbf24', name: 'Optimal Power Flow',
+    icon: 'fa-bolt', label: 'برق و انرژی', tag: 'OPF', link: { href: '/courses/advanced-power-system/', text: 'دوره بهینه‌سازی سیستم قدرت' }, color: '#fbbf24', name: 'Optimal Power Flow',
     model: {
       obj:  String.raw`\min \sum\limits_{i \in \mathcal{G}} C_i(P_i^G)`,
       cons: [
@@ -49,7 +50,7 @@ const sceneSectors = [
     },
   },
   {
-    icon: 'fa-heart-pulse', label: 'بهداشت و درمان', tag: 'NSP', color: '#f472b6', name: 'Nurse Scheduling Problem',
+    icon: 'fa-heart-pulse', label: 'بهداشت و درمان', tag: 'NSP', link: { href: '/courses/health-opt/', text: 'دوره بهینه‌سازی سیستم‌های سلامت' }, color: '#f472b6', name: 'Nurse Scheduling Problem',
     model: {
       obj:  String.raw`\min \sum\limits_{n}\sum\limits_{s}\sum\limits_{d} c_{nsd}\, x_{nsd}`,
       cons: [
@@ -59,7 +60,7 @@ const sceneSectors = [
     },
   },
   {
-    icon: 'fa-truck-fast', label: 'لجستیک و ناوگان', tag: 'VRP', color: '#34d399', name: 'Vehicle Routing Problem',
+    icon: 'fa-truck-fast', label: 'لجستیک و ناوگان', tag: 'VRP', link: { href: '/ortools/#routing', text: 'آموزش‌های مسیریابی با OR-Tools' }, color: '#34d399', name: 'Vehicle Routing Problem',
     model: {
       obj:  String.raw`\min \sum\limits_{k}\sum\limits_{i}\sum\limits_{j} c_{ij}\, x_{ij}^{k}`,
       cons: [
@@ -79,7 +80,7 @@ const sceneSectors = [
     },
   },
   {
-    icon: 'fa-industry', label: 'صنعت و تولید', tag: 'JSP', color: '#a78bfa', name: 'Job-Shop Scheduling',
+    icon: 'fa-industry', label: 'صنعت و تولید', tag: 'JSP', link: { href: '/ortools/#scheduling', text: 'آموزش‌های زمان‌بندی با OR-Tools' }, color: '#a78bfa', name: 'Job-Shop Scheduling',
     model: {
       obj:  String.raw`\min \; C_{\max}`,
       cons: [
@@ -89,7 +90,7 @@ const sceneSectors = [
     },
   },
   {
-    icon: 'fa-boxes-stacked', label: 'زنجیره تامین', tag: 'SCM', color: '#fb923c', name: 'Supply Chain Network Design',
+    icon: 'fa-boxes-stacked', label: 'زنجیره تامین', tag: 'SCM', link: { href: '/ortools/#location', text: 'آموزش‌های مکان‌یابی و تخصیص' }, color: '#fb923c', name: 'Supply Chain Network Design',
     model: {
       obj:  String.raw`\min \sum\limits_{f} F_f\, z_f + \sum\limits_{i,j} c_{ij}\, x_{ij}`,
       cons: [
@@ -102,7 +103,7 @@ const sceneSectors = [
 
 /* مدل کلی بهینه‌سازی — نمایش با هاور روی دایره‌ی مرکزی */
 const generalModel = {
-  tag: 'OPT', label: 'مدل کلی بهینه‌سازی', color: '#f59e0b', name: 'General Optimization Model',
+  tag: 'OPT', label: 'مدل کلی بهینه‌سازی', link: { href: '/notes/mathematical-modeling-art/', text: 'هنر مدل‌سازی ریاضی' }, color: '#f59e0b', name: 'General Optimization Model',
   model: {
     obj:  String.raw`\min\limits_{x \in \mathbb{R}^n} \; f(x)`,
     cons: [
@@ -153,7 +154,7 @@ const hexPath = sceneSectors.map((_, i) => {
 
 /* ────────────── پی‌لود مدل‌ها برای اسکریپت کنسول (تک‌منبع) ────────────── */
 
-const modelPayload = scene.map(({ tag, label, color, name, model }) => ({ tag, label, color, name, model }));
+const modelPayload = scene.map(({ tag, label, color, name, model, link }) => ({ tag, label, color, name, model, link }));
 ---
 
 <Layout title="مرجع تخصصی مدل‌سازی، بهینه‌سازی و سیستم‌های قدرت" description="مرجع تخصصی مدل‌سازی ریاضی، برنامه‌نویسی پایتون، سالورهای بهینه‌سازی و تحلیل سیستم‌های قدرت به صورت پروژه‌محور.">
@@ -299,16 +300,24 @@ const modelPayload = scene.map(({ tag, label, color, name, model }) => ({ tag, l
               </circle>
             </svg>
 
-            {scene.map((g, i) => (
-              <div class="scene-chip-wrap" style={`left:${g.lx}%; top:${g.ly}%; --c:${g.color}`}>
-                <div class="scene-chip" style={`flex-direction: ${g.y < 50 ? 'column-reverse' : 'column'}; animation-delay:${i * 0.7}s`}>
-                  <span class="scene-chip-icon" style={`border-color:${g.color}70; box-shadow:0 2px 10px ${g.color}25;`}>
-                    <i class={`fa-solid ${g.icon}`} style={`color:${g.color}`} aria-hidden="true"></i>
-                  </span>
-                  <span class="scene-chip-label">{g.label}</span>
-                </div>
-              </div>
-            ))}
+            {scene.map((g, i) => {
+              const Wrap = g.link ? 'a' : 'div';
+              return (
+                  <Wrap
+                    class="scene-chip-wrap"
+                    href={g.link?.href}
+                    aria-label={g.link ? `${g.label}: ${g.link.text}` : undefined}
+                    style={`left:${g.lx}%; top:${g.ly}%; --c:${g.color}`}
+                  >
+                      <div class="scene-chip" style={`flex-direction: ${g.y < 50 ? 'column-reverse' : 'column'}; animation-delay:${i * 0.7}s`}>
+                        <span class="scene-chip-icon" style={`border-color:${g.color}70; box-shadow:0 2px 10px ${g.color}25;`}>
+                          <i class={`fa-solid ${g.icon}`} style={`color:${g.color}`} aria-hidden="true"></i>
+                        </span>
+                        <span class="scene-chip-label">{g.label}</span>
+                      </div>
+                  </Wrap>
+              );
+            })}
           </div>
 
           <!-- کنسول مدل: فرمول‌بندی ریاضی مسائل (رندر واقعی با KaTeX) -->
@@ -338,12 +347,15 @@ const modelPayload = scene.map(({ tag, label, color, name, model }) => ({ tag, l
             </div>
 
             <div class="model-dots" id="model-dots"></div>
+            <a class="model-link" id="model-link" href="/ortools/" hidden><span id="model-link-text"></span> <i class="fa-solid fa-arrow-left" aria-hidden="true"></i></a>
           </div>
         </div>
 
       </div>
     </div>
   </section>
+
+  <GuidesStrip />
 
   <!-- ═══════════ دوره‌های آموزشی ═══════════ -->
   <section class="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-20 w-full">
@@ -562,6 +574,8 @@ const modelPayload = scene.map(({ tag, label, color, name, model }) => ({ tag, l
         dots:  document.getElementById('model-dots'),
       };
       const chips   = Array.from(document.querySelectorAll('.scene-chip-wrap'));
+      const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+      let tappedChip = -1;
       const coreHit = document.querySelector('.scene-core-hit');
       const wrapper = document.querySelector('.scene-wrapper');
 
@@ -617,6 +631,19 @@ const modelPayload = scene.map(({ tag, label, color, name, model }) => ({ tag, l
         els.name.textContent  = m.name;
         els.label.textContent = m.label;
 
+        /* Link to the tutorials of the active sector */
+        const linkEl = document.getElementById('model-link');
+        if (linkEl) {
+          if (m.link) {
+            linkEl.href = m.link.href;
+            document.getElementById('model-link-text').textContent = m.link.text;
+            linkEl.style.setProperty('--c', m.color);
+            linkEl.hidden = false;
+          } else {
+            linkEl.hidden = true;
+          }
+        }
+
         /* بدنه‌ی فرمول — رندر ریاضی با KaTeX */
         fill(els.body, m);
 
@@ -640,8 +667,16 @@ const modelPayload = scene.map(({ tag, label, color, name, model }) => ({ tag, l
 
       /* تعامل چیپ‌ها و نقطه‌ها */
       chips.forEach((chip, i) => {
-        chip.addEventListener('mouseenter', () => { stop(); show(i); });
-        chip.addEventListener('click',      () => { stop(); show(i); start(); });
+        /* Touch screens fire a synthetic mouseenter before click, so hover is only wired on real hover devices. */
+        if (canHover) chip.addEventListener('mouseenter', () => { stop(); show(i); });
+        chip.addEventListener('click', (e) => {
+          /* Touch: first tap previews the model, a second tap on the same chip follows its link. */
+          if (chip.tagName === 'A' && !canHover && tappedChip !== i) {
+            e.preventDefault();
+            tappedChip = i;
+          }
+          stop(); show(i); start();
+        });
       });
       dots.forEach((d, i) => d.addEventListener('click', () => { stop(); show(i); start(); }));
       consoleEl.addEventListener('mouseenter', stop);
