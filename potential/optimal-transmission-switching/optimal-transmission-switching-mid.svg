@@ -1,0 +1,70 @@
+<svg viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="1600" height="900" fill="#ffffff"/>
+
+  <defs>
+    <marker id="arrM" markerWidth="16" markerHeight="16" refX="8" refY="6" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L12,6 L0,12 Z" fill="#1d4ed8"/>
+    </marker>
+  </defs>
+
+  <!-- divider -->
+  <line x1="800" y1="140" x2="800" y2="780" stroke="#e2e8f0" stroke-width="3"/>
+
+  <!-- LEFT PANEL: before -->
+  <g>
+    <text x="400" y="110" font-family="Vazirmatn" font-size="30" font-weight="bold" fill="#0f172a" text-anchor="middle">قبل از کلیدزنی</text>
+
+    <!-- substations as nodes -->
+    <circle cx="260" cy="280" r="20" fill="#1d4ed8"/>
+    <circle cx="620" cy="280" r="20" fill="#1d4ed8"/>
+    <circle cx="260" cy="620" r="20" fill="#1d4ed8"/>
+    <circle cx="620" cy="620" r="20" fill="#1d4ed8"/>
+
+    <!-- perimeter: normal load -->
+    <line x1="260" y1="280" x2="620" y2="280" stroke="#64748b" stroke-width="5"/>
+    <line x1="260" y1="620" x2="620" y2="620" stroke="#64748b" stroke-width="5"/>
+    <line x1="260" y1="280" x2="260" y2="620" stroke="#64748b" stroke-width="5"/>
+    <line x1="620" y1="280" x2="620" y2="620" stroke="#64748b" stroke-width="5"/>
+
+    <!-- diagonal: overloaded -->
+    <line x1="260" y1="280" x2="620" y2="620" stroke="#dc2626" stroke-width="9"/>
+
+    <!-- warning badge on the diagonal -->
+    <g transform="translate(440,450)">
+      <circle r="34" fill="#fef2f2" stroke="#dc2626" stroke-width="3"/>
+      <text x="0" y="9" font-family="Vazirmatn" font-size="26" font-weight="bold" fill="#dc2626" text-anchor="middle">!</text>
+    </g>
+    <text x="440" y="520" font-family="Vazirmatn" font-size="22" font-weight="bold" fill="#991b1b" text-anchor="middle">گلوگاه تراکم</text>
+
+    <text x="440" y="700" font-family="Vazirmatn" font-size="19" fill="#475569" text-anchor="middle">همه خطوط بسته‌اند، بار دیاگونال زیاد است</text>
+  </g>
+
+  <!-- RIGHT PANEL: after -->
+  <g transform="translate(800,0)">
+    <text x="400" y="110" font-family="Vazirmatn" font-size="30" font-weight="bold" fill="#0f172a" text-anchor="middle">بعد از کلیدزنی</text>
+
+    <circle cx="260" cy="280" r="20" fill="#1d4ed8"/>
+    <circle cx="620" cy="280" r="20" fill="#1d4ed8"/>
+    <circle cx="260" cy="620" r="20" fill="#1d4ed8"/>
+    <circle cx="620" cy="620" r="20" fill="#1d4ed8"/>
+
+    <!-- perimeter: increased flow, highlighted -->
+    <line x1="290" y1="280" x2="585" y2="280" stroke="#1d4ed8" stroke-width="8" marker-end="url(#arrM)"/>
+    <line x1="290" y1="620" x2="585" y2="620" stroke="#1d4ed8" stroke-width="8" marker-end="url(#arrM)"/>
+    <line x1="260" y1="310" x2="260" y2="590" stroke="#1d4ed8" stroke-width="8" marker-end="url(#arrM)"/>
+    <line x1="620" y1="310" x2="620" y2="590" stroke="#1d4ed8" stroke-width="8" marker-end="url(#arrM)"/>
+
+    <!-- diagonal: open -->
+    <line x1="260" y1="280" x2="620" y2="620" stroke="#94a3b8" stroke-width="5" stroke-dasharray="12,10"/>
+    <g transform="translate(440,450)">
+      <line x1="-22" y1="8" x2="-4" y2="-8" stroke="#475569" stroke-width="5" stroke-linecap="round"/>
+      <line x1="4" y1="8" x2="22" y2="-8" stroke="#475569" stroke-width="5" stroke-linecap="round"/>
+      <circle r="30" fill="none" stroke="#059669" stroke-width="3"/>
+    </g>
+    <text x="440" y="520" font-family="Vazirmatn" font-size="22" font-weight="bold" fill="#065f46" text-anchor="middle">خط باز، بار متعادل</text>
+
+    <text x="440" y="700" font-family="Vazirmatn" font-size="19" fill="#475569" text-anchor="middle">جریان از مسیر پیرامونی رد می‌شود</text>
+  </g>
+
+  <text x="800" y="840" font-family="Vazirmatn" font-size="20" fill="#64748b" text-anchor="middle">یک کلید باز، همان شبکه را ارزان‌تر و ایمن‌تر می‌کند</text>
+</svg>

@@ -1,0 +1,107 @@
+<svg viewBox="0 0 960 580" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="960" height="580" fill="#ffffff"/>
+
+  <!-- Title -->
+  <text x="480" y="46" font-family="Vazirmatn" font-size="25" font-weight="bold" fill="#0f172a" text-anchor="middle">کلیدزنی بهینه خطوط انتقال برق</text>
+  <text x="480" y="72" font-family="Vazirmatn" font-size="15" fill="#64748b" text-anchor="middle">کدام خط را باز نگه داریم تا شبکه ارزان‌تر کار کند؟</text>
+
+  <defs>
+    <marker id="arrowB" markerWidth="14" markerHeight="14" refX="7" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#1d4ed8"/>
+    </marker>
+  </defs>
+
+  <!-- Tower template reused via transforms -->
+  <g id="towers">
+    <!-- Tower A -->
+    <g transform="translate(190,190)">
+      <line x1="0" y1="-60" x2="0" y2="20" stroke="#1d4ed8" stroke-width="4"/>
+      <line x1="-30" y1="-45" x2="30" y2="-45" stroke="#1d4ed8" stroke-width="4"/>
+      <line x1="-22" y1="-20" x2="22" y2="-20" stroke="#1d4ed8" stroke-width="4"/>
+      <line x1="-30" y1="-45" x2="0" y2="20" stroke="#1d4ed8" stroke-width="2.5"/>
+      <line x1="30" y1="-45" x2="0" y2="20" stroke="#1d4ed8" stroke-width="2.5"/>
+      <line x1="-22" y1="-20" x2="0" y2="20" stroke="#1d4ed8" stroke-width="2"/>
+      <line x1="22" y1="-20" x2="0" y2="20" stroke="#1d4ed8" stroke-width="2"/>
+      <rect x="-18" y="20" width="36" height="10" rx="2" fill="#1d4ed8"/>
+      <circle cx="-30" cy="-45" r="4" fill="#fbbf24"/>
+      <circle cx="30" cy="-45" r="4" fill="#fbbf24"/>
+      <text x="0" y="60" font-family="Vazirmatn" font-size="16" font-weight="bold" fill="#1d4ed8" text-anchor="middle">پست ۱</text>
+    </g>
+    <!-- Tower B -->
+    <g transform="translate(770,190)">
+      <line x1="0" y1="-60" x2="0" y2="20" stroke="#1d4ed8" stroke-width="4"/>
+      <line x1="-30" y1="-45" x2="30" y2="-45" stroke="#1d4ed8" stroke-width="4"/>
+      <line x1="-22" y1="-20" x2="22" y2="-20" stroke="#1d4ed8" stroke-width="4"/>
+      <line x1="-30" y1="-45" x2="0" y2="20" stroke="#1d4ed8" stroke-width="2.5"/>
+      <line x1="30" y1="-45" x2="0" y2="20" stroke="#1d4ed8" stroke-width="2.5"/>
+      <line x1="-22" y1="-20" x2="0" y2="20" stroke="#1d4ed8" stroke-width="2"/>
+      <line x1="22" y1="-20" x2="0" y2="20" stroke="#1d4ed8" stroke-width="2"/>
+      <rect x="-18" y="20" width="36" height="10" rx="2" fill="#1d4ed8"/>
+      <circle cx="-30" cy="-45" r="4" fill="#fbbf24"/>
+      <circle cx="30" cy="-45" r="4" fill="#fbbf24"/>
+      <text x="0" y="60" font-family="Vazirmatn" font-size="16" font-weight="bold" fill="#1d4ed8" text-anchor="middle">پست ۲</text>
+    </g>
+    <!-- Tower C -->
+    <g transform="translate(190,440)">
+      <line x1="0" y1="-60" x2="0" y2="20" stroke="#1d4ed8" stroke-width="4"/>
+      <line x1="-30" y1="-45" x2="30" y2="-45" stroke="#1d4ed8" stroke-width="4"/>
+      <line x1="-22" y1="-20" x2="22" y2="-20" stroke="#1d4ed8" stroke-width="4"/>
+      <line x1="-30" y1="-45" x2="0" y2="20" stroke="#1d4ed8" stroke-width="2.5"/>
+      <line x1="30" y1="-45" x2="0" y2="20" stroke="#1d4ed8" stroke-width="2.5"/>
+      <line x1="-22" y1="-20" x2="0" y2="20" stroke="#1d4ed8" stroke-width="2"/>
+      <line x1="22" y1="-20" x2="0" y2="20" stroke="#1d4ed8" stroke-width="2"/>
+      <rect x="-18" y="20" width="36" height="10" rx="2" fill="#1d4ed8"/>
+      <circle cx="-30" cy="-45" r="4" fill="#fbbf24"/>
+      <circle cx="30" cy="-45" r="4" fill="#fbbf24"/>
+      <text x="0" y="60" font-family="Vazirmatn" font-size="16" font-weight="bold" fill="#1d4ed8" text-anchor="middle">پست ۳</text>
+    </g>
+    <!-- Tower D -->
+    <g transform="translate(770,440)">
+      <line x1="0" y1="-60" x2="0" y2="20" stroke="#1d4ed8" stroke-width="4"/>
+      <line x1="-30" y1="-45" x2="30" y2="-45" stroke="#1d4ed8" stroke-width="4"/>
+      <line x1="-22" y1="-20" x2="22" y2="-20" stroke="#1d4ed8" stroke-width="4"/>
+      <line x1="-30" y1="-45" x2="0" y2="20" stroke="#1d4ed8" stroke-width="2.5"/>
+      <line x1="30" y1="-45" x2="0" y2="20" stroke="#1d4ed8" stroke-width="2.5"/>
+      <line x1="-22" y1="-20" x2="0" y2="20" stroke="#1d4ed8" stroke-width="2"/>
+      <line x1="22" y1="-20" x2="0" y2="20" stroke="#1d4ed8" stroke-width="2"/>
+      <rect x="-18" y="20" width="36" height="10" rx="2" fill="#1d4ed8"/>
+      <circle cx="-30" cy="-45" r="4" fill="#fbbf24"/>
+      <circle cx="30" cy="-45" r="4" fill="#fbbf24"/>
+      <text x="0" y="60" font-family="Vazirmatn" font-size="16" font-weight="bold" fill="#1d4ed8" text-anchor="middle">پست ۴</text>
+    </g>
+  </g>
+
+  <!-- Perimeter lines: in service, carrying rerouted flow -->
+  <line x1="228" y1="145" x2="700" y2="145" stroke="#1d4ed8" stroke-width="6" marker-end="url(#arrowB)"/>
+  <line x1="228" y1="395" x2="700" y2="395" stroke="#1d4ed8" stroke-width="6" marker-end="url(#arrowB)"/>
+  <line x1="190" y1="160" x2="190" y2="420" stroke="#1d4ed8" stroke-width="4.5"/>
+  <line x1="770" y1="160" x2="770" y2="420" stroke="#1d4ed8" stroke-width="4.5"/>
+
+  <!-- Diagonal line A-D: switched OPEN -->
+  <line x1="215" y1="178" x2="440" y2="300" stroke="#94a3b8" stroke-width="4" stroke-dasharray="10,8"/>
+  <line x1="520" y1="330" x2="745" y2="425" stroke="#94a3b8" stroke-width="4" stroke-dasharray="10,8"/>
+
+  <!-- Open switch symbol at the gap -->
+  <g transform="translate(480,315)">
+    <line x1="-38" y1="12" x2="-10" y2="-10" stroke="#475569" stroke-width="5" stroke-linecap="round"/>
+    <line x1="10" y1="10" x2="38" y2="-12" stroke="#475569" stroke-width="5" stroke-linecap="round"/>
+    <circle cx="-38" cy="12" r="6" fill="#475569"/>
+    <circle cx="38" cy="-12" r="6" fill="#475569"/>
+    <line x1="-18" y1="-24" x2="4" y2="24" stroke="#dc2626" stroke-width="6" stroke-linecap="round"/>
+    <line x1="4" y1="-24" x2="-18" y2="24" stroke="#dc2626" stroke-width="6" stroke-linecap="round"/>
+  </g>
+
+  <!-- Caption for the open switch, placed in the clear space below it -->
+  <text x="430" y="368" font-family="Vazirmatn" font-size="14" font-weight="bold" fill="#334155" text-anchor="middle">خط دیاگونال عمداً باز نگه داشته شده</text>
+  <text x="430" y="390" font-family="Vazirmatn" font-size="13" fill="#475569" text-anchor="middle">تا جریان حلقه‌ای شبکه کاهش یابد</text>
+
+  <!-- Flow highlight labels on perimeter -->
+  <text x="480" y="130" font-family="Vazirmatn" font-size="13" fill="#1d4ed8" text-anchor="middle">افزایش بار مجاز روی این خط</text>
+  <text x="480" y="420" font-family="Vazirmatn" font-size="13" fill="#1d4ed8" text-anchor="middle">افزایش بار مجاز روی این خط</text>
+
+  <!-- Bottom result tag -->
+  <g transform="translate(480,515)">
+    <rect x="-200" y="-26" width="400" height="48" rx="12" fill="#ecfdf5" stroke="#059669" stroke-width="2.2"/>
+    <text x="0" y="4" font-family="Vazirmatn" font-size="16" font-weight="bold" fill="#065f46" text-anchor="middle">کاهش تراکم و هزینه کل با تغییر توپولوژی شبکه</text>
+  </g>
+</svg>
