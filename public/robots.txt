@@ -1,4 +1,26 @@
-Sitemap: https://optexpert.org/sitemap-index.xml
+# Default rules for all crawlers
 User-agent: *
 Allow: /
 Disallow: /admin/
+
+# AI search and assistant crawlers: fetch pages to answer questions and cite them with a link.
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+Allow: /
+Disallow: /admin/
+
+# AI training crawlers: collect text to train future models.
+# To opt out of model training, change "Allow: /" below to "Disallow: /".
+User-agent: GPTBot
+User-agent: ClaudeBot
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: CCBot
+Allow: /
+Disallow: /admin/
+
+Sitemap: https://optexpert.org/sitemap-index.xml

@@ -2,6 +2,14 @@
 import Layout from '../layouts/Layout.astro';
 
 const contactInfo = [
+  {
+    title: "ایمیل",
+    value: "optimizationteamonline@gmail.com",
+    icon: "fa-envelope",
+    iconSet: "fa-solid",
+    href: "mailto:optimizationteamonline@gmail.com",
+    desc: "مناسب برای ارسال شرح پروژه، فایل داده و کد"
+  },
   { 
     title: "تلگرام", 
     value: "@pypyid", 
@@ -26,7 +34,7 @@ const contactInfo = [
 ];
 ---
 
-<Layout title="تماس با ما" description="اگر سؤالی دارید، می‌خواهید در پروژه‌ای همکاری کنید یا نیاز به مشاوره تخصصی دارید، می‌توانید از این طریق پیام بفرستید." breadcrumbs={[{ name: 'خانه', url: '/' }, { name: 'تماس با ما' }]}>
+<Layout title="تماس با ما" description="راه‌های ارتباط با optexpert.org و دکتر علیرضا سرودی: ایمیل، تلگرام، لینکدین و گیت‌هاب؛ برای مشاوره پروژه، پرسش دربارهٔ دوره‌ها و همکاری علمی." breadcrumbs={[{ name: 'خانه', url: '/' }, { name: 'تماس با ما' }]}>
 
   <main class="max-w-3xl mx-auto px-4 sm:px-6 py-12 flex-grow w-full">
     
@@ -49,7 +57,7 @@ const contactInfo = [
             class="bg-[var(--site-card)] border border-[var(--site-border)] p-5 rounded-2xl hover:border-[var(--site-primary)]/60 transition flex items-center gap-4 group block shadow-xs"
           >
             <div class="w-12 h-12 rounded-xl bg-[var(--site-primary)]/10 text-[var(--site-primary)] flex items-center justify-center flex-shrink-0 text-xl group-hover:scale-110 transition">
-              <i class={`fa-brands ${item.icon}`}></i>
+              <i class={`${item.iconSet ?? "fa-brands"} ${item.icon}`} aria-hidden="true"></i>
             </div>
             <div class="flex-1 min-w-0 text-right">
               <div class="text-xs text-[var(--site-muted)] font-medium mb-0.5">{item.title}</div>
@@ -60,6 +68,15 @@ const contactInfo = [
         ))
       }
     </div>
+
+    <section class="max-w-xl mx-auto mt-10 bg-[var(--site-card)] border border-[var(--site-border)] p-6 rounded-2xl shadow-xs" aria-labelledby="route-title">
+      <h2 id="route-title" class="text-lg font-bold text-[var(--site-heading)] mb-4">پیامتان را به کجا بفرستید؟</h2>
+      <ul class="space-y-3 text-sm leading-loose text-[var(--site-text)]">
+        <li><i class="fa-solid fa-briefcase text-[var(--site-primary)] ml-2" aria-hidden="true"></i><strong class="text-[var(--site-heading)]">پروژه و مشاوره:</strong> ابتدا صفحهٔ <a href="/consultation/" class="text-[var(--site-primary)] font-bold hover:underline">مشاوره تخصصی</a> را ببینید تا بدانید چه اطلاعاتی همراه پیام بفرستید؛ سپس از طریق ایمیل یا تلگرام پیام دهید.</li>
+        <li><i class="fa-solid fa-graduation-cap text-[var(--site-primary)] ml-2" aria-hidden="true"></i><strong class="text-[var(--site-heading)]">پرسش دربارهٔ دوره‌ها:</strong> برای سؤال دربارهٔ محتوا و ثبت‌نام <a href="/courses/" class="text-[var(--site-primary)] font-bold hover:underline">دوره‌ها</a>، تلگرام سریع‌ترین راه است.</li>
+        <li><i class="fa-solid fa-handshake text-[var(--site-primary)] ml-2" aria-hidden="true"></i><strong class="text-[var(--site-heading)]">همکاری علمی و حرفه‌ای:</strong> برای همکاری پژوهشی، سخنرانی یا آموزش سازمانی از طریق لینکدین یا ایمیل در ارتباط باشید.</li>
+      </ul>
+    </section>
 
   </main>
 

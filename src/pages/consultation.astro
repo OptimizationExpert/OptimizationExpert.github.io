@@ -1,17 +1,43 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const faqs = [
+  {
+    q: 'آیا برای پروژه‌های دانشجویی و پایان‌نامه هم مشاوره می‌دهید؟',
+    a: 'بله. مشاوره در مدل‌سازی، انتخاب روش و پیاده‌سازی در پایتون ارائه می‌شود تا خودتان بتوانید پروژه را با درک کامل پیش ببرید و از آن دفاع کنید.',
+  },
+  {
+    q: 'با چه ابزارهایی کار می‌کنید؟',
+    a: 'برای مسائل زمان‌بندی، تخصیص و مسیریابی معمولاً OR-Tools و CP-SAT، و برای مسائل پیوسته و سیستم قدرت Pyomo و GAMS، همراه با سالورهایی مثل HiGHS، CBC، IPOPT و Gurobi.',
+  },
+  {
+    q: 'هزینهٔ مشاوره چطور تعیین می‌شود؟',
+    a: 'هزینه به حجم و پیچیدگی مسئله بستگی دارد و پس از بررسی اولیهٔ شرح مسئله اعلام می‌شود.',
+  },
+  {
+    q: 'مدل ما آماده است ولی جواب نمی‌دهد؛ می‌توانید بررسی کنید؟',
+    a: 'بله. بررسی و عیب‌یابی مدل‌های موجود، از خطای MODEL_INVALID و INFEASIBLE تا کندی حل، یکی از خدمات اصلی است. کد و لاگ سالور را همراه پیام بفرستید.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+};
 ---
 
-<Layout title="مشاوره تخصصی بهینه‌سازی، پایتون و سیستم قدرت" description="مشاوره تخصصی برای پیاده‌سازی مدل‌های بهینه‌سازی با پایتون (Pyomo، OR-Tools) و سیستم‌های قدرت — مناسب پروژه‌های دانشگاهی و صنعتی." breadcrumbs={[{ name: 'خانه', url: '/' }, { name: 'مشاوره تخصصی' }]}>
+<Layout title="مشاوره تخصصی بهینه‌سازی، پایتون و سیستم قدرت" description="مشاوره تخصصی بهینه‌سازی با پایتون: زمان‌بندی و مسیریابی با OR-Tools و CP-SAT، مدل‌سازی با Pyomo، سیستم‌های قدرت و عیب‌یابی مدل؛ برای پروژه‌های دانشگاهی و صنعتی." breadcrumbs={[{ name: 'خانه', url: '/' }, { name: 'مشاوره تخصصی' }]}>
 
   <main class="max-w-4xl mx-auto px-4 sm:px-6 py-12 flex-grow w-full">
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
     
     <div class="mb-10 border-b border-[var(--site-border)] pb-6">
       <h1 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[var(--site-heading)] mb-3">
         مشاوره تخصصی و همکاری در پروژه‌ها
       </h1>
       <p class="text-[var(--site-muted)] text-xs sm:text-sm md:text-base leading-relaxed">
-        اگر در زمینه برنامه‌نویسی پایتون، مدل‌سازی ریاضی، سالورهای بهینه‌سازی، سیستم‌های قدرت یا پیاده‌سازی وب‌سایت‌های استاتیک نیاز به مشاوره یا هم‌فکری دارید، می‌توانید از طریق راه‌های زیر در ارتباط باشید.
+        اگر در زمینهٔ مدل‌سازی ریاضی، زمان‌بندی و مسیریابی با OR-Tools، بهینه‌سازی با Pyomo، سیستم‌های قدرت یا پیاده‌سازی وب‌سایت‌های استاتیک نیاز به مشاوره یا هم‌فکری دارید، این صفحه نشان می‌دهد چه خدماتی ارائه می‌شود، همکاری چطور پیش می‌رود و پیش از تماس چه چیزهایی را آماده کنید.
       </p>
     </div>
 
@@ -47,7 +73,7 @@ import Layout from '../layouts/Layout.astro';
         </span>
       </div>
 
-      <div class="bg-[var(--site-card)] border border-[var(--site-border)] p-6 rounded-2xl flex flex-col justify-between shadow-xs hover:border-[var(--site-primary)]/40 transition sm:col-span-2 md:col-span-1">
+      <div class="bg-[var(--site-card)] border border-[var(--site-border)] p-6 rounded-2xl flex flex-col justify-between shadow-xs hover:border-[var(--site-primary)]/40 transition">
         <div>
           <div class="w-12 h-12 rounded-xl bg-[var(--site-primary)]/10 border border-[var(--site-primary)]/20 flex items-center justify-center text-[var(--site-primary)] text-xl mb-4">
             <i class="fa-solid fa-globe"></i>
@@ -62,7 +88,107 @@ import Layout from '../layouts/Layout.astro';
         </span>
       </div>
 
+      <div class="bg-[var(--site-card)] border border-[var(--site-border)] p-6 rounded-2xl flex flex-col justify-between shadow-xs hover:border-[var(--site-primary)]/40 transition">
+        <div>
+          <div class="w-12 h-12 rounded-xl bg-[var(--site-primary)]/10 border border-[var(--site-primary)]/20 flex items-center justify-center text-[var(--site-primary)] text-xl mb-4">
+            <i class="fa-solid fa-calendar-check"></i>
+          </div>
+          <h2 class="text-base font-bold text-[var(--site-heading)] mb-2">زمان‌بندی و تخصیص با CP-SAT</h2>
+          <p class="text-[var(--site-muted)] text-xs md:text-sm leading-relaxed mb-4">
+            زمان‌بندی تولید، برنامه‌ریزی شیفت و نیروی انسانی، جدول زمانی و تخصیص منابع با OR-Tools و CP-SAT.
+          </p>
+        </div>
+        <div class="flex items-center justify-between gap-2">
+          <span class="text-xs text-[var(--site-primary)] font-medium bg-[var(--site-primary)]/10 px-3 py-1 rounded-full border border-[var(--site-primary)]/20 w-fit">
+            OR-Tools
+          </span>
+          <a href="/ortools/#scheduling" class="text-xs font-bold text-[var(--site-primary)] hover:underline">آموزش‌های مرتبط ←</a>
+        </div>
+      </div>
+
+      <div class="bg-[var(--site-card)] border border-[var(--site-border)] p-6 rounded-2xl flex flex-col justify-between shadow-xs hover:border-[var(--site-primary)]/40 transition">
+        <div>
+          <div class="w-12 h-12 rounded-xl bg-[var(--site-primary)]/10 border border-[var(--site-primary)]/20 flex items-center justify-center text-[var(--site-primary)] text-xl mb-4">
+            <i class="fa-solid fa-truck-fast"></i>
+          </div>
+          <h2 class="text-base font-bold text-[var(--site-heading)] mb-2">مسیریابی و لجستیک</h2>
+          <p class="text-[var(--site-muted)] text-xs md:text-sm leading-relaxed mb-4">
+            طراحی مسیر ناوگان توزیع (VRP) با ظرفیت، پنجرهٔ زمانی و چند انبار، و مکان‌یابی انبار و مراکز توزیع.
+          </p>
+        </div>
+        <div class="flex items-center justify-between gap-2">
+          <span class="text-xs text-[var(--site-primary)] font-medium bg-[var(--site-primary)]/10 px-3 py-1 rounded-full border border-[var(--site-primary)]/20 w-fit">
+            زنجیرهٔ تأمین
+          </span>
+          <a href="/ortools/#routing" class="text-xs font-bold text-[var(--site-primary)] hover:underline">آموزش‌های مرتبط ←</a>
+        </div>
+      </div>
+
+      <div class="bg-[var(--site-card)] border border-[var(--site-border)] p-6 rounded-2xl flex flex-col justify-between shadow-xs hover:border-[var(--site-primary)]/40 transition">
+        <div>
+          <div class="w-12 h-12 rounded-xl bg-[var(--site-primary)]/10 border border-[var(--site-primary)]/20 flex items-center justify-center text-[var(--site-primary)] text-xl mb-4">
+            <i class="fa-solid fa-bug"></i>
+          </div>
+          <h2 class="text-base font-bold text-[var(--site-heading)] mb-2">بررسی و عیب‌یابی مدل</h2>
+          <p class="text-[var(--site-muted)] text-xs md:text-sm leading-relaxed mb-4">
+            مدلی دارید که جواب نمی‌دهد، INFEASIBLE می‌شود یا خیلی کند حل می‌شود؟ مدل و لاگ سالور را بررسی و علت را پیدا می‌کنیم.
+          </p>
+        </div>
+        <div class="flex items-center justify-between gap-2">
+          <span class="text-xs text-[var(--site-primary)] font-medium bg-[var(--site-primary)]/10 px-3 py-1 rounded-full border border-[var(--site-primary)]/20 w-fit">
+            عیب‌یابی
+          </span>
+          <a href="/notes/cp-debug/" class="text-xs font-bold text-[var(--site-primary)] hover:underline">آموزش‌های مرتبط ←</a>
+        </div>
+      </div>
+
     </div>
+
+    <section class="bg-[var(--site-card)] border border-[var(--site-border)] p-6 md:p-8 rounded-2xl shadow-xs mb-10" aria-labelledby="audience-title">
+      <h2 id="audience-title" class="text-xl md:text-2xl font-bold text-[var(--site-heading)] mb-5">برای چه کسانی؟</h2>
+      <div class="grid sm:grid-cols-2 gap-6 text-sm leading-loose text-[var(--site-text)]">
+        <div>
+          <h3 class="font-bold text-[var(--site-heading)] mb-2"><i class="fa-solid fa-user-graduate text-[var(--site-primary)] ml-2"></i>دانشجویان و پژوهشگران</h3>
+          <p>راهنمایی در تبدیل مسئلهٔ پژوهشی به مدل ریاضی، انتخاب ابزار و سالور مناسب، پیاده‌سازی مدل یک مقاله در پایتون، و تحلیل و اعتبارسنجی نتایج.</p>
+        </div>
+        <div>
+          <h3 class="font-bold text-[var(--site-heading)] mb-2"><i class="fa-solid fa-industry text-[var(--site-primary)] ml-2"></i>سازمان‌ها و صنایع</h3>
+          <p>زمان‌بندی تولید، برنامه‌ریزی نیروی انسانی، مسیریابی ناوگان، طراحی شبکهٔ زنجیرهٔ تأمین و مطالعات بهینه‌سازی شبکهٔ برق؛ از مدل اولیه تا ابزاری که در عمل استفاده شود.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-[var(--site-card)] border border-[var(--site-border)] p-6 md:p-8 rounded-2xl shadow-xs mb-10" aria-labelledby="process-title">
+      <h2 id="process-title" class="text-xl md:text-2xl font-bold text-[var(--site-heading)] mb-5">روند همکاری</h2>
+      <ol class="grid sm:grid-cols-2 gap-5 text-sm leading-loose text-[var(--site-text)]">
+        <li class="flex gap-3"><span class="w-8 h-8 shrink-0 rounded-full bg-[var(--site-primary)] text-white font-bold flex items-center justify-center">۱</span><span><strong class="text-[var(--site-heading)]">ارسال شرح مسئله:</strong> هدف، محدودیت‌ها و اندازهٔ تقریبی مسئله را از طریق تلگرام یا ایمیل بفرستید.</span></li>
+        <li class="flex gap-3"><span class="w-8 h-8 shrink-0 rounded-full bg-[var(--site-primary)] text-white font-bold flex items-center justify-center">۲</span><span><strong class="text-[var(--site-heading)]">بررسی اولیه:</strong> مسئله بررسی می‌شود و رویکرد پیشنهادی، ابزار مناسب و برآورد زمان و هزینه اعلام می‌شود.</span></li>
+        <li class="flex gap-3"><span class="w-8 h-8 shrink-0 rounded-full bg-[var(--site-primary)] text-white font-bold flex items-center justify-center">۳</span><span><strong class="text-[var(--site-heading)]">مدل‌سازی و پیاده‌سازی:</strong> مدل ریاضی ساخته، در پایتون پیاده‌سازی و روی دادهٔ شما آزمایش می‌شود.</span></li>
+        <li class="flex gap-3"><span class="w-8 h-8 shrink-0 rounded-full bg-[var(--site-primary)] text-white font-bold flex items-center justify-center">۴</span><span><strong class="text-[var(--site-heading)]">تحویل و توضیح:</strong> نتایج، کد و توضیح منطق مدل ارائه می‌شود تا بتوانید آن را ادامه دهید.</span></li>
+      </ol>
+    </section>
+
+    <section class="bg-[var(--site-card)] border border-[var(--site-border)] p-6 md:p-8 rounded-2xl shadow-xs mb-10" aria-labelledby="prepare-title">
+      <h2 id="prepare-title" class="text-xl md:text-2xl font-bold text-[var(--site-heading)] mb-5">پیش از تماس، این‌ها را آماده کنید</h2>
+      <ul class="space-y-3 text-sm leading-loose text-[var(--site-text)] list-disc pr-5">
+        <li><strong class="text-[var(--site-heading)]">شرح مسئله:</strong> چه تصمیمی باید گرفته شود و معیار «بهتر بودن» جواب چیست؛ مثلاً کمترین هزینه یا کمترین زمان تأخیر.</li>
+        <li><strong class="text-[var(--site-heading)]">نمونهٔ داده:</strong> حتی یک نمونهٔ کوچک، مثلاً ده سفارش یا بیست مشتری، کمک زیادی به برآورد دقیق می‌کند.</li>
+        <li><strong class="text-[var(--site-heading)]">کد و لاگ فعلی:</strong> اگر مدلی دارید که خطا می‌دهد، کد و خروجی لاگ سالور را بفرستید. برای شروع، یادداشت‌های <a href="/notes/cp-debug/" class="text-[var(--site-primary)] font-bold hover:underline">خطای MODEL_INVALID در CP-SAT</a> و <a href="/notes/infeasible-model-diagnosis/" class="text-[var(--site-primary)] font-bold hover:underline">پیدا کردن قید مقصر در مدل غیرقابل‌اجرا</a> را ببینید.</li>
+        <li><strong class="text-[var(--site-heading)]">زمان‌بندی:</strong> مهلت پروژه و اینکه نتیجه برای پژوهش، تحویل درسی یا استفادهٔ عملیاتی است.</li>
+      </ul>
+    </section>
+
+    <section class="bg-[var(--site-card)] border border-[var(--site-border)] p-6 md:p-8 rounded-2xl shadow-xs mb-10" aria-labelledby="faq-title">
+      <h2 id="faq-title" class="text-xl md:text-2xl font-bold text-[var(--site-heading)] mb-5">پرسش‌های رایج</h2>
+      <div class="divide-y divide-[var(--site-border)] text-sm leading-loose">
+        {faqs.map((f) => (
+          <details class="py-4">
+            <summary class="cursor-pointer font-bold text-[var(--site-heading)]">{f.q}</summary>
+            <p class="mt-2 text-[var(--site-text)]">{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </section>
 
     <div class="bg-[var(--site-card)] border border-[var(--site-border)] p-6 md:p-8 rounded-2xl shadow-sm text-center">
       <h2 class="text-2xl font-bold text-[var(--site-heading)] mb-2">راه‌های ارتباطی</h2>

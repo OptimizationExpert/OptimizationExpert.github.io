@@ -18,11 +18,17 @@ export async function getStaticPaths({ paginate }) {
 }
 
 const { page } = Astro.props;
+const toFa = (n: number) => n.toLocaleString('fa-IR');
+// Each paginated page gets its own description so pages 2, 3, ... are not duplicates of page 1.
+const baseDescription = 'ده‌ها پروژه واقعی مسیریابی (VRP)، زمان‌بندی و سیستم‌های قدرت با کد پایتون و توضیح گام‌به‌گام — قابل استفاده در پروژه‌های دانشگاهی و صنعتی شما.';
+const pageDescription = page.currentPage > 1
+  ? `${baseDescription} صفحه ${toFa(page.currentPage)} از ${toFa(page.lastPage)}.`
+  : baseDescription;
 ---
 
 <Layout 
   title="پروژه‌های عملی بهینه‌سازی و برنامه‌نویسی پایتون" 
-  description="ده‌ها پروژه واقعی مسیریابی (VRP)، زمان‌بندی و سیستم‌های قدرت با کد پایتون و توضیح گام‌به‌گام — قابل استفاده در پروژه‌های دانشگاهی و صنعتی شما."
+  description={pageDescription}
   
   pageNumber={page.currentPage}
   breadcrumbs={[

@@ -18,11 +18,17 @@ export async function getStaticPaths({ paginate }) {
 }
 
 const { page } = Astro.props;
+const toFa = (n: number) => n.toLocaleString('fa-IR');
+// Each paginated page gets its own description so pages 2, 3, ... are not duplicates of page 1.
+const baseDescription = 'یادداشت‌های آموزشی فارسی در بهینه‌سازی با پایتون: OR-Tools و CP-SAT، Pyomo، زمان‌بندی، مسیریابی، زنجیره تأمین و سیستم‌های قدرت.';
+const pageDescription = page.currentPage > 1
+  ? `${baseDescription} صفحه ${toFa(page.currentPage)} از ${toFa(page.lastPage)}.`
+  : baseDescription;
 ---
 
 <Layout 
   title="یادداشت‌های علمی و فنی" 
-  description="مجموعه‌ای از یادداشت‌ها، مقالات و نکات آموزشی مهندسی و برنامه‌نویسی."
+  description={pageDescription}
   
   pageNumber={page.currentPage}
   breadcrumbs={[

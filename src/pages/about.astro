@@ -1,5 +1,19 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import { isPublished } from '../utils/content';
+
+const [courses, notes, projects] = await Promise.all([
+  getCollection('courses', isPublished),
+  getCollection('notes', isPublished),
+  getCollection('projects', isPublished),
+]);
+const toFa = (n: number) => n.toLocaleString('fa-IR');
+const stats = [
+  { label: 'دورهٔ آموزشی', value: courses.length, href: '/courses/', icon: 'fa-graduation-cap' },
+  { label: 'یادداشت آموزشی', value: notes.length, href: '/notes/', icon: 'fa-pen-nib' },
+  { label: 'پروژهٔ مهندسی', value: projects.length, href: '/projects/', icon: 'fa-layer-group' },
+];
 
 const skills = [
   { title: "پایتون و بهینه‌سازی", desc: "مدل‌سازی ریاضی پایومو، برنامه‌نویسی و استفاده از سالورهای CPLEX, Gurobi ,HiGHS", icon: "fa-terminal" },
@@ -13,7 +27,7 @@ const skills = [
 ];
 ---
 
-<Layout title="درباره ما" description="نگاهی کوتاه به مسیر تخصصی، تجربیات و حوزه‌های فعالیت در دنیای مهندسی، برنامه‌نویسی و سیستم‌های قدرت و زنجیره تامین." breadcrumbs={[{ name: 'خانه', url: '/' }, { name: 'درباره ما' }]}>
+<Layout title="درباره ما" description="دربارهٔ optexpert.org، مرجع فارسی آموزش OR-Tools و Pyomo، و دکتر علیرضا سرودی؛ بهینه‌سازی کاربردی در زنجیرهٔ تأمین، مهندسی صنایع و سیستم‌های قدرت." breadcrumbs={[{ name: 'خانه', url: '/' }, { name: 'درباره ما' }]}>
 
   <main class="max-w-4xl mx-auto px-6 py-12 flex-grow w-full">
     
@@ -31,7 +45,7 @@ const skills = [
       <div class="w-32 h-32 rounded-2xl bg-[var(--site-bg)] border border-[var(--site-border)] flex items-center justify-center flex-shrink-0 shadow-xs overflow-hidden">
         <img 
           src="/images/dr-soroudi.jpg" 
-          alt="لوگو" 
+          alt="دکتر علیرضا سرودی" width="128" height="128" 
           class="w-full h-full object-cover"
         />
       </div>
@@ -44,9 +58,34 @@ const skills = [
         <p class="text-[var(--site-muted)] text-xs md:text-sm">
           باور دارم ترکیب دانش تخصصی مهندسی و ابزارهای نرم‌افزاری دقیق، کلید اصلی خلق راه‌حل‌های پایدار و سریع است.
         </p>
+        <p class="text-[var(--site-text)] text-sm leading-loose">
+          متخصص ارشد علوم داده و راهبر پروژه‌های بهینه‌سازی در EirGrid، عضو ارشد IEEE، نزدیک به یک دهه استاد یونیورسیتی کالج دوبلین، و نویسندهٔ کتاب Power System Optimization Modeling in GAMS (انتشارات Springer، ۲۰۱۷).
+          <a href="/instructors/dr-soroudi/" class="text-[var(--site-primary)] font-bold hover:underline">سوابق کامل ←</a>
+        </p>
       </div>
 
     </div>
+
+    <section class="mb-10" aria-labelledby="site-title">
+      <h2 id="site-title" class="text-2xl font-bold text-[var(--site-heading)] mb-4">دربارهٔ این سایت</h2>
+      <div class="space-y-4 text-[var(--site-text)] text-sm md:text-base leading-loose">
+        <p>
+          optexpert.org یک مرجع فارسی برای یادگیری بهینه‌سازی کاربردی با پایتون است. تمرکز اصلی سایت دو ابزار متن‌باز است: <strong>OR-Tools</strong> گوگل و سالور CP-SAT برای مسائل زمان‌بندی، تخصیص و مسیریابی، و <strong>Pyomo</strong> برای مدل‌سازی جبری و مسائل سیستم‌های انرژی و قدرت.
+        </p>
+        <p>
+          محتوای سایت برای دانشجویان تحصیلات تکمیلی، پژوهشگران و مهندسانی نوشته شده که می‌خواهند یک مسئلهٔ واقعی را از تعریف تا مدل ریاضی و پیاده‌سازی دنبال کنند؛ با تمرکز بر زنجیرهٔ تأمین و مهندسی صنایع از یک سو، و سیستم‌های انرژی و قدرت از سوی دیگر. اگر تازه شروع کرده‌اید، <a href="/ortools/" class="text-[var(--site-primary)] font-bold hover:underline">راهنمای جامع آموزش OR-Tools</a> و <a href="/roadmap/" class="text-[var(--site-primary)] font-bold hover:underline">مسیر یادگیری</a> نقطهٔ شروع مناسبی هستند.
+        </p>
+      </div>
+      <div class="grid grid-cols-3 gap-3 sm:gap-4 mt-6">
+        {stats.map((st) => (
+          <a href={st.href} class="bg-[var(--site-card)] border border-[var(--site-border)] hover:border-[var(--site-primary)]/50 rounded-2xl p-4 text-center transition">
+            <i class={`fa-solid ${st.icon} text-[var(--site-primary)] text-lg`} aria-hidden="true"></i>
+            <div class="text-2xl font-black text-[var(--site-heading)] mt-2">{toFa(st.value)}</div>
+            <div class="text-xs text-[var(--site-muted)] mt-1">{st.label}</div>
+          </a>
+        ))}
+      </div>
+    </section>
 
     <div class="mb-10">
       <h2 class="text-2xl font-bold text-[var(--site-heading)] mb-6">حوزه‌های تخصص و مهارت‌ها</h2>
