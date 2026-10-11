@@ -144,6 +144,7 @@ const instructorsCollection = defineCollection({
     descriptionEn: z.string().optional(),
     sameAs: z.array(z.string().url()).default([]),
     worksFor: z.object({ name: z.string(), url: z.string().url().optional() }).optional(),
+    affiliation: z.array(z.object({ name: z.string(), url: z.string().url().optional() })).default([]),
     alumniOf: z.array(z.string()).default([]),
     award: z.array(z.string()).default([]),
     knowsAbout: z.array(z.string()).default([]),

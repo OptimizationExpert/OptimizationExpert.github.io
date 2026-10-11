@@ -105,6 +105,7 @@ const personSchema = {
       ...(d.descriptionEn ? { description: d.descriptionEn } : {}),
       ...(instructorImg ? { image: new URL(instructorImg, siteUrl).href } : {}),
       ...(d.worksFor ? { worksFor: { '@type': 'Organization', name: d.worksFor.name, ...(d.worksFor.url ? { url: d.worksFor.url } : {}) } } : {}),
+      ...(d.affiliation.length ? { affiliation: d.affiliation.map((a) => ({ '@type': 'CollegeOrUniversity', name: a.name, ...(a.url ? { url: a.url } : {}) })) } : {}),
       ...(d.alumniOf.length ? { alumniOf: d.alumniOf.map((name) => ({ '@type': 'CollegeOrUniversity', name })) } : {}),
       ...(d.award.length ? { award: d.award } : {}),
       ...(d.knowsAbout.length ? { knowsAbout: d.knowsAbout } : {}),
