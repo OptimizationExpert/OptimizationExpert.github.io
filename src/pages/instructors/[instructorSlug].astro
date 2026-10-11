@@ -63,15 +63,24 @@ const personSchema = {
       mainEntity: { '@id': personId },
       ...(instructorCourses.length + instructorNotes.length + instructorProjects.length > 0 ? {
         hasPart: [
-          ...instructorCourses.map((course) => ({
-            '@type': 'Course',
-            name: course.data.title,
-            url: `${siteUrl}/courses/${entrySlug(course)}/`,
-            provider: { '@id': `${siteUrl}/#organization` },
-          })),
+          ...instructorCourses.map((course) => {
+            const courseUrl = `${siteUrl}/courses/${entrySlug(course)}/`;
+            return {
+              '@type': 'Course',
+              // Same @id as the Course entity on the course page itself.
+              '@id': `${courseUrl}#course`,
+              name: course.data.title,
+              description: course.data.description,
+              url: courseUrl,
+              inLanguage: 'fa-IR',
+              provider: { '@id': `${siteUrl}/#organization` },
+              instructor: { '@id': personId },
+            };
+          }),
           ...instructorNotes.map((note) => ({
             '@type': 'BlogPosting',
             headline: note.data.title,
+            description: note.data.description,
             url: `${siteUrl}/notes/${entrySlug(note)}/`,
             ...(note.data.pubDate ? { datePublished: note.data.pubDate.toISOString() } : {}),
             author: { '@id': personId },
@@ -79,6 +88,7 @@ const personSchema = {
           ...instructorProjects.map((project) => ({
             '@type': 'Article',
             headline: project.data.title,
+            description: project.data.description,
             url: `${siteUrl}/projects/${entrySlug(project)}/`,
             ...(project.data.pubDate ? { datePublished: project.data.pubDate.toISOString() } : {}),
             author: { '@id': personId },
