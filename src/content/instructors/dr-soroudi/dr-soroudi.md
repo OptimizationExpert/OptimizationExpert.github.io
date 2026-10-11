@@ -24,6 +24,7 @@ sameAs:
   - "https://www.linkedin.com/in/soroudi/"
   - "https://orcid.org/0000-0002-3651-6290"
   - "https://www.researchgate.net/profile/Alireza-Soroudi"
+  - "https://ieee-collabratec.ieee.org/app/p/AlirezaSoroudi37300" 
 ---
 
 علیرضا سرودی نزدیک به یک دهه استاد دانشگاه دوبلین‌کالج ایرلند بوده و تحقیقاتش بر بهینه‌سازی سیستم‌های قدرت و زنجیره
