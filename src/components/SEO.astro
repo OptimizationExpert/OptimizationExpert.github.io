@@ -119,11 +119,14 @@ function toBookFormat(text?: string): string | undefined {
 }
 
 const organization = {
-  '@type': 'Organization',
+  '@type': ['Organization', 'EducationalOrganization'],
   '@id': organizationId,
   name: siteName,
+  alternateName: ['optexpert.org', 'OptExpert', 'مدل‌سازی و بهینه‌سازی کاربردی'],
   url: `${siteUrl}/`,
   logo: `${siteUrl}/images/logo-512.png`,
+  founder: { '@id': `${siteUrl}/instructors/dr-soroudi/#person` },
+  knowsAbout: ['Operations Research', 'Google OR-Tools', 'CP-SAT', 'Pyomo', 'Power System Optimization', 'Supply Chain Optimization'],
   sameAs: organizationSameAs,
 };
 

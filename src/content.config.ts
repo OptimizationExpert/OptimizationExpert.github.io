@@ -138,6 +138,21 @@ const instructorsCollection = defineCollection({
     email: z.string().optional(),
     githubUrl: z.string().url().optional(),
     linkedinUrl: z.string().url().optional(),
+    // Identity signals for search engines and AI assistants (Person schema)
+    nameEn: z.string().optional(),
+    alternateName: z.array(z.string()).default([]),
+    descriptionEn: z.string().optional(),
+    sameAs: z.array(z.string().url()).default([]),
+    worksFor: z.object({ name: z.string(), url: z.string().url().optional() }).optional(),
+    alumniOf: z.array(z.string()).default([]),
+    award: z.array(z.string()).default([]),
+    knowsAbout: z.array(z.string()).default([]),
+    books: z.array(z.object({
+      name: z.string(),
+      url: z.string().url(),
+      publisher: z.string().optional(),
+      datePublished: z.string().optional(),
+    })).default([]),
     draft: z.boolean().default(false),
   }),
 });

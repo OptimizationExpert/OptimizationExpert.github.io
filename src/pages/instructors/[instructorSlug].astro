@@ -46,7 +46,9 @@ const instructorProjects = allProjects
 const siteUrl = (Astro.site || new URL(Astro.url.origin)).href.replace(/\/$/, '');
 const profileUrl = `${siteUrl}/instructors/${instructorSlug}/`;
 const personId = `${profileUrl}#person`;
-const sameAs = [instructor.data.githubUrl, instructor.data.linkedinUrl].filter(Boolean);
+const d = instructor.data;
+const sameAs = [...new Set([d.githubUrl, d.linkedinUrl, ...d.sameAs].filter(Boolean))];
+const alternateNames = [d.nameEn, d.shortName, ...d.alternateName].filter((n) => n && n !== d.name);
 const instructorImg = imgSrc(instructor.data.image);
 
 const personSchema = {
@@ -87,11 +89,28 @@ const personSchema = {
     {
       '@type': 'Person',
       '@id': personId,
-      name: instructor.data.name,
-      ...(instructor.data.jobTitle ? { jobTitle: instructor.data.jobTitle } : {}),
+      name: d.name,
+      ...(alternateNames.length ? { alternateName: [...new Set(alternateNames)] } : {}),
+      ...(d.jobTitle ? { jobTitle: d.jobTitle } : {}),
+      ...(d.descriptionEn ? { description: d.descriptionEn } : {}),
+      ...(instructorImg ? { image: new URL(instructorImg, siteUrl).href } : {}),
+      ...(d.worksFor ? { worksFor: { '@type': 'Organization', name: d.worksFor.name, ...(d.worksFor.url ? { url: d.worksFor.url } : {}) } } : {}),
+      ...(d.alumniOf.length ? { alumniOf: d.alumniOf.map((name) => ({ '@type': 'CollegeOrUniversity', name })) } : {}),
+      ...(d.award.length ? { award: d.award } : {}),
+      ...(d.knowsAbout.length ? { knowsAbout: d.knowsAbout } : {}),
       ...(sameAs.length ? { sameAs } : {}),
       url: profileUrl,
-    }
+    },
+    ...d.books.map((b) => ({
+      '@type': 'Book',
+      '@id': `${b.url}#book`,
+      name: b.name,
+      url: b.url,
+      inLanguage: 'en',
+      author: { '@id': personId },
+      ...(b.publisher ? { publisher: { '@type': 'Organization', name: b.publisher } } : {}),
+      ...(b.datePublished ? { datePublished: b.datePublished } : {}),
+    }))
   ],
 };
 ---
