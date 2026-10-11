@@ -39,6 +39,8 @@ const commonContentFields = (image: any) => ({
   title: z.string(),
   description: z.string(),
   pubDate: z.coerce.date().optional(),
+  // Optional: set when an existing page is meaningfully revised (shown on the page, in schema and in the sitemap).
+  updatedDate: z.coerce.date().optional(),
   image: imageField(image),
   imageAlt: z.string().optional(),
   tags: tagsField(),

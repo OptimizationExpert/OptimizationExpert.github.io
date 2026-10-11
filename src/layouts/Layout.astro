@@ -12,6 +12,7 @@ interface Props {
   article?: boolean;
   type?: 'website' | 'article' | 'course' | 'software' | 'book';
   pubDate?: Date;
+  updatedDate?: Date;
   author?: string;
   authorUrl?: string;
   noindex?: boolean;
@@ -46,6 +47,7 @@ const {
   article = false,
   type,
   pubDate,
+  updatedDate,
   author,
   authorUrl,
   noindex = false,
@@ -81,6 +83,7 @@ const resolvedImage = image ?? '/images/hero.webp';
       article={article}
       type={type}
       pubDate={pubDate}
+      updatedDate={updatedDate}
       author={author}
       authorUrl={authorUrl}
       noindex={noindex}

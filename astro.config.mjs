@@ -33,11 +33,17 @@ for (const [collection, routeSegment] of Object.entries(CONTENT_ROUTES)) {
     if (!fs.existsSync(dir)) continue;
     for (const entry of fs.readdirSync(dir, {withFileTypes: true})) {
         if (!entry.isDirectory()) continue;
-        const mdFile = path.join(dir, entry.name, `${entry.name}.md`);
-        if (!fs.existsSync(mdFile)) continue;
-        const content = fs.readFileSync(mdFile, 'utf-8');
-        const match = content.match(/^pubDate:\s*"?(\d{4}-\d{2}-\d{2})"?/m);
-        if (match) lastmodByPath.set(`/${routeSegment}/${entry.name}/`, new Date(match[1]));
+        // Match the .md file case-insensitively (e.g. folder cp-debug, file CP-debug.md).
+        const folder = path.join(dir, entry.name);
+        const mdName = fs.readdirSync(folder).find((f) => f.toLowerCase() === `${entry.name.toLowerCase()}.md`);
+        if (!mdName) continue;
+        const content = fs.readFileSync(path.join(folder, mdName), 'utf-8');
+        // lastmod = the newer of pubDate and updatedDate.
+        const dates = ['pubDate', 'updatedDate']
+            .map((key) => content.match(new RegExp(`^${key}:\\s*"?(\\d{4}-\\d{2}-\\d{2})"?`, 'm')))
+            .filter(Boolean)
+            .map((m) => new Date(m[1]));
+        if (dates.length) lastmodByPath.set(`/${routeSegment}/${entry.name.toLowerCase()}/`, new Date(Math.max(...dates)));
     }
 }
 

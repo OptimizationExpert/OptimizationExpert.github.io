@@ -23,6 +23,7 @@ export async function getStaticPaths() {
 const { note } = Astro.props;
 const { Content } = await render(note);
 const noteSlug = entrySlug(note);
+const showUpdated = Boolean(note.data.updatedDate && note.data.pubDate && note.data.updatedDate > note.data.pubDate);
 const inOrtoolsHub = isOrtoolsHubMember('notes', noteSlug, note.data.tags, note.data.hubCluster);
 
 const displayImage = note.data.image || note.data.minimalImage;
@@ -54,6 +55,7 @@ const authorDisplayName = matchedInstructor
   image={imgSrc(displayImage)}
   type="article"
   pubDate={note.data.pubDate}
+  updatedDate={note.data.updatedDate}
   author={authorFullName}
   authorUrl={matchedInstructor ? `/instructors/${instructorSlug}/` : undefined}
   breadcrumbs={[
@@ -83,7 +85,13 @@ const authorDisplayName = matchedInstructor
           {note.data.pubDate && (
             <span class="text-xs font-medium text-[var(--site-primary)] flex items-center gap-1.5 bg-[var(--site-primary)]/10 px-3.5 py-1.5 rounded-full border border-[var(--site-primary)]/25 shadow-xs">
               <i class="fa-regular fa-calendar text-[var(--site-primary)]"></i>
-              <span>{note.data.pubDate.toLocaleDateString('fa-IR')}</span>
+              <time datetime={note.data.pubDate.toISOString()}>{note.data.pubDate.toLocaleDateString('fa-IR')}</time>
+            </span>
+          )}
+          {showUpdated && (
+            <span class="text-xs font-medium text-[var(--site-primary)] flex items-center gap-1.5 bg-[var(--site-primary)]/10 px-3.5 py-1.5 rounded-full border border-[var(--site-primary)]/25 shadow-xs">
+              <i class="fa-solid fa-rotate text-[var(--site-primary)]" aria-hidden="true"></i>
+              <span>به‌روزرسانی: <time datetime={note.data.updatedDate!.toISOString()}>{note.data.updatedDate!.toLocaleDateString('fa-IR')}</time></span>
             </span>
           )}
           {note.data.author && (

@@ -20,6 +20,7 @@ export async function getStaticPaths() {
 const { project } = Astro.props;
 const { Content } = await render(project);
 const projectSlug = entrySlug(project);
+const showUpdated = Boolean(project.data.updatedDate && project.data.pubDate && project.data.updatedDate > project.data.pubDate);
 const inOrtoolsHub = isOrtoolsHubMember('projects', projectSlug, project.data.tags, project.data.hubCluster);
 
 const instructors = (project.data.instructor || project.data.author)
@@ -40,6 +41,7 @@ const authorFullName = projectInstructor?.data.name || project.data.author || 'O
   image={imgSrc(displayImage)}
   type="article"
   pubDate={project.data.pubDate}
+  updatedDate={project.data.updatedDate}
   author={authorFullName}
   authorUrl={projectInstructor ? `/instructors/${entrySlug(projectInstructor)}/` : undefined}
   breadcrumbs={[
@@ -89,7 +91,13 @@ const authorFullName = projectInstructor?.data.name || project.data.author || 'O
         {project.data.pubDate && (
           <span class="text-xs text-[var(--site-muted)] flex items-center gap-1.5 bg-[var(--site-bg)] px-3.5 py-1.5 rounded-full border border-[var(--site-border)] shadow-xs self-start sm:self-auto shrink-0">
             <i class="fa-regular fa-calendar text-[var(--site-primary)]"></i>
-            <span>{project.data.pubDate.toLocaleDateString('fa-IR')}</span>
+            <time datetime={project.data.pubDate.toISOString()}>{project.data.pubDate.toLocaleDateString('fa-IR')}</time>
+          </span>
+        )}
+        {showUpdated && (
+          <span class="text-xs text-[var(--site-muted)] flex items-center gap-1.5 bg-[var(--site-bg)] px-3.5 py-1.5 rounded-full border border-[var(--site-border)] shadow-xs self-start sm:self-auto shrink-0">
+            <i class="fa-solid fa-rotate text-[var(--site-primary)]" aria-hidden="true"></i>
+            <span>به‌روزرسانی: <time datetime={project.data.updatedDate!.toISOString()}>{project.data.updatedDate!.toLocaleDateString('fa-IR')}</time></span>
           </span>
         )}
       </div>
