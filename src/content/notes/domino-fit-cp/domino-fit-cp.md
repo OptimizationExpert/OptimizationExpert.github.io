@@ -7,7 +7,7 @@ minimalImage: "./domino-fit-CP-mini.webp"
 minimalImageAlt: "تصویر مینیمال آیکون بهینه‌سازی"
 image: "./dominofit.webp"
 imageAlt: "حل پازل Domino Fit با OR-Tools | مدل‌سازی CP در پایتون"
-tags: ["CP", "پازل ریاضی", "Constraint Programming"]
+tags: ["OR-Tools", "CP-SAT", "CP", "پازل ریاضی", "Constraint Programming"]
 relatedCourses: ["vrp-python"]
 relatedNotes: ["mathematical-modeling-art", "google-colab", "pyomo-solvers"]
 ---

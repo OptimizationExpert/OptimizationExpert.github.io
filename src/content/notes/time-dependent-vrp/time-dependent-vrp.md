@@ -7,7 +7,7 @@ minimalImage: "./TDVRP-mini.webp"
 minimalImageAlt: "تصویر مینیمال آیکون بهینه‌سازی"
 image: "./TDvrp.webp"
 imageAlt: "مسئله مسیریابی وابسته به زمان (TDVRP) با پایتون"
-tags: ["پایتون", "بهینه‌سازی", "Pyomo"]
+tags: ["OR-Tools", "مسیریابی وسایل نقلیه", "پایتون", "بهینه‌سازی"]
 relatedCourses: ["optimization-modeling", "uncertainty-modeling"]
 relatedNotes: ["mathematical-modeling-art", "google-colab", "pyomo-solvers"]
 ---

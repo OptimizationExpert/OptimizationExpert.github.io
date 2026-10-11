@@ -7,7 +7,7 @@ minimalImage: "./cp-intro-mini.webp"
 minimalImageAlt: "تصویر مینیمال آیکون بهینه‌سازی"
 image: "./cp-intro.webp"
 imageAlt: "حل همه جواب‌ها با OR-Tools و Constraint Programming | پایتون"
-tags: ["CP", "پازل ریاضی", "Constraint Programming"]
+tags: ["OR-Tools", "CP-SAT", "CP", "پازل ریاضی", "Constraint Programming"]
 relatedCourses: ["vrp-python"]
 relatedNotes: ["mathematical-modeling-art", "google-colab", "pyomo-solvers"]
 ---

@@ -11,7 +11,8 @@ minimalImage: "./butchery-inspection-scheduling-mini.webp"
 minimalImageAlt: "تصویر مینیمال آیکون بهینه‌سازی"
 image: "./butchery-inspection-scheduling.webp"
 imageAlt: "زمان‌بندی بازرسی قصابی‌ها با OR-Tools | پروژه عملی"
-tags: ["CP", "پازل ریاضی", "Constraint Programming"]
+tags: ["OR-Tools", "زمان‌بندی", "CP", "Constraint Programming"]
+hubCluster: "scheduling"
 relatedCourses: ["vrp-python"]
 relatedNotes: ["mathematical-modeling-art", "google-colab", "pyomo-solvers"]
 ---
