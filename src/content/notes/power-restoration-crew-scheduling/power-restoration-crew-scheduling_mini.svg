@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+  <rect x="0" y="0" width="1600" height="900" fill="#ffffff"/>
+
+  <!-- small damaged pole -->
+  <g transform="translate(660,370)">
+    <rect x="-5" y="0" width="10" height="90" fill="#4b5563"/>
+    <rect x="-34" y="12" width="68" height="6" fill="#4b5563"/>
+    <circle cx="-25" cy="12" r="4" fill="#9ca3af"/>
+    <circle cx="25" cy="12" r="4" fill="#9ca3af"/>
+    <path d="M-25,14 L-9,42 L-18,42 L0,70" fill="none" stroke="#dc2626" stroke-width="4" stroke-dasharray="2 8" stroke-linecap="round"/>
+    <circle cx="0" cy="70" r="7" fill="#dc2626"/>
+  </g>
+
+  <!-- dashed route -->
+  <path d="M520,520 C580,490 610,470 650,450" fill="none" stroke="#2563eb" stroke-width="5" stroke-dasharray="10 9"/>
+
+  <!-- small repair truck -->
+  <g transform="translate(400,500)">
+    <rect x="0" y="14" width="62" height="28" rx="3" fill="#2563eb"/>
+    <rect x="48" y="0" width="22" height="28" rx="3" fill="#1d4ed8"/>
+    <rect x="53" y="5" width="12" height="11" fill="#dbeafe"/>
+    <circle cx="15" cy="46" r="9" fill="#1f2937"/>
+    <circle cx="55" cy="46" r="9" fill="#1f2937"/>
+  </g>
+
+  <text x="800" y="680" font-family="Vazirmatn" font-size="30" font-weight="700" fill="#1f2937" text-anchor="middle">بازیابی شبکه پس از بلایا</text>
+</svg>
