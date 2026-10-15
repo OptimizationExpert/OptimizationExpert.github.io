@@ -1,0 +1,110 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="900" fill="#ffffff"/>
+  <text x="800" y="70" font-family="Vazirmatn" font-size="36" font-weight="700" fill="#1F2937" text-anchor="middle">اثر بهینه‌سازی الگوی برش بر مصرف رول اصلی</text>
+
+  <g transform="translate(120,120)">
+    <text x="180" y="0" font-family="Vazirmatn" font-size="26" fill="#4B5563" text-anchor="middle">قبل از بهینه‌سازی</text>
+    
+  <g transform="translate(60,260)">
+    <ellipse cx="23.0" cy="0" rx="23.0" ry="10.0" fill="#D1D5DB" stroke="#9CA3AF" stroke-width="2"/>
+    <rect x="0" y="0" width="46.0" height="70.0" fill="#D1D5DB" stroke="#9CA3AF" stroke-width="2"/>
+    <ellipse cx="23.0" cy="70.0" rx="23.0" ry="10.0" fill="#D1D5DB" stroke="#9CA3AF" stroke-width="2"/>
+    <ellipse cx="23.0" cy="0" rx="15.0" ry="6.0" fill="none" stroke="#9CA3AF" stroke-width="1.5"/>
+  </g>
+
+  <g transform="translate(130,260)">
+    <ellipse cx="23.0" cy="0" rx="23.0" ry="10.0" fill="#D1D5DB" stroke="#9CA3AF" stroke-width="2"/>
+    <rect x="0" y="0" width="46.0" height="70.0" fill="#D1D5DB" stroke="#9CA3AF" stroke-width="2"/>
+    <ellipse cx="23.0" cy="70.0" rx="23.0" ry="10.0" fill="#D1D5DB" stroke="#9CA3AF" stroke-width="2"/>
+    <ellipse cx="23.0" cy="0" rx="15.0" ry="6.0" fill="none" stroke="#9CA3AF" stroke-width="1.5"/>
+  </g>
+
+  <g transform="translate(200,260)">
+    <ellipse cx="23.0" cy="0" rx="23.0" ry="10.0" fill="#D1D5DB" stroke="#9CA3AF" stroke-width="2"/>
+    <rect x="0" y="0" width="46.0" height="70.0" fill="#D1D5DB" stroke="#9CA3AF" stroke-width="2"/>
+    <ellipse cx="23.0" cy="70.0" rx="23.0" ry="10.0" fill="#D1D5DB" stroke="#9CA3AF" stroke-width="2"/>
+    <ellipse cx="23.0" cy="0" rx="15.0" ry="6.0" fill="none" stroke="#9CA3AF" stroke-width="1.5"/>
+  </g>
+
+  <g transform="translate(270,260)">
+    <ellipse cx="23.0" cy="0" rx="23.0" ry="10.0" fill="#D1D5DB" stroke="#9CA3AF" stroke-width="2"/>
+    <rect x="0" y="0" width="46.0" height="70.0" fill="#D1D5DB" stroke="#9CA3AF" stroke-width="2"/>
+    <ellipse cx="23.0" cy="70.0" rx="23.0" ry="10.0" fill="#D1D5DB" stroke="#9CA3AF" stroke-width="2"/>
+    <ellipse cx="23.0" cy="0" rx="15.0" ry="6.0" fill="none" stroke="#9CA3AF" stroke-width="1.5"/>
+  </g>
+
+  <g transform="translate(60,360)">
+    <ellipse cx="23.0" cy="0" rx="23.0" ry="10.0" fill="#D1D5DB" stroke="#9CA3AF" stroke-width="2"/>
+    <rect x="0" y="0" width="46.0" height="70.0" fill="#D1D5DB" stroke="#9CA3AF" stroke-width="2"/>
+    <ellipse cx="23.0" cy="70.0" rx="23.0" ry="10.0" fill="#D1D5DB" stroke="#9CA3AF" stroke-width="2"/>
+    <ellipse cx="23.0" cy="0" rx="15.0" ry="6.0" fill="none" stroke="#9CA3AF" stroke-width="1.5"/>
+  </g>
+
+  <g transform="translate(130,360)">
+    <ellipse cx="23.0" cy="0" rx="23.0" ry="10.0" fill="#D1D5DB" stroke="#9CA3AF" stroke-width="2"/>
+    <rect x="0" y="0" width="46.0" height="70.0" fill="#D1D5DB" stroke="#9CA3AF" stroke-width="2"/>
+    <ellipse cx="23.0" cy="70.0" rx="23.0" ry="10.0" fill="#D1D5DB" stroke="#9CA3AF" stroke-width="2"/>
+    <ellipse cx="23.0" cy="0" rx="15.0" ry="6.0" fill="none" stroke="#9CA3AF" stroke-width="1.5"/>
+  </g>
+
+  <g transform="translate(200,360)">
+    <ellipse cx="23.0" cy="0" rx="23.0" ry="10.0" fill="#D1D5DB" stroke="#9CA3AF" stroke-width="2"/>
+    <rect x="0" y="0" width="46.0" height="70.0" fill="#D1D5DB" stroke="#9CA3AF" stroke-width="2"/>
+    <ellipse cx="23.0" cy="70.0" rx="23.0" ry="10.0" fill="#D1D5DB" stroke="#9CA3AF" stroke-width="2"/>
+    <ellipse cx="23.0" cy="0" rx="15.0" ry="6.0" fill="none" stroke="#9CA3AF" stroke-width="1.5"/>
+  </g>
+
+    <text x="180" y="560" font-family="Vazirmatn" font-size="30" font-weight="700" fill="#1F2937" text-anchor="middle">۷ رول اصلی</text>
+  </g>
+
+  <g transform="translate(0,460)">
+    <line x1="700" y1="0" x2="900" y2="0" stroke="#9CA3AF" stroke-width="6"/>
+    <polygon points="900,-14 936,0 900,14" fill="#9CA3AF"/>
+  </g>
+
+  <g transform="translate(1020,120)">
+    <text x="180" y="0" font-family="Vazirmatn" font-size="26" fill="#4B5563" text-anchor="middle">بعد از بهینه‌سازی</text>
+    
+  <g transform="translate(60,260)">
+    <ellipse cx="23.0" cy="0" rx="23.0" ry="10.0" fill="#2563EB" stroke="#9CA3AF" stroke-width="2"/>
+    <rect x="0" y="0" width="46.0" height="70.0" fill="#2563EB" stroke="#9CA3AF" stroke-width="2"/>
+    <ellipse cx="23.0" cy="70.0" rx="23.0" ry="10.0" fill="#2563EB" stroke="#9CA3AF" stroke-width="2"/>
+    <ellipse cx="23.0" cy="0" rx="15.0" ry="6.0" fill="none" stroke="#9CA3AF" stroke-width="1.5"/>
+  </g>
+
+  <g transform="translate(130,260)">
+    <ellipse cx="23.0" cy="0" rx="23.0" ry="10.0" fill="#2563EB" stroke="#9CA3AF" stroke-width="2"/>
+    <rect x="0" y="0" width="46.0" height="70.0" fill="#2563EB" stroke="#9CA3AF" stroke-width="2"/>
+    <ellipse cx="23.0" cy="70.0" rx="23.0" ry="10.0" fill="#2563EB" stroke="#9CA3AF" stroke-width="2"/>
+    <ellipse cx="23.0" cy="0" rx="15.0" ry="6.0" fill="none" stroke="#9CA3AF" stroke-width="1.5"/>
+  </g>
+
+  <g transform="translate(200,260)">
+    <ellipse cx="23.0" cy="0" rx="23.0" ry="10.0" fill="#2563EB" stroke="#9CA3AF" stroke-width="2"/>
+    <rect x="0" y="0" width="46.0" height="70.0" fill="#2563EB" stroke="#9CA3AF" stroke-width="2"/>
+    <ellipse cx="23.0" cy="70.0" rx="23.0" ry="10.0" fill="#2563EB" stroke="#9CA3AF" stroke-width="2"/>
+    <ellipse cx="23.0" cy="0" rx="15.0" ry="6.0" fill="none" stroke="#9CA3AF" stroke-width="1.5"/>
+  </g>
+
+  <g transform="translate(270,260)">
+    <ellipse cx="23.0" cy="0" rx="23.0" ry="10.0" fill="#2563EB" stroke="#9CA3AF" stroke-width="2"/>
+    <rect x="0" y="0" width="46.0" height="70.0" fill="#2563EB" stroke="#9CA3AF" stroke-width="2"/>
+    <ellipse cx="23.0" cy="70.0" rx="23.0" ry="10.0" fill="#2563EB" stroke="#9CA3AF" stroke-width="2"/>
+    <ellipse cx="23.0" cy="0" rx="15.0" ry="6.0" fill="none" stroke="#9CA3AF" stroke-width="1.5"/>
+  </g>
+
+  <g transform="translate(60,360)">
+    <ellipse cx="23.0" cy="0" rx="23.0" ry="10.0" fill="#2563EB" stroke="#9CA3AF" stroke-width="2"/>
+    <rect x="0" y="0" width="46.0" height="70.0" fill="#2563EB" stroke="#9CA3AF" stroke-width="2"/>
+    <ellipse cx="23.0" cy="70.0" rx="23.0" ry="10.0" fill="#2563EB" stroke="#9CA3AF" stroke-width="2"/>
+    <ellipse cx="23.0" cy="0" rx="15.0" ry="6.0" fill="none" stroke="#9CA3AF" stroke-width="1.5"/>
+  </g>
+
+    <text x="180" y="560" font-family="Vazirmatn" font-size="30" font-weight="700" fill="#1F2937" text-anchor="middle">۵ رول اصلی</text>
+  </g>
+
+  <g transform="translate(800,800)">
+    <rect x="-230" y="-36" width="460" height="56" rx="12" fill="#ECFDF5" stroke="#16A34A" stroke-width="2"/>
+    <text x="0" y="2" font-family="Vazirmatn" font-size="26" font-weight="700" fill="#15803D" text-anchor="middle">حدود ۲۸ درصد کاهش مصرف رول</text>
+  </g>
+</svg>

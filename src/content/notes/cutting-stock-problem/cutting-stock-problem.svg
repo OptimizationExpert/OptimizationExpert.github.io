@@ -1,0 +1,81 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+  <pattern id="hatchRed" width="10" height="10" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
+    <rect width="10" height="10" fill="#FEE2E2"/>
+    <line x1="0" y1="0" x2="0" y2="10" stroke="#EF4444" stroke-width="4"/>
+  </pattern>
+</defs>
+  <rect width="1600" height="900" fill="#ffffff"/>
+  <text x="800" y="60" font-family="Vazirmatn" font-size="40" font-weight="700" fill="#1F2937" text-anchor="middle">مسئله برش بهینه (Cutting Stock)</text>
+  <text x="800" y="98" font-family="Vazirmatn" font-size="22" fill="#4B5563" text-anchor="middle">یک رول اصلی، چند الگوی برش متفاوت برای تأمین سفارش‌های مشتری</text>
+  
+  <g transform="translate(70,150)">
+    <rect x="0" y="0" width="945" height="60" fill="#E5E7EB" stroke="#9CA3AF" stroke-width="2"/>
+    <text x="472.5" y="38" font-family="Vazirmatn" font-size="24" fill="#1F2937" text-anchor="middle">رول اصلی خام — عرض ۲۱۰ سانتی‌متر</text>
+  </g>
+
+  <g transform="translate(70,260)">
+<rect x="0.0" y="0" width="405.0" height="60" fill="#2563EB" stroke="white" stroke-width="2"/>
+<text x="202.5" y="38" font-family="Vazirmatn" font-size="20" fill="white" text-anchor="middle">۹۰</text>
+<rect x="405.0" y="0" width="405.0" height="60" fill="#2563EB" stroke="white" stroke-width="2"/>
+<text x="607.5" y="38" font-family="Vazirmatn" font-size="20" fill="white" text-anchor="middle">۹۰</text>
+<rect x="810.0" y="0" width="135.0" height="60" fill="url(#hatchRed)" stroke="white" stroke-width="2"/>
+<text x="877.5" y="38" font-family="Vazirmatn" font-size="20" fill="white" text-anchor="middle">ضایعه</text>
+<rect x="0" y="0" width="945" height="60" fill="none" stroke="#9CA3AF" stroke-width="2"/>
+</g>
+<text x="1560" y="297" font-family="Vazirmatn" font-size="22" fill="#1F2937" text-anchor="start" direction="rtl">الگو ۱ — دو قطعه ۹۰ + ضایعه</text>
+  <g transform="translate(70,352)">
+<rect x="0.0" y="0" width="405.0" height="60" fill="#2563EB" stroke="white" stroke-width="2"/>
+<text x="202.5" y="38" font-family="Vazirmatn" font-size="20" fill="white" text-anchor="middle">۹۰</text>
+<rect x="405.0" y="0" width="315.0" height="60" fill="#16A34A" stroke="white" stroke-width="2"/>
+<text x="562.5" y="38" font-family="Vazirmatn" font-size="20" fill="white" text-anchor="middle">۷۰</text>
+<rect x="720.0" y="0" width="225.0" height="60" fill="url(#hatchRed)" stroke="white" stroke-width="2"/>
+<text x="832.5" y="38" font-family="Vazirmatn" font-size="20" fill="white" text-anchor="middle">ضایعه</text>
+<rect x="0" y="0" width="945" height="60" fill="none" stroke="#9CA3AF" stroke-width="2"/>
+</g>
+<text x="1560" y="389" font-family="Vazirmatn" font-size="22" fill="#1F2937" text-anchor="start" direction="rtl">الگو ۲ — ۹۰ و ۷۰ + ضایعه</text>
+  <g transform="translate(70,444)">
+<rect x="0.0" y="0" width="225.0" height="60" fill="#F59E0B" stroke="white" stroke-width="2"/>
+<text x="112.5" y="38" font-family="Vazirmatn" font-size="20" fill="white" text-anchor="middle">۵۰</text>
+<rect x="225.0" y="0" width="225.0" height="60" fill="#F59E0B" stroke="white" stroke-width="2"/>
+<text x="337.5" y="38" font-family="Vazirmatn" font-size="20" fill="white" text-anchor="middle">۵۰</text>
+<rect x="450.0" y="0" width="225.0" height="60" fill="#F59E0B" stroke="white" stroke-width="2"/>
+<text x="562.5" y="38" font-family="Vazirmatn" font-size="20" fill="white" text-anchor="middle">۵۰</text>
+<rect x="675.0" y="0" width="225.0" height="60" fill="#F59E0B" stroke="white" stroke-width="2"/>
+<text x="787.5" y="38" font-family="Vazirmatn" font-size="20" fill="white" text-anchor="middle">۵۰</text>
+<rect x="900.0" y="0" width="45.0" height="60" fill="url(#hatchRed)" stroke="white" stroke-width="2"/>
+<rect x="0" y="0" width="945" height="60" fill="none" stroke="#9CA3AF" stroke-width="2"/>
+</g>
+<text x="1560" y="481" font-family="Vazirmatn" font-size="22" fill="#1F2937" text-anchor="start" direction="rtl">الگو ۳ — چهار قطعه ۵۰</text>
+  <g transform="translate(70,536)">
+<rect x="0.0" y="0" width="405.0" height="60" fill="#2563EB" stroke="white" stroke-width="2"/>
+<text x="202.5" y="38" font-family="Vazirmatn" font-size="20" fill="white" text-anchor="middle">۹۰</text>
+<rect x="405.0" y="0" width="315.0" height="60" fill="#16A34A" stroke="white" stroke-width="2"/>
+<text x="562.5" y="38" font-family="Vazirmatn" font-size="20" fill="white" text-anchor="middle">۷۰</text>
+<rect x="720.0" y="0" width="225.0" height="60" fill="#F59E0B" stroke="white" stroke-width="2"/>
+<text x="832.5" y="38" font-family="Vazirmatn" font-size="20" fill="white" text-anchor="middle">۵۰</text>
+<rect x="0" y="0" width="945" height="60" fill="none" stroke="#9CA3AF" stroke-width="2"/>
+</g>
+<text x="1560" y="573" font-family="Vazirmatn" font-size="22" fill="#1F2937" text-anchor="start" direction="rtl">الگو ۴ — بدون ضایعه</text>
+  <line x1="70" y1="235" x2="70" y2="596" stroke="#9CA3AF" stroke-width="2" stroke-dasharray="6,6"/>
+  <line x1="1015" y1="235" x2="1015" y2="596" stroke="#9CA3AF" stroke-width="2" stroke-dasharray="6,6"/>
+  <g transform="translate(200,660)">
+    
+  <rect x="0" y="0" width="34" height="34" rx="6" fill="#2563EB" stroke="#9CA3AF" stroke-width="1.5"/>
+  <text x="46" y="24" font-family="Vazirmatn" font-size="22" fill="#1F2937" text-anchor="start">سفارش عرض ۹۰ سانتی‌متر</text>
+
+    
+  <rect x="360" y="0" width="34" height="34" rx="6" fill="#16A34A" stroke="#9CA3AF" stroke-width="1.5"/>
+  <text x="406" y="24" font-family="Vazirmatn" font-size="22" fill="#1F2937" text-anchor="start">سفارش عرض ۷۰ سانتی‌متر</text>
+
+    
+  <rect x="720" y="0" width="34" height="34" rx="6" fill="#F59E0B" stroke="#9CA3AF" stroke-width="1.5"/>
+  <text x="766" y="24" font-family="Vazirmatn" font-size="22" fill="#1F2937" text-anchor="start">سفارش عرض ۵۰ سانتی‌متر</text>
+
+    
+  <rect x="1080" y="0" width="34" height="34" rx="6" fill="url(#hatchRed)" stroke="#9CA3AF" stroke-width="1.5"/>
+  <text x="1126" y="24" font-family="Vazirmatn" font-size="22" fill="#1F2937" text-anchor="start">ضایعه (برش اضافه)</text>
+
+  </g>
+  <text x="800" y="850" font-family="Vazirmatn" font-size="20" fill="#4B5563" text-anchor="middle">هدف مدل: کمینه‌کردن تعداد رول‌های اصلی با انتخاب بهترین ترکیب الگوها</text>
+</svg>

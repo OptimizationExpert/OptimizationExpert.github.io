@@ -1,0 +1,28 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="hatchRedMini" width="8" height="8" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
+      <rect width="8" height="8" fill="#FEE2E2"/>
+      <line x1="0" y1="0" x2="0" y2="8" stroke="#EF4444" stroke-width="3"/>
+    </pattern>
+  </defs>
+  <rect width="1600" height="900" fill="#ffffff"/>
+  
+  <g transform="translate(527.0,330)">
+    <rect x="0" y="0" width="546" height="56" fill="#E5E7EB" stroke="#9CA3AF" stroke-width="2"/>
+  </g>
+
+  
+  <g transform="translate(800,400.0)">
+    <line x1="0" y1="0" x2="0" y2="20" stroke="#9CA3AF" stroke-width="4"/>
+    <polygon points="-10,16 10,16 0,30" fill="#9CA3AF"/>
+  </g>
+
+  
+  <g transform="translate(527.0,430)">
+    <rect x="0.0" y="0" width="234.0" height="56" fill="#2563EB" stroke="white" stroke-width="2"/>
+    <rect x="234.0" y="0" width="182.0" height="56" fill="#16A34A" stroke="white" stroke-width="2"/>
+    <rect x="416.0" y="0" width="130.0" height="56" fill="url(#hatchRedMini)" stroke="white" stroke-width="2"/>
+    <rect x="0" y="0" width="546" height="56" fill="none" stroke="#9CA3AF" stroke-width="2"/>
+  </g>
+
+</svg>
