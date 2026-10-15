@@ -1,0 +1,50 @@
+<svg viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="1600" height="900" fill="#ffffff"/>
+
+  <text x="800" y="85" font-family="Vazirmatn" font-size="26" font-weight="bold" fill="#0f172a" text-anchor="middle">هر دو، شرط‌های بهینگی را دارند؛ فقط یکی واقعاً بهینه است</text>
+
+  <line x1="800" y1="140" x2="800" y2="760" stroke="#e2e8f0" stroke-width="3"/>
+
+  <!-- LEFT panel: saddle KKT point, not optimal -->
+  <text x="400" y="175" font-family="Vazirmatn" font-size="24" font-weight="bold" fill="#334155" text-anchor="middle">نقطه بحرانی زینی (غیربهینه)</text>
+
+  <!-- feasible region boundary -->
+  <path d="M 120,420 Q 400,340 680,420" stroke="#16a34a" stroke-width="5" fill="none"/>
+  <text x="400" y="310" font-family="Vazirmatn" font-size="16" fill="#166534" font-weight="bold">مرز ناحیه شدنی</text>
+
+  <circle cx="400" cy="380" r="10" fill="#dc2626"/>
+  <text x="600" y="385" font-family="Vazirmatn" font-size="17" fill="#dc2626" text-anchor="start" font-weight="bold">نقطه بحرانی</text>
+
+  <!-- a feasible descent direction still exists: red arrow going down into region where f decreases -->
+  <line x1="400" y1="380" x2="400" y2="540" stroke="#dc2626" stroke-width="6" stroke-linecap="round"/>
+  <polygon points="400,540 388,518 412,518" fill="#dc2626"/>
+  <text x="470" y="520" font-family="Vazirmatn" font-size="17" fill="#dc2626" font-weight="bold">جهت نزول شدنی هنوز هست</text>
+
+  <rect x="230" y="620" width="340" height="60" rx="10" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+  <text x="400" y="658" font-family="Vazirmatn" font-size="18" font-weight="bold" fill="#b91c1c" text-anchor="middle">می‌توان f را باز هم کاهش داد</text>
+
+  <!-- RIGHT panel: true optimum -->
+  <text x="1200" y="175" font-family="Vazirmatn" font-size="24" font-weight="bold" fill="#334155" text-anchor="middle">نقطه بهینه واقعی</text>
+
+  <path d="M 920,420 Q 1200,340 1480,420" stroke="#16a34a" stroke-width="5" fill="none"/>
+  <text x="1200" y="310" font-family="Vazirmatn" font-size="16" fill="#166534" font-weight="bold">مرز ناحیه شدنی</text>
+
+  <circle cx="1200" cy="380" r="10" fill="#16a34a"/>
+  <text x="1000" y="385" font-family="Vazirmatn" font-size="17" fill="#166534" text-anchor="end" font-weight="bold">نقطه بهینه</text>
+
+  <!-- all feasible directions increase f: small arrows fanning out, all green/blocked -->
+  <line x1="1200" y1="380" x2="1120" y2="480" stroke="#94a3b8" stroke-width="5" stroke-linecap="round"/>
+  <line x1="1200" y1="380" x2="1200" y2="500" stroke="#94a3b8" stroke-width="5" stroke-linecap="round"/>
+  <line x1="1200" y1="380" x2="1280" y2="480" stroke="#94a3b8" stroke-width="5" stroke-linecap="round"/>
+  <g font-family="Vazirmatn" font-size="14" fill="#64748b">
+    <text x="1080" y="525" text-anchor="middle">f بیشتر</text>
+    <text x="1200" y="545" text-anchor="middle">f بیشتر</text>
+    <text x="1320" y="525" text-anchor="middle">f بیشتر</text>
+  </g>
+
+  <rect x="1030" y="620" width="340" height="60" rx="10" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+  <text x="1200" y="658" font-family="Vazirmatn" font-size="18" font-weight="bold" fill="#166534" text-anchor="middle">هیچ جهت نزول شدنی‌ای نیست</text>
+
+  <rect x="430" y="760" width="740" height="70" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="800" y="804" font-family="Vazirmatn" font-size="19" font-weight="bold" fill="#0f172a" text-anchor="middle">بدون تحدب، باید جهت‌های شدنی را هم بررسی کرد</text>
+</svg>

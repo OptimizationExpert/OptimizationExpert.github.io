@@ -1,0 +1,36 @@
+<svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="800" height="500" fill="#ffffff"/>
+
+  <!-- Feasible region: half-plane below/left of the boundary line -->
+  <polygon points="40,460 40,180 460,40 620,40 620,460" fill="#dcfce7" opacity="0.6"/>
+  <text x="140" y="420" font-family="Vazirmatn" font-size="17" fill="#166534" font-weight="bold">ناحیه شدنی</text>
+
+  <!-- Constraint boundary line -->
+  <line x1="40" y1="180" x2="460" y2="40" stroke="#16a34a" stroke-width="5" stroke-linecap="round"/>
+  <text x="130" y="150" font-family="Vazirmatn" font-size="16" fill="#166534" font-weight="bold">مرز محدودیت g(x) = 0</text>
+
+  <!-- Contour circles (level curves of f), centered at unconstrained target -->
+  <circle cx="560" cy="330" r="60" fill="none" stroke="#93c5fd" stroke-width="3" stroke-dasharray="6 6"/>
+  <circle cx="560" cy="330" r="120" fill="none" stroke="#bfdbfe" stroke-width="3" stroke-dasharray="6 6"/>
+  <circle cx="560" cy="330" r="180" fill="none" stroke="#dbeafe" stroke-width="3" stroke-dasharray="6 6"/>
+  <circle cx="560" cy="330" r="5" fill="#1d4ed8"/>
+  <text x="560" y="300" font-family="Vazirmatn" font-size="15" fill="#1d4ed8" text-anchor="middle" font-weight="bold">هدف بدون قید</text>
+  <text x="700" y="245" font-family="Vazirmatn" font-size="14" fill="#60a5fa" text-anchor="middle">خطوط‌تراز f</text>
+
+  <!-- Optimal point: where smallest reachable contour touches the boundary -->
+  <circle cx="330" cy="165" r="9" fill="#dc2626"/>
+  <text x="330" y="205" font-family="Vazirmatn" font-size="17" fill="#dc2626" text-anchor="middle" font-weight="bold">نقطه بهینه x*</text>
+
+  <!-- gradient of f: points from x* toward the target center -->
+  <line x1="330" y1="165" x2="430" y2="225" stroke="#1d4ed8" stroke-width="5" stroke-linecap="round"/>
+  <polygon points="430,225 410,218 420,238" fill="#1d4ed8"/>
+  <text x="455" y="215" font-family="Vazirmatn" font-size="16" fill="#1d4ed8" font-weight="bold">∇f</text>
+
+  <!-- gradient of g: outward normal to the boundary line, same direction -->
+  <line x1="330" y1="165" x2="400" y2="205" stroke="#f97316" stroke-width="5" stroke-linecap="round" stroke-dasharray="1 7"/>
+  <polygon points="400,205 382,203 392,221" fill="#f97316"/>
+  <text x="400" y="180" font-family="Vazirmatn" font-size="16" fill="#c2410c" font-weight="bold">λ∇g</text>
+
+  <!-- Bottom caption -->
+  <text x="400" y="480" font-family="Vazirmatn" font-size="20" fill="#334155" text-anchor="middle" font-weight="bold">در نقطه بهینه، گرادیان هدف و گرادیان قید هم‌راستا می‌شوند</text>
+</svg>
