@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <rect width="1600" height="900" fill="#ffffff"/>
+
+  <!-- left: coverage radius concept -->
+  <g transform="translate(140,160)">
+    <text x="230" y="-30" font-family="Vazirmatn" font-size="34" font-weight="bold" fill="#111827" text-anchor="middle">شعاع پوشش یک ایستگاه</text>
+
+    <circle cx="230" cy="300" r="210" fill="#EFF6FF" stroke="#2563EB" stroke-width="3" stroke-dasharray="9 8"/>
+    <line x1="230" y1="300" x2="400" y2="190" stroke="#2563EB" stroke-width="2"/>
+    <text x="330" y="230" font-family="Vazirmatn" font-size="24" fill="#2563EB">R</text>
+
+    <!-- station at center -->
+    <rect x="205" y="270" width="50" height="95" rx="8" fill="#2563EB"/>
+    <rect x="218" y="285" width="24" height="30" rx="3" fill="#ffffff"/>
+    <polygon points="238,292 220,315 230,315 223,335 244,310 233,310" fill="#2563EB"/>
+
+    <!-- demand dots inside -->
+    <circle cx="120" cy="230" r="11" fill="#F59E0B"/>
+    <circle cx="330" cy="410" r="11" fill="#F59E0B"/>
+    <circle cx="90" cy="400" r="11" fill="#F59E0B"/>
+
+    <!-- demand dot outside -->
+    <circle cx="500" cy="460" r="11" fill="#DC2626"/>
+    <text x="500" y="500" font-family="Vazirmatn" font-size="20" fill="#DC2626" text-anchor="middle">پوشش‌نیافته</text>
+  </g>
+
+  <!-- divider -->
+  <line x1="800" y1="140" x2="800" y2="760" stroke="#E2E8F0" stroke-width="2"/>
+
+  <!-- right: feeder capacity concept -->
+  <g transform="translate(900,160)">
+    <text x="260" y="-30" font-family="Vazirmatn" font-size="34" font-weight="bold" fill="#111827" text-anchor="middle">ظرفیت باقی‌مانده فیدر</text>
+
+    <!-- substation -->
+    <rect x="170" y="80" width="110" height="130" rx="10" fill="#1E3A8A"/>
+    <rect x="190" y="105" width="70" height="65" rx="5" fill="#ffffff"/>
+    <polygon points="238,118 205,160 224,160 213,190 253,142 234,142" fill="#F59E0B"/>
+    <text x="225" y="245" font-family="Vazirmatn" font-size="20" fill="#111827" text-anchor="middle">فیدر F1</text>
+
+    <!-- gauge -->
+    <rect x="80" y="330" width="340" height="40" rx="20" fill="#E2E8F0"/>
+    <rect x="80" y="330" width="275" height="40" rx="20" fill="#F59E0B"/>
+    <text x="250" y="405" font-family="Vazirmatn" font-size="22" fill="#111827" text-anchor="middle">ظرفیت مصرف‌شده: ۸۰ درصد</text>
+
+    <!-- two station icons tied to feeder -->
+    <path d="M225,210 L130,290 L130,330" stroke="#1E3A8A" stroke-width="4" fill="none"/>
+    <path d="M225,210 L320,290 L320,330" stroke="#1E3A8A" stroke-width="4" fill="none"/>
+    <rect x="110" y="290" width="40" height="55" rx="6" fill="#2563EB"/>
+    <rect x="300" y="290" width="40" height="55" rx="6" fill="#2563EB"/>
+
+    <text x="250" y="470" font-family="Vazirmatn" font-size="20" fill="#64748B" text-anchor="middle">ایستگاه سوم نیازمند تقویت فیدر است</text>
+  </g>
+</svg>

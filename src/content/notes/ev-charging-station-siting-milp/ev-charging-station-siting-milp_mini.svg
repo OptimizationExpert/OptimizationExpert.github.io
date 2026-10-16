@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <rect width="1600" height="900" fill="#ffffff"/>
+
+  <!-- small centered scene with generous white margin -->
+  <g transform="translate(560,300)">
+    <!-- substation -->
+    <rect x="0" y="40" width="130" height="150" rx="10" fill="#1E3A8A"/>
+    <rect x="22" y="70" width="86" height="80" rx="6" fill="#ffffff"/>
+    <polygon points="78,88 40,138 64,138 50,172 96,118 72,118" fill="#F59E0B"/>
+    <circle cx="22" cy="40" r="8" fill="#1E3A8A"/>
+    <circle cx="108" cy="40" r="8" fill="#1E3A8A"/>
+
+    <!-- feeder line -->
+    <path d="M130,80 L260,80 L260,150" stroke="#1E3A8A" stroke-width="6" fill="none"/>
+
+    <!-- charging pylon -->
+    <rect x="235" y="150" width="50" height="120" rx="8" fill="#2563EB"/>
+    <rect x="248" y="170" width="24" height="34" rx="3" fill="#ffffff"/>
+    <polygon points="268,178 250,202 260,202 253,222 274,196 263,196" fill="#2563EB"/>
+
+    <!-- car -->
+    <g transform="translate(330,218)">
+      <rect x="0" y="16" width="120" height="40" rx="12" fill="#0EA5E9"/>
+      <rect x="22" y="-6" width="70" height="28" rx="9" fill="#0EA5E9"/>
+      <circle cx="28" cy="58" r="12" fill="#111827"/>
+      <circle cx="95" cy="58" r="12" fill="#111827"/>
+    </g>
+    <line x1="252" y1="190" x2="330" y2="230" stroke="#111827" stroke-width="3"/>
+
+    <!-- coverage circle -->
+    <circle cx="260" cy="230" r="150" fill="none" stroke="#2563EB" stroke-width="3" stroke-dasharray="8 9" opacity="0.5"/>
+  </g>
+
+  <text x="800" y="200" font-family="Vazirmatn" font-size="42" font-weight="bold" fill="#111827" text-anchor="middle">ایستگاه شارژ خودروی برقی</text>
+</svg>
