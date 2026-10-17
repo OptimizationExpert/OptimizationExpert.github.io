@@ -27,6 +27,7 @@ relatedNotes: ["epsilon-constraint-bi-objective", "mathematical-modeling-art"]
 دو دسته متغیر دودویی تعریف می‌کنیم:
 
 $$\text{start}_{o,d} \in \{0,1\} \quad \text{(سفارش } o \text{ در روز } d \text{ شروع می‌شود)}$$
+
 $$\text{occupy}_{o,d} \in \{0,1\} \quad \text{(سفارش } o \text{ در روز } d \text{ فعال است)}$$
 
 **قید اول — هر سفارش دقیقاً یک روز شروع دارد:**
