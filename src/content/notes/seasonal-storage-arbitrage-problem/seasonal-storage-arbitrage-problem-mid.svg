@@ -1,0 +1,36 @@
+<svg viewBox="0 0 960 540" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="960" height="540" fill="#ffffff"/>
+
+  <text x="480" y="56" font-family="Vazirmatn" font-size="24" font-weight="bold" fill="#0f172a" text-anchor="middle">موجودی سیلو و قیمت بازار در طول سال</text>
+
+  <!-- axes -->
+  <line x1="110" y1="440" x2="880" y2="440" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="110" y1="120" x2="110" y2="440" stroke="#94a3b8" stroke-width="2"/>
+
+  <!-- inventory area (blue): high right after harvest, falling over the year -->
+  <polygon points="110,440 110,200 260,170 410,220 560,290 710,360 860,420 860,440"
+           fill="#bfdbfe" opacity="0.55"/>
+  <polyline points="110,200 260,170 410,220 560,290 710,360 860,420"
+            fill="none" stroke="#2563eb" stroke-width="4"/>
+
+  <!-- price line (orange): low at harvest, rising toward shortage season -->
+  <polyline points="110,400 260,410 410,350 560,290 710,230 860,185"
+            fill="none" stroke="#f97316" stroke-width="4" stroke-dasharray="0"/>
+
+  <circle cx="260" cy="170" r="6" fill="#2563eb"/>
+  <circle cx="260" cy="410" r="6" fill="#f97316"/>
+  <circle cx="860" cy="420" r="6" fill="#2563eb"/>
+  <circle cx="860" cy="185" r="6" fill="#f97316"/>
+
+  <text x="260" y="150" font-family="Vazirmatn" font-size="16" font-weight="bold" fill="#1d4ed8" text-anchor="middle">موجودی پر از سیلو</text>
+  <text x="260" y="470" font-family="Vazirmatn" font-size="16" font-weight="bold" fill="#c2410c" text-anchor="middle">فصل برداشت - قیمت پایین</text>
+
+  <text x="820" y="165" font-family="Vazirmatn" font-size="16" font-weight="bold" fill="#c2410c" text-anchor="end">فصل کمبود - قیمت بالا</text>
+  <text x="820" y="445" font-family="Vazirmatn" font-size="16" font-weight="bold" fill="#1d4ed8" text-anchor="end">موجودی خالی سیلو</text>
+
+  <!-- legend -->
+  <line x1="650" y1="500" x2="690" y2="500" stroke="#2563eb" stroke-width="4"/>
+  <text x="700" y="505" font-family="Vazirmatn" font-size="15" fill="#1e3a8a" text-anchor="start">سطح موجودی</text>
+  <line x1="350" y1="500" x2="390" y2="500" stroke="#f97316" stroke-width="4"/>
+  <text x="400" y="505" font-family="Vazirmatn" font-size="15" fill="#9a3412" text-anchor="start">قیمت بازار</text>
+</svg>
