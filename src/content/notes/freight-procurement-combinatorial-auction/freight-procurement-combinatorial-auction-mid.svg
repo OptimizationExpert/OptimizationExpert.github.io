@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+<rect x="0" y="0" width="1600" height="900" fill="#ffffff"/>
+<text x="800.0" y="100" font-family="Vazirmatn" font-size="32" font-weight="bold" fill="#111827" text-anchor="middle">ﻩﺪﻧﺮﺑ ﯼﺎﻫﺩﺎﻬﻨﺸﯿﭘ ﻥﺎﯿﻣ ﺎﻫﺮﯿﺴﻣ ﺯﺍﺮﻓﺍ</text>
+<rect x="289.0" y="420" width="190" height="90" rx="14" fill="#2563EB" opacity="0.15" stroke="#2563EB" stroke-width="4"/>
+<text x="384.0" y="475.0" font-family="Vazirmatn" font-size="30" font-weight="bold" fill="#2563EB" text-anchor="middle">L1</text>
+<rect x="497.0" y="420" width="190" height="90" rx="14" fill="#2563EB" opacity="0.15" stroke="#2563EB" stroke-width="4"/>
+<text x="592.0" y="475.0" font-family="Vazirmatn" font-size="30" font-weight="bold" fill="#2563EB" text-anchor="middle">L2</text>
+<rect x="705.0" y="420" width="190" height="90" rx="14" fill="#2563EB" opacity="0.15" stroke="#2563EB" stroke-width="4"/>
+<text x="800.0" y="475.0" font-family="Vazirmatn" font-size="30" font-weight="bold" fill="#2563EB" text-anchor="middle">L5</text>
+<rect x="913.0" y="420" width="190" height="90" rx="14" fill="#F97316" opacity="0.15" stroke="#F97316" stroke-width="4"/>
+<text x="1008.0" y="475.0" font-family="Vazirmatn" font-size="30" font-weight="bold" fill="#F97316" text-anchor="middle">L3</text>
+<rect x="1121.0" y="420" width="190" height="90" rx="14" fill="#F97316" opacity="0.15" stroke="#F97316" stroke-width="4"/>
+<text x="1216.0" y="475.0" font-family="Vazirmatn" font-size="30" font-weight="bold" fill="#F97316" text-anchor="middle">L4</text>
+<path d="M 289.0 400 L 289.0 360 L 895.0 360 L 895.0 400" stroke="#2563EB" stroke-width="4" fill="none"/>
+<circle cx="592.0" cy="318" r="40" fill="#2563EB"/>
+<text x="592.0" y="323" font-family="Vazirmatn" font-size="15" font-weight="bold" fill="#ffffff" text-anchor="middle">ﻞﻤﺣ</text>
+<text x="592.0" y="341" font-family="Vazirmatn" font-size="15" font-weight="bold" fill="#ffffff" text-anchor="middle">۱ ﻩﺪﻨﻨﮐ</text>
+<text x="592.0" y="245" font-family="Vazirmatn" font-size="22" font-weight="bold" fill="#2563EB" text-anchor="middle">ﻥﺎﻣﻮﺗ ﻥﻮﯿﻠﯿﻣ ۴۲۰ — ۱ ﻩﺪﻧﺮﺑ ﻪﺘﺴﺑ</text>
+<path d="M 913.0 400 L 913.0 360 L 1311.0 360 L 1311.0 400" stroke="#F97316" stroke-width="4" fill="none"/>
+<circle cx="1112.0" cy="318" r="40" fill="#F97316"/>
+<text x="1112.0" y="323" font-family="Vazirmatn" font-size="15" font-weight="bold" fill="#ffffff" text-anchor="middle">ﻞﻤﺣ</text>
+<text x="1112.0" y="341" font-family="Vazirmatn" font-size="15" font-weight="bold" fill="#ffffff" text-anchor="middle">۲ ﻩﺪﻨﻨﮐ</text>
+<text x="1112.0" y="245" font-family="Vazirmatn" font-size="22" font-weight="bold" fill="#F97316" text-anchor="middle">ﻥﺎﻣﻮﺗ ﻥﻮﯿﻠﯿﻣ ۳۸۰ — ۲ ﻩﺪﻧﺮﺑ ﻪﺘﺴﺑ</text>
+<text x="800.0" y="580" font-family="Vazirmatn" font-size="24" font-weight="normal" fill="#374151" text-anchor="middle">ﻥﺪﻧﺎﻣ ﺎﺟ ﻥﻭﺪﺑ ﻭ ﯽﻧﺎﺷﻮﭙﻤﻫ ﻥﻭﺪﺑ ؛ﺩﻮﺷﯽﻣ ﻩﺩﺍﺩ ﺶﺷﻮﭘ ﺭﺎﺑﮏﯾ ﺎﻘﯿﻗﺩ ﺮﯿﺴﻣ ﺮﻫ</text>
+<text x="800.0" y="620" font-family="Vazirmatn" font-size="24" font-weight="bold" fill="#111827" text-anchor="middle">ﻥﺎﻣﻮﺗ ﻥﻮﯿﻠﯿﻣ ۸۰۰ :ﻩﺪﻧﺮﺑ ﻪﺘﺴﺑ ﻭﺩ ﺖﻤﯿﻗ ﻉﻮﻤﺠﻣ</text>
+</svg>

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180">
+<rect x="0" y="0" width="320" height="180" fill="#ffffff"/>
+<line x1="114.0" y1="70.0" x2="154.0" y2="90.0" stroke="#2563EB" stroke-width="5" stroke-linecap="round"/>
+<line x1="114.0" y1="110.0" x2="154.0" y2="90.0" stroke="#F97316" stroke-width="5" stroke-linecap="round"/>
+<circle cx="114.0" cy="70.0" r="6" fill="#2563EB"/>
+<circle cx="114.0" cy="110.0" r="6" fill="#F97316"/>
+<rect x="154.0" y="64.0" width="52" height="52" rx="10" fill="#F0FDF4" stroke="#16A34A" stroke-width="3"/>
+<path d="M 166.0 90.0 l 8 9 l 15 -18" stroke="#16A34A" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="180.0" y="136.0" font-family="Vazirmatn" font-size="13" font-weight="bold" fill="#16A34A" text-anchor="middle">ﺝﺍﺮﺣ ﻩﺪﻧﺮﺑ</text>
+</svg>

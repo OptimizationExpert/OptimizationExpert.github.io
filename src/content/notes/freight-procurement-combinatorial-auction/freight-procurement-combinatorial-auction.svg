@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+<rect x="0" y="0" width="1600" height="900" fill="#ffffff"/>
+<text x="800.0" y="70" font-family="Vazirmatn" font-size="32" font-weight="bold" fill="#111827" text-anchor="middle">ﺎﻫﻩﺪﻨﻨﮐﻞﻤﺣ ﯼﺎﻫﺩﺎﻬﻨﺸﯿﭘ ﻭ ﻞﻘﻧﻭﻞﻤﺣ ﯼﺎﻫﺮﯿﺴﻣ ﻪﮑﺒﺷ</text>
+<line x1="380" y1="230" x2="980" y2="190" stroke="#2563EB" stroke-width="6" stroke-linecap="round" opacity="0.85"/>
+<circle cx="680" cy="175" r="22" fill="#ffffff" stroke="#2563EB" stroke-width="3"/>
+<text x="680" y="183" font-family="Vazirmatn" font-size="22" font-weight="bold" fill="#2563EB" text-anchor="middle">L1</text>
+<line x1="980" y1="190" x2="1220" y2="400" stroke="#2563EB" stroke-width="6" stroke-linecap="round" opacity="0.85"/>
+<circle cx="1140" cy="260" r="22" fill="#ffffff" stroke="#2563EB" stroke-width="3"/>
+<text x="1140" y="268" font-family="Vazirmatn" font-size="22" font-weight="bold" fill="#2563EB" text-anchor="middle">L2</text>
+<line x1="1220" y1="400" x2="470" y2="430" stroke="#F97316" stroke-width="6" stroke-linecap="round" opacity="0.85"/>
+<circle cx="900" cy="450" r="22" fill="#ffffff" stroke="#F97316" stroke-width="3"/>
+<text x="900" y="458" font-family="Vazirmatn" font-size="22" font-weight="bold" fill="#F97316" text-anchor="middle">L3</text>
+<line x1="470" y1="430" x2="380" y2="230" stroke="#F97316" stroke-width="6" stroke-linecap="round" opacity="0.85"/>
+<circle cx="390" cy="340" r="22" fill="#ffffff" stroke="#F97316" stroke-width="3"/>
+<text x="390" y="348" font-family="Vazirmatn" font-size="22" font-weight="bold" fill="#F97316" text-anchor="middle">L4</text>
+<line x1="380" y1="230" x2="1220" y2="400" stroke="#2563EB" stroke-width="6" stroke-linecap="round" opacity="0.85"/>
+<circle cx="820" cy="330" r="22" fill="#ffffff" stroke="#2563EB" stroke-width="3"/>
+<text x="820" y="338" font-family="Vazirmatn" font-size="22" font-weight="bold" fill="#2563EB" text-anchor="middle">L5</text>
+<circle cx="380" cy="230" r="16" fill="#111827"/>
+<circle cx="380" cy="230" r="16" fill="none" stroke="#ffffff" stroke-width="3"/>
+<circle cx="980" cy="190" r="16" fill="#111827"/>
+<circle cx="980" cy="190" r="16" fill="none" stroke="#ffffff" stroke-width="3"/>
+<circle cx="1220" cy="400" r="16" fill="#111827"/>
+<circle cx="1220" cy="400" r="16" fill="none" stroke="#ffffff" stroke-width="3"/>
+<circle cx="470" cy="430" r="16" fill="#111827"/>
+<circle cx="470" cy="430" r="16" fill="none" stroke="#ffffff" stroke-width="3"/>
+<text x="380" y="200" font-family="Vazirmatn" font-size="22" font-weight="normal" fill="#374151" text-anchor="middle">ﻒﻟﺍ ﺮﻬﺷ</text>
+<text x="980" y="160" font-family="Vazirmatn" font-size="22" font-weight="normal" fill="#374151" text-anchor="middle">ﺏ ﺮﻬﺷ</text>
+<text x="1220" y="445" font-family="Vazirmatn" font-size="22" font-weight="normal" fill="#374151" text-anchor="middle">ﺝ ﺮﻬﺷ</text>
+<text x="470" y="475" font-family="Vazirmatn" font-size="22" font-weight="normal" fill="#374151" text-anchor="middle">ﺩ ﺮﻬﺷ</text>
+<rect x="105.0" y="560" width="430" height="280" rx="18" fill="#F0FDF4" stroke="#16A34A" stroke-width="4"/>
+<rect x="265.0" y="608" width="80" height="44" rx="6" fill="#2563EB"/><rect x="345.0" y="620" width="38" height="32" rx="5" fill="#2563EB"/><circle cx="290.0" cy="656" r="13" fill="#1f2937"/><circle cx="290.0" cy="656" r="6" fill="#d1d5db"/><circle cx="355.0" cy="656" r="13" fill="#1f2937"/><circle cx="355.0" cy="656" r="6" fill="#d1d5db"/>
+<text x="320.0" y="700" font-family="Vazirmatn" font-size="26" font-weight="bold" fill="#111827" text-anchor="middle">۱ ﻩﺪﻨﻨﮐﻞﻤﺣ</text>
+<text x="320.0" y="740" font-family="Vazirmatn" font-size="21" font-weight="normal" fill="#374151" text-anchor="middle">L1 + L2 + L5 :ﯼﺩﺎﻬﻨﺸﯿﭘ ﻪﺘﺴﺑ</text>
+<text x="320.0" y="776" font-family="Vazirmatn" font-size="21" font-weight="normal" fill="#374151" text-anchor="middle">ﻥﺎﻣﻮﺗ ﻥﻮﯿﻠﯿﻣ ۴۲۰ :ﺖﻤﯿﻗ</text>
+<circle cx="497.0" cy="598" r="26" fill="#16A34A"/>
+<path d="M 485.0 598 l 9 10 l 16 -20" stroke="#ffffff" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="320.0" y="812" font-family="Vazirmatn" font-size="22" font-weight="bold" fill="#16A34A" text-anchor="middle">ﺝﺍﺮﺣ ﻩﺪﻧﺮﺑ</text>
+<rect x="585.0" y="560" width="430" height="280" rx="18" fill="#F0FDF4" stroke="#16A34A" stroke-width="4"/>
+<rect x="745.0" y="608" width="80" height="44" rx="6" fill="#F97316"/><rect x="825.0" y="620" width="38" height="32" rx="5" fill="#F97316"/><circle cx="770.0" cy="656" r="13" fill="#1f2937"/><circle cx="770.0" cy="656" r="6" fill="#d1d5db"/><circle cx="835.0" cy="656" r="13" fill="#1f2937"/><circle cx="835.0" cy="656" r="6" fill="#d1d5db"/>
+<text x="800.0" y="700" font-family="Vazirmatn" font-size="26" font-weight="bold" fill="#111827" text-anchor="middle">۲ ﻩﺪﻨﻨﮐﻞﻤﺣ</text>
+<text x="800.0" y="740" font-family="Vazirmatn" font-size="21" font-weight="normal" fill="#374151" text-anchor="middle">L3 + L4 :ﯼﺩﺎﻬﻨﺸﯿﭘ ﻪﺘﺴﺑ</text>
+<text x="800.0" y="776" font-family="Vazirmatn" font-size="21" font-weight="normal" fill="#374151" text-anchor="middle">ﻥﺎﻣﻮﺗ ﻥﻮﯿﻠﯿﻣ ۳۸۰ :ﺖﻤﯿﻗ</text>
+<circle cx="977.0" cy="598" r="26" fill="#16A34A"/>
+<path d="M 965.0 598 l 9 10 l 16 -20" stroke="#ffffff" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="800.0" y="812" font-family="Vazirmatn" font-size="22" font-weight="bold" fill="#16A34A" text-anchor="middle">ﺝﺍﺮﺣ ﻩﺪﻧﺮﺑ</text>
+<rect x="1065.0" y="560" width="430" height="280" rx="18" fill="#F9FAFB" stroke="#D1D5DB" stroke-width="4"/>
+<rect x="1225.0" y="608" width="80" height="44" rx="6" fill="#9CA3AF"/><rect x="1305.0" y="620" width="38" height="32" rx="5" fill="#9CA3AF"/><circle cx="1250.0" cy="656" r="13" fill="#1f2937"/><circle cx="1250.0" cy="656" r="6" fill="#d1d5db"/><circle cx="1315.0" cy="656" r="13" fill="#1f2937"/><circle cx="1315.0" cy="656" r="6" fill="#d1d5db"/>
+<text x="1280.0" y="700" font-family="Vazirmatn" font-size="26" font-weight="bold" fill="#111827" text-anchor="middle">۳ ﻩﺪﻨﻨﮐﻞﻤﺣ</text>
+<text x="1280.0" y="740" font-family="Vazirmatn" font-size="21" font-weight="normal" fill="#374151" text-anchor="middle">L2 + L3 :ﯼﺩﺎﻬﻨﺸﯿﭘ ﻪﺘﺴﺑ</text>
+<text x="1280.0" y="776" font-family="Vazirmatn" font-size="21" font-weight="normal" fill="#374151" text-anchor="middle">ﻥﺎﻣﻮﺗ ﻥﻮﯿﻠﯿﻣ ۳۶۰ :ﺖﻤﯿﻗ</text>
+<text x="1280.0" y="812" font-family="Vazirmatn" font-size="20" font-weight="bold" fill="#9CA3AF" text-anchor="middle">(ﺎﻫﻩﺪﻧﺮﺑ ﺎﺑ ﻞﺧﺍﺪﺗ) ﻩﺪﺷ ﺩﺭ</text>
+</svg>
