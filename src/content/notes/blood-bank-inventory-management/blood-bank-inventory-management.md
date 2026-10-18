@@ -7,7 +7,7 @@ minimalImage: "./blood-bank-inventory-management-mini.svg"
 minimalImageAlt: "نماد ساده کیسه خون و نمودار سطح موجودی رو به کاهش"
 image: "./blood-bank-inventory-management.svg"
 imageAlt: "نمودار موجودی فرآورده‌های خونی به تفکیک گروه سنی کیسه، تقاضای روزانه، و کیسه‌های دورریز شده به دلیل انقضا"
-tags: ["بهینه‌سازی در سلامت", "کنترل موجودی", "موجودی فسادپذیر", "برنامه‌ریزی خطی", "زنجیره تأمین سلامت"]
+tags: ["بهینه‌سازی در حوزه سلامت", "کنترل موجودی", "موجودی فسادپذیر", "برنامه‌ریزی خطی", "زنجیره تأمین سلامت"]
 relatedCourses: ["optimization-modeling", "uncertainty-modeling", "health-opt"]
 relatedNotes: ["ambulance-location-mclp", "linkedin-patches-cp", "uncertainty-modeling-note"]
 ---

@@ -13,7 +13,7 @@ image: "./hospital-doctor-shift-scheduling.webp"
 imageAlt: "برنامه‌ی هفتگی شیفت پزشکان ثابت و ذخیره بیمارستان با قوانین استراحت و عدالت"
 relatedCourses: ["health-opt", "optimization-modeling"]
 relatedNotes: ["employee-shift-scheduling-cp-sat", "cpsat-scheduling-guide", "retail-staff-scheduling-cp-sat"]
-tags: ["پایتون", "بهینه‌سازی", "OR-Tools", "زمان‌بندی شیفت", "بیمارستان", "CP-SAT"]
+tags: ["بهینه‌سازی در حوزه سلامت", "پایتون", "بهینه‌سازی", "OR-Tools", "زمان‌بندی شیفت", "بیمارستان", "CP-SAT"]
 ---
 
 ## 📋 معرفی پروژه

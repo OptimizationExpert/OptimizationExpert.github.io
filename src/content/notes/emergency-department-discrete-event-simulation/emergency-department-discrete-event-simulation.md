@@ -7,7 +7,7 @@ minimalImage: "./emergency-department-discrete-event-simulation_mini.webp"
 minimalImageAlt: "آیکون مینیمال شبیه‌سازی صف بیماران در اورژانس"
 image: "./emergency-department-discrete-event-simulation.webp"
 imageAlt: "تصویرسازی مفهومی شبیه‌سازی رویداد گسسته در بخش اورژانس بیمارستان"
-tags: ["بهینه‌سازی سلامت", "شبیه‌سازی", "اورژانس", "SimPy", "تحقیق در عملیات"]
+tags: ["بهینه‌سازی در حوزه سلامت", "شبیه‌سازی", "اورژانس", "SimPy", "تحقیق در عملیات"]
 relatedCourses: ["health-opt"]
 relatedNotes: ["hospital-patient-flow-optimization", "icu-bed-admission-control"]
 ---

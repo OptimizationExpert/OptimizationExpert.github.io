@@ -17,7 +17,7 @@ instructor: "dr-soroudi"
 # === ارتباطات و ساختار سایت ===
 relatedCourses: [ "vrp-python", "optimization-modeling", "uncertainty-modeling" ]
 relatedNotes: [ "mathematical-modeling-art", "google-colab", "excel-python-io" ]
-tags: [ "بهینه‌سازی سلامت", "Python", "OR-Tools", "بهینه‌سازی ترکیبی", "مدیریت بیمارستان" ]
+tags: [ "بهینه‌سازی در حوزه سلامت", "Python", "OR-Tools", "بهینه‌سازی ترکیبی", "مدیریت بیمارستان" ]
 ---
 
 <!-- بخش اول: معرفی دوره -->

@@ -7,7 +7,7 @@ minimalImage: "./medical-oxygen-crisis-distribution_mini.webp"
 minimalImageAlt: "نماد ساده یک تانکر اکسیژن و دو بیمارستان با نشانگر سطح ذخیره"
 image: "./medical-oxygen-crisis-distribution.webp"
 imageAlt: "کارخانه تولید اکسیژن، تانکر در حال توزیع و چند بیمارستان با نشانگر سطح ذخیره اکسیژن"
-tags: ["بهینه‌سازی سلامت", "مسیریابی-موجودی", "زنجیره تأمین پزشکی", "مدیریت بحران", "اکسیژن پزشکی", "OR-Tools"]
+tags: ["بهینه‌سازی در حوزه سلامت", "مسیریابی-موجودی", "زنجیره تأمین پزشکی", "مدیریت بحران", "اکسیژن پزشکی", "OR-Tools"]
 relatedCourses: ["health-opt"]
 relatedNotes: ["cold-chain-vaccine-routing", "blood-supply-chain-optimization", "inventory-routing-problem"]
 ---

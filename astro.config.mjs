@@ -72,6 +72,8 @@ export default defineConfig({
         '/posts/2026/06/24/vrp-python-course': '/courses/vrp-python/',
         '/projects/load_hosting': '/projects/load-hosting/',
         '/notes/cp_intro': '/notes/cp-intro/',
+        // Health tag variants were merged into one canonical tag.
+        '/tags/بهینهسازی-سلامت': '/tags/بهینهسازی-در-حوزه-سلامت/',
         '/posts/2026/06/21/optimization-modeling-course': '/courses/optimization-modeling/',
         '/posts/2026/06/22/intro-power-system-course': '/courses/intro-power-system/',
         '/posts/2026/06/23/uncertainty-modeling-course': '/courses/uncertainty-modeling/',
