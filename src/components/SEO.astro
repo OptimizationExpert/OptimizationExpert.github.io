@@ -106,11 +106,9 @@ function toISODuration(text?: string): string | undefined {
 }
 
 function toOfferPrice(value?: string): string | undefined {
-  if (!value) return undefined;
-  const trimmed = value.trim().replace(/,/g, '');
-  if (/^(رایگان|free)$/i.test(trimmed)) return '0';
-  if (/^\d+(?:\.\d+)?$/.test(trimmed)) return trimmed;
-  return undefined;
+  // Schema prices are always in Rial (IRR); see src/utils/price.ts for accepted formats.
+  const parsed = parsePrice(value);
+  return parsed ? String(parsed.rial) : undefined;
 }
 
 function toBookFormat(text?: string): string | undefined {
@@ -301,6 +299,7 @@ if (contentEntity && typeof contentEntity === 'object' && '@id' in contentEntity
 webpage.primaryImageOfPage = { '@type': 'ImageObject', contentUrl: socialImageURL };
 
 const graph = [organization, website, webpage, ...(contentEntity ? [contentEntity] : []), ...(breadcrumbSchema ? [breadcrumbSchema] : [])];
+import { parsePrice } from '../utils/price';
 ---
 <title>{pageTitle}</title>
 <meta name="description" content={description} />
