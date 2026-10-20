@@ -7,7 +7,7 @@ minimalImage: "./vrp-mini.webp"
 minimalImageAlt: "تصویر مینیمال آیکون بهینه‌سازی"
 image: "./TDvrp.webp"
 imageAlt: "کاور دوره آموزشی حمل و نقل VRP با پایتون و ابزارهای بهینه‌سازی"
-
+price: "8MT"
 # === متغیرهای اختصاصی دوره (برای نمایش در کارت‌ها و Schema) ===
 duration: "۱۰ ساعت"
 level: "مقدماتی تا پیشرفته"
