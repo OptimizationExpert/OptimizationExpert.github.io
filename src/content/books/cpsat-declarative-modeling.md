@@ -5,6 +5,8 @@ category: "OR-Tools و CP-SAT"
 format: "PDF (انگلیسی)"
 pages: 57
 language: "en"
+downloadUrl: "/books/cpsat-declarative-modeling.pdf"
+fileSize: "۳٫۳ مگابایت"
 price: "رایگان"
 image: "./cpsat-declarative-modeling.webp"
 imageAlt: "جلد کتاب Declarative Modeling with CP-SAT اثر Dominik Krupke"
@@ -17,7 +19,6 @@ tags: ["OR-Tools", "CP-SAT", "مدل‌سازی ریاضی", "برنامه‌ر�
 
 **Declarative Modeling with CP-SAT** کتابی کوتاه و رایگان به زبان انگلیسی، نوشتهٔ دومینیک کروپکه (Dominik Krupke) از بخش الگوریتم‌های دانشگاه فنی براونشوایگ آلمان است. این کتاب همراه مستقل راهنمای شناخته‌شدهٔ «CP-SAT Primer» نوشته شده و روی یک مهارت تمرکز دارد: تبدیل یک مسئلهٔ واقعی و نامرتب به مدلی درست، پیش از آنکه به سالور سپرده شود.
 
-<a href="/books/cpsat-declarative-modeling.pdf" class="inline-flex items-center gap-2 font-bold" download>⬇ دانلود PDF کتاب (۵۷ صفحه، ۳٫۳ مگابایت)</a>
 
 ## این کتاب چه چیزی یاد می‌دهد؟
 

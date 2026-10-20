@@ -116,6 +116,11 @@ const booksCollection = defineCollection({
     price: z.string().optional(),
     // Language of the book itself (BCP 47), e.g. "en"; defaults to Persian in schema.
     language: z.string().optional(),
+    // Direct download link (a file in public/ or an external URL). When set, the page
+    // offers a real download button instead of the Telegram contact box.
+    downloadUrl: z.string().optional(),
+    // Optional size label shown on the download button, e.g. "۳٫۳ مگابایت".
+    fileSize: z.string().optional(),
   }),
 });
 

@@ -29,6 +29,8 @@ const authorFullName = matchedInstructor?.data.name || book.data.author || 'Opti
 const defaultImage = "/images/hero.webp";
 const bookImg = book.data.image || defaultImage;
 import { sized, COVER } from '../../utils/image-sizes';
+const downloadUrl = book.data.downloadUrl;
+const isLocalFile = Boolean(downloadUrl && downloadUrl.startsWith('/'));
 ---
 
 <Layout
@@ -116,9 +118,16 @@ import { sized, COVER } from '../../utils/image-sizes';
           <span class="text-xs text-[var(--site-muted)] block mb-1">وضعیت هزینه</span>
           <span class="text-lg font-bold text-[var(--site-accent)]">{book.data.price || "رایگان"}</span>
         </div>
-        <a href="#download-section" class="w-full sm:w-auto bg-[var(--site-primary)] hover:opacity-90 text-white font-medium px-6 py-3 rounded-xl transition text-xs text-center shadow-md shadow-[var(--site-primary)]/20">
-          دریافت فایل و منابع
-        </a>
+        {downloadUrl ? (
+          <a href={downloadUrl} download={isLocalFile ? '' : undefined} target={isLocalFile ? undefined : '_blank'} rel={isLocalFile ? undefined : 'noopener noreferrer'} class="w-full sm:w-auto bg-[var(--site-primary)] hover:opacity-90 text-white font-medium px-6 py-3 rounded-xl transition text-xs text-center shadow-md shadow-[var(--site-primary)]/20 inline-flex items-center justify-center gap-2">
+            <i class="fa-solid fa-download" aria-hidden="true"></i>
+            <span>دانلود {book.data.format?.includes('PDF') ? 'PDF' : 'فایل'}{book.data.fileSize ? ` (${book.data.fileSize})` : ''}</span>
+          </a>
+        ) : (
+          <a href="#download-section" class="w-full sm:w-auto bg-[var(--site-primary)] hover:opacity-90 text-white font-medium px-6 py-3 rounded-xl transition text-xs text-center shadow-md shadow-[var(--site-primary)]/20">
+            دریافت فایل و منابع
+          </a>
+        )}
       </div>
 
       <hr class="border-[var(--site-border)] mb-10" />
@@ -131,11 +140,24 @@ import { sized, COVER } from '../../utils/image-sizes';
       <!-- مقصد واقعی دکمه‌ی دانلود بالا: قبلاً به #download-section اشاره می‌کرد
            بدون اینکه چنین بخشی در صفحه وجود داشته باشد (لینک شکسته) -->
       <div id="download-section" class="scroll-mt-28">
-        <TelegramCTA
-          icon="fa-download"
-          heading="دریافت فایل کتاب"
-          description="برای دریافت فایل کتاب/جزوه و راهنمایی، با آیدی"
-        />
+        {downloadUrl ? (
+          <div class="bg-[var(--site-card)] border border-[var(--site-border)] rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xs">
+            <div class="text-center sm:text-right">
+              <h2 class="text-base font-bold text-[var(--site-heading)] mb-1">دانلود رایگان کتاب</h2>
+              <p class="text-xs text-[var(--site-muted)]">{book.data.format}{book.data.pages ? ` · ${book.data.pages} صفحه` : ''}{book.data.fileSize ? ` · ${book.data.fileSize}` : ''}</p>
+            </div>
+            <a href={downloadUrl} download={isLocalFile ? '' : undefined} target={isLocalFile ? undefined : '_blank'} rel={isLocalFile ? undefined : 'noopener noreferrer'} class="w-full sm:w-auto bg-[var(--site-primary)] hover:opacity-90 text-white font-bold px-6 py-3 rounded-xl transition text-sm text-center inline-flex items-center justify-center gap-2">
+              <i class="fa-solid fa-download" aria-hidden="true"></i>
+              <span>دانلود</span>
+            </a>
+          </div>
+        ) : (
+          <TelegramCTA
+            icon="fa-download"
+            heading="دریافت فایل کتاب"
+            description="برای دریافت فایل کتاب/جزوه و راهنمایی، با آیدی"
+          />
+        )}
       </div>
 
       <!-- برچسب‌ها و مطالب مرتبط -->
