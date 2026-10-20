@@ -114,6 +114,8 @@ const booksCollection = defineCollection({
     format: z.string().optional(),
     pages: z.coerce.number().int().positive().optional(),
     price: z.string().optional(),
+    // Language of the book itself (BCP 47), e.g. "en"; defaults to Persian in schema.
+    language: z.string().optional(),
   }),
 });
 

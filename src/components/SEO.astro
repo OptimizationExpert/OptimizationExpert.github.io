@@ -29,6 +29,7 @@ interface Props {
     format?: string;
     pages?: number;
     price?: string;
+    language?: string;
   };
   breadcrumbs?: { name: string; url?: string }[];
 }
@@ -142,12 +143,13 @@ const website = {
   inLanguage: 'fa-IR',
 };
 
+// A named author with a profile on this site gets a stable @id; an external author
+// (e.g. a third-party book) is a plain Person by name, never the site's organization id.
 const authorEntity = author && author !== siteName
   ? {
       '@type': 'Person',
-      '@id': authorId,
+      ...(resolvedAuthorUrl ? { '@id': authorId, url: resolvedAuthorUrl } : {}),
       name: author,
-      ...(resolvedAuthorUrl ? { url: resolvedAuthorUrl } : {}),
     }
   : { '@id': organizationId };
 
@@ -254,7 +256,7 @@ const contentEntity = (() => {
       description,
       image: [socialImageURL],
       url: canonicalURL,
-      inLanguage: 'fa-IR',
+      inLanguage: bookDetails?.language || 'fa-IR',
       ...(bookDetails?.category ? { genre: bookDetails.category } : {}),
       ...(bookFormat ? { bookFormat } : {}),
       ...(bookDetails?.pages ? { numberOfPages: bookDetails.pages } : {}),
