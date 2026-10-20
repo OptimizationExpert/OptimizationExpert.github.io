@@ -1,51 +1,96 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
+// Each step links to the page where that stage is taught.
 const learningPaths = [
   {
     title: "مسیر انرژی و سیستم قدرت",
-    subtitle: "پخش بار، شبکه‌های توزیع و مدل‌سازی ریسک",
+    subtitle: "پخش بار، Unit Commitment، شبکه‌های توزیع و مدل‌سازی ریسک",
     icon: "fa-solid fa-bolt",
     badge: "حوزه انرژی",
     accentColor: "text-amber-500 bg-amber-500/10 border-amber-500/20",
+    hub: { href: "/pyomo/", label: "راهنمای جامع Pyomo" },
     steps: [
-      { number: "۱", title: "مدل‌سازی مسائل بهینه‌سازی", desc: "آشنایی با متغیرها، تابع هدف و محدودیت‌ها" },
-      { number: "۲", title: "بهینه‌سازی سیستم‌های قدرت", desc: "تحلیل و پخش بار بهینه در شبکه‌های الکتریکی" },
-      { number: "۳", title: "مدل‌سازی عدم قطعیت", desc: "بررسی ریسک و بهینه‌سازی استوار در انرژی" }
-    ]
+      { title: "مدل‌سازی مسائل بهینه‌سازی", desc: "متغیر تصمیم، تابع هدف و قید؛ پایهٔ همهٔ مسیرها", href: "/courses/optimization-modeling/" },
+      { title: "مقدمات بهینه‌سازی سیستم قدرت", desc: "پخش بار اقتصادی، DC-OPF و مدل‌سازی باتری با پایتون", href: "/courses/intro-power-system/" },
+      { title: "بهینه‌سازی پیشرفتهٔ سیستم قدرت", desc: "Unit Commitment، پخش بار AC، امنیت N-1 و جایابی ذخیره‌ساز", href: "/courses/advanced-power-system/" },
+      { title: "مدل‌سازی عدم قطعیت", desc: "روش‌های تصادفی، استوار، فازی و IGDT در انرژی", href: "/courses/uncertainty-modeling/" },
+    ],
   },
   {
     title: "مسیر حمل‌ونقل و لجستیک",
-    subtitle: "بهینه‌سازی ناوگان، مسیریابی و زنجیره تأمین",
+    subtitle: "مسیریابی ناوگان، زمان‌بندی و زنجیرهٔ تأمین",
     icon: "fa-solid fa-truck-fast",
     badge: "حوزه لجستیک",
     accentColor: "text-blue-500 bg-blue-500/10 border-blue-500/20",
+    hub: { href: "/ortools/", label: "راهنمای جامع OR-Tools" },
     steps: [
-      { number: "۱", title: "مدل‌سازی مسائل بهینه‌سازی", desc: "آشنایی با متغیرها، تابع هدف و محدودیت‌ها" },
-      { number: "۲", title: "آموزش VRP در Python", desc: "حل مسائل مسیریابی وسایل نقلیه با پایتون" },
-      { number: "۳", title: "توسعه پروژه‌های واقعی لجستیک", desc: "پیاده‌سازی سناریوهای صنعتی و زنجیره تأمین" }
-    ]
+      { title: "مدل‌سازی مسائل بهینه‌سازی", desc: "متغیر تصمیم، تابع هدف و قید؛ پایهٔ همهٔ مسیرها", href: "/courses/optimization-modeling/" },
+      { title: "مبانی CP-SAT و زمان‌بندی", desc: "متغیر بازه‌ای، قید عدم‌تداخل و مدل‌های زمان‌بندی", href: "/notes/cpsat-scheduling-guide/" },
+      { title: "مسیریابی وسایل نقلیه با پایتون", desc: "از TSP و CVRP تا پنجرهٔ زمانی و خودروی برقی", href: "/courses/vrp-python/" },
+      { title: "پروژه‌های واقعی لجستیک", desc: "سناریوهای صنعتی زنجیرهٔ تأمین از تعریف تا نتیجه", href: "/projects/" },
+    ],
   },
   {
-    title: "مسیر بهینه سازی حوزه سلامت",
-    subtitle: "بهینه‌سازی سرویس دهی حوزه سلامت - تخصیص منابع - مسیریابی",
+    title: "مسیر بهینه‌سازی در حوزه سلامت",
+    subtitle: "زمان‌بندی درمان، تخصیص منابع و لجستیک پزشکی",
     icon: "fa-solid fa-house-chimney-medical",
     badge: "حوزه سلامت",
-    accentColor: "text-blue-500 bg-blue-500/10 border-blue-500/20",
+    accentColor: "text-emerald-500 bg-emerald-500/10 border-emerald-500/20",
+    hub: { href: "/ortools/#health", label: "آموزش‌های سلامت در هاب OR-Tools" },
     steps: [
-      { number: "۱", title: "مدل‌سازی مسائل بهینه‌سازی", desc: "آشنایی با متغیرها، تابع هدف و محدودیت‌ها" },
-      { number: "۲", title: "آموزش Assignment در Python", desc: "حل مسائل مسیریابی آمبولانس با پایتون" },
-      { number: "۳", title: "توسعه پروژه‌های واقعی سلامت", desc: "پیاده‌سازی سناریوهای صنعتی و بیمارستانی" }
-    ]
-  }
+      { title: "مدل‌سازی مسائل بهینه‌سازی", desc: "متغیر تصمیم، تابع هدف و قید؛ پایهٔ همهٔ مسیرها", href: "/courses/optimization-modeling/" },
+      { title: "دورهٔ بهینه‌سازی سیستم‌های سلامت", desc: "۲۰ پروژهٔ عملی از تخت بیمارستان تا امداد پهپادی", href: "/courses/health-opt/" },
+      { title: "یادداشت‌های حوزهٔ سلامت", desc: "زمان‌بندی دیالیز و رادیوتراپی، آمبولانس و بانک خون", href: "/tags/بهینهسازی-در-حوزه-سلامت/" },
+    ],
+  },
+  {
+    title: "مسیر پژوهش و پایان‌نامه",
+    subtitle: "مدل‌سازی پیشرفته برای مقاله و پایان‌نامه",
+    icon: "fa-solid fa-graduation-cap",
+    badge: "حوزه پژوهش",
+    accentColor: "text-violet-500 bg-violet-500/10 border-violet-500/20",
+    hub: { href: "/pyomo/#advanced", label: "تکنیک‌های پیشرفته در هاب Pyomo" },
+    steps: [
+      { title: "هنر مدل‌سازی ریاضی", desc: "تبدیل مسئلهٔ پژوهشی به یک مدل دقیق و قابل حل", href: "/notes/mathematical-modeling-art/" },
+      { title: "پیاده‌سازی مدل با Pyomo", desc: "از مدل مقاله تا کد پایتون با سالورهای رایگان", href: "/notes/pyomo-optimization-guide/" },
+      { title: "بهینه‌سازی دوسطحی و شرایط KKT", desc: "مدل‌های رهبر-پیرو که در مقاله‌ها پرتکرارند", href: "/notes/bilevel-optimization-stackelberg/" },
+      { title: "مدل‌سازی عدم قطعیت", desc: "تصمیم‌گیری وقتی داده‌ها قطعی نیستند", href: "/courses/uncertainty-modeling/" },
+    ],
+  },
+];
+
+const toFa = (n: number) => n.toLocaleString('fa-IR');
+
+const faqs = [
+  {
+    q: 'برای شروع چه پیش‌نیازی لازم است؟',
+    a: 'آشنایی پایه با زبان پایتون کافی است. همهٔ مسیرها با مدل‌سازی ریاضی شروع می‌شوند، پس اگر قبلاً مدل بهینه‌سازی ننوشته‌اید هم مشکلی نیست.',
+  },
+  {
+    q: 'کدام مسیر را انتخاب کنم؟',
+    a: 'مسیری را انتخاب کنید که به پروژه یا پایان‌نامهٔ فعلی شما نزدیک‌تر است. گام اول همهٔ مسیرها مشترک است، پس اگر هنوز مطمئن نیستید، از مدل‌سازی شروع کنید و بعد تصمیم بگیرید.',
+  },
+  {
+    q: 'آیا می‌توانم بدون دوره و فقط با محتوای رایگان یاد بگیرم؟',
+    a: 'بله. راهنماهای جامع OR-Tools و Pyomo، یادداشت‌های آموزشی و جزوهٔ رایگان Pyomo، مسیر کاملی برای یادگیری خودآموز می‌سازند. دوره‌ها این مسیر را ساختاریافته‌تر و با تمرین و پروژهٔ کامل پوشش می‌دهند.',
+  },
 ];
 ---
 
-<Layout title="مسیر پیشنهادی یادگیری" description="برای ورود اصولی به بهینه‌سازی، ابتدا مدل‌سازی را یاد بگیرید، سپس وارد حوزه تخصصی مورد علاقه خود شوید." breadcrumbs={[{ name: 'خانه', url: '/' }, { name: 'مسیر یادگیری' }]}>
-
+<Layout
+  title="مسیر پیشنهادی یادگیری بهینه‌سازی با پایتون"
+  description="چهار مسیر گام‌به‌گام برای یادگیری بهینه‌سازی با پایتون: سیستم قدرت، لجستیک و زنجیرهٔ تأمین، سلامت، و پژوهش؛ از مدل‌سازی ریاضی تا پروژهٔ واقعی."
+  breadcrumbs={[{ name: 'خانه', url: '/' }, { name: 'مسیر یادگیری' }]}
+>
   <main class="max-w-5xl mx-auto px-4 sm:px-6 py-16 flex-grow w-full">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+    })} />
 
-    <div class="mb-16 text-center">
+    <div class="mb-12 text-center">
       <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--site-primary)]/10 border border-[var(--site-primary)]/20 text-[var(--site-primary)] text-xs font-bold mb-4">
         <i class="fa-solid fa-map-location-dot"></i>
         <span>نقشه راه تخصصی</span>
@@ -54,15 +99,27 @@ const learningPaths = [
         مسیر پیشنهادی یادگیری
       </h1>
       <p class="text-[var(--site-muted)] text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
-        برای ورود اصولی به بهینه‌سازی، ابتدا مدل‌سازی را یاد بگیرید، سپس وارد حوزه تخصصی مورد علاقه خود شوید.
+        برای ورود اصولی به بهینه‌سازی، ابتدا مدل‌سازی را یاد بگیرید، سپس وارد حوزهٔ تخصصی مورد علاقهٔ خود شوید. روی هر گام کلیک کنید تا به آموزش همان مرحله بروید.
       </p>
     </div>
+
+    <section class="max-w-3xl mx-auto mb-14 text-[var(--site-text)] text-sm md:text-base leading-loose" aria-labelledby="choose-title">
+      <h2 id="choose-title" class="text-xl md:text-2xl font-black text-[var(--site-heading)] mb-3">چطور مسیر مناسب را انتخاب کنم؟</h2>
+      <p class="mb-3">
+        همهٔ مسیرها با یک گام مشترک شروع می‌شوند: مدل‌سازی ریاضی. یعنی یاد بگیرید یک مسئلهٔ واقعی را به متغیر تصمیم، تابع هدف و قید تبدیل کنید. این مهارت مستقل از ابزار است و در همهٔ حوزه‌ها به کار می‌آید.
+      </p>
+      <p class="mb-3">
+        بعد از آن، مسیر به ابزار و حوزه وابسته می‌شود. مسائل سیستم قدرت و انرژی معمولاً با <a href="/pyomo/" class="text-[var(--site-primary)] font-bold hover:underline">Pyomo</a> حل می‌شوند، چون مدل‌هایشان اغلب پیوسته یا غیرخطی‌اند. مسائل زمان‌بندی، مسیریابی و تخصیص با <a href="/ortools/" class="text-[var(--site-primary)] font-bold hover:underline">OR-Tools</a> و سالور CP-SAT، که برای مسائل گسسته ساخته شده است.
+      </p>
+      <p>
+        اگر برای پایان‌نامه یا مقاله یاد می‌گیرید، مسیر پژوهش را دنبال کنید. این مسیر شما را از مدل‌سازی به تکنیک‌هایی مثل بهینه‌سازی دوسطحی و مدل‌سازی عدم قطعیت می‌برد که در مقاله‌های این حوزه پرتکرارند.
+      </p>
+    </section>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
       {
         learningPaths.map((path) => (
           <div class="bg-[var(--site-card)] border border-[var(--site-border)] hover:border-[var(--site-primary)]/50 rounded-3xl p-6 md:p-8 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-between">
-            
             <div>
               <div class="text-center mb-8 pb-6 border-b border-[var(--site-border)]">
                 <div class="flex items-center justify-between mb-4">
@@ -81,38 +138,50 @@ const learningPaths = [
                 </p>
               </div>
 
-              <div class="relative space-y-3 pr-3">
-                <div class="absolute right-5 top-4 bottom-4 w-0.5 bg-[var(--site-border)]"></div>
-
+              <ol class="relative space-y-3 pr-3">
+                <div class="absolute right-5 top-4 bottom-4 w-0.5 bg-[var(--site-border)]" aria-hidden="true"></div>
                 {
                   path.steps.map((step, idx) => (
-                    <div class="relative z-10 bg-[var(--site-bg)] border border-[var(--site-border)] p-4 rounded-2xl flex items-center gap-4">
-                      
-                      <div class={`w-9 h-9 rounded-xl font-bold text-xs flex items-center justify-center shrink-0 text-white ${idx === 2 ? 'bg-[var(--site-accent)]' : 'bg-[var(--site-primary)]'}`}>
-                        {step.number}
-                      </div>
-
-                      <div class="flex-1 min-w-0 text-right">
-                        <div class="text-xs sm:text-sm font-extrabold text-[var(--site-heading)] mb-0.5 truncate">
-                          {step.title}
+                    <li>
+                      <a href={step.href} class="relative z-10 bg-[var(--site-bg)] border border-[var(--site-border)] hover:border-[var(--site-primary)]/50 p-4 rounded-2xl flex items-center gap-4 transition-colors group">
+                        <div class={`w-9 h-9 rounded-xl font-bold text-xs flex items-center justify-center shrink-0 text-white ${idx === path.steps.length - 1 ? 'bg-[var(--site-accent)]' : 'bg-[var(--site-primary)]'}`}>
+                          {toFa(idx + 1)}
                         </div>
-                        <div class="text-[11px] text-[var(--site-muted)] truncate font-normal">
-                          {step.desc}
+                        <div class="flex-1 min-w-0 text-right">
+                          <div class="text-xs sm:text-sm font-extrabold text-[var(--site-heading)] group-hover:text-[var(--site-primary)] mb-0.5 transition-colors">
+                            {step.title}
+                          </div>
+                          <div class="text-[11px] text-[var(--site-muted)] font-normal leading-relaxed">
+                            {step.desc}
+                          </div>
                         </div>
-                      </div>
-
-                    </div>
+                        <i class="fa-solid fa-arrow-left text-[10px] text-[var(--site-muted)] group-hover:text-[var(--site-primary)] transition-colors" aria-hidden="true"></i>
+                      </a>
+                    </li>
                   ))
                 }
-              </div>
-
+              </ol>
             </div>
 
+            <a href={path.hub.href} class="mt-6 inline-flex items-center gap-2 text-xs font-bold text-[var(--site-primary)] hover:underline self-start">
+              <i class="fa-solid fa-compass" aria-hidden="true"></i>
+              <span>{path.hub.label}</span>
+            </a>
           </div>
         ))
       }
     </div>
 
+    <section class="max-w-3xl mx-auto mt-16" aria-labelledby="faq-title">
+      <h2 id="faq-title" class="text-xl md:text-2xl font-black text-[var(--site-heading)] mb-4">پرسش‌های رایج</h2>
+      <div class="divide-y divide-[var(--site-border)] text-sm md:text-base leading-loose">
+        {faqs.map((f) => (
+          <details class="py-4">
+            <summary class="cursor-pointer font-bold text-[var(--site-heading)]">{f.q}</summary>
+            <p class="mt-2 text-[var(--site-text)]">{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </section>
   </main>
-
 </Layout>

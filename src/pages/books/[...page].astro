@@ -127,6 +127,31 @@ import { sized, CARD } from '../../utils/image-sizes';
       />
     </section>
 
+    {page.currentPage === 1 && (
+      <section class="max-w-4xl mx-auto px-6 pb-16 text-[var(--site-text)] text-sm md:text-base leading-loose" aria-labelledby="about-books-title">
+        <h2 id="about-books-title" class="text-2xl font-black text-[var(--site-heading)] mb-4">دربارهٔ این منابع</h2>
+        <p class="mb-4">
+          <a href="/books/pyomo-optimization-guide/" class="text-[var(--site-primary)] font-bold hover:underline">راهنمای جامع بهینه‌سازی با Pyomo و پایتون</a> یک جزوهٔ فارسی ۲۱۰ صفحه‌ای و رایگان است. از مبانی مدل‌سازی ریاضی و دسته‌بندی مسائل (LP، MILP، NLP و MINLP) شروع می‌کند، نصب Pyomo و سالورهای HiGHS، CBC و IPOPT را توضیح می‌دهد، و به مدل‌سازی مسائل مهندسی و شبکه‌های قدرت می‌رسد.
+        </p>
+        <p class="mb-4">
+          این جزوه برای دانشجویان تحصیلات تکمیلی، پژوهشگران و مهندسانی نوشته شده که می‌خواهند مدل‌های بهینه‌سازی را بدون نیاز به نرم‌افزار تجاری، در پایتون پیاده کنند؛ به‌ویژه در مهندسی برق و سیستم‌های قدرت.
+        </p>
+
+        <h2 class="text-2xl font-black text-[var(--site-heading)] mt-10 mb-4">چطور از این جزوه بیشترین استفاده را ببرید؟</h2>
+        <p class="mb-4">
+          جزوه را کنار <a href="/pyomo/" class="text-[var(--site-primary)] font-bold hover:underline">راهنمای جامع آموزش Pyomo</a> بخوانید. راهنما مسیر یادگیری را مرحله‌به‌مرحله نشان می‌دهد و برای هر فصل، یادداشت‌های عملی با مسئلهٔ واقعی دارد. اگر تازه شروع کرده‌اید، پیش از جزوه یادداشت <a href="/notes/mathematical-modeling-art/" class="text-[var(--site-primary)] font-bold hover:underline">مدل‌سازی ریاضی و اهمیت آن برای برنامه‌نویسی</a> را مطالعه کنید.
+        </p>
+        <p class="mb-4">
+          برای یادگیری ساختاریافته با تمرین و پشتیبانی، دوره‌های <a href="/courses/optimization-modeling/" class="text-[var(--site-primary)] font-bold hover:underline">مدل‌سازی مسائل بهینه‌سازی</a> و <a href="/courses/advanced-power-system/" class="text-[var(--site-primary)] font-bold hover:underline">بهینه‌سازی پیشرفتهٔ سیستم قدرت</a> همین مسیر را به‌صورت پروژه‌محور پوشش می‌دهند.
+        </p>
+
+        <h2 class="text-2xl font-black text-[var(--site-heading)] mt-10 mb-4">کتاب انگلیسی: Power System Optimization Modeling in GAMS</h2>
+        <p>
+          کتاب انگلیسی دکتر علیرضا سرودی دربارهٔ مدل‌سازی بهینه‌سازی سیستم قدرت در GAMS، در سال ۲۰۱۷ توسط انتشارات Springer منتشر شده است. معرفی کتاب و کتابخانهٔ مدل‌های همراه آن در صفحهٔ <a href="/softwares/gamsopt/" class="text-[var(--site-primary)] font-bold hover:underline">بهینه‌سازی سیستم قدرت در GAMS</a> آمده است. اگر با GAMS کار کرده‌اید و می‌خواهید به پایتون مهاجرت کنید، سری یادداشت‌های <a href="/pyomo/#gams" class="text-[var(--site-primary)] font-bold hover:underline">از GAMS به پایتون</a> برای شما نوشته شده است.
+        </p>
+      </section>
+    )}
+
   </main>
 
 </Layout>

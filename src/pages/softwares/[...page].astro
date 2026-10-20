@@ -26,6 +26,19 @@ const { page } = Astro.props;
 // تصویر پیش‌فرض یکسان با بقیه‌ی سایت (قبلاً به‌اشتباه تصویر یک دوره استفاده می‌شد)
 const defaultImage = "/images/hero.webp";
 import { sized, CARD } from '../../utils/image-sizes';
+
+// Tools used across the site's tutorials (shown on page 1 only).
+const tools = [
+  { name: 'Python', url: 'https://www.python.org/', use: 'زبان همهٔ آموزش‌ها و پروژه‌ها', license: 'رایگان (PSF)' },
+  { name: 'Pyomo', url: 'https://www.pyomo.org/', use: 'زبان مدل‌سازی جبری برای LP، MILP و مسائل غیرخطی؛ ابزار اصلی آموزش‌های سیستم قدرت', license: 'متن‌باز (BSD)' },
+  { name: 'OR-Tools', url: 'https://developers.google.com/optimization', use: 'سالور CP-SAT برای زمان‌بندی و تخصیص، و کتابخانهٔ مسیریابی برای VRP', license: 'متن‌باز (Apache 2.0)' },
+  { name: 'HiGHS', url: 'https://highs.dev/', use: 'سالور سریع برنامه‌ریزی خطی و عدد صحیح (LP و MILP)', license: 'متن‌باز (MIT)' },
+  { name: 'CBC', url: 'https://github.com/coin-or/Cbc', use: 'سالور برنامه‌ریزی عدد صحیح از پروژهٔ COIN-OR؛ سالور پیش‌فرض PuLP', license: 'متن‌باز (EPL)' },
+  { name: 'IPOPT', url: 'https://coin-or.github.io/Ipopt/', use: 'سالور مسائل غیرخطی پیوسته، مثل پخش بار بهینهٔ AC', license: 'متن‌باز (EPL)' },
+  { name: 'GLPK', url: 'https://www.gnu.org/software/glpk/', use: 'سالور سبک برنامه‌ریزی خطی و عدد صحیح برای مدل‌های کوچک', license: 'متن‌باز (GPL)' },
+  { name: 'Gurobi', url: 'https://www.gurobi.com/', use: 'سالور تجاری بسیار سریع برای مسائل بزرگ عدد صحیح', license: 'تجاری؛ لایسنس دانشگاهی رایگان' },
+  { name: 'GAMS', url: 'https://www.gams.com/', use: 'زبان مدل‌سازی جبری کلاسیک؛ مرجع کتاب سیستم قدرت دکتر سرودی', license: 'تجاری؛ نسخهٔ رایگان محدود' },
+];
 ---
 
 <Layout title="نرم‌افزارها و ابزارها" description="دانلود و راهنمای نصب نرم‌افزارها و سالورهای بهینه‌سازی و محیط‌های توسعهٔ تخصصی مهندسی، برای کار با پایتون، Pyomo، OR-Tools و GAMS." 
@@ -44,7 +57,7 @@ import { sized, CARD } from '../../utils/image-sizes';
           نرم‌افزارها و ابزارها
         </h1>
         <p class="text-[var(--site-muted)] text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
-          مجموعه‌ای از نرم‌افزارهای کاربردی، ابزارهای مهندسی و محیط‌های توسعه تخصصی.
+          ابزارها، سالورها و منابع نرم‌افزاری که در آموزش‌های بهینه‌سازی این سایت به کار می‌روند؛ همراه با کاربرد، مجوز و راهنمای نصب.
         </p>
       </div>
     </section>
@@ -126,6 +139,48 @@ import { sized, CARD } from '../../utils/image-sizes';
         basePath="/softwares/"
       />
     </section>
+
+    {page.currentPage === 1 && (
+      <section class="max-w-4xl mx-auto px-6 pb-16" aria-labelledby="tools-title">
+        <h2 id="tools-title" class="text-2xl font-black text-[var(--site-heading)] mb-4">ابزارها و سالورهای به‌کاررفته در آموزش‌ها</h2>
+        <p class="text-[var(--site-text)] text-sm md:text-base leading-loose mb-6">
+          همهٔ آموزش‌های این سایت با پایتون و ابزارهای متن‌باز نوشته شده‌اند، تا بتوانید هر مدل را بدون خرید لایسنس روی سیستم خودتان اجرا کنید. جدول زیر نشان می‌دهد هر ابزار برای چه نوع مسئله‌ای مناسب است و از کجا دریافت می‌شود.
+        </p>
+        <div class="overflow-x-auto rounded-2xl border border-[var(--site-border)] bg-[var(--site-card)]">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="text-[var(--site-heading)] bg-[var(--site-bg)]">
+                <th class="text-right font-bold px-4 py-3">ابزار</th>
+                <th class="text-right font-bold px-4 py-3">کاربرد</th>
+                <th class="text-right font-bold px-4 py-3">مجوز</th>
+              </tr>
+            </thead>
+            <tbody class="text-[var(--site-text)]">
+              {tools.map((t) => (
+                <tr class="border-t border-[var(--site-border)]">
+                  <td class="px-4 py-3 font-bold whitespace-nowrap" dir="ltr" style="text-align: right">
+                    <a href={t.url} target="_blank" rel="noopener noreferrer" class="text-[var(--site-primary)] hover:underline">{t.name}</a>
+                  </td>
+                  <td class="px-4 py-3 leading-relaxed">{t.use}</td>
+                  <td class="px-4 py-3 whitespace-nowrap text-[var(--site-muted)]">{t.license}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <h2 class="text-2xl font-black text-[var(--site-heading)] mt-12 mb-4">نصب سریع</h2>
+        <p class="text-[var(--site-text)] text-sm md:text-base leading-loose mb-4">
+          با سه دستور زیر، محیط کاملی برای اجرای تقریباً همهٔ آموزش‌های سایت آماده می‌شود: Pyomo برای مدل‌سازی جبری، HiGHS به‌عنوان سالور رایگان خطی و عدد صحیح، و OR-Tools برای مسائل زمان‌بندی و مسیریابی.
+        </p>
+        <pre dir="ltr" class="rounded-xl bg-[var(--site-bg)] border border-[var(--site-border)] p-4 text-sm overflow-x-auto"><code>pip install pyomo
+pip install highspy
+pip install ortools</code></pre>
+        <p class="text-[var(--site-text)] text-sm md:text-base leading-loose mt-4">
+          برای راهنمای کامل نصب و انتخاب سالور، یادداشت <a href="/notes/pyomo-solvers/" class="text-[var(--site-primary)] font-bold hover:underline">سه روش عملی استفاده از سالورها در Pyomo</a> را ببینید. اگر نمی‌خواهید چیزی نصب کنید، همهٔ آموزش‌ها در <a href="/notes/google-colab/" class="text-[var(--site-primary)] font-bold hover:underline">Google Colab</a> هم اجرا می‌شوند. برای شروع یادگیری، از <a href="/pyomo/" class="text-[var(--site-primary)] font-bold hover:underline">راهنمای جامع Pyomo</a> یا <a href="/ortools/" class="text-[var(--site-primary)] font-bold hover:underline">راهنمای جامع OR-Tools</a> استفاده کنید.
+        </p>
+      </section>
+    )}
 
   </main>
 
