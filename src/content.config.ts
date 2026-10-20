@@ -141,6 +141,8 @@ const instructorsCollection = defineCollection({
     githubUrl: z.string().url().optional(),
     linkedinUrl: z.string().url().optional(),
     // Identity signals for search engines and AI assistants (Person schema)
+    // Short meta description for the profile page (120-155 characters).
+    seoDescription: z.string().optional(),
     nameEn: z.string().optional(),
     alternateName: z.array(z.string()).default([]),
     descriptionEn: z.string().optional(),

@@ -1,0 +1,937 @@
+diff --git a/.github/workflows/deploy.yml b/.github/workflows/deploy.yml
+index a90539b..5daff4e 100644
+--- a/.github/workflows/deploy.yml
++++ b/.github/workflows/deploy.yml
+@@ -8,6 +8,11 @@ on:
+       - 'seo_opportunity_output/**'
+       - 'seo_demand_output/**'
+   workflow_dispatch:
++    inputs:
++      indexnow_full:
++        description: "IndexNow: submit every URL in the sitemap (use once after setup)"
++        type: boolean
++        default: false
+ 
+ permissions:
+   contents: read
+@@ -55,3 +60,27 @@ jobs:
+       - name: Deploy GitHub Pages
+         id: deployment
+         uses: actions/deploy-pages@v4
++
++  # Tell IndexNow (Bing and partners) which pages changed, after they are live.
++  indexnow:
++    needs: deploy
++    runs-on: ubuntu-latest
++    continue-on-error: true
++
++    steps:
++      - name: Checkout repository
++        uses: actions/checkout@v4
++        with:
++          fetch-depth: 0
++
++      - name: Set up Node.js
++        uses: actions/setup-node@v4
++        with:
++          node-version: "22.12.0"
++
++      - name: Notify IndexNow
++        env:
++          BEFORE_SHA: ${{ github.event.before }}
++          AFTER_SHA: ${{ github.sha }}
++          FULL: ${{ inputs.indexnow_full && '1' || '0' }}
++        run: node scripts/indexnow.mjs
+diff --git a/public/9b309ab09fd2e1d067653564e496675c.txt b/public/9b309ab09fd2e1d067653564e496675c.txt
+new file mode 100644
+index 0000000..36d5819
+--- /dev/null
++++ b/public/9b309ab09fd2e1d067653564e496675c.txt
+@@ -0,0 +1 @@
++9b309ab09fd2e1d067653564e496675c
+\ No newline at end of file
+diff --git a/scripts/indexnow.mjs b/scripts/indexnow.mjs
+new file mode 100644
+index 0000000..e14df2d
+--- /dev/null
++++ b/scripts/indexnow.mjs
+@@ -0,0 +1,132 @@
++// Notifies IndexNow (Bing, Yandex, Naver, Seznam, ...) about pages changed in the last push.
++//
++// Runs in GitHub Actions after the site is deployed. Only URLs that appear in the live
++// sitemap are submitted, so drafts, renamed folders or deleted pages are never sent.
++//
++// Env:
++//   BEFORE_SHA, AFTER_SHA  commit range of the push (set by the workflow)
++//   FULL=1                 submit every URL in the sitemap (first run / manual resubmit)
++//   DRY_RUN=1              print the payload without sending it
++//   SITEMAP_FILE           read the sitemap from a local file instead of the live site (testing)
++import { execSync } from 'node:child_process';
++import fs from 'node:fs';
++import path from 'node:path';
++
++const SITE = 'https://optexpert.org';
++const HOST = new URL(SITE).host;
++const ENDPOINT = 'https://api.indexnow.org/indexnow';
++const CONTENT_COLLECTIONS = ['notes', 'projects', 'courses', 'books', 'softwares'];
++
++// Pages whose content lists other entries; resubmitted whenever any entry changes.
++const LISTING_PAGES = ['/', '/ortools/', '/notes/', '/projects/', '/courses/'];
++
++function findKey() {
++  const file = fs.readdirSync('public').find((f) => /^[0-9a-f]{32}\.txt$/.test(f));
++  if (!file) throw new Error('IndexNow key file (public/<32-hex>.txt) not found.');
++  const key = fs.readFileSync(path.join('public', file), 'utf-8').trim();
++  if (`${key}.txt` !== file) throw new Error(`Key file ${file} does not contain its own key.`);
++  return key;
++}
++
++async function loadSitemapUrls() {
++  const read = async (loc) => {
++    if (process.env.SITEMAP_FILE) {
++      const dir = path.dirname(process.env.SITEMAP_FILE);
++      const local = loc.startsWith('http') ? path.join(dir, path.basename(new URL(loc).pathname)) : loc;
++      return fs.readFileSync(local, 'utf-8');
++    }
++    const res = await fetch(loc);
++    if (!res.ok) throw new Error(`Cannot fetch ${loc}: HTTP ${res.status}`);
++    return res.text();
++  };
++  const index = await read(process.env.SITEMAP_FILE || `${SITE}/sitemap-index.xml`);
++  const childMaps = [...index.matchAll(/<loc>([^<]+\.xml)<\/loc>/g)].map((m) => m[1]);
++  const xmls = childMaps.length ? await Promise.all(childMaps.map(read)) : [index];
++  return new Set(xmls.flatMap((x) => [...x.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1])).filter((u) => !u.endsWith('.xml')));
++}
++
++function changedFiles() {
++  const before = process.env.BEFORE_SHA || '';
++  const after = process.env.AFTER_SHA || 'HEAD';
++  const range = !before || /^0+$/.test(before) ? `${after}~1 ${after}` : `${before} ${after}`;
++  try {
++    return execSync(`git diff --name-only ${range}`, { encoding: 'utf-8' }).split('\n').filter(Boolean);
++  } catch {
++    console.log(`Could not diff ${range}; nothing to submit.`);
++    return [];
++  }
++}
++
++function urlsForFiles(files, live) {
++  const urls = new Set();
++  let contentChanged = false;
++  for (const file of files) {
++    const content = file.match(/^src\/content\/([^/]+)\/([^/]+)\//);
++    if (content && CONTENT_COLLECTIONS.includes(content[1])) {
++      const url = `${SITE}/${content[1]}/${content[2].toLowerCase()}/`;
++      urls.add(url);
++      // Listing pages only change when a published entry changes (not for drafts).
++      if (live.has(url)) contentChanged = true;
++      continue;
++    }
++    // Static pages: src/pages/about.astro -> /about/, src/pages/ortools/index.astro -> /ortools/
++    const page = file.match(/^src\/pages\/(.+)\.astro$/);
++    if (page && !page[1].includes('[')) {
++      const route = page[1].replace(/(^|\/)index$/, '');
++      urls.add(`${SITE}/${route ? `${route}/` : ''}`);
++    }
++  }
++  if (contentChanged) LISTING_PAGES.forEach((p) => urls.add(`${SITE}${p}`));
++  return urls;
++}
++
++async function main() {
++  const key = findKey();
++  const live = await loadSitemapUrls();
++
++  let candidates;
++  if (process.env.FULL === '1') {
++    candidates = live;
++    console.log('FULL=1: submitting every URL in the sitemap.');
++  } else {
++    const files = changedFiles();
++    console.log(`Changed files: ${files.length}`);
++    candidates = urlsForFiles(files, live);
++  }
++
++  const urlList = [...candidates].filter((u) => live.has(u)).sort();
++  const skipped = [...candidates].filter((u) => !live.has(u));
++  if (skipped.length) console.log(`Skipped (not in sitemap): ${skipped.join(', ')}`);
++  if (!urlList.length) {
++    console.log('No published pages changed; nothing to submit.');
++    return;
++  }
++
++  const payload = { host: HOST, key, keyLocation: `${SITE}/${key}.txt`, urlList: urlList.slice(0, 10000) };
++  console.log(`Submitting ${payload.urlList.length} URL(s):\n  ${payload.urlList.join('\n  ')}`);
++  if (process.env.DRY_RUN === '1') {
++    console.log('DRY_RUN=1: not sending.');
++    return;
++  }
++
++  const res = await fetch(ENDPOINT, {
++    method: 'POST',
++    headers: { 'Content-Type': 'application/json; charset=utf-8' },
++    body: JSON.stringify(payload),
++  });
++  const meaning = {
++    200: 'OK, submitted',
++    202: 'Accepted; key validation pending',
++    400: 'Bad request',
++    403: 'Key not valid (key file not reachable?)',
++    422: 'URLs do not belong to the host or key mismatch',
++    429: 'Too many requests',
++  };
++  console.log(`IndexNow response: ${res.status} ${meaning[res.status] ?? ''}`);
++  if (res.status >= 400) process.exitCode = 1;
++}
++
++main().catch((err) => {
++  console.error(err.message);
++  process.exitCode = 1;
++});
+diff --git a/src/content.config.ts b/src/content.config.ts
+index 5fd5535..45c5f1a 100644
+--- a/src/content.config.ts
++++ b/src/content.config.ts
+@@ -141,6 +141,8 @@ const instructorsCollection = defineCollection({
+     githubUrl: z.string().url().optional(),
+     linkedinUrl: z.string().url().optional(),
+     // Identity signals for search engines and AI assistants (Person schema)
++    // Short meta description for the profile page (120-155 characters).
++    seoDescription: z.string().optional(),
+     nameEn: z.string().optional(),
+     alternateName: z.array(z.string()).default([]),
+     descriptionEn: z.string().optional(),
+diff --git a/src/content/courses/vrp-python/vrp-python.md b/src/content/courses/vrp-python/vrp-python.md
+index 24c131a..bfdda05 100644
+--- a/src/content/courses/vrp-python/vrp-python.md
++++ b/src/content/courses/vrp-python/vrp-python.md
+@@ -20,7 +20,7 @@ instructor: "dr-soroudi"
+ relatedCourses: ["optimization-modeling", "uncertainty-modeling"]
+ relatedNotes: ["mathematical-modeling-art", "google-colab", "pyomo-solvers"]
+ # انتخاب ۵ تا ۷ تگ جامع به جای ۲۰ تگ پراکنده
+-tags: ["Vehicle Routing Problem", "Python", "OR-Tools", "بهینه‌سازی ترکیبی", "زنجیره تامین"]
++tags: ["Vehicle Routing Problem", "Python", "OR-Tools", "بهینه‌سازی ترکیبی", "زنجیره تأمین"]
+ ---
+ 
+ <!-- بخش اول: معرفی دوره -->
+diff --git a/src/content/instructors/dr-soroudi/dr-soroudi.md b/src/content/instructors/dr-soroudi/dr-soroudi.md
+index f7def1e..714adad 100644
+--- a/src/content/instructors/dr-soroudi/dr-soroudi.md
++++ b/src/content/instructors/dr-soroudi/dr-soroudi.md
+@@ -4,6 +4,7 @@ shortName: "علیرضا سرودی"
+ title: "دکتر علیرضا سرودی"
+ jobTitle: "متخصص ارشد علوم داده | راهبر پروژه‌های بهینه‌سازی و تحقیق در عملیات در شرکت EirGrid | عضو ارشد موسسه مهندسان برق و الکترونیک (Senior Member IEEE)"
+ image: "./dr-soroudi.jpg"
++seoDescription: "دکتر علیرضا سرودی، متخصص ارشد علوم داده و راهبر پروژه‌های بهینه‌سازی در EirGrid و عضو ارشد IEEE؛ دوره‌ها، یادداشت‌ها و پروژه‌های تخصصی."
+ nameEn: "Alireza Soroudi"
+ alternateName: ["Dr. Alireza Soroudi", "A. Soroudi", "علیرضا سرودی"]
+ descriptionEn: "Senior data scientist leading optimization and operations research projects at EirGrid, IEEE Senior Member, author of Power System Optimization Modeling in GAMS (Springer, 2017), and founder of optexpert.org, a Persian-language platform for learning OR-Tools, Pyomo and applied optimization."
+diff --git a/src/content/notes/bilevel-optimization-stackelberg/bilevel-optimization-stackelberg.md b/src/content/notes/bilevel-optimization-stackelberg/bilevel-optimization-stackelberg.md
+index c3b0038..c32aca3 100644
+--- a/src/content/notes/bilevel-optimization-stackelberg/bilevel-optimization-stackelberg.md
++++ b/src/content/notes/bilevel-optimization-stackelberg/bilevel-optimization-stackelberg.md
+@@ -1,5 +1,5 @@
+ ---
+-title: "بهینه‌سازی دوسطحی: وقتی تصمیم شما به تصمیم یک بازیگر دیگر وابسته است"
++title: "بهینه‌سازی دوسطحی (Bilevel): مثال رهبر-پیرو و شرایط KKT"
+ description: "آموزش گام‌به‌گام بهینه‌سازی دوسطحی (Bilevel Optimization) با یک مثال کامل رهبر-پیرو، حل شده هم با تابع واکنش و هم با جایگزینی شرایط KKT."
+ pubDate: 2026-10-17
+ author: "dr-soroudi"
+diff --git a/src/content/notes/blood-bank-inventory-management/blood-bank-inventory-management.md b/src/content/notes/blood-bank-inventory-management/blood-bank-inventory-management.md
+index 6905075..73a5b94 100644
+--- a/src/content/notes/blood-bank-inventory-management/blood-bank-inventory-management.md
++++ b/src/content/notes/blood-bank-inventory-management/blood-bank-inventory-management.md
+@@ -7,7 +7,7 @@ minimalImage: "./blood-bank-inventory-management-mini.svg"
+ minimalImageAlt: "نماد ساده کیسه خون و نمودار سطح موجودی رو به کاهش"
+ image: "./blood-bank-inventory-management.svg"
+ imageAlt: "نمودار موجودی فرآورده‌های خونی به تفکیک گروه سنی کیسه، تقاضای روزانه، و کیسه‌های دورریز شده به دلیل انقضا"
+-tags: ["بهینه‌سازی در حوزه سلامت", "کنترل موجودی", "موجودی فسادپذیر", "برنامه‌ریزی خطی", "زنجیره تأمین سلامت"]
++tags: ["بهینه‌سازی در حوزه سلامت", "کنترل موجودی", "موجودی فسادپذیر", "برنامه‌ریزی خطی", "زنجیره تأمین"]
+ relatedCourses: ["optimization-modeling", "uncertainty-modeling", "health-opt"]
+ relatedNotes: ["ambulance-location-mclp", "linkedin-patches-cp", "uncertainty-modeling-note"]
+ ---
+diff --git a/src/content/notes/brick-factory-scheduling/brick-factory-scheduling.md b/src/content/notes/brick-factory-scheduling/brick-factory-scheduling.md
+index c5c46df..f7ab3e0 100644
+--- a/src/content/notes/brick-factory-scheduling/brick-factory-scheduling.md
++++ b/src/content/notes/brick-factory-scheduling/brick-factory-scheduling.md
+@@ -1,6 +1,6 @@
+ ---
+-title: "زمان‌بندی تولید در کارخانه با ظرفیت روزانه‌ی متغیر: یک مسئله‌ی زمان‌بندی منابع محدود"
+-description: "وقتی هر سفارش باید چند روز پیاپی کوره را اشغال کند و ظرفیت روزانه‌ی کارخانه هم روز به روز فرق دارد، مسئله دیگر یک زمان‌بندی ساده نیست. با CP-SAT این مسئله را مدل و حل می‌کنیم."
++title: "زمان‌بندی تولید با ظرفیت روزانه متغیر در CP-SAT"
++description: "هر سفارش چند روز پیاپی کوره را اشغال می‌کند و ظرفیت روزانه هم متغیر است. این مسئلهٔ زمان‌بندی منابع محدود را با CP-SAT مدل و حل می‌کنیم."
+ pubDate: 2026-09-12
+ author: "dr-soroudi"
+ minimalImage: "./brick-schedule-mini.webp"
+diff --git a/src/content/notes/closed-loop-supply-chain/closed-loop-supply-chain.md b/src/content/notes/closed-loop-supply-chain/closed-loop-supply-chain.md
+index ec50c9a..d4d26dd 100644
+--- a/src/content/notes/closed-loop-supply-chain/closed-loop-supply-chain.md
++++ b/src/content/notes/closed-loop-supply-chain/closed-loop-supply-chain.md
+@@ -1,5 +1,5 @@
+ ---
+-title: "زنجیره تأمین حلقه‌بسته: محصول برگشتی را بازسازی کنیم یا دور بریزیم؟"
++title: "زنجیره تأمین حلقه‌بسته: بازسازی یا بازیافت محصول برگشتی؟"
+ description: "مدل‌سازی ریاضی تصمیم بازسازی یا بازیافت محصولات مرجوعی در زنجیره تأمین حلقه‌بسته، با فرمول‌بندی MILP و پیاده‌سازی در پایتون."
+ pubDate: 2026-10-20
+ author: "dr-soroudi"
+@@ -7,7 +7,7 @@ minimalImage: "./closed-loop-supply-chain_mini.webp"
+ minimalImageAlt: "نماد ساده بازگشت محصول از مشتری به کارخانه برای بازسازی یا بازیافت"
+ image: "./closed-loop-supply-chain.webp"
+ imageAlt: "نمودار مفهومی تصمیم بازسازی یا بازیافت محصولات برگشتی در زنجیره تأمین حلقه‌بسته"
+-tags: ["زنجیره تأمین حلقه‌بسته", "لجستیک معکوس", "بازسازی محصول", "بهینه‌سازی", "MILP"]
++tags: ["زنجیره تأمین", "زنجیره تأمین حلقه‌بسته", "لجستیک معکوس", "بازسازی محصول", "بهینه‌سازی", "MILP"]
+ relatedCourses: ["vrp-python"]
+ relatedNotes: ["green-closed-loop-supply-chain", "facility-location-problem", "multi-echelon-inventory-optimization"]
+ ---
+diff --git a/src/content/notes/container-relocation-problem/container-relocation-problem.md b/src/content/notes/container-relocation-problem/container-relocation-problem.md
+index bf327f9..b0e6e01 100644
+--- a/src/content/notes/container-relocation-problem/container-relocation-problem.md
++++ b/src/content/notes/container-relocation-problem/container-relocation-problem.md
+@@ -10,6 +10,7 @@ imageAlt: "پشته‌های کانتینر در محوطه بندر با یک 
+ tags: ["لجستیک بندری", "بازچینی کانتینر", "مدیریت محوطه بندر", "برنامه‌ریزی عدد صحیح", "OR-Tools"]
+ relatedCourses: ["vrp-python"]
+ relatedNotes: ["quay-crane-scheduling", "container-loading-optimization", "warehouse-slotting-optimization"]
++hubCluster: logistics
+ ---
+ 
+ یک کشتی کانتینری وارد بندر می‌شود. کرین باید سریع کانتینرهای آن را تخلیه کند. اما کانتینرها در محوطه بندر روی هم چیده شده‌اند. هر کانتینری که باید زودتر از بقیه خارج شود، ممکن است زیر چند کانتینر دیگر گیر افتاده باشد. برای برداشتن آن، باید اول کانتینرهای بالایی را جابه‌جا کرد. این جابجایی اضافه، وقت و هزینه‌ی گرانی دارد.
+diff --git a/src/content/notes/dial-a-ride-patient-transport/dial-a-ride-patient-transport.md b/src/content/notes/dial-a-ride-patient-transport/dial-a-ride-patient-transport.md
+index ceb8365..6bab661 100644
+--- a/src/content/notes/dial-a-ride-patient-transport/dial-a-ride-patient-transport.md
++++ b/src/content/notes/dial-a-ride-patient-transport/dial-a-ride-patient-transport.md
+@@ -10,6 +10,7 @@ imageAlt: "ون حمل‌ونقل بیماران در حال سوارکردن د
+ tags: ["بهینه‌سازی در حوزه سلامت", "دایال-ا-راید", "حمل‌ونقل بیماران", "مسیریابی وسایل نقلیه", "OR-Tools"]
+ relatedCourses: ["health-opt"]
+ relatedNotes: ["home-healthcare-routing", "interhospital-transfer-optimization", "ambulance-relocation-problem"]
++hubCluster: health
+ ---
+ 
+ ساعت هفت صبح است. خانم رضایی، یک بیمار دیالیزی، باید سه بار در هفته به کلینیک برود. او خودش رانندگی نمی‌کند و خانواده‌اش هم همیشه در دسترس نیستند. این دقیقاً جایی است که حمل‌ونقل غیر اورژانسی بیماران وارد می‌شود. یک ون باید او را از خانه به کلینیک ببرد و بعد برگرداند. اما این ون معمولاً فقط برای یک نفر حرکت نمی‌کند.
+diff --git a/src/content/notes/dialysis-chair-scheduling/dialysis-chair-scheduling.md b/src/content/notes/dialysis-chair-scheduling/dialysis-chair-scheduling.md
+index 8c5e32e..ded16c1 100644
+--- a/src/content/notes/dialysis-chair-scheduling/dialysis-chair-scheduling.md
++++ b/src/content/notes/dialysis-chair-scheduling/dialysis-chair-scheduling.md
+@@ -10,6 +10,7 @@ imageAlt: "چیدمان مرکز همودیالیز با چند دستگاه د
+ tags: ["بهینه‌سازی در حوزه سلامت", "زمان‌بندی دیالیز", "برنامه‌ریزی محدودیت", "OR-Tools", "CP-SAT"]
+ relatedCourses: ["health-opt"]
+ relatedNotes: ["radiotherapy-scheduling-optimization", "employee-shift-scheduling-cp-sat", "cpsat-scheduling-guide"]
++hubCluster: health
+ ---
+ 
+ کسی که کلیه‌هایش دیگر کار نمی‌کند، دیالیز را به یک قرار ثابت هفتگی تبدیل می‌کند. سه بار در هفته باید به مرکز دیالیز برود. هر جلسه بین سه تا چهار ساعت طول می‌کشد. این جلسات باید روی یک دستگاه مشخص و با یک پرستار معین برگزار شوند. برخلاف یک عمل جراحی، این قرار فقط یک‌بار نیست. همین الگوی تکرارشونده هفته‌به‌هفته، زمان‌بندی مرکز دیالیز را از بسیاری مسائل مشابه متفاوت می‌کند.
+diff --git a/src/content/notes/empty-container-repositioning/empty-container-repositioning.md b/src/content/notes/empty-container-repositioning/empty-container-repositioning.md
+index e5bb31e..f0d5d8c 100644
+--- a/src/content/notes/empty-container-repositioning/empty-container-repositioning.md
++++ b/src/content/notes/empty-container-repositioning/empty-container-repositioning.md
+@@ -10,6 +10,7 @@ imageAlt: "کشتی کانتینری در حال جابه‌جایی کانتی
+ tags: ["بهینه‌سازی", "زنجیره تأمین", "حمل‌ونقل دریایی", "کانتینر", "OR-Tools", "جریان شبکه"]
+ relatedCourses: ["vrp-python"]
+ relatedNotes: ["quay-crane-scheduling", "hub-location-problem", "green-intermodal-mode-selection"]
++hubCluster: logistics
+ ---
+ 
+ هر بار که یک کشتی کانتینری از شانگهای به سمت لس‌آنجلس حرکت می‌کند، معمولاً پر از بار است. اما مسیر برگشت داستان دیگری دارد. بخش بزرگی از کانتینرهایی که به آسیا برمی‌گردند، خالی هستند. طبق برآوردهای صنعت کشتیرانی، نزدیک به یک‌سوم جابه‌جایی‌های کانتینری جهان اصلاً باری ندارند. این یعنی سوخت، فضای کشتی و زمان کارکنان بندر صرف جابه‌جایی چیزی می‌شود که هیچ درآمدی تولید نمی‌کند.
+@@ -91,7 +92,7 @@ inventory = {
+ 
+ بازگردانی کانتینر خالی، یکی از پرکارترین حوزه‌های پژوهشی در بهینه‌سازی حمل‌ونقل دریایی است. مدل پایه‌ای که در این مطلب دیدیم، قطعی و ساده‌شده است. اما دنیای واقعی پر از عدم‌قطعیت در تقاضای صادرات و واردات هر بندر است. همین موضوع فضای زیادی برای برنامه‌ریزی تصادفی و بهینه‌سازی مقاوم باز می‌کند.
+ 
+-یک مسیر پژوهشی جذاب دیگر، ترکیب بازگردانی دریایی با جابه‌جایی زمینی کانتینر بین بنادر و مراکز داخلی است. این موضوع مستقیماً به [انتخاب حالت حمل‌ونقل سبز](/notes/green-intermodal-mode-selection/) هم مربوط می‌شود، چون هر بار جابه‌جایی کانتینر خالی هم رد پای کربن دارد. موضوع دیگر، سامانه‌های تطبیق مستقیم بین واردکننده و صادرکننده محلی است. به این ایده «street turn» می‌گویند و نیاز به بازگشت کانتینر به بندر را کم می‌کند. برای شبکه‌های بسیار بزرگ، روش‌های ابتکاری مانند جستجوی همسایگی بزرگ هم می‌توانند جایگزین سالورهای دقیق شوند. این حوزه، گزینه‌ای مناسب برای پایان‌نامه کارشناسی ارشد یا مقاله در ژورنال‌های حمل‌ونقل و لجستیک است.
++یک مسیر پژوهشی جذاب دیگر، ترکیب بازگردانی دریایی با جابه‌جایی زمینی کانتینر بین بنادر و مراکز داخلی است. این موضوع مستقیماً به انتخاب حالت حمل‌ونقل سبز هم مربوط می‌شود، چون هر بار جابه‌جایی کانتینر خالی هم رد پای کربن دارد. موضوع دیگر، سامانه‌های تطبیق مستقیم بین واردکننده و صادرکننده محلی است. به این ایده «street turn» می‌گویند و نیاز به بازگشت کانتینر به بندر را کم می‌کند. برای شبکه‌های بسیار بزرگ، روش‌های ابتکاری مانند جستجوی همسایگی بزرگ هم می‌توانند جایگزین سالورهای دقیق شوند. این حوزه، گزینه‌ای مناسب برای پایان‌نامه کارشناسی ارشد یا مقاله در ژورنال‌های حمل‌ونقل و لجستیک است.
+ 
+ ## سوالات متداول
+ 
+diff --git a/src/content/notes/epsilon-constraint-bi-objective/epsilon-constraint-bi-objective.md b/src/content/notes/epsilon-constraint-bi-objective/epsilon-constraint-bi-objective.md
+index 3684239..ddab0f3 100644
+--- a/src/content/notes/epsilon-constraint-bi-objective/epsilon-constraint-bi-objective.md
++++ b/src/content/notes/epsilon-constraint-bi-objective/epsilon-constraint-bi-objective.md
+@@ -1,6 +1,6 @@
+ ---
+ title: "تکنیک اپسیلون محدود برای بهینه‌سازی دو هدفه"
+-description: "وقتی دو تابع هدف با هم در تضادند، یک جواب «بهینه» به تنهایی معنا ندارد. با تکنیک اپسیلون محدود (Epsilon-Constraint) می‌توان کل مرز پارتو را ترسیم کرد، با یک مثال کامل غیرخطی و کد GAMS."
++description: "وقتی دو تابع هدف در تضادند، با تکنیک اپسیلون محدود کل مرز پارتو را ترسیم می‌کنیم؛ همراه با یک مثال کامل غیرخطی و کد GAMS."
+ pubDate: 2026-09-11
+ author: "dr-soroudi"
+ minimalImage: "./epsilon-constraint-mini.webp"
+diff --git a/src/content/notes/food-rescue-network-optimization/food-rescue-network-optimization.md b/src/content/notes/food-rescue-network-optimization/food-rescue-network-optimization.md
+index be10789..4713225 100644
+--- a/src/content/notes/food-rescue-network-optimization/food-rescue-network-optimization.md
++++ b/src/content/notes/food-rescue-network-optimization/food-rescue-network-optimization.md
+@@ -7,9 +7,10 @@ minimalImage: "./food-rescue-network-optimization_mini.webp"
+ minimalImageAlt: "نمای مینیمال مسیر توزیع غذای اهدایی از فروشگاه به بانک غذا"
+ image: "./food-rescue-network-optimization.webp"
+ imageAlt: "نمایش مفهومی شبکه‌ی جمع‌آوری مازاد غذا از فروشگاه‌ها و تحویل به بانک غذا با کامیون"
+-tags: ["لجستیک بشردوستانه", "زنجیره تأمین سبز", "کاهش ضایعات غذایی", "مسیریابی وسایل نقلیه", "OR-Tools"]
++tags: ["زنجیره تأمین", "لجستیک بشردوستانه", "زنجیره تأمین سبز", "کاهش ضایعات غذایی", "مسیریابی وسایل نقلیه", "OR-Tools"]
+ relatedCourses: ["vrp-python"]
+ relatedNotes: ["perishable-inventory-routing-problem", "green-supply-chain-network-design", "cold-chain-vaccine-routing"]
++hubCluster: humanitarian
+ ---
+ 
+ هر روز در فروشگاه‌های بزرگ، مقدار زیادی غذای سالم کنار گذاشته می‌شود. دلیلش نزدیک شدن به تاریخ انقضا است. این غذا هنوز قابل‌خوردن است. اما اگر دیر برسد، فاسد می‌شود. مسئله این است: کدام فروشگاه، به کدام بانک غذا، با کدام کامیون، و در چه ساعتی؟ این سؤال ساده، یک مسئله‌ی ترکیبیاتی واقعی در حمل‌ونقل و لجستیک بشردوستانه است. جواب درست آن می‌تواند هم زباله را کم کند، هم گرسنگی را.
+diff --git a/src/content/notes/gams-to-python-supply-chain-network/gams-to-python-supply-chain-network.md b/src/content/notes/gams-to-python-supply-chain-network/gams-to-python-supply-chain-network.md
+index 0d7cc89..843f792 100644
+--- a/src/content/notes/gams-to-python-supply-chain-network/gams-to-python-supply-chain-network.md
++++ b/src/content/notes/gams-to-python-supply-chain-network/gams-to-python-supply-chain-network.md
+@@ -1,5 +1,5 @@
+ ---
+-title: "از GAMS به پایتون: طراحی و پیاده‌سازی مدل شبکه زنجیره تأمین با Pyomo"
++title: "از GAMS به پایتون: طراحی شبکه زنجیره تأمین با Pyomo"
+ description: "یک مدل MILP طراحی شبکه زنجیره تأمین دو‌سطحی (کارخانه، مرکز توزیع، مشتری) را گام‌به‌گام از GAMS به Pyomo ترجمه می‌کنیم، با جدول تناظر مفاهیم و نکات رایج خطا در ترجمه."
+ pubDate: 2026-10-18
+ author: "dr-soroudi"
+diff --git a/src/content/notes/generalized-vehicle-routing-problem/generalized-vehicle-routing-problem.md b/src/content/notes/generalized-vehicle-routing-problem/generalized-vehicle-routing-problem.md
+index 6959801..eaa416b 100644
+--- a/src/content/notes/generalized-vehicle-routing-problem/generalized-vehicle-routing-problem.md
++++ b/src/content/notes/generalized-vehicle-routing-problem/generalized-vehicle-routing-problem.md
+@@ -1,6 +1,6 @@
+ ---
+-title: "مسئله مسیریابی تعمیم‌یافته (GVRP): وقتی فقط یک نقطه از خوشه کافی است"
+-description: "آشنایی کاملاً کلی با مسئله مسیریابی تعمیم‌یافته وسایل نقلیه (GVRP)، جایی که گره‌ها در خوشه‌هایی دسته‌بندی می‌شوند و ویزیت یک نماینده از هر خوشه کافی است، با کاربردهایی از حمل‌ونقل تا توزیع دارو و واکسن."
++title: "مسیریابی تعمیم‌یافته (GVRP): ویزیت یک نقطه از هر خوشه"
++description: "آشنایی با مسئله مسیریابی تعمیم‌یافته (GVRP)، که در آن ویزیت یک نقطه از هر خوشه کافی است؛ با کاربرد از حمل‌ونقل تا توزیع دارو و واکسن."
+ pubDate: 2026-09-29
+ author: "dr-soroudi"
+ minimalImage: "./generalized-vehicle-routing-problem_mini.webp"
+diff --git a/src/content/notes/industrial-symbiosis-network-design/industrial-symbiosis-network-design.md b/src/content/notes/industrial-symbiosis-network-design/industrial-symbiosis-network-design.md
+index 56fbae2..a51acc4 100644
+--- a/src/content/notes/industrial-symbiosis-network-design/industrial-symbiosis-network-design.md
++++ b/src/content/notes/industrial-symbiosis-network-design/industrial-symbiosis-network-design.md
+@@ -7,7 +7,7 @@ minimalImage: "./industrial-symbiosis-network-design_mini.webp"
+ minimalImageAlt: "نمایش مینیمال شبکه تبادل پسماند میان دو کارخانه"
+ image: "./industrial-symbiosis-network-design.webp"
+ imageAlt: "شبکه‌ای از چهار کارخانه که پسماند و ماده اولیه را میان هم ردوبدل می‌کنند"
+-tags: ["بهینه‌سازی", "زنجیره تأمین سبز", "همزیستی صنعتی", "اقتصاد چرخه‌ای", "برنامه‌ریزی خطی عدد صحیح مختلط"]
++tags: ["زنجیره تأمین", "بهینه‌سازی", "زنجیره تأمین سبز", "همزیستی صنعتی", "اقتصاد چرخه‌ای", "برنامه‌ریزی خطی عدد صحیح مختلط"]
+ relatedCourses: ["vrp-python"]
+ relatedNotes: ["green-supply-chain-network-design", "green-closed-loop-supply-chain", "green-supplier-selection-order-allocation"]
+ ---
+diff --git a/src/content/notes/kkt-conditions-examples/kkt-conditions-examples.md b/src/content/notes/kkt-conditions-examples/kkt-conditions-examples.md
+index d57a52b..e9ff12b 100644
+--- a/src/content/notes/kkt-conditions-examples/kkt-conditions-examples.md
++++ b/src/content/notes/kkt-conditions-examples/kkt-conditions-examples.md
+@@ -1,6 +1,6 @@
+ ---
+ title: "شرایط بهینگی KKT: چرا و چطور کار می‌کند؟"
+-description: "آموزش شرایط بهینگی کاروش-کوهن-تاکر (KKT) با پنج مثال گام‌به‌گام و شرایط چهارگانه‌ی جداگانه برای هر مثال، از یک مسئله درجه دوم ساده تا دامی که فقط در مسائل غیرمحدب رخ می‌دهد."
++description: "شرایط بهینگی کاروش-کوهن-تاکر (KKT) با پنج مثال گام‌به‌گام؛ از یک مسئلهٔ درجه دوم ساده تا دامی که فقط در مسائل غیرمحدب رخ می‌دهد."
+ pubDate: 2026-10-15
+ author: "dr-soroudi"
+ minimalImage: "./kkt-conditions-examples_mini.webp"
+diff --git a/src/content/notes/large-neighborhood-search-guide/large-neighborhood-search-guide.md b/src/content/notes/large-neighborhood-search-guide/large-neighborhood-search-guide.md
+index d49e8c2..d95b5e3 100644
+--- a/src/content/notes/large-neighborhood-search-guide/large-neighborhood-search-guide.md
++++ b/src/content/notes/large-neighborhood-search-guide/large-neighborhood-search-guide.md
+@@ -10,6 +10,7 @@ imageAlt: "نقشه شهر با چند ده نقطه تحویل که بخشی ا
+ tags: ["بهینه‌سازی", "جستجوی همسایگی بزرگ", "مسیریابی وسایل نقلیه", "متاهیوریستیک", "OR-Tools"]
+ relatedCourses: ["vrp-python", "optimization-modeling"]
+ relatedNotes: ["electric-vehicle-routing-problem", "milk-collection-routing-problem", "pollution-routing-problem"]
++hubCluster: techniques
+ ---
+ 
+ یک شرکت پخش کالا، هر شب باید مسیر چند هزار بسته را میان صدها مشتری تعیین کند. مسئله مسیریابی وسایل نقلیه در این مقیاس، به‌سرعت بسیار بزرگ می‌شود. یک سالور دقیق MILP، حتی بعد از چند ساعت، ممکن است جواب بهینه پیدا نکند. در عمل، فقط چند دقیقه برای تصمیم‌گیری وقت هست. اینجا راه‌حل‌های دقیق جواب نمی‌دهند و باید به سراغ متاهیوریستیک رفت.
+diff --git a/src/content/notes/mathematical-modeling-art/mathematical-modeling-art.md b/src/content/notes/mathematical-modeling-art/mathematical-modeling-art.md
+index 9c7a918..596232e 100644
+--- a/src/content/notes/mathematical-modeling-art/mathematical-modeling-art.md
++++ b/src/content/notes/mathematical-modeling-art/mathematical-modeling-art.md
+@@ -1,6 +1,6 @@
+ ---
+ title: "مدل‌سازی ریاضی و اهمیت آن برای برنامه‌نویسی"
+-description: "چرا پیش از هر کدنویسی باید مدل‌سازی ریاضی را یاد بگیریم؟ راهنمای کامل مدل‌سازی ریاضی با یک مثال گام‌به‌گام، انواع مدل (LP، MILP، NLP، CP)، اشتباهات رایج و مسیر رسیدن از مدل تا کد در Pyomo و OR-Tools."
++description: "راهنمای کامل مدل‌سازی ریاضی: اجزای مدل با مثال گام‌به‌گام، انواع LP، MILP، NLP و CP، اشتباهات رایج، و مسیر از مدل تا کد در Pyomo و OR-Tools."
+ pubDate: 2026-06-19
+ updatedDate: 2026-10-18
+ author: "dr-soroudi"
+diff --git a/src/content/notes/medical-oxygen-crisis-distribution/medical-oxygen-crisis-distribution.md b/src/content/notes/medical-oxygen-crisis-distribution/medical-oxygen-crisis-distribution.md
+index af49498..9b837b8 100644
+--- a/src/content/notes/medical-oxygen-crisis-distribution/medical-oxygen-crisis-distribution.md
++++ b/src/content/notes/medical-oxygen-crisis-distribution/medical-oxygen-crisis-distribution.md
+@@ -7,9 +7,10 @@ minimalImage: "./medical-oxygen-crisis-distribution_mini.webp"
+ minimalImageAlt: "نماد ساده یک تانکر اکسیژن و دو بیمارستان با نشانگر سطح ذخیره"
+ image: "./medical-oxygen-crisis-distribution.webp"
+ imageAlt: "کارخانه تولید اکسیژن، تانکر در حال توزیع و چند بیمارستان با نشانگر سطح ذخیره اکسیژن"
+-tags: ["بهینه‌سازی در حوزه سلامت", "مسیریابی-موجودی", "زنجیره تأمین پزشکی", "مدیریت بحران", "اکسیژن پزشکی", "OR-Tools"]
++tags: ["بهینه‌سازی در حوزه سلامت", "مسیریابی-موجودی", "زنجیره تأمین", "مدیریت بحران", "اکسیژن پزشکی", "OR-Tools"]
+ relatedCourses: ["health-opt"]
+ relatedNotes: ["cold-chain-vaccine-routing", "blood-supply-chain-optimization", "inventory-routing-problem"]
++hubCluster: health
+ ---
+ 
+ تصویر یک بیمارستان در اوج یک موج شدید بیماری تنفسی را تصور کنید. مخزن اکسیژن مرکزی هر ساعت خالی‌تر می‌شود. مدیر بیمارستان باید بداند دقیقاً کِی تانکر بعدی باید برسد. اگر دیر برسد، بیماران روی ونتیلاتور در خطر جدی قرار می‌گیرند. اگر زود و بیش از نیاز برسد، ظرفیت محدود تانکرهای شهر هدر می‌رود.
+diff --git a/src/content/notes/micro-courses/micro-courses.md b/src/content/notes/micro-courses/micro-courses.md
+index a3f6c7d..1f4e515 100644
+--- a/src/content/notes/micro-courses/micro-courses.md
++++ b/src/content/notes/micro-courses/micro-courses.md
+@@ -1,6 +1,6 @@
+ ---
+ title: "۲۰ میکرودرس بهینه‌سازی با پایتون — هر کدام یک مسئله، یک ساعت"
+-description: "فهرست کامل ۲۰ میکرودرس مستقل بهینه‌سازی ترکیبی با پایتون و OR-Tools؛ هرکدام یک مسئله‌ی واقعی را در حدود یک ساعت آموزش می‌دهد، بدون نیاز به دوره‌ی قبلی یا میکرودرس‌های دیگر."
++description: "فهرست ۲۰ میکرودرس مستقل بهینه‌سازی ترکیبی با پایتون و OR-Tools؛ هرکدام یک مسئلهٔ واقعی را در حدود یک ساعت و بدون پیش‌نیاز آموزش می‌دهد."
+ pubDate: 2026-10-02
+ author: "dr-soroudi"
+ minimalImage: "./micro-courses_mini.webp"
+@@ -10,6 +10,7 @@ imageAlt: "بیست ماژول شماره‌گذاری‌شده به‌عنوا
+ tags: ["بهینه‌سازی ترکیبی", "Python", "OR-Tools", "میکرودرس"]
+ relatedCourses: ["optimization-modeling", "vrp-python"]
+ relatedNotes: ["cp-intro", "job-shop-scheduling-cp-sat", "generalized-vehicle-routing-problem"]
++hubCluster: techniques
+ ---
+ 
+ ## چرا میکرودرس؟
+diff --git a/src/content/notes/omnichannel-order-fulfillment-allocation/omnichannel-order-fulfillment-allocation.md b/src/content/notes/omnichannel-order-fulfillment-allocation/omnichannel-order-fulfillment-allocation.md
+index b9f4183..e5560eb 100644
+--- a/src/content/notes/omnichannel-order-fulfillment-allocation/omnichannel-order-fulfillment-allocation.md
++++ b/src/content/notes/omnichannel-order-fulfillment-allocation/omnichannel-order-fulfillment-allocation.md
+@@ -7,9 +7,10 @@ minimalImage: "./omnichannel-order-fulfillment-allocation_mini.webp"
+ minimalImageAlt: "آیکون مینیمال تخصیص سفارش آنلاین بین فروشگاه‌ها و انبار"
+ image: "./omnichannel-order-fulfillment-allocation.webp"
+ imageAlt: "تصویرسازی مفهومی تخصیص سفارش آنلاین میان فروشگاه‌ها و انبار مرکزی"
+-tags: ["مدیریت زنجیره تامین", "خرده‌فروشی", "چندکاناله", "OR-Tools", "تخصیص سفارش"]
++tags: ["زنجیره تأمین", "خرده‌فروشی", "چندکاناله", "OR-Tools", "تخصیص سفارش"]
+ relatedCourses: ["vrp-python"]
+ relatedNotes: ["multi-echelon-inventory-optimization", "newsvendor-safety-stock"]
++hubCluster: logistics
+ ---
+ 
+ یک مشتری در تهران یک کفش ورزشی را آنلاین سفارش می‌دهد. انبار مرکزی شرکت این کالا را دارد. اما فروشگاه فیزیکی نزدیک خانه‌ی مشتری هم همان جنس را روی قفسه دارد. کدام یکی باید این سفارش را ارسال کند؟
+diff --git a/src/content/notes/optimization-production-lessons/optimization-production-lessons.md b/src/content/notes/optimization-production-lessons/optimization-production-lessons.md
+index e444d63..fab2629 100644
+--- a/src/content/notes/optimization-production-lessons/optimization-production-lessons.md
++++ b/src/content/notes/optimization-production-lessons/optimization-production-lessons.md
+@@ -1,5 +1,5 @@
+ ---
+-title: "بهینه‌سازی در دنیای واقعی: شش درس از پیاده‌سازی‌های بزرگ‌مقیاس در پروداکشن"
++title: "بهینه‌سازی در پروداکشن: شش درس از پیاده‌سازی واقعی"
+ description: "چرا یک مدل بهینه‌سازی که در لپ‌تاپ عالی کار می‌کند، در پروداکشن می‌شکند؛ شش درس واقعی درباره‌ی فرمول‌بندی، تنظیم سالور و معماری نرم‌افزار."
+ pubDate: 2026-10-17
+ author: "dr-soroudi"
+diff --git a/src/content/notes/organ-transport-logistics/organ-transport-logistics.md b/src/content/notes/organ-transport-logistics/organ-transport-logistics.md
+index ac19cf3..3d70c2c 100644
+--- a/src/content/notes/organ-transport-logistics/organ-transport-logistics.md
++++ b/src/content/notes/organ-transport-logistics/organ-transport-logistics.md
+@@ -1,6 +1,6 @@
+ ---
+ title: "لجستیک انتقال عضو پیوندی: مسیریابی در مسابقه با زمان"
+-description: "چگونه بهینه‌سازی مسیر و انتخاب وسیله نقلیه به رقابت با پنجره زمانی حیات عضو پیوندی کمک می‌کند."
++description: "بهینه‌سازی مسیر و انتخاب وسیلهٔ نقلیه برای انتقال عضو پیوندی پیش از پایان پنجرهٔ زمانی حیات آن؛ مدل‌سازی یک مسئلهٔ مسیریابی در مسابقه با زمان."
+ pubDate: 2026-10-06
+ author: "dr-soroudi"
+ minimalImage: "./organ-transport-logistics_mini.webp"
+@@ -10,6 +10,7 @@ imageAlt: "مسیر چندوجهی انتقال عضو پیوندی از بیم
+ tags: ["بهینه‌سازی در حوزه سلامت", "لجستیک پزشکی", "مسیریابی چندوجهی", "برنامه‌ریزی خطی عدد صحیح", "OR-Tools"]
+ relatedCourses: ["health-opt"]
+ relatedNotes: ["ambulance-location-mclp", "time-dependent-vrp"]
++hubCluster: health
+ ---
+ 
+ وقتی عضوی برای پیوند آماده می‌شود، یک ساعت نامرئی شروع به شمارش معکوس می‌کند. قلب انسانی تنها حدود چهار تا شش ساعت بیرون از بدن زنده می‌ماند. کبد این بازه را تا دوازده ساعت افزایش می‌دهد. کلیه حتی تا بیست‌وچهار تا سی‌وشش ساعت هم دوام می‌آورد. در همین بازه، عضو باید از بیمارستان اهداکننده به اتاق عمل گیرنده برسد. این یعنی یک مسئله لجستیکی با بالاترین سطح فوریت ممکن.
+diff --git a/src/content/notes/power-restoration-crew-scheduling/power-restoration-crew-scheduling.md b/src/content/notes/power-restoration-crew-scheduling/power-restoration-crew-scheduling.md
+index dc7f8fd..f4f75a6 100644
+--- a/src/content/notes/power-restoration-crew-scheduling/power-restoration-crew-scheduling.md
++++ b/src/content/notes/power-restoration-crew-scheduling/power-restoration-crew-scheduling.md
+@@ -1,6 +1,6 @@
+ ---
+ title: "بازیابی شبکه برق پس از بلایا: مسیریابی و زمان‌بندی گروه‌های تعمیر"
+-description: "چگونه ترکیب مسیریابی خودرو و زمان‌بندی تعمیرات به شرکت‌های توزیع برق کمک می‌کند تا پس از توفان یا زلزله، گروه‌های محدود تعمیر را با اولویت تأسیسات حیاتی به کار بگیرند."
++description: "ترکیب مسیریابی و زمان‌بندی تعمیرات برای اعزام گروه‌های محدود تعمیر پس از توفان یا زلزله، با اولویت بازگرداندن برق به تأسیسات حیاتی."
+ pubDate: 2026-10-12
+ author: "dr-soroudi"
+ minimalImage: "./power-restoration-crew-scheduling_mini.webp"
+@@ -10,6 +10,7 @@ imageAlt: "نقشه مفهومی بازیابی شبکه برق پس از بلا
+ tags: ["بازیابی شبکه برق", "مدیریت بحران", "زمان‌بندی گروه‌های تعمیر", "مسیریابی خودرو", "بهینه‌سازی ترکیبی", "OR-Tools"]
+ relatedCourses: ["vrp-python"]
+ relatedNotes: ["post-disaster-road-network-restoration", "distribution-reliability-switch-placement", "disaster-relief-logistics"]
++hubCluster: humanitarian
+ ---
+ 
+ توفانی قدرتمند از میان شهر عبور کرده است. دهها تیر برق شکسته‌اند و صدها هزار مشترک بی‌برق مانده‌اند. تیم‌های تعمیر شرکت توزیع برق باید هرچه سریع‌تر وارد عمل شوند. اما منابع محدود است: تعداد گروه‌های تعمیر ثابت، و نقاط آسیب‌دیده بسیار زیاد. کدام گروه باید اول کجا برود؟ این سؤال ساده، در پس خود یک مسئله بهینه‌سازی ترکیبی پیچیده پنهان کرده است.
+diff --git a/src/content/notes/radiotherapy-scheduling-optimization/radiotherapy-scheduling-optimization.md b/src/content/notes/radiotherapy-scheduling-optimization/radiotherapy-scheduling-optimization.md
+index 959918d..c41a602 100644
+--- a/src/content/notes/radiotherapy-scheduling-optimization/radiotherapy-scheduling-optimization.md
++++ b/src/content/notes/radiotherapy-scheduling-optimization/radiotherapy-scheduling-optimization.md
+@@ -1,6 +1,6 @@
+ ---
+ title: "زمان‌بندی رادیوتراپی: تعیین تقویم درمان"
+-description: "چگونه بهینه‌سازی ریاضی می‌تواند روز شروع درمان رادیوتراپی را طوری به بیمار پیشنهاد دهد که ظرفیت پذیرش پرستاران در تمام جلسات آینده، حتی با احتساب مرخصی‌ها، همیشه کافی بماند."
++description: "تعیین روز شروع درمان رادیوتراپی با بهینه‌سازی ریاضی، طوری که ظرفیت پرستاران در همهٔ جلسات آینده و با احتساب مرخصی‌ها کافی بماند."
+ pubDate: 2026-09-29
+ author: "dr-soroudi"
+ minimalImage: "./radiotherapy-scheduling-optimization_mini.webp"
+diff --git a/src/content/notes/search-rescue-team-routing/search-rescue-team-routing.md b/src/content/notes/search-rescue-team-routing/search-rescue-team-routing.md
+index b92f2a4..26044ae 100644
+--- a/src/content/notes/search-rescue-team-routing/search-rescue-team-routing.md
++++ b/src/content/notes/search-rescue-team-routing/search-rescue-team-routing.md
+@@ -10,6 +10,7 @@ imageAlt: "نقشه مفهومی شهر پس از زلزله با چند ساخ
+ tags: ["لجستیک بشردوستانه", "مدیریت بحران", "جست‌وجو و نجات", "مسیریابی", "OR-Tools", "بهینه‌سازی"]
+ relatedCourses: ["vrp-python"]
+ relatedNotes: ["humanitarian-relief-routing", "mass-casualty-patient-allocation", "evacuation-shelter-location-planning"]
++hubCluster: humanitarian
+ ---
+ 
+ زلزله‌ای ویرانگر یک شهر را لرزانده است. چند ساختمان فروریخته‌اند. صدای افراد گرفتار، هنوز از زیر آوار شنیده می‌شود. اما تیم‌های نجات محدودند. هر تیم فقط چند ساعت فرصت دارد. این‌جا زمان، باارزش‌تر از هر منبع دیگری است.
+diff --git a/src/content/notes/transportation-economies-of-scale/transportation-economies-of-scale.md b/src/content/notes/transportation-economies-of-scale/transportation-economies-of-scale.md
+index a9b4d15..6c57917 100644
+--- a/src/content/notes/transportation-economies-of-scale/transportation-economies-of-scale.md
++++ b/src/content/notes/transportation-economies-of-scale/transportation-economies-of-scale.md
+@@ -10,6 +10,7 @@ imageAlt: "یک انبار مرکزی که با دو محموله کوچک و ب
+ tags: ["حمل‌ونقل", "زنجیره تأمین", "برنامه‌ریزی عدد صحیح مختلط", "شبکه توزیع", "OR-Tools"]
+ relatedCourses: ["vrp-python"]
+ relatedNotes: ["hub-location-problem", "green-intermodal-mode-selection"]
++hubCluster: logistics
+ ---
+ 
+ یک شرکت پخش مواد غذایی، هر هفته ده‌ها محموله به فروشگاه‌های مختلف می‌فرستد. برای هر مسیر، چند گزینه حمل وجود دارد. محموله کوچک، نرخ هر تن بالاتری دارد. محموله بزرگ‌تر، از تخفیف حجمی شرکت حمل‌ونقل بهره می‌برد. مدیر لجستیک باید هم‌زمان تصمیم بگیرد: از کدام انبار، به کدام فروشگاه، و با چه حجمی ارسال کند. انتخاب ساده به‌نظر می‌رسد، اما ساختار هزینه پلکانی آن را پیچیده می‌کند.
+diff --git a/src/content/projects/community-energy-v2g-system/community-energy-v2g-system.md b/src/content/projects/community-energy-v2g-system/community-energy-v2g-system.md
+index cb10106..6cbcd99 100644
+--- a/src/content/projects/community-energy-v2g-system/community-energy-v2g-system.md
++++ b/src/content/projects/community-energy-v2g-system/community-energy-v2g-system.md
+@@ -1,6 +1,6 @@
+ ---
+-title: "مدیریت هوشمند انرژی شهرک مسکونی با پنل خورشیدی، باتری و خودروی الکتریکی (V2G)"
+-description: "تعیین برنامه‌ی بهینه‌ی دیسپچ متمرکز پنل خورشیدی، باتری خانگی، باتری مشترک شهرکی و شارژ/دشارژ دوطرفه‌ی خودروی الکتریکی (V2G) در یک شهرک ۷۵ خانه‌ای، با مدل‌سازی ریاضی مشترک و محدودیت واقعی ظرفیت فیدر، با نگاه به کاهش هزینه و کاهش پیک تقاضای شبکه."
++title: "مدیریت انرژی شهرک با خورشیدی، باتری و خودروی برقی (V2G)"
++description: "دیسپچ بهینهٔ پنل خورشیدی، باتری خانگی و مشترک، و شارژ دوطرفهٔ خودروی برقی (V2G) در یک شهرک ۷۵ خانه‌ای، با محدودیت ظرفیت فیدر و کاهش پیک."
+ category: "بهینه‌سازی و پایتون"
+ environment: "Python (Pyomo)"
+ status: "پروژه آماده تحویل"
+diff --git a/src/content/projects/dynamic-vrp-reoptimization/dynamic-vrp-reoptimization.md b/src/content/projects/dynamic-vrp-reoptimization/dynamic-vrp-reoptimization.md
+index a71416b..15bf95a 100644
+--- a/src/content/projects/dynamic-vrp-reoptimization/dynamic-vrp-reoptimization.md
++++ b/src/content/projects/dynamic-vrp-reoptimization/dynamic-vrp-reoptimization.md
+@@ -1,6 +1,6 @@
+ ---
+-title: "بازبرنامه‌ریزی پویای مسیر: سیستم مسیریابی زمان‌واقعی برای سفارش‌های جدید"
+-description: "طراحی و پیاده‌سازی یک سیستم مسیریابی پویای وسایل نقلیه (Dynamic VRP) که با رسیدن سفارش جدید یا تغییر داده، فقط مسیر باقی‌مانده ناوگان را در زمان کوتاه به‌روزرسانی می‌کند."
++title: "مسیریابی پویا (Dynamic VRP): بازبرنامه‌ریزی زمان‌واقعی"
++description: "سیستم مسیریابی پویا (Dynamic VRP) که با رسیدن سفارش جدید یا تغییر داده، فقط مسیر باقی‌ماندهٔ ناوگان را در زمان کوتاه به‌روزرسانی می‌کند."
+ category: "بهینه‌سازی و پایتون"
+ environment: "Python (OR-Tools)"
+ status: "پروژه آماده تحویل"
+diff --git a/src/content/projects/energy-water-network/energy-water-system.md b/src/content/projects/energy-water-network/energy-water-system.md
+index 1f6bd5e..64ddef2 100644
+--- a/src/content/projects/energy-water-network/energy-water-system.md
++++ b/src/content/projects/energy-water-network/energy-water-system.md
+@@ -1,6 +1,6 @@
+ ---
+ title: "بهره‌برداری و طراحی بهینه‌ی سیستم انرژی-آب یکپارچه"
+-description: "تعیین اندازه‌ی بهینه‌ی تجهیزات و برنامه‌ی بهره‌برداری ساعتی یک سیستم یکپارچه‌ی بادی، خورشیدی، باتری، شبکه، و آب‌شیرین‌کن با افق پنج‌ساله، با استفاده از مدل‌سازی ریاضی مشترک سایزینگ و عملیات و با نگاه به کاهش اثرات زیست‌محیطی و انتشار کربن."
++description: "اندازه‌یابی تجهیزات و بهره‌برداری ساعتی یک سیستم یکپارچهٔ بادی، خورشیدی، باتری و آب‌شیرین‌کن در افق پنج‌ساله، با هدف کاهش هزینه و انتشار کربن."
+ category: "بهینه‌سازی و پایتون"
+ environment: "Python (Pyomo)"
+ status: "پروژه آماده تحویل"
+diff --git a/src/content/projects/hc-ev-chargers/hc-ev-chargers.md b/src/content/projects/hc-ev-chargers/hc-ev-chargers.md
+index 99ae4eb..09367da 100644
+--- a/src/content/projects/hc-ev-chargers/hc-ev-chargers.md
++++ b/src/content/projects/hc-ev-chargers/hc-ev-chargers.md
+@@ -1,6 +1,6 @@
+ ---
+-title: "برآورد ظرفیت میزبانی شبکه توزیع برای ایستگاه‌های شارژ خودروی الکتریکی"
+-description: "تعیین حداکثر بار مجاز شارژ خودروی الکتریکی در هر شین از یک فیدر توزیع واقعی، با تحلیل چند سناریوی نفوذ خودرو و الگوی شارژ، بدون نقض محدودیت ولتاژ و ظرفیت حرارتی خطوط/ترانسفورماتور."
++title: "ظرفیت میزبانی شبکه توزیع برای ایستگاه شارژ خودروی برقی"
++description: "حداکثر بار مجاز شارژ خودروی برقی در هر شین از یک فیدر توزیع واقعی، با چند سناریوی نفوذ و الگوی شارژ و بدون نقض محدودیت ولتاژ و حرارتی."
+ category: "بهینه‌سازی و پایتون"
+ environment: "Python (Pyomo)"
+ status: "پروژه آماده تحویل"
+diff --git a/src/content/projects/hiring-training-optimization/hiring-training-optimization.md b/src/content/projects/hiring-training-optimization/hiring-training-optimization.md
+index 00708d0..1e30a6b 100644
+--- a/src/content/projects/hiring-training-optimization/hiring-training-optimization.md
++++ b/src/content/projects/hiring-training-optimization/hiring-training-optimization.md
+@@ -1,6 +1,6 @@
+ ---
+ title: "بهینه‌سازی استخدام و آموزش: تکمیل تیم با بودجه و زمان محدود"
+-description: "طراحی و اجرای یک مدل بهینه‌سازی برای تخصیص نامزدهای استخدام به موقعیت‌های شغلی باز، با زمان‌بندی آموزش برای رفع کمبودهای مهارتی، در چارچوب بودجه‌ی استخدام، بودجه‌ی آموزش و مهلت زمانی آماده‌به‌کار شدن افراد."
++description: "تخصیص نامزدها به موقعیت‌های شغلی و زمان‌بندی آموزش برای رفع کمبود مهارت، در چارچوب بودجهٔ استخدام، بودجهٔ آموزش و مهلت آماده‌به‌کار شدن."
+ category: "بهینه‌سازی و پایتون"
+ environment: "Python (OR-Tools)"
+ status: "پروژه آماده تحویل"
+@@ -14,6 +14,7 @@ imageAlt: "نامزدهای استخدام در مسیر تخصیص به موق
+ relatedCourses: ["optimization-modeling", "uncertainty-modeling"]
+ relatedNotes: ["cpsat-scheduling-guide", "infeasible-model-diagnosis", "employee-shift-scheduling-cp-sat"]
+ tags: ["پایتون", "بهینه‌سازی", "OR-Tools", "استخدام", "آموزش نیروی انسانی", "تخصیص منابع"]
++hubCluster: resources
+ ---
+ 
+ ## 📋 معرفی پروژه
+diff --git a/src/content/projects/hospital-doctor-shift-scheduling/hospital-doctor-shift-scheduling.md b/src/content/projects/hospital-doctor-shift-scheduling/hospital-doctor-shift-scheduling.md
+index 68b7f7b..4a2ac69 100644
+--- a/src/content/projects/hospital-doctor-shift-scheduling/hospital-doctor-shift-scheduling.md
++++ b/src/content/projects/hospital-doctor-shift-scheduling/hospital-doctor-shift-scheduling.md
+@@ -1,6 +1,6 @@
+ ---
+-title: "برنامه‌ریزی شیفت پزشکان بیمارستان: پوشش کامل، استراحت کافی و تداوم مراقبت"
+-description: "طراحی و اجرای یک مدل بهینه‌سازی برای زمان‌بندی شیفت پزشکان و دستیاران بیمارستان، با رعایت هم‌زمان پوشش دقیق هر شیفت، قانون استراحت پس از شب‌کاری، سقف روزهای کاری، عدالت در شیفت شب و تداوم مراقبت از بیماران بخش ویژه."
++title: "زمان‌بندی شیفت پزشکان بیمارستان: پوشش، استراحت و عدالت"
++description: "زمان‌بندی شیفت پزشکان و دستیاران با پوشش کامل هر شیفت، استراحت پس از شب‌کاری، سقف روزهای کاری، عدالت در شیفت شب و تداوم مراقبت."
+ category: "بهینه‌سازی و پایتون"
+ environment: "Python (OR-Tools)"
+ status: "پروژه آماده تحویل"
+@@ -14,6 +14,7 @@ imageAlt: "برنامه‌ی هفتگی شیفت پزشکان ثابت و ذخی
+ relatedCourses: ["health-opt", "optimization-modeling"]
+ relatedNotes: ["employee-shift-scheduling-cp-sat", "cpsat-scheduling-guide", "retail-staff-scheduling-cp-sat"]
+ tags: ["بهینه‌سازی در حوزه سلامت", "پایتون", "بهینه‌سازی", "OR-Tools", "زمان‌بندی شیفت", "بیمارستان", "CP-SAT"]
++hubCluster: health
+ ---
+ 
+ ## 📋 معرفی پروژه
+diff --git a/src/content/projects/retention-budget-optimization/retention-budget-optimization.md b/src/content/projects/retention-budget-optimization/retention-budget-optimization.md
+index c96c6b8..88415cc 100644
+--- a/src/content/projects/retention-budget-optimization/retention-budget-optimization.md
++++ b/src/content/projects/retention-budget-optimization/retention-budget-optimization.md
+@@ -1,6 +1,6 @@
+ ---
+-title: "بهینه‌سازی بودجه‌ی نگهداشت کارکنان: بیشترین ارزش حفظ‌شده از کمترین بودجه"
+-description: "طراحی و اجرای یک مدل بهینه‌سازی برای تخصیص بودجه‌ی محدود نگهداشت (افزایش حقوق، پاداش، آموزش و توسعه، گفت‌وگوی مسیر شغلی) میان کارکنان در معرض خطر ترک سازمان، به‌گونه‌ای که بیشترین ارزش ممکن حفظ شود."
++title: "بهینه‌سازی بودجه نگهداشت کارکنان با بیشترین ارزش حفظ‌شده"
++description: "تخصیص بودجهٔ محدود نگهداشت (افزایش حقوق، پاداش، آموزش و مسیر شغلی) میان کارکنان در معرض ترک سازمان، به‌گونه‌ای که بیشترین ارزش حفظ شود."
+ category: "بهینه‌سازی و پایتون"
+ environment: "Python (OR-Tools)"
+ status: "پروژه آماده تحویل"
+@@ -14,6 +14,7 @@ imageAlt: "کارکنان در معرض خطر ترک سازمان و مدل ب
+ relatedCourses: ["optimization-modeling", "health-opt"]
+ relatedNotes: ["cpsat-scheduling-guide", "infeasible-model-diagnosis", "employee-shift-scheduling-cp-sat"]
+ tags: ["پایتون", "بهینه‌سازی", "OR-Tools", "منابع انسانی", "نگهداشت کارکنان", "تخصیص بودجه"]
++hubCluster: resources
+ ---
+ 
+ ## 📋 معرفی پروژه
+diff --git a/src/data/ortools-hub.ts b/src/data/ortools-hub.ts
+index 27b96ba..76258b0 100644
+--- a/src/data/ortools-hub.ts
++++ b/src/data/ortools-hub.ts
+@@ -50,6 +50,12 @@ export const ortoolsClusters: Record<string, string[]> = {
+     'notes/linkedin-patches-cp',
+   ],
+   debugging: ['notes/infeasible-model-diagnosis'],
++  // Members of these clusters declare `hubCluster: <key>` in their own frontmatter.
++  logistics: [],
++  health: [],
++  humanitarian: [],
++  resources: [],
++  techniques: [],
+ };
+ 
+ export const ortoolsCourses: string[] = ['courses/vrp-python', 'courses/health-opt'];
+diff --git a/src/data/tag-aliases.ts b/src/data/tag-aliases.ts
+index 3a1c92a..6fba1b8 100644
+--- a/src/data/tag-aliases.ts
++++ b/src/data/tag-aliases.ts
+@@ -30,4 +30,8 @@ export const tagAliases: Record<string, string> = {
+     "بهینه سازی سیستم قدرت": "بهینه‌سازی سیستم قدرت",
+     "آرایش بهینه واحدها": "Unit Commitment",
+     "زنجیره تامین": "زنجیره تأمین",
++    "مدیریت زنجیره تامین": "زنجیره تأمین",
++    "مدیریت زنجیره تأمین": "زنجیره تأمین",
++    "زنجیره تأمین پزشکی": "زنجیره تأمین",
++    "زنجیره تأمین سلامت": "زنجیره تأمین",
+ };
+diff --git a/src/pages/instructors/[instructorSlug].astro b/src/pages/instructors/[instructorSlug].astro
+index d2b4a5e..fd27276 100644
+--- a/src/pages/instructors/[instructorSlug].astro
++++ b/src/pages/instructors/[instructorSlug].astro
+@@ -128,7 +128,7 @@ const personSchema = {
+ 
+ <Layout 
+   title={instructor.data.name}
+-  description={`${instructor.data.jobTitle || "متخصص بهینه‌سازی و تحقیق در عملیات"}. دوره‌ها، یادداشت‌ها و پروژه‌های تخصصی ${instructor.data.name}.`} 
++  description={instructor.data.seoDescription ?? `${instructor.data.jobTitle || "متخصص بهینه‌سازی و تحقیق در عملیات"}. دوره‌ها، یادداشت‌ها و پروژه‌های تخصصی ${instructor.data.name}.`} 
+   image={instructorImg}
+   author={instructor.data.name}
+   authorUrl={profileUrl}
+diff --git a/src/pages/notes/[noteSlug].astro b/src/pages/notes/[noteSlug].astro
+index eee1b57..9fcac68 100644
+--- a/src/pages/notes/[noteSlug].astro
++++ b/src/pages/notes/[noteSlug].astro
+@@ -6,6 +6,7 @@ import Layout from '../../layouts/Layout.astro';
+ import RelatedContent from '../../components/RelatedContent.astro';
+ import TelegramCTA from '../../components/TelegramCTA.astro';
+ import HubBacklink from '../../components/HubBacklink.astro';
++import { extractFaqs } from '../../utils/faq';
+ import { isOrtoolsHubMember, ORTOOLS_HUB_URL, ORTOOLS_HUB_TITLE } from '../../data/ortools-hub';
+ import { imgSrc } from '../../utils/image';
+ 
+@@ -23,6 +24,15 @@ export async function getStaticPaths() {
+ const { note } = Astro.props;
+ const { Content } = await render(note);
+ const noteSlug = entrySlug(note);
++// FAQPage structured data generated from the note's «سوالات متداول» section.
++const faqs = extractFaqs(note.body ?? '');
++const faqSchema = faqs.length
++  ? {
++      '@context': 'https://schema.org',
++      '@type': 'FAQPage',
++      mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
++    }
++  : null;
+ const showUpdated = Boolean(note.data.updatedDate && note.data.pubDate && note.data.updatedDate > note.data.pubDate);
+ const inOrtoolsHub = isOrtoolsHubMember('notes', noteSlug, note.data.tags, note.data.hubCluster);
+ 
+@@ -66,6 +76,7 @@ const authorDisplayName = matchedInstructor
+ >
+ 
+   <main class="max-w-3xl mx-auto px-6 py-12 flex-grow w-full">
++    {faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
+      
+     <div class="mb-6">
+       <a href="/notes/" class="text-xs text-[var(--site-primary)] hover:opacity-80 inline-flex items-center gap-1.5 transition">
+diff --git a/src/pages/ortools/index.astro b/src/pages/ortools/index.astro
+index bfc3a95..c5c3086 100644
+--- a/src/pages/ortools/index.astro
++++ b/src/pages/ortools/index.astro
+@@ -96,12 +96,42 @@ const clusters = [
+     text: 'تصمیم‌های راهبردی زنجیرهٔ تأمین: انبار، مرکز توزیع یا ایستگاه خدمت کجا ساخته شود و هر مشتری به کدام تخصیص یابد.',
+     items: clusterItems('location', ortoolsClusters.location),
+   },
++  {
++    id: 'logistics',
++    title: 'بندر، حمل‌ونقل و خرده‌فروشی',
++    text: 'جابه‌جایی کانتینر در بندر و دریا، صرفهٔ مقیاس در حمل، و تخصیص سفارش‌های آنلاین به فروشگاه‌ها و انبارها.',
++    items: clusterItems('logistics', ortoolsClusters.logistics),
++  },
++  {
++    id: 'health',
++    title: 'بهینه‌سازی در حوزهٔ سلامت',
++    text: 'زمان‌بندی درمان و کادر درمان، حمل‌ونقل بیماران و لجستیک پزشکی؛ جایی که هر دقیقه و هر تخت اهمیت دارد.',
++    items: clusterItems('health', ortoolsClusters.health),
++  },
++  {
++    id: 'humanitarian',
++    title: 'لجستیک بحران و امداد',
++    text: 'تصمیم‌های سریع با منابع محدود پس از زلزله، توفان یا قطعی برق: کدام تیم، کجا و به چه ترتیبی.',
++    items: clusterItems('humanitarian', ortoolsClusters.humanitarian),
++  },
++  {
++    id: 'resources',
++    title: 'تخصیص منابع و نیروی انسانی',
++    text: 'تخصیص بودجه، استخدام و آموزش، و نگهداشت کارکنان؛ مسائل انتخاب با محدودیت بودجه و زمان.',
++    items: clusterItems('resources', ortoolsClusters.resources),
++  },
+   {
+     id: 'puzzles',
+     title: 'برنامه‌ریزی محدودیت با پازل',
+     text: 'راه سریع و سرگرم‌کننده برای درک منطق CP-SAT؛ همان تکنیک‌هایی که بعداً در زمان‌بندی و تخصیص به کار می‌روند.',
+     items: clusterItems('puzzles', ortoolsClusters.puzzles),
+   },
++  {
++    id: 'techniques',
++    title: 'تکنیک‌های حل و منابع یادگیری',
++    text: 'روش‌هایی برای وقتی مسئله بزرگ است و سالور دقیق جواب نمی‌دهد، و مجموعه‌های آموزشی کوتاه برای تمرین.',
++    items: clusterItems('techniques', ortoolsClusters.techniques),
++  },
+   {
+     id: 'debugging',
+     title: 'عیب‌یابی مدل',
+diff --git a/src/pages/softwares/[...page].astro b/src/pages/softwares/[...page].astro
+index 42eb05b..67f6196 100644
+--- a/src/pages/softwares/[...page].astro
++++ b/src/pages/softwares/[...page].astro
+@@ -27,7 +27,7 @@ const { page } = Astro.props;
+ const defaultImage = "/images/hero.webp";
+ ---
+ 
+-<Layout title="نرم‌افزارها و ابزارها" description="مجموعه‌ای از نرم‌افزارهای کاربردی، ابزارهای مهندسی و محیط‌های توسعه تخصصی." 
++<Layout title="نرم‌افزارها و ابزارها" description="دانلود و راهنمای نصب نرم‌افزارها و سالورهای بهینه‌سازی و محیط‌های توسعهٔ تخصصی مهندسی، برای کار با پایتون، Pyomo، OR-Tools و GAMS." 
+   pageNumber={page.currentPage}
+   breadcrumbs={[{ name: 'خانه', url: '/' }, { name: 'دانلود نرم‌افزار' }]}>
+ 
+diff --git a/src/pages/tags/index.astro b/src/pages/tags/index.astro
+index f1cd249..78d0545 100644
+--- a/src/pages/tags/index.astro
++++ b/src/pages/tags/index.astro
+@@ -10,7 +10,7 @@ const buckets = [...index.values()]
+   .filter(bucket => bucket.items.length >= MIN_HUB_USES)
+   .sort((a, b) => b.items.length - a.items.length);
+ 
+-const description = `نقشه‌ی کامل ${buckets.length} برچسب موضوعی سایت — از مسیریابی و برنامه‌ریزی خطی تا سیستم قدرت و بهینه‌سازی ترکیبیاتی — برای دسترسی سریع به همه‌ی دوره‌ها، پروژه‌ها و یادداشت‌های مرتبط.`;
++const description = `نقشهٔ برچسب‌های موضوعی سایت، از مسیریابی و برنامه‌ریزی خطی تا سیستم قدرت و سلامت، برای دسترسی سریع به دوره‌ها، پروژه‌ها و یادداشت‌های مرتبط.`;
+ ---
+ 
+ <Layout
+diff --git a/src/utils/faq.ts b/src/utils/faq.ts
+new file mode 100644
+index 0000000..35450f3
+--- /dev/null
++++ b/src/utils/faq.ts
+@@ -0,0 +1,84 @@
++// Extracts question/answer pairs from a note's «سوالات متداول» section so they can be
++// emitted as FAQPage structured data. Supports the two formats used on the site:
++//   <h3>Question?</h3> <p>Answer</p>     and     **Question?** followed by answer text
++// (### headings are also accepted). Returns [] when fewer than two pairs are found.
++
++export interface Faq {
++  q: string;
++  a: string;
++}
++
++const FAQ_TITLES = 'سوالات متداول|سؤالات متداول|سوال‌های متداول|سؤال‌های متداول|پرسش‌های متداول|پرسش‌های رایج|پرسش و پاسخ';
++// Markdown heading (## / ###) or HTML heading (<h2> / <h3>).
++const FAQ_HEADING = new RegExp(`^(?:(#{2,3})\\s*(?:${FAQ_TITLES})[^\\n]*|<h([23])[^>]*>\\s*(?:${FAQ_TITLES})[^<]*</h[23]>\\s*)$`, 'm');
++
++// Fallback format: questions written as short <p> paragraphs ending with a question mark.
++const PARAGRAPH_QUESTION = /^<p[^>]*>([^<]{5,220}[؟?])\s*<\/p>\s*$/;
++
++const QUESTION_PATTERNS = [
++  /^<h3[^>]*>([\s\S]+?)<\/h3>\s*$/, // <h3>Question</h3>
++  /^###\s+(.+?)\s*$/, // ### Question
++  /^\*\*(.+?)\*\*\s*$/, // **Question** on its own line
++];
++
++function toPlainText(text: string): string {
++  return text
++    .replace(/<[^>]+>/g, ' ') // HTML tags
++    .replace(/!\[[^\]]*\]\([^)]*\)/g, '') // images
++    .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1') // links -> link text
++    .replace(/`([^`]*)`/g, '$1') // inline code
++    .replace(/\$\$?([^$]+)\$\$?/g, '$1') // inline math delimiters
++    .replace(/(\*\*|__|\*|_)(.+?)\1/g, '$2') // bold / italic
++    .replace(/&nbsp;/g, ' ')
++    .replace(/\s+/g, ' ')
++    .trim();
++}
++
++export function extractFaqs(markdown: string): Faq[] {
++  if (!markdown) return [];
++  const heading = FAQ_HEADING.exec(markdown);
++  if (!heading) return [];
++
++  // The section ends at the next heading of the same or higher level.
++  const level = heading[1] ? heading[1].length : Number(heading[2]);
++  const rest = markdown.slice(heading.index + heading[0].length);
++  // Under a markdown heading, questions may themselves be <h3> tags, so only a
++  // strictly higher-level HTML heading ends the section. Under an HTML heading,
++  // questions are paragraphs, so any heading of the same or higher level ends it.
++  const htmlEnd = heading[1] ? level - 1 : level;
++  const endParts = [`#{1,${level}}\\s`];
++  if (htmlEnd >= 1) endParts.push(`<h[1-${htmlEnd}][\\s>]`);
++  const endRe = new RegExp(`^(${endParts.join('|')})`, 'm');
++  const end = endRe.exec(rest);
++  const section = end ? rest.slice(0, end.index) : rest;
++
++  const primary = parse(section, QUESTION_PATTERNS);
++  if (primary.length >= 2) return primary;
++  const fallback = parse(section, [PARAGRAPH_QUESTION]);
++  return fallback.length >= 2 ? fallback : [];
++}
++
++function parse(section: string, patterns: RegExp[]): Faq[] {
++  const faqs: Faq[] = [];
++  let current: { q: string; a: string[] } | null = null;
++  const flush = () => {
++    if (!current) return;
++    const q = toPlainText(current.q);
++    const a = toPlainText(current.a.join(' '));
++    if (q && a) faqs.push({ q, a });
++  };
++
++  for (const line of section.split('\n')) {
++    const trimmed = line.trim();
++    if (!trimmed) continue;
++    const match = patterns.map((re) => re.exec(trimmed)).find(Boolean);
++    if (match) {
++      flush();
++      current = { q: match[1], a: [] };
++    } else if (current) {
++      current.a.push(trimmed);
++    }
++  }
++  flush();
++  return faqs;
++}
