@@ -25,6 +25,7 @@ export async function getStaticPaths({ paginate }) {
 const { page } = Astro.props;
 // تصویر پیش‌فرض یکسان با بقیه‌ی سایت (قبلاً به‌اشتباه تصویر یک دوره استفاده می‌شد)
 const defaultImage = "/images/hero.webp";
+import { sized, CARD } from '../../utils/image-sizes';
 ---
 
 <Layout title="کتاب و جزوه بهینه‌سازی و پایتون (دانلود PDF)" description="جزوات و کتاب‌های مرجع بهینه‌سازی ریاضی، Pyomo، OR-Tools و سیستم‌های قدرت به زبان فارسی — آماده دانلود برای دانشجویان و مهندسان." 
@@ -61,7 +62,7 @@ const defaultImage = "/images/hero.webp";
                     {typeof bookImg === 'string' ? (
                       <img src={bookImg} alt={book.data.title} loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" />
                     ) : (
-                      <Image src={bookImg} alt={book.data.title} class="w-full h-full object-cover group-hover:scale-105 transition duration-300" />
+                      <Image src={bookImg} alt={book.data.title} class="w-full h-full object-cover group-hover:scale-105 transition duration-300" {...sized(bookImg, CARD)} />
                     )}
                     {book.data.format && (
                       <span class="absolute top-3 left-3 bg-[var(--site-card)]/90 backdrop-blur text-[var(--site-primary)] text-[10px] font-semibold px-2.5 py-1 rounded-full border border-[var(--site-border)]">

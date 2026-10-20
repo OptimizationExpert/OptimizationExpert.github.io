@@ -28,6 +28,7 @@ const authorFullName = matchedInstructor?.data.name || book.data.author || 'Opti
 // تصویر پیش‌فرض یکسان با بقیه‌ی سایت
 const defaultImage = "/images/hero.webp";
 const bookImg = book.data.image || defaultImage;
+import { sized, COVER } from '../../utils/image-sizes';
 ---
 
 <Layout
@@ -102,7 +103,7 @@ const bookImg = book.data.image || defaultImage;
             {typeof bookImg === 'string' ? (
               <img src={bookImg} alt={book.data.title} class="max-h-[420px] w-auto object-contain rounded-xl shadow-xs" />
             ) : (
-              <Image src={bookImg} alt={book.data.title} class="max-h-[420px] w-auto object-contain rounded-xl shadow-xs" />
+              <Image src={bookImg} alt={book.data.title} class="max-h-[420px] w-auto object-contain rounded-xl shadow-xs" {...sized(bookImg, COVER)} />
             )}
           </div>
         </div>

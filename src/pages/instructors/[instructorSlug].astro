@@ -124,6 +124,7 @@ const personSchema = {
     }))
   ],
 };
+import { sized, CARD, PORTRAIT } from '../../utils/image-sizes';
 ---
 
 <Layout 
@@ -158,7 +159,7 @@ const personSchema = {
             {typeof instructor.data.image === 'string' ? (
               <img src={instructor.data.image} alt={instructor.data.name} class="w-full h-full object-cover" />
             ) : (
-              <Image src={instructor.data.image} alt={instructor.data.name} class="w-full h-full object-cover" />
+              <Image src={instructor.data.image} alt={instructor.data.name} class="w-full h-full object-cover" {...sized(instructor.data.image, PORTRAIT)} />
             )}
           </div>
         )}
@@ -197,7 +198,7 @@ const personSchema = {
                       {typeof image === 'string' ? (
                         <img src={image} alt={course.data.title} loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                       ) : (
-                        <Image src={image} alt={course.data.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                        <Image src={image} alt={course.data.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" {...sized(image, CARD)} />
                       )}
                     </div>
                   )}
@@ -234,7 +235,7 @@ const personSchema = {
                       {typeof image === 'string' ? (
                         <img src={image} alt={note.data.title} loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                       ) : (
-                        <Image src={image} alt={note.data.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                        <Image src={image} alt={note.data.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" {...sized(image, CARD)} />
                       )}
                     </div>
                   )}
@@ -271,7 +272,7 @@ const personSchema = {
                       {typeof image === 'string' ? (
                         <img src={image} alt={project.data.title} loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                       ) : (
-                        <Image src={image} alt={project.data.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                        <Image src={image} alt={project.data.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" {...sized(image, CARD)} />
                       )}
                     </div>
                   )}

@@ -41,6 +41,7 @@ const courseListSchema = {
     },
   })),
 };
+import { sized, CARD } from '../../utils/image-sizes';
 ---
 
 <script type="application/ld+json" set:html={JSON.stringify(courseListSchema)} />
@@ -105,8 +106,7 @@ const courseListSchema = {
                         <Image
                           src={cardImage}
                           alt={cardImageAlt}
-                          class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
-                        />
+                          class="w-full h-full object-cover group-hover:scale-105 transition duration-500" {...sized(cardImage, CARD)} />
                       )}
                     </div>
                   </div>

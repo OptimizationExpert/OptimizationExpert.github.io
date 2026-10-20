@@ -24,6 +24,7 @@ const baseDescription = 'ده‌ها پروژه واقعی مسیریابی (VRP
 const pageDescription = page.currentPage > 1
   ? `${baseDescription} صفحه ${toFa(page.currentPage)} از ${toFa(page.lastPage)}.`
   : baseDescription;
+import { sized, CARD } from '../../utils/image-sizes';
 ---
 
 <Layout 
@@ -95,8 +96,7 @@ const pageDescription = page.currentPage > 1
                         <Image
                           src={cardImage}
                           alt={cardImageAlt}
-                          class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
-                        />
+                          class="w-full h-full object-cover group-hover:scale-105 transition duration-500" {...sized(cardImage, CARD)} />
                       )}
                     </div>
                   </div>

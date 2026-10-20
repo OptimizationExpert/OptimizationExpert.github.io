@@ -30,6 +30,7 @@ const matchedInstructor = software.data.author
   ? instructors.find((i) => entrySlug(i) === software.data.author || i.data.name === software.data.author)
   : undefined;
 const authorFullName = matchedInstructor?.data.name || software.data.author || 'Optimization Expert';
+import { sized, COVER } from '../../utils/image-sizes';
 ---
 
 <Layout
@@ -104,7 +105,7 @@ const authorFullName = matchedInstructor?.data.name || software.data.author || '
             {typeof softwareImg === 'string' ? (
               <img src={softwareImg} alt={software.data.title} class="max-h-[380px] w-auto object-contain rounded-xl shadow-xs" />
             ) : (
-              <Image src={softwareImg} alt={software.data.title} class="max-h-[380px] w-auto object-contain rounded-xl shadow-xs" />
+              <Image src={softwareImg} alt={software.data.title} class="max-h-[380px] w-auto object-contain rounded-xl shadow-xs" {...sized(softwareImg, COVER)} />
             )}
           </div>
         </div>

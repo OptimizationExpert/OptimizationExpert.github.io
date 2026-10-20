@@ -4,6 +4,7 @@ import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 import {unified} from '@astrojs/markdown-remark';
 import sitemap from '@astrojs/sitemap';
+import optimizeCss from './integrations/optimize-css.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
@@ -53,6 +54,12 @@ export default defineConfig({
     trailingSlash: 'always',
     compressHTML: true,
 
+    // Responsive srcset for images inside markdown content (components set their own sizes).
+    image: {
+        layout: 'constrained',
+        responsiveStyles: false,
+        breakpoints: [480, 640, 800, 1080, 1280, 1600],
+    },
     integrations: [
         sitemap({
             filter: (page) => {
@@ -65,6 +72,7 @@ export default defineConfig({
                 return lastmod ? {...item, lastmod: lastmod.toISOString()} : item;
             },
         }),
+        optimizeCss(),
     ],
 
     redirects: {

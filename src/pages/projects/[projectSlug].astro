@@ -33,6 +33,7 @@ const projectInstructor = authorKey
 
 const displayImage = project.data.image || project.data.minimalImage;
 const authorFullName = projectInstructor?.data.name || project.data.author || 'Optimization Expert';
+import { sized, HERO } from '../../utils/image-sizes';
 ---
 
 <Layout
@@ -117,7 +118,7 @@ const authorFullName = projectInstructor?.data.name || project.data.author || 'O
           {typeof displayImage === 'string' ? (
             <img src={displayImage} alt={project.data.title} class="w-full h-auto object-contain" />
           ) : (
-            <Image src={displayImage} alt={project.data.title} class="w-full h-auto object-contain" />
+            <Image src={displayImage} alt={project.data.title} class="w-full h-auto object-contain" {...sized(displayImage, HERO)} />
           )}
         </div>
       )}

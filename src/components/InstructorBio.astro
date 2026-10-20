@@ -50,6 +50,7 @@ if (instructor) {
   const rendered = await render(instructor);
   Content = rendered.Content;
 }
+import { sized, PORTRAIT } from '../utils/image-sizes';
 ---
 
 {instructor && (
@@ -71,7 +72,7 @@ if (instructor) {
           {typeof instructor.data.image === 'string' ? (
             <img src={instructor.data.image} alt={instructor.data.name} class="w-full h-full object-cover group-hover:scale-105 transition duration-300" />
           ) : (
-            <Image src={instructor.data.image} alt={instructor.data.name} class="w-full h-full object-cover group-hover:scale-105 transition duration-300" />
+            <Image src={instructor.data.image} alt={instructor.data.name} class="w-full h-full object-cover group-hover:scale-105 transition duration-300" {...sized(instructor.data.image, PORTRAIT)} />
           )}
         </a>
       )}

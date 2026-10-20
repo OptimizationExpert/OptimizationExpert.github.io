@@ -57,6 +57,7 @@ const authorFullName = matchedInstructor ? matchedInstructor.data.name : note.da
 const authorDisplayName = matchedInstructor
   ? (matchedInstructor.data.shortName || matchedInstructor.data.name)
   : note.data.author;
+import { sized, HERO } from '../../utils/image-sizes';
 ---
 
 <Layout
@@ -142,7 +143,7 @@ const authorDisplayName = matchedInstructor
           {typeof displayImage === 'string' ? (
             <img src={displayImage} alt={note.data.title} class="w-full h-auto object-contain" />
           ) : (
-            <Image src={displayImage} alt={note.data.title} class="w-full h-auto object-contain" />
+            <Image src={displayImage} alt={note.data.title} class="w-full h-auto object-contain" {...sized(displayImage, HERO)} />
           )}
         </div>
       )}

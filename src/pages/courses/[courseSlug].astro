@@ -36,6 +36,7 @@ const instructorData = instructors.find(
 );
 import { parsePrice } from '../../utils/price';
 const coursePrice = parsePrice(course.data.price);
+import { sized, HERO } from '../../utils/image-sizes';
 ---
 
 <Layout
@@ -118,8 +119,7 @@ const coursePrice = parsePrice(course.data.price);
             <Image
               src={pageImage}
               alt={pageImageAlt}
-              class="w-full h-auto object-cover"
-            />
+              class="w-full h-auto object-cover" {...sized(pageImage, HERO)} />
           )}
         </div>
       )}
