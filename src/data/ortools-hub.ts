@@ -50,6 +50,12 @@ export const ortoolsClusters: Record<string, string[]> = {
     'notes/linkedin-patches-cp',
   ],
   debugging: ['notes/infeasible-model-diagnosis'],
+  // Members of these clusters declare `hubCluster: <key>` in their own frontmatter.
+  logistics: [],
+  health: [],
+  humanitarian: [],
+  resources: [],
+  techniques: [],
 };
 
 export const ortoolsCourses: string[] = ['courses/vrp-python', 'courses/health-opt'];

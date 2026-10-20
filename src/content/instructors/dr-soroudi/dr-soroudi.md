@@ -4,6 +4,7 @@ shortName: "علیرضا سرودی"
 title: "دکتر علیرضا سرودی"
 jobTitle: "متخصص ارشد علوم داده | راهبر پروژه‌های بهینه‌سازی و تحقیق در عملیات در شرکت EirGrid | عضو ارشد موسسه مهندسان برق و الکترونیک (Senior Member IEEE)"
 image: "./dr-soroudi.jpg"
+seoDescription: "دکتر علیرضا سرودی، متخصص ارشد علوم داده و راهبر پروژه‌های بهینه‌سازی در EirGrid و عضو ارشد IEEE؛ دوره‌ها، یادداشت‌ها و پروژه‌های تخصصی."
 nameEn: "Alireza Soroudi"
 alternateName: ["Dr. Alireza Soroudi", "A. Soroudi", "علیرضا سرودی"]
 descriptionEn: "Senior data scientist leading optimization and operations research projects at EirGrid, IEEE Senior Member, author of Power System Optimization Modeling in GAMS (Springer, 2017), and founder of optexpert.org, a Persian-language platform for learning OR-Tools, Pyomo and applied optimization."

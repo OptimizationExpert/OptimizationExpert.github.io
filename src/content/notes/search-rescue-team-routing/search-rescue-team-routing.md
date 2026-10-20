@@ -10,6 +10,7 @@ imageAlt: "نقشه مفهومی شهر پس از زلزله با چند ساخ�
 tags: ["لجستیک بشردوستانه", "مدیریت بحران", "جست‌وجو و نجات", "مسیریابی", "OR-Tools", "بهینه‌سازی"]
 relatedCourses: ["vrp-python"]
 relatedNotes: ["humanitarian-relief-routing", "mass-casualty-patient-allocation", "evacuation-shelter-location-planning"]
+hubCluster: humanitarian
 ---
 
 زلزله‌ای ویرانگر یک شهر را لرزانده است. چند ساختمان فروریخته‌اند. صدای افراد گرفتار، هنوز از زیر آوار شنیده می‌شود. اما تیم‌های نجات محدودند. هر تیم فقط چند ساعت فرصت دارد. این‌جا زمان، باارزش‌تر از هر منبع دیگری است.

@@ -128,7 +128,7 @@ const personSchema = {
 
 <Layout 
   title={instructor.data.name}
-  description={`${instructor.data.jobTitle || "متخصص بهینه‌سازی و تحقیق در عملیات"}. دوره‌ها، یادداشت‌ها و پروژه‌های تخصصی ${instructor.data.name}.`} 
+  description={instructor.data.seoDescription ?? `${instructor.data.jobTitle || "متخصص بهینه‌سازی و تحقیق در عملیات"}. دوره‌ها، یادداشت‌ها و پروژه‌های تخصصی ${instructor.data.name}.`} 
   image={instructorImg}
   author={instructor.data.name}
   authorUrl={profileUrl}

@@ -20,7 +20,7 @@ instructor: "dr-soroudi"
 relatedCourses: ["optimization-modeling", "uncertainty-modeling"]
 relatedNotes: ["mathematical-modeling-art", "google-colab", "pyomo-solvers"]
 # انتخاب ۵ تا ۷ تگ جامع به جای ۲۰ تگ پراکنده
-tags: ["Vehicle Routing Problem", "Python", "OR-Tools", "بهینه‌سازی ترکیبی", "زنجیره تامین"]
+tags: ["Vehicle Routing Problem", "Python", "OR-Tools", "بهینه‌سازی ترکیبی", "زنجیره تأمین"]
 ---
 
 <!-- بخش اول: معرفی دوره -->

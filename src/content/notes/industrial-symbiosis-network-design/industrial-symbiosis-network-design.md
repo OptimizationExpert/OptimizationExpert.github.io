@@ -7,7 +7,7 @@ minimalImage: "./industrial-symbiosis-network-design_mini.webp"
 minimalImageAlt: "نمایش مینیمال شبکه تبادل پسماند میان دو کارخانه"
 image: "./industrial-symbiosis-network-design.webp"
 imageAlt: "شبکه‌ای از چهار کارخانه که پسماند و ماده اولیه را میان هم ردوبدل می‌کنند"
-tags: ["بهینه‌سازی", "زنجیره تأمین سبز", "همزیستی صنعتی", "اقتصاد چرخه‌ای", "برنامه‌ریزی خطی عدد صحیح مختلط"]
+tags: ["زنجیره تأمین", "بهینه‌سازی", "زنجیره تأمین سبز", "همزیستی صنعتی", "اقتصاد چرخه‌ای", "برنامه‌ریزی خطی عدد صحیح مختلط"]
 relatedCourses: ["vrp-python"]
 relatedNotes: ["green-supply-chain-network-design", "green-closed-loop-supply-chain", "green-supplier-selection-order-allocation"]
 ---

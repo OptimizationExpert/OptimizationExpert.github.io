@@ -6,6 +6,7 @@ import Layout from '../../layouts/Layout.astro';
 import RelatedContent from '../../components/RelatedContent.astro';
 import TelegramCTA from '../../components/TelegramCTA.astro';
 import HubBacklink from '../../components/HubBacklink.astro';
+import { extractFaqs } from '../../utils/faq';
 import { isOrtoolsHubMember, ORTOOLS_HUB_URL, ORTOOLS_HUB_TITLE } from '../../data/ortools-hub';
 import { imgSrc } from '../../utils/image';
 
@@ -23,6 +24,15 @@ export async function getStaticPaths() {
 const { note } = Astro.props;
 const { Content } = await render(note);
 const noteSlug = entrySlug(note);
+// FAQPage structured data generated from the note's «سوالات متداول» section.
+const faqs = extractFaqs(note.body ?? '');
+const faqSchema = faqs.length
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+    }
+  : null;
 const showUpdated = Boolean(note.data.updatedDate && note.data.pubDate && note.data.updatedDate > note.data.pubDate);
 const inOrtoolsHub = isOrtoolsHubMember('notes', noteSlug, note.data.tags, note.data.hubCluster);
 
@@ -66,6 +76,7 @@ const authorDisplayName = matchedInstructor
 >
 
   <main class="max-w-3xl mx-auto px-6 py-12 flex-grow w-full">
+    {faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
      
     <div class="mb-6">
       <a href="/notes/" class="text-xs text-[var(--site-primary)] hover:opacity-80 inline-flex items-center gap-1.5 transition">

@@ -1,5 +1,5 @@
 ---
-title: "زنجیره تأمین حلقه‌بسته: محصول برگشتی را بازسازی کنیم یا دور بریزیم؟"
+title: "زنجیره تأمین حلقه‌بسته: بازسازی یا بازیافت محصول برگشتی؟"
 description: "مدل‌سازی ریاضی تصمیم بازسازی یا بازیافت محصولات مرجوعی در زنجیره تأمین حلقه‌بسته، با فرمول‌بندی MILP و پیاده‌سازی در پایتون."
 pubDate: 2026-10-20
 author: "dr-soroudi"
@@ -7,7 +7,7 @@ minimalImage: "./closed-loop-supply-chain_mini.webp"
 minimalImageAlt: "نماد ساده بازگشت محصول از مشتری به کارخانه برای بازسازی یا بازیافت"
 image: "./closed-loop-supply-chain.webp"
 imageAlt: "نمودار مفهومی تصمیم بازسازی یا بازیافت محصولات برگشتی در زنجیره تأمین حلقه‌بسته"
-tags: ["زنجیره تأمین حلقه‌بسته", "لجستیک معکوس", "بازسازی محصول", "بهینه‌سازی", "MILP"]
+tags: ["زنجیره تأمین", "زنجیره تأمین حلقه‌بسته", "لجستیک معکوس", "بازسازی محصول", "بهینه‌سازی", "MILP"]
 relatedCourses: ["vrp-python"]
 relatedNotes: ["green-closed-loop-supply-chain", "facility-location-problem", "multi-echelon-inventory-optimization"]
 ---

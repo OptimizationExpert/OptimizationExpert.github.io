@@ -7,9 +7,10 @@ minimalImage: "./omnichannel-order-fulfillment-allocation_mini.webp"
 minimalImageAlt: "آیکون مینیمال تخصیص سفارش آنلاین بین فروشگاه‌ها و انبار"
 image: "./omnichannel-order-fulfillment-allocation.webp"
 imageAlt: "تصویرسازی مفهومی تخصیص سفارش آنلاین میان فروشگاه‌ها و انبار مرکزی"
-tags: ["مدیریت زنجیره تامین", "خرده‌فروشی", "چندکاناله", "OR-Tools", "تخصیص سفارش"]
+tags: ["زنجیره تأمین", "خرده‌فروشی", "چندکاناله", "OR-Tools", "تخصیص سفارش"]
 relatedCourses: ["vrp-python"]
 relatedNotes: ["multi-echelon-inventory-optimization", "newsvendor-safety-stock"]
+hubCluster: logistics
 ---
 
 یک مشتری در تهران یک کفش ورزشی را آنلاین سفارش می‌دهد. انبار مرکزی شرکت این کالا را دارد. اما فروشگاه فیزیکی نزدیک خانه‌ی مشتری هم همان جنس را روی قفسه دارد. کدام یکی باید این سفارش را ارسال کند؟

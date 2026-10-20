@@ -8,6 +8,11 @@ on:
       - 'seo_opportunity_output/**'
       - 'seo_demand_output/**'
   workflow_dispatch:
+    inputs:
+      indexnow_full:
+        description: "IndexNow: submit every URL in the sitemap (use once after setup)"
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -55,3 +60,27 @@ jobs:
       - name: Deploy GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+  # Tell IndexNow (Bing and partners) which pages changed, after they are live.
+  indexnow:
+    needs: deploy
+    runs-on: ubuntu-latest
+    continue-on-error: true
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22.12.0"
+
+      - name: Notify IndexNow
+        env:
+          BEFORE_SHA: ${{ github.event.before }}
+          AFTER_SHA: ${{ github.sha }}
+          FULL: ${{ inputs.indexnow_full && '1' || '0' }}
+        run: node scripts/indexnow.mjs

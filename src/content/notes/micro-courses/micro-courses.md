@@ -1,6 +1,6 @@
 ---
 title: "۲۰ میکرودرس بهینه‌سازی با پایتون — هر کدام یک مسئله، یک ساعت"
-description: "فهرست کامل ۲۰ میکرودرس مستقل بهینه‌سازی ترکیبی با پایتون و OR-Tools؛ هرکدام یک مسئله‌ی واقعی را در حدود یک ساعت آموزش می‌دهد، بدون نیاز به دوره‌ی قبلی یا میکرودرس‌های دیگر."
+description: "فهرست ۲۰ میکرودرس مستقل بهینه‌سازی ترکیبی با پایتون و OR-Tools؛ هرکدام یک مسئلهٔ واقعی را در حدود یک ساعت و بدون پیش‌نیاز آموزش می‌دهد."
 pubDate: 2026-10-02
 author: "dr-soroudi"
 minimalImage: "./micro-courses_mini.webp"
@@ -10,6 +10,7 @@ imageAlt: "بیست ماژول شماره‌گذاری‌شده به‌عنوا�
 tags: ["بهینه‌سازی ترکیبی", "Python", "OR-Tools", "میکرودرس"]
 relatedCourses: ["optimization-modeling", "vrp-python"]
 relatedNotes: ["cp-intro", "job-shop-scheduling-cp-sat", "generalized-vehicle-routing-problem"]
+hubCluster: techniques
 ---
 
 ## چرا میکرودرس؟
