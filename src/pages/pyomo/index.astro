@@ -1,0 +1,558 @@
+---
+// Pyomo pillar (hub) page: /pyomo/
+// Links are resolved from content collections at build time, so a slug that
+// is missing or still a draft is skipped instead of producing a broken link.
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import TelegramCTA from '../../components/TelegramCTA.astro';
+import { entrySlug, isPublished } from '../../utils/content';
+import { pyomoLadder, pyomoClusters, pyomoCourses, pyomoCuratedKeys, hasPyomoTag, isKnownPyomoCluster } from '../../data/pyomo-hub';
+
+type Kind = 'notes' | 'projects' | 'courses';
+
+const [notes, projects, courses] = await Promise.all([
+  getCollection('notes', isPublished),
+  getCollection('projects', isPublished),
+  getCollection('courses', isPublished),
+]);
+
+const index = new Map<string, { href: string; title: string; description: string; kind: Kind; duration?: string; level?: string; tags: string[]; pyomoCluster?: string; pubDate?: Date }>();
+for (const [kind, list] of [['notes', notes], ['projects', projects], ['courses', courses]] as const) {
+  for (const entry of list) {
+    const slug = entrySlug(entry);
+    const data = entry.data as any;
+    index.set(`${kind}/${slug}`, {
+      href: `/${kind}/${slug}/`,
+      title: data.title,
+      description: data.description,
+      kind,
+      duration: data.duration,
+      level: data.level,
+      tags: data.tags ?? [],
+      pyomoCluster: data.pyomoCluster,
+      pubDate: data.pubDate,
+    });
+    if (data.pyomoCluster && !isKnownPyomoCluster(data.pyomoCluster)) {
+      console.warn(`[pyomo hub] ${kind}/${slug}: unknown pyomoCluster "${data.pyomoCluster}"; shown under "more" if tagged.`);
+    }
+  }
+}
+
+const pick = (keys: string[]) => keys.map((k) => index.get(k)).filter((x): x is NonNullable<typeof x> => Boolean(x));
+const link = (key: string) => index.get(key);
+
+// Curated keys first (in listed order), then entries that declare this cluster
+// in their own frontmatter, newest first.
+const clusterItems = (id: string, curated: string[] = []) => {
+  const extra = [...index.entries()]
+    .filter(([key, item]) => item.pyomoCluster === id && !curated.includes(key))
+    .sort(([, a], [, b]) => (b.pubDate?.getTime() ?? 0) - (a.pubDate?.getTime() ?? 0))
+    .map(([key]) => key);
+  return pick([...curated, ...extra]);
+};
+
+const kindLabel: Record<Kind, string> = { notes: 'یادداشت', projects: 'پروژه', courses: 'دوره' };
+
+// Learning path: a real sequence, so it is rendered as numbered steps.
+const ladder = [
+  {
+    title: 'مدل‌سازی ریاضی را یاد بگیرید',
+    text: 'Pyomo زبانی برای نوشتن مدل ریاضی است؛ پس اول باید بتوانید مسئله را به مجموعه، پارامتر، متغیر تصمیم، قید و تابع هدف تبدیل کنید.',
+    items: pick(pyomoLadder[0] ?? []),
+  },
+  {
+    title: 'اولین مدل Pyomo و انتخاب سالور',
+    text: 'ساختار ConcreteModel، تعریف مجموعه‌ها و پارامترها، قیدهای اندیس‌دار، و نصب و فراخوانی سالورهای رایگان مثل HiGHS و IPOPT.',
+    items: pick(pyomoLadder[1] ?? []),
+  },
+  {
+    title: 'مدل‌های کلاسیک را از GAMS به پایتون بیاورید',
+    text: 'اگر GAMS بلدید، سریع‌ترین راه یادگیری Pyomo بازنویسی همان مدل‌های آشناست: هر Set، Parameter و Equation معادل مستقیمی در Pyomo دارد.',
+    items: pick(pyomoLadder[2] ?? []),
+  },
+  {
+    title: 'بهینه‌سازی سیستم قدرت',
+    text: 'زمینه‌ای که Pyomo در آن بیشترین کاربرد را دارد: Unit Commitment، پخش بار بهینهٔ DC و AC، و جایابی ذخیره‌ساز؛ از مدل‌های خطی تا غیرخطی.',
+    items: pick(pyomoLadder[3] ?? []),
+  },
+  {
+    title: 'تکنیک‌های پیشرفته',
+    text: 'بهینه‌سازی دوسطحی، شرایط بهینگی KKT و مدل‌سازی عدم قطعیت؛ ابزارهایی برای مسائل پژوهشی و پایان‌نامه.',
+    items: pick(pyomoLadder[4] ?? []),
+  },
+];
+
+const clusters = [
+  {
+    id: 'foundations',
+    title: 'مبانی Pyomo و راه‌اندازی',
+    text: 'ساخت مدل، نصب و انتخاب سالور، اجرا در Colab، و تجربه‌های پیاده‌سازی مدل در محیط واقعی.',
+    items: clusterItems('foundations', pyomoClusters.foundations),
+  },
+  {
+    id: 'gams',
+    title: 'از GAMS به پایتون',
+    text: 'مدل‌های کلاسیک زنجیرهٔ تأمین که در دوره‌های GAMS تدریس می‌شوند، گام‌به‌گام با Pyomo و سالورهای رایگان بازنویسی شده‌اند.',
+    items: clusterItems('gams', pyomoClusters.gams),
+  },
+  {
+    id: 'power',
+    title: 'سیستم‌های قدرت و انرژی',
+    text: 'برنامه‌ریزی نیروگاه‌ها، پخش بار، شبکهٔ توزیع، ذخیره‌ساز و خودروی برقی؛ هستهٔ کاربرد Pyomo در صنعت برق.',
+    items: clusterItems('power', pyomoClusters.power),
+  },
+  {
+    id: 'advanced',
+    title: 'تکنیک‌های پیشرفتهٔ مدل‌سازی',
+    text: 'بهینه‌سازی دوسطحی، شرایط KKT و بهینه‌سازی چندهدفه؛ مفاهیمی که در مقاله‌ها و پایان‌نامه‌ها پرتکرارند.',
+    items: clusterItems('advanced', pyomoClusters.advanced),
+  },
+  {
+    id: 'milp',
+    title: 'مسائل کلاسیک برنامه‌ریزی عدد صحیح',
+    text: 'مدل‌های MILP کاربردی در تولید، زنجیرهٔ تأمین و انرژی. بخشی از این آموزش‌ها با PuLP پیاده شده‌اند؛ همان فرمول‌بندی را می‌توان مستقیم در Pyomo نوشت.',
+    items: clusterItems('milp', pyomoClusters.milp),
+  },
+].filter((c) => c.items.length > 0);
+
+const relatedCourses = pick(pyomoCourses);
+
+// Pyomo-tagged content that has not been placed in a cluster yet.
+const moreTutorials = [...index.entries()]
+  .filter(([key, item]) => !pyomoCuratedKeys.has(key) && !isKnownPyomoCluster(item.pyomoCluster) && item.kind !== 'courses' && hasPyomoTag(item.tags))
+  .map(([, item]) => item);
+
+const faqs = [
+  {
+    q: 'آیا Pyomo رایگان است؟',
+    a: 'بله. Pyomo متن‌باز است و با مجوز BSD منتشر می‌شود، پس استفاده از آن در پروژه‌های دانشگاهی و تجاری رایگان است. سالورهای رایگانی مثل HiGHS، CBC، GLPK و IPOPT هم با آن کار می‌کنند و برای بیشتر مسائل کافی‌اند.',
+  },
+  {
+    q: 'Pyomo بهتر است یا GAMS؟',
+    a: 'از نظر قدرت مدل‌سازی هر دو زبان جبری‌اند و مدل‌ها تقریباً یک‌به‌یک قابل ترجمه‌اند. مزیت Pyomo رایگان بودن و قرار گرفتن داخل پایتون است؛ یعنی اتصال مستقیم به داده، اکسل، نمودار و هر کتابخانهٔ دیگر بدون نیاز به لایسنس.',
+  },
+  {
+    q: 'برای هر نوع مسئله از کدام سالور استفاده کنم؟',
+    a: 'برای مسائل خطی و عدد صحیح (LP و MILP) HiGHS یا CBC انتخاب خوب و رایگانی است. برای مسائل غیرخطی پیوسته مثل پخش بار AC از IPOPT استفاده کنید. اگر به لایسنس دانشگاهی دسترسی دارید، Gurobi در مسائل بزرگ عدد صحیح معمولاً سریع‌تر است.',
+  },
+  {
+    q: 'Pyomo یا OR-Tools؟',
+    a: 'Pyomo برای مسائل جبری خطی و غیرخطی، به‌ویژه در سیستم قدرت و انرژی، مناسب‌تر است. OR-Tools و سالور CP-SAT در مسائل گسسته و ترکیبیاتی مثل زمان‌بندی و مسیریابی قوی‌ترند. بسیاری از پروژه‌های واقعی از هر دو استفاده می‌کنند.',
+  },
+];
+
+const mathArt = link('notes/mathematical-modeling-art');
+const pyomoGuide = link('notes/pyomo-optimization-guide');
+const solvers = link('notes/pyomo-solvers');
+const colab = link('notes/google-colab');
+const ucGuide = link('notes/pyomo-unit-commitment-guide');
+const acStudies = link('notes/ac-studies');
+const gamsNetwork = link('notes/gams-to-python-supply-chain-network');
+
+const breadcrumbs = [{ name: 'خانه', url: '/' }, { name: 'آموزش Pyomo' }];
+---
+
+<Layout
+  title="آموزش Pyomo در پایتون: راهنمای جامع فارسی"
+  description="راهنمای جامع فارسی آموزش Pyomo در پایتون: از اولین مدل و انتخاب سالور تا انتقال از GAMS، بهینه‌سازی سیستم قدرت و تکنیک‌های پیشرفته، با مسیر یادگیری."
+  type="article"
+  pubDate={new Date('2026-10-20')}
+  author="دکتر علیرضا سرودی"
+  authorUrl="/instructors/dr-soroudi/"
+  breadcrumbs={breadcrumbs}
+>
+  <main class="hub max-w-3xl mx-auto px-4 sm:px-6 py-12 sm:py-16 flex-grow w-full">
+
+    <header class="mb-12">
+      <h1 class="hub-title">آموزش Pyomo در پایتون</h1>
+      <p class="hub-lede">
+        این صفحه نقطهٔ شروع یادگیری Pyomo به زبان فارسی است: اینکه Pyomo چیست، مدل در آن از چه اجزایی ساخته می‌شود، با کدام سالور حل می‌شود و به چه ترتیبی یاد گرفت. همهٔ آموزش‌های سایت که با Pyomo نوشته شده‌اند، این‌جا دسته‌بندی شده‌اند؛ با تمرکز بر سیستم‌های قدرت و انرژی، زنجیرهٔ تأمین و انتقال مدل‌ها از GAMS به پایتون.
+      </p>
+
+      <nav aria-label="فهرست این صفحه" class="hub-toc">
+        <a href="#what">Pyomo چیست</a>
+        <a href="#components">اجزای مدل</a>
+        <a href="#compare">Pyomo، GAMS یا OR-Tools</a>
+        <a href="#path">مسیر یادگیری</a>
+        <a href="#topics">آموزش‌ها بر اساس موضوع</a>
+        <a href="#faq">پرسش‌های رایج</a>
+      </nav>
+    </header>
+
+    <div class="prose max-w-none leading-loose text-[var(--site-text)]">
+
+      <h2 id="what">Pyomo چیست؟</h2>
+      <p>
+        Pyomo یک زبان مدل‌سازی جبری متن‌باز در پایتون است. یعنی مدل بهینه‌سازی را تقریباً همان‌طور که روی کاغذ می‌نویسید تعریف می‌کنید: مجموعه‌ها، پارامترها، متغیرها، قیدها و تابع هدف. بعد همان مدل را بدون تغییر به سالورهای مختلف می‌سپارید.
+      </p>
+      <p>
+        Pyomo فقط به یک نوع مسئله محدود نیست. برنامه‌ریزی خطی و عدد صحیح (LP و MILP)، مسائل غیرخطی (NLP) و ترکیب این دو (MINLP) همه در آن قابل مدل‌سازی‌اند. به همین دلیل در پژوهش و صنعت برق، که مدل‌ها اغلب غیرخطی‌اند، ابزار رایجی است.
+      </p>
+
+      <h2 id="components">اجزای یک مدل Pyomo</h2>
+      <p>
+        هر مدل Pyomo از چند جزء ثابت ساخته می‌شود. اگر با GAMS کار کرده‌اید، معادل هر جزء را هم در ستون دوم می‌بینید:
+      </p>
+      <div class="hub-table-wrap">
+        <table>
+          <thead>
+            <tr><th>جزء در Pyomo</th><th>معادل در GAMS</th><th>کاربرد</th></tr>
+          </thead>
+          <tbody>
+            <tr><td dir="ltr" class="text-right">ConcreteModel</td><td dir="ltr" class="text-right">Model</td><td>ظرف اصلی که همهٔ اجزای مدل در آن تعریف می‌شوند</td></tr>
+            <tr><td dir="ltr" class="text-right">Set</td><td dir="ltr" class="text-right">Set</td><td>اندیس‌ها: نیروگاه‌ها، شین‌ها، دوره‌های زمانی، مشتری‌ها</td></tr>
+            <tr><td dir="ltr" class="text-right">Param</td><td dir="ltr" class="text-right">Parameter</td><td>داده‌های ثابت: هزینه، ظرفیت، تقاضا</td></tr>
+            <tr><td dir="ltr" class="text-right">Var</td><td dir="ltr" class="text-right">Variable</td><td>متغیرهای تصمیم پیوسته، صحیح یا دودویی</td></tr>
+            <tr><td dir="ltr" class="text-right">Constraint</td><td dir="ltr" class="text-right">Equation</td><td>قیدها، معمولاً اندیس‌دار روی یک یا چند مجموعه</td></tr>
+            <tr><td dir="ltr" class="text-right">Objective</td><td dir="ltr" class="text-right">Solve … minimizing</td><td>تابع هدف کمینه‌سازی یا بیشینه‌سازی</td></tr>
+            <tr><td dir="ltr" class="text-right">SolverFactory</td><td dir="ltr" class="text-right">Option solver</td><td>انتخاب و اجرای سالور</td></tr>
+          </tbody>
+        </table>
+      </div>
+      {gamsNetwork && (
+        <p>
+          برای دیدن این تناظر روی یک مدل کامل، یادداشت <a href={gamsNetwork.href}>{gamsNetwork.title}</a> را ببینید.
+        </p>
+      )}
+
+      <h2 id="compare">Pyomo، GAMS یا OR-Tools؟</h2>
+      <p>
+        GAMS و Pyomo هر دو زبان مدل‌سازی جبری‌اند و مدل‌ها تقریباً یک‌به‌یک بینشان قابل ترجمه‌اند. تفاوت اصلی در محیط است. GAMS برای مدل‌های بزرگ به لایسنس تجاری نیاز دارد، اما Pyomo رایگان است و داخل پایتون اجرا می‌شود؛ پس خواندن داده از اکسل، رسم نمودار و ساخت داشبورد در همان برنامه انجام می‌شود.
+      </p>
+      <p>
+        OR-Tools رقیب Pyomo نیست، بلکه مکمل آن است. سالور CP-SAT در OR-Tools برای مسائل گسسته و ترکیبیاتی مثل زمان‌بندی و مسیریابی ساخته شده، و Pyomo برای مدل‌های جبری خطی و غیرخطی، به‌ویژه در سیستم قدرت. برای آموزش‌های OR-Tools، <a href="/ortools/">راهنمای جامع OR-Tools</a> را ببینید.
+      </p>
+
+      <h2 id="install">نصب و شروع کار</h2>
+      <p>
+        Pyomo با دستور <code dir="ltr">pip install pyomo</code> نصب می‌شود. سالورها جدا نصب می‌شوند؛ برای مسائل خطی و عدد صحیح، سالور رایگان HiGHS با <code dir="ltr">pip install highspy</code> در دسترس قرار می‌گیرد.
+        {solvers && <> روش‌های مختلف نصب و استفاده از سالورها در یادداشت <a href={solvers.href}>{solvers.title}</a> آمده است.</>}
+        {colab && <> اگر نمی‌خواهید چیزی روی سیستم خود نصب کنید، مدل‌ها را در <a href={colab.href}>Google Colab</a> اجرا کنید.</>}
+      </p>
+      {pyomoGuide && (
+        <p>
+          بهترین نقطهٔ شروع عملی، <a href={pyomoGuide.href}>{pyomoGuide.title}</a> است که یک مدل کامل را از تعریف تا تحلیل حساسیت دنبال می‌کند.
+          {ucGuide && <> برای کاربرد در سیستم قدرت، <a href={ucGuide.href}>{ucGuide.title}</a> را ببینید.</>}
+          {acStudies && <> اگر مسئلهٔ شما غیرخطی است، <a href={acStudies.href}>{acStudies.title}</a> نشان می‌دهد چه وقت به AC-OPF نیاز دارید.</>}
+        </p>
+      )}
+    </div>
+
+    <section id="path" class="mt-14" aria-labelledby="path-title">
+      <h2 id="path-title" class="hub-h2">مسیر یادگیری Pyomo</h2>
+      <p class="hub-section-lede">پنج مرحله، از مدل‌سازی تا تکنیک‌های پژوهشی. هر مرحله روی مرحلهٔ قبل ساخته می‌شود.</p>
+
+      <ol class="ladder">
+        {ladder.map((step, i) => (
+          <li class="ladder-step">
+            <span class="ladder-num" aria-hidden="true">{(i + 1).toLocaleString('fa-IR')}</span>
+            <div class="ladder-body">
+              <h3 class="ladder-title">{step.title}</h3>
+              <p class="ladder-text">{step.text}</p>
+              {step.items.length > 0 && (
+                <ul class="ladder-links">
+                  {step.items.map((item) => (
+                    <li>
+                      <a href={item.href}>{item.title}</a>
+                      <span class="kind">{kindLabel[item.kind]}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          </li>
+        ))}
+      </ol>
+    </section>
+
+    <section id="topics" class="mt-16" aria-labelledby="topics-title">
+      <h2 id="topics-title" class="hub-h2">آموزش‌های Pyomo بر اساس موضوع</h2>
+      <p class="hub-section-lede">هر آموزش یک مسئلهٔ واقعی را از تعریف تا پیاده‌سازی و تحلیل نتایج دنبال می‌کند.</p>
+
+      {clusters.map((cluster) => (
+        <div class="cluster" id={cluster.id}>
+          <h3 class="cluster-title">{cluster.title}</h3>
+          <p class="cluster-text">{cluster.text}</p>
+          <ul class="cluster-list">
+            {cluster.items.map((item) => (
+              <li>
+                <a href={item.href} class="cluster-link">{item.title}</a>
+                <p class="cluster-desc">{item.description}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+
+      {moreTutorials.length > 0 && (
+        <div class="cluster" id="more">
+          <h3 class="cluster-title">آموزش‌های دیگر Pyomo</h3>
+          <ul class="cluster-list">
+            {moreTutorials.map((item) => (
+              <li>
+                <a href={item.href} class="cluster-link">{item.title}</a>
+                <p class="cluster-desc">{item.description}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </section>
+
+    {relatedCourses.length > 0 && (
+      <section class="mt-16" aria-labelledby="courses-title">
+        <h2 id="courses-title" class="hub-h2">دوره‌های Pyomo</h2>
+        <p class="hub-section-lede">برای یادگیری ساختاریافته و پروژه‌محور، این دوره‌ها مدل‌سازی با Pyomo را از پایه تا مسائل پیشرفتهٔ سیستم قدرت پوشش می‌دهند.</p>
+        <ul class="course-list">
+          {relatedCourses.map((c) => (
+            <li class="course">
+              <a href={c.href} class="course-title">{c.title}</a>
+              <p class="cluster-desc">{c.description}</p>
+              {(c.duration || c.level) && (
+                <p class="course-meta">
+                  {c.duration && <span><i class="fa-regular fa-clock" aria-hidden="true"></i> {c.duration}</span>}
+                  {c.level && <span><i class="fa-solid fa-signal" aria-hidden="true"></i> {c.level}</span>}
+                </p>
+              )}
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
+
+    <section id="faq" class="mt-16" aria-labelledby="faq-title">
+      <h2 id="faq-title" class="hub-h2">پرسش‌های رایج دربارهٔ Pyomo</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <details>
+            <summary>{f.q}</summary>
+            <p>{f.a}</p>
+          </details>
+        ))}
+      </div>
+      {mathArt && (
+        <p class="hub-section-lede mt-6">
+          تازه شروع کرده‌اید؟ از <a href={mathArt.href}>{mathArt.title}</a> شروع کنید.
+        </p>
+      )}
+    </section>
+
+    <div class="mt-16">
+      <TelegramCTA
+        icon="fa-headset"
+        heading="پروژهٔ Pyomo دارید؟"
+        description="برای مشاوره در مدل‌سازی و پیاده‌سازی مسائل سیستم قدرت، انرژی و زنجیرهٔ تأمین با"
+      />
+    </div>
+    <script type="application/ld+json" set:html={JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+})} />
+  </main>
+</Layout>
+
+<style>
+  .hub-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 900;
+    line-height: 1.25;
+    color: var(--site-heading);
+    margin-bottom: 1.25rem;
+  }
+  .hub-lede {
+    font-size: 1.0625rem;
+    line-height: 2;
+    color: var(--site-muted);
+    max-width: 62ch;
+  }
+  .hub-toc {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.25rem;
+    margin-top: 1.75rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--site-border);
+    font-size: 0.875rem;
+  }
+  .hub-toc a {
+    color: var(--site-primary);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .hub-toc a:hover { text-decoration: underline; }
+
+  .hub-h2 {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--site-heading);
+    margin-bottom: 0.5rem;
+  }
+  .hub-section-lede {
+    color: var(--site-muted);
+    line-height: 1.9;
+    margin-bottom: 1.75rem;
+  }
+  .hub-section-lede a,
+  .cluster-text a { color: var(--site-primary); font-weight: 600; }
+
+  .hub-table-wrap { overflow-x: auto; }
+
+  /* Learning ladder: the one distinctive element on the page. */
+  .ladder {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: relative;
+  }
+  .ladder::before {
+    content: '';
+    position: absolute;
+    top: 1.5rem;
+    bottom: 1.5rem;
+    inset-inline-start: 1.375rem;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--site-primary), var(--site-border));
+  }
+  .ladder-step {
+    position: relative;
+    display: grid;
+    grid-template-columns: 2.75rem 1fr;
+    gap: 1.25rem;
+    padding-bottom: 2.25rem;
+  }
+  .ladder-step:last-child { padding-bottom: 0; }
+  .ladder-num {
+    position: relative;
+    z-index: 1;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 999px;
+    display: grid;
+    place-items: center;
+    font-weight: 900;
+    font-size: 1.125rem;
+    color: var(--site-primary);
+    background: var(--site-bg);
+    border: 2px solid var(--site-primary);
+  }
+  .ladder-title {
+    font-size: 1.125rem;
+    font-weight: 800;
+    color: var(--site-heading);
+    margin: 0.5rem 0 0.375rem;
+  }
+  .ladder-text {
+    color: var(--site-text);
+    line-height: 1.9;
+    font-size: 0.9375rem;
+  }
+  .ladder-links {
+    list-style: none;
+    padding: 0;
+    margin: 0.875rem 0 0;
+    display: grid;
+    gap: 0.5rem;
+  }
+  .ladder-links li {
+    display: flex;
+    align-items: baseline;
+    gap: 0.625rem;
+    font-size: 0.9375rem;
+  }
+  .ladder-links a {
+    color: var(--site-primary);
+    font-weight: 700;
+    text-decoration: none;
+  }
+  .ladder-links a:hover { text-decoration: underline; }
+  .kind {
+    font-size: 0.75rem;
+    color: var(--site-muted);
+    white-space: nowrap;
+  }
+
+  .cluster {
+    scroll-margin-top: 6rem;
+    padding: 1.5rem 0;
+    border-top: 1px solid var(--site-border);
+  }
+  .cluster-title {
+    font-size: 1.1875rem;
+    font-weight: 800;
+    color: var(--site-heading);
+    margin-bottom: 0.25rem;
+  }
+  .cluster-text {
+    color: var(--site-muted);
+    font-size: 0.9375rem;
+    line-height: 1.9;
+    margin-bottom: 1rem;
+  }
+  .cluster-list,
+  .course-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 1.25rem;
+  }
+  .cluster-link,
+  .course-title {
+    color: var(--site-primary);
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+  }
+  .cluster-link:hover,
+  .course-title:hover {
+    border-bottom-color: currentColor;
+  }
+  .cluster-desc {
+    color: var(--site-muted);
+    font-size: 0.8125rem;
+    line-height: 1.85;
+    margin-top: 0.375rem;
+  }
+
+  .course {
+    padding: 1.25rem;
+    border: 1px solid var(--site-border);
+    border-radius: 1rem;
+    background: var(--site-card);
+  }
+  .course-meta {
+    display: flex;
+    gap: 1.25rem;
+    margin-top: 0.625rem;
+    font-size: 0.8125rem;
+    color: var(--site-muted);
+  }
+
+  .faq details {
+    border-bottom: 1px solid var(--site-border);
+    padding: 1rem 0;
+  }
+  .faq summary {
+    cursor: pointer;
+    font-weight: 700;
+    color: var(--site-heading);
+  }
+  .faq details p {
+    margin-top: 0.75rem;
+    color: var(--site-text);
+    line-height: 1.95;
+  }
+
+  a:focus-visible,
+  summary:focus-visible {
+    outline: 2px solid var(--site-primary);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+</style>

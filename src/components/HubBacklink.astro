@@ -1,20 +1,36 @@
 ---
-// Compact link from a tutorial page back to its pillar (hub) page.
-interface Props {
+// Compact link from a tutorial page back to its pillar (hub) page(s).
+// Pass either href/title for one hub, or `hubs` when a page belongs to several.
+interface Hub {
   href: string;
   title: string;
+}
+interface Props {
+  href?: string;
+  title?: string;
+  hubs?: Hub[];
   icon?: string;
 }
 
-const { href, title, icon = 'fa-screwdriver-wrench' } = Astro.props;
+const { href, title, hubs, icon = 'fa-screwdriver-wrench' } = Astro.props;
+const list: Hub[] = hubs?.length ? hubs : href && title ? [{ href, title }] : [];
 ---
 
-<aside class="hub-backlink" aria-label="راهنمای مرتبط">
-  <i class={`fa-solid ${icon}`} aria-hidden="true"></i>
-  <p>
-    این مطلب بخشی از <a href={href}>{title}</a> است؛ مسیر یادگیری و همهٔ آموزش‌های مرتبط را آن‌جا ببینید.
-  </p>
-</aside>
+{list.length > 0 && (
+  <aside class="hub-backlink" aria-label="راهنمای مرتبط">
+    <i class={`fa-solid ${icon}`} aria-hidden="true"></i>
+    <p>
+      این مطلب بخشی از{' '}
+      {list.map((hub, i) => (
+        <>
+          {i > 0 && (i === list.length - 1 ? ' و ' : '، ')}
+          <a href={hub.href}>{hub.title}</a>
+        </>
+      ))}
+      {' '}است؛ مسیر یادگیری و همهٔ آموزش‌های مرتبط را آن‌جا ببینید.
+    </p>
+  </aside>
+)}
 
 <style>
   .hub-backlink {

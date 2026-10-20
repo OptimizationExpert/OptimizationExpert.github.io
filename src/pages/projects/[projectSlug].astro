@@ -7,6 +7,7 @@ import RelatedContent from '../../components/RelatedContent.astro';
 import TelegramCTA from '../../components/TelegramCTA.astro';
 import HubBacklink from '../../components/HubBacklink.astro';
 import { isOrtoolsHubMember, ORTOOLS_HUB_URL, ORTOOLS_HUB_TITLE } from '../../data/ortools-hub';
+import { isPyomoHubMember, PYOMO_HUB_URL, PYOMO_HUB_TITLE } from '../../data/pyomo-hub';
 import { imgSrc } from '../../utils/image';
 
 export async function getStaticPaths() {
@@ -22,6 +23,11 @@ const { Content } = await render(project);
 const projectSlug = entrySlug(project);
 const showUpdated = Boolean(project.data.updatedDate && project.data.pubDate && project.data.updatedDate > project.data.pubDate);
 const inOrtoolsHub = isOrtoolsHubMember('projects', projectSlug, project.data.tags, project.data.hubCluster);
+const inPyomoHub = isPyomoHubMember('projects', projectSlug, project.data.tags, project.data.pyomoCluster);
+const hubLinks = [
+  ...(inOrtoolsHub ? [{ href: ORTOOLS_HUB_URL, title: ORTOOLS_HUB_TITLE }] : []),
+  ...(inPyomoHub ? [{ href: PYOMO_HUB_URL, title: PYOMO_HUB_TITLE }] : []),
+];
 
 const instructors = (project.data.instructor || project.data.author)
   ? await getCollection('instructors', isPublished)
@@ -111,7 +117,7 @@ import { sized, HERO } from '../../utils/image-sizes';
         {project.data.description}
       </p>
 
-      {inOrtoolsHub && <HubBacklink href={ORTOOLS_HUB_URL} title={ORTOOLS_HUB_TITLE} />}
+      {hubLinks.length > 0 && <HubBacklink hubs={hubLinks} />}
 
       {displayImage && (
         <div class="w-full rounded-2xl overflow-hidden border border-[var(--site-border)] mb-8 bg-[var(--site-card)] flex items-center justify-center shadow-md">

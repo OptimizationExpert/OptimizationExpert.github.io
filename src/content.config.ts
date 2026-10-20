@@ -60,6 +60,7 @@ const notesCollection = defineCollection({
     relatedNotes: z.array(z.string()).default([]),
     relatedProjects: z.array(z.string()).default([]),
     hubCluster: z.string().optional(),
+    pyomoCluster: z.string().optional(),
   }),
 });
 
@@ -79,6 +80,7 @@ const projectsCollection = defineCollection({
     relatedNotes: z.array(z.string()).default([]),
     relatedProjects: z.array(z.string()).default([]),
     hubCluster: z.string().optional(),
+    pyomoCluster: z.string().optional(),
   }),
 });
 

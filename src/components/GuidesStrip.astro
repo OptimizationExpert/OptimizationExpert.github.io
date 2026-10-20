@@ -5,6 +5,7 @@
 import { getCollection } from 'astro:content';
 import { entrySlug, isPublished } from '../utils/content';
 import { isOrtoolsHubMember, ORTOOLS_HUB_URL } from '../data/ortools-hub';
+import { isPyomoHubMember, PYOMO_HUB_URL } from '../data/pyomo-hub';
 
 const [notes, projects] = await Promise.all([
   getCollection('notes', isPublished),
@@ -17,13 +18,28 @@ const ortoolsCount =
 
 const toFa = (n: number) => n.toLocaleString('fa-IR');
 
-const guide = {
-  href: ORTOOLS_HUB_URL,
-  title: 'آموزش جامع OR-Tools',
-  text: 'از مدل‌سازی ریاضی و CP-SAT تا زمان‌بندی تولید، مسیریابی ناوگان و مکان‌یابی در زنجیرهٔ تأمین؛ همه در یک مسیر یادگیری مرحله‌به‌مرحله.',
-  steps: ['مدل‌سازی', 'CP-SAT', 'زمان‌بندی', 'مسیریابی'],
-  count: ortoolsCount,
-};
+const pyomoCount =
+  notes.filter((n) => isPyomoHubMember('notes', entrySlug(n), n.data.tags, (n.data as any).pyomoCluster)).length +
+  projects.filter((p) => isPyomoHubMember('projects', entrySlug(p), p.data.tags, (p.data as any).pyomoCluster)).length;
+
+const guides = [
+  {
+    href: ORTOOLS_HUB_URL,
+    title: 'آموزش جامع OR-Tools',
+    text: 'از مدل‌سازی ریاضی و CP-SAT تا زمان‌بندی تولید، مسیریابی ناوگان و مکان‌یابی در زنجیرهٔ تأمین؛ همه در یک مسیر یادگیری مرحله‌به‌مرحله.',
+    steps: ['مدل‌سازی', 'CP-SAT', 'زمان‌بندی', 'مسیریابی'],
+    count: ortoolsCount,
+    icon: 'fa-screwdriver-wrench',
+  },
+  {
+    href: PYOMO_HUB_URL,
+    title: 'آموزش جامع Pyomo',
+    text: 'از اولین مدل و انتخاب سالور تا انتقال مدل‌ها از GAMS، بهینه‌سازی سیستم قدرت و تکنیک‌های پیشرفته؛ با سالورهای رایگان پایتون.',
+    steps: ['مدل‌سازی', 'اولین مدل', 'از GAMS', 'سیستم قدرت', 'پیشرفته'],
+    count: pyomoCount,
+    icon: 'fa-bolt',
+  },
+];
 ---
 
 <section class="guides max-w-6xl mx-auto px-4 sm:px-6 pt-12 sm:pt-20 w-full" aria-labelledby="guides-title">
@@ -32,27 +48,35 @@ const guide = {
     <p class="guides-sub">نقطهٔ شروع یادگیری هر ابزار؛ همهٔ آموزش‌ها به ترتیب و دسته‌بندی‌شده.</p>
   </div>
 
-  <a href={guide.href} class="guide-card">
-    <div class="guide-icon" aria-hidden="true"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+  <div class="guide-list">
+  {guides.map((guide) => (
+    <a href={guide.href} class="guide-card">
+      <div class="guide-icon" aria-hidden="true"><i class={`fa-solid ${guide.icon}`}></i></div>
 
-    <div class="guide-main">
-      <h3 class="guide-title">{guide.title}</h3>
-      <p class="guide-text">{guide.text}</p>
-      <ol class="guide-steps" aria-label="مراحل مسیر یادگیری">
-        {guide.steps.map((s, i) => (
-          <li><span class="num">{toFa(i + 1)}</span>{s}</li>
-        ))}
-      </ol>
-    </div>
+      <div class="guide-main">
+        <h3 class="guide-title">{guide.title}</h3>
+        <p class="guide-text">{guide.text}</p>
+        <ol class="guide-steps" aria-label="مراحل مسیر یادگیری">
+          {guide.steps.map((s, i) => (
+            <li><span class="num">{toFa(i + 1)}</span>{s}</li>
+          ))}
+        </ol>
+      </div>
 
-    <div class="guide-side">
-      <span class="guide-count"><strong>{toFa(guide.count)}</strong> آموزش</span>
-      <span class="guide-cta">شروع مسیر یادگیری <i class="fa-solid fa-arrow-left" aria-hidden="true"></i></span>
-    </div>
-  </a>
+      <div class="guide-side">
+        <span class="guide-count"><strong>{toFa(guide.count)}</strong> آموزش</span>
+        <span class="guide-cta">شروع مسیر یادگیری <i class="fa-solid fa-arrow-left" aria-hidden="true"></i></span>
+      </div>
+    </a>
+  ))}
+  </div>
 </section>
 
 <style>
+  .guide-list {
+    display: grid;
+    gap: 1rem;
+  }
   .guides-sub,
   .guide-text {
     text-align: start;

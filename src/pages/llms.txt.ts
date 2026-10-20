@@ -57,6 +57,7 @@ export const GET: APIRoute = async () => {
     '## Guides',
     '',
     line('OR-Tools learning guide (hub)', `${SITE}/ortools/`, 'Structured learning path and index of all OR-Tools and CP-SAT tutorials on the site.'),
+    line('Pyomo learning guide (hub)', `${SITE}/pyomo/`, 'Structured learning path and index of all Pyomo tutorials: modeling, solvers, GAMS-to-Python, power systems and advanced techniques.'),
     line('Learning roadmap', `${SITE}/roadmap/`),
     '',
     '## Courses',

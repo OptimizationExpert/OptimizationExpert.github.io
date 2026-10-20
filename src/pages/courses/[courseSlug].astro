@@ -8,6 +8,7 @@ import InstructorBio from '../../components/InstructorBio.astro';
 import TelegramCTA from '../../components/TelegramCTA.astro';
 import HubBacklink from '../../components/HubBacklink.astro';
 import { isOrtoolsHubMember, ORTOOLS_HUB_URL, ORTOOLS_HUB_TITLE } from '../../data/ortools-hub';
+import { isPyomoHubMember, PYOMO_HUB_URL, PYOMO_HUB_TITLE } from '../../data/pyomo-hub';
 import { imgSrc } from '../../utils/image';
 
 export async function getStaticPaths() {
@@ -22,6 +23,11 @@ const { course } = Astro.props;
 const { Content } = await render(course);
 const courseSlug = entrySlug(course);
 const inOrtoolsHub = isOrtoolsHubMember('courses', courseSlug, course.data.tags);
+const inPyomoHub = isPyomoHubMember('courses', courseSlug, course.data.tags, undefined);
+const hubLinks = [
+  ...(inOrtoolsHub ? [{ href: ORTOOLS_HUB_URL, title: ORTOOLS_HUB_TITLE }] : []),
+  ...(inPyomoHub ? [{ href: PYOMO_HUB_URL, title: PYOMO_HUB_TITLE }] : []),
+];
 
 const pageImage = course.data.image || course.data.minimalImage;
 const pageImageAlt = course.data.imageAlt || course.data.minimalImageAlt || course.data.title;
@@ -105,7 +111,7 @@ import { sized, HERO } from '../../utils/image-sizes';
         {course.data.title}
       </h1>
 
-      {inOrtoolsHub && <HubBacklink href={ORTOOLS_HUB_URL} title={ORTOOLS_HUB_TITLE} />}
+      {hubLinks.length > 0 && <HubBacklink hubs={hubLinks} />}
 
       {pageImage && (
         <div class="w-full rounded-2xl overflow-hidden border border-[var(--site-border)] bg-[var(--site-card)] flex items-center justify-center shadow-sm">
