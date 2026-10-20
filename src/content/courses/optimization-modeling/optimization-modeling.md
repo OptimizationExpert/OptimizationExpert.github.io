@@ -7,7 +7,7 @@ minimalImage: "./modeling-mini.webp"
 minimalImageAlt: "تصویر مینیمال آیکون بهینه‌سازی"
 image: "./modeling.webp"
 imageAlt: "کاور دوره آموزشی مدل‌سازی در مسائل بهینه‌سازی"
-
+price: "4MT"
 # === متغیرهای اختصاصی دوره (برای نمایش در کارت‌ها و Schema) ===
 duration: "4 ساعت"
 level: "مقدماتی تا پیشرفته"

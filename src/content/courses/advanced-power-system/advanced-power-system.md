@@ -7,7 +7,7 @@ minimalImage: "./ADVpower-mini.webp"
 minimalImageAlt: "تصویر مینیمال آیکون بهینه‌سازی"
 image: "./adv_logo2.webp"
 imageAlt: "کاور دوره آموزشی بهینه‌سازی پیشرفته سیستم‌های قدرت در پایتون با Pyomo"
-
+price: "12MT"
 # === متغیرهای اختصاصی دوره (برای نمایش در کارت‌ها و Schema) ===
 duration: "۲۲ ساعت"
 level: "پیشرفته"

@@ -7,7 +7,7 @@ minimalImage: "./uncertainty-mini.webp"
 minimalImageAlt: "تصویر مینیمال آیکون بهینه‌سازی"
 image: "./uncertainty.webp"
 imageAlt: "کاور دوره آموزشی مدل‌سازی عدم قطعیت در مسائل بهینه‌سازی"
-
+price: "4MT"
 # === متغیرهای اختصاصی دوره (برای نمایش در کارت‌ها و Schema) ===
 duration: "۴ ساعت"
 level: "مقدماتی تا پیشرفته"

@@ -7,7 +7,7 @@ minimalImage: "./intropower-mini.webp"
 minimalImageAlt: "تصویر مینیمال آیکون بهینه‌سازی"
 image: "./intropower_logo.webp"
 imageAlt: "کاور دوره مقدماتی بهینه‌سازی سیستم‌های قدرت"
-
+price: "6MT"
 # === متغیرهای اختصاصی دوره (برای نمایش در کارت‌ها و Schema) ===
 duration: "۸ ساعت"
 level: "مقدماتی"
