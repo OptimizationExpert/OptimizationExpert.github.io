@@ -7,9 +7,10 @@ minimalImage: "./stochastic-supply-chain-design_mini.webp"
 minimalImageAlt: "نماد ساده یک انبار با سه مسیر شاخه‌شده به سمت سه سناریوی تقاضای متفاوت"
 image: "./stochastic-supply-chain-design.webp"
 imageAlt: "شبکه زنجیره تأمین با دو انبار کاندید و سه سناریوی تقاضای متفاوت برای مشتریان"
-tags: ["زنجیره تأمین", "برنامه‌ریزی تصادفی", "عدم‌قطعیت", "مکان‌یابی تسهیلات", "بهینه‌سازی", "MILP"]
+tags: ["زنجیره تأمین", "برنامه‌ریزی تصادفی", "عدم‌قطعیت", "مکان‌یابی تسهیلات", "بهینه‌سازی", "MILP", "Pyomo"]
 relatedCourses: ["vrp-python", "uncertainty-modeling"]
 relatedNotes: ["facility-location-problem", "green-supply-chain-network-design", "newsvendor-safety-stock"]
+pyomoCluster: advanced
 ---
 
 فرض کنید باید همین امروز تصمیم بگیرید چند انبار جدید کجا ساخته شود. این تصمیم گران است و سال‌ها پابرجا می‌ماند. اما تقاضای واقعی مشتریان را فقط در آینده می‌فهمید. اگر انبار را در جای اشتباه بسازید، هزینه‌اش سال‌ها روی دوش شرکت می‌ماند. برنامه‌ریزی تصادفی دومرحله‌ای (Two-Stage Stochastic Programming) دقیقاً برای همین معما طراحی شده است.
