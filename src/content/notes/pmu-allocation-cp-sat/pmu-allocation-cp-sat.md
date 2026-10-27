@@ -3,7 +3,7 @@ title: "جایابی بهینه PMU برای رؤیت‌پذیری کامل شب
 description: "کمترین تعداد PMU برای رؤیت‌پذیری کامل شبکه را چطور پیدا کنیم؟ مدل‌سازی با برنامه‌ریزی محدودیت (CP-SAT) و آزمایش روی ۶۶ شبکه از ۴ تا ۸۲٬۰۰۰ باس."
 pubDate: 2026-10-27
 author: "dr-soroudi"
-minimalImage: "./pmu_14.webp"
+minimalImage: "./pmu-allocation-cp-sat-Mini.webp"
 minimalImageAlt: "جایابی ۴ PMU روی شبکه ۱۴ باسه IEEE"
 image: "./pmu_118.webp"
 imageAlt: "نتیجه جایابی PMU در شبکه ۱۱۸ باسه IEEE"
