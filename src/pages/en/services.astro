@@ -1,0 +1,126 @@
+---
+import LayoutEn from '../../layouts/LayoutEn.astro';
+import { services, engagements, process, tools } from '../../data/en-consulting';
+
+const siteUrl = new URL(Astro.site || Astro.url.origin).origin;
+const faqs = [
+  {
+    q: 'What do I receive at the end of a project?',
+    a: 'Documented Python code for the model, a short report explaining the results and assumptions, and a walkthrough session so your team can run and extend it.',
+  },
+  {
+    q: 'Do we need a commercial solver licence?',
+    a: 'Usually not. Most models run well with free open-source solvers such as HiGHS, CBC, IPOPT or Google OR-Tools. If you already license Gurobi or CPLEX, the model can use it.',
+  },
+  {
+    q: 'How is a project priced?',
+    a: 'After a short discovery call I send a written proposal with a fixed scope, deliverables, timeline and price, so there are no open-ended costs.',
+  },
+  {
+    q: 'Can you work with our confidential data?',
+    a: 'Yes. Data is used only for the project, and I am happy to work under a non-disclosure agreement. An anonymized sample is often enough to start.',
+  },
+];
+---
+
+<LayoutEn
+  title="Optimization Consulting Services"
+  description="Optimization consulting for energy, scheduling, routing, supply chain and healthcare: pilots, model reviews, advisory and team training."
+  schema={[
+    {
+      '@type': 'ProfessionalService',
+      '@id': `${siteUrl}/en/#service`,
+      name: 'Alireza Soroudi — Optimization & Operations Research Consulting',
+      url: `${siteUrl}/en/services/`,
+      founder: { '@id': `${siteUrl}/instructors/dr-soroudi/#person` },
+      areaServed: 'Worldwide',
+      hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: 'Optimization consulting services',
+        itemListElement: services.map((s) => ({
+          '@type': 'Offer',
+          itemOffered: { '@type': 'Service', name: s.title, description: s.summary },
+        })),
+      },
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+    },
+  ]}
+>
+  <main class="flex-grow w-full max-w-6xl mx-auto px-4 sm:px-6 py-16">
+    <header class="max-w-3xl mb-14">
+      <h1 class="text-4xl sm:text-5xl font-black text-[var(--site-heading)] tracking-tight mb-5">Services</h1>
+      <p class="text-lg text-[var(--site-text)] leading-relaxed">
+        I help organizations turn complex planning decisions into optimization models: from a first pilot that tests the idea, to production models your team runs every day.
+      </p>
+    </header>
+
+    <section aria-labelledby="areas-title">
+      <h2 id="areas-title" class="sr-only">Areas</h2>
+      <div class="grid gap-6 md:grid-cols-2">
+        {services.map((s) => (
+          <article id={s.id} class="scroll-mt-24 p-7 rounded-2xl bg-[var(--site-card)] border border-[var(--site-border)]">
+            <div class="flex items-center gap-3 mb-3">
+              <i class={`fa-solid ${s.icon} text-xl text-[var(--site-primary)]`} aria-hidden="true"></i>
+              <h3 class="text-xl font-bold text-[var(--site-heading)]">{s.title}</h3>
+            </div>
+            <p class="text-[var(--site-muted)] mb-4">{s.summary}</p>
+            <ul class="space-y-1.5 text-sm text-[var(--site-text)]">
+              {s.points.map((pt) => (
+                <li class="flex gap-2"><i class="fa-solid fa-check text-[var(--site-primary)] mt-1 text-xs" aria-hidden="true"></i><span>{pt}</span></li>
+              ))}
+            </ul>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="mt-20" aria-labelledby="engage-title">
+      <h2 id="engage-title" class="text-3xl font-black text-[var(--site-heading)] mb-8">Ways to work together</h2>
+      <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        {engagements.map((e) => (
+          <div class="p-6 rounded-2xl border border-[var(--site-border)]">
+            <h3 class="font-bold text-[var(--site-heading)] mb-2">{e.title}</h3>
+            <p class="text-sm text-[var(--site-muted)] leading-relaxed">{e.text}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="mt-20" aria-labelledby="process-title">
+      <h2 id="process-title" class="text-3xl font-black text-[var(--site-heading)] mb-8">Process</h2>
+      <ol class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {process.map((p, i) => (
+          <li>
+            <span class="inline-flex w-9 h-9 items-center justify-center rounded-xl bg-[var(--site-primary)] text-white font-bold text-sm mb-3">{i + 1}</span>
+            <h3 class="font-bold text-[var(--site-heading)] mb-1.5">{p.title}</h3>
+            <p class="text-sm text-[var(--site-muted)] leading-relaxed">{p.text}</p>
+          </li>
+        ))}
+      </ol>
+      <p class="mt-8 text-sm text-[var(--site-muted)]">
+        Models are written in Python using {tools.slice(1).join(', ')}. See <a href="/en/projects/" class="text-[var(--site-primary)] font-bold hover:underline">selected projects</a> for worked examples.
+      </p>
+    </section>
+
+    <section class="mt-20 max-w-3xl" aria-labelledby="faq-title">
+      <h2 id="faq-title" class="text-3xl font-black text-[var(--site-heading)] mb-6">Questions</h2>
+      <div class="divide-y divide-[var(--site-border)]">
+        {faqs.map((f) => (
+          <details class="py-4">
+            <summary class="cursor-pointer font-bold text-[var(--site-heading)]">{f.q}</summary>
+            <p class="mt-2 text-[var(--site-text)] leading-relaxed">{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <section class="mt-16">
+      <a href="/en/contact/" class="h-12 px-6 inline-flex items-center gap-2 rounded-xl bg-[var(--site-primary)] text-white font-bold hover:opacity-90 transition">
+        Discuss your project <i class="fa-solid fa-arrow-right text-sm" aria-hidden="true"></i>
+      </a>
+    </section>
+  </main>
+</LayoutEn>

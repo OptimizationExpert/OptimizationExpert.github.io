@@ -33,6 +33,8 @@ const mobileNavItems = [
   { title: 'مشاوره تخصصی', href: '/consultation/', icon: 'fa-headset' },
   ...navItems.slice(8),
 ];
+import { switchTarget } from '../i18n/pairs';
+const englishHref = switchTarget(Astro.url.pathname);
 ---
 <header class="sticky top-0 z-50 w-full relative bg-[var(--site-card)]/90 backdrop-blur-md border-b border-[var(--site-border)] transition-colors duration-200">
   
@@ -86,6 +88,9 @@ const mobileNavItems = [
 
       <div class="flex items-center gap-2.5 flex-shrink-0">
         
+        <a href={englishHref} hreflang="en" lang="en" class="h-10 px-3 relative hidden sm:flex items-center gap-1.5 text-xs font-bold text-[var(--site-text)] hover:text-[var(--site-primary)] bg-[var(--site-bg)]/60 border border-[var(--site-border)] rounded-xl hover:border-[var(--site-primary)]/40 transition-all shadow-2xs" title="English version">
+          <i class="fa-solid fa-language text-xs" aria-hidden="true"></i><span>EN</span>
+        </a>
         <button id="theme-toggle" class="w-10 h-10 relative flex items-center justify-center text-[var(--site-text)] hover:text-[var(--site-primary)] bg-[var(--site-bg)]/60 border border-[var(--site-border)] rounded-xl focus:outline-none hover:border-[var(--site-primary)]/40 transition-all shadow-2xs group" aria-label="تغییر تم سایت">
           <i id="theme-icon-moon" class="fa-solid fa-moon text-xs relative z-10 transition-transform duration-300 group-hover:-rotate-12" aria-hidden="true"></i>
           <i id="theme-icon-sun" class="fa-solid fa-sun text-xs text-[var(--site-gold)] relative z-10 transition-transform duration-300 group-hover:rotate-45" hidden aria-hidden="true"></i>
@@ -177,6 +182,10 @@ const mobileNavItems = [
             </a>
           );
         })}
+        <a href={englishHref} hreflang="en" lang="en" class="flex items-center gap-2.5 px-3 py-3 rounded-xl border transition-colors text-[var(--site-text)] bg-[var(--site-bg)]/50 border-[var(--site-border)] hover:text-[var(--site-primary)] hover:border-[var(--site-primary)]/30">
+          <i class="fa-solid fa-language text-xs text-[var(--site-primary)] w-4 text-center shrink-0" aria-hidden="true"></i>
+          <span class="truncate">English</span>
+        </a>
       </nav>
     </div>
   </div>

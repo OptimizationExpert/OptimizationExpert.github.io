@@ -1,0 +1,31 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="mt-20 border-t border-[var(--site-border)] bg-[var(--site-card)]">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-10 grid gap-8 sm:grid-cols-3 text-sm">
+    <div>
+      <p class="font-black text-[var(--site-heading)] mb-2">Alireza Soroudi</p>
+      <p class="text-[var(--site-muted)] leading-relaxed">Mathematical optimization and operations research for energy, logistics, scheduling and healthcare.</p>
+    </div>
+    <nav aria-label="Footer">
+      <p class="font-bold text-[var(--site-heading)] mb-2">Pages</p>
+      <ul class="space-y-1.5">
+        <li><a href="/en/services/" class="hover:text-[var(--site-primary)]">Services</a></li>
+        <li><a href="/en/projects/" class="hover:text-[var(--site-primary)]">Selected projects</a></li>
+        <li><a href="/en/about/" class="hover:text-[var(--site-primary)]">About</a></li>
+        <li><a href="/en/contact/" class="hover:text-[var(--site-primary)]">Contact</a></li>
+        <li><a href="/" hreflang="fa" lang="fa" class="hover:text-[var(--site-primary)]">نسخهٔ فارسی (Persian learning site)</a></li>
+      </ul>
+    </nav>
+    <div>
+      <p class="font-bold text-[var(--site-heading)] mb-2">Profiles</p>
+      <ul class="space-y-1.5">
+        <li><a href="https://www.linkedin.com/in/soroudi/" target="_blank" rel="noopener noreferrer" class="hover:text-[var(--site-primary)]"><i class="fa-brands fa-linkedin mr-1.5" aria-hidden="true"></i>LinkedIn</a></li>
+        <li><a href="https://scholar.google.com/citations?user=w74f9yAAAAAJ" target="_blank" rel="noopener noreferrer" class="hover:text-[var(--site-primary)]"><i class="fa-solid fa-graduation-cap mr-1.5" aria-hidden="true"></i>Google Scholar</a></li>
+        <li><a href="https://orcid.org/0000-0002-3651-6290" target="_blank" rel="noopener noreferrer" class="hover:text-[var(--site-primary)]"><i class="fa-brands fa-orcid mr-1.5" aria-hidden="true"></i>ORCID</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="text-center text-xs text-[var(--site-muted)] pb-6">© {year} Alireza Soroudi · optexpert.org</p>
+</footer>

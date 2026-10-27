@@ -1,0 +1,62 @@
+---
+import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+import LayoutEn from '../../layouts/LayoutEn.astro';
+import { projects } from '../../data/en-consulting';
+import { entrySlug, isPublished } from '../../utils/content';
+import { sized, CARD } from '../../utils/image-sizes';
+
+const entries = await getCollection('projects', isPublished);
+const bySlug = new Map(entries.map((e) => [entrySlug(e), e]));
+const items = projects
+  .map((p) => ({ ...p, entry: bySlug.get(p.slug) }))
+  .filter((p) => p.entry);
+---
+
+<LayoutEn
+  title="Selected Optimization Projects"
+  description="Worked optimization projects in power systems, energy, logistics, healthcare and workforce planning, built in Python with Pyomo and Google OR-Tools."
+>
+  <main class="flex-grow w-full max-w-6xl mx-auto px-4 sm:px-6 py-16">
+    <header class="max-w-3xl mb-12">
+      <h1 class="text-4xl sm:text-5xl font-black text-[var(--site-heading)] tracking-tight mb-5">Selected projects</h1>
+      <p class="text-lg text-[var(--site-text)] leading-relaxed">
+        These are complete, worked projects that show the methods I apply to real planning problems. Each one is documented in detail, with the full write-up published in Persian on optexpert.org.
+      </p>
+    </header>
+
+    <div class="grid gap-6 md:grid-cols-2">
+      {items.map((p) => (
+        <article class="rounded-2xl bg-[var(--site-card)] border border-[var(--site-border)] overflow-hidden flex flex-col">
+          {p.entry!.data.image && (
+            <Image
+              src={p.entry!.data.image}
+              alt={p.title}
+              class="w-full aspect-[16/9] object-cover border-b border-[var(--site-border)]"
+              {...sized(p.entry!.data.image, CARD)}
+            />
+          )}
+          <div class="p-6 flex flex-col flex-1">
+            <p class="text-xs font-bold text-[var(--site-primary)] mb-2">{p.domain}</p>
+            <h2 class="text-lg font-bold text-[var(--site-heading)] mb-2">{p.title}</h2>
+            <p class="text-sm text-[var(--site-muted)] leading-relaxed mb-4 flex-1">{p.text}</p>
+            <div class="flex flex-wrap items-center justify-between gap-3">
+              <ul class="flex flex-wrap gap-1.5">
+                {p.tools.map((t) => <li class="px-2 py-0.5 rounded-md bg-[var(--site-bg)] border border-[var(--site-border)] text-xs">{t}</li>)}
+              </ul>
+              <a href={`/projects/${p.slug}/`} hreflang="fa" class="text-xs font-bold text-[var(--site-primary)] hover:underline">Full write-up (Persian) →</a>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <section class="mt-16 p-8 rounded-2xl border border-[var(--site-border)] flex flex-col md:flex-row md:items-center justify-between gap-6">
+      <div>
+        <h2 class="text-xl font-black text-[var(--site-heading)] mb-1">A similar problem in your organization?</h2>
+        <p class="text-[var(--site-muted)]">Most of these models can be adapted to your rules and data as a fixed-scope pilot.</p>
+      </div>
+      <a href="/en/contact/" class="shrink-0 h-12 px-6 inline-flex items-center rounded-xl bg-[var(--site-primary)] text-white font-bold hover:opacity-90 transition">Get in touch</a>
+    </section>
+  </main>
+</LayoutEn>

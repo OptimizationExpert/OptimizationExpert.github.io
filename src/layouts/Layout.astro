@@ -4,6 +4,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import SEO from '../components/SEO.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { counterpart } from '../i18n/pairs';
 
 interface Props {
   title?: string;
@@ -64,6 +65,12 @@ const resolvedTitle = pageNumber && pageNumber > 1 ? `${title} | صفحه ${page
 /* تصویر پیش‌فرض معرف برند (برج فرماندهی) — وقتی صفحه تصویر اختصاصی ندارد،
    همان hero.webp به‌عنوان OG Image در تلگرام/لینکدین/توییتر استفاده می‌شود. */
 const resolvedImage = image ?? '/images/hero.webp';
+
+// hreflang pairs for pages that have an English counterpart (see src/i18n/pairs.ts).
+const siteOrigin = new URL(Astro.site || Astro.url.origin).origin;
+const langPair = counterpart(Astro.url.pathname);
+const faHref = new URL(Astro.url.pathname, siteOrigin).href;
+const enHref = langPair ? new URL(langPair.path, siteOrigin).href : undefined;
 ---
 
 <!doctype html>
@@ -95,6 +102,14 @@ const resolvedImage = image ?? '/images/hero.webp';
     />
 
     <link rel="alternate" type="application/rss+xml" title="Optimization Expert" href="/rss.xml" />
+
+    {enHref && (
+      <>
+        <link rel="alternate" hreflang="fa" href={faHref} />
+        <link rel="alternate" hreflang="en" href={enHref} />
+        <link rel="alternate" hreflang="x-default" href={faHref} />
+      </>
+    )}
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-JP6BHLE013"></script>

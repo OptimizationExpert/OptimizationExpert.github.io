@@ -1,0 +1,159 @@
+---
+// Layout for the English consulting pages (/en/...).
+// Kept separate from the Persian Layout so the RTL site is never affected.
+import '../styles/global.css';
+import EnHeader from '../components/en/EnHeader.astro';
+import EnFooter from '../components/en/EnFooter.astro';
+import { counterpart } from '../i18n/pairs';
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  /** Extra JSON-LD nodes for this page (merged into one @graph). */
+  schema?: Record<string, unknown>[];
+}
+
+const { title, description, image = '/images/hero.webp', schema = [] } = Astro.props;
+
+const siteUrl = new URL(Astro.site || Astro.url.origin).origin;
+const canonical = new URL(Astro.url.pathname, siteUrl).href;
+const fullTitle = title.includes('Alireza Soroudi') ? title : `${title} | Alireza Soroudi`;
+const imageUrl = new URL(image, siteUrl).href;
+const pair = counterpart(Astro.url.pathname);
+const faUrl = pair ? new URL(pair.path, siteUrl).href : undefined;
+
+const personId = `${siteUrl}/instructors/dr-soroudi/#person`;
+const organizationId = `${siteUrl}/#organization`;
+
+const graph = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebPage',
+      '@id': `${canonical}#webpage`,
+      url: canonical,
+      name: fullTitle,
+      description,
+      inLanguage: 'en',
+      isPartOf: { '@id': `${siteUrl}/#website` },
+      about: { '@id': personId },
+    },
+    ...schema,
+  ],
+};
+---
+
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f8fafc" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href={canonical} />
+
+    {faUrl && (
+      <>
+        <link rel="alternate" hreflang="en" href={canonical} />
+        <link rel="alternate" hreflang="fa" href={faUrl} />
+        <link rel="alternate" hreflang="x-default" href={faUrl} />
+      </>
+    )}
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="Alireza Soroudi — Optimization Consulting" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={imageUrl} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageUrl} />
+
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <script type="application/ld+json" set:html={JSON.stringify(graph)} />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JP6BHLE013"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-JP6BHLE013');
+    </script>
+
+    <!-- Microsoft Clarity -->
+    <script is:inline type="text/javascript">
+      (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, "clarity", "script", "yhb2y9kduk");
+    </script>
+
+    <link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css" />
+
+    <script is:inline>
+      (() => {
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.classList.toggle('dark', savedTheme === 'dark' || (!savedTheme && prefersDark));
+      })();
+    </script>
+  </head>
+
+  <body class="en-site bg-site-bg text-site-text font-sans min-h-screen flex flex-col justify-between selection:bg-site-primary selection:text-white">
+    <EnHeader />
+    <slot />
+    <EnFooter />
+
+    <script is:inline>
+      (() => {
+        const update = (isDark) => {
+          document.documentElement.classList.toggle('dark', isDark);
+          const moon = document.getElementById('theme-icon-moon');
+          const sun = document.getElementById('theme-icon-sun');
+          if (moon) moon.hidden = isDark;
+          if (sun) sun.hidden = !isDark;
+        };
+        const init = () => {
+          update(document.documentElement.classList.contains('dark'));
+          const button = document.getElementById('theme-toggle');
+          if (!button || button.dataset.bound === 'true') return;
+          button.dataset.bound = 'true';
+          button.addEventListener('click', () => {
+            const next = !document.documentElement.classList.contains('dark');
+            localStorage.setItem('theme', next ? 'dark' : 'light');
+            update(next);
+          });
+          const menuBtn = document.getElementById('en-menu-toggle');
+          const menu = document.getElementById('en-mobile-menu');
+          if (menuBtn && menu && menuBtn.dataset.bound !== 'true') {
+            menuBtn.dataset.bound = 'true';
+            menuBtn.addEventListener('click', () => {
+              const open = menu.hidden;
+              menu.hidden = !open;
+              menuBtn.setAttribute('aria-expanded', String(open));
+            });
+          }
+        };
+        if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init, { once: true });
+        else init();
+      })();
+    </script>
+  </body>
+</html>
+
+<style is:global>
+  /* English pages: left-to-right text and a slightly tighter reading rhythm. */
+  .en-site { direction: ltr; text-align: left; }
+  /* The Persian site justifies paragraphs; English reads better ragged-right. */
+  .en-site p, .en-site li, .en-site .prose { text-align: left; }
+</style>

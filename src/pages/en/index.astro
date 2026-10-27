@@ -1,0 +1,122 @@
+---
+import LayoutEn from '../../layouts/LayoutEn.astro';
+import { services, credentials, process, projects, tools } from '../../data/en-consulting';
+
+const featured = projects.filter((p) => ['community-energy-v2g-system', 'dynamic-vrp-reoptimization', 'hospital-doctor-shift-scheduling'].includes(p.slug));
+const siteUrl = new URL(Astro.site || Astro.url.origin).origin;
+---
+
+<LayoutEn
+  title="Optimization & Operations Research Consulting"
+  description="Mathematical optimization for energy, logistics, scheduling and healthcare, built in Python with Pyomo and OR-Tools by Alireza Soroudi, IEEE Senior Member."
+  schema={[
+    {
+      '@type': 'ProfessionalService',
+      '@id': `${siteUrl}/en/#service`,
+      name: 'Alireza Soroudi — Optimization & Operations Research Consulting',
+      url: `${siteUrl}/en/`,
+      founder: { '@id': `${siteUrl}/instructors/dr-soroudi/#person` },
+      areaServed: 'Worldwide',
+      knowsLanguage: ['en', 'fa'],
+      serviceType: services.map((s) => s.title),
+    },
+  ]}
+>
+  <main class="flex-grow w-full">
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 pt-16 pb-12 sm:pt-24">
+      <p class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--site-primary)]/10 text-[var(--site-primary)] text-xs font-bold mb-6">
+        <i class="fa-solid fa-chart-line" aria-hidden="true"></i> Optimization &amp; Operations Research
+      </p>
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-black text-[var(--site-heading)] tracking-tight leading-[1.1] max-w-4xl">
+        Better decisions from the data you already have.
+      </h1>
+      <p class="mt-6 text-lg text-[var(--site-text)] max-w-2xl leading-relaxed">
+        I build mathematical optimization models for scheduling, routing, energy and supply chain problems: models that respect every real-world rule and that your team can run, understand and extend.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a href="/en/contact/" class="h-12 px-6 inline-flex items-center gap-2 rounded-xl bg-[var(--site-primary)] text-white font-bold hover:opacity-90 transition">
+          Discuss your project <i class="fa-solid fa-arrow-right text-sm" aria-hidden="true"></i>
+        </a>
+        <a href="/en/services/" class="h-12 px-6 inline-flex items-center rounded-xl border border-[var(--site-border)] text-[var(--site-heading)] font-bold hover:border-[var(--site-primary)]/50 transition">
+          View services
+        </a>
+      </div>
+    </section>
+
+    <section class="border-y border-[var(--site-border)] bg-[var(--site-card)]" aria-label="Credentials">
+      <ul class="max-w-6xl mx-auto px-4 sm:px-6 py-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-5 text-sm">
+        {credentials.map((c) => (
+          <li class="flex items-start gap-2.5 text-[var(--site-text)]">
+            <i class={`fa-solid ${c.icon} text-[var(--site-primary)] mt-0.5`} aria-hidden="true"></i>
+            <span>{c.text}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 py-16" aria-labelledby="services-title">
+      <h2 id="services-title" class="text-3xl font-black text-[var(--site-heading)] mb-3">What I help with</h2>
+      <p class="text-[var(--site-muted)] mb-10 max-w-2xl">Problems where many decisions interact, constraints are strict, and a good plan is worth real money.</p>
+      <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {services.map((s) => (
+          <a href={`/en/services/#${s.id}`} class="group block p-6 rounded-2xl bg-[var(--site-card)] border border-[var(--site-border)] hover:border-[var(--site-primary)]/50 hover:shadow-md transition">
+            <i class={`fa-solid ${s.icon} text-xl text-[var(--site-primary)] mb-4`} aria-hidden="true"></i>
+            <h3 class="font-bold text-[var(--site-heading)] mb-1.5 group-hover:text-[var(--site-primary)] transition-colors">{s.title}</h3>
+            <p class="text-sm text-[var(--site-muted)] leading-relaxed">{s.summary}</p>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section class="bg-[var(--site-card)] border-y border-[var(--site-border)]" aria-labelledby="process-title">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 py-16">
+        <h2 id="process-title" class="text-3xl font-black text-[var(--site-heading)] mb-10">How a project runs</h2>
+        <ol class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {process.map((p, i) => (
+            <li>
+              <span class="inline-flex w-9 h-9 items-center justify-center rounded-xl bg-[var(--site-primary)] text-white font-bold text-sm mb-3">{i + 1}</span>
+              <h3 class="font-bold text-[var(--site-heading)] mb-1.5">{p.title}</h3>
+              <p class="text-sm text-[var(--site-muted)] leading-relaxed">{p.text}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 py-16" aria-labelledby="projects-title">
+      <div class="flex flex-wrap items-end justify-between gap-4 mb-8">
+        <div>
+          <h2 id="projects-title" class="text-3xl font-black text-[var(--site-heading)] mb-2">Selected projects</h2>
+          <p class="text-[var(--site-muted)]">Worked examples of the methods I apply.</p>
+        </div>
+        <a href="/en/projects/" class="text-sm font-bold text-[var(--site-primary)] hover:underline">All projects →</a>
+      </div>
+      <div class="grid gap-5 md:grid-cols-3">
+        {featured.map((p) => (
+          <article class="p-6 rounded-2xl bg-[var(--site-card)] border border-[var(--site-border)]">
+            <p class="text-xs font-bold text-[var(--site-primary)] mb-2">{p.domain}</p>
+            <h3 class="font-bold text-[var(--site-heading)] mb-2">{p.title}</h3>
+            <p class="text-sm text-[var(--site-muted)] leading-relaxed">{p.text}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 pb-4" aria-label="Tools">
+      <p class="text-sm text-[var(--site-muted)] mb-3">Tools I work with</p>
+      <ul class="flex flex-wrap gap-2">
+        {tools.map((t) => <li class="px-3 py-1.5 rounded-lg border border-[var(--site-border)] text-sm text-[var(--site-text)]">{t}</li>)}
+      </ul>
+    </section>
+
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 pt-16">
+      <div class="rounded-3xl bg-[var(--site-primary)] text-white p-8 sm:p-12 flex flex-col md:flex-row md:items-center justify-between gap-6">
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-black mb-2">Have a planning problem in mind?</h2>
+          <p class="opacity-90">Describe it in a few lines. I will tell you honestly whether optimization is the right tool.</p>
+        </div>
+        <a href="/en/contact/" class="shrink-0 h-12 px-6 inline-flex items-center rounded-xl bg-white text-[var(--site-primary)] font-bold hover:opacity-90 transition">Get in touch</a>
+      </div>
+    </section>
+  </main>
+</LayoutEn>

@@ -1,0 +1,49 @@
+---
+import LayoutEn from '../../layouts/LayoutEn.astro';
+
+const channels = [
+  { icon: 'fa-solid fa-envelope', label: 'Email', value: 'optimizationteamonline@gmail.com', href: 'mailto:optimizationteamonline@gmail.com?subject=Optimization%20project%20inquiry' },
+  { icon: 'fa-brands fa-linkedin', label: 'LinkedIn', value: 'linkedin.com/in/soroudi', href: 'https://www.linkedin.com/in/soroudi/' },
+  { icon: 'fa-brands fa-telegram', label: 'Telegram', value: '@pypyid', href: 'https://t.me/pypyid' },
+];
+const include = [
+  'The decision you need to make, and how it is made today',
+  'The main rules and constraints the plan must respect',
+  'The data you have, and roughly how large the problem is',
+  'What a good result would look like, and your timeline',
+];
+---
+
+<LayoutEn
+  title="Contact"
+  description="Get in touch about an optimization or operations research project: scheduling, routing, energy, supply chain or healthcare. Email, LinkedIn or Telegram."
+>
+  <main class="flex-grow w-full max-w-4xl mx-auto px-4 sm:px-6 py-16">
+    <header class="max-w-2xl mb-12">
+      <h1 class="text-4xl sm:text-5xl font-black text-[var(--site-heading)] tracking-tight mb-5">Contact</h1>
+      <p class="text-lg text-[var(--site-text)] leading-relaxed">
+        Tell me about the problem you are trying to solve. A few lines are enough for a first conversation; I will tell you honestly whether optimization is the right approach.
+      </p>
+    </header>
+
+    <ul class="grid gap-4 sm:grid-cols-3 mb-14">
+      {channels.map((c) => (
+        <li>
+          <a href={c.href} target={c.href.startsWith('http') ? '_blank' : undefined} rel={c.href.startsWith('http') ? 'noopener noreferrer' : undefined} class="block p-6 rounded-2xl bg-[var(--site-card)] border border-[var(--site-border)] hover:border-[var(--site-primary)]/50 transition h-full">
+            <i class={`${c.icon} text-xl text-[var(--site-primary)] mb-3`} aria-hidden="true"></i>
+            <p class="font-bold text-[var(--site-heading)]">{c.label}</p>
+            <p class="text-sm text-[var(--site-muted)] break-all">{c.value}</p>
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <section class="p-8 rounded-2xl border border-[var(--site-border)]" aria-labelledby="include-title">
+      <h2 id="include-title" class="text-xl font-black text-[var(--site-heading)] mb-4">What to include in your first message</h2>
+      <ul class="space-y-2 text-[var(--site-text)]">
+        {include.map((i) => <li class="flex gap-2.5"><i class="fa-solid fa-check text-[var(--site-primary)] mt-1.5 text-xs" aria-hidden="true"></i><span>{i}</span></li>)}
+      </ul>
+      <p class="mt-5 text-sm text-[var(--site-muted)]">Confidential data is not needed at this stage, and I am happy to sign a non-disclosure agreement before you share it.</p>
+    </section>
+  </main>
+</LayoutEn>

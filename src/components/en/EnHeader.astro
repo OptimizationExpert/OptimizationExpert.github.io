@@ -1,0 +1,62 @@
+---
+import { switchTarget } from '../../i18n/pairs';
+
+const nav = [
+  { title: 'Home', href: '/en/' },
+  { title: 'Services', href: '/en/services/' },
+  { title: 'Projects', href: '/en/projects/' },
+  { title: 'About', href: '/en/about/' },
+  { title: 'Contact', href: '/en/contact/' },
+];
+const current = decodeURI(Astro.url.pathname).replace(/\/?$/, '/');
+const isActive = (href: string) => (href === '/en/' ? current === '/en/' : current.startsWith(href));
+const persianHref = switchTarget(Astro.url.pathname);
+---
+
+<header class="sticky top-0 z-40 bg-[var(--site-card)]/85 backdrop-blur border-b border-[var(--site-border)]">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
+    <a href="/en/" class="flex items-center gap-2.5 shrink-0" aria-label="Alireza Soroudi — Optimization Consulting, home">
+      <img src="/favicon.svg" alt="" width="32" height="32" class="w-8 h-8" />
+      <span class="leading-tight">
+        <span class="block font-black text-[var(--site-heading)] text-sm sm:text-base">Alireza Soroudi</span>
+        <span class="block text-[11px] text-[var(--site-muted)]">Optimization &amp; OR Consulting</span>
+      </span>
+    </a>
+
+    <nav aria-label="Main" class="hidden md:flex items-center gap-1">
+      {nav.map((item) => (
+        <a
+          href={item.href}
+          aria-current={isActive(item.href) ? 'page' : undefined}
+          class:list={[
+            'px-2.5 lg:px-3 py-2 rounded-lg text-sm font-medium transition-colors',
+            isActive(item.href)
+              ? 'text-[var(--site-primary)] bg-[var(--site-primary)]/10'
+              : 'text-[var(--site-text)] hover:text-[var(--site-primary)]',
+          ]}
+        >{item.title}</a>
+      ))}
+    </nav>
+
+    <div class="flex items-center gap-2">
+      <a href={persianHref} hreflang="fa" lang="fa" class="h-10 px-3 hidden sm:inline-flex items-center gap-1.5 rounded-xl border border-[var(--site-border)] text-xs font-bold text-[var(--site-text)] hover:text-[var(--site-primary)] hover:border-[var(--site-primary)]/40 transition" title="نسخهٔ فارسی">
+        <i class="fa-solid fa-language" aria-hidden="true"></i><span>فارسی</span>
+      </a>
+      <button id="theme-toggle" class="w-10 h-10 flex items-center justify-center rounded-xl border border-[var(--site-border)] text-[var(--site-text)] hover:text-[var(--site-primary)] transition" aria-label="Toggle dark mode">
+        <i id="theme-icon-moon" class="fa-solid fa-moon text-xs" aria-hidden="true"></i>
+        <i id="theme-icon-sun" class="fa-solid fa-sun text-xs" hidden aria-hidden="true"></i>
+      </button>
+      <a href="/en/contact/" class="hidden lg:inline-flex h-10 px-4 items-center rounded-xl bg-[var(--site-primary)] text-white text-sm font-bold hover:opacity-90 transition">Get in touch</a>
+      <button id="en-menu-toggle" class="md:hidden w-10 h-10 flex items-center justify-center rounded-xl border border-[var(--site-border)]" aria-label="Open menu" aria-expanded="false" aria-controls="en-mobile-menu">
+        <i class="fa-solid fa-bars text-sm" aria-hidden="true"></i>
+      </button>
+    </div>
+  </div>
+
+  <nav id="en-mobile-menu" hidden aria-label="Main mobile" class="md:hidden border-t border-[var(--site-border)] px-4 py-3">
+    {nav.map((item) => (
+      <a href={item.href} class="block px-3 py-2.5 rounded-lg text-sm font-medium text-[var(--site-text)] hover:text-[var(--site-primary)]">{item.title}</a>
+    ))}
+    <a href={persianHref} hreflang="fa" lang="fa" class="block px-3 py-2.5 rounded-lg text-sm font-medium text-[var(--site-text)] hover:text-[var(--site-primary)]">فارسی (Persian)</a>
+  </nav>
+</header>
