@@ -1,7 +1,16 @@
 ---
 title: "جایابی بهینه PMU برای رؤیت‌پذیری کامل شبکه قدرت با CP-SAT"
 description: "کمترین تعداد PMU برای رؤیت‌پذیری کامل شبکه را چطور پیدا کنیم؟ مدل‌سازی با برنامه‌ریزی محدودیت (CP-SAT) و آزمایش روی ۶۶ شبکه از ۴ تا ۸۲٬۰۰۰ باس."
+pubDate: 2026-10-27
+author: "dr-soroudi"
+minimalImage: "./pmu_14.webp"
+minimalImageAlt: "جایابی ۴ PMU روی شبکه ۱۴ باسه IEEE"
+image: "./pmu_118.webp"
+imageAlt: "نتیجه جایابی PMU در شبکه ۱۱۸ باسه IEEE"
 tags: ["OR-Tools", "CP-SAT", "PMU", "سیستم قدرت", "رؤیت‌پذیری", "بهینه‌سازی ترکیبیاتی"]
+relatedCourses: ["advanced-power-system"]
+relatedNotes: []
+hubCluster: location
 ---
 
 # جایابی بهینه PMU برای رؤیت‌پذیری کامل شبکه قدرت با CP-SAT
@@ -41,14 +50,10 @@ tags: ["OR-Tools", "CP-SAT", "PMU", "سیستم قدرت", "رؤیت‌پذیر�
 
 ## مدل ریاضی
 
-برای هر باس $i$ یک متغیر دودویی تعریف می‌کنیم:
+برای هر باس $i$ یک متغیر دودویی تعریف می‌کنیم: اگر روی باس $i$ یک PMU نصب شود، $x_i = 1$؛ در غیر این صورت $x_i = 0$.
 
 $$
-x_i =
-\begin{cases}
-1 & \text{اگر روی باس } i \text{ PMU نصب شود} \\
-0 & \text{در غیر این صورت}
-\end{cases}
+x_i \in \{0, 1\} \qquad \forall i \in \mathcal{B}
 $$
 
 اگر $\mathcal{N}(i)$ مجموعه همسایه‌های باس $i$ باشد، مدل به این شکل است:
