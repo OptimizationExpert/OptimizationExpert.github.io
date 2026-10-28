@@ -1,7 +1,8 @@
 # Default rules for all crawlers
 User-agent: *
-Allow: /
 Disallow: /admin/
+Disallow: /search
+Allow: /
 
 # AI search and assistant crawlers: fetch pages to answer questions and cite them with a link.
 User-agent: OAI-SearchBot
@@ -10,8 +11,9 @@ User-agent: Claude-SearchBot
 User-agent: Claude-User
 User-agent: PerplexityBot
 User-agent: Perplexity-User
-Allow: /
 Disallow: /admin/
+Disallow: /search
+Allow: /
 
 # AI training crawlers: collect text to train future models.
 # To opt out of model training, change "Allow: /" below to "Disallow: /".
@@ -20,7 +22,8 @@ User-agent: ClaudeBot
 User-agent: Google-Extended
 User-agent: Applebot-Extended
 User-agent: CCBot
-Allow: /
 Disallow: /admin/
+Disallow: /search
+Allow: /
 
 Sitemap: https://optexpert.org/sitemap-index.xml
