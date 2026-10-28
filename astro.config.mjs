@@ -80,6 +80,7 @@ export default defineConfig({
         '/posts/2026/06/24/vrp-python-course': '/courses/vrp-python/',
         '/projects/load_hosting': '/projects/load-hosting/',
         '/notes/cp_intro': '/notes/cp-intro/',
+        '/notes/acstudies': '/notes/ac-studies/',
         // Health tag variants were merged into one canonical tag.
         '/tags/بهینهسازی-سلامت': '/tags/بهینهسازی-در-حوزه-سلامت/',
         '/posts/2026/06/21/optimization-modeling-course': '/courses/optimization-modeling/',

@@ -7,9 +7,10 @@ minimalImage: "./ded_mini.webp"
 minimalImageAlt: "آیکون دیسپچ اقتصادی دینامیک با نمودار میله‌ای رنگی"
 image: "./ded_dispatch.webp"
 imageAlt: "نمودار دیسپچ ۲۴ ساعته چهار نیروگاه حرارتی در برابر منحنی بار"
-tags: ["GAMS", "Pyomo", "دیسپچ اقتصادی", "برنامه‌ریزی تولید", "HiGHS", "QCP"]
+tags: ["از GAMS به پایتون", "GAMS", "Pyomo", "دیسپچ اقتصادی", "برنامه‌ریزی تولید", "HiGHS", "QCP"]
 relatedCourses: ["advanced-power-system"]
 relatedNotes: []
+pyomoCluster: gams
 ---
 
 ## مقدمه: دیسپچ اقتصادی دینامیک چیست؟
