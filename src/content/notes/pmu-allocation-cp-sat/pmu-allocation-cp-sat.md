@@ -218,3 +218,5 @@ def build_pmu_model(connect):
 اگر می‌خواهید مدل‌سازی با OR-Tools و CP-SAT را به‌صورت پروژه‌محور یاد بگیرید، [دوره OR-Tools](https://www.udemy.com/course/ortools-course/?couponCode=DISCOUNT_ORTOOLS) را ببینید. برای مسائل بهینه‌سازی در سیستم‌های قدرت هم [دوره پیشرفته بهینه‌سازی سیستم قدرت](https://optexpert.org/courses/advanced-power-system/) گزینه مناسبی است.
 
 نسخه انگلیسی این بحث را هم می‌توانید در [مقاله لینکدین](https://www.linkedin.com/pulse/cp-meets-power-grid-pmu-allocation-alireza-soroudi-phd-ewwmf/) بخوانید.
+
+اگر به [انجام پروژه بهینه‌سازی](/consultation/) برای مسئله خودتان نیاز دارید یا می‌خواهید [مدل‌سازی ریاضی](/courses/optimization-modeling/) را از پایه یاد بگیرید، این دو صفحه نقطه شروع خوبی هستند.

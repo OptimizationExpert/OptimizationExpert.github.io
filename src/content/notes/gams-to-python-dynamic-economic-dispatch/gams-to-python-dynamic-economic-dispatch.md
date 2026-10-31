@@ -255,3 +255,5 @@ dispatch = {i: [value(m.p[i, t]) for t in t_list] for i in I}
 - Soroudi, Alireza. *Power System Optimization Modeling in GAMS*. Springer, 2017. DOI: [10.1007/978-3-319-62350-4](https://doi.org/10.1007/978-3-319-62350-4)
 - کتابخانه‌ی مدل‌های GAMS PSOPT: [psoptlib_ml](https://www.gams.com/latest/psoptlib_ml/libhtml/index.html)
 - فایل اصلی مدل: [DED.gms](https://www.gams.com/latest/psoptlib_ml/DED.gms)
+
+اگر به [انجام پروژه بهینه‌سازی](/consultation/) برای مسئله خودتان نیاز دارید یا می‌خواهید [مدل‌سازی ریاضی](/courses/optimization-modeling/) را از پایه یاد بگیرید، این دو صفحه نقطه شروع خوبی هستند.

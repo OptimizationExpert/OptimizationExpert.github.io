@@ -510,3 +510,5 @@ CP-SAT ابزاری قدرتمند و رایگان برای زمان‌بندی 
 ### منبع
 
 [Scheduling with CP-SAT — A Practical Tutorial](https://nexmindai.org/cp-sat-tutorial/)
+
+اگر به [انجام پروژه بهینه‌سازی](/consultation/) برای مسئله خودتان نیاز دارید یا می‌خواهید [مدل‌سازی ریاضی](/courses/optimization-modeling/) را از پایه یاد بگیرید، این دو صفحه نقطه شروع خوبی هستند.
