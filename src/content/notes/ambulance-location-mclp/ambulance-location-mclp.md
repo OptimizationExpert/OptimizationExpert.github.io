@@ -5,7 +5,7 @@ pubDate: 2026-08-16
 author: "dr-soroudi"
 minimalImage: "./ambulance-location-mclp-mini.webp"
 minimalImageAlt: "نماد ساده یک آمبولانس و دایره پوشش آن روی نقشه"
-image: "./ambulance-location-mclp.svg"
+image: "./ambulance-location-mclp.webp"
 imageAlt: "نقشه مفهومی مناطق تقاضا، ایستگاه‌های کاندید آمبولانس و دایره‌های پوشش زمان پاسخ"
 tags: ["بهینه‌سازی در حوزه سلامت", "مکان‌یابی", "مدیریت بحران", "برنامه‌ریزی خطی عدد صحیح", "OR-Tools"]
 relatedCourses: ["health-opt"]

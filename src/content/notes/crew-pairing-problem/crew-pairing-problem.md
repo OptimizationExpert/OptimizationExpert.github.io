@@ -5,7 +5,7 @@ pubDate: 2026-08-22
 author: "dr-soroudi"
 minimalImage: "./crew-pairing-problem-mini.webp"
 minimalImageAlt: "نمایش مینیمال یک زنجیره پرواز و تقویم شیفت خدمه پروازی"
-image: "./crew-pairing-problem.svg"
+image: "./crew-pairing-problem.webp"
 imageAlt: "تصویرسازی یک زنجیره چندروزه پرواز بین چند شهر همراه با تقویم شیفت خلبان و مهماندار و بازه‌های استراحت اجباری"
 tags: ["زمان‌بندی خدمه پرواز", "حمل‌ونقل هوایی", "برنامه‌ریزی محدودیت", "OR-Tools", "زمان‌بندی نیروی کار"]
 relatedCourses: ["vrp-python"]

@@ -3,9 +3,9 @@ title: "لجستیک بشردوستانه: مسیریابی امداد در سا
 description: "چطور می‌توان مکان‌یابی انبارهای اضطراری و مسیریابی کامیون‌های امدادی را پس از زلزله یا سیل با بهینه‌سازی ریاضی طراحی کرد تا کمک‌ها سریع‌تر و عادلانه‌تر به دست آسیب‌دیدگان برسد."
 pubDate: 2026-08-14
 author: "dr-soroudi"
-minimalImage: "./humanitarian-relief-logistics-mini.svg"
+minimalImage: "./humanitarian-relief-logistics_mini.webp"
 minimalImageAlt: "نمودار مینیمال انبار اضطراری و مسیرهای امدادی به مناطق آسیب‌دیده"
-image: "./humanitarian-relief-logistics.svg"
+image: "./humanitarian-relief-logistics.webp"
 imageAlt: "نقشه مفهومی مکان‌یابی انبار امدادی و مسیریابی کامیون‌ها به مناطق آسیب‌دیده پس از بلایا"
 tags: ["لجستیک بشردوستانه", "مدیریت بحران", "مسیریابی وسایل نقلیه", "OR-Tools", "بهینه‌سازی", "زنجیره تأمین امدادی"]
 relatedCourses: ["vrp-python"]

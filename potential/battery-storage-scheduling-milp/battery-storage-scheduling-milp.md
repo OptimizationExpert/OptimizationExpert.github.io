@@ -3,9 +3,9 @@ title: "ذخیره‌ساز انرژی: کِی شارژ کنیم، کِی بفر
 description: "بهینه‌سازی زمان‌بندی شارژ و دشارژ باتری‌های ذخیره‌ساز انرژی برای آربیتراژ قیمت و کاهش پیک بار با یک مدل MILP."
 pubDate: 2026-08-14
 author: "dr-soroudi"
-minimalImage: "./battery-storage-scheduling-milp-mini.svg"
+minimalImage: "./battery-storage-scheduling-milp_mini.webp"
 minimalImageAlt: "نمودار مینیمال سطح شارژ باتری در طول شبانه‌روز"
-image: "./battery-storage-scheduling-milp.svg"
+image: "./battery-storage-scheduling-milp.webp"
 imageAlt: "نمودار زمان‌بندی شارژ و دشارژ باتری همراه با منحنی قیمت برق و سطح شارژ"
 tags: ["ذخیره‌ساز انرژی", "باتری", "سیستم قدرت", "بهینه‌سازی", "MILP", "بازار برق"]
 relatedCourses: ["advanced-power-system"]

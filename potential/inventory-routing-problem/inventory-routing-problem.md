@@ -3,9 +3,9 @@ title: "مسیریابی-موجودی: کِی پر کنیم، با کدام کا
 description: "معرفی مسئله مسیریابی-موجودی (Inventory Routing Problem) که تصمیم موجودی و مسیریابی ناوگان را هم‌زمان بهینه می‌کند، به همراه فرمول‌بندی ریاضی و پیاده‌سازی پایتونی آن."
 pubDate: 2026-08-17
 author: "dr-soroudi"
-minimalImage: "./inventory-routing-problem-mini.svg"
+minimalImage: "./inventory-routing-problem_mini.webp"
 minimalImageAlt: "تصویر مینیمال کامیون توزیع در حال پرکردن مخزن مشتری"
-image: "./inventory-routing-problem.svg"
+image: "./inventory-routing-problem.webp"
 imageAlt: "مسیریابی-موجودی؛ کامیون توزیع در حال بازدید از مخازن مشتریان با سطح موجودی متفاوت"
 tags: ["زنجیره تأمین", "کنترل موجودی", "مسیریابی وسایل نقلیه", "Inventory Routing", "OR-Tools"]
 relatedCourses: ["vrp-python"]

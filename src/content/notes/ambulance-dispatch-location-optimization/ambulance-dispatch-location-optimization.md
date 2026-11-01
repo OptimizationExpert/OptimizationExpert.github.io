@@ -3,9 +3,9 @@ title: "اعزام آمبولانس: کدام پایگاه، به کدام حا�
 description: "چگونه بهینه‌سازی و مدل‌های پوشش احتمالاتی به تصمیم مکان‌یابی پایگاه و اعزام آمبولانس در شرایط عدم‌قطعیت تقاضا کمک می‌کنند."
 pubDate: 2026-08-17
 author: "dr-soroudi"
-minimalImage: "./ambulance-dispatch-location-optimization-mini.svg"
+minimalImage: "./ambulance-dispatch-location-optimization-mini.webp"
 minimalImageAlt: "نقشه شهر با پایگاه‌های آمبولانس و ناحیه پوشش هرکدام"
-image: "./ambulance-dispatch-location-optimization.svg"
+image: "./ambulance-dispatch-location-optimization.webp"
 imageAlt: "آمبولانس در حال اعزام از پایگاه به محل حادثه روی نقشه شهر با دایره‌های پوشش"
 tags: ["بهینه‌سازی در حوزه سلامت", "مکان‌یابی تسهیلات", "عدم‌قطعیت", "برنامه‌ریزی خطی عدد صحیح", "OR-Tools"]
 relatedCourses: ["health-opt", "uncertainty-modeling"]
@@ -45,7 +45,7 @@ $$ x_j, z_i \in \{0,1\} $$
 
 در شهرهای بزرگ، حتی چند درصد بهبود در زمان پاسخ می‌تواند به معنای نجات جان چند بیمار در سال باشد. همین موضوع باعث شده مدل‌های پوشش احتمالاتی از یک تمرین دانشگاهی به ابزاری عملیاتی در مراکز فرماندهی اورژانس تبدیل شوند. علاوه‌بر بعد انسانی، بعد اقتصادی هم جدی است. هر پایگاه و هر آمبولانس اضافه هزینه‌ی ثابت و متغیر قابل‌توجهی دارد. پس تصمیم درباره‌ی تعداد و محل بهینه‌ی پایگاه‌ها مستقیماً روی بودجه‌ی سلامت عمومی اثر می‌گذارد.
 
-![نقشه شهر با پایگاه‌های آمبولانس، محل حادثه و شعاع پوشش](./ambulance-dispatch-location-optimization-mid.svg)
+![نقشه شهر با پایگاه‌های آمبولانس، محل حادثه و شعاع پوشش](./ambulance-dispatch-location-optimization-mid.webp)
 
 ## ظرفیت کار آکادمیک و پژوهشی
 

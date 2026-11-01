@@ -3,9 +3,9 @@ title: "زنجیره تأمین خون: وقتی موجودی «تاریخ ان�
 description: "چگونه می‌توان جمع‌آوری، نگهداری و توزیع خون بین بیمارستان‌ها را با در نظر گرفتن فسادپذیری و کمبود اهدا بهینه کرد."
 pubDate: 2026-08-14
 author: "dr-soroudi"
-minimalImage: "./blood-supply-chain-optimization-mini.svg"
+minimalImage: "./blood-supply-chain-optimization_mini.webp"
 minimalImageAlt: "نماد ساده قطره خون و شبکه توزیع بین مراکز اهدا و بیمارستان"
-image: "./blood-supply-chain-optimization.svg"
+image: "./blood-supply-chain-optimization.webp"
 imageAlt: "نمودار مفهومی زنجیره تأمین خون از مراکز اهدا تا بانک خون با طبقه‌بندی سنی موجودی تا بیمارستان‌ها"
 tags: ["بهینه‌سازی در سلامت", "زنجیره تأمین خون", "زنجیره تأمین فسادپذیر", "برنامه‌ریزی خطی عدد صحیح", "OR-Tools"]
 relatedCourses: ["vrp-python"]

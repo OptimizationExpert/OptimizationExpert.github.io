@@ -3,9 +3,9 @@ title: "زمان‌بندی اتاق عمل: کدام جراحی، کِی، در
 description: "آشنایی با مسئله زمان‌بندی اتاق عمل بیمارستان به‌عنوان یکی از مسائل کلیدی بهینه‌سازی در حوزه سلامت، و حل آن با ابزار متن‌باز OR-Tools در پایتون."
 pubDate: 2026-08-14
 author: "dr-soroudi"
-minimalImage: "./operating-room-scheduling-mini.svg"
+minimalImage: "./operating-room-scheduling_mini.webp"
 minimalImageAlt: "نمودار مینیمال زمان‌بندی چند اتاق عمل"
-image: "./operating-room-scheduling.svg"
+image: "./operating-room-scheduling.webp"
 imageAlt: "نمودار گانت زمان‌بندی جراحی‌ها در چند اتاق عمل بیمارستان به همراه منابع جراح و پرستار"
 tags: ["بهینه‌سازی در سلامت", "زمان‌بندی اتاق عمل", "برنامه‌ریزی محدودیت", "OR-Tools", "بهینه‌سازی"]
 relatedCourses: ["vrp-python"]

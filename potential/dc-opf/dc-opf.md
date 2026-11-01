@@ -3,9 +3,9 @@ title: "DC-OPF: پخش بار بهینه خطی برای برنامه‌ریزی
 description: "آشنایی با مدل DC-OPF، تقریب خطی پخش بار بهینه که ستون فقرات تحلیل بازار برق و برنامه‌ریزی شبکه انتقال است، همراه با فرمول‌بندی ریاضی و پیاده‌سازی پایتونی."
 pubDate: 2026-08-14
 author: "dr-soroudi"
-minimalImage: "./dc-opf-mini.svg"
+minimalImage: "./dc-opf_mini.webp"
 minimalImageAlt: "نماد ساده شبکه برق با گره‌های ژنراتور و بار"
-image: "./dc-opf.svg"
+image: "./dc-opf.webp"
 imageAlt: "نمودار شبکه انتقال برق با گره‌های ژنراتور، بار، و خطوط انتقال با نشان‌دادن جریان توان و خط پرباری‌شده"
 tags: ["سیستم قدرت", "DC-OPF", "پخش بار بهینه", "بازار برق", "بهینه‌سازی خطی"]
 relatedCourses: ["advanced-power-system"]

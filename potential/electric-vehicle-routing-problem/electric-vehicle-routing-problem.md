@@ -3,9 +3,9 @@ title: "مسیریابی وسایل نقلیه الکتریکی: زنجیره ت
 description: "معرفی مسئله مسیریابی وسایل نقلیه الکتریکی (EVRP) و نحوه مدل‌سازی و حل آن با پایتون برای کاهش هزینه و ردپای کربن ناوگان توزیع."
 pubDate: 2026-08-14
 author: "dr-soroudi"
-minimalImage: "./electric-vehicle-routing-problem-mini.svg"
+minimalImage: "./electric-vehicle-routing-problem_mini.webp"
 minimalImageAlt: "نماد ساده یک خودروی الکتریکی در حال مسیریابی بین ایستگاه شارژ و مشتریان"
-image: "./electric-vehicle-routing-problem.svg"
+image: "./electric-vehicle-routing-problem.webp"
 imageAlt: "نقشه مسیریابی ناوگان خودروهای الکتریکی با ایستگاه‌های شارژ و سطح باتری در طول مسیر"
 tags: ["زنجیره تأمین سبز", "مسیریابی وسایل نقلیه", "لجستیک", "بهینه‌سازی", "OR-Tools"]
 relatedCourses: ["vrp-python"]

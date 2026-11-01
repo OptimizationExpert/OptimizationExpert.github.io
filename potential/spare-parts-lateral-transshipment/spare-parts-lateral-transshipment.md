@@ -3,9 +3,9 @@ title: "انتقال جانبی قطعات یدکی: وقتی انبارها ب�
 description: "بررسی مسئله انتقال جانبی موجودی بین انبارهای هم‌سطح شبکه قطعات یدکی و مدل‌سازی آن به‌صورت یک مسئله بهینه‌سازی دو‌مرحله‌ای تحت عدم قطعیت تقاضا."
 pubDate: 2026-08-17
 author: "dr-soroudi"
-minimalImage: "./spare-parts-lateral-transshipment-mini.svg"
+minimalImage: "./spare-parts-lateral-transshipment_mini.webp"
 minimalImageAlt: "شبکه انبارهای قطعات یدکی با فلش‌های انتقال جانبی بین انبارها"
-image: "./spare-parts-lateral-transshipment.svg"
+image: "./spare-parts-lateral-transshipment.webp"
 imageAlt: "نمایش مفهومی شبکه انبارهای قطعات یدکی، تأمین‌کننده مرکزی و مسیرهای انتقال جانبی کالا بین انبارها"
 tags: ["کنترل موجودی", "زنجیره تأمین", "قطعات یدکی", "بهینه‌سازی تصادفی", "برنامه‌ریزی خطی عدد صحیح"]
 relatedCourses: ["vrp-python"]

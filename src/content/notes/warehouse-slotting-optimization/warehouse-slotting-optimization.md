@@ -3,9 +3,9 @@ title: "چیدمان انبار: کدام کالا در کدام قفسه باش
 description: "آشنایی با مسئله‌ی تخصیص مکان قفسه به کالا در انبار (Storage Location Assignment) و مدل‌سازی آن به‌صورت یک مسئله‌ی تخصیص بهینه با ابزارهای متن‌باز پایتون."
 pubDate: 2026-09-23
 author: "dr-soroudi"
-minimalImage: "./warehouse-slotting-optimization_mini.svg"
+minimalImage: "./warehouse-slotting-optimization_mini.webp"
 minimalImageAlt: "نماد ساده یک قفسه‌بندی انبار با چند کالا و یک مسیر پیکینگ"
-image: "./warehouse-slotting-optimization.svg"
+image: "./warehouse-slotting-optimization.webp"
 imageAlt: "انبار با ردیف‌های قفسه، کالاهای پرتقاضا نزدیک درب خروجی و یک اپراتور در حال پیکینگ با گاری"
 tags: ["زنجیره تأمین", "چیدمان انبار", "تخصیص بهینه", "لجستیک انبار", "OR-Tools"]
 relatedCourses: ["vrp-python"]
@@ -46,7 +46,7 @@ $$
 
 این فرمول‌بندی ساده، همان مسئله‌ی کلاسیک تخصیص خطی است، اما با یک بینش کلیدی: چون هدف کمینه‌کردن حاصل‌ضرب فرکانس در فاصله است، جواب بهینه همیشه کالاهای پرتقاضا را نزدیک‌ترین قفسه‌ها به درب خروجی می‌نشاند. در عمل، محدودیت‌های واقعی‌تری مثل حجم هر کالا، وزن مجاز هر قفسه و الزامات ایمنی نگهداری هم به مدل اضافه می‌شوند.
 
-![چیدمان قفسه‌های انبار با کالاهای پرتقاضا نزدیک درب خروجی](./warehouse-slotting-optimization-mid.svg)
+![چیدمان قفسه‌های انبار با کالاهای پرتقاضا نزدیک درب خروجی](./warehouse-slotting-optimization-mid.webp)
 
 ### اهمیت این موضوع در دنیای واقعی
 

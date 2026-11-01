@@ -5,7 +5,7 @@ pubDate: 2026-08-17
 author: "dr-soroudi"
 minimalImage: "./linkedin-patches-cp-mini.webp"
 minimalImageAlt: "نمایش مینیمال چند مستطیل رنگی روی یک شبکه پازل"
-image: "./linkedin-patches-cp.svg"
+image: "./linkedin-patches-cp.webp"
 imageAlt: "شبکه پازل Patches با چند مستطیل رنگی، اعداد راهنما و یک خانه پرشده به‌شکل مربع"
 tags: ["Constraint Programming", "OR-Tools", "CP-SAT", "پازل", "بهینه‌سازی ترکیبی"]
 relatedCourses: ["vrp-python"]

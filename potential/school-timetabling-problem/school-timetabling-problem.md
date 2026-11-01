@@ -3,9 +3,9 @@ title: "زمان‌بندی مدارس: چرا چیدن برنامه‌ی هفت
 description: "آشنایی با مسئله‌ی زمان‌بندی مدرسه (School Timetabling) و مدل‌سازی آن به‌صورت یک مسئله‌ی برنامه‌ریزی محدودیت با ابزارهای متن‌باز پایتون."
 pubDate: 2026-09-22
 author: "dr-soroudi"
-minimalImage: "./school-timetabling-problem_mini.svg"
+minimalImage: "./school-timetabling-problem_mini.webp"
 minimalImageAlt: "نماد ساده یک جدول هفتگی کلاس با چند خانه رنگی برای دروس مختلف"
-image: "./school-timetabling-problem.svg"
+image: "./school-timetabling-problem.webp"
 imageAlt: "جدول برنامه‌ی هفتگی مدرسه با ستون‌های روز، ردیف‌های ساعت و علامت تداخل بین دو معلم"
 tags: ["زمان‌بندی مدارس", "برنامه‌ریزی محدودیت", "بهینه‌سازی ترکیبیاتی", "OR-Tools", "CP-SAT"]
 relatedCourses: ["optimization-modeling"]
@@ -52,7 +52,7 @@ $$
 
 که در آن $w_{l,s}$ جریمه‌ی قرار گرفتن جلسه‌ی $l$ خارج از بازه‌ی ترجیحی‌اش است. همین ترکیب قیدهای سخت و هدف نرم، دقیقاً همان چیزی است که مسئله را از یک بازی چیدمان ساده به یک مسئله‌ی بهینه‌سازی واقعی تبدیل می‌کند.
 
-![جدول هفتگی زمان‌بندی مدرسه با سه قید تداخل معلم، کلاس و اتاق](./school-timetabling-problem-mid.svg)
+![جدول هفتگی زمان‌بندی مدرسه با سه قید تداخل معلم، کلاس و اتاق](./school-timetabling-problem-mid.webp)
 
 ### اهمیت این موضوع در دنیای واقعی
 

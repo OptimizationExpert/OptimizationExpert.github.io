@@ -3,9 +3,9 @@ title: "انتخاب تأمین‌کننده: چطور در برابر اختل�
 description: "چطور می‌توان تخصیص سفارش بین چند تأمین‌کننده را طوری بهینه کرد که هم هزینه پایین بماند و هم شرکت در برابر اختلال ناگهانی یک تأمین‌کننده آسیب‌پذیر نباشد."
 pubDate: 2026-08-17
 author: "dr-soroudi"
-minimalImage: "./supplier-selection-disruption-risk-mini.svg"
+minimalImage: "./supplier-selection-disruption-risk_mini.webp"
 minimalImageAlt: "نماد ساده کارخانه با سه تأمین‌کننده که یکی از مسیرها قطع شده است"
-image: "./supplier-selection-disruption-risk.svg"
+image: "./supplier-selection-disruption-risk.webp"
 imageAlt: "نمودار مفهومی تخصیص سفارش بین چند تأمین‌کننده با یک مسیر دچار اختلال"
 tags: ["زنجیره تأمین", "انتخاب تأمین‌کننده", "ریسک اختلال", "برنامه‌ریزی عدد صحیح", "تاب‌آوری زنجیره تأمین"]
 relatedCourses: ["vrp-python", "uncertainty-modeling"]

@@ -3,9 +3,9 @@ title: "موجودی خون: بهینه‌سازی وقتی کالا تاریخ 
 description: "آشنایی با مسئله مدیریت موجودی کالاهای فسادپذیر در بانک‌های خون و چگونگی حل آن با ابزارهای متن‌باز پایتون برای کاهش هم‌زمان کمبود و دورریز."
 pubDate: 2026-08-14
 author: "dr-soroudi"
-minimalImage: "./blood-inventory-management-mini.svg"
+minimalImage: "./blood-inventory-management_mini.webp"
 minimalImageAlt: "نماد ساده کیسه خون و نمودار سطح موجودی"
-image: "./blood-inventory-management.svg"
+image: "./blood-inventory-management.webp"
 imageAlt: "نمودار مفهومی موجودی کیسه‌های خون به‌تفکیک سن، جریان از اهدا تا مصرف در بیمارستان و بخش دورریز شده در پایان دوره ماندگاری"
 tags: ["بهینه‌سازی در حوزه سلامت", "کنترل موجودی", "موجودی فسادپذیر", "زنجیره تأمین سلامت", "PuLP"]
 relatedCourses: ["vrp-python", "uncertainty-modeling"]

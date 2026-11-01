@@ -3,9 +3,9 @@ title: "قابلیت اطمینان توزیع: کجا کلید بزنیم تا 
 description: "آشنایی با شاخص‌های قابلیت اطمینان شبکه توزیع (SAIFI، SAIDI و CAIDI) و مسئله بهینه‌سازی مکان‌یابی کلیدهای سکشنالایزر برای کمینه‌کردن اثر خاموشی‌ها روی مشترکین."
 pubDate: 2026-08-17
 author: "dr-soroudi"
-minimalImage: "./distribution-reliability-switch-placement-mini.svg"
+minimalImage: "./distribution-reliability-switch-placement_mini.webp"
 minimalImageAlt: "نماد ساده یک فیدر توزیع با چند کلید سکشنالایزر و یک بخش خاموش شده"
-image: "./distribution-reliability-switch-placement.svg"
+image: "./distribution-reliability-switch-placement.webp"
 imageAlt: "نمودار مفهومی یک فیدر توزیع با تیرهای برق، کلیدهای سکشنالایزر و یک بخش خطادار که با قطع کلید از بقیه فیدر ایزوله شده است"
 tags: ["سیستم قدرت", "شبکه توزیع", "قابلیت اطمینان", "بهینه‌سازی", "برنامه‌ریزی عدد صحیح"]
 relatedCourses: ["advanced-power-system"]
@@ -37,7 +37,7 @@ $$
 \min_{x} \; \sum_{i} \lambda_i N_i \, r_i(x) \qquad \text{s.t.} \qquad \sum_{j} x_j \leq K, \quad x_j \in \{0, 1\}
 $$
 
-![نمودار مفهومی فیدر توزیع با کلیدهای سکشنالایزر و بخش ایزوله‌شده](./distribution-reliability-switch-placement-mid.svg)
+![نمودار مفهومی فیدر توزیع با کلیدهای سکشنالایزر و بخش ایزوله‌شده](./distribution-reliability-switch-placement-mid.webp)
 
 نکته ظریف اینجاست که $r_i(x)$ خودش تابعی غیرخطی از موقعیت کلیدهاست، چون بستگی دارد کدام کلیدها «فعال» باشند تا بخش خطادار را از دو طرف ببندند. در عمل این مسئله معمولاً با گسسته‌سازی نقاط کاندید نصب کلید روی توپولوژی فیدر (که یک گراف درختی است) حل می‌شود. برای هر بخش، متغیرهای کمکی تعیین می‌کنند که آن بخش بین کدام دو کلید فعال قرار می‌گیرد. با این کار، مسئله به یک مدل برنامه‌ریزی عدد صحیح مختلط قابل‌حل تبدیل می‌شود.
 

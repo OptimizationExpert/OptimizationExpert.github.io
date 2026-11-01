@@ -3,9 +3,9 @@ title: "بازآرایی شبکه توزیع: صرفه‌جویی برق با ت
 description: "آشنایی با مسئله بازآرایی شبکه توزیع برق (Distribution Network Reconfiguration) برای کاهش تلفات و بهبود قابلیت اطمینان، و حل آن با ابزارهای متن‌باز پایتون."
 pubDate: 2026-08-17
 author: "dr-soroudi"
-minimalImage: "./dist-reconfiguration-mini.svg"
+minimalImage: "./dist-reconfiguration_mini.webp"
 minimalImageAlt: "نماد ساده دو فیدر توزیع با یک کلید تای بین آن‌ها"
-image: "./dist-reconfiguration.svg"
+image: "./dist-reconfiguration.webp"
 imageAlt: "دو فیدر توزیع متصل به یک پست فوق توزیع با چند کلید سکشنالایزر و یک کلید تای بین دو فیدر، قبل و بعد از بازآرایی"
 tags: ["سیستم قدرت", "شبکه توزیع", "بازآرایی شبکه", "بهینه‌سازی خطی", "بهینه‌سازی"]
 relatedCourses: ["advanced-power-system"]

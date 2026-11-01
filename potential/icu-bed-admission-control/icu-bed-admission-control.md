@@ -3,9 +3,9 @@ title: "کنترل پذیرش تخت ICU: چه زمانی بیمار انتخا�
 description: "آشنایی با مسئله کنترل پذیرش و تخصیص تخت مراقبت‌های ویژه بین بیماران اورژانسی و انتخابی، و مدل‌سازی آن به‌صورت یک مسئله بهینه‌سازی تصادفی با ابزارهای متن‌باز پایتون."
 pubDate: 2026-08-17
 author: "dr-soroudi"
-minimalImage: "./icu-bed-admission-control-mini.svg"
+minimalImage: "./icu-bed-admission-control_mini.webp"
 minimalImageAlt: "نماد ساده چند تخت ICU با نشانگر اشغال و یک تخت خالی رزروشده"
-image: "./icu-bed-admission-control.svg"
+image: "./icu-bed-admission-control.webp"
 imageAlt: "بخش مراقبت‌های ویژه با تخت‌های اشغال‌شده، یک آمبولانس در حال ورود بیمار اورژانسی و یک بیمار جراحی انتخابی در صف پذیرش"
 tags: ["بهینه‌سازی در سلامت", "تخصیص تخت ICU", "کنترل پذیرش", "برنامه‌ریزی تصادفی", "OR-Tools"]
 relatedCourses: ["health-opt"]

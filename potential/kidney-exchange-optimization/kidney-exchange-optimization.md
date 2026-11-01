@@ -3,9 +3,9 @@ title: "تبادل کلیه: چطور بهینه‌سازی جان بیمارا�
 description: "آشنایی با مسئله بهینه‌سازی تبادل زوجی کلیه (Kidney Exchange) و مدل‌سازی آن به‌عنوان یک مسئله پوشش چرخه در گراف با ابزارهای متن‌باز پایتون."
 pubDate: 2026-08-15
 author: "dr-soroudi"
-minimalImage: "./kidney-exchange-optimization-mini.svg"
+minimalImage: "./kidney-exchange-optimization_mini.webp"
 minimalImageAlt: "نماد ساده یک چرخه تبادل بین سه زوج اهداکننده-گیرنده"
-image: "./kidney-exchange-optimization.svg"
+image: "./kidney-exchange-optimization.webp"
 imageAlt: "نمودار مفهومی گراف سازگاری بین زوج‌های اهداکننده-گیرنده کلیه و چرخه‌های تبادل انتخاب‌شده"
 tags: ["بهینه‌سازی در حوزه سلامت", "برنامه‌ریزی خطی عدد صحیح", "نظریه گراف", "تطبیق بهینه", "OR-Tools"]
 relatedCourses: ["optimization-modeling"]

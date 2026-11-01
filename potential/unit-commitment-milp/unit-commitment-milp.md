@@ -3,9 +3,9 @@ title: "تعهد واحدها: کدام نیروگاه امشب روشن بما�
 description: "آشنایی با مسئله تعهد واحدهای تولید (Unit Commitment) در سیستم قدرت، فرمول‌بندی ریاضی آن به‌صورت MILP و روش‌های حل آن با ابزارهای متن‌باز پایتون."
 pubDate: 2026-08-14
 author: "dr-soroudi"
-minimalImage: "./unit-commitment-milp-mini.svg"
+minimalImage: "./unit-commitment-milp_mini.webp"
 minimalImageAlt: "نمودار روشن و خاموش شدن نیروگاه‌ها در طول شبانه‌روز"
-image: "./unit-commitment-milp.svg"
+image: "./unit-commitment-milp.webp"
 imageAlt: "چند نیروگاه حرارتی با وضعیت‌های متفاوت روشن و خاموش در کنار منحنی بار شبکه"
 tags: ["سیستم قدرت", "تعهد واحدها", "بهینه‌سازی", "برنامه‌ریزی خطی عدد صحیح", "بازار برق"]
 relatedCourses: ["advanced-power-system"]

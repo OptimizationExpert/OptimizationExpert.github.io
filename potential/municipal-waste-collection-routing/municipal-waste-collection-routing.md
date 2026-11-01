@@ -3,9 +3,9 @@ title: "جمع‌آوری پسماند شهری: کدام روز، کدام مح
 description: "بررسی مسئله مسیریابی دوره‌ای جمع‌آوری پسماند (Periodic VRP) و نحوه تعیین همزمان روزهای سرویس‌دهی و مسیر بهینه کامیون‌های زباله با ابزارهای متن‌باز پایتون."
 pubDate: 2026-08-17
 author: "dr-soroudi"
-minimalImage: "./municipal-waste-collection-routing-mini.svg"
+minimalImage: "./municipal-waste-collection-routing_mini.webp"
 minimalImageAlt: "کامیون زباله در حال جمع‌آوری از سطل‌های شهری در یک برنامه هفتگی"
-image: "./municipal-waste-collection-routing.svg"
+image: "./municipal-waste-collection-routing.webp"
 imageAlt: "نقشه شهری با سطل‌های زباله، مسیر کامیون جمع‌آوری و تقویم هفتگی سرویس‌دهی"
 tags: ["زنجیره تأمین سبز", "مسیریابی وسایل نقلیه", "لجستیک شهری", "مدیریت پسماند", "OR-Tools", "پایتون"]
 relatedCourses: ["vrp-python"]
@@ -46,7 +46,7 @@ $$\min \sum_{d \in D} \sum_{(i,j)} c_{ij} \, x_{ijd}$$
 
 با رشد شهرها و افزایش هزینه انرژی، حتی کاهش چند درصدی مسافت طی‌شده ناوگان جمع‌آوری پسماند اهمیت زیادی دارد. این کاهش می‌تواند صدها هزار یورو در سال برای یک شهر متوسط صرفه‌جویی کند. همچنین به‌طور مستقیم به اهداف کاهش انتشار کربن شهرداری‌ها هم کمک می‌کند.
 
-![نقشه ساده شهری با سطل‌های زباله، مسیر کامیون و پایگاه جمع‌آوری پسماند](./municipal-waste-collection-routing-mid.svg)
+![نقشه ساده شهری با سطل‌های زباله، مسیر کامیون و پایگاه جمع‌آوری پسماند](./municipal-waste-collection-routing-mid.webp)
 
 ## ظرفیت کار آکادمیک و پژوهشی
 
