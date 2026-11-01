@@ -1,6 +1,6 @@
 ---
 title: "برنامه‌ریزی توسعه انتقال: کجای شبکه خط جدید بسازیم؟"
-description: "معرفی مسئله برنامه‌ریزی توسعه شبکه انتقال (Transmission Expansion Planning) و فرمول‌بندی آن به‌صورت یک مدل MILP مبتنی بر پخش‌بار DC برای تصمیم‌گیری درباره ساخت خطوط جدید."
+description: "معرفی مسئله برنامه‌ریزی توسعه شبکه انتقال (TEP) و فرمول‌بندی آن به‌صورت مدل MILP مبتنی بر پخش بار DC، برای تصمیم درباره ساخت خطوط جدید."
 pubDate: 2026-08-15
 author: "dr-soroudi"
 minimalImage: "./transmission-expansion-planning-milp-mini.webp"
