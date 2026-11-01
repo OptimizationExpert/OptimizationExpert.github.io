@@ -88,6 +88,7 @@ export const TAG_INTROS: Record<string, TagIntro> = {
       'مسائل این حوزه طیف وسیعی دارند: زمان‌بندی شیفت و درمان، نوبت‌دهی بیماران، مکان‌یابی و اعزام آمبولانس، و مدیریت موجودی دارو و خون. در بسیاری از آن‌ها، علاوه بر هزینه، عدالت و زمان رسیدن به بیمار هم در هدف مدل می‌آید.',
     ],
     start: [
+      { href: '/notes/health-systems-thesis-topics/', label: '۱۵ موضوع پایان‌نامه در بهینه‌سازی سیستم‌های سلامت' },
       { href: '/notes/outpatient-appointment-scheduling/', label: 'نوبت‌دهی درمانگاه سرپایی' },
       { href: '/notes/ambulance-location-mclp/', label: 'مکان‌یابی ایستگاه آمبولانس' },
       { href: '/notes/blood-bank-inventory-management/', label: 'مدیریت بانک خون' },
