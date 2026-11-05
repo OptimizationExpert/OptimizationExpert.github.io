@@ -100,7 +100,20 @@ $$\max_{P_1} \; \lambda P_1 - 20P_1 \quad \text{s.t.}\quad \text{(تعادل ب�
 
 ## کدام سالور کدام نوع را می‌فهمد؟
 
-هیچ سالوری همه این انواع را پوشش نمی‌دهد. سالورهای خطی مثل [HiGHS](https://highs.dev/) و [CBC](https://github.com/coin-or/Cbc) فقط LP و MIP را حل می‌کنند. سالورهای غیرخطی مثل Ipopt برای NLP ساخته شده‌اند، اما گسستگی را نمی‌فهمند. سالور [CP-SAT](https://developers.google.com/optimization) گوگل برای مدل‌های گسسته و ترکیبیاتی قوی است، اما با متغیرهای پیوسته غیرخطی راحت نیست. مدل‌های تعادلی مثل MCP و MPEC هم معمولاً به سالورهای تخصصی خودشان نیاز دارند. یادداشت [سه روش عملی استفاده از سالورها در Pyomo](/notes/pyomo-solvers/) این انتخاب را با جزئیات بیشتری توضیح می‌دهد.
+هیچ سالوری همه این انواع را پوشش نمی‌دهد. هر سالور برای یک یا چند نوع مدل خاص ساخته شده است. فرمت ورودی آن هم معمولاً با زبان‌های مدل‌سازی AMPL یا GAMS سازگار است. جدول زیر چند سالور شناخته‌شده را برای هر نوع مدل نشان می‌دهد؛ این فهرست کامل نیست، فقط نقطه شروع خوبی است.
+
+| نوع مدل | چند سالور رایج |
+| --- | --- |
+| LP | CPLEX، Gurobi، [HiGHS](https://highs.dev/)، COPT، FICO Xpress، MOSEK، Clp، SCIP |
+| MIP | CPLEX، Gurobi، [CBC](https://github.com/coin-or/Cbc)، HiGHS، FICO Xpress، COPT، SCIP، SYMPHONY |
+| QCP و SOCP | CPLEX، Gurobi، COPT، FICO Xpress، MOSEK |
+| NLP | Ipopt، CONOPT، Knitro، MINOS، SNOPT، LOQO |
+| MIQCP و MINLP | BARON، Couenne، ANTIGONE، Bonmin، SHOT، SCIP، Knitro |
+| CNS | CONOPT، PATHNLP |
+| MCP | PATH، MILES، Knitro، Gurobi |
+| MPEC | filterMPEC، NLPEC، Knitro، Gurobi |
+
+برای DNLP، سالور مستقلی وجود ندارد. معمولاً مدل یا به یک NLP هموار بازنویسی می‌شود، یا به یک سالور سراسری مثل BARON و Couenne سپرده می‌شود. این سالورها ناهمواری را با تقسیم فضای جستجو دور می‌زنند. سالور [CP-SAT](https://developers.google.com/optimization) گوگل هم برای مدل‌های گسسته و ترکیبیاتی قوی است، اما با متغیرهای پیوسته غیرخطی راحت نیست. بسیاری از این سالورها رایگان نیستند؛ اما [HiGHS](https://highs.dev/)، [CBC](https://github.com/coin-or/Cbc)، SCIP، Ipopt، Couenne و Bonmin متن‌باز و رایگان هستند. یادداشت [سه روش عملی استفاده از سالورها در Pyomo](/notes/pyomo-solvers/) این انتخاب را با جزئیات بیشتری توضیح می‌دهد.
 
 ## ظرفیت کار آکادمیک و پژوهشی
 
