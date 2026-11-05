@@ -14,7 +14,7 @@ environment: "Python (OR-Tools)"
 prerequisite: "آشنایی پایه با زبان برنامه‌نویسی پایتون"
 sessions: "۲۰ پروژه عملی"
 instructor: "dr-soroudi"
-price: "14MT"
+price: "14.350MT"
 # === ارتباطات و ساختار سایت ===
 relatedCourses: [ "vrp-python", "optimization-modeling", "uncertainty-modeling" ]
 relatedNotes: [ "mathematical-modeling-art", "google-colab", "excel-python-io" ]
