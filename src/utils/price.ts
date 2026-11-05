@@ -10,7 +10,7 @@
 export interface ParsedPrice {
   rial: number;
   toman: number;
-  label: string; // Persian display text, e.g. «۸ میلیون تومان»
+  label: string; // Persian display text, e.g. «۱۲.۶۵ میلیون تومان»
 }
 
 const toLatinDigits = (s: string) =>
@@ -20,8 +20,9 @@ const fa = (n: number) => n.toLocaleString('fa-IR', { maximumFractionDigits: 2 }
 
 function label(toman: number): string {
   if (toman === 0) return 'رایگان';
-  if (toman >= 1_000_000 && toman % 100_000 === 0) return `${fa(toman / 1_000_000)} میلیون تومان`;
-  if (toman >= 1_000 && toman < 1_000_000 && toman % 1_000 === 0) return `${fa(toman / 1_000)} هزار تومان`;
+  // همیشه به شکل «X میلیون تومان» یا «X هزار تومان» کوتاه می‌شود، نه عدد کامل با صفرهای زیاد.
+  if (toman >= 1_000_000) return `${fa(toman / 1_000_000)} میلیون تومان`;
+  if (toman >= 1_000) return `${fa(toman / 1_000)} هزار تومان`;
   return `${fa(toman)} تومان`;
 }
 
