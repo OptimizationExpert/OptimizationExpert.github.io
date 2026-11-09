@@ -1,5 +1,5 @@
 ---
-title: "GDX2XLS: صادرات داده‌های گمز به اکسل"
+title: "GDX2XLS: ارسال داده‌های گمز به اکسل"
 description: "آموزش کامل ابزار GDX2XLS برای تبدیل فایل‌های GDX گمز به صفحات اکسل، با توضیح AutoFilter، فایل تنظیمات INI و مثال‌های عملی."
 pubDate: 2026-11-09
 author: "dr-soroudi"
