@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <rect width="1200" height="675" fill="#ffffff"/>
+
+  <!-- soft shadow -->
+  <ellipse cx="615" cy="535" rx="360" ry="28" fill="#edf3f9"/>
+
+  <!-- open container -->
+  <g transform="translate(285,145)">
+    <!-- main body -->
+    <rect x="170" y="60" width="480" height="330" rx="10"
+          fill="#2f73b8" stroke="#123a61" stroke-width="12"/>
+    <rect x="200" y="90" width="420" height="270" rx="6"
+          fill="#123a61"/>
+
+    <!-- packed boxes -->
+    <g stroke="#173a5e" stroke-width="7">
+      <rect x="225" y="118" width="140" height="110" rx="8" fill="#f4c06f"/>
+      <rect x="372" y="118" width="110" height="110" rx="8" fill="#efb35c"/>
+      <rect x="489" y="118" width="105" height="160" rx="8" fill="#f8ce83"/>
+      <rect x="225" y="236" width="185" height="105" rx="8" fill="#f0b866"/>
+      <rect x="417" y="236" width="165" height="105" rx="8" fill="#f3c578"/>
+    </g>
+
+    <!-- orientation symbols -->
+    <g stroke="#2b3b4c" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none">
+      <path d="M268 190 V145 M268 145 L255 158 M268 145 L281 158"/>
+      <path d="M302 190 V145 M302 145 L289 158 M302 145 L315 158"/>
+      <path d="M280 315 V275 M280 275 L267 288 M280 275 L293 288"/>
+      <path d="M314 315 V275 M314 275 L301 288 M314 275 L327 288"/>
+    </g>
+
+    <!-- left open door -->
+    <rect x="38" y="80" width="132" height="300" rx="9"
+          fill="#83b8e7" stroke="#123a61" stroke-width="11"/>
+    <g stroke="#5d92c4" stroke-width="6" fill="none">
+      <rect x="60" y="108" width="88" height="105" rx="6"/>
+      <rect x="60" y="235" width="88" height="105" rx="6"/>
+    </g>
+
+    <!-- right open door -->
+    <rect x="650" y="80" width="132" height="300" rx="9"
+          fill="#83b8e7" stroke="#123a61" stroke-width="11"/>
+    <g stroke="#5d92c4" stroke-width="6" fill="none">
+      <rect x="672" y="108" width="88" height="105" rx="6"/>
+      <rect x="672" y="235" width="88" height="105" rx="6"/>
+    </g>
+
+    <!-- top / bottom beams -->
+    <rect x="160" y="45" width="500" height="36" rx="9"
+          fill="#5b9fe0" stroke="#123a61" stroke-width="9"/>
+    <rect x="160" y="370" width="500" height="36" rx="9"
+          fill="#4c8dcc" stroke="#123a61" stroke-width="9"/>
+  </g>
+
+  <!-- incoming box -->
+  <g transform="translate(120,345)">
+    <rect x="0" y="0" width="135" height="115" rx="8"
+          fill="#f4c06f" stroke="#173a5e" stroke-width="8"/>
+    <g stroke="#2b3b4c" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none">
+      <path d="M45 82 V42 M45 42 L32 55 M45 42 L58 55"/>
+      <path d="M80 82 V42 M80 42 L67 55 M80 42 L93 55"/>
+    </g>
+  </g>
+
+  <!-- loading arrow -->
+  <path d="M260 400 C320 365, 355 360, 420 370"
+        fill="none" stroke="#2f80ed" stroke-width="15" stroke-linecap="round"/>
+  <polygon points="430,372 400,350 404,391" fill="#2f80ed"/>
+</svg>
