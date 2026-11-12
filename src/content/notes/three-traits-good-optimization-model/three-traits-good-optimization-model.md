@@ -10,6 +10,7 @@ imageAlt: "سه ستون یک مدل بهینه‌سازی خوب: خوانای�
 tags: ["مدل‌سازی ریاضی", "Pyomo", "بهینه‌سازی", "پایتون", "برنامه‌ریزی خطی"]
 relatedCourses: ["optimization-modeling"]
 relatedNotes: ["infeasible-model-diagnosis", "pyomo-optimization-guide", "mathematical-modeling-art"]
+pyomoCluster: foundations
 ---
 
 یک مدل بهینه‌سازی خوب سه ویژگی اصلی دارد: قابل‌فهم باشد، خطاهایش راحت پیدا شوند، و سریع حل شود. این سه ویژگی همیشه با هم سازگار نیستند. هنر مدل‌ساز، برقراری توازن میان آن‌هاست.

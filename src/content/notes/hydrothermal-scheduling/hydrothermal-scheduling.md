@@ -10,6 +10,7 @@ imageAlt: "هماهنگی حرارتی-آبی در زمان‌بندی مشتر�
 tags: ["سیستم قدرت", "بهینه‌سازی", "Pyomo", "مدیریت انرژی", "برنامه‌ریزی تولید برق"]
 relatedCourses: ["advanced-power-system"]
 relatedNotes: ["pyomo-unit-commitment-guide", "seasonal-storage-arbitrage-problem", "generation-expansion-planning-milp"]
+pyomoCluster: power
 ---
 
 فرض کنید اپراتور شبکه برق، هم یک سد برق‌آبی در اختیار دارد و هم یک نیروگاه حرارتی. آب مخزن سد رایگان است، اما محدود. سوخت نیروگاه حرارتی همیشه در دسترس است، اما گران. تصمیم هر ساعت این است: چقدر از تقاضا را با آب تأمین کنیم و چقدر را با سوخت؟ این دقیقاً مسئله هماهنگی حرارتی-آبی (Hydrothermal Coordination) است؛ یکی از قدیمی‌ترین و کاربردی‌ترین مسائل بهینه‌سازی در صنعت برق.
