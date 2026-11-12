@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <rect width="1600" height="900" fill="#ffffff"/>
+
+  <!-- soft background accents -->
+  <circle cx="250" cy="450" r="150" fill="#fff3f3"/>
+  <circle cx="800" cy="450" r="210" fill="#f7fbff"/>
+  <circle cx="1330" cy="450" r="160" fill="#f2fbf5"/>
+
+  <!-- LEFT: donation/source -->
+  <g transform="translate(120,245)">
+    <rect x="20" y="40" width="240" height="340" rx="40" fill="#ffffff" stroke="#173a5e" stroke-width="10"/>
+    <path d="M140 105
+             C115 145, 90 175, 90 220
+             C90 285, 190 285, 190 220
+             C190 175, 165 145, 140 105Z"
+          fill="#e84c4c"/>
+    <circle cx="140" cy="220" r="18" fill="#ffffff" opacity="0.9"/>
+    <rect x="95" y="300" width="90" height="28" rx="14" fill="#e84c4c"/>
+    <path d="M140 380 V455" stroke="#173a5e" stroke-width="10" stroke-linecap="round"/>
+    <path d="M140 455 C140 520, 205 520, 205 575" fill="none" stroke="#173a5e" stroke-width="10" stroke-linecap="round"/>
+    <rect x="175" y="560" width="110" height="55" rx="14" fill="#ffffff" stroke="#173a5e" stroke-width="8"/>
+    <circle cx="205" cy="587" r="10" fill="#e84c4c"/>
+    <circle cx="235" cy="587" r="10" fill="#e84c4c"/>
+    <circle cx="265" cy="587" r="10" fill="#e84c4c"/>
+  </g>
+
+  <!-- main flow arrow -->
+  <path d="M390 450 H520" stroke="#2f80ed" stroke-width="18" stroke-linecap="round"/>
+  <polygon points="540,450 505,425 505,475" fill="#2f80ed"/>
+
+  <!-- CENTER: age-structured inventory -->
+  <g transform="translate(560,180)">
+    <rect x="0" y="0" width="500" height="540" rx="34" fill="#ffffff" stroke="#173a5e" stroke-width="10"/>
+    <rect x="42" y="62" width="416" height="95" rx="20" fill="#e8f3ff" stroke="#7fb0df" stroke-width="5"/>
+    <rect x="42" y="200" width="416" height="95" rx="20" fill="#fff5d9" stroke="#e5bb56" stroke-width="5"/>
+    <rect x="42" y="338" width="416" height="95" rx="20" fill="#ffe7e7" stroke="#e87979" stroke-width="5"/>
+
+    <!-- blood bag icons in rows -->
+    <g stroke="#173a5e" stroke-width="5">
+      <g transform="translate(78,80)">
+        <rect x="0" y="0" width="55" height="62" rx="10" fill="#ffffff"/>
+        <path d="M28 15 C18 30,15 37,15 45 C15 56,41 56,41 45 C41 37,38 30,28 15Z" fill="#e84c4c"/>
+      </g>
+      <g transform="translate(155,80)">
+        <rect x="0" y="0" width="55" height="62" rx="10" fill="#ffffff"/>
+        <path d="M28 15 C18 30,15 37,15 45 C15 56,41 56,41 45 C41 37,38 30,28 15Z" fill="#e84c4c"/>
+      </g>
+      <g transform="translate(232,80)">
+        <rect x="0" y="0" width="55" height="62" rx="10" fill="#ffffff"/>
+        <path d="M28 15 C18 30,15 37,15 45 C15 56,41 56,41 45 C41 37,38 30,28 15Z" fill="#e84c4c"/>
+      </g>
+      <g transform="translate(309,80)">
+        <rect x="0" y="0" width="55" height="62" rx="10" fill="#ffffff"/>
+        <path d="M28 15 C18 30,15 37,15 45 C15 56,41 56,41 45 C41 37,38 30,28 15Z" fill="#e84c4c"/>
+      </g>
+
+      <g transform="translate(92,218)">
+        <rect x="0" y="0" width="55" height="62" rx="10" fill="#ffffff"/>
+        <path d="M28 15 C18 30,15 37,15 45 C15 56,41 56,41 45 C41 37,38 30,28 15Z" fill="#e84c4c"/>
+      </g>
+      <g transform="translate(185,218)">
+        <rect x="0" y="0" width="55" height="62" rx="10" fill="#ffffff"/>
+        <path d="M28 15 C18 30,15 37,15 45 C15 56,41 56,41 45 C41 37,38 30,28 15Z" fill="#e84c4c"/>
+      </g>
+      <g transform="translate(278,218)">
+        <rect x="0" y="0" width="55" height="62" rx="10" fill="#ffffff"/>
+        <path d="M28 15 C18 30,15 37,15 45 C15 56,41 56,41 45 C41 37,38 30,28 15Z" fill="#e84c4c"/>
+      </g>
+
+      <g transform="translate(110,356)">
+        <rect x="0" y="0" width="55" height="62" rx="10" fill="#ffffff"/>
+        <path d="M28 15 C18 30,15 37,15 45 C15 56,41 56,41 45 C41 37,38 30,28 15Z" fill="#e84c4c"/>
+      </g>
+      <g transform="translate(220,356)">
+        <rect x="0" y="0" width="55" height="62" rx="10" fill="#ffffff"/>
+        <path d="M28 15 C18 30,15 37,15 45 C15 56,41 56,41 45 C41 37,38 30,28 15Z" fill="#e84c4c"/>
+      </g>
+    </g>
+
+    <!-- aging arrows -->
+    <path d="M460 155 V195" stroke="#2f80ed" stroke-width="10" stroke-linecap="round"/>
+    <polygon points="460,202 448,184 472,184" fill="#2f80ed"/>
+    <path d="M460 293 V333" stroke="#2f80ed" stroke-width="10" stroke-linecap="round"/>
+    <polygon points="460,340 448,322 472,322" fill="#2f80ed"/>
+
+    <!-- FIFO marker -->
+    <circle cx="250" cy="492" r="30" fill="#2f80ed"/>
+    <path d="M230 492 H270" stroke="#ffffff" stroke-width="8" stroke-linecap="round"/>
+    <path d="M252 474 L272 492 L252 510" fill="none" stroke="#ffffff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- split arrows to hospital and waste -->
+  <path d="M1065 390 C1140 390, 1170 345, 1210 320" fill="none" stroke="#27ae60" stroke-width="16" stroke-linecap="round"/>
+  <polygon points="1225,310 1190,305 1206,337" fill="#27ae60"/>
+
+  <path d="M1065 555 C1140 555, 1170 605, 1215 635" fill="none" stroke="#e84c4c" stroke-width="16" stroke-linecap="round"/>
+  <polygon points="1230,645 1200,618 1194,653" fill="#e84c4c"/>
+
+  <!-- RIGHT TOP: hospital/use -->
+  <g transform="translate(1210,215)">
+    <path d="M80 135 V55 L170 5 L260 55 V135 Z" fill="#ffffff" stroke="#173a5e" stroke-width="10" stroke-linejoin="round"/>
+    <rect x="138" y="75" width="55" height="60" fill="#27ae60"/>
+    <rect x="151" y="20" width="30" height="55" fill="#27ae60"/>
+    <rect x="138" y="33" width="55" height="28" fill="#27ae60"/>
+    <rect x="45" y="135" width="250" height="28" rx="14" fill="#dff4e7"/>
+  </g>
+
+  <!-- RIGHT BOTTOM: waste/expiry -->
+  <g transform="translate(1250,565)">
+    <rect x="20" y="45" width="180" height="160" rx="18" fill="#f6f6f6" stroke="#173a5e" stroke-width="9"/>
+    <path d="M50 45 L65 5 H155 L170 45" fill="#ffffff" stroke="#173a5e" stroke-width="9" stroke-linejoin="round"/>
+    <line x1="80" y1="80" x2="80" y2="170" stroke="#b7c5d4" stroke-width="8" stroke-linecap="round"/>
+    <line x1="110" y1="80" x2="110" y2="170" stroke="#b7c5d4" stroke-width="8" stroke-linecap="round"/>
+    <line x1="140" y1="80" x2="140" y2="170" stroke="#b7c5d4" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="210" cy="15" r="34" fill="#fff0f0" stroke="#e84c4c" stroke-width="8"/>
+    <line x1="194" y1="-1" x2="226" y2="31" stroke="#e84c4c" stroke-width="8" stroke-linecap="round"/>
+    <line x1="226" y1="-1" x2="194" y2="31" stroke="#e84c4c" stroke-width="8" stroke-linecap="round"/>
+  </g>
+</svg>

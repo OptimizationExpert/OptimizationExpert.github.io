@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <rect width="1600" height="900" fill="#ffffff"/>
+
+  <!-- soft ground shadows -->
+  <ellipse cx="1110" cy="765" rx="430" ry="42" fill="#eaf2fb"/>
+  <ellipse cx="305" cy="790" rx="220" ry="30" fill="#eef4fa"/>
+
+  <!-- arrow from pallet to container -->
+  <path d="M360 430 C420 360, 470 350, 535 370" fill="none" stroke="#1f5f9e" stroke-width="16" stroke-linecap="round"/>
+  <polygon points="540,370 505,346 512,393" fill="#1f5f9e"/>
+
+  <!-- pallet -->
+  <g transform="translate(85,610)">
+    <rect x="0" y="150" width="420" height="34" rx="8" fill="#d99b42"/>
+    <rect x="14" y="184" width="86" height="22" rx="4" fill="#a96f22"/>
+    <rect x="166" y="184" width="86" height="22" rx="4" fill="#a96f22"/>
+    <rect x="318" y="184" width="86" height="22" rx="4" fill="#a96f22"/>
+
+    <!-- boxes -->
+    <g stroke="#143d63" stroke-width="7">
+      <rect x="18" y="40" width="150" height="110" rx="8" fill="#f2bd69"/>
+      <rect x="171" y="52" width="135" height="98" rx="8" fill="#f7c97e"/>
+      <rect x="310" y="70" width="92" height="80" rx="8" fill="#eeb35b"/>
+      <rect x="92" y="-62" width="190" height="110" rx="8" fill="#f5c374"/>
+    </g>
+
+    <!-- up symbols -->
+    <g stroke="#23384d" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none">
+      <path d="M70 122 V82 M70 82 L56 96 M70 82 L84 96"/>
+      <path d="M100 122 V82 M100 82 L86 96 M100 82 L114 96"/>
+      <path d="M222 130 V92 M222 92 L208 106 M222 92 L236 106"/>
+      <path d="M255 130 V92 M255 92 L241 106 M255 92 L269 106"/>
+      <path d="M150 18 V-20 M150 -20 L136 -6 M150 -20 L164 -6"/>
+      <path d="M183 18 V-20 M183 -20 L169 -6 M183 -20 L197 -6"/>
+    </g>
+  </g>
+
+  <!-- container outer shell -->
+  <g transform="translate(600,170)">
+    <!-- body -->
+    <path d="M115 20 H690 L835 92 V585 H115 Z" fill="#2f73b8" stroke="#123a61" stroke-width="12" stroke-linejoin="round"/>
+    <path d="M690 20 L835 92 V585 L690 532 Z" fill="#1f5d99" stroke="#123a61" stroke-width="12" stroke-linejoin="round"/>
+
+    <!-- inside cavity -->
+    <rect x="155" y="92" width="530" height="455" rx="8" fill="#0f3152"/>
+
+    <!-- top beam -->
+    <rect x="145" y="28" width="565" height="42" rx="10" fill="#5b9fe0" stroke="#123a61" stroke-width="10"/>
+
+    <!-- caution stripes -->
+    <g transform="translate(200,39)">
+      <rect x="0" y="0" width="92" height="22" rx="4" fill="#f2c500"/>
+      <path d="M10 0 L28 0 L12 22 H0 Z M38 0 H56 L40 22 H22 Z M66 0 H84 L68 22 H50 Z" fill="#1e1e1e"/>
+    </g>
+    <g transform="translate(560,39)">
+      <rect x="0" y="0" width="92" height="22" rx="4" fill="#f2c500"/>
+      <path d="M10 0 L28 0 L12 22 H0 Z M38 0 H56 L40 22 H22 Z M66 0 H84 L68 22 H50 Z" fill="#1e1e1e"/>
+    </g>
+
+    <!-- packed boxes -->
+    <g stroke="#163c61" stroke-width="8">
+      <rect x="175" y="120" width="180" height="115" rx="7" fill="#f1bb68"/>
+      <rect x="362" y="118" width="150" height="90" rx="7" fill="#eaa74d"/>
+      <rect x="518" y="122" width="140" height="160" rx="7" fill="#f3c77e"/>
+      <rect x="175" y="245" width="140" height="95" rx="7" fill="#efb867"/>
+      <rect x="320" y="245" width="90" height="95" rx="7" fill="#f7cb83"/>
+      <rect x="415" y="205" width="120" height="135" rx="7" fill="#f0b45e"/>
+      <rect x="175" y="350" width="250" height="145" rx="7" fill="#f3c679"/>
+      <rect x="430" y="350" width="210" height="90" rx="7" fill="#eeb15a"/>
+      <rect x="430" y="445" width="200" height="60" rx="7" fill="#f5c576"/>
+    </g>
+
+    <!-- orientation symbols in container -->
+    <g stroke="#293844" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none">
+      <path d="M220 198 V153 M220 153 L206 167 M220 153 L234 167"/>
+      <path d="M254 198 V153 M254 153 L240 167 M254 153 L268 167"/>
+      <path d="M295 465 V420 M295 420 L281 434 M295 420 L309 434"/>
+      <path d="M329 465 V420 M329 420 L315 434 M329 420 L343 434"/>
+    </g>
+
+    <!-- fragile symbol -->
+    <g transform="translate(570,185)" stroke="#2a2a2a" stroke-width="6" fill="none" stroke-linecap="round">
+      <path d="M0 0 H30 C30 22 24 36 15 44 C6 36 0 22 0 0 Z"/>
+      <path d="M15 44 V72"/>
+      <path d="M0 76 H30"/>
+    </g>
+
+    <!-- doors -->
+    <g>
+      <rect x="18" y="72" width="135" height="485" rx="8" fill="#7eb3e4" stroke="#123a61" stroke-width="11"/>
+      <rect x="686" y="66" width="150" height="500" rx="8" fill="#7eb3e4" stroke="#123a61" stroke-width="11"/>
+      <g stroke="#4b83ba" stroke-width="7" fill="none">
+        <rect x="43" y="105" width="85" height="120" rx="6"/>
+        <rect x="43" y="245" width="85" height="120" rx="6"/>
+        <rect x="43" y="385" width="85" height="120" rx="6"/>
+        <rect x="711" y="98" width="98" height="125" rx="6"/>
+        <rect x="711" y="245" width="98" height="125" rx="6"/>
+        <rect x="711" y="392" width="98" height="125" rx="6"/>
+      </g>
+    </g>
+
+    <!-- lower beam -->
+    <rect x="145" y="537" width="575" height="44" rx="10" fill="#4c8dcc" stroke="#123a61" stroke-width="10"/>
+  </g>
+</svg>
