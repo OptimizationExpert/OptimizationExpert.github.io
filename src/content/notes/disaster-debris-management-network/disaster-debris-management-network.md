@@ -7,6 +7,7 @@ minimalImage: "./disaster-debris-management-network_mini.webp"
 minimalImageAlt: "نماد ساده انتقال نخاله از منطقه آسیب‌دیده به سایت موقت"
 image: "./disaster-debris-management-network.webp"
 imageAlt: "شبکه مدیریت نخاله پس از بلایا: از منطقه آسیب‌دیده تا بازیافت یا دفن نهایی"
+pyomoCluster: milp
 tags: ["لجستیک بشردوستانه", "مدیریت بحران", "مکان‌یابی تسهیلات", "زنجیره تأمین", "بهینه‌سازی", "Pyomo"]
 relatedCourses: ["vrp-python"]
 relatedNotes: ["debris-clearance-arc-routing", "facility-location-problem", "disaster-relief-prepositioning"]
