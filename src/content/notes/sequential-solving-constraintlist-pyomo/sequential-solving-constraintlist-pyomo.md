@@ -10,6 +10,7 @@ imageAlt: "حل متوالی مدل در Pyomo با افزودن قید بین �
 tags: ["پایتون", "بهینه‌سازی", "Pyomo"]
 relatedCourses: ["optimization-modeling"]
 relatedNotes: ["pyomo-solvers", "pyomo-optimization-guide", "infeasible-model-diagnosis"]
+pyomoCluster: foundations
 ---
 
 خیلی وقت‌ها یک بار حل‌کردن مدل کافی نیست. جواب را می‌بینید. چیزی در آن درست نیست، یا می‌خواهید جواب بعدی را هم ببینید. باید مدل را کمی تغییر دهید و دوباره حل کنید. این یادداشت دقیقاً همین الگو را یاد می‌دهد: چطور در Pyomo بین هر بار حل یک قید تازه به مدل اضافه کنیم. کار بدون این‌که مدل را از صفر بسازیم انجام می‌شود.

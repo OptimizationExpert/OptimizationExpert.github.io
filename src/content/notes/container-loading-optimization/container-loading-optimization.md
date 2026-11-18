@@ -3,13 +3,14 @@ title: "بسته‌بندی کانتینر: وقتی چیدن جعبه‌ها ی
 description: "مسئله بارگیری کانتینر (Container Loading Problem) و مدل‌سازی ریاضی آن برای چیدن بهینه جعبه‌ها و پالت‌ها با ابزارهای متن‌باز پایتون."
 pubDate: 2026-08-17
 author: "dr-soroudi"
-minimalImage: "./container-loading-optimization-mini.svg"
+minimalImage: "./container-loading-optimization-mini.webp"
 minimalImageAlt: "نمایش مینیمال جعبه‌های چیده‌شده داخل یک کانتینر"
-image: "./container-loading-optimization.svg"
+image: "./container-loading-optimization.webp"
 imageAlt: "تصویرسازی کانتینر باربری با جعبه‌های چیده‌شده در ابعاد مختلف و جرثقیل بندری در پس‌زمینه"
 tags: ["زنجیره تأمین", "حمل‌ونقل", "بسته‌بندی کانتینر", "برنامه‌ریزی عدد صحیح", "OR-Tools", "لجستیک"]
 relatedCourses: ["vrp-python"]
 relatedNotes: ["berth-allocation-problem", "job-shop-scheduling-cp-sat"]
+hubCluster: logistics
 ---
 
 هر بار که یک انبار کالاهایش را برای صادرات آماده می‌کند، یک سوال ساده مطرح می‌شود. این جعبه‌ها و پالت‌ها را چطور داخل کانتینر بچینیم؟ هدف این است که کمترین فضای خالی باقی بماند و کمترین تعداد کانتینر لازم شود.

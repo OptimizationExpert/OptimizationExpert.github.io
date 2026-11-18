@@ -10,6 +10,8 @@ imageAlt: "مهاجرت از محیط بسته GAMS با قفل لایسنس ب�
 tags: ["از GAMS به پایتون", "GAMS", "Pyomo", "پایتون", "بهینه‌سازی", "OR-Tools"]
 relatedCourses: ["optimization-modeling"]
 relatedNotes: ["gams-to-python-supply-chain-network", "gams-to-python-production-inventory", "pyomo-optimization-guide"]
+hubCluster: techniques
+pyomoCluster: gams
 ---
 
 خیلی از مهندسانی که مدل‌سازی ریاضی را با GAMS یاد گرفته‌اند، این روزها می‌خواهند همان مدل‌ها را در پایتون بازنویسی کنند. این تصمیم فقط یک تغییر زبان نیست. رفتن از یک محیط بسته و تخصصی به یک اکوسیستم باز و همه‌منظوره است. در ادامه دلیل‌های اصلی این جابه‌جایی را مرور می‌کنیم، و جایی هم که GAMS هنوز برتری دارد را صادقانه می‌گوییم.
